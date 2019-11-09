@@ -20,7 +20,7 @@ body {
     text-align: center;
 }
 
-.proposition, .question-begin, .question-end, .exercise {
+.proposition, .proof-begin, .proof-end, .exercise {
   font-size: 1.4rem;
   font-weight: bold;
   margin-top: 1.2rem;
@@ -40,7 +40,7 @@ its only here while we sort out the book*/
     color: black;
 }
 
-.code-end, .question-end {
+.code-end, .proof-end {
 /*  width: 55%; */
 /*  text-align: right; */
 /*  float: right; */

@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2019-10-30" />
+<meta name="date" content="2019-11-09" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -50,6 +50,69 @@ if(f.classList.contains('fa-plus-square')) {
 </script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 
@@ -76,6 +139,7 @@ if(f.classList.contains('fa-plus-square')) {
 <li class="toc"><a href="#sub:PeanoInd"> Example: Peano’s Induction Rule</a></li>
 </ul>
 <a href="sub-set-theory.html"><span class="toc-section-number">2</span> Set Theory</a>
+<a href="sub-axioms.html"><span class="toc-section-number">3</span> Axioms</a>
 </div>
 </li>
 </ul>
@@ -91,7 +155,7 @@ if(f.classList.contains('fa-plus-square')) {
 <p>The power of knowledge is that it can infer movements in both the natural and the social world<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> The inference can even become part of the movements if were it invented for interventing or intensifying the movements.</span>. What is an <em>inference</em>? It is a sequence of logical reasonings that show how a new fact, called a <em>conclusion</em> in logic, can be derived from a set of known facts, called <em>premises</em> or <em>hypothesis</em> in logic. Understanding inference comes from actually understanding the logic and the mechanics of logical reasoning.</p>
 <p>Philosophy brings logic in our reasoning languages. Logical reasoning has its fundamental importance in language communications and mathematics, and also in their combined field of computer programming languages where logic dominates. Logical reasoning is the process of <a href="sub:logic">concluding</a> from <a href="sub:logic">premises</a> using <a href="sub:logic">rules of inference</a>. The <em>reasoning</em> is formally called <a href="sub:logic">inference</a> in logic. Logic gives a system for mechanical reasoning. That is a system where the <a href="sub:logic">premises</a> are in neutral symbolic forms and where one can use these forms to determine whether or not the <a href="sub:logic">conclusions</a> drawn from the premises are valid.</p>
 <p>Logic consists of three parts: <a href="sub:logic">syntax</a>, <a href="sub:logic">semantics</a>, and a set of <a href="sub:logic">inference rules</a>. A logic’s <em>syntax</em> tells you, formally, how to read and write sentences in that logic. The meaning of these sentences is called <em>semantics</em>. <em>Inference rules</em> are the results of observations of human reasoning over centuries. These rules are often called <a href="sub-logic.html#sub:zeroth">laws of thought</a>. They give a way of taking what you know and using it to prove new facts. Logic is a name for the general family of formal proof systems with <a href="sub:logic">inference rules</a>.</p>
-<p>Logic has a wide variety. Each logic is designed for a purpose, to do a particular kind of reasoning or inference. You need to know what [axioms] (basic facts) to use in the reasoning and how your logic allows you to complete your reasoning.<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> The most commonly used logic for deducing truth or falsehood in a sentence is the <a href="sub-logic.html#sub:zeroth">zeroth-order logic</a> (or called <a href="sub-logic.html#sub:zeroth">propositional logic</a>), while for inferences, the <a href="sub-logic.html#sub:1order">first-order predicate</a> logic is more powerful.</span></p>
+<p>Logic has a wide variety. Each logic is designed for a purpose, to do a particular kind of reasoning or inference. You need to know what <a href="sub-axioms.html#sub:axioms">axioms</a> (basic facts) to use in the reasoning and how your logic allows you to complete your reasoning.<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> The most commonly used logic for deducing truth or falsehood in a sentence is the <a href="sub-logic.html#sub:zeroth">zeroth-order logic</a> (or called <a href="sub-logic.html#sub:zeroth">propositional logic</a>), while for inferences, the <a href="sub-logic.html#sub:1order">first-order predicate</a> logic is more powerful.</span></p>
 <div id="sub:zeroth" class="section level2">
 <h2>
 <span class="header-section-number">1.1</span> Laws of Thought and Zeroth-order Logic</h2>
@@ -117,7 +181,7 @@ if(f.classList.contains('fa-plus-square')) {
 <div id="sub:ex-computer" class="section level2">
 <h2>
 <span class="header-section-number">1.2</span> Example: Computer and Boolean Algebra</h2>
-<p>The invention of the computer relates to the intention of finding a way to simulate the rational human brain that can execute logical thinking. <span class="citation">Boole (<a href="sub-set-theory.html#ref-Boole1854">1854</a>)</span>, in his book of laws of thought, suggested an algebra system in which logic can be represented by mathematics. With this kind of algebra, he indicated that it is possible to have a mathematical description of how the brain works. The current computer realizes some of his ambitions.</p>
+<p>The invention of the computer relates to the intention of finding a way to simulate the rational human brain that can execute logical thinking. <span class="citation">Boole (<a href="sub-axioms.html#ref-Boole1854">1854</a>)</span>, in his book of laws of thought, suggested an algebra system in which logic can be represented by mathematics. With this kind of algebra, he indicated that it is possible to have a mathematical description of how the brain works. The current computer realizes some of his ambitions.</p>
 <p>Here is a simple example of the realization of Boole’s suggestion. If we assign number <span class="math inline">\(1\)</span> to True (<span class="math inline">\(\mbox{T}\)</span>) and number <span class="math inline">\(0\)</span> to False (<span class="math inline">\(\mbox{F}\)</span>), by the <a href="sub-logic.html#sub:zeroth">principle of contradiction</a> and <a href="sub-logic.html#sub:zeroth">principle of the excluded third</a>, we know that any sentence will be assigned a value of either <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. For the logical conjunction AND (<span class="math inline">\(\vee\)</span>) with <span class="math inline">\(\mbox{T}=1\)</span> and <span class="math inline">\(\mbox{F}=0\)</span>, there is <span class="math display">\[0\vee0=0,\:0\vee1=0,\,1\vee0=0,\,1\vee1=1.\]</span> The role of <span class="math inline">\(\vee\)</span> here is very similar to the role of the multiplication operator <span class="math inline">\(\times\)</span>. If you replace <span class="math inline">\(\vee\)</span> with <span class="math inline">\(\times\)</span>, the results above still hold. Similarly, for the logical disjunction OR (<span class="math inline">\(\land\)</span>), there is <span class="math display">\[0\land0=0,\:0\land1=1,\,1\land0=1,\,1\land1=1.\]</span>
 The above results are almost the same as those of regular addition <span class="math inline">\(+\)</span>, except the last case, which now implies <span class="math inline">\(1+1\neq2\)</span>. That is because <span class="math inline">\(2\)</span> is not defined in this algebra system (<a href="sub:zeroth">principle of the excluded third</a>).</p>
 <p>
@@ -181,7 +245,7 @@ is also true. This induction extends the reasoning about finite objects to infin
 <a href="sub-set-theory.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-10-30
+2019-11-09
 </p>
 </div>
 </div>

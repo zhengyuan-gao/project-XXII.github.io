@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="3 Axioms | Project XXII" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Zhengyuan Gao" />
+
+<meta name="date" content="2019-11-09" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="3 Axioms | Project XXII">
+
+<title>3 Axioms | Project XXII</title>
+
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul class="navbar">
+<li class="msmb"><p class="title">Project XXII<p><p class="author">Zhengyuan Gao</p>
+<li class="dropdown" style="float:right">
+<a href="javascript:void(0)" class="dropbtn">&#x25BA; Chapters</a>
+<div class="dropdown-content">
+<a href="index.html">Preface</a>
+<a href="part-i-inference-based-upon-logic-and-logical-computation.html">PART I: Inference Based upon Logic and Logical Computation</a>
+<a href="sub-logic.html"><span class="toc-section-number">1</span> Logic</a>
+<a href="sub-set-theory.html"><span class="toc-section-number">2</span> Set Theory</a>
+<a id="active-page" href="sub-axioms.html"><span class="toc-section-number">3</span> Axioms</a><ul class="toc-sections">
+<li class="toc"><a href="#sub:axiomNum"> Axioms for Natural Numbers</a></li>
+<li class="toc"><a href="#sub:add"> Addition</a></li>
+<li class="toc"><a href="#sub:rec"> Recursion</a></li>
+<li class="toc"><a href="#sub:axSet"> Axiomatic Set Theory</a></li>
+<li class="toc"><a href="#sub:zorn"> * Miscellaneous: Zorn’s Lemma, Existence of Preference Satisfaction and Maximal Utility</a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div id="sub:axioms" class="section level1">
+<h1>
+<span class="header-section-number">3</span> Axioms</h1>
+<p>The formulation of <a href="sub-set-theory.html#sub:set-theory">set theory</a> tells us that we can use any <a href="sub-logic.html#sub:1order">predicate</a> to define a set in a more straightforward form. Meanwhile, Peano’s induction rule in section <a href="sub-logic.html#sub:PeanoInd">1.4</a> illustrates a kind of machinery of induction rules to generalize a finite number of predicates to an infinite one. The key of this machinery is the set of natural numbers, <span class="math inline">\(\mathbb{N}\)</span>, as these numbers can automatically extend one predicate <span class="math inline">\(S(x)\)</span> to the next one <span class="math inline">\(S(x+1)\)</span> for any <span class="math inline">\(x\in\mathbb{N}\)</span>. Naturally, one could think about inferences using similar logic: For a collection of sets where each scenario is a particular kind of structured set, when one reasoning is done for a specific scene, its argument can be extended to the rest scenarios of the collection.</p>
+<p>This kind of “automata” spirit roots deeply in people’s thoughts. In the age of Enlightenment, the articles of the automaton, such as clocks, had made significant epistemic and economical consequences. And this spirit is not just restricted to numbers and items. It can be understood as a piece of machinery that can “run” on specific objects and achieve the goals by allowing the objects to make actions of their own wills. For example, Bentham was intended to establish a code of laws that could automatically make men virtuous. The criminal law, in his view, was to guide the individual interests to coincide with the community ones (through legalizations, punishments, and penalties).</p>
+<p><label for="tufte-mn-2" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle"><span class="marginnote">Founders of the United States drafted the Declaration of Independence in an axiomatic way. “We hold these truths to be self-evident” begins a list of explicit axioms, such as “All men are created equal” and “All men have the right to life, liberty, and the pursuit of happiness.” </span></p>
+<p><label for="tufte-mn-3" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle"><span class="marginnote"> In the 1940s and 50s, computer scientists and mathematicians attempted to describe the process of human thinking as the mechanical manipulation of symbols. They consider the process of rational thought to be axiomatizable, which is a reduction of the process of reasoning to a set of axioms. If these axioms, just like the components of a clock, could launch the process of thinking and let the process evolve into a wanted outcome, then the reasoning of human beings or even of any supremacy could be reproduced by merely symbolic operations of the axioms.</span></p>
+<p>An <em>axiom</em> is a statement that is not proved to be true but supposed to be so. The axioms create a general process of knowledge-base construction. Just like <a href="sub-logic.html#sub:logic">logical inferences</a>, people investigate some particular domain, learn what concepts are essential in that domain, and develop a set of formal rules of the objects and relations in the field. Then the set of rules can infer further objects and relations, like making different predicates <span class="math inline">\(S(x)\)</span> go from <span class="math inline">\(S(x+1)\)</span> to <span class="math inline">\(S(x+2)\)</span>, <span class="math inline">\(S(x+3)\)</span> and so on. The axioms tell us what the variable <span class="math inline">\(x\)</span> and the predicate <span class="math inline">\(S(\cdot)\)</span> could be. We accept the sentences of axioms without proof. Then basing on these axioms, we infer other sentences via purely deductive reasoning. The sentences with which the various deductive chains come to an end are called the <em>theorems</em>, and the <a href="sub:axioms">deductive chains</a> are the <em>proofs</em>. An <em>axiomatic system</em>, which some people would have called “ideology,” uses a few intuitive notions and the initial postulates to deliver a large number of <a href="sub:axioms">theorems</a> through <a href="sub:axioms">deductive chains</a> that appear to be reasonably clear and rigorous.</p>
+<div id="sub:axiomNum" class="section level2">
+<h2>
+<span class="header-section-number">3.1</span> Axioms for Natural Numbers</h2>
+<p>Natural numbers play the absolute (internal) truth and the pre-eminent role in this “automata” spirit. Although the natural numbers are among the simplest mathematical objects, many of the problems, including both mathematical ones and those embodied in the mathematical forms, tend to use techniques from the theories of natural numbers or to study some properties that relate to the basic features of <span class="math inline">\(\mathbb{N}\)</span>.<label for="tufte-sn-15" class="margin-toggle sidenote-number">15</label><input type="checkbox" id="tufte-sn-15" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">15</span> Carl Friedrich Gauss says “Mathematics is the queen of the sciences and number theory is the queen of mathematics.”</span></p>
+<p>Before any attempt to jump further, we need to ask one question. What are the natural numbers? They count things. You may agree with this semantic answer. But what is counting? Counting is a process that when someone adds <span class="math inline">\(1\)</span> to any existing natural number <span class="math inline">\(x\)</span>, the result becomes <span class="math inline">\(x+1\)</span>. This description, however, is imprecise by logic. The <a href="#sub:addition">addition</a> is an operation of natural numbers. Defining the natural number system by its operation evades the original question. Surprisingly, the question is not as simple as it looks at first glance. If we need a new rigorous concept, we need an architecture of building this concept. Such architecture defines ways to construct new concepts from already existing ones. This architecture in set theory is called <a href="sub:axioms">axioms</a>. One states several axioms, such as some propositions that are supposed to be true for some sets, then on this axiomatic basis, the new concept emerges. <em>Peano axioms</em> present the concept of <em>natural numbers</em>.</p>
+<ul>
+<li><p>Axiom 1 - <em>Initial value rule</em>: There is one special object <span class="math inline">\(0\)</span> and <span class="math inline">\(0\in\mathbb{N}\)</span>.</p></li>
+<li><p>Axiom 2 to 5 - <em>Equality</em> (<span class="math inline">\(=\)</span>):</p></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>
+<em>Reflexive</em>: For <span class="math inline">\(\forall x\in\mathbb{N}\)</span>, <span class="math inline">\(x=x\)</span>.</li>
+<li>
+<em>Symmetric</em>: For <span class="math inline">\(\forall x,y\in\mathbb{N}\)</span>, if <span class="math inline">\(x=y\)</span>, then <span class="math inline">\(y=x\)</span>.</li>
+<li>
+<em>Transitive</em>: For <span class="math inline">\(\forall x,y,z\in\mathbb{N}\)</span>, if <span class="math inline">\(x=y\)</span> and <span class="math inline">\(y=z\)</span>, then <span class="math inline">\(x=z\)</span>.</li>
+<li>
+<em>Closed</em>: If <span class="math inline">\(y\in\mathbb{N}\)</span> and <span class="math inline">\(x=y\)</span>, then <span class="math inline">\(x\in\mathbb{N}\)</span>.</li>
+</ol>
+<ul>
+<li>Axiom 6 to 9 - <em>Successor function</em> <span class="math inline">\(S(x)\)</span>: for every <span class="math inline">\(x\in\mathbb{N}\)</span>, the successor number of <span class="math inline">\(x\)</span> satisfies</li>
+</ul>
+<ol start="6" style="list-style-type: decimal">
+<li>
+<em>Successor</em>: For <span class="math inline">\(\forall x\in\mathbb{N}\)</span>, <span class="math inline">\(S(x)\in\mathbb{N}\)</span>.</li>
+<li>
+<em>Predecessor</em>: For <span class="math inline">\(\forall x\in\mathbb{N}\)</span>, <span class="math inline">\(S(x)=0\)</span> is false.</li>
+<li>
+<em>Uniqueness</em>: For <span class="math inline">\(\forall x,y\in\mathbb{N}\)</span>, <span class="math inline">\(x=y\)</span> iff <span class="math inline">\(S(x)=S(y)\)</span>.</li>
+</ol>
+<p>Axiom 1 to 5 specify the variable <span class="math inline">\(x\)</span>, and axiom 6 to 9 specify the predicate <span class="math inline">\(S(\cdot)\)</span>. <a href="su%20:axiomNum">Initial value</a> <span class="math inline">\(0\)</span> tells the set has a lower bound. <a href="sub:axiomNum">Reflexivity</a>, <a href="sub:axiomNum">symmetry</a>, and <a href="sub:axiomNum">transitivity</a> are the same as those in the <a href="sub-set-theory.html#sub:order">equivalence relation</a>. <a href="sub:axiomNum">Closeness</a> says that when the relation of two objects exists, as long as one object belongs to the set, the other one also belongs to the same set. It is similar to the <a href="sub-set-theory.html#sub:order">connexity</a> that says any two objects in a set must have a relation. With these five axioms, the set of variable <span class="math inline">\(x\)</span> has a <a href="sub-set-theory.html#sub:order">total equivalence relation</a>. The predicate <span class="math inline">\(S(\cdot)\)</span> of <span class="math inline">\(x\)</span> defines the unique <a href="sub:axiomNum">successor</a> for each <span class="math inline">\(x\)</span> and defines that none of them has <a href="sub:axiomNum">zero</a> as their successor. The use of the successor function is to have a <a href="sub-set-theory.html#sub:order">total order relation</a> for all numbers in <span class="math inline">\(\mathbb{N}\)</span> such that <span class="math inline">\(x&lt;S(x)\)</span> is always true for any <span class="math inline">\(x\in\mathbb{N}\)</span>.<label for="tufte-sn-16" class="margin-toggle sidenote-number">16</label><input type="checkbox" id="tufte-sn-16" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">16</span> The necessity of the successor function is because that addition (<span class="math inline">\(+\)</span>) has not yet been defined in this system. So we cannot use the notation <span class="math inline">\(S(x)=x+1\)</span> as <span class="math inline">\(+\)</span> is not defined in the axioms. We only can say that the next number of the natural number <span class="math inline">\(x\)</span> is <span class="math inline">\(S(x)\)</span>, and <span class="math inline">\(S(x)\)</span> is a natural number.</span></p>
+<p>The axioms of the successor function <span class="math inline">\(S(\cdot)\)</span> is not true for some other number systems. For instance, Boolean algebra (section <a href="sub-logic.html#sub:ex-computer">1.2</a>) only contains numbers <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. Such a number system is called a <em>binary number system</em>. The number <span class="math inline">\(2\)</span> in such a system is represented by <span class="math inline">\(10\)</span> in the binary format. The numbers <span class="math inline">\(1\)</span> to <span class="math inline">\(5\)</span> in this system are <span class="math display">\[1=1,\,2=10,\,3=11,\,4=100,\,5=101.\]</span>
+The successor rule for the binary number system is as follows. After a digit reaches <span class="math inline">\(1\)</span>, a successor resets it to <span class="math inline">\(0\)</span> and causes an increment of the next digit to the left. For example, when for natural number <span class="math inline">\(3\)</span>, the binary representation <span class="math inline">\(11\)</span> has all positions filled by <span class="math inline">\(1\)</span>, then the next number will set <span class="math inline">\(11\)</span> to <span class="math inline">\(00\)</span> and will make one digit increment <span class="math inline">\(100\)</span>. So the natural number <span class="math inline">\(4\)</span> is presented by <span class="math inline">\(100\)</span> in this system. The rule <span class="math inline">\(S(1)=10\)</span> violates the axioms 6-9 for <span class="math inline">\(\mathbb{N}\)</span>. The successor function <span class="math inline">\(S\)</span> defined by axiom 6 to 9 only works for numbers in <span class="math inline">\(\mathbb{N}\)</span>.</p>
+<p>The above nine axioms define the <a href="sub:axiomNum">natural numbers</a>. The whole universe of numbers, such as binary numbers, rational numbers, real numbers, and complex numbers, etc., all start with the natural numbers. In other words, these nine axioms are the primitive of all other numbers. The natural number system has many further implications. With the axioms of <span class="math inline">\(\mathbb{N}\)</span>, we can build some structures of <span class="math inline">\(\mathbb{N}\)</span>. The addition in <span class="math inline">\(\mathbb{N}\)</span> is a vital structure. It plays a fundamental role in the modern computational methods of which the soul is about recursion.</p>
+</div>
+<div id="sub:add" class="section level2">
+<h2>
+<span class="header-section-number">3.2</span> Addition</h2>
+<p>The addition of natural numbers is a function that maps from <span class="math inline">\(\mathbb{N}\times\mathbb{N}\)</span> to <span class="math inline">\(\mathbb{N}\)</span>. The definition follows a recursion rule of the <a href="sub-axioms.html#sub:axiomNum">successor function</a> <span class="math inline">\(S(\cdot)\)</span> in Peano’s axiom 6 to 9. For any <span class="math inline">\(x,y\in\mathbb{N}\)</span>, the <a href="sub:add">recursion rule</a> of the successor function is the following:<span class="math display">\[x+S(y)=S(x+y),\:\mbox{ for }x,y\in\mathbb{N}.\]</span>
+Firstly, as <span class="math inline">\(S(y)\neq0\)</span> for any <span class="math inline">\(y\in\mathbb{N}\)</span>, we need a rule of the addition for zero, that is <span class="math inline">\(x+0=x\)</span> for any <span class="math inline">\(x\in\mathbb{N}\)</span>. Secondly, if we let <span class="math inline">\(S(y)=3\)</span>, then the successor function tells that <span class="math inline">\(y=2\)</span>. By using the recursion rule repetitively, we have
+<span class="math display">\[\begin{align*}
+x+3 &amp;=x+S(2)=S(x+2)=S(x+S(1))\\
+    &amp;=S(S(x+1))=S(S(S(x))).
+\end{align*}\]</span>
+The first equality expresses <span class="math inline">\(3\)</span> by its successor function <span class="math inline">\(S(2)\)</span>. The second equality uses the <a href="sub:add">recursion rule</a> for <span class="math inline">\(x+S(2)\)</span>. The third equality replaces <span class="math inline">\(2\)</span> with its successor function’s expression <span class="math inline">\(S(1)\)</span>. The fourth equality uses the recursion rule for <span class="math inline">\(x+S(1)\)</span>. The last equality expresses <span class="math inline">\(x+1\)</span> by <span class="math inline">\(S(x)\)</span>.</p>
+<p>The final expression <span class="math inline">\(S(S(S(x)))\)</span> only contains the successor function <span class="math inline">\(S(\cdot)\)</span> from the axioms. So the recursion rule tells that a 3-times recursive expression <span class="math inline">\(S(S(S(x)))\)</span> can be written as <span class="math inline">\(x+3\)</span> with the addition function. That is, when <span class="math inline">\(x\)</span> is added by <span class="math inline">\(3\)</span>, the successor function <span class="math inline">\(S(\cdot)\)</span> is used three times recursively for the variable <span class="math inline">\(x\)</span>.<label for="tufte-sn-17" class="margin-toggle sidenote-number">17</label><input type="checkbox" id="tufte-sn-17" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">17</span> The expression <span class="math inline">\(S(S(S(\cdot)))\)</span> is a <a href="sub-set-theory.html#sub:func">composition</a> of the same function <span class="math inline">\(S\)</span>. It is equivalent to <span class="math inline">\(S\circ S\circ S\)</span>.</span> Since the recursion rule works any two natural numbers, the addition defined by this rule always works for any two natural numbers.</p>
+</div>
+<div id="sub:rec" class="section level2">
+<h2>
+<span class="header-section-number">3.3</span> Recursion</h2>
+<p><em>Recursion</em> is about presenting things in terms of themselves. A recursion is represented by a function that is defined by the same rule but for different values of its variables. The previous recursive expression <span class="math inline">\(S(S(S(x)))\)</span> in section <a href="sub-axioms.html#sub:add">3.2</a> may not look better than <span class="math inline">\(x+3\)</span>. But the point is that no matter how complicated the addition is, we can finish the computation by only using the simple successor function <span class="math inline">\(S(x)=x+1\)</span>. For a human being, <span class="math inline">\(x+3\)</span> is preferable. But for a computer, it is the other way around because an algorithm is often designed to break a problem into smaller subproblems so that the algorithm can run a process to solve the subproblems recursively.</p>
+<p>When a <a href="sub:rec">recursion</a> depends on the function with its domain in <span class="math inline">\(\mathbb{N}\)</span>, this function is called <em>sequence</em>. Because the set in <span class="math inline">\(\mathbb{N}\)</span> can be counted, any function <span class="math inline">\(g(\cdot)\)</span> whose <a href="sub-set-theory.html#sub:func">domain</a> is in <span class="math inline">\(\mathbb{N}\)</span> can be defined as an <em>infinite-length sequence</em> <span class="math inline">\((x_{1},x_{2},\dots)\)</span> where <span class="math inline">\(x_{i}=g(i)\)</span> for <span class="math inline">\(i\in\mathbb{N}\)</span>. The bracket emphasizes that the <a href="sub-set-theory.html#sub:order">order</a> of <span class="math inline">\(x_{1},x_{2},\dots\)</span> matters. That is, <span class="math inline">\(x_{i}=g(i)\)</span> must be evaluated after <span class="math inline">\(x_{i-1}=g(i-1)\)</span>. If the domain of <span class="math inline">\(g(\cdot)\)</span> is a subset of <span class="math inline">\(\mathbb{N}\)</span> containing finite <span class="math inline">\(N\)</span> numbers, then the sequence <span class="math inline">\((x_{1},x_{2},\dots,x_{N})\)</span> is a <em>finite-length sequence</em>.</p>
+<p>The intuition of recursively solving a big problem is to immediately understand whether a set or a property is <em>effectively computable</em>.<label for="tufte-sn-18" class="margin-toggle sidenote-number">18</label><input type="checkbox" id="tufte-sn-18" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">18</span> If a function <span class="math inline">\(f\)</span> is said to be <a href="sub:rec">effectively computable</a>, then there is some algorithm for calculating its value for each of its arguments. In practice, we can specify a series of instructions following which we can, in principle, determine mechanically and effectively the output <span class="math inline">\(f(x)\)</span> for each input <span class="math inline">\(x\)</span>.</span> When it is <a href="sub:rec">computable</a>, we expect that there is a mechanical procedure delivering its outputs or answers in a finite amount of time, and this procedure can generate all the elements of the set or the relevant property and can reveal the dependence among the elements. Such a procedure is known as the <a href="sub:rec">recursive</a> or <a href="sub:rec">iterative</a> procedure.<label for="tufte-sn-19" class="margin-toggle sidenote-number">19</label><input type="checkbox" id="tufte-sn-19" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">19</span> In computer science, an <em>iterative</em> process often refers to a specific procedure of searching for a solution: a rule (set of rules) is applied over input data many times, each time producing a better approximation to the solution.</span></p>
+<p>Suppose a function <span class="math inline">\(f\)</span> is <a href="sub:rec">computable</a>. Then we expect a sequence <span class="math inline">\((x_{i})_{i\in\mathbb{N}}\)</span> can reveal the property of this function, and one recursion can generate such a sequence. Take the <a href="sub-axioms.html#sub:add">addition</a> of natural numbers as a simple example. If we denote <span class="math inline">\(0=x_{0}\)</span>, <span class="math inline">\(0+1=S(x_{0})=x_{1}\)</span>, <span class="math inline">\(S(S(x_{0}))=x_{2}\)</span>, and so on, then we will have an <a href="sub:rec">ordered sequence</a> <span class="math display">\[(x_{0},x_{1},x_{2},x_{3}\dots)=(x_{i})_{i\in\mathbb{N}}.\]</span>
+The addition as a function of natural numbers should be embodied by some relation of the elements in this sequence. As we know, the objects in this sequence follow the recursive relation <span class="math inline">\(x_{k}=S(x_{k-1})\)</span> for an arbitrary value <span class="math inline">\(k\in\mathbb{N}\)</span>. The addition <span class="math inline">\(k+q\)</span> can be expressed as <span class="math display">\[\underset{k+q-\mbox{composition of }S}{\underbrace{S(S(\cdots(S(x_{0}))\cdots))}}  =\underset{q-\mbox{composition of }S}{\underbrace{S(S(\cdots(S(x_{k}))\cdots))}}=x_{k+q}\in(x_{i})_{i\in\mathbb{N}}.\]</span>
+Therefore, any addition function <span class="math inline">\(f(k,q)=k+q\)</span> for <span class="math inline">\(k,q\in\mathbb{N}\)</span> can be recursively represented by <span class="math inline">\(x_{k+q}=f(x_{k},x_{q})\)</span> with <span class="math inline">\(x_{0}=0\)</span>. By the relation <span class="math inline">\(x_{k+q}=f(x_{k},x_{q})\)</span>, the objects from the sequence <span class="math inline">\((x_{i})_{i\in\mathbb{N}}\)</span> now represent both the inputs <span class="math inline">\(x_{k}\)</span>, <span class="math inline">\(x_{q}\)</span> and the output <span class="math inline">\(x_{k+q}\)</span> of the addition. In other words, the sequence <span class="math inline">\((x_{i})_{i\in\mathbb{N}}\)</span> characterizes the addition function <span class="math inline">\(f(k,q)=k+q\)</span> of natural numbers by the recursive relation <span class="math inline">\(x_{k+q}=f(x_{k},x_{q})\)</span>.</p>
+<p>The recursive form <span class="math inline">\(x_{k+q}=f(x_{k},x_{q})\)</span> comes with two inputs. For the moment, it is better to consider a more straightforward single-variable recursion case such as <span class="math inline">\(x_{k+1}=f(x_{k})\)</span>. The following example gives a theorem for understanding an arbitrary single-variable <a href="sub:rec">self-mapping</a> function <span class="math inline">\(f(\cdot)\)</span> by the sequence generated in the recursive form <span class="math inline">\(x_{k+1}=f(x_{k})\)</span>.<label for="tufte-sn-20" class="margin-toggle sidenote-number">20</label><input type="checkbox" id="tufte-sn-20" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">20</span> <em>Self-mapping</em> means the <a href="sub-set-theory.html#sub:func">domain</a> and the <a href="sub-set-theory.html#sub:func">co-domain</a> of the function are the same, namely <span class="math inline">\(f:\mathcal{X}\mapsto\mathcal{X}\)</span>.</span></p>
+<ul>
+<li>
+<em>Recursion theorem</em>: For any set <span class="math inline">\(\mathcal{X}\)</span>, any value <span class="math inline">\(x_{0}\in\mathcal{X}\)</span> and any function <span class="math inline">\(f:\mathcal{X}\mapsto\mathcal{X}\)</span>, there exists a unique <a href="sub:rec">infinite-length</a> sequence <span class="math inline">\(g(\cdot):\mathbb{N}\mapsto\mathcal{X}\)</span> with <span class="math inline">\(g(0)=x_{0}\)</span> such that <span class="math display">\[x_{i+1}=f(x_{i})\]</span> for all <span class="math inline">\(i\in\mathbb{N}\)</span> and <span class="math inline">\(g(i)=x_{i}\)</span>.</li>
+</ul>
+<div class="solution">
+<p class="solution-begin">
+Proof <span id="sol-start-1" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-1', 'sol-start-1')"></span>
+</p>
+<div id="sol-body-1" class="solution-body" style="display: none;">
+<p>Start with <span class="math inline">\(g(0)=x_{0}\)</span>. Because <span class="math inline">\(x_{0}\in\mathcal{X}\)</span>, <span class="math inline">\(f(x_{0})\)</span> must exist. According to the recursion, we set <span class="math inline">\(f(x_{0})\)</span> to <span class="math inline">\(g(1)=x_{1}\)</span>. Because <span class="math inline">\(f\)</span> is a <a href="sub:rec">self-mapping</a> function, <span class="math inline">\(x_{1}\)</span> is also in <span class="math inline">\(\mathcal{X}\)</span>, and <span class="math inline">\(f(x_{1})\)</span> must exist. So we can set <span class="math inline">\(f(x_{1})\)</span> to <span class="math inline">\(g(2)=x_{2}\)</span>; also we know <span class="math inline">\(x_{2}\in\mathcal{X}\)</span>.</p>
+<p>Now apply the <a href="sub-logic.html#sub:1order">mathematical induction</a> to the following statement for <span class="math inline">\(n\in\mathbb{N}\)</span>:</p>
+<p>If <span class="math inline">\(x_{n}\in\mathcal{X}\)</span>, then the recursion gives <span class="math inline">\(x_{n+1}\in\mathcal{X}\)</span>, which is <span class="math inline">\(f(x_{n})\)</span>. Since this statement is also true for <span class="math inline">\(n+1\)</span>, it will be true for any <span class="math inline">\(i\in\mathbb{N}\)</span>.</p>
+<p>Thus we can construct such a sequence <span class="math inline">\((x_{i})_{i\in\mathbb{N}}\)</span>, which means the sequence <span class="math inline">\((x_{i})_{i\in\mathbb{N}}\)</span> exists.</p>
+<p>To see the sequence is unique, we assume that another sequence <span class="math inline">\((y_{i})_{i\in\mathbb{N}}\)</span> also has the same recursion rule <span class="math inline">\(y_{i+1}=f(y_{i})\)</span> and has the same initial condition <span class="math inline">\(y_{0}=x_{0}\)</span> but <span class="math inline">\(y_{i}\neq x_{i}\)</span>. If <span class="math inline">\(y_{0}=x_{0}\)</span>, then <span class="math display">\[x_{1}=f(x_{0})=f(y_{0})=y_{1}\]</span> implies <span class="math inline">\(x_{1}=y_{1}\)</span>. Apply the <a href="sub-logic.html#sub:1order">mathematical induction</a> to the following statement for <span class="math inline">\(n\in\mathbb{N}\)</span>:</p>
+<p>If <span class="math inline">\(y_{n}=x_{n}\)</span>, then <span class="math inline">\(x_{n+1}=f(x_{n})=f(y_{n})=y_{n+1}.\)</span> Since the statement is also true for <span class="math inline">\(n+1\)</span>, it will be true any <span class="math inline">\(i\in\mathbb{N}\)</span>.</p>
+<p>This means <span class="math inline">\(y_{i}=x_{i}\)</span> for all <span class="math inline">\(i\in\mathbb{N}\)</span>, which contradicts the previous assumption <span class="math inline">\(y_{i}\neq x_{i}\)</span>.
+Thus the sequence <span class="math inline">\((x_{i})_{i\in\mathbb{N}}\)</span> is unique. The result follows.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>The theorem gives a theoretical result about defining a function <span class="math inline">\(f(\cdot)\)</span> by a recursive sequence <span class="math inline">\((x_{i})_{i\in\mathbb{N}}\)</span>. This theorem becomes useful whenever we need to define or study the properties of a function by recursion.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:fixedpoint"></span>
+<img src="fig/fixedpoint.gif" alt="Numerical Solution" width="100%"><!--
+<p class="caption marginnote">-->Figure 3.1: Numerical Solution<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>Here is one application. Suppose we are interested in solving an equation <span class="math display">\[(2.7)^{x}-3x=0.\]</span> The problem is equivalent to the problem of finding <span class="math inline">\(x=f(x)\)</span> where <span class="math inline">\(f(x)=(2.7)^{x}-2x\)</span>. The solution <span class="math inline">\(x^{*}\)</span> satisfying <span class="math inline">\(x^{*}=f(x^{*})\)</span> will also meet <span class="math inline">\((2.7)^{x^{*}}-3x^{*}=0\)</span>, and <span class="math inline">\(x^{*}\)</span> is unknown to us. We can only send a number <span class="math inline">\(x\)</span> to the computer, and the machine will report the value of the function <span class="math inline">\(f(x)\)</span>. We will search for this root by recursion <span class="math inline">\(x_{k+1}=f(x_{k})\)</span>. Let’s start with an initial guess <span class="math inline">\(x_{0}=1.4\)</span>; then, we have <span class="math inline">\(f(1.4)=x_{1}\)</span>, which is about <span class="math inline">\(1.22\)</span>. Substitute <span class="math inline">\(x_{1}\)</span> into <span class="math inline">\(f\)</span>, then we have <span class="math inline">\(f(x_{1})=x_{2}\)</span>, which is about <span class="math inline">\(0.92\)</span>. Similarly, we will see that <span class="math inline">\(f(x_{2})\)</span> is about <span class="math inline">\(0.65\)</span>, and <span class="math inline">\(f(x_{3})\)</span> is about <span class="math inline">\(0.61\)</span>, and so on. For <span class="math inline">\(i&gt;4\)</span>, all these <span class="math inline">\((x_{i})_{i&gt;4}\)</span> stay close to the value <span class="math inline">\(0.612\)</span>, which is also the (<span class="math inline">\(3\)</span>-digit depth numerical) solution of the problem.<label for="tufte-sn-21" class="margin-toggle sidenote-number">21</label><input type="checkbox" id="tufte-sn-21" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">21</span> Note that there is no exact solution to this problem. We can only attain a numerical solution. By the desired accuracy at <span class="math inline">\(10^{-6}\)</span>, the answer of <span class="math inline">\(x^{*}\)</span> is <span class="math inline">\(0.6124443\)</span>, and the function <span class="math inline">\((2.7)^{0.6124443}-3\times0.6124443\)</span> has the output <span class="math inline">\(-6.713519\times10^{-6}\)</span>.</span></p>
+<p>Figure <a href="sub-axioms.html#fig:fixedpoint">3.1</a> illustrates the recursive procedure. The blue arrow sets <span class="math inline">\(y=f(x_{i})\)</span>, and the blue arrow sets <span class="math inline">\(x_{i+1}=y\)</span>, and so on.</p>
+<p>Roughly speaking, the reason for finding out the root is that we have constructed a monotone decreasing sequence so that in each iteration <span class="math inline">\(x_{i+1}=f(x_{i})\)</span>, the value of <span class="math inline">\(|f(x_{i})-x_{i+1}|\)</span> gets closer to zero than the previous one. Eventually, the sequence will “reach” the desired point <span class="math inline">\(x^{*}=f(x^{*})\)</span>. The construction of such a monotone decreasing sequence is sensitive to the initial value <span class="math inline">\(x_{0}\)</span>. The form <span class="math inline">\(x_{i+1}=f(x_{i})\)</span> is called the <a href="?">fixed point iteration</a> which we will discuss in the chapter [?].</p>
+</div>
+<div id="sub:axSet" class="section level2">
+<h2>
+<span class="header-section-number">3.4</span> Axiomatic Set Theory</h2>
+<p>A set is a collection of mathematical objects about which we are reasoning. But what if someone defines a predicate such that no statement can consistently match the predicate. For instance, the statement:</p>
+<blockquote>
+<p>This sentence is a lie.</p>
+</blockquote>
+<p>Is that sentence a lie or not? We cannot judge whether the statement is true or false since the lie refers to the sentence itself. This predicate creates a <em>self-referential</em> set such as <span class="math inline">\(\mathcal{X}=\{x|\, x\in\mathcal{X}\}\)</span>. <a href="sub:axSet">Self-reference</a> often causes a <a href="sub:axSet">paradox</a>. Because the self-reference provides no further information besides itself, the central concepts involved in it likely has an indication of a flaw or a deficiency in our understanding.</p>
+<p>In the case of the semantic paradoxes, the deficiency refers to the fundamental semantic concepts such as truth and definability.<label for="tufte-sn-22" class="margin-toggle sidenote-number">22</label><input type="checkbox" id="tufte-sn-22" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">22</span> One of the most ancient versions of semantic paradox appears in St Paul’s Epistle to Titus. St Paul blamed a Cretan prophet: “One of themselves, even a prophet of their own, said, The Cretans are always liars … This witness is true.”</span></p>
+<p>In the case of the set-theoretic paradoxes, the deficiency in our understanding refers to the concept of a set. Consider the following one given by Russell:</p>
+<blockquote>
+<p>If <span class="math inline">\(\mathcal{X}=\{x|\, x\notin\mathcal{X}\}\)</span>, then <span class="math inline">\(x\in\mathcal{X}\)</span> implies <span class="math inline">\(x\notin\mathcal{X}\)</span>.</p>
+</blockquote>
+<p>If the concept is fully understood, we should be able to deal with it without being led to a contradiction. The concept <span class="math inline">\(x\notin\mathcal{X}\)</span> contradicts with the definition of <span class="math inline">\(\mathcal{X}\)</span>. The set <span class="math inline">\(\mathcal{X}\)</span> in <em>Russell’s paradox</em> refers to a set that doesn’t contain itself. Thus the paradox is caused by the self-referential <a href="#1order">predicate</a>.</p>
+<p>In practice, self-reference is hard to avoid. Especially when we code a recursion, the structure of the code is self-referential, and it would look like</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">x <span class="op">&lt;-</span> f(x)</a></code></pre></div>
+<p>which actually means <span class="math inline">\(x_{i+1}=f(x_{i})\)</span>. Moreover, it is often challenging to notice a paradox. It usually starts with intuitively plausible premises and advances via seemingly fair inferences, but finally, reaches some absurd or blatantly counter-intuitive conclusion of the argument.</p>
+<p>We can consider a paradox as a set of jointly <a href="sub:axSet">inconsistent</a> sentences. To avoid the paradox, we should make sure that the self-reference will not evoke inconsistency. For this point, we need to refine the set theory in order to escape the trap of inconsistency. The following list of <a href="sub-axioms.html#sub:axioms">axioms</a> is a variant of the collection proposed by Zermelo and Fraenkel (abbreviation: ZFC, C for “choice”). <em>Axioms of ZFC</em> are to produce a <a href="sub:axSet">consistent</a> form of set theory.</p>
+<ul>
+<li><p><em>Axiom of specification</em>: For a set <span class="math inline">\(\mathcal{A}\)</span>, if <span class="math inline">\(S(x)\)</span> is a predicate for all objects in <span class="math inline">\(\mathcal{A}\)</span>, then there is a set <span class="math inline">\(\mathcal{X}=\{x\in\mathcal{A}\,|\, S(x)\}\)</span>.</p></li>
+<li><p><em>Axiom of power sets</em>: For a set <span class="math inline">\(\mathcal{X}\)</span>, the collection of all subset of <span class="math inline">\(\mathcal{X}\)</span> is called the <em>power set</em> of <span class="math inline">\(\mathcal{X}\)</span> such that <span class="math inline">\(2^{\mathcal{X}}=\left\{ \mathcal{A}|\,\mathcal{A}\subset\mathcal{X}\right\}\)</span>.</p></li>
+<li><p><em>Axiom of infinity</em>: For a set <span class="math inline">\(\mathcal{A}\)</span>, the successor of <span class="math inline">\(\mathcal{A}\)</span> is a set <span class="math inline">\(\mathcal{A}^{+}\)</span> that contains <span class="math inline">\(\mathcal{A}\)</span>. A set <span class="math inline">\(\mathcal{X}\)</span> with <span class="math inline">\(\textrm{Ø}\in\mathcal{X}\)</span> exists such that if any set <span class="math inline">\(\mathcal{A}\)</span> is an object in <span class="math inline">\(\mathcal{X}\)</span>, then any set <span class="math inline">\(\mathcal{A}^{+}\)</span> is also an object in <span class="math inline">\(\mathcal{X}\)</span>.</p></li>
+<li><p><em>Axiom of choice</em>: For a non-empty set <span class="math inline">\(\mathcal{X}\)</span>, the <a href="sub:axSet">power set</a> of <span class="math inline">\(\mathcal{X}\)</span> has a <em>choice function</em>. The choice function <span class="math inline">\(f(\cdot)\)</span> is defined on <span class="math inline">\(2^{\mathcal{X}}\)</span>. For any non-empty set <span class="math inline">\(\mathcal{A}\)</span> in <span class="math inline">\(2^{\mathcal{X}}\)</span>, <span class="math inline">\(f(\mathcal{A})\)</span> is an object in <span class="math inline">\(\mathcal{A}\)</span>, namely <span class="math inline">\(f(\mathcal{A})\in\mathcal{A}\)</span>.</p></li>
+</ul>
+<p>These axioms preserve as much of the elegance and power of set theory as possible while eliminating the inconsistencies.</p>
+<p><a href="sub:axSet">Axiom of specification</a> says that we can create a set of objects that share a particular property by a different set. The axiom suggests to start with a set <span class="math inline">\(\mathcal{X}\)</span> and then construct another set <span class="math inline">\(\mathcal{A}\)</span> by some desired property selected from <span class="math inline">\(\mathcal{X}\)</span>. The axiom resolves <a href="sub:axSet">Russell’s paradox</a>. With the axiom, the predicate <span class="math inline">\(x\notin\mathcal{X}\)</span> only refers to the set <span class="math inline">\(\mathcal{A}\)</span>, and the new set is <span class="math inline">\(\{x\in\mathcal{A}\,|\, x\notin\mathcal{X}\}\)</span>. The definition <span class="math inline">\(\{x\in\mathcal{X}\,|\, x\notin\mathcal{X}\}\)</span> is not allowed by the axiom because the predicate <span class="math inline">\(x\notin\mathcal{X}\)</span> never works for any object in <span class="math inline">\(\mathcal{X}\)</span>. Then <span class="math inline">\(x\in\mathcal{X}\)</span> only implies <span class="math inline">\(x\notin\mathcal{A}\)</span> rather than a contradiction <span class="math inline">\(x\notin\mathcal{X}\)</span>.</p>
+<p><a href="sub:axSet">Axiom of power sets</a> is to construct a set by itself. So far, we only consider the objects in a set. The <a href="sub-set-theory.html#sub:set-theory">collection</a> of all subset makes the subsets as objects in the <a href="sub:axSet">power set</a>. For a finite set <span class="math inline">\(\mathcal{X}=\{x_{0},x_{1}\}\)</span>, its power set is <span class="math display">\[2^{\mathcal{X}}=\{\textrm{Ø},\{x_{1}\},\{x_{2}\},\{x_{1},x_{2}\}\}.\]</span> The set <span class="math inline">\(\mathcal{X}=\{x_{1},x_{2}\}\)</span> becomes an object in the power set <span class="math inline">\(2^{\mathcal{X}}\)</span>. For the infinite set <span class="math inline">\(\mathbb{N}\)</span>, the power set creates a larger set <span class="math inline">\(2^{\mathbb{N}}\)</span> where <span class="math inline">\(\mathbb{N}\in2^{\mathbb{N}}\)</span>. This creation introduces a new concept, an <em>uncountable set</em>. We know that natural numbers are infinite, but they are <a href="sub:axSet">countable</a>. A set <span class="math inline">\(\mathcal{X}\)</span> is called <em>countable</em> if there exists an <a href="sub-set-theory.html#sub:func">injective</a> (one to one) function mapping to the set of natural numbers, namely <span class="math inline">\(f:\mathcal{X}\mapsto\mathbb{N}\)</span>. But since the power set <span class="math inline">\(2^{\mathbb{N}}\)</span> is larger than <span class="math inline">\(\mathbb{N}\)</span>, there is no <a href="sub-set-theory.html#sub:func">one to one</a> function mapping from <span class="math inline">\(2^{\mathbb{N}}\)</span> to <span class="math inline">\(\mathbb{N}\)</span>. Then the set <span class="math inline">\(2^{\mathbb{N}}\)</span> is not countable, or say <em>uncountable</em>. The natural numbers are <em>countably infinite</em>, but the real numbers are <em>uncountably infinite</em>.<label for="tufte-sn-23" class="margin-toggle sidenote-number">23</label><input type="checkbox" id="tufte-sn-23" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">23</span> A rigorous argument of the difference between countability and uncountability will be given in sec[?]. We will prove that it is impossible to match every real number to a corresponding natural number.</span></p>
+<p><a href="sub:axSet">Axiom of infinity</a> tells that there is a way to create infinite sets. Just like the <a href="sub-axioms.html#sub:axiomNum">successor rules</a> for natural numbers, the axiom creates a set <span class="math inline">\(\mathcal{X}\)</span> that can allow the infinite successor sets <span class="math display">\[\mathcal{A}\subset\mathcal{A}^{+}\subset\{\mathcal{A}^{+}\}^{+}\subset\cdots\]</span> to be included in <span class="math inline">\(\mathcal{X}\)</span>. In the ZFC framework, all infinite sets must either be created in this way or derived from another infinite set created in this way. For example, <span class="math inline">\(\mathbb{N}\)</span> can be defined as the set from <span class="math inline">\(\{0\}\subset\{0,1\}\subset\cdots\)</span>.</p>
+<p>The last axiom, the <a href="sub:axSet">axiom of choice</a>, is still a subject of debate among mathematicians. It says that there exists a consistent but arbitrary mechanism for selecting things from a set, even when the set is <a href="sub:axSet">infinitely uncountably</a> large. The mechanism is the <a href="sub:axSet">choice function</a> that can choose one object from a set of indistinguishable objects. It doesn’t matter what the choice is. It just matters that there is a function that can choose. The axiom gives an “existence” to a function that can choose.<label for="tufte-sn-24" class="margin-toggle sidenote-number">24</label><input type="checkbox" id="tufte-sn-24" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">24</span> Russell commented on the axiom. “To choose one sock from each of infinitely many pairs of socks (assumed to have no distinguishing features) requires the axiom of choice, but for shoes the axiom is not needed.” Infinitely many shoes are countable because the left shoe and the right one are distinct. Infinitely many pairs of socks are uncountable because pairing two infinite countable sets will lead to an uncountable set. See section [?]. So for socks, we need the axiom to ensure the existence of a choice function.</span></p>
+<p><a href="sub:axSet">Axiom of choice</a> cannot be disproved or proved by the standard axioms of set theory because the axiom itself is part of the axiomatic system. Provided that it has served as a cornerstone in formalizing several significant results, we will only consider these consequences of this axiom rather than question the validity of this axiom. One of these results is about the “real world” choice function in economics and related subjects, the so-called <a href="sub-axioms.html#sub:zorn">utility maximization choice</a>.</p>
+</div>
+<div id="sub:zorn" class="section level2">
+<h2>
+<span class="header-section-number">3.5</span> * Miscellaneous: Zorn’s Lemma, Existence of Preference Satisfaction and Maximal Utility</h2>
+<p><label for="tufte-mn-4" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle"><span class="marginnote">* The content in this section contains the result of my research. That is to say, it has not yet been considered or approved by the academics. Read at your own risks.</span></p>
+<p><a href="sub-axioms.html#sub:axSet">Axiom of choice</a> has a few equivalent versions. One of them is (relatively) convenient to use.</p>
+<ul>
+<li>
+<em>Zorn’s lemma</em>: Let <span class="math inline">\(\mathcal{X}\)</span> be a <a href="sub-set-theory.html#sub:order">partially ordered</a> set. If every <a href="sub-set-theory.html#sub:order">totally ordered</a> subset <span class="math inline">\(\mathcal{A}\subset\mathcal{X}\)</span> contains an upper bound, then the set <span class="math inline">\(\mathcal{X}\)</span>
+must have a maximal element.<label for="tufte-sn-25" class="margin-toggle sidenote-number">25</label><input type="checkbox" id="tufte-sn-25" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">25</span> The rigorous definitions of the upper bound and the maximal element will be given in sec[?].</span>
+</li>
+</ul>
+<p>Zorn’s lemma gives the existence of a maximal element in a partially ordered set <span class="math inline">\(\mathcal{X}\)</span>. We can compare this result with the one about preference satisfaction in economics. Without loss generality, the following sentence is a simplified definition of the existences of <a href="sub:zorn">preference satisfaction</a> (greatest element in the preference) and <a href="sub:zorn">equilibrium consumption</a> given in Chapter 4.9 in <span class="citation">Debreu (<a href="sub-axioms.html#ref-Debreu1959">1959</a>)</span>:</p>
+<ul>
+<li>
+<em>Preference satisfaction</em> and <em>equilibrium consumption</em>: Given the price-wealth pair <span class="math inline">\((p,w)\)</span>, the consumer chooses, in the set <span class="math inline">\(\mathcal{A}=\{x\in\mathcal{X}|\, p\cdot x\leq w\}\)</span>, a greatest element for his preference preordering <span class="math inline">\(\leq\)</span>. The resulting action is called an equilibrium consumption of the consumer relative to <span class="math inline">\((p,w)\)</span>.
+I will deduce the above definition is equivalent to Zorn’s lemma.</li>
+</ul>
+<p>The set <span class="math inline">\(\mathcal{X}\)</span> is the consumption set of this consumer. The consumer has a <a href="sub-set-theory.html#sub:order">pre-order</a> preference over his consumption options. So <span class="math inline">\(\mathcal{X}\)</span> is a pre-ordered set.</p>
+<p>The constraint <span class="math inline">\(p \cdot x\leq w\)</span> is the wealth constraint of this consumer. Because the expenditure <span class="math inline">\(p \cdot x\)</span>, price “mutiples” the consumption, should be less than his wealth. Notice that price and wealth are real numbers in this setting, so <span class="math inline">\(p\cdot x\leq w\)</span> gives the <a href="sub-set-theory.html#sub:order">total order</a> structure to the set <span class="math inline">\(\mathcal{A}\)</span>.<label for="tufte-sn-26" class="margin-toggle sidenote-number">26</label><input type="checkbox" id="tufte-sn-26" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">26</span> Real numbers are totally ordered, see Sec[?]. </span></p>
+<p>Moreover, there is an implication of “monetizing” the consumption set <span class="math inline">\(\mathcal{X}\)</span>. Since the consumption <span class="math inline">\(x\)</span> is implicitly assumed to be computable under the price <span class="math inline">\(p\)</span>, any consumption <span class="math inline">\(x\)</span> has to satisfy the anti-symmetry condition. That is, if <span class="math inline">\(x_{1}\leq x_{2}\)</span> and <span class="math inline">\(x_{2}\leq x_{1}\)</span>, then the expenditures result in <span class="math inline">\(p\cdot x_{1}\leq p\cdot x_{2}\)</span> and <span class="math inline">\(p\cdot x_{2}\leq p\cdot x_{1}\)</span>, which implies <span class="math inline">\(p\cdot x_{1}=p\cdot x_{2}\)</span>, namely <span class="math inline">\(x_{1}=x_{2}\)</span>. The anti-symmetry property is implicitly added when the price-wealth pair <span class="math inline">\((p,w)\)</span> parameterizes <span class="math inline">\(\mathcal{X}\)</span>. By definition, a pre-order with anti-symmetry property becomes a partial order. In other words, when the consumption set <span class="math inline">\(\mathcal{X}\)</span> is immersed in the monetary world, the set <span class="math inline">\(\mathcal{X}\)</span> becomes a partially ordered set.</p>
+<p>Thus, <span class="math inline">\(\mathcal{X}\)</span> is a partially ordered set, <span class="math inline">\(\mathcal{A}\subset\mathcal{X}\)</span> is a totally ordered subset, and the upper bound is <span class="math inline">\(p\cdot x=w\)</span>. The greatest element in <span class="math inline">\(\mathcal{X}\)</span> is simply the maximal element. So the deduction finishes.<label for="tufte-sn-27" class="margin-toggle sidenote-number">27</label><input type="checkbox" id="tufte-sn-27" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">27</span> Strictly speaking, the price and wealth should be written as real-valued vectors. Since the vector has not been introduced yet, I don’t emphasize this algebriac structure. The result will be re-stated in the vector setting later. For those who know the vector: The mutiplications should be evaluated as inner product. Also, for comparing two consumption plans, I would have used the appropriate symbol <span class="math inline">\(\sim\)</span> for the indifferent relation rather than <span class="math inline">\(=\)</span>.</span></p>
+<p>The greatest element, say <span class="math inline">\(x^{*}\)</span>, is selected by the choice function.<label for="tufte-sn-28" class="margin-toggle sidenote-number">28</label><input type="checkbox" id="tufte-sn-28" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">28</span> The selection mechanism of the choice function depends on price and wealth, so it is often written as <span class="math inline">\(x^{*}(p,w)\)</span>. The mechanism will become clear once we see the optimization in section [?].</span> With <span class="math inline">\(x^{*}\)</span> and the <a href="sub-set-theory.html#sub:utility">utility function</a> <span class="math inline">\(u(\cdot)\)</span> that preserves the partial order of <span class="math inline">\(\mathcal{A}\)</span>, the consumer is said to choose a <em>maximal utility</em> <span class="math inline">\(u(x^*)\)</span> on <span class="math inline">\(\mathcal{A}\)</span>.</p>
+<p>Since <a href="sub:zorn">Zorn’s lemma</a> is equivalent to <a href="sub-axioms.html#sub:axSet">axiom of choice</a>, the result of the lemma, namely the existence of a maximal element, also cannot be disproved in the current axiomatic framework. It also implies that the existence of a possibly satisfied preference or a greatest element in a preodering preference cannot be disproved. However, if the connection between Zorn’s lemma and the maximal element in the preference was broken, then both the existence of preference satisfaction <span class="math inline">\(x^{*}\)</span> and the maximal utility <span class="math inline">\(u(x^*)\)</span> would become doubtful. But how can such a connection be broken? Here is one possibility. Suppose that <span class="math inline">\(p\)</span> and <span class="math inline">\(w\)</span> are not in the ordered set, then the “monetized” <span class="math inline">\(\mathcal{X}\)</span> is not necessarily partially ordered, and the result of the maximal element from Zorn’s lemma is not applicable. If price and wealth are not in the ordered set, then the existences of <a href="sub:zorn">preference satisfaction</a> and <a href="sub:zorn">equilibrium consumption</a> and <a href="sub:zorn">utility maximization</a> are all open to question.</p>
+<hr>
+<div id="refs" class="references">
+<div id="ref-Boole1854">
+<p>Boole, George. 1854. <em>An Investigation of the Laws of Thought on Which Are Founded the Mathematical Theories of Logic and Probabilities</em>.</p>
+</div>
+<div id="ref-Debreu1959">
+<p>Debreu, Gerard. 1959. <em>Theory of Value, an Axiomatic Analysis of Economic Equilibrium</em>. Yale University Press.</p>
+</div>
+<div id="ref-Russell1961">
+<p>Russell, Bertrand. 1961. <em>History of Western Philosophy and Its Connection with Political and Social Circumstances from the Earliest Time to the Present Day</em>. 2nd ed. George Allen &amp; Unwin Ltd.</p>
+</div>
+</div>
+</div>
+</div></body></html>
+
+<p style="text-align: center;">
+<a href="sub-set-theory.html"><button class="btn btn-default">Previous</button></a>
+</p>
+<p class="build-date">Page built: 
+2019-11-09
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
