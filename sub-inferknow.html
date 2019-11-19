@@ -216,22 +216,24 @@ R Code <span id="sol-start-3" class="fa fa-plus-square solution-icon clickable" 
 <a class="sourceLine" id="cb2-12" data-line-number="12"><span class="kw">print</span>(fib)</a></code></pre></div>
 <pre><code>##  [1]    1    1    2    3    5    8   13   21   34   55   89  144  233  377
 ## [15]  610  987 1597 2584 4181 6765</code></pre>
-<p>
-<span class="marginnote shownote">
-<!--
-<div class="figure">--><span id="fig:RplotFib"></span>
-<img src="_main_files/figure-html/RplotFib-1.gif" alt="$x_{i+1}/x_{i}$ for $i=$ 1,...,19"><!--
-<p class="caption marginnote">-->Figure 4.2: <span class="math inline">\(x_{i+1}/x_{i}\)</span> for <span class="math inline">\(i=\)</span> 1,…,19<!--</p>-->
-<!--</div>--></span>
-</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Plot the ratios</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2">index=<span class="dv">1</span><span class="op">:</span><span class="dv">18</span>; dat =<span class="st"> </span><span class="kw">data.frame</span>(index,ratio)</a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">library</span>(ggplot2); <span class="kw">library</span>(gganimate)</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4">fig=<span class="st"> </span><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x=</span>index, <span class="dt">y=</span>ratio)) </a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st">  </span><span class="kw">transition_time</span>(<span class="dt">time=</span>index) <span class="op">+</span><span class="st"> </span><span class="kw">shadow_mark</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_hline</span>(<span class="kw">aes</span>(<span class="dt">yintercept=</span>GoldenRatio),<span class="dt">color=</span><span class="st">"red"</span>,<span class="dt">alpha=</span><span class="fl">0.5</span>)<span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># a simple plot</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co"># plot(index, ratio,col='blue') </span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co"># abline(h=GoldenRatio, col='red')</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-5" data-line-number="5">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st">  </span><span class="kw">transition_time</span>(<span class="dt">time=</span>index) <span class="op">+</span><span class="st"> </span><span class="kw">shadow_mark</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_hline</span>(<span class="kw">aes</span>(<span class="dt">yintercept=</span>GoldenRatio),<span class="dt">color=</span><span class="st">"red"</span>,<span class="dt">alpha=</span><span class="fl">0.5</span>)<span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co"># a simple plot</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co"># plot(index, ratio,col='blue') </span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co"># abline(h=GoldenRatio, col='red')</span></a></code></pre></div>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:RplotFib"></span>
+<img src="fig/RplotFib-1.gif" alt="Golden ratio"><!--
+<p class="caption marginnote">-->Figure 4.2: Golden ratio<!--</p>-->
+<!--</div>--></span>
+</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">"fig/RplotFib-1.gif"</span>)</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
