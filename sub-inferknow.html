@@ -225,6 +225,11 @@ R Code <span id="sol-start-3" class="fa fa-plus-square solution-icon clickable" 
 <a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co"># a simple plot</span></a>
 <a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co"># plot(index, ratio,col='blue') </span></a>
 <a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co"># abline(h=GoldenRatio, col='red')</span></a></code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 <p>
 <span class="marginnote shownote">
 <!--
@@ -234,11 +239,6 @@ R Code <span id="sol-start-3" class="fa fa-plus-square solution-icon clickable" 
 <!--</div>--></span>
 </p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">"fig/RplotFib-1.gif"</span>)</a></code></pre></div>
-<p class="solution-end">
-<span class="fa fa-square-o solution-icon"></span>
-</p>
-</div>
-</div>
 <p>The growth ratio of an exponential growth function is controlled by the ratio <span class="math inline">\(x(i+1)/x(i)=b\)</span> for <span class="math inline">\(i\in\mathbb{N}\)</span>, which converges to a constant number for large <span class="math inline">\(i\)</span>. For the <a href="sub-inferknow.html#sub:comAlgo">Fibonacci sequence</a>, the ratio <span class="math inline">\(x_{i+1}/x_{i}\)</span> approximates to a constant value <span class="math inline">\(\phi=(1+\sqrt{5})/2\approx1.618\)</span> when <span class="math inline">\(i\)</span> is getting larger. It implies that when <span class="math inline">\(i\)</span> is large, <span class="math inline">\(x_{i+1}\)</span> can be approximated by <span class="math inline">\(x_{i}\phi\)</span>, <span class="math inline">\(x_{i-1}\phi^{2}\)</span>, etc. For example, <span class="math inline">\(x_{20}=6765\)</span> is roughly approximated by <span class="math inline">\(x_{8}\phi^{12}=6761.935\)</span>. The approximation function <span class="math inline">\(x(i)\approx21\phi^{i-8}\)</span> for <span class="math inline">\(i&gt;8\)</span> is an exponential growth function so Fibonacci sequence is an <strong>exponential growth</strong> sequence.<label for="tufte-sn-32" class="margin-toggle sidenote-number">32</label><input type="checkbox" id="tufte-sn-32" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">32</span> The exact function expression of the Fibonacci sequence <span class="math display">\[ x(i)=\frac{\phi^{i}-(1-\phi)^{i}}{\sqrt{5}},\]</span> is more complicated than this approximating form. As the term <span class="math inline">\((1-\phi)\approx-0.618\)</span> implies that <span class="math inline">\((1-\phi)^{i}\)</span> is getting smaller as <span class="math inline">\(i\)</span> increases, we can see <span class="math inline">\(x(i)\approx\phi^{i}/\sqrt{5}\)</span> is indeed an exponential growth function.</span></p>
 <p>The ratio value <span class="math inline">\(\phi\)</span> is called the <em>golden ratio</em>. This ratio can be found in various natural places such as the human body, flowers, or even veins in leaves. And it has been applied in the ancient, medieval, and modern designs, arts, and architects because the ratio is believed to endow an esthetically pleasing proportion to the objects. For example, the basic musical scale is built on the Fibonacci sequence, and the golden ratio frequently appears between the tones in the chord structure. This unexpected link between aesthetics and numbers reveals one of the links for the harmony of the real world and the imaginary one.</p>
 <p>
