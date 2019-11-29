@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="5 Incompleteness | Project XXII" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Zhengyuan Gao" />
+
+<meta name="date" content="2019-11-29" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="5 Incompleteness | Project XXII">
+
+<title>5 Incompleteness | Project XXII</title>
+
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul class="navbar">
+<li class="msmb"><p class="title">Project XXII<p><p class="author">Zhengyuan Gao</p>
+<li class="dropdown" style="float:right">
+<a href="javascript:void(0)" class="dropbtn">&#x25BA; Chapters</a>
+<div class="dropdown-content">
+<a href="index.html">Preface</a>
+<a href="part-i-inference-based-upon-logic-and-logical-computation.html">PART I: Inference Based upon Logic and Logical Computation</a>
+<a href="sub-logic.html"><span class="toc-section-number">1</span> Logic</a>
+<a href="sub-set-theory.html"><span class="toc-section-number">2</span> Set Theory</a>
+<a href="sub-axioms.html"><span class="toc-section-number">3</span> Axioms</a>
+<a href="sub-inferknow.html"><span class="toc-section-number">4</span> Inference and Knowledge</a>
+<a id="active-page" href="sub-incomplete.html"><span class="toc-section-number">5</span> Incompleteness</a><ul class="toc-sections">
+<li class="toc"><a href="#sub:infinity"> Infinity</a></li>
+<li class="toc"><a href="#sub:diagonal"> Hilbert’s Formalism and Cantor’s Diagonalization</a></li>
+<li class="toc"><a href="#sub:beyond2"> Beyond the Binary Logic</a></li>
+<li class="toc"><a href="#sub:fdim"> <span class="math inline">\(\mathbb{P}\)</span>-null Set and Fractional Dimension</a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div id="sub:incomplete" class="section level1">
+<h1>
+<span class="header-section-number">5</span> Incompleteness</h1>
+<p>Logic and mathematics abstractly allow us to think in-depth. Axiomatic logic guarantees that we are safe from the problems that make the predicates <strong>inconsistent</strong>.<label for="tufte-sn-44" class="margin-toggle sidenote-number">44</label><input type="checkbox" id="tufte-sn-44" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">44</span> A theory in <a href="sub-logic.html#sub:1order">first-order predicate logic</a> is called <em>inconsistent</em> if a logical contradiction is provable in it.</span> The inference based on the logical system seems suitable for an arbitrary quantitative problem. The <strong>consistent</strong> inference system is a kind of computing system because the process of searching for proof in logic is a computation. If the problem is computable in a program, it means that we can make the logical inference of it.</p>
+<p>So are we done for investigating the structure of inference given this axiomatic logical system? Ideally, I would like to provide you with a sensible answer, True or False, to this question. But the fact is that the question refers to a fundamental issue at which we are going to look: If you have a program of logical inferences, can you make another program that will tell you whether the inferential programs will ever be done or not? This issue is called the <em>halting problem</em>. Unfortunately, Turing proved that there are programs for which you can’t tell whether they will be done, and the <strong>halting problem</strong> is one of such programs. The result states that there are limitations to what a computer program can compute. The ground of the current axiomatic logical system is analogous to that of the computer program. Thus, we cannot answer the question of whether the structure of logic-based inference is “complete.”</p>
+<p>To understand this <strong>undecidability</strong>, we need to recall that a <a href="sub-axioms.html#sub:axSet">paradox</a> may come out when a statement refers to itself. We are simply back to such a suitation that the inference of the system refers to the system itself. We confront the limit of a system. For example, if there were two witnesses of an event but they gave opposite testimony and they both passed away, you know one of the testimony is true but you cannot judge which one. We can find the axiomatic system close to this example. The system has no sufficient information to judge itself as it faces the limit and within the system enviornment there is no information for finding out the limit. Hence, a <strong>undecidability</strong> of being <strong>consistent</strong> in the limit. A famous theorem of Kurt Gödel states that no mathematical system can provide a proof of its own consistency. The theorem is calledd Gödel’s <strong>incompleteness theorem</strong>.<label for="tufte-sn-45" class="margin-toggle sidenote-number">45</label><input type="checkbox" id="tufte-sn-45" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">45</span> A theory is <strong>incomplete</strong> if it contains a formula which can neither be proved nor disproved. If an arithmetic system is incomplete, then there must be arithmetical sentences that can neither be proved nor disproved by the formal procedures of <a href="sub-axioms.html#sub:axiomNum">first-order arithmetic</a>.</span></p>
+<ul>
+<li>
+<em>Incompleteness theorem</em> (a sketch version):</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Let a sentence <span class="math inline">\(x\)</span> be “this sentence is unprovable in system <span class="math inline">\(\mathcal{X}\)</span>.” If <span class="math inline">\(\mathcal{X}\)</span> can be expressed in a certain amount of arithmetic (<em>arithmetrization</em> of <span class="math inline">\(\mathcal{X}\)</span>), then the sentence <span class="math inline">\(x\)</span> is <em>undecidable</em> in <span class="math inline">\(\mathcal{X}\)</span>. That is, <span class="math inline">\(x\)</span> is neither provable nor refutable in <span class="math inline">\(\mathcal{X}\)</span>.</li>
+<li>Moreover, <span class="math inline">\(\mathcal{X}\)</span> cannot prove its own syntactic <strong>consistency</strong>.</li>
+</ol>
+<p>The <strong>halting problem</strong> is an example of this <strong>incompleteness theorem</strong>. That is, no computational system can provide inference about any statement regarding its self-consistency.</p>
+<p>We could prove the consistency of a set of <a href="sub-axioms.html#sub:axioms">axioms</a> if we could find a feasible procedure of detecting in which the <strong>inconsistency</strong> roots. Gödel’s theorem implies thatit is impossible to test the axioms from which the system is derived because the axioms do not provide enough information to decide the correctness of the test. We have to face the conclusion that any existing <a href="sub-axioms.html#sub:axSet">axiomatic system</a> may contain certain propositions that are undecidable within that system. The incompleteness motivates us to keep the initiative of being innovative.<label for="tufte-sn-46" class="margin-toggle sidenote-number">46</label><input type="checkbox" id="tufte-sn-46" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">46</span> Gödel’s conjecture inspires this optimistic statement. Gödel believes that the human mind is not a <strong>consistent</strong> finite machine, and its power may exceed that of any finite machine. He conjectured that the task of determining the truth or falsity of any well-grounded mathematical statement, including his own theorem, can be eventually verified by the human’s mind.</span></p>
+<p>The profound impact of the incompleteness theorem has been extended to many aspects of society. The contemporary art dominated by so-called relativism and post-modernism is nothing but evoking the notice of undecidability between the subjective belief and objective truth. An epistemic political view that corresponds to the <strong>incompleteness theorem</strong> will be: No political ideology can be “complete” with the formation constructed by the entities within this ideology. Religious people who claim their belief and doctrine are complete also have to face the challenge of the <strong>incompleteness theorem</strong>.<label for="tufte-sn-47" class="margin-toggle sidenote-number">47</label><input type="checkbox" id="tufte-sn-47" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">47</span> Here completeness refers to the logical formation. But since most of the texts in religion and politics are written in natural language thus they are not feasible for axiomatization. None of these views could be logically verified in theory which gives another incompleteness…</span> All these reflections are the resonance of contemporary culture in Gödel’s work.</p>
+<div id="sub:infinity" class="section level2">
+<h2>
+<span class="header-section-number">5.1</span> Infinity</h2>
+<p>The mechanism of proving Gödel’s terrific result is not so far from pointing a seemingly self-consistent statement to some kind of paradox which we have seen before in <a href="sub-axioms.html#sub:axSet">Russell’s paradox</a>. The construction of such a kind of paradox casts a shadow over set theory, whose essentials are due to the role of <strong>infinity</strong>.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:perspective"></span>
+<img src="fig/perspective.gif" alt="Perspective drawing" width="100%"><!--
+<p class="caption marginnote">-->Figure 5.1: Perspective drawing<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>The <strong>infinity</strong> is a keystone in thinking about aesthetics, philosophy, nature, or even the existence of God in Christian theology. In <strong>perspective drawing</strong>, two parallel lines will meet at a point on the horizon. Such a position represents the line at infinity, and it creates a visual solution for a critical geometry problem: an accurate representation of a 3D geometric environment on a flat 2D canvas. When such an infinity exists, the distant objects will be drawn smaller and they become neligible on the line of infinity. This Renaissance drawing technique make a great progress of visualizng the reality by idealization of the human vision that doesn’t exactly match with what happens in reality.<label for="tufte-sn-48" class="margin-toggle sidenote-number">48</label><input type="checkbox" id="tufte-sn-48" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">48</span> The technique <strong>trompe-l’œil</strong> from <strong>propsective drawing</strong> can create an illusion of a much deeper space than the actual stage. It also provides the initial premise for the subsequent development of autonomous space in its own right, which is now embodied in the technologies of virtual reality and computer imaging.</span> Unlike art, theology has a collapse of order. The dominated western belief in the Middle Ages was that all power is ultimately from God. St Thomas Aquinas, a Dominican friar and a classic exponent of papal philosophy in the Middle Ages, gave five proofs of God’s existence in his book Summa Theologiae. One of them is the argument of the <a href="sub-inferknow.html#determinism">unmoved mover</a> that was advocated by Aristotle.<label for="tufte-sn-49" class="margin-toggle sidenote-number">49</label><input type="checkbox" id="tufte-sn-49" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">49</span> The other four proofs - the <a href="sub-inferknow.html#determinism">first cause</a>, an ultimate source of all necessity, complete perfection, and lifeless time - also, to some extent, relate to <strong>infinity</strong>.</span> This paradoxical argument is another reflection of infinity. Consider the following infinite terms
+<span class="math display">\[1-1+1-1+1-1+1-\cdots\]</span>
+If we group them as <span class="math inline">\((1-1)+(1-1)+\cdots\)</span>, then we will have zero. But if we re-group them as <span class="math inline">\(1+(1-1)+(1-1)+\cdots\)</span>, then we expect to have one. The puzzling expression <span class="math inline">\(0=1\)</span> provided an example of the <a href="sub-inferknow.html#determinism">unmoved mover</a> because people (at that time) believed that only God could create such a puzzle, creating something (<span class="math inline">\(1\)</span>) from nothing (<span class="math inline">\(0\)</span>).</p>
+<p>The crucial part of resolving the <a href="sub-axioms.html#sub:axSet">paradox</a> is to consider a mathematical concept: <strong>convergence</strong>. For a sequence <span class="math inline">\(x_{n}=1/n\)</span>, we know that <span class="math inline">\(x_{n}\)</span> will never be zero but will become smaller if <span class="math inline">\(n\)</span> is getting bigger. Then the limit of this sequence is zero, or say <span class="math inline">\(x_{n}\)</span> converges to zero. More rigorously, we can say for any small positive number <span class="math inline">\(\epsilon\)</span>, there exists an integer <span class="math inline">\(N\)</span> such that any <span class="math inline">\(x_{n}=1/n\)</span> is smaller than this <span class="math inline">\(\epsilon\)</span> when <span class="math inline">\(n&gt;N\)</span>. If <span class="math inline">\(\epsilon\)</span> is set to <span class="math inline">\(0.01\)</span>, then we know that <span class="math inline">\(N=100\)</span> gives <span class="math inline">\(x_{N}=0.01\)</span> and <span class="math inline">\(x_{n}\)</span> is smaller than <span class="math inline">\(\epsilon\)</span> for any <span class="math inline">\(n&gt;100\)</span>. Because <span class="math inline">\(\epsilon\)</span> is an arbitrary positive number, <span class="math inline">\(x_{n}\)</span> can be infinitely close to zero; we say that <span class="math inline">\(x_{n}\)</span> <em>converges</em> to <span class="math inline">\(0\)</span>:<span class="math display">\[\lim_{n\rightarrow\infty}x_{n}=0\]</span>
+where <span class="math inline">\(n\rightarrow\infty\)</span> stands for letting <span class="math inline">\(n\)</span> goes to <strong>infinity</strong>.<label for="tufte-sn-50" class="margin-toggle sidenote-number">50</label><input type="checkbox" id="tufte-sn-50" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">50</span> The logical expression gives the formal definition <span class="math inline">\(\lim x_{n}=0\)</span> iff for <span class="math inline">\(\forall\epsilon\)</span>, <span class="math inline">\(\exists N\)</span> such that <span class="math inline">\(|x_{n}|&lt;\epsilon\)</span> for any <span class="math inline">\(n&gt;N\)</span>. Suppose <span class="math inline">\(x_{1},x_{2},\dots\)</span> is a sequence of real numbers. It can be stated that the real number <span class="math inline">\(L\)</span> is the limit of this sequence. Figure <a href="sub-incomplete.html#fig:convergence">5.2</a> shows <span class="math inline">\({\displaystyle \lim_{n\to\infty} (n+6)/n = 1}\)</span> which is read as “the limit of <span class="math inline">\(x_{n} = (n+6)/n\)</span> as <span class="math inline">\(n\)</span> approaches infinity equals <span class="math inline">\(1\)</span>.”</span></p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:convergence"></span>
+<img src="fig/Convergence.gif" alt="Sequence convergence" width="100%"><!--
+<p class="caption marginnote">-->Figure 5.2: Sequence convergence<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>With this concept of <strong>convergence</strong>, we return to the puzzling expression <span class="math inline">\(1-1+1-1\cdots\)</span>. We can set <span class="math inline">\(x_{1}=1\)</span>, <span class="math inline">\(x_{2}=1-1=0\)</span>, <span class="math inline">\(x_{3}=1-1+1=1\)</span>, etc. If the index number is odd, then <span class="math inline">\(x_{n}\)</span> is <span class="math inline">\(1\)</span>; if it is even, then <span class="math inline">\(x_{n}\)</span> is <span class="math inline">\(0\)</span>, regardless of how large the index number is. Thus this sequence is not convergent; it is <em>divergent</em>. For a <strong>divergent</strong> sequence, there is not a unique answer (the limit) for its <strong>infinity</strong>.<label for="tufte-sn-51" class="margin-toggle sidenote-number">51</label><input type="checkbox" id="tufte-sn-51" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">51</span> Instead of talking about infinity, most of the time, mathematicians talk about the limits. We also can see that the business of convergent analysis is concerned with the behavior of the infinite “tail” of a sequence.</span> The previous puzzle can easily be found in various forms, for example <span class="math inline">\(\sum_{n=1}^{\infty}(-1)^{n}\)</span>.</p>
+<p>As we can see, manipulations such as re-groups that are legitimate in the finite settings do not always extend to <strong>infinite</strong> settings. By setting up two different possibilities, we show a “paradox” (<strong>divergence</strong>) existing for a system (the sequence <span class="math inline">\(x_{n}\)</span>). What Gödel showed in his theorem was that any consistent axiomatic system created to study arithmetic was necessarily destined to be “incomplete” in the sense that there would always be true statements that the system of axioms would be too week to prove. At the core of Gödel’s long proof, he relied on a particular type of manipulation. He built the <a href="sub-axioms.html#sub:axSet">self-referential</a> sentences for this syntax by a manipulation called <strong>diagonalization</strong>. Georg Cantor first used this technique for showing <a href="sub-axioms.html#sub:axSet">uncountability</a> of <span class="math inline">\(\mathbb{R}\)</span>.<label for="tufte-sn-52" class="margin-toggle sidenote-number">52</label><input type="checkbox" id="tufte-sn-52" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">52</span> A detail and entertaining description of the proof of incompleteness theorem can be found in <span class="citation">Hofstadter (<a href="sub-incomplete.html#ref-Hofstadter1999">1999</a>)</span>.</span></p>
+<p>Recall that any infinite set that can be placed in <a href="sub-set-theory.html#sub:func">bijective</a> correspondence with the natural numbers is said to be <a href="sub-axioms.html#sub:axSet">countable</a>. Infinite sets larger than this are <a href="sub-axioms.html#sub:axSet">uncountable</a>. Cantor’s formulation shows that any procedure that you attempt to put the <a href="sub-axioms.html#sub:axiomNum">natural numbers</a> into a bijective relation with the real numbers will always fail: there will always be an infinite number of real numbers “leftover.” Moreover, any attempt to find a <a href="sub-set-theory.html#sub:func">surjective</a> relation with any set <span class="math inline">\(\mathcal{X}\)</span> and its <a href="sub-axioms.html#sub:axSet">power set</a> <span class="math inline">\(2^{\mathcal{X}}\)</span> will fail: There will always be some “mismatches” of the power set in this relation.</p>
+</div>
+<div id="sub:diagonal" class="section level2">
+<h2>
+<span class="header-section-number">5.2</span> Hilbert’s Formalism and Cantor’s Diagonalization</h2>
+<p>Before going to Cantor’s tool, I would like to elaborate on some ideology background before the emergence of Gödel’s theorem. David Hilbert gave a famous talk about a list of open problems of mathematics in 1900. The second problem in the list was to prove that arithmetic is <a href="sub-incomplete.html#sub:incomplete">consistent</a>. The motivation of Hilbert is to plan a complete formalization of arithmetic: a full translation between <a href="sub-logic.html#sub:zeroth">logical principles</a> and <a href="sub-incomplete.html#sub:incomplete">arithmetical</a> ones for enhancing the whole classical framework of mathematics to a <strong>formal</strong> system. This is a system <strong>formalized</strong> by <a href="sub-axioms.html#sub:axioms">axioms</a>. The theorem that is waiting to be proved would be instructed by the set of built-in rules of the system. People only need to consider the structure of the system, while the contents or the meanings can be deprived. The idea is known as <em>formalism</em>. In the three-volume book, Russell and his teacher Alfred Whitehead gave such a formal system, by which they believed all mathematics is expressible and provable. In 1931, Gödel published his paper (<span class="citation">Gödel (<a href="sub-incomplete.html#ref-Godel1931">1931</a>)</span>) of <a href="sub-incomplete.html#sub:incomplete">incompleteness theorem</a>, which terminated the most ambitious project in the history of mathematics elaborated by Hilbert. This made <a href="sub-incomplete.html#sub:incomplete">incompleteness theorem</a> simultaneously one of the most exceptional results and one of the greatest disappointments ever in mathematics.</p>
+<p>Let’s come to Cantor’s <strong>diagonalization</strong> technique. By using diagonalization, Cantor proved two results by contradictions: one for <a href="sub-axioms.html#sub:axSet">uncountability</a> of <span class="math inline">\(\mathbb{R}\)</span>, the other for non-existent <a href="sub-set-theory.html#sub:func">surjective relation</a> between any set <span class="math inline">\(\mathcal{X}\)</span> and its power set <span class="math inline">\(2^{\mathcal{X}}\)</span>.</p>
+<div class="solution">
+<p class="solution-begin">
+Proof of Uncountability
+</p>
+<div class="solution-body">
+<p>Assume that <span class="math inline">\(\mathbb{R}\)</span> is <a href="sub-axioms.html#sub:axSet">countable</a>. The open interval <span class="math inline">\((0,1)\)</span> as a subset of <span class="math inline">\(\mathbb{R}\)</span> must also be countable. So there exists a function <span class="math inline">\(f:\mathbb{N}\rightarrow(0,1)\)</span>. For each <span class="math inline">\(i\in\mathbb{N}\)</span>, <span class="math inline">\(f(i)\)</span> is a real number between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. We can represent <span class="math inline">\(f(i)\)</span> using the decimal notation <span class="math display">\[f(i)=0.x_{i1}x_{i2}x_{i3}\cdots\]</span> where for each <span class="math inline">\(i,j\in\mathbb{N}\)</span>, <span class="math inline">\(x_{ij}\in\{0,1,\cdots,9\}\)</span> is the digit from the set of ten natural numbers. The <a href="sub-set-theory.html#sub:func">bijective relation</a> between <span class="math inline">\(\mathbb{N}\)</span> and <span class="math inline">\((0,1)\)</span> can be summarized in the <strong>doubly indexed array</strong>:</p>
+<div class="figure">
+<span id="fig:diagonal"></span>
+<p class="caption marginnote shownote">
+Figure 5.3: Diagonalization
+</p>
+<img src="fig/CantorDiag.gif" alt="Diagonalization">
+</div>
+<p>The bijective relation means that every real number in <span class="math inline">\((0,1)\)</span> is assumed to appear somewhere on the list. Note that the <strong>diagonal</strong> bold digits also forms a real number <span class="math inline">\(0.x_{11}x_{22}x_{33}\cdots\)</span> in <span class="math inline">\((0,1)\)</span>. Perhaps you may wonder if there exists some <span class="math display">\[i\longleftrightarrow f(i)=0.x_{11}x_{22}\cdots x_{ii}\cdots.\]</span> To avoid this worry, you can construct a specific function based on <span class="math inline">\(x_{11}x_{22}\cdots x_{ii}\cdots\)</span>. The bottom of figure <a href="sub-incomplete.html#fig:diagonal">5.3</a> gives one option to construct such a function. We can see that <span class="math inline">\(0.y_{1}y_{2}\cdots\)</span> cannot be <span class="math inline">\(f(1)=0.x_{11}x_{12}\cdots\)</span> because <span class="math inline">\(x_{11}\neq y_{1}\)</span>. Similarly, <span class="math inline">\(0.y_{1}y_{2}\cdots\)</span> cannot be <span class="math inline">\(f(2)\)</span> because <span class="math inline">\(x_{22}\neq y_{2}\)</span> and so on. Thus, the sequence <span class="math inline">\(0.y_{1}y_{2}\cdots\)</span> cannot occur anywhere on the list.</p>
+<p>Thus the assumption of countable <span class="math inline">\(\mathbb{R}\)</span>, namely the existence of a bijective function <span class="math inline">\(f:\mathbb{N}\rightarrow \mathbb{R}\)</span>, leads to the first contradiction.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>From the expression of the <strong>doubly indexed array</strong>, we can find that <span class="math inline">\(\mathbb{R}\)</span> is expressed by a collection of all subsets of <span class="math inline">\(\mathbb{N}\)</span>, namely <span class="math inline">\(\mathbb{R}\)</span> has the same size as <span class="math inline">\(2^{\mathbb{N}}\)</span>, the power set of <span class="math inline">\(\mathbb{N}\)</span>. The uncountability of <span class="math inline">\(\mathbb{R}\)</span> implies that the size (formally called <em>cardinality</em>) of <span class="math inline">\(\mathbb{R}\)</span> is bigger than that of <span class="math inline">\(\mathbb{N}\)</span>, so there is no surjective function <span class="math inline">\(f:\mathbb{N}\rightarrow2^{\mathbb{N}}\)</span>. Cantor extended this argument to any set <span class="math inline">\(\mathcal{X}\)</span>. That is for any set <span class="math inline">\(\mathcal{X}\)</span>, there does not exist a <a href="sub-set-theory.html#sub:func">surjective</a> function <span class="math inline">\(f:\mathcal{X}\rightarrow2^{\mathcal{X}}\)</span>.</p>
+<div class="solution">
+<p class="solution-begin">
+Proof of Non-existent surjective function
+</p>
+<div class="solution-body">
+<p>Assume a surjective function <span class="math inline">\(f:\mathcal{X}\rightarrow2^{\mathcal{X}}\)</span> exists. Note that the set <span class="math inline">\(\mathcal{A}=\{x\in\mathcal{X}:\, x\notin f(x)\}\)</span> is non-empty (like the diagonal line case above). By the definition of <span class="math inline">\(\mathcal{A}\)</span>, <span class="math inline">\(\mathcal{A}\)</span> is a subset of the power set <span class="math inline">\(2^{\mathcal{X}}\)</span>. Since <span class="math inline">\(f\)</span> is surjective, we know that any set of <span class="math inline">\(2^{\mathcal{X}}\)</span> has its <a href="sub-set-theory.html#sub:func">co-domain</a> on <span class="math inline">\(\mathcal{X}\)</span>. That is, there exists some <span class="math inline">\(x'\in\mathcal{X}\)</span> such that <span class="math inline">\(f(x')\in\mathcal{A}\)</span>. But <span class="math inline">\(f(x')\in\mathcal{A}\)</span> contradicts the definition of <span class="math inline">\(\mathcal{A}\)</span>. Thus, <span class="math inline">\(f\)</span> does not exist.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Intuitively, if one draws an analogy between <span class="math inline">\(\mathcal{X}\)</span> and a system, then one can draw another analogy between the power set of <span class="math inline">\(\mathcal{X}\)</span> and all the sentences created by the previous system. The essence of the <strong>non-existent surjective relation</strong> is analogous to the situation that some sentences created by the system can not be computed or judged within the same system. Through these analogies, one can see that the profound logical deduction embedded in Gödel’s results is chained to Cantor’s manipulation of infinite sets.</p>
+</div>
+<div id="sub:beyond2" class="section level2">
+<h2>
+<span class="header-section-number">5.3</span> Beyond the Binary Logic</h2>
+<p>The adverb <em>ad infinitum</em>, a Latin phrase for the meaning of without end, appears in Plato’s argument about a “third man.” In Plato’s argument, for an ideal man, there must be a more ideal man to whom both ordinary men and the ideal man are similar and so on <strong>ad infinitum</strong>. This further form is the “third man.” So far, we only consider the logical system with binary operations about <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> due to the <a href="sub-logic.html#sub:zeroth">principle of the excluded third</a>. This “third man” argument leads us to ponder over a new horizon where the <a href="sub-incomplete.html#sub:infinity">infinity</a> can smash the shackles of the conventional binary logical system.<label for="tufte-sn-53" class="margin-toggle sidenote-number">53</label><input type="checkbox" id="tufte-sn-53" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">53</span> “The Third Man” is also the name of a film noir made in 1949. The story happened in the post-war Vienna. At that moment, the shattered city was divided into four parts controlled by different countries, plus a black market not belonging to any of the four.
+Perhaps the most famous scene of the movie is a “cuckoo clock” speech given by Harry Lime, the main antagonist. The statement is as follows: “In Italy, for thirty years under the Borgias, they had warfare, terror, murder and bloodshed, but they produced Michelangelo, Leonardo da Vinci and the Renaissance. In Switzerland, they had brotherly love, they had five hundred years of democracy and peace – and what did that produce? The cuckoo clock.”</span> <em>Three-values logic</em> refers to a logical system including true, false, and some indeterminate third value. The indeterminate third value may, in fact, induce many or even infinite values like <strong>ad infinitum</strong>.</p>
+<p><em>Fuzzy logic</em> is a form of <strong>many-valued logic</strong> in which the truth values of variables may be any real number between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> inclusive. It is employed to handle the concept of partial truth, where the truth value may range between completely true and completely false. Fuzzy logic is effective in the processing of information with a high level of uncertainty. It has been used in brain- and neuroscience for imitating human-like reasoning and intelligent information processing.</p>
+<p>In the <a href="sub-logic.html#sub:zeroth">binary logic</a>, when we represent an object <span class="math inline">\(x\)</span> of a set <span class="math inline">\(\mathcal{X}\)</span>, we use the <a href="sub-set-theory.html#sub:func">indicator function</a> <span class="math inline">\(\mathbf{1}_{\mathcal{X}}(x)\)</span>. If <span class="math inline">\(\mathbf{1}_{\mathcal{X}}(x)=1\)</span> then <span class="math inline">\(x\in\mathcal{X}\)</span>, otherwise <span class="math inline">\(x\notin\mathcal{X}\)</span>. In fuzzy logic, an object can belong to a set partially. The set having such vague objects is called the <em>fuzzy set</em>. Instead of asking whether something is true, we ask how much it is true. Tolerance of fuzziness allows us to more effectively explore complex concepts such as commonsense rules, linguistic propositions, heuristics perceptions, and motivations, etc. Mathematically, instead of the two-values indicator function, for the <strong>fuzzy set</strong>, we consider the function mapping to the closed interval <span class="math inline">\([0,1]\)</span>: <span class="math display">\[\mu_{\mathcal{X}}(x):\mathcal{X}\rightarrow[0,1]\]</span>
+where <span class="math inline">\(0\)</span> means that the object is not a member of the set and <span class="math inline">\(1\)</span> means that it belongs entirely to the set. Each value of the function represents a degree of parts belonging to the set. The <a href="sub-logic.html#sub:zeroth">binary logical operations</a>, like union, intersection, etc., all have their counterparts under the fuzzy logic.<label for="tufte-sn-54" class="margin-toggle sidenote-number">54</label><input type="checkbox" id="tufte-sn-54" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">54</span> Let <span class="math inline">\(\mathcal{A}\)</span> and <span class="math inline">\(\mathcal{B}\)</span> be the subsets of <span class="math inline">\(\mathcal{X}\)</span>. For all <span class="math inline">\(x\in\mathcal{X}\)</span>,
+the union <span class="math inline">\(\mathcal{A}\cup\mathcal{B}\)</span> is <span class="math inline">\(\mu_{\mathcal{A}\cup\mathcal{B}}(x)=\max\{\mu_{\mathcal{A}}(x),\:\mu_{\mathcal{B}}(x)\}\)</span>;
+the intersection <span class="math inline">\(\mathcal{A}\cap\mathcal{B}\)</span> is <span class="math inline">\(\mu_{\mathcal{A}\cap\mathcal{B}}(x)=\min\{\mu_{\mathcal{A}}(x),\:\mu_{\mathcal{B}}(x)\}\)</span>;
+the complement is <span class="math inline">\(\mathcal{A}^{c}\)</span>: <span class="math inline">\(\mu_{\mathcal{A}^{c}}(x)=1-\mu_{\mathcal{A}}(x)\)</span>;
+the equivalence is <span class="math inline">\(\mathcal{A}=\mathcal{B}\)</span>: <span class="math inline">\(\mu_{\mathcal{A}}(x)=\mu_{\mathcal{B}}(x)\)</span>. </span></p>
+<p>Note that unlike the unique expression of the <a href="sub-set-theory.html#sub:func">indicator function</a>, there are many potential specifications for <span class="math inline">\(\mu_{\mathcal{X}}(x)\)</span>. For example, if <span class="math inline">\(\mathcal{X}\)</span> is the set of all real numbers <span class="math inline">\(\mathbb{R}\)</span>, and if <span class="math inline">\(\infty\)</span> represents the entire truth and <span class="math inline">\(-\infty\)</span> for the entire false, then we can use the following specification <span class="math display">\[\mu_{\mathbb{R}}(x)=\frac{1}{1+\mbox{e}^{-x}}.\]</span>
+This function is called the <em>logistic function</em> or the <em>sigmoid function</em>, a common form also used in the construction of artificial neural networks and in the probability model of binary choices.<label for="tufte-sn-55" class="margin-toggle sidenote-number">55</label><input type="checkbox" id="tufte-sn-55" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">55</span> One can parameterize the logistic function by a parameter <span class="math inline">\(\alpha\)</span> such that <span class="math inline">\(\mu_{\mathbb{R}}(x)=\frac{1}{1+\mbox{e}^{-\alpha \cdot x}}\)</span>. Figue <a href="sub-incomplete.html#fig:fuzzyset">5.4</a> shows that the logistic function approximates to the indicator function when <span class="math inline">\(\alpha\)</span> gets larger.</span></p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:fuzzyset"></span>
+<img src="fig/fuzzyset.gif" alt="Logistic function" width="100%"><!--
+<p class="caption marginnote">-->Figure 5.4: Logistic function<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>The <strong>fuzzy set</strong> can be considered as a mathematical representation of our perception towards uncertain states. However, historically, the widely accepted framework for dealing with uncertainty has been the <strong>probability theory</strong>. In the early 20th century, the emergence of <strong>quantum theory</strong> reshaped not only the principles of classical physics but also made profound impacts on the fundamentals of the theory of knowledge: a revision of philosophical ideas about the existence of unobserved objects and the <a href="sub-logic.html#sub:zeroth">principles of logic</a>. Notably, the probabilistic interpretation developed by Max Born, who interpreted waves in terms of probability, and others elucidated a transition from <a href="sub-inferknow.html#determinism">deterministic causal laws</a> to probability laws for the description of nature. The logical form of quantum theory is contrary to traditional concepts of knowledge and reality. <span class="citation">Reichenbach (<a href="sub-incomplete.html#ref-Reichenbach1944">1944</a>)</span> gave a three-valued logic for interpreting quantum mechanics. While Reichenbach considered the empirical success of quantum mechanics as a chance of revolution in logic itself, the quantum-probabilistic formalism, as developed by <span class="citation">Neumann (<a href="sub-incomplete.html#ref-vonNeumann1955">1955</a>)</span>, preferred to interpret quantum mechanics as a theory of measurement. The latter gave the axioms deviated from the <a href="sub-logic.html#sub:ex-computer">Boolean algebra</a> structure and combined the probability and the <a href="sub-logic.html#sub:1order">first-order logic</a> in a single representation. It is now known as <strong>quantum logic</strong> and has been applied to quantum computation and communication. The elementary logical operations are called <strong>quantum gates</strong>.</p>
+<p>Probabilism, such as <span class="citation">Keynes (<a href="sub-incomplete.html#ref-Keynes1921">1921</a>)</span> and <span class="citation">Jaynes (<a href="sub-incomplete.html#ref-Jaynes2003">2003</a>)</span>, would even consider probability theory as an extension of the classic logic. <span class="citation">Jaynes (<a href="sub-incomplete.html#ref-Jaynes2003">2003</a>)</span> argued that the <a href="sub-incomplete.html#sub:incomplete">undecidability</a> due to the <a href="sub-incomplete.html#sub:incomplete">incompleteness theorem</a> is not an inherent property of the proposition. To him, the undecidability merely means that its axioms do not provide enough information, and under the extended logical framework, namely the probabilistic reasoning and thinking, the missing information would be taken into account and a decidable proposition could be made with incomplete information.<label for="tufte-sn-56" class="margin-toggle sidenote-number">56</label><input type="checkbox" id="tufte-sn-56" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">56</span> However, the cost is that this framework cannot depart from the settings of finite or countable sets.</span></p>
+<p>It is not our current goal to consider any further detail about bifurcation between classic logic and (quantum) probability. But there is no doubt that the success of quantum physics and the dominant position of Keynesianism in the postwar economics illuminate an alternative way of interpreting nature and manipulating material prosperity in terms of probabilities.</p>
+<p><em>Probability</em> is, like logic, the study of the relation between <a href="sub-logic.html#sub:zeroth">propositions</a>. Like <strong>fuzzy logic</strong>, the probability is a measure of certainty. A <em>probability event</em> is a proposition about something that may happen. Here I will list a standard axiomatic framework of probability, the <em>Kolmogorov’s axioms</em> of probability, to initiate our expositions of probability theory. These axioms given by <span class="citation">Kolmogorov (<a href="sub-incomplete.html#ref-Kolmogorov1933">1933</a>)</span> put a probability on a firm mathematical footing.</p>
+<p>Let <span class="math inline">\(\mathcal{X}\)</span> denote the set of all probability events. The axioms construct the probability as a “set” function <span class="math inline">\(\mathbb{P}(\cdot)\)</span>, or sometimes written in <span class="math inline">\(\Pr(\cdot)\)</span>, mapping from some set <span class="math inline">\(\sigma(\mathcal{X})\)</span> to <span class="math inline">\([0,1]\)</span>, where <span class="math inline">\(\sigma(\mathcal{X})\)</span> is a collection of all subsets of <span class="math inline">\(\mathcal{X}\)</span> that include <span class="math inline">\(\mathcal{X}\)</span> itself such that<label for="tufte-sn-57" class="margin-toggle sidenote-number">57</label><input type="checkbox" id="tufte-sn-57" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">57</span> The reason for considering a collection is to make the probability exist in a general setting. For example, to toss a coin once, we know that there are only two probability events, head, and tail. Then it is easy to define a function <span class="math inline">\(\mathbb{P}(\cdot)\)</span> for <span class="math inline">\(\mathcal{X}_{1}=\{\mbox{head},\mbox{tail}\}\)</span>. But if the question is to know the probability of the first time of having the head in <span class="math inline">\(100\)</span> tosses. Then the event set becomes <span class="math inline">\(\underset{100\mbox{ times}}{\underbrace{\mathcal{\mathcal{X}}_{1}\times\mathcal{\mathcal{X}}_{1}\times\cdots\mathcal{\mathcal{X}}_{1}}}=\mathcal{X}\)</span>, and you actually seek the probability of patterns such as <span class="math inline">\(\{\mbox{head}\}\)</span>, <span class="math inline">\(\{\mbox{tail},\mbox{head}\}\)</span>, <span class="math inline">\(\{\mbox{tail},\mbox{tail},\mbox{head}\}\)</span>, <span class="math inline">\(\dots\)</span>, <span class="math inline">\(\{\underset{99\mbox{ times}}{\underbrace{\mbox{tail},\mbox{tail}\cdots,\mbox{tail}}},\mbox{head}\}\)</span> from the collection of all subsets of <span class="math inline">\(\mathcal{X}\)</span>. Thus the probability function needs to be defined on <span class="math inline">\(2^{\mathcal{X}}\)</span> rather than <span class="math inline">\(\mathcal{X}\)</span>. However, when the set <span class="math inline">\(\mathcal{X}\)</span> is infinitely large, we cannot have a <a href="sub-set-theory.html#sub:func">bijective</a> or even <a href="sub-incomplete.html#sub:diagonal">surjective</a> function from <span class="math inline">\(2^{\mathcal{X}}\)</span> to <span class="math inline">\([0,1]\)</span> due to Cantor’s diagonalization in section <a href="sub-incomplete.html#sub:diagonal">5.2</a>. So a power set <span class="math inline">\(2^{\mathcal{X}}\)</span> seems to be too large for a <strong>probability function</strong>. </span> <span class="math display">\[\mathcal{X}\subset\sigma(\mathcal{X})\subset2^{\mathcal{X}}.\]</span></p>
+<p>The set <span class="math inline">\(\sigma(\mathcal{X})\)</span> is called the <em><span class="math inline">\(\sigma\)</span>-algebra</em>, because the algebra structure, like the one you find in natural number operations, is attached to a collection of the subsets of <span class="math inline">\(\mathcal{X}\)</span>. That is, a finite number of union or intersection operations over the subsets of <span class="math inline">\(\sigma(\mathcal{X})\)</span> will always result in a set in <span class="math inline">\(\sigma(\mathcal{X})\)</span>. This <strong>algebra structure</strong> refines the power set <span class="math inline">\(2^{\mathcal{X}}\)</span> so that <span class="math inline">\(\sigma(\mathcal{X})\)</span> is not as large as <span class="math inline">\(2^{\mathcal{X}}\)</span>, namely <span class="math inline">\(\sigma(\mathcal{X})\subset2^{\mathcal{X}}\)</span>. On the other hand, because all sets in <span class="math inline">\(\sigma(\mathcal{X})\)</span> include <span class="math inline">\(\mathcal{X}\)</span> itself, we have <span class="math inline">\(\mathcal{X}\subset\sigma(\mathcal{X})\)</span>.</p>
+<ul>
+<li>
+<em>Kolmogorov’s axioms</em> of the probability function <span class="math inline">\(\mathbb{P}(\cdot): \sigma(\mathcal{X})\rightarrow [0,1]\)</span>:</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p>For all <span class="math inline">\(\mathcal{A}_{i}\in\sigma(\mathcal{X})\)</span>, <span class="math inline">\(\mathbb{P}(\mathcal{A}_{i})\geq0\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(\mathcal{X})=1\)</span>.</p></li>
+<li><p>For any <a href="sub-axioms.html#sub:axSet">countable</a> sequence of <em>disjoint sets</em> <span class="math inline">\(\mathcal{A}_{1},\mathcal{A}_{2}\dots,\in\sigma(\mathcal{X})\)</span>, namely <span class="math inline">\(\mathcal{A}_{i} \cap \mathcal{A}_{j} = \emptyset\)</span> for any <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>, there is <span class="math display">\[\mathbb{P}(\cup_{i=1}^{\infty}\mathcal{A}_{i})=\sum_{i=1}^{\infty}\mathbb{P}(\mathcal{A}_{i}).\]</span></p></li>
+</ol>
+<p>As you can see from <strong>Kolmogorov’s axioms</strong>, the probability function not only works for a single event but also for sets of events. We often call <span class="math inline">\(\mathbb{P}(\cdot)\)</span> a <em>probability measure</em> when we want to emphasize that the input of <span class="math inline">\(\mathbb{P}(\cdot)\)</span> is a set rather than a single event.<label for="tufte-sn-58" class="margin-toggle sidenote-number">58</label><input type="checkbox" id="tufte-sn-58" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">58</span> A function is called <em>measure</em>, when 1) it satisfies both Kolmogorov’s axiom 1 and axiom 3; and 2) it maps any empty set to zero. Obviously, probability function <span class="math inline">\(\mathbb{P}(\cdot):\,\sigma(\mathcal{X})\rightarrow[0,1]\)</span> is a <strong>measure</strong>.</span> The collection <span class="math inline">\(\sigma(\mathcal{X})\)</span>, which is generated by <span class="math inline">\(\mathcal{X}\)</span>, together with the <strong>probability measure</strong> <span class="math inline">\(\mathbb{P}(\cdot)\)</span> satisfying three axioms above, construct a <em>probability space</em>. This space is often denoted by a triplet <span class="math inline">\((\mathcal{X},\sigma(\mathcal{X}),\mathbb{P})\)</span>.</p>
+<p>The probability operations can be derived from these three axioms. Here are some operations. We will see more in section [?].<label for="tufte-sn-59" class="margin-toggle sidenote-number">59</label><input type="checkbox" id="tufte-sn-59" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">59</span> The relation between the <strong>fuzzy set function</strong> and the <strong>probability function</strong> can be calculated as <span class="math inline">\(\mathbb{P}(\mathcal{A})=\sum\mu_{\mathcal{A}}(x)\mathbb{P}(x)\)</span> if <span class="math inline">\(\mathcal{A}\)</span> has <a href="sub-axioms.html#sub:axSet">countable</a> events.</span></p>
+<ul>
+<li><p><em>Union and Intersection:</em> <span class="math display">\[\mathbb{P}(\mathcal{A}\cup\mathcal{B})=\mathbb{P}(\mathcal{A})+\mathbb{P}(\mathcal{B})-\mathbb{P}(\mathcal{A}\cap\mathcal{B}).\]</span>
+When events <span class="math inline">\(\mathcal{A}\)</span> and <span class="math inline">\(\mathcal{B}\)</span> are <strong>disjoint set</strong>, then the formula is the same as Kolmogorov’s axiom 3.</p></li>
+<li><p><em>Complement</em> <span class="math inline">\(\mathcal{A}^{c}\)</span>: By Kolmogorov’s axiom 2 and 3, there is <span class="math display">\[1=\mathbb{P}(\mathcal{X})=\mathbb{P}(\mathcal{A})+\mathbb{P}(\mathcal{A}^{c}),\]</span> or <span class="math inline">\(\mathbb{P}(\mathcal{A}^{c})=1-\mathbb{P}(\mathcal{A})\)</span>. The empty set <span class="math inline">\(\emptyset\)</span> is the complement of <span class="math inline">\(\mathcal{X}\)</span>, so <span class="math inline">\(\Pr(\emptyset)=0\)</span>.</p></li>
+<li><p><em>Equivalence</em> <span class="math inline">\(\mathcal{A}=\mathcal{B}\)</span>: <span class="math inline">\(\mathbb{P}(\mathcal{A})=\mathbb{P}(\mathcal{B})\)</span>.</p></li>
+<li><p><em>Monotonicity:</em> If <span class="math inline">\(\mathcal{A}\subset\mathcal{B}\)</span>, then <span class="math inline">\(\mathbb{P}(\mathcal{A})\leq\mathbb{P}(\mathcal{B})\)</span>. For any <span class="math inline">\(\mathcal{A}\subset\mathcal{X}\)</span>, there is <span class="math inline">\(\mathbb{P}(\mathcal{A})\leq \mathbb{P}(\mathcal{X}) = 1\)</span>.<label for="tufte-sn-60" class="margin-toggle sidenote-number">60</label><input type="checkbox" id="tufte-sn-60" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">60</span> The reason of using (<span class="math inline">\(\leq\)</span>) rather than (<span class="math inline">\(&lt;\)</span>) is that some sets can be <strong><span class="math inline">\(\mathbb{P}\)</span>-null sets</strong>. For example, <span class="math inline">\(\mathcal{A} \cup \mathcal{B} = \mathcal{X}\)</span>, but <span class="math inline">\(\mathbb{P}(\mathcal{B})=0\)</span>, then <span class="math inline">\(\mathbb{P}(\mathcal{A})= \mathbb{P}(\mathcal{X})\)</span>. See section <a href="sub-incomplete.html#sub:fdim">5.4</a> for more discussions of <strong><span class="math inline">\(\mathbb{P}\)</span>-null sets</strong>.</span></p></li>
+</ul>
+</div>
+<div id="sub:fdim" class="section level2">
+<h2>
+<span class="header-section-number">5.4</span> <span class="math inline">\(\mathbb{P}\)</span>-null Set and Fractional Dimension</h2>
+<p>The third axiom of the <a href="sub-incomplete.html#sub:beyond2">Kolmogorov probability system</a> is often for the study of some <a href="sub-incomplete.html#sub:infinity">limits</a>. Consider an event set, <span class="math inline">\(\mathcal{C}_{0}=[0,3]\)</span>. By removing the middle third, <span class="math inline">\((1,2)\)</span>, leaving the two closed intervals <span class="math inline">\([0,1]\)</span> and <span class="math inline">\([2,3]\)</span>. Let the union <span class="math inline">\([0,1]\cup[2,3]\)</span> be another set <span class="math inline">\(\mathcal{C}_{1}\)</span>. Similarly, by removing the middle third of two closed intervals in <span class="math inline">\(\mathcal{C}_{1}\)</span>, we will have four closed intervals, and we call the union of these four intervals <span class="math inline">\(\mathcal{C}_{2}\)</span>. Continue this construction until <span class="math inline">\(n\)</span> steps, you will have a set <span class="math inline">\(\mathcal{C}_{n}\)</span> containing <span class="math inline">\(2^{n-1}\)</span> closed intervals. Let a probability function <em>uniformly distribute</em> on the intervals, namely all intervals of the same length having equal probability. So <span class="math inline">\(\mathbb{P}(\mathcal{C}_{0})=1\)</span>, <span class="math inline">\(\mathbb{P}(\mathcal{C}_{1})=\mathbb{P}([0,1]\cup[2,3])=2/3\)</span>, etc. What is the probability of <span class="math inline">\(\mathcal{C}_{n}\)</span> when <span class="math inline">\(n\rightarrow\infty\)</span>?</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:CantorSet"></span>
+<img src="fig/CantorSet.gif" alt="Cantor set" width="80%"><!--
+<p class="caption marginnote">-->Figure 5.5: Cantor set<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>The set <span class="math inline">\(\lim_{n\rightarrow\infty}\mathcal{C}_{n}=\mathcal{C}\)</span> is called the <em>Cantor set</em>. We can find the <a href="sub-incomplete.html#sub:beyond2">probability measure</a> of <span class="math inline">\(\mathcal{C}\)</span> by adding up the probabilities of the intervals removed from <span class="math inline">\(\mathcal{C}_{0}\)</span> in the construction of <span class="math inline">\(\mathcal{C}\)</span>. In the first step, we know that <span class="math inline">\(\mathbb{P}((2,3))=1-2/3=1/3\)</span>. In the second step, the removed intervals have the probability<span class="math display">\[\mathbb{P}\left(\left(\frac{1}{3},\frac{2}{3}\right)\cup\left(\frac{7}{3},\frac{8}{3}\right)\right)=\frac{1}{9}+\frac{1}{9}=\frac{2}{3^{2}}.\]</span>
+In the third step, the probability is <span class="math inline">\(2^{2}/3^{3}\)</span>, and in general, in the <span class="math inline">\(n+1\)</span> step, the probability is <span class="math inline">\(2^{n}/3^{n+1}\)</span>. So the total probability of the removed intervals is<span class="math display">\[\begin{align*} &amp; \mathbb{P}\left((2,3)\cup\left(\frac{1}{3},\frac{2}{3}\right)\cup\left(\frac{7}{3},\frac{8}{3}\right)\cup\cdots\right) \\
+    \overset{(a)}{=} &amp;\mathbb{P}((2,3))+\mathbb{P}\left(\left(\frac{1}{3},\frac{2}{3}\right)\right)+\mathbb{P}\left(\left(\frac{7}{3},\frac{8}{3}\right)\right)+\cdots \\
+     = &amp; \frac{1}{3}+\frac{1}{9}+\frac{1}{9}+\cdots=\frac{1}{3}\left(1+\frac{2}{3}+\left(\frac{2}{3}\right)^{2}+\cdots\right)\\
+    \overset{(b)}{=} &amp; \frac{1/3}{1-2/3}=1. \end{align*}\]</span>
+The equality <span class="math inline">\(\overset{(a)}{=}\)</span> is valid because those intervals are disjointed sets, so <em>Kolmogorov’s axiom</em> 3 holds. The equality <span class="math inline">\(\overset{(b)}{=}\)</span> comes from the property of the <em>geometric series</em><label for="tufte-sn-61" class="margin-toggle sidenote-number">61</label><input type="checkbox" id="tufte-sn-61" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">61</span> The geometric series is <span class="math inline">\(a+ar+ar^{2}+\cdots=a/(1-r)\)</span> for <span class="math inline">\(|r|&lt;1\)</span>.</span>. Thus, the removal intervals have the total probability one. Because of <span class="math inline">\(\mathbb{P}(\mathcal{C}_{0})=1\)</span>, we know <span class="math inline">\(\mathbb{P}(\mathcal{C})=1-1=0\)</span>. The number of intervals in <span class="math inline">\(\mathcal{C}_{n}\)</span> increases to infinity, but the probability of ending up on those infinitely many intervals goes to zero. In fact, the <a href="sub-incomplete.html#sub:infinity">cardinality</a> of <span class="math inline">\(\mathcal{C}\)</span> is the same as that of <span class="math inline">\(\mathbb{R}\)</span>, which means <span class="math inline">\(\mathcal{C}\)</span> is <a href="sub-axioms.html#sub:axSet">uncountable</a>. This uncountable large <span class="math inline">\(\mathcal{C}\)</span> is a <em><span class="math inline">\(\mathbb{P}\)</span>-null set</em>, namely a set whose probability is zero. The <span class="math inline">\(\mathbb{P}\)</span>-null set has little influence over the whole probability space, and in the modeling it has often been ignored. However, it may play an essential role in some circumstances. We will come back to it in section [?].</p>
+<p>Cantor set <span class="math inline">\(\mathcal{C}\)</span> is a <a href="sub-inferknow.html#sub:dyn">self-similar</a> set. In different scales, a portion of the set looks similar to the whole object. The whole event set <span class="math inline">\(\mathcal{C}_{0}\)</span> is an interval. The set <span class="math inline">\(\mathcal{C}_{1}\)</span> contains two identical length intervals. The difference between the intervals in <span class="math inline">\(\mathcal{C}_{1}\)</span> and <span class="math inline">\(\mathcal{C}_{0}\)</span> is simple a scale of <span class="math inline">\(1/3\)</span>. Furthermore, Cantor set is a <em>fractal</em>, whose dimension is different from the original one. The <strong>fractal</strong> is self-similar, and has the built-in form of recursion, so does the Cantor set.<label for="tufte-sn-62" class="margin-toggle sidenote-number">62</label><input type="checkbox" id="tufte-sn-62" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">62</span> Quite often, a fractal problem has a simpler presentation from computer visualization. In figure <a href="sub-incomplete.html#fig:CantorSet">5.5</a>, we can easily infer that the probability of <span class="math inline">\(\mathcal{C}\)</span> is negligible.</span> How about the dimension of <span class="math inline">\(\mathcal{C}\)</span>? We know that a line has one dimension, and a point has zero dimension. Cantor set consists of infinite intervals (lines), but the size of these lines tends to zero. Should we consider those intervals as points or lines? For <em>fractals</em>, we need a new characterization for their dimensions.</p>
+<p>Recall that we measure a 1D object by its length, measure a 2D object by its area, and measure a 3D object by its volume, etc. Suppose you had a measuring device, and the measure of this device is <span class="math inline">\(m\)</span>. We can compute the measure of some object under consideration by estimating it in terms of <span class="math inline">\(m\)</span>. That is, our measuring device gives us the base unit. If a standard-unit measure of the object is <span class="math inline">\(N\)</span> unit of <span class="math inline">\(m\)</span> in one dimension, then we have <span class="math inline">\(1 = N \times m\)</span> or <span class="math inline">\(N=(1/m)\)</span>. Suppose the object exists in <span class="math inline">\(D\)</span>-dimension. Then we would expect<label for="tufte-sn-63" class="margin-toggle sidenote-number">63</label><input type="checkbox" id="tufte-sn-63" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">63</span> Take the logrithm of <span class="math inline">\(N=(1/m)^D\)</span>, there is <span class="math inline">\(\log N = D \log(1/m)\)</span>.</span> <span class="math display">\[N=\left(\frac{1}{m}\right)^{D}\mbox{ or equivalently }D=\frac{\log N}{\log(1/m)}.\]</span> Because the fractals are self-similar, this measurement expression will work for the limit of the recursion if it works in one iteration.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:PeanoCurve"></span>
+<img src="fig/Peano.gif" alt="Peano curve" width="80%"><!--
+<p class="caption marginnote">-->Figure 5.6: Peano curve<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>For <strong>Cantor set</strong>, in the first step, we know that two units (<span class="math inline">\(N=2\)</span>) of intervals have probability measure <span class="math inline">\(m=1/3\)</span>. By the above formula, we have <span class="math inline">\(D=\log2/\log3\simeq0.63093\)</span>. This is not an integer number but a fraction. Thus the dimension of Cantor set is a <em>fractional dimension</em>, a dimension between a point and a line. While the infinity (fractal) feature of the <strong>Cantor set</strong> is to shrink the original one-dimension to a smaller fractional dimension, it is also possible to enlarge a one-dimension object to a slightly bigger dimension by the infinity feature. <em>Peano curve</em>, see figure <a href="sub-incomplete.html#fig:PeanoCurve">5.6</a>, starts with an initial line segment (1D) and is expanded as a <strong>fractal</strong> to fill a finite area (2D).<label for="tufte-sn-64" class="margin-toggle sidenote-number">64</label><input type="checkbox" id="tufte-sn-64" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">64</span> The dimension of the Peano curve is <span class="math inline">\(\log9/\log3=2\)</span>.</span> Before, we saw that the self-similar property can “demonstrate” the totality by some simple recursive rules. Now we also understand that some “hidden” dimensions of the entirety can be “explored” by considering the fractals.</p>
+<hr>
+<div id="refs" class="references">
+<div id="ref-Abbott1884">
+<p>Abbott, Edwin. 1884. <em>Flatland: A Romance of Many Dimensions</em>.</p>
+</div>
+<div id="ref-Bergson1913">
+<p>Bergson, Henri. 1913. <em>Time and Free Will</em>.</p>
+</div>
+<div id="ref-Boole1854">
+<p>Boole, George. 1854. <em>An Investigation of the Laws of Thought on Which Are Founded the Mathematical Theories of Logic and Probabilities</em>.</p>
+</div>
+<div id="ref-Debreu1959">
+<p>Debreu, Gerard. 1959. <em>Theory of Value, an Axiomatic Analysis of Economic Equilibrium</em>. Yale University Press.</p>
+</div>
+<div id="ref-Fairgrieve1870">
+<p>Fairgrieve, James. 1870. <em>Geography and World Power</em>.</p>
+</div>
+<div id="ref-Godel1931">
+<p>Gödel, Kurt. 1931. “Über Formal Unentscheidbare Sätze Der Principia Mathematica Und Verwandter Systeme, I.” <em>Monatshefte Für Mathematik Und Physik</em> 38 (1): 173–98.</p>
+</div>
+<div id="ref-Hofstadter1999">
+<p>Hofstadter, Douglas R. 1999. <em>Gödel, Escher, Bach: An Eternal Golden Braid</em>. Basic Books.</p>
+</div>
+<div id="ref-Jaynes2003">
+<p>Jaynes, Edwin T. 2003. <em>Probability Theory: The Logic of Science</em>. Cambridge University Press.</p>
+</div>
+<div id="ref-Kalman1963">
+<p>Kalman, Rudolf E. 1963. “Mathematical Description of Linear Dynamical Systems.” <em>Journal of the Society for Industrial and Applied Mathematics Series A Control</em> 1 (2): 152–92.</p>
+</div>
+<div id="ref-Keynes1921">
+<p>Keynes, John M. 1921. <em>A Treatise on Probability</em>.</p>
+</div>
+<div id="ref-Kolmogorov1933">
+<p>Kolmogorov, Andrey. 1933. <em>Foundations of the Theory of Probability</em>.</p>
+</div>
+<div id="ref-vonNeumann1955">
+<p>Neumann, John von. 1955. <em>Mathematical Foundations of Quantum Mechanics</em>. Princeton University Press.</p>
+</div>
+<div id="ref-Reichenbach1944">
+<p>Reichenbach, Hans. 1944. <em>Philosophic Foundations of Quantum Mechanics</em>. The University of California Press.</p>
+</div>
+<div id="ref-Russell1961">
+<p>Russell, Bertrand. 1961. <em>History of Western Philosophy and Its Connection with Political and Social Circumstances from the Earliest Time to the Present Day</em>. 2nd ed. George Allen &amp; Unwin Ltd.</p>
+</div>
+</div>
+</div>
+</div></body></html>
+
+<p style="text-align: center;">
+<a href="sub-inferknow.html"><button class="btn btn-default">Previous</button></a>
+</p>
+<p class="build-date">Page built: 
+2019-11-29
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
