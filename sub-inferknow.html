@@ -144,7 +144,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <a href="sub-incomplete.html"><span class="toc-section-number">5</span> Incompleteness</a>
 <a href="part-ii-infinitesimal-changes-and-their-consequences.html">PART II: Infinitesimal Changes and their Consequences</a>
-<a href="sub-continuity.html"><span class="toc-section-number">6</span> Contiunity</a>
+<a href="sub-continuity.html"><span class="toc-section-number">6</span> Continuity</a>
 <a href="bibliography.html">Bibliography</a>
 </div>
 </li>
@@ -203,9 +203,9 @@ Pseudo Code
 <p>A function is called an <em>exponential growth</em> function when the functional form follows <span class="math inline">\(x(i)=ab^{i}\)</span> for some constants <span class="math inline">\(a&gt;0\)</span> and <span class="math inline">\(b&gt;1\)</span>. If <span class="math inline">\(a&gt;0\)</span> and <span class="math inline">\(0&lt;b&lt;1\)</span> then the function is an <em>exponential decay</em> function. Although we haven’t seen the underlying function of the <a href="sub-inferknow.html#sub:comAlgo">Fibonacci sequence</a>, we can use a computer to evaluate the discrete values <span class="math inline">\(x_i\)</span> from the Fibonacci sequence.</p>
 <div class="solution">
 <p class="solution-begin">
-R Code <span id="sol-start-246" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-246', 'sol-start-246')"></span>
+R Code <span id="sol-start-386" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-386', 'sol-start-386')"></span>
 </p>
-<div id="sol-body-246" class="solution-body" style="display: none;">
+<div id="sol-body-386" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># Constants</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">init =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>); GoldenRatio =<span class="st"> </span>(<span class="dv">1</span><span class="op">+</span><span class="kw">sqrt</span>(<span class="dv">5</span>))<span class="op">/</span><span class="dv">2</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co"># Variables</span></a>
@@ -277,9 +277,9 @@ Any power of this <strong>exponential base</strong> is a power series <span clas
 called the <em>exponential function</em> of <span class="math inline">\(t\)</span>. <strong>Exponential function</strong> perhaps is one of the most critical functions in mathematics. It is also the function that can disclose several eternal properties of the <strong>dynamics</strong>. One reason is that exponential function <span class="math inline">\(\mbox{e}^{t}\)</span> is invariant to the <strong>infinitesimal</strong> difference with respect to its argument <span class="math inline">\(t\)</span>. We can think <span class="math inline">\(t\)</span> as time. For any infinitesimal time increment <span class="math inline">\(\epsilon\)</span>, the exponential function <span class="math inline">\(\mathrm{e}^{t+\epsilon}\)</span> can be expanded as <span class="math inline">\(\mathrm{e}^{t+\epsilon}\approx\mathrm{e}^{t}+\mathrm{e}^{t}\epsilon\)</span>.</p>
 <div class="solution">
 <p class="solution-begin">
-Proof <span id="sol-start-247" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-247', 'sol-start-247')"></span>
+Proof <span id="sol-start-387" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-387', 'sol-start-387')"></span>
 </p>
-<div id="sol-body-247" class="solution-body" style="display: none;">
+<div id="sol-body-387" class="solution-body" style="display: none;">
 <p>The derivation uses a <em>binomial formula</em> such that <span class="math display">\[(x+y)^{n}=\sum_{k=0}^{n}\binom{n}{k}x^{n-k}y^{k}\]</span>
 where <span class="math inline">\(\binom{n}{k}=\frac{n!}{k!(n-k)!}\)</span> is the <em>binomial coefficient</em>.<span class="math display">\[\mathrm{e}^{t+\epsilon} =  \sum_{n=0}^{\infty}\frac{(t+\epsilon)^{n}}{n!} =    \sum_{n=0}^{\infty}\frac{1}{n!}\left(\frac{t{}^{n}}{1}+\frac{nt{}^{n-1}\epsilon}{1}+\frac{n(n-1)t{}^{n-2}\epsilon^{2}}{2}+\cdots\right)\]</span>
 The first term <span class="math inline">\(\sum_{n=0}^{\infty}\frac{t^{n}}{n!}\)</span> is <span class="math inline">\(\mathrm{e}^{t}\)</span>. The second term <span class="math display">\[\sum_{n=0}^{\infty}\frac{nt{}^{n-1}\epsilon}{n!}=\sum_{n=1}^{\infty}\frac{t{}^{n-1}\epsilon}{(n-1)!}=\mathrm{e}^{t}\epsilon.\]</span> Similarly, the third term is <span class="math inline">\(\epsilon^{2}\mathrm{e}^{t}/2\)</span> and so on.
