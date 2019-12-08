@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="6 Contiunity | Project XXII" />
+<meta property="og:title" content="6 Continuity | Project XXII" />
 <meta property="og:type" content="book" />
 
 
@@ -24,9 +24,9 @@ MathJax.Hub.Config({
 </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 
-<meta name="description" content="6 Contiunity | Project XXII">
+<meta name="description" content="6 Continuity | Project XXII">
 
-<title>6 Contiunity | Project XXII</title>
+<title>6 Continuity | Project XXII</title>
 
 <link href="libs/tufte-css/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
@@ -138,7 +138,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a href="sub-inferknow.html"><span class="toc-section-number">4</span> Inference and Knowledge</a>
 <a href="sub-incomplete.html"><span class="toc-section-number">5</span> Incompleteness</a>
 <a href="part-ii-infinitesimal-changes-and-their-consequences.html">PART II: Infinitesimal Changes and their Consequences</a>
-<a id="active-page" href="sub-continuity.html"><span class="toc-section-number">6</span> Contiunity</a><ul class="toc-sections">
+<a id="active-page" href="sub-continuity.html"><span class="toc-section-number">6</span> Continuity</a><ul class="toc-sections">
 <li class="toc"><a href="#sub:rational"> Rationals and Irrationals</a></li>
 <li class="toc"><a href="#completeness"> Miscellaneous: Complete Real Numbers, Infinitely Divisible Rationals, Prime Decomposition</a></li>
 <li class="toc"><a href="#sub:continuousFunc"> Continuous Functions and theirs Topology</a></li>
@@ -157,7 +157,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html><body><div id="sub:continuity" class="section level1">
 <h1>
-<span class="header-section-number">6</span> Contiunity</h1>
+<span class="header-section-number">6</span> Continuity</h1>
 <p>How do you distinguish the reality depicted in a realistic painting and the existing physical object? Descartes’ distinction between two sorts of perceptions: having the soul as a cause and having the body as a cause. It is the key to the solution of the <strong>mind-body problem</strong> for the Christian thinkers of the 17th century. According to Descartes, the objective reality of a thought signifies the existence of a particular mental counterpart of the real content (like the painting), while the formal reality is the object of the representation in the physical world, or the <a href="sub-inferknow.html#sub:histgeo">spatio-temporal</a> world (like the physical object). For the 17th century thinkers, no matter what the mechanism of perceiving is, the guarantee for the final stage of a correct correspondence between these two types of perceptions is the realm of being thought of by God.</p>
 <p>Leibniz, who shared the credit with Newton for the development of the calculus, formed his metaphysics system taking for granted the Cartesian distinction between two types of perceptions. In his system, the first level, the real cause of the metaphysical activity, is implanted by God.<label for="tufte-sn-66" class="margin-toggle sidenote-number">66</label><input type="checkbox" id="tufte-sn-66" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">66</span> <span class="citation">Leibniz (<a href="bibliography.html#ref-Leibniz1996">1996</a>)</span> says, “God has ideas before creating the objects of the ideas, and there is nothing to prevent him from passing such ideas on to intelligent creatures: there is not even any exact demonstration proving that the objects of our senses, and of the simple ideas which our senses present to us are outside of us.”</span> However, in the second level, he considers the mind as it is formed from a particular perspective by each particular thought (monadic perception in his words). Each thought is reflected by one another and so on <a href="sub-incomplete.html#sub:incomplete">ad infinitum</a>.<label for="tufte-sn-67" class="margin-toggle sidenote-number">67</label><input type="checkbox" id="tufte-sn-67" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">67</span> “It is impossible that we should always reflect explicitly on all our thoughts; for if we did, the mind would reflect on each reflection ad infinitum, without ever being able to move to a new thought.” - <span class="citation">Leibniz (<a href="bibliography.html#ref-Leibniz1996">1996</a>)</span></span> Such an infinite sequence is considered to be the metaphysical correlated and forms Leibniz’s principle of <strong>continuity</strong>: whatever happens for the finite, also happens for the infinite. In the preface of <span class="citation">Leibniz (<a href="bibliography.html#ref-Leibniz1996">1996</a>)</span>, he said, “Nothing takes place suddenly, and it is one of my great and best confirmed maxims that nature never makes leaps.”</p>
 <p>Nature never makes leaps. That is, the correlations between events in nature, which can be considered as values of a variable <span class="math inline">\(x\)</span> and their consequences <span class="math inline">\(y\)</span> are described by a <strong>continuous</strong> function <span class="math inline">\(y=f(x)\)</span>. The usual way of defining <strong>continuity</strong> of a function <span class="math inline">\(f(\cdot)\)</span> at certainty point <span class="math inline">\(a\)</span>, is to set up a <a href="sub-incomplete.html#sub:infinity">convergent sequence</a> <span class="math inline">\((x_{i})_{i\in\mathbb{R}} \rightarrow a\)</span>, and to see whether an <a href="sub-continuity.html#sub:rational">infinitesimal change</a> in <span class="math inline">\(x_{i}\)</span> will only lead to an <a href="sub-continuity.html#sub:rational">infinitesimal change</a> in <span class="math inline">\(f(x_{i})\)</span>. Informally stated, <em>continuity</em> means that a small change in <a href="sub-set-theory.html#sub:func">input</a> of the function will lead to a small change in <a href="sub-set-theory.html#sub:func">output</a>. If the range of <span class="math inline">\(x\)</span> were continuous, and if the range of <span class="math inline">\(y\)</span>, namely the corresponding natural event, were not, then the principle of continuity would be violated. The function of nature, namely the correct correspondence implanted by God, in Leibniz’s view, must be <strong>continuous</strong>.</p>
@@ -213,9 +213,9 @@ Note that <span class="math inline">\(\epsilon\)</span> is <strong>infinitesimal
 Because <span class="math inline">\((a_{n})_{n\in\mathbb{R}}\)</span> (<span class="math inline">\((b_{n})_{n\in\mathbb{R}}\)</span>) is <strong>monotone</strong> increasing (decreasing) sequence, we will have<label for="tufte-sn-72" class="margin-toggle sidenote-number">72</label><input type="checkbox" id="tufte-sn-72" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">72</span> This result is called the <em>monotone convergence theorem</em>. If <span class="math inline">\((a_{n})_{n\in\mathbb{N}}\)</span> is a monotone increasing sequence, and <span class="math inline">\(a_{n}\)</span> is bounded above for any <span class="math inline">\(n\in\mathbb{N}\)</span>, then <span class="math inline">\(a_{n}\)</span> must be convergent. Similar, if <span class="math inline">\((b_{n})_{n\in\mathbb{N}}\)</span> is a monotone decreasing sequence, and <span class="math inline">\(b_{n}\)</span> is bounded below for any <span class="math inline">\(n\in\mathbb{N}\)</span>, then <span class="math inline">\(b_{n}\)</span> must be convergent.</span> <span class="math display">\[\lim_{n\rightarrow\infty}a_{n}=\sup(a_{n})_{n\in\mathbb{N}}, \,\,  \lim_{n\rightarrow\infty}b_{n}=\inf(b_{n})_{n\in\mathbb{N}}\]</span></p>
 <div class="solution">
 <p class="solution-begin">
-Proof of monotone convergence theorem <span id="sol-start-370" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-370', 'sol-start-370')"></span>
+Proof of monotone convergence theorem <span id="sol-start-390" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-390', 'sol-start-390')"></span>
 </p>
-<div id="sol-body-370" class="solution-body" style="display: none;">
+<div id="sol-body-390" class="solution-body" style="display: none;">
 <p>Because <span class="math inline">\((a_{n})_{n\in\mathbb{N}}\)</span> is bounded above, by the axiom of completeness, <span class="math inline">\(\sup(a_{n})_{n\in\mathbb{N}}\)</span> exists. Let <span class="math inline">\(\epsilon&gt;0\)</span> and let <span class="math inline">\(\sup(a_{n})_{n\in\mathbb{N}}\)</span> be <span class="math inline">\(\bar{a}\)</span>. Since <span class="math inline">\(\bar{a}-\epsilon\)</span> is not an upper bound for <span class="math inline">\((a_{n})_{n\in\mathbb{R}}\)</span>, there is some integer <span class="math inline">\(N\)</span> such that <span class="math inline">\(a_{N}&gt;\bar{a}-\epsilon\)</span>.</p>
 <p>The sequence <span class="math inline">\((a_{n})_{n\in\mathbb{N}}\)</span> is monotone increasing, <span class="math display">\[\bar{a}-\epsilon&lt;a_{N}\leq a_{n}\leq\bar{a}\]</span>
 for all <span class="math inline">\(n\geq N\)</span>, so <span class="math inline">\(|a_{n}-\bar{a}|&lt;\epsilon\)</span> for all <span class="math inline">\(n\geq N\)</span>, namely <span class="math inline">\(\lim_{n\rightarrow \infty} a_{n}=\bar{a}\)</span>.</p>
@@ -246,9 +246,9 @@ for all <span class="math inline">\(n\geq N\)</span>, so <span class="math inlin
 where <span class="math inline">\((p_{i})_{i=1}^{k}\)</span> is a sequence of primes, and <span class="math inline">\((a_{i})_{i=1}^{k}\)</span> is a sequence of natural numbers. The <em>fundamental theorem of arithmetic</em> states that the <strong>standard form</strong> for any natural number <span class="math inline">\(n\)</span> is unique.<label for="tufte-sn-74" class="margin-toggle sidenote-number">74</label><input type="checkbox" id="tufte-sn-74" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">74</span> If a distinct natural number <span class="math inline">\(n\)</span> can label each good, one can think <span class="math inline">\(p_{i}\)</span> is the basic element of generating this good.</span></p>
 <div class="solution">
 <p class="solution-begin">
-Proof <span id="sol-start-371" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-371', 'sol-start-371')"></span>
+Proof <span id="sol-start-391" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-391', 'sol-start-391')"></span>
 </p>
-<div id="sol-body-371" class="solution-body" style="display: none;">
+<div id="sol-body-391" class="solution-body" style="display: none;">
 <p>Here is a sketchy derivation of the standard form.</p>
 <p>If <span class="math inline">\(n\)</span> is prime, then we have the trivial case <span class="math inline">\(n=p\)</span>. Provided that <span class="math inline">\(n\)</span> is not a prime, <span class="math inline">\(n\)</span> has possible divisors. The least of these divisors must be a prime <span class="math inline">\(p_{1}\)</span>; otherwise, we can always induce a smaller divisor by dividing <span class="math inline">\(p_{1}\)</span> with some number. Hence <span class="math inline">\(n=p_{1}n_{1}\)</span> with <span class="math inline">\(1&lt;n_{1}&lt;n\)</span>. Here <span class="math inline">\(n_{1}\)</span> is either a prime or not. If it is, then <span class="math inline">\(n=p_{1}n_{1}\)</span> is the standard form. If not, we continue to divide <span class="math inline">\(n_{1}\)</span> by its least divisor, another prime <span class="math inline">\(p_{2}\)</span>, so that <span class="math inline">\(n=p_{1}p_{2}n_{2}\)</span>. Repeating the argument, we obtain a sequence of decreasing numbers <span class="math inline">\(n_{1},n_{2}\dots n_{m}\)</span>. The last element of this sequence <span class="math inline">\(n_{m}\)</span> must be a prime <span class="math inline">\(n_{m}=p_{m}\)</span>; otherwise, the sequence can still grow. So we have <span class="math display">\[n=p_{1}n_{1}=p_{1}p_{2}n_{2}=\cdots=p_{1}p_{2}\cdots p_{m}.\]</span>
 The primes <span class="math inline">\(p_{1},\dots,p_{m}\)</span> are not necessarily distinct, nor arranged in any particular order.</p>
@@ -336,13 +336,13 @@ can characterize an openness in a two-dimensional plane. The notation <span clas
 </p>
 <div class="solution">
 <p class="solution-begin">
-Curse of dimensionality <span id="sol-start-372" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-372', 'sol-start-372')"></span>
+Curse of dimensionality <span id="sol-start-392" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-392', 'sol-start-392')"></span>
 </p>
-<div id="sol-body-372" class="solution-body" style="display: none;">
+<div id="sol-body-392" class="solution-body" style="display: none;">
 <p>The differences maybe not so obvious in low dimensions, like in <span class="math inline">\(\mathbb{R}^{2}\)</span>, but when the dimension grows, the differences become crucial. For example, given the same <span class="math inline">\(\epsilon\)</span>, the volume of a disk (<span class="math inline">\(\ell_{2}\)</span> in <span class="math inline">\(\mathbb{R}^{2}\)</span>) counts for nearly <span class="math inline">\(78\%\)</span> of the volume of a square (<span class="math inline">\(\ell_{\infty}\)</span> in <span class="math inline">\(\mathbb{R}^{2}\)</span>). But in <span class="math inline">\(\mathbb{R}^{3}\)</span>, the volume of a sphere (<span class="math inline">\(\ell_{2}\)</span> in <span class="math inline">\(\mathbb{R}^{3}\)</span>) counts <span class="math inline">\(52\%\)</span> of the volume of a cube (<span class="math inline">\(\ell_{\infty}\)</span> in <span class="math inline">\(\mathbb{R}^{3}\)</span>). When the dimension goes to ten, the volume of a hyper-sphere (<span class="math inline">\(\ell_{2}\)</span>) counts for only <span class="math inline">\(2.5\%\)</span> of that of the hyper-cube (<span class="math inline">\(\ell_{\infty}\)</span>). This is known as the <em>curse of dimensionality</em>. We will come back to it in section [?].</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">d =<span class="st"> </span><span class="dv">2</span><span class="op">:</span><span class="dv">10</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">plot</span>(d, pi<span class="op">^</span>(d<span class="op">/</span><span class="dv">2</span>)<span class="op">/</span>(d<span class="op">*</span><span class="dv">2</span><span class="op">^</span>(d<span class="dv">-1</span>)<span class="op">*</span><span class="kw">gamma</span>(d<span class="op">/</span><span class="dv">2</span>)), <span class="dt">log=</span><span class="st">"y"</span>, <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">xlab=</span><span class="st">"Dimension"</span>, <span class="dt">ylab=</span><span class="st">"Proportion"</span>)</a></code></pre></div>
-<p><img src="fig/Part2/hypercube-1.png"></p>
+<p><img src="fig/Part2/hypercube-1.png" width="672"></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -408,9 +408,9 @@ where the inequality comes from the fact that <span class="math inline">\(x_{n},
 <p>The Lipschitz continuous preserve the completeness. That is, if <span class="math inline">\((x_n)_{n\in \mathbb{N}}\)</span> is a Cauchy sequence, <span class="math inline">\((f(x_n))_{n\in \mathbb{N}}\)</span> will be a <strong>Cauchy sequence</strong>.</p>
 <div class="solution">
 <p class="solution-begin">
-Proof <span id="sol-start-373" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-373', 'sol-start-373')"></span>
+Proof <span id="sol-start-393" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-393', 'sol-start-393')"></span>
 </p>
-<div id="sol-body-373" class="solution-body" style="display: none;">
+<div id="sol-body-393" class="solution-body" style="display: none;">
 <p>Let <span class="math inline">\(f\)</span> be Lipschitz. <span class="math display">\[|f(b)-f(a)|\leq K|b-a|,\; K\geq0.\]</span>
 Let <span class="math inline">\((x_n)_{n\in\mathbb{N}}\)</span> be a Cauchy sequence. Thus exists <span class="math inline">\(N\in\mathbb{N}\)</span> such that for any <span class="math inline">\(m,n&gt;N\)</span>
 <span class="math display">\[|x_{m}-x_{n}|&lt;\frac{\epsilon}{K}.\]</span>
