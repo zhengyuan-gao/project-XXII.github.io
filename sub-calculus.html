@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2020-01-29" />
+<meta name="date" content="2020-02-18" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -155,6 +155,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#sub:Taylor"> Examples: Power Series and Taylor Series</a></li>
 </ul>
 <a href="ch-DE.html"><span class="toc-section-number">8</span> Differential Equations</a>
+<a href="ch-CalUn.html"><span class="toc-section-number">9</span> Calculus under Uncertainty</a>
 <a href="bibliography.html">Bibliography</a>
 </div>
 </li>
@@ -215,9 +216,9 @@ Now taking the limit of <span class="math inline">\(\Delta x\)</span> gives us <
 </ul>
 <div class="solution">
 <p class="solution-begin">
-Proof of the differentiation rules <span id="sol-start-29" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-29', 'sol-start-29')"></span>
+Proof of the differentiation rules <span id="sol-start-12" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-12', 'sol-start-12')"></span>
 </p>
-<div id="sol-body-29" class="solution-body" style="display: none;">
+<div id="sol-body-12" class="solution-body" style="display: none;">
 <p><span class="newthought">Proof of sums and constant factors </span></p>
 <p>Note that <span class="math inline">\(y+\Delta y=f(x+\Delta x)\)</span>, <span class="math inline">\(u+\Delta u=u(x+\Delta x)\)</span>, <span class="math inline">\(v+\Delta v=v(x+\Delta x)\)</span>, so we have <span class="math inline">\(\Delta y=a\Delta u+b\Delta v\)</span>. Dividing the expression of <span class="math inline">\(\Delta y\)</span> by <span class="math inline">\(\Delta x\)</span> and taking limit <span class="math inline">\(\Delta x\rightarrow0\)</span>, we have
 <span class="math display">\[\begin{align*} \frac{\mbox{d}f(x)}{\mbox{d}x} &amp;=\lim_{\Delta x\rightarrow0}\frac{\Delta y}{\Delta x}=\lim_{\Delta x\rightarrow0}\frac{a\Delta u+b\Delta v}{\Delta x}\\
@@ -286,9 +287,9 @@ where <span class="math inline">\(z_{n}-z_{n-1}=f(c_{n})\Delta x_{n}\)</span>. T
 <p>As you can see, the quality of the <strong>Riemann sum approximation</strong> is directly related to whether <span class="math inline">\(f(c_{k})\)</span> well approximates <span class="math inline">\(f(x)\)</span> as <span class="math inline">\(x\)</span> ranges over the subintervals. Intuitively, it helps to visualize a particular <strong>upper sum</strong> as an overestimate for the value of the integral and a <strong>lower sum</strong> as an underestimate. As the partitions get more refined, the <strong>upper sums</strong> get potentially smaller while the <strong>lower sums</strong> get potentially larger. A function is integrable if the upper and lower sums “meet” at some common value in the middle. For a “reasonable” function, these upper and lower estimates will converge to a common value as the partition is made finer and finer; in this case, we say the <strong>Riemann integral</strong> exists.</p>
 <div class="solution">
 <p class="solution-begin">
-Existence of Riemann sum <span id="sol-start-30" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-30', 'sol-start-30')"></span>
+Existence of Riemann sum <span id="sol-start-13" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-13', 'sol-start-13')"></span>
 </p>
-<div id="sol-body-30" class="solution-body" style="display: none;">
+<div id="sol-body-13" class="solution-body" style="display: none;">
 <p>The <strong>Riemann sum approximation</strong> exists if both the <a href="sub-continuity.html#sub:completeness">lower bounds</a> and <a href="sub-continuity.html#sub:completeness">upper bounds</a> of <span class="math inline">\(f(x)\)</span> in those subintervals converge to the same value. Consider a <em>partition</em> <span class="math inline">\(\mathcal{P}=\{x_{0},x_{1},\dots,x_{n}\}\)</span> where <span class="math display">\[a=x_{0}&lt;x_{1}&lt;\cdots&lt;x_{n}=b.\]</span>
 For each subinterval <span class="math inline">\([x_{k-1},x_{k}]\in\mathcal{P}\)</span>, let <span class="math inline">\(m_{k}=\inf\{f(x):\, x\in[x_{k-1},x_{k}]\}\)</span> and <span class="math inline">\(M_{k}=\sup\{f(x):\, x\in[x_{k-1},x_{k}]\}\)</span>. The areas of these upper and lower approximations are called <em>upper and lower sums</em> of the partition. The <strong>lower sum</strong> of <span class="math inline">\(f\)</span> with respect to <span class="math inline">\(\mathcal{P}\)</span> is given by <span class="math display">\[L(f,\mathcal{P})=\sum_{k=1}^{n}m_{k}(x_{k}-x_{k-1}).\]</span>
 Similarly, the <strong>upper sum</strong> of <span class="math inline">\(f\)</span> with respect to <span class="math inline">\(\mathcal{P}\)</span> is <span class="math display">\[U(f,\mathcal{P})=\sum_{k=1}^{n}M_{k}(x_{k}-x_{k-1}).\]</span>
@@ -368,9 +369,9 @@ It means that we can extend the integrability to a set of infinite discontinuiti
 </ul>
 <div class="solution">
 <p class="solution-begin">
-Proof <span id="sol-start-31" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-31', 'sol-start-31')"></span>
+Proof <span id="sol-start-14" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-14', 'sol-start-14')"></span>
 </p>
-<div id="sol-body-31" class="solution-body" style="display: none;">
+<div id="sol-body-14" class="solution-body" style="display: none;">
 <p>Assume that <span class="math inline">\(x_{0}\)</span> is a maximum. Since <span class="math inline">\(f(x^{*}+\epsilon)-f(x^{*})\leq0\)</span> and <span class="math inline">\(f(x^{*})-f(x^{*}-\epsilon)\geq0\)</span>, the limits yield
 <span class="math display">\[\left.\frac{\mbox{d}f(x)}{\mbox{d}x}\right|_{x=x^{*}} =\lim_{\epsilon\rightarrow0}\frac{f(x^{*}+\epsilon)-f(x^{*})}{\epsilon}\leq0
     \leq\lim_{\epsilon\rightarrow0}\frac{f(x^{*})-f(x^{*}-\epsilon)}{\epsilon}=\left.\frac{\mbox{d}f(x)}{\mbox{d}x}\right|_{x=x^{*}}.\]</span></p>
@@ -388,9 +389,9 @@ Proof <span id="sol-start-31" class="fa fa-plus-square solution-icon clickable" 
 </ul>
 <div class="solution">
 <p class="solution-begin">
-Proof <span id="sol-start-32" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-32', 'sol-start-32')"></span>
+Proof <span id="sol-start-15" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-15', 'sol-start-15')"></span>
 </p>
-<div id="sol-body-32" class="solution-body" style="display: none;">
+<div id="sol-body-15" class="solution-body" style="display: none;">
 <p>Case 1: Consider <span class="math inline">\(f(a)=f(b)=0\)</span>. If the maximum and minimum values of <span class="math inline">\(f\)</span> are both zero, then <span class="math inline">\(f\)</span>
 is constant and <span class="math inline">\(\mbox{d}f(x)/\mbox{d}x|_{x=c}=0\)</span> for all <span class="math inline">\(c\in(a,b)\)</span>. Otherwise, either the maximum is greater than <span class="math inline">\(0\)</span>, or the minimum is less than <span class="math inline">\(0\)</span>. In either case, there is a point <span class="math inline">\(c\in(a,b)\)</span> at which <span class="math inline">\(f\)</span> attains the extreme value. By <strong>Fermat’s theorem</strong>, <span class="math display">\[\left.\frac{\mbox{d}f(x)}{\mbox{d}x}\right|_{x=c}=\frac{f(b)-f(a)}{b-a}=0.\]</span></p>
 <p>Case 2: Now rescale the curve. Let <span class="math inline">\(L(x)\)</span> be the linear function through <span class="math inline">\((a,f(a))\)</span> and <span class="math inline">\((b,f(b))\)</span>
@@ -470,7 +471,7 @@ In practice, one can only use the first <span class="math inline">\(n\)</span> t
 <a href="ch-DE.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-01-29
+2020-02-18
 </p>
 </div>
 </div>

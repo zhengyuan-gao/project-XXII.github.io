@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="9 Calculus under Uncertainty | Project XXII" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Zhengyuan Gao" />
+
+<meta name="date" content="2020-02-18" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="9 Calculus under Uncertainty | Project XXII">
+
+<title>9 Calculus under Uncertainty | Project XXII</title>
+
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding/datatables.js"></script>
+<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul class="navbar">
+<li class="msmb"><p class="title">Project XXII<p><p class="author">Zhengyuan Gao</p>
+<li class="dropdown" style="float:right">
+<a href="javascript:void(0)" class="dropbtn">&#x25BA; Chapters</a>
+<div class="dropdown-content">
+<a href="index.html">Preface</a>
+<a href="part-i-inference-based-upon-logic-and-logical-computation.html">PART I: Inference Based upon Logic and Logical Computation</a>
+<a href="sub-logic.html"><span class="toc-section-number">1</span> Logic</a>
+<a href="sub-set-theory.html"><span class="toc-section-number">2</span> Set Theory</a>
+<a href="sub-axioms.html"><span class="toc-section-number">3</span> Axioms</a>
+<a href="sub-inferknow.html"><span class="toc-section-number">4</span> Inference and Knowledge</a>
+<a href="sub-incomplete.html"><span class="toc-section-number">5</span> Incompleteness</a>
+<a href="part-ii-infinitesimal-changes-and-their-consequences.html">PART II: Infinitesimal Changes and their Consequences</a>
+<a href="sub-continuity.html"><span class="toc-section-number">6</span> Continuity</a>
+<a href="sub-calculus.html"><span class="toc-section-number">7</span> Calculus</a>
+<a href="ch-DE.html"><span class="toc-section-number">8</span> Differential Equations</a>
+<a id="active-page" href="ch-CalUn.html"><span class="toc-section-number">9</span> Calculus under Uncertainty</a><ul class="toc-sections">
+<li class="toc"><a href="#sub:rv"> Random Variables and Distributions</a></li>
+<li class="toc"><a href="#sub:divRV"> Divisibility and Infinite Divisibility of Random Variables</a></li>
+</ul>
+<a href="bibliography.html">Bibliography</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div id="ch:CalUn" class="section level1">
+<h1>
+<span class="header-section-number">9</span> Calculus under Uncertainty</h1>
+<p>In history, perhaps ironically, the concepts of <a href="ch-CalUn.html#sub:rv">randomness</a>, <a href="">expectation</a>, and <a href="sub-incomplete.html#sub:beyond2">probability</a> were systematically formed with the emergence of mechanical determinism. The studies of gamblings, lotteries, and dices in the 17th century contributed to the understanding of the tendency to produce stable relative frequencies. The economic needs, for example, actuarial competencies for insurance and annuities, were also in response to the demand for a special calculus to govern the nations under the economic uncertainty.</p>
+<p>Also, in the 17th century, Blaise Pascal extended the scope of <a href="sub-incomplete.html#sub:beyond2">probability theory</a> from the secular games of chance to the epistemology. Pascal gave some <em>game-theoretic</em> considerations that concern belief in God, which is known as <em>Pascal’s wager</em> (le pari de Pascal), and which also marked the initiative of <em>decision theory</em>, a theory of deciding what to do when it is uncertain what will happen.</p>
+<p><strong>Pascal’s wager</strong> of God can be summarized by the four possibilities listed in the following table:</p>
+<table>
+<thead><tr class="header">
+<th align="left">Worship</th>
+<th align="center">Existence</th>
+<th align="center">Non-existence</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Belief</td>
+<td align="center">infinite gain</td>
+<td align="center">finite loss</td>
+</tr>
+<tr class="even">
+<td align="left">Disbelief</td>
+<td align="center">infinite loss</td>
+<td align="center">finite gain</td>
+</tr>
+</tbody>
+</table>
+<p>According to this table, belief in God is better off, a dominating pay-off amongst the four, thus Pascal advocated the belief. He transferred the structure of reasoning about games of chance to the <a href="sub-inferknow.html#sub:inferknow">inference</a> that is not founded on any chance set-up but on two possible states of faith.</p>
+<p>Nowadays, <strong>Pascal’s wager</strong> is not considered as a convincing argument.<label for="tufte-sn-120" class="margin-toggle sidenote-number">120</label><input type="checkbox" id="tufte-sn-120" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">120</span> One major suspicion (proposed by William James) is that a person who becomes a believers for the reasons urged by Pascal is not going to get the pay-offs listed in the table. In fact, this suspicion can be extended to all game-theoretic analyses when the measurements of pay-offs are unreliable. </span> But it is a reasonable starting point to consider the <em>dual roles</em> of <a href="sub-incomplete.html#sub:beyond2">probability</a>. On one side, the probability tends to give an objective fact of nature independent of anyone’s knowledge or evidence; on the other side, the probability is also connected with one’s belief warranted by the evidence. These two distinct understandings of probability often cause ambiguity.</p>
+<p>Perhaps it is better returned to the Aristotelian opinion about the truth:</p>
+<blockquote>
+<p>Truth exists; we can know it, but not always.</p>
+</blockquote>
+<p>The existence of truth presupposes that probability is a substitute to describe our knowledge of the truth under uncertainty. <a href="ch-CalUn.html#sub:rv">Uncertainty</a> is in our minds, not in objects. Our conception of truth - indeed our conception of anything - must inevitably be anchored in a metaphysical ground created by ourselves. This ground could be “incomplete.” Only sometimes we can measure the truth, and there are good and bad ways of doing it. Therefore, it is critical to consider these dual roles of probability as an integrated object.</p>
+<div id="sub:rv" class="section level2">
+<h2>
+<span class="header-section-number">9.1</span> Random Variables and Distributions</h2>
+<p>We have seen that a <a href="sub-logic.html#sub:zeroth">proposition</a> is a <a href="sub-incomplete.html#sub:beyond2">probability event</a>. <strong>Randomness</strong> existed when the probability of a proposition given stated evidence or model is not <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. <em>Randomness</em> is a synonym for the unknown. Randomness reflects the absence of knowledge of the cause or of what determines whether a proposition is true. It is a property measuring the <em>uncertainty</em> and expressing ignorance of causes.</p>
+<p>An event or a state is random only if it is unknown (in its totality). The <strong>random variable</strong> represents such an unknown quantity. Variables are propositions that take specific values, meanwhile some thing(s) will cause such eventual values. Thus, the random variable refers to the <a href="sub-logic.html#sub:zeroth">proposition</a> with an unknown cause.</p>
+<ul>
+<li>
+<em>Random variable</em>: Suppose that we have the probability <span class="math inline">\(\mathbb{P}:\mathcal{X}\rightarrow[0,1]\)</span> that maps events in <span class="math inline">\(\mathcal{X}\)</span> to <span class="math inline">\([0,1]\)</span>. Suppose that these events of <span class="math inline">\(\mathcal{X}\)</span> are unknown. A random variable <span class="math inline">\(Y\)</span> is a <strong>measurable map</strong><label for="tufte-sn-121" class="margin-toggle sidenote-number">121</label><input type="checkbox" id="tufte-sn-121" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">121</span> Intuitively, the <em>measurable map</em> is analogous to a <a href="sub-continuity.html#sub:continuousFunc">continuous function</a> that preserves the <a href="sub-incomplete.html#sub:beyond2"><span class="math inline">\(\sigma\)</span>-algebra</a> structure of the <a href="sub-incomplete.html#sub:beyond2">probability space</a> <span class="math inline">\((\mathcal{X},\sigma(\mathcal{X}),\mathbb{P})\)</span>. Technically, the measurable means that, for every <span class="math inline">\(y\)</span>, <span class="math inline">\(\{x:\, Y(x)\leq y\}\in\sigma(\mathcal{X})\)</span>.</span> <span class="math display">\[Y:\,\mathcal{X}\rightarrow\mathbb{R}\]</span>
+that assigns a real number <span class="math inline">\(y\in\mathbb{R}\)</span> to each possible outcome in <span class="math inline">\(\mathcal{X}\)</span>.</li>
+</ul>
+<p>We use capital letters for <strong>random variables</strong> and lower case letters for their possible values. An important convention is that we can describe a random variable <span class="math inline">\(Y\)</span> without having to describe the cause <span class="math inline">\(x\)</span>. The probability of the underlying unknown events is equivalent to the probability of the random variable:
+<span class="math display">\[\mathbb{P}\left\{ \left.x\in\mathcal{X}\right|\; Y(x)=y\right\} =\mathbb{P}(Y=y).\]</span>
+If we consider a set <span class="math inline">\(\mathcal{Y}\)</span> of possible values of <span class="math inline">\(Y\)</span>, then the equality becomes <span class="math display">\[\mathbb{P}\left\{ \left.x\in\mathcal{X}\right|\; Y(x)\in\mathcal{Y}\right\} =\mathbb{P}(Y\in\mathcal{Y}).\]</span></p>
+<p>Let’s consider an experiment of tossing a (fair) coin three times. Let <span class="math inline">\(Y\)</span> be the number of heads (H) until the first tail (T), and let <span class="math inline">\(Z\)</span> be the total number of heads. The results of the tosses are unknown yet. Thus both <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> are <strong>random variables</strong>. We have the following tables for this experiment<label for="tufte-sn-122" class="margin-toggle sidenote-number">122</label><input type="checkbox" id="tufte-sn-122" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">122</span> If you don’t know the specific three outcomes of the tosses, the proposition “total number of heads is 1” is not known to be true because you don’t know the cause (three outcomes) and because there is no other information that would let you deduce the outcomes.</span>:</p>
+<table>
+<colgroup>
+<col width="13%">
+<col width="10%">
+<col width="10%">
+<col width="10%">
+<col width="10%">
+<col width="10%">
+<col width="10%">
+<col width="10%">
+<col width="10%">
+</colgroup>
+<thead><tr class="header">
+<th align="left"><span class="math inline">\(x\)</span></th>
+<th align="center">HHH</th>
+<th align="center">HHT</th>
+<th align="center">HTH</th>
+<th align="center">HTT</th>
+<th align="center">THH</th>
+<th align="center">THT</th>
+<th align="center">TTH</th>
+<th align="center">TTT</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\mathbb{P}(\{x\})\)</span></td>
+<td align="center"><span class="math inline">\(\frac{1}{8}\)</span></td>
+<td align="center"><span class="math inline">\(\frac{1}{8}\)</span></td>
+<td align="center"><span class="math inline">\(\frac{1}{8}\)</span></td>
+<td align="center"><span class="math inline">\(\frac{1}{8}\)</span></td>
+<td align="center"><span class="math inline">\(\frac{1}{8}\)</span></td>
+<td align="center"><span class="math inline">\(\frac{1}{8}\)</span></td>
+<td align="center"><span class="math inline">\(\frac{1}{8}\)</span></td>
+<td align="center"><span class="math inline">\(\frac{1}{8}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(Y(x)\)</span></td>
+<td align="center"><span class="math inline">\(3\)</span></td>
+<td align="center"><span class="math inline">\(2\)</span></td>
+<td align="center"><span class="math inline">\(1\)</span></td>
+<td align="center"><span class="math inline">\(1\)</span></td>
+<td align="center"><span class="math inline">\(0\)</span></td>
+<td align="center"><span class="math inline">\(0\)</span></td>
+<td align="center"><span class="math inline">\(0\)</span></td>
+<td align="center"><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(Z(x)\)</span></td>
+<td align="center"><span class="math inline">\(3\)</span></td>
+<td align="center"><span class="math inline">\(2\)</span></td>
+<td align="center"><span class="math inline">\(2\)</span></td>
+<td align="center"><span class="math inline">\(1\)</span></td>
+<td align="center"><span class="math inline">\(2\)</span></td>
+<td align="center"><span class="math inline">\(1\)</span></td>
+<td align="center"><span class="math inline">\(1\)</span></td>
+<td align="center"><span class="math inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="23%">
+<col width="19%">
+<col width="19%">
+<col width="19%">
+<col width="19%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Observation or Relization</th>
+<th align="center"><span class="math inline">\(y=3\)</span></th>
+<th align="center"><span class="math inline">\(y=2\)</span></th>
+<th align="center"><span class="math inline">\(y = 1\)</span></th>
+<th align="center"><span class="math inline">\(y=0\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Probability of <span class="math inline">\(Y\)</span>: <span class="math inline">\(\mathbb{P}_Y(y)\)</span>
+</td>
+<td align="center"><span class="math inline">\(\frac{1}{8}\)</span></td>
+<td align="center"><span class="math inline">\(\frac{1}{8}\)</span></td>
+<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
+<td align="center"><span class="math inline">\(\frac{1}{2}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Probability of <span class="math inline">\(Z\)</span>: <span class="math inline">\(\mathbb{P}_{Z}(z)\)</span>
+</td>
+<td align="center"><span class="math inline">\(\frac{1}{8}\)</span></td>
+<td align="center"><span class="math inline">\(\frac{3}{8}\)</span></td>
+<td align="center"><span class="math inline">\(\frac{3}{8}\)</span></td>
+<td align="center"><span class="math inline">\(\frac{1}{8}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Notice the outcomes of <span class="math inline">\(\mathcal{X}\)</span> are equally distributed because we assume the coin is a fair coin. Otherwise, one side may be more likely to appear than the other, and the outcomes cannot be equal. For a finite set <span class="math inline">\(\mathcal{A}\)</span> of objects in <span class="math inline">\(\mathcal{X}\)</span>, if each outcome is equally likely, then we can define<span class="math display">\[\mathbb{P}(\mathcal{A})=\frac{\mbox{size of }\mathcal{A}}{\mbox{size of }\mathcal{X}},\]</span>
+which is called the <em>uniform distribution</em>. The probability of <span class="math inline">\(Z\)</span> and <span class="math inline">\(Y\)</span> above are calculated based on the <strong>uniform distribution</strong>. For example, <span class="math display">\[\mathbb{P}(Y=1)=\mathbb{P}\left\{ \left.x\in\mbox{HTH, HTT}\right|\; Y(x)=1\right\} =\frac{1}{8}+\frac{1}{8}=\frac{1}{4}.\]</span></p>
+<p>The calculation of the probabilities depends on the <strong>distribution</strong> of the <strong>random variables</strong>. The <strong>(cumulative) distribution function</strong> of the random variable is called its <a href="sub-incomplete.html#sub:beyond2">probability law</a>. The <em>distribution function</em> is defined as <span class="math inline">\(F(y)=\mathbb{P}(Y\leq y)\)</span>. Especially, for any interval <span class="math inline">\((a,b]\)</span> we have<span class="math display">\[:\mathbb{P}(a&lt;Y\leq b)=\mathbb{P}(Y\leq b)-\mathbb{P}(Y\leq a)=F(b)-F(a).\]</span> A consequence of this formula is that if <span class="math inline">\(a&lt;b\)</span>, then <span class="math inline">\(F(a)\leq F(b)\)</span> so <span class="math inline">\(F(\cdot)\)</span> is a non-decreasing function. It is also easy to see that as <span class="math inline">\(y\rightarrow-\infty\)</span>, <span class="math inline">\(F(y)\rightarrow0\)</span> and as <span class="math inline">\(y\rightarrow\infty\)</span>, <span class="math inline">\(F(y)\rightarrow1\)</span>.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:cdfpd"></span>
+<img src="fig/Part2/cdfpd.png" alt="Cumulative distribution function and probability mass (histogram)" width="100%"><!--
+<p class="caption marginnote">-->Figure 9.1: Cumulative distribution function and probability mass (histogram)<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>If the possible values of a random variables <span class="math inline">\(Y\)</span> are <a href="sub-axioms.html#sub:axSet">countable</a>, such as <span class="math inline">\(\{y_{1},y_{2}\dots,\}\)</span>, then <span class="math inline">\(Y\)</span> is a <em>discrete random variable</em>. The <strong>distribution function</strong> of <span class="math inline">\(Y\)</span> is a step function (see figure <a href="ch-CalUn.html#fig:cdfpd">9.1</a>). If this step function <span class="math inline">\(F(\cdot)\)</span> of <span class="math inline">\(Y\)</span> has a jump of size <span class="math inline">\(k\)</span> at one point <span class="math inline">\(a\)</span>, then we have <span class="math inline">\(\mathbb{P}(Y=a)=k\)</span>.<label for="tufte-sn-123" class="margin-toggle sidenote-number">123</label><input type="checkbox" id="tufte-sn-123" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">123</span> For any positive <span class="math inline">\(\epsilon\)</span>, there is<span class="math display">\[\begin{align*} \mathbb{P}(Y=a)   =&amp;\mathbb{P}(Y\leq a)-\mathbb{P}(Y&lt;a)\\
+    =&amp;F(a)-\lim_{\epsilon\rightarrow0}\mathbb{P}(Y\leq a-\epsilon)\\
+    =&amp;F(a)-\lim_{\epsilon\rightarrow0}F(a-\epsilon)=k. \end{align*}\]</span>
+Because <span class="math inline">\(F\)</span> is <a href="sub-continuity.html#sub:continuousFunc">discontinuous</a> at <span class="math inline">\(a\)</span>, the difference <span class="math inline">\(F(a)-\lim_{\epsilon\rightarrow0}F(a-\epsilon)\)</span> equals to the size of the jump.</span> For any value <span class="math inline">\(y\in\{y_{1},y_{2}\dots,\}\)</span>, the <strong>discrete probability</strong> <span class="math inline">\(f(y)=\mathbb{P}(Y=y)\)</span> is called as the <em>probability mass function</em>. The distribution of this <strong>discrete variable</strong> is given by <span class="math display">\[F(y)=\mathbb{P}(Y\leq y)=\sum_{y_{i}\leq y}f(y_{i})\]</span> for countably many <span class="math inline">\(y_{i}\)</span>.</p>
+<div class="solution">
+<p class="solution-begin">
+R code for plotting distribution function <span id="sol-start-22" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-22', 'sol-start-22')"></span>
+</p>
+<div id="sol-body-22" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">y =<span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">3</span>; <span class="co"># values of y</span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">py =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">8</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">8</span>); <span class="co"># corresponding probability mass </span></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">cdfy =<span class="st"> </span><span class="kw">cumsum</span>(py); <span class="co"># cumulative distribution function </span></a>
+<a class="sourceLine" id="cb16-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb16-5" data-line-number="5"><span class="co"># plot </span></a>
+<a class="sourceLine" id="cb16-6" data-line-number="6"><span class="kw">library</span>(ggplot2) </a>
+<a class="sourceLine" id="cb16-7" data-line-number="7">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,py,cdfy)</a>
+<a class="sourceLine" id="cb16-8" data-line-number="8">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, cdfy))</a>
+<a class="sourceLine" id="cb16-9" data-line-number="9">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(y,py), <span class="dt">fill=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_step</span>(<span class="kw">aes</span>(y,cdfy), <span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>If there exists a function <span class="math inline">\(f\)</span> such that for all <span class="math inline">\(y\)</span> <span class="math inline">\(f(y)\geq0\)</span>, <span class="math inline">\(\int_{-\infty}^{\infty}f(y)\mbox{d}y=1\)</span> and for every <span class="math inline">\(a\leq b\)</span>, <span class="math display">\[\mathbb{P}(a&lt;Y\leq b)=\int_{a}^{b}f(y)\mbox{d}y,\]</span>
+then <span class="math inline">\(Y\)</span> is a <em>continuous random variable</em>. The function <span class="math inline">\(f\)</span> is called the <em>probability density function</em>. In particular, there is<span class="math display">\[\mathbb{P}(Y\leq y)=F(y)=\int_{-\infty}^{y}f(s)\mbox{d}s,\;\mbox{and }f(s)=\left.\frac{\mbox{d}F(y)}{\mbox{d}y}\right|_{y=s},\]</span>
+which also implies the distribution of a <strong>continuous random variable</strong> is <a href="sub-calculus.html#sub:diffInt">differentiable</a>. There are infinitely many ways of generating a distribution function. But it turns out that in practice people only consider a few families of <strong>distribution functions</strong>. The <em>family of distribution functions</em> means a parameterized distribution function such as <span class="math inline">\(F(y,\theta)\)</span> where the parameter <span class="math inline">\(\theta\)</span> is also an <a href="sub-set-theory.html#sub:func">input</a> of the distribution function but <span class="math inline">\(\theta\)</span> has nothing to do with the value of <span class="math inline">\(y\)</span>. The <strong>parameters</strong> allow distribution to take on a variety of shapes, as a different value of <span class="math inline">\(\theta\)</span> gives a different shape of the distribution function.</p>
+<p>There are multiple ways to explain why only these families are used.<label for="tufte-sn-124" class="margin-toggle sidenote-number">124</label><input type="checkbox" id="tufte-sn-124" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">124</span> As a matter of fact, all these families more or less connect to one universal family called <em>exponential family</em>. We will come back to this point when we see the law of parsimony in Ch[?].</span> Given our current background, it would be better to consider the viewpoint that these families can generate some kinds of <a href="sub-inferknow.html#sub:dyn">self-similar</a> features. To be more specific, suppose we have two random variables <span class="math inline">\(Y_{1}\)</span> and <span class="math inline">\(Y_{2}\)</span>. Their distribution functions, say <span class="math inline">\(F(y,\theta_{1})\)</span> and <span class="math inline">\(F(y,\theta_{2})\)</span>, are from the same family, then we would expect that the distribution of <span class="math inline">\(Y_{1}+Y_{2}\)</span> is also from the family, for example <span class="math inline">\(F(y,\theta_{1}+\theta_{2})\)</span>. This property is the <strong>divisibility in probability</strong>, and if the property can be extended to <a href="sub-incomplete.html#sub:infinity">infinitely</a> many sums, then it is <strong>infinite divisibility</strong>. We will use four representative distribution families to demonstrate these properties in the following section.</p>
+</div>
+<div id="sub:divRV" class="section level2">
+<h2>
+<span class="header-section-number">9.2</span> Divisibility and Infinite Divisibility of Random Variables</h2>
+<p><span class="newthought">Binomial random variable </span></p>
+<p>A <em>binomial random variable</em> is a variable associating with binary response variables <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. In any random trial, we can always partition the sample by the successful outcomes and the failure outcomes. The <strong>binomial distribution</strong> arises from the context of a sequence of the <strong>independent</strong> trials or experiments.</p>
+<ul>
+<li>
+<em>Independence</em>: For two event sets <span class="math inline">\(\mathcal{A}\)</span> and <span class="math inline">\(\mathcal{B}\)</span>, if <span class="math inline">\(\mathbb{P}(\mathcal{A}\cap\mathcal{B})=\mathbb{P}(\mathcal{A})\mathbb{P}(\mathcal{B})\)</span>, then two events are <strong>independent</strong>. For two <a href="ch-CalUn.html#sub:rv">random variables</a>, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, if <span class="math inline">\(\mathbb{P}(AB)=\mathbb{P}(A)\mathbb{P}(B)\)</span>, then two variables are <strong>independent</strong>.<label for="tufte-sn-125" class="margin-toggle sidenote-number">125</label><input type="checkbox" id="tufte-sn-125" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">125</span> For random variables <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, let <a href="sub-incomplete.html#sub:beyond2"><span class="math inline">\(\sigma\)</span>-algebras</a> of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be <span class="math inline">\(\sigma(A)\)</span> and <span class="math inline">\(\sigma(B)\)</span>. Then the <strong>independence</strong> of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> means that <span class="math inline">\(\sigma(A)\)</span> and <span class="math inline">\(\sigma(B)\)</span> are independent such that <span class="math inline">\(\mathbb{P}(\mathcal{A}\cap\mathcal{B})=\mathbb{P}(\mathcal{A})\mathbb{P}(\mathcal{B})\)</span> for <span class="math inline">\(\mathcal{A}\in\sigma(A)\)</span> and <span class="math inline">\(\mathcal{B}\in\sigma(B)\)</span>.</span>
+</li>
+</ul>
+<p>For <span class="math inline">\(k\)</span> <strong>independent</strong> trails, we suppose that each trial is successful with probability <span class="math inline">\(p\)</span> and unsuccessful with <span class="math inline">\(1-p\)</span>. Let <span class="math inline">\(Y\)</span> be the number of successes in <span class="math inline">\(k\)</span> independent trials. Then <span class="math inline">\(Y\)</span> is said to have a <strong>binomial distribution</strong> with parameters <span class="math inline">\(k\)</span> and <span class="math inline">\(p\)</span>. When the <a href="ch-CalUn.html#sub:rv">random variable</a> <span class="math inline">\(Y\)</span> is distributed with respect to the binomial distribution with parameters <span class="math inline">\(k\)</span> and <span class="math inline">\(p\)</span>, we write <span class="math inline">\(Y\sim\mbox{binom}(k,p)\)</span>. The probability mass function is <span class="math display">\[\mathbb{P}(Y=y)=\binom{k}{y}p^{y}(1-p)^{k-y},\:\mbox{for }y=0,1,\dots,k.\]</span>
+It is straightforward to generate binomial probability mass function and its distribution function by computer. From figure <a href="ch-CalUn.html#fig:bincdf">9.2</a>, we can see that given <span class="math inline">\(k=20\)</span>, the distribution shifts toward the right when <span class="math inline">\(p\)</span> increases from <span class="math inline">\(0.3\)</span> to <span class="math inline">\(0.8\)</span>.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:bincdf"></span>
+<img src="fig/Part2/bincdf.gif" alt="Binomial distribution function with k=20, p=0.3, 0.5., 0.8, respectively" width="100%"><!--
+<p class="caption marginnote">-->Figure 9.2: Binomial distribution function with k=20, p=0.3, 0.5., 0.8, respectively<!--</p>-->
+<!--</div>--></span>
+</p>
+<div class="solution">
+<p class="solution-begin">
+R code for binomial distribution function <span id="sol-start-23" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-23', 'sol-start-23')"></span>
+</p>
+<div id="sol-body-23" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># Create a sample of 20 numbers which are incremented by 1. </span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="dt">by =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="co"># Create the binomial density.</span></a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">den1 =<span class="st"> </span><span class="kw">dbinom</span>(y,<span class="dv">20</span>,<span class="fl">0.3</span>); den2 =<span class="st"> </span><span class="kw">dbinom</span>(y,<span class="dv">20</span>,<span class="fl">0.5</span>); den3 =<span class="st"> </span><span class="kw">dbinom</span>(y,<span class="dv">20</span>,<span class="fl">0.8</span>)</a>
+<a class="sourceLine" id="cb17-5" data-line-number="5"><span class="co"># Create the cumulative distribution function</span></a>
+<a class="sourceLine" id="cb17-6" data-line-number="6">cdf1 =<span class="st"> </span><span class="kw">cumsum</span>(den1); cdf2 =<span class="st"> </span><span class="kw">cumsum</span>(den2); cdf3 =<span class="st"> </span><span class="kw">cumsum</span>(den3) </a>
+<a class="sourceLine" id="cb17-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb17-8" data-line-number="8"><span class="co"># Plot</span></a>
+<a class="sourceLine" id="cb17-9" data-line-number="9">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,den1,cdf1,den2,cdf2,den3,cdf3)</a>
+<a class="sourceLine" id="cb17-10" data-line-number="10"><span class="kw">png</span>(<span class="dt">file =</span> <span class="st">"dbinom.png"</span>)</a>
+<a class="sourceLine" id="cb17-11" data-line-number="11">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, cdf1))</a>
+<a class="sourceLine" id="cb17-12" data-line-number="12">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(y,den1), <span class="dt">fill=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_step</span>(<span class="kw">aes</span>(y,cdf1), <span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>, <span class="dt">title=</span><span class="st">"k=20, p=0.3"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb17-13" data-line-number="13"><span class="kw">dev.off</span>()</a></code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Given a fixed <span class="math inline">\(p\)</span>, and let <span class="math inline">\(Y_{1}\sim\mbox{binom}(k,p)\)</span> and <span class="math inline">\(Y_{2}\sim\mbox{binom}(m,p)\)</span>, the sum of two binomial distributions is still in the same family. That is, if <span class="math inline">\(Y_{1}\)</span> and <span class="math inline">\(Y_{2}\)</span> are <strong>independent</strong>, then the <a href="ch-CalUn.html#sub:rv">random variable</a> <span class="math inline">\(Z=Y_{1}+Y_{2}\)</span> also has a <strong>binomial distribution</strong>, specifically <span class="math inline">\(Z\sim\mbox{binom}(k+m,\, p)\)</span>.</p>
+<p>To see this result, we need to know that the probability distribution of the sum of two or more independent random variables is the <strong>convolution</strong> of their distributions. Let <span class="math inline">\(Y_{1}\)</span> and <span class="math inline">\(Y_{2}\)</span> be two <strong>independent</strong> <a href="ch-CalUn.html#sub:rv">random variables</a> and let <span class="math inline">\(Z=Y_{1}+Y_{2}\)</span>. If <span class="math inline">\(Y_{1}\)</span> and <span class="math inline">\(Y_{2}\)</span> are <a href="ch-CalUn.html#sub:rv">discrete random variables</a> on <span class="math inline">\((-\infty,\infty)\)</span> with probability mass functions <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>, then the <a href="ch-CalUn.html#sub:rv">distribution</a> of <span class="math inline">\(Z\)</span>
+is a <strong>convolution</strong> <span class="math display">\[\mathbb{P}(Z=z)=\sum_{k=-\infty}^{\infty}f(Y_{1}=k)g(Y_{2}=z-k).\]</span>
+If <span class="math inline">\(Y_{1}\)</span> and <span class="math inline">\(Y_{2}\)</span> are <a href="ch-CalUn.html#sub:rv">continuous random variables</a> on <span class="math inline">\((-\infty,\infty)\)</span> with densities <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>, then the <a href="ch-CalUn.html#sub:rv">distribution</a> of <span class="math inline">\(Z\)</span>
+is<span class="math display">\[\mathbb{P}(z)=\int_{-\infty}^{\infty}f(z-y)g(y)\mbox{d}y=\int_{-\infty}^{\infty}f(y)g(z-y)\mbox{d}y.\]</span>
+We often use <span class="math inline">\(\mathbb{P}(z)=(f\star g)(z)\)</span> to denote the <strong>convolution</strong> of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>. The analytical derivation of convolution is often non-trivial, because of the sum or the integral of two non-linear functions. However, computer can easily implement the numerical convolution.</p>
+<div class="solution">
+<p class="solution-begin">
+Proof of convolution of two binomial random variables <span id="sol-start-24" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-24', 'sol-start-24')"></span>
+</p>
+<div id="sol-body-24" class="solution-body" style="display: none;">
+<p>Now consider <span class="math inline">\(Z=Y_{1}+Y_{2}\)</span> with <span class="math inline">\(Y_{1}\sim\mbox{binom}(k,p)\)</span> and <span class="math inline">\(Y_{2}\sim\mbox{binom}(m,p)\)</span>. The <strong>convolution</strong> implies <span class="math display">\[\begin{align*} \mathbb{P}(Z=n)=&amp; \sum_{i=0}^{n}\mathbb{P}(Y_{1}=i)\mathbb{P}(Y_{2}=n-i) \\
+=&amp;  \sum_{i=0}^{n}\left[\binom{k}{i}p^{i}(1-p)^{k-i}\right]\left[\binom{m}{n-i}p^{n-i}(1-p)^{m-n+i}\right] \\
+=&amp;  \binom{k+m}{n}p^{n}(1-p)^{k+m-n}.\end{align*}\]</span>
+where <span class="math inline">\(\sum_{i=0}^{n}\binom{k}{i}\binom{m}{n-i}=\sum_{i=0}^{n}\frac{k!}{i!(k-i)!}\times\frac{m!}{(n-i)!(m-n+i)!}=\binom{k+m}{n}\)</span> is called the Chu–Vandermonde identity.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:binconv"></span>
+<img src="fig/Part2/binconv.png" alt="Convolution of binom(20,0.3) and binom(30, 0.3), and  binom(50,0.3) " width="100%"><!--
+<p class="caption marginnote">-->Figure 9.3: Convolution of binom(20,0.3) and binom(30, 0.3), and binom(50,0.3) <!--</p>-->
+<!--</div>--></span>
+</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co"># Create a sequence of 50 indexes</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">50</span>,<span class="dt">by =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="co"># Create the binomial density.</span></a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">den1 =<span class="st"> </span><span class="kw">dbinom</span>(y,<span class="dv">20</span>,<span class="fl">0.3</span>)</a>
+<a class="sourceLine" id="cb18-6" data-line-number="6">den2 =<span class="st"> </span><span class="kw">dbinom</span>(y,<span class="dv">30</span>,<span class="fl">0.3</span>)</a>
+<a class="sourceLine" id="cb18-7" data-line-number="7">den3 =<span class="st"> </span><span class="kw">dbinom</span>(y,<span class="dv">50</span>,<span class="fl">0.3</span>)</a>
+<a class="sourceLine" id="cb18-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb18-9" data-line-number="9"><span class="co"># Convolution</span></a>
+<a class="sourceLine" id="cb18-10" data-line-number="10">conv=<span class="kw">convolve</span>(den1,den2, <span class="dt">conj=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb18-11" data-line-number="11">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,den3,conv)</a>
+<a class="sourceLine" id="cb18-12" data-line-number="12">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, den3))</a>
+<a class="sourceLine" id="cb18-13" data-line-number="13">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>(<span class="dt">fill=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(y,conv),<span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st">  </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<ul>
+<li>
+<em>Divisibility</em> and <em>infinite divisibility</em>: <strong>Divisibility</strong> of a random variable <span class="math inline">\(Z\)</span> means that <span class="math inline">\(Z\)</span> can be divided into <strong>independent</strong> parts that have the same distribution. A probability distribution <span class="math inline">\(F\)</span> is <strong>infinitely divisible</strong>, if for every positive integer <span class="math inline">\(n\)</span>, there exist <span class="math inline">\(n\)</span>
+<em>independent identically distributed</em> (i.i.d.) <a href="ch-CalUn.html#sub:rv">random variables</a> <span class="math inline">\(Y_{1},\dots,Y_{n}\)</span> whose sum <span class="math inline">\(Z=Y_{1}+\cdots+Y_{n}\)</span> has the distribution <span class="math inline">\(F\)</span>.<label for="tufte-sn-126" class="margin-toggle sidenote-number">126</label><input type="checkbox" id="tufte-sn-126" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">126</span> 
+The concept of infinite divisibility was introduced to probability in 1929, and later, it was developed in <span class="citation">Kolmogorov (<a href="bibliography.html#ref-Kolmogorov1933">1933</a>)</span>.</span>
+</li>
+</ul>
+<p>According to the definition, if <span class="math inline">\(Z\sim F\)</span> and <span class="math inline">\(Y_{i}\sim F_{n}\)</span> for <span class="math inline">\(i=1,\dots,n\)</span>, then <span class="math display">\[F=\underset{n\mbox{-fold convolution}}{\underbrace{F_{n}\star F_{n}\cdots\star F_{n}}}.\]</span>
+<strong>Infinite divisibility</strong> of distributions is preserved under <strong>convolution</strong>.</p>
+<p>We can see that <strong>binomial distribution</strong> is <strong>divisible</strong>. A <span class="math inline">\(\mbox{binom}(3,p)\)</span> distribution can be divided into three independent and identical <span class="math inline">\(\mbox{binom}(1,p)\)</span> which is also called the <em>Bernoulli distribution</em>. However, there is no further way of dividing <span class="math inline">\(\mbox{binom}(1,p)\)</span> because <span class="math inline">\(\mbox{binom}(1,p)\)</span> is the non-divisible “atom” of this distribution family. Thus, binomial distribution is not infinitely divisible. But infinitely divisible property holds for some kind of limit version of binomial distribution, which is called <strong>Poisson distribution</strong>.</p>
+<p><span class="newthought">Poisson random variable </span></p>
+<p>The <strong>Poisson distribution</strong> is used as a model for rare events and events occurring at random over time or space such as traffic accidents, phone calls, bankrupt, or annual deaths by horse kicks in the Prussian army from 1875-1894, etc.. A <em>Poisson distribution</em> comes with the paramter <span class="math inline">\(\lambda\in[0,\infty)\)</span> that stands for the occuring rate of those events. Let <span class="math inline">\(Y\sim\mbox{Poi}(\lambda)\)</span>, the <a href="ch-CalUn.html#sub:rv">probability mass function</a> is
+<span class="math display">\[\mathbb{P}(Y=y)=\mbox{e}^{-\lambda}\frac{\lambda^{y}}{y!},\; y=1,2,\dots.\]</span>
+If <span class="math inline">\(Y_{1}\sim\mbox{Poi}(\lambda_{1})\)</span> and <span class="math inline">\(Y_{2}\sim\mbox{Poi}(\lambda_{2})\)</span>, then <span class="math inline">\(Y_{1}+Y_{2}\sim\mbox{Poi}(\lambda_{1}+\lambda_{2})\)</span> which means Poisson distribution is <strong>divisible</strong>.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:poicdf"></span>
+<img src="fig/Part2/poicdf.gif" alt="Poisson distribution function with different parameters" width="100%"><!--
+<p class="caption marginnote">-->Figure 9.4: Poisson distribution function with different parameters<!--</p>-->
+<!--</div>--></span>
+</p>
+<div class="solution">
+<p class="solution-begin">
+R code for Poisson distribution function <span id="sol-start-25" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-25', 'sol-start-25')"></span>
+</p>
+<div id="sol-body-25" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># Create a sample of 20 numbers which are incremented by 1. </span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="dt">by =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="co"># Create the binomial density.</span></a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">den1 =<span class="st"> </span><span class="kw">dpois</span>(y,<span class="fl">0.5</span>); den2 =<span class="st"> </span><span class="kw">dpois</span>(y,<span class="fl">1.5</span>); den3 =<span class="st"> </span><span class="kw">dpois</span>(y,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb19-5" data-line-number="5"><span class="co"># Create the cumulative distribution function</span></a>
+<a class="sourceLine" id="cb19-6" data-line-number="6">cdf1 =<span class="st"> </span><span class="kw">cumsum</span>(den1); cdf2 =<span class="st"> </span><span class="kw">cumsum</span>(den2); cdf3 =<span class="st"> </span><span class="kw">cumsum</span>(den3) </a>
+<a class="sourceLine" id="cb19-7" data-line-number="7">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,den1,cdf1,den2,cdf2,den3,cdf3)</a>
+<a class="sourceLine" id="cb19-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb19-9" data-line-number="9"><span class="co"># Plot the figure </span></a>
+<a class="sourceLine" id="cb19-10" data-line-number="10"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb19-11" data-line-number="11"><span class="kw">png</span>(<span class="dt">file =</span> <span class="st">"dpois.png"</span>)</a>
+<a class="sourceLine" id="cb19-12" data-line-number="12">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, cdf1))</a>
+<a class="sourceLine" id="cb19-13" data-line-number="13">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(y,den1), <span class="dt">fill=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_step</span>(<span class="kw">aes</span>(y,cdf1), <span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb19-14" data-line-number="14"><span class="kw">dev.off</span>()</a></code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>We can view Poisson distribution as a limit of the binomial distribution. Suppose <span class="math inline">\(Y\sim\mbox{binom}(k,p)\)</span> and suppose for some fixed <span class="math inline">\(\lambda\)</span>, we have <span class="math inline">\(p=\lambda/k\)</span>, then when <span class="math inline">\(k\rightarrow\infty\)</span>, the distribution of <span class="math inline">\(Y\)</span> approximates to <span class="math inline">\(\mbox{Poi}(\lambda)\)</span>.</p>
+<div class="solution">
+<p class="solution-begin">
+Proof of the limit of the sum of binomial random variables <span id="sol-start-26" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-26', 'sol-start-26')"></span>
+</p>
+<div id="sol-body-26" class="solution-body" style="display: none;">
+<p><span class="math display">\[\begin{align*}\mathbb{P}(Y=y) &amp;=\binom{k}{y}p^{y}(1-p)^{k-y}=\binom{k}{y}\left(\frac{\lambda}{k}\right)^{y}\left(1-\frac{\lambda}{k}\right)^{k-y}\\
+&amp;=\frac{k(k-1)\cdots(k-y+1)\lambda^{y}}{y!\times k^{y}}\left(1-\frac{\lambda}{k}\right)^{k}\left(1-\frac{\lambda}{k}\right)^{-y}\\
+&amp;\overset{(a)}{=} 1\cdot\frac{k-1}{k}\cdots\frac{k-y+1}{k}\cdot\frac{\lambda^{y}}{y!}\left(1-\frac{\lambda}{k}\right)^{k}\left(1-\frac{\lambda}{k}\right)^{-y}\\
+&amp; \rightarrow1\cdot1\cdots1\frac{\lambda^{y}}{y!}\mbox{e}^{-\lambda}\cdot1=\mbox{Poi}(\lambda).\end{align*}\]</span>
+Note that <span class="math inline">\(\lim_{k\rightarrow\infty}(1-\frac{\lambda}{k})^{k}=\mbox{e}^{-\lambda}\)</span> in the equality <span class="math inline">\(\overset{(a)}{=}\)</span>.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>By this property, we can see that <strong>Poisson distribution</strong> is <strong>infinite divisible</strong>. That is, for any <span class="math inline">\(n\in\mathbb{N}\)</span>, a <span class="math inline">\(\mbox{Poi}(\lambda)\)</span> distribution can be divided into <span class="math inline">\(n\)</span>
+<strong>independent</strong> <span class="math inline">\(\mbox{Poi}(\lambda/n)\)</span>.</p>
+<p><span class="newthought">Normal (Gaussian) random variable </span></p>
+<p>Both the <strong>binomial distribution</strong> and <strong>Poisson distribution</strong> are for <strong>discrete random variables</strong>. The most common <strong>continuous distribution</strong> is the <strong>normal</strong> (or <strong>Gaussian</strong>) distribution. The importance of the normal distribution comes from the <a href="">central limit theorem</a> (see ch[?]), which tells us that when you take the average of a sufficiently large <strong>independent identical distributed</strong> (i.i.d.) sample, the distribution of the sample averages looks like that of a <strong>normal random variable</strong>. The normal distribution is also commonly used to model measurement errors. The normal density is characterized by two parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>
+<span class="math display">\[f(y)=\frac{1}{\sqrt{2\pi\sigma^{2}}}\mbox{e}^{-\frac{(y-\mu)^{2}}{2\sigma^{2}}},\; y\in\mathbb{R}.\]</span>
+When <span class="math inline">\(\mu=0\)</span> and <span class="math inline">\(\sigma=1\)</span>, <span class="math inline">\(Y\sim\mathcal{N}(0,1)\)</span> is called the <em>standard normal distribution</em>. Here are some useful facts:</p>
+<ol style="list-style-type: decimal">
+<li><p>If <span class="math inline">\(Y\sim\mathcal{N}(\mu,\sigma^{2})\)</span>, then <span class="math inline">\(Z=(Y-\mu)/\sigma\)</span> is a <strong>standard normal distribution</strong>, namely <span class="math inline">\(Z\sim\mathcal{N}(0,1)\)</span>.</p></li>
+<li><p>If <span class="math inline">\(Y\sim\mathcal{N}(0,1)\)</span>, then <span class="math inline">\(Z=\mu+\sigma Y\)</span> follows the normal distribution <span class="math inline">\(\mathcal{N}(\mu,\sigma^{2})\)</span>.</p></li>
+<li><p>If <span class="math inline">\(Y_{i}\sim\mathcal{N}(\mu_{i},\sigma_{i}^{2})\)</span> are <strong>independent</strong> for <span class="math inline">\(i=1,\dots,n\)</span>, then <span class="math display">\[\sum_{i=1}^{n}Y_{i}\sim\mathcal{N}\left(\sum_{i=1}^{n}\mu_{i},\:\sum_{i=1}^{n}\sigma_{i}^{2}\right).\]</span></p></li>
+</ol>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:normcdf"></span>
+<img src="fig/Part2/normcdf.gif" alt="Normal distribution function with different parameters" width="100%"><!--
+<p class="caption marginnote">-->Figure 9.5: Normal distribution function with different parameters<!--</p>-->
+<!--</div>--></span>
+</p>
+<div class="solution">
+<p class="solution-begin">
+R code for Poisson distribution function <span id="sol-start-27" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-27', 'sol-start-27')"></span>
+</p>
+<div id="sol-body-27" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co"># Create a sequence of numbers between -10 and 10 incrementing by 0.5. </span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dt">by =</span> <span class="fl">.5</span>)</a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="co"># Choose the mean and standard deviation. </span></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4">den1 =<span class="st"> </span><span class="kw">dnorm</span>(y, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>); den2 =<span class="st"> </span><span class="kw">dnorm</span>(y, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb20-5" data-line-number="5">den3 =<span class="st"> </span><span class="kw">dnorm</span>(y, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">2</span>); den4 =<span class="st"> </span><span class="kw">dnorm</span>(y, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">1</span>) </a>
+<a class="sourceLine" id="cb20-6" data-line-number="6">cdf1 =<span class="st"> </span><span class="kw">cumsum</span>(den1); cdf2 =<span class="st"> </span><span class="kw">cumsum</span>(den2)</a>
+<a class="sourceLine" id="cb20-7" data-line-number="7">cdf3 =<span class="st"> </span><span class="kw">cumsum</span>(den3); cdf4 =<span class="st"> </span><span class="kw">cumsum</span>(den4) </a>
+<a class="sourceLine" id="cb20-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb20-9" data-line-number="9">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,den1,cdf1,den2,cdf2,den3,cdf3,den4,cdf4)</a>
+<a class="sourceLine" id="cb20-10" data-line-number="10"><span class="kw">png</span>(<span class="dt">file =</span> <span class="st">"dnorm1.png"</span>)</a>
+<a class="sourceLine" id="cb20-11" data-line-number="11">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, cdf1))</a>
+<a class="sourceLine" id="cb20-12" data-line-number="12">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(y,den1), <span class="dt">fill=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(y,cdf1), <span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>) <span class="op">+</span><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>, <span class="dt">title=</span><span class="st">"mu = 0, sigma = 1"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb20-13" data-line-number="13"><span class="kw">dev.off</span>()</a></code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>The last fact is from the <strong>infinite divisibility</strong> of the normal random variables. The calculation of proving this argument is more demanding than the previous cases. However, we can verify this result experimentally. Using random numbers on a computer to simulate probabilities is called the <em>Monte Carlo method</em>.<label for="tufte-sn-127" class="margin-toggle sidenote-number">127</label><input type="checkbox" id="tufte-sn-127" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">127</span> It was named after the famous Monte Carlo casino in Monaco, although the method first appeared in the Manhattan project.</span> The procedure of this method is as follows. Design a random experiment such that the event  happens in this experiment following the probability law <span class="math inline">\(\mathbf{P}(\cdot)\)</span>. This designed event is called <em>simulated event</em>. Then, the probability () can be estimated by repeating this random experiment many times and computing the proportion of times that <span class="math inline">\(\mathcal{A}\)</span> occurs.<label for="tufte-sn-128" class="margin-toggle sidenote-number">128</label><input type="checkbox" id="tufte-sn-128" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">128</span> For a rigorous justification of this step, please see sec[?]. </span> <strong>Monte Carlo simulation</strong> is intuitive and matches up with our sense of how probabilities “should” behave.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:simNorm"></span>
+<img src="fig/Part2/simNorm.png" alt="Comparison of simulated normal distribution (bins) and the analytical one (curve) " width="100%"><!--
+<p class="caption marginnote">-->Figure 9.6: Comparison of simulated normal distribution (bins) and the analytical one (curve) <!--</p>-->
+<!--</div>--></span>
+</p>
+<div class="solution">
+<p class="solution-begin">
+R code for simulating the normal distribution
+</p>
+<div class="solution-body">
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co"># Simulate 10000 times, each simulated event follows N(1,1) </span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">y1 =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10000</span>, <span class="dt">mean=</span><span class="dv">1</span>, <span class="dt">sd=</span><span class="dv">1</span>) </a>
+<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="co"># Simulate 10000 times, each simulated event follows N(1,2) </span></a>
+<a class="sourceLine" id="cb21-4" data-line-number="4">y2 =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10000</span>, <span class="dt">mean=</span><span class="dv">1</span>, <span class="dt">sd=</span><span class="dv">2</span>) </a>
+<a class="sourceLine" id="cb21-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb21-6" data-line-number="6">z =<span class="st"> </span>y1<span class="op">+</span>y2 <span class="co"># mu is 2, sigma is 1^2+ 2^2 = 5</span></a>
+<a class="sourceLine" id="cb21-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb21-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb21-9" data-line-number="9"><span class="co"># Create N(2, 5) density function</span></a>
+<a class="sourceLine" id="cb21-10" data-line-number="10">f =<span class="st"> </span><span class="cf">function</span>(y) <span class="kw">exp</span>(<span class="op">-</span>(y<span class="dv">-2</span>)<span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="dv">10</span>)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">10</span><span class="op">*</span>pi) </a>
+<a class="sourceLine" id="cb21-11" data-line-number="11"><span class="co"># Create the domain of the density function </span></a>
+<a class="sourceLine" id="cb21-12" data-line-number="12">y =<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">14</span>, <span class="dt">length.out=</span><span class="dv">10000</span>) </a>
+<a class="sourceLine" id="cb21-13" data-line-number="13"><span class="co"># Density function on [-10, 14]</span></a>
+<a class="sourceLine" id="cb21-14" data-line-number="14">fy =<span class="st"> </span><span class="kw">f</span>(y) </a>
+<a class="sourceLine" id="cb21-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb21-16" data-line-number="16"><span class="co"># Plot</span></a>
+<a class="sourceLine" id="cb21-17" data-line-number="17"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb21-18" data-line-number="18">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,fy,z)</a>
+<a class="sourceLine" id="cb21-19" data-line-number="19">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, fy))</a>
+<a class="sourceLine" id="cb21-20" data-line-number="20">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(z,<span class="dt">y=</span>..density..), <span class="dt">fill=</span><span class="st">"skyblue"</span>, <span class="dt">bins=</span><span class="dv">200</span>,<span class="dt">alpha=</span><span class="fl">0.8</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(y,fy), <span class="dt">color=</span><span class="st">"blue"</span>)   <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p><span class="newthought">Gamma random variable </span></p>
+<p>The distributions of Poisson and normal random variables turn out to be the building blocks of general infinitely divisible distributions. However, the Gamma distribution can construct several important subclasses of infinitely divisible distributions. See ch[?].</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:gammacdf"></span>
+<img src="fig/Part2/gammacdf.gif" alt="Gamma distribution function with different parameters" width="100%"><!--
+<p class="caption marginnote">-->Figure 9.7: Gamma distribution function with different parameters<!--</p>-->
+<!--</div>--></span>
+</p>
+<div class="solution">
+<p class="solution-begin">
+R code for Gamma distribution function <span id="sol-start-29" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-29', 'sol-start-29')"></span>
+</p>
+<div id="sol-body-29" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># Create a sequence of numbers between 0 and 10 incrementing by 0.2. </span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dt">by =</span> <span class="fl">.2</span>)</a>
+<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="co"># Choose the shape paramter (alpha) and rate paramter (beta). </span></a>
+<a class="sourceLine" id="cb22-4" data-line-number="4">den1 =<span class="st"> </span><span class="kw">dgamma</span>(y, <span class="dt">shape =</span> <span class="dv">1</span>, <span class="dt">rate =</span> <span class="fl">0.5</span>) </a>
+<a class="sourceLine" id="cb22-5" data-line-number="5">den2 =<span class="st"> </span><span class="kw">dgamma</span>(y, <span class="dt">shape =</span> <span class="dv">3</span>, <span class="dt">rate =</span> <span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb22-6" data-line-number="6">den3 =<span class="st"> </span><span class="kw">dgamma</span>(y, <span class="dt">shape =</span> <span class="dv">3</span>, <span class="dt">rate =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb22-7" data-line-number="7">den4 =<span class="st"> </span><span class="kw">dgamma</span>(y, <span class="dt">shape =</span> <span class="dv">1</span>, <span class="dt">rate =</span> <span class="dv">1</span>) </a>
+<a class="sourceLine" id="cb22-8" data-line-number="8">cdf1 =<span class="st"> </span><span class="kw">cumsum</span>(den1) </a>
+<a class="sourceLine" id="cb22-9" data-line-number="9">cdf2 =<span class="st"> </span><span class="kw">cumsum</span>(den2) </a>
+<a class="sourceLine" id="cb22-10" data-line-number="10">cdf3 =<span class="st"> </span><span class="kw">cumsum</span>(den3) </a>
+<a class="sourceLine" id="cb22-11" data-line-number="11">cdf4 =<span class="st"> </span><span class="kw">cumsum</span>(den4) </a>
+<a class="sourceLine" id="cb22-12" data-line-number="12">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,den1,cdf1,den2,cdf2,den3,cdf3,den4,cdf4)</a>
+<a class="sourceLine" id="cb22-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb22-14" data-line-number="14"><span class="co"># Plot</span></a>
+<a class="sourceLine" id="cb22-15" data-line-number="15"><span class="kw">png</span>(<span class="dt">file =</span> <span class="st">"dgamma1.png"</span>)</a>
+<a class="sourceLine" id="cb22-16" data-line-number="16">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, cdf1))</a>
+<a class="sourceLine" id="cb22-17" data-line-number="17">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(y,den1), <span class="dt">fill=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(y,cdf1), <span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>, <span class="dt">title=</span><span class="st">"shape = 1, rate = 0.5"</span>)  <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb22-18" data-line-number="18"><span class="kw">dev.off</span>()</a></code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>The <strong>Gamma distribution</strong> is a family of positive, <a href="ch-CalUn.html#sub:rv">continuous distributions</a> with two parameters. The density curve can take a wide variety of shapes, which allows the distribution to be useful for modeling variables that exhibit skewed and nonsymmetric behavior, for example, income distribution. The <em>Gamma distribution</em> is defined as follows <span class="math display">\[f(y)=\frac{1}{\beta^{\alpha}\Gamma(\alpha)}y^{\alpha-1}\mbox{e}^{-\frac{y}{\beta}},\; y&gt;0\]</span>
+where the <em>Gamma function</em> <span class="math inline">\(\Gamma(\alpha)=\int_{0}^{\infty}y^{\alpha-1}e^{-y}\mbox{d}y\)</span> satisfies <span class="math inline">\(\Gamma(\alpha)=(\alpha-1)\Gamma(\alpha-1)\)</span>. Thus <span class="math inline">\(\Gamma(\alpha)\)</span> is the continuous counterpart
+of <a href="sub-inferknow.html#sub:dyn">factorials</a>. That is, when <span class="math inline">\(\alpha\in\mathbb{N}\)</span>, <span class="math inline">\(\Gamma(\alpha)=\alpha!\)</span>.
+Gamma distribution is also infinitely divisible.</p>
+</div>
+</div></body></html>
+
+<p style="text-align: center;">
+<a href="ch-DE.html"><button class="btn btn-default">Previous</button></a>
+<a href="bibliography.html"><button class="btn btn-default">Next</button></a>
+</p>
+<p class="build-date">Page built: 
+2020-02-18
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
