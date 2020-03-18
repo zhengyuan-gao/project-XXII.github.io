@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="10 Vector and Matrix | Project XXII" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Zhengyuan Gao" />
+
+<meta name="date" content="2020-03-18" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="10 Vector and Matrix | Project XXII">
+
+<title>10 Vector and Matrix | Project XXII</title>
+
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding/datatables.js"></script>
+<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul class="navbar">
+<li class="msmb"><p class="title">Project XXII<p><p class="author">Zhengyuan Gao</p>
+<li class="dropdown" style="float:right">
+<a href="javascript:void(0)" class="dropbtn">&#x25BA; Chapters</a>
+<div class="dropdown-content">
+<a href="index.html">Preface</a>
+<a href="part-i-inference-based-upon-logic-and-logical-computation.html">PART I: Inference Based upon Logic and Logical Computation</a>
+<a href="sub-logic.html"><span class="toc-section-number">1</span> Logic</a>
+<a href="sub-set-theory.html"><span class="toc-section-number">2</span> Set Theory</a>
+<a href="sub-axioms.html"><span class="toc-section-number">3</span> Axioms</a>
+<a href="sub-inferknow.html"><span class="toc-section-number">4</span> Inference and Knowledge</a>
+<a href="sub-incomplete.html"><span class="toc-section-number">5</span> Incompleteness</a>
+<a href="part-ii-infinitesimal-changes-and-their-consequences.html">PART II: Infinitesimal Changes and their Consequences</a>
+<a href="sub-continuity.html"><span class="toc-section-number">6</span> Continuity</a>
+<a href="sub-calculus.html"><span class="toc-section-number">7</span> Calculus</a>
+<a href="ch-DE.html"><span class="toc-section-number">8</span> Differential Equations</a>
+<a href="ch-CalUn.html"><span class="toc-section-number">9</span> Calculus under Uncertainty</a>
+<a href="part-iii-emergence-of-abstract-interactions.html">PART III: Emergence of Abstract Interactions</a>
+<a id="active-page" href="ch-vecMat.html"><span class="toc-section-number">10</span> Vector and Matrix</a><ul class="toc-sections">
+<li class="toc"><a href="#sub:vec"> Vector</a></li>
+<li class="toc"><a href="#sub:linearity"> Example: Linearity</a></li>
+</ul>
+<a href="bibliography.html">Bibliography</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div id="ch:vecMat" class="section level1">
+<h1>
+<span class="header-section-number">10</span> Vector and Matrix</h1>
+<p>We don’t add an apple to orange because they are different fruits. Similarly, the values of two different <strong>unknowns</strong> <span class="math inline">\(x_{1}\)</span> and <span class="math inline">\(x_{2}\)</span> from a linear system
+<span class="math display" id="eq:sem-1">\[\begin{equation}
+\begin{cases}
+0.3x_{2}+0.6x_{1} &amp; =1,\\
+0.6x_{2}-0.3x_{1} &amp; =0.
+\end{cases}
+\tag{10.1} 
+\end{equation}\]</span>
+should be treated separately as in an <a href="sub-set-theory.html#sub:order">ordered list</a> <span class="math inline">\((x_{1},x_{2})\in\mathbb{R}^{2}\)</span>
+. The solution <span class="math inline">\((4/3,\,2/3)\)</span> can be viewed as the point on the plane where two equations intersect (figure <a href="ch-vecMat.html#fig:LinearSys">10.1</a>). The notation of <span class="math inline">\((x_{1},x_{2})\)</span> is free to express any point on the plane. The introduction of a great workable literal symbolism was a significant advance in mathematics. Descartes illustrated his entire scheme of geometry on the Cartesian system of coordinates. This illustration connected algebra to classical geometry.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:LinearSys"></span>
+<img src="fig/Part3/LinearSys.png" alt="System of two equations" width="100%"><!--
+<p class="caption marginnote">-->Figure 10.1: System of two equations<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>However, the geometrical approach becomes impractical when the linear system includes more than three <strong>knowns</strong>. Graphing in four (or more) dimensions on a flat sheet of paper does not lead to accurate answers. But Descartes’ achievement inspired Leibniz’s dream of <a href="">symbolism</a> for all of the human thought, in which all arguments about truth or falsehood could be resolved by the computations of symbols. Leibniz argued that such <a href="">symbolism</a> would relieve the imagination.</p>
+<p>To initiate our journey to the imaginary world of symbols, let’s take a closer look at the system <a href="ch-vecMat.html#eq:sem-1">(10.1)</a>. The useful information of this system is stored by the coefficients on the left-hand side of the equality and by the output values on the right-hand side. The following two tables can compactly list all the necessary information: <span class="math display">\[\left[\begin{array}{cc}
+0.3 &amp; 0.6\\
+0.6 &amp; -0.3
+\end{array}\right],\:\left[\begin{array}{c}
+1\\
+0
+\end{array}\right].\]</span>
+There is no need to write out all the equals signs or plus signs. These rectangular tables of numbers are handy in representing the system of equations. The first rectangular table of numbers represents a symbol called the <a href="">matrix</a>, and the second represents a symbol called the <a href="">vector</a>. They are the primary objects for studying a general linear system with an arbitrary number of unknowns. By relieving our imagination, we can reduce high-dimensional thought processes to some easily mastered manipulations of symbols.</p>
+<div id="sub:vec" class="section level2">
+<h2>
+<span class="header-section-number">10.1</span> Vector</h2>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:Vector"></span>
+<img src="fig/Part3/Vector.gif" alt="Vector" width="100%"><!--
+<p class="caption marginnote">-->Figure 10.2: Vector<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>If we look at the point <span class="math inline">\((a_{1},a_{2})\in \mathbb{R}^{2}\)</span> of the plane in figure <a href="ch-vecMat.html#fig:Vector">10.2</a>, there is a line going from the origin to it. Two characteristics of this point, its length and its direction, have been automatically stored in this <a href="sub-set-theory.html#sub:order">ordered list</a>. If we scale this line by <span class="math inline">\(c\)</span>, then the point will move to <span class="math inline">\((ca_{1},ca_{2})\)</span>; and if we add another <span class="math inline">\((b_{1},b_{2})\)</span> to this point, there will be a new <a href="sub-set-theory.html#sub:order">ordered list</a> <span class="math inline">\((a_{1}+b_{1},\, a_{2}+b_{2})\)</span>.<label for="tufte-sn-151" class="margin-toggle sidenote-number">151</label><input type="checkbox" id="tufte-sn-151" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">151</span> The order does not matter for the addition as <span class="math inline">\((a_{1}+b_{1},\, a_{2}+b_{2})\)</span> and <span class="math inline">\((b_{1}+a_{1},\, b_{2}+a_{2})\)</span> are the same.</span></p>
+<p>Let’s relieve our imagination to an ordered list of <span class="math inline">\(n\)</span> elements. Even it is hard to imagine what is an <span class="math inline">\(n\)</span>-dimensional space, we may imagine that the direction, length, simple operations such as <strong>addition</strong> and <strong>scalar multiplication</strong> should hold as those in <span class="math inline">\(\mathbb{R}^{2}\)</span>. Let’s formally call this <span class="math inline">\(n\)</span>-dimensional ordered list a <em>vector</em>. Usually, a <strong>vector</strong> is expressed in a lower-case boldface letter; for displaying the entries or elements of a vector, one can use an vertical array (<em>column vector</em>) surrounded by square (or curved) brackets: <span class="math display">\[\mathbf{a}=\left[\begin{array}{c}
+a_{1}\\
+\vdots\\
+a_{n}
+\end{array}\right],\;\mathbf{b}=\left[\begin{array}{c}
+b_{1}\\
+\vdots\\
+b_{n}
+\end{array}\right],\quad\mathbf{a}+\mathbf{b}=\left[\begin{array}{c}
+a_{1}+b_{1}\\
+\vdots\\
+a_{n}+b_{n}
+\end{array}\right],\; c\mathbf{a}=\left[\begin{array}{c}
+c\times a_{1}\\
+\vdots\\
+c\times a_{n}
+\end{array}\right].\]</span></p>
+<p>Like the addition of 2D order lists, when we add one <strong>vector</strong> to another <strong>vector</strong>, the <strong>addition</strong> should take into account the order of the entires of these vectors. Each entry or component of the vector is called the <em>scalar</em>. when we <strong>scale</strong> the vector by some scalar <span class="math inline">\(c\)</span>, this scalar should multiple all components of the vector. The vector <span class="math inline">\(\mathbf{a}\in \mathbb{R}^n\)</span> is of <em>size</em> <span class="math inline">\(n\)</span>, and it is called the <em><span class="math inline">\(n\)</span>-vector</em>. Two equivalent vectors <span class="math inline">\(\mathbf{a}\)</span> and <span class="math inline">\(\mathbf{b}\)</span>, namely <span class="math inline">\(\mathbf{a}=\mathbf{b}\)</span>, implies that they have the same size and the same corresponding entries.</p>
+<p>The <em>arithmetic axioms</em> or the <em>algebra axioms</em> of vectors are similar to those rules of real numbers. Suppose that <span class="math inline">\(\mathbf{a}\)</span>, <span class="math inline">\(\mathbf{b}\)</span>, and <span class="math inline">\(\mathbf{c}\)</span> are <span class="math inline">\(n\)</span>-vectors, namely being of the same size, and suppose that <span class="math inline">\(k\)</span> and <span class="math inline">\(l\)</span> are scalars, the axioms can be summarized as follows:</p>
+<ul>
+<li>addition <span class="math inline">\(+\)</span> (or called <em>commutative group</em>)<label for="tufte-sn-152" class="margin-toggle sidenote-number">152</label><input type="checkbox" id="tufte-sn-152" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">152</span> The <strong>commutative group</strong> is a concept from abstract algebra. The <strong>commutative group</strong> generalizes the operations that perform similarly as the arithmetic of addition of <a href="">integers</a>. Here <span class="math inline">\(+\)</span> operation stands for the operation defining the abstract commutative group rather than the simple addition of integers. That is, if we replace <span class="math inline">\(\mathbf{a}, \mathbf{b}\in\mathbb{R}^n\)</span> with <span class="math inline">\(a, b\in\mathbb{Z}\)</span>, the axioms still hold. Moreover, if we use some other objects instead of vector <span class="math inline">\(\mathbf{a}, \mathbf{b}\)</span>, and if those objects are from a commutative group, they should also satisfy the <strong>axioms</strong> regarding this <span class="math inline">\(+\)</span> operation. </span>:</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>
+<em>commutativity</em> : <span class="math inline">\(\mathbf{a}+\mathbf{b}=\mathbf{b}+\mathbf{a}\)</span>
+</li>
+<li>
+<em>associativity</em> : <span class="math inline">\((\mathbf{a}+\mathbf{b})+\mathbf{c}=\mathbf{a}+(\mathbf{b}+\mathbf{c})\)</span>
+</li>
+<li>
+<em>existence of zero vector</em> (<em>existence of an identity element</em>) : <span class="math inline">\(\mathbf{a}+\mathbf{0}=\mathbf{a}\)</span>
+</li>
+<li>
+<em>existence of negative vector</em> (<em>existence of inverse elements</em>) : <span class="math inline">\(\mathbf{a}+(-\mathbf{a})=\mathbf{0}\)</span>
+</li>
+</ol>
+<ul>
+<li>scalar multiplication <span class="math inline">\(\times\)</span> (We often ignore the sign of scalar multiplication.):<br>
+</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>
+<em>associativity</em> : <span class="math inline">\(k(l\mathbf{a})=(k\times l)\mathbf{a}\)</span>
+</li>
+<li>
+<em>multiplication of identity elements</em> :<br>
+</li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li>one (identity element for multiplication) <span class="math inline">\(1\mathbf{a}=\mathbf{a}\)</span>,</li>
+<li>zero (identity element for addition)<span class="math inline">\(0\mathbf{a}=\mathbf{0}\)</span>,</li>
+<li>and zero vector (identity element for <strong>vector addition</strong>): <span class="math inline">\(k\mathbf{0}=\mathbf{0}\)</span>
+</li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li>
+<em>distributivity</em> for vectors and for scalars: <span class="math inline">\(k(\mathbf{a}+\mathbf{b})=k\mathbf{a}+k\mathbf{b}\)</span>, <span class="math inline">\((k+l)\mathbf{a}=k\mathbf{a}+l\mathbf{a}\)</span>
+</li>
+</ol>
+<p>These axioms (<strong>commutativity</strong>, <strong>associativty</strong>, <strong>negative vector</strong>) in 2D can be easily verified by figure <a href="ch-vecMat.html#fig:Vector">10.2</a>. Note that zero vector <span class="math inline">\(\mathbb{R}^n\)</span> is the origin in the <span class="math inline">\(n\)</span>-dimension. Note that a <em>standard unit vector</em> is a vector with all zero elements except one unit element. For example, <span class="math display">\[\mathbf{e}_{1}=\left[\begin{array}{c}
+1\\
+0\\
+0
+\end{array}\right],\:\mathbf{e}_{2}=\left[\begin{array}{c}
+0\\
+1\\
+0
+\end{array}\right],\:\mathbf{e}_{3}=\left[\begin{array}{c}
+0\\
+0\\
+1
+\end{array}\right]\]</span>
+are the three <strong>standard unit vectors</strong> in <span class="math inline">\(\mathbb{R}^{3}\)</span>.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:3Dvector"></span>
+<img src="fig/Part3/3Dvector.gif" alt="Represent a 3D vector in a linear combination" width="100%"><!--
+<p class="caption marginnote">-->Figure 10.3: Represent a 3D vector in a linear combination<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>A <em>linear combination</em> is formed by combining some <strong>additions</strong> and <strong>scalar multiplications</strong> of some <strong>vectors</strong>. Let <span class="math inline">\(\mathbf{x}_{1},\dots,\mathbf{x}_{m}\)</span> be <span class="math inline">\(n\)</span>-vectors, and let <span class="math inline">\(\beta_{1},\dots,\beta_{m}\)</span> be scalars, then the <span class="math inline">\(n\)</span>-vector <span class="math display">\[\beta_{1}\mathbf{x}_{1}+\cdots+\beta_{m}\mathbf{x}_{m}\]</span>
+is a <strong>linear combination</strong> of the vectors <span class="math inline">\(\mathbf{x}_{1},\dots,\mathbf{x}_{m}\)</span>. The <strong>scalars</strong> <span class="math inline">\(\beta_{1},\dots,\beta_{m}\)</span> are the coefficients of this <strong>linear combination</strong>. We can write any <span class="math inline">\(n\)</span>-vector <span class="math inline">\(\mathbf{x}\)</span> as a <strong>linear combination</strong> of the <strong>standard unit vectors</strong>,<span class="math display">\[\mathbf{x}=x_{1}\mathbf{e}_{1}+\cdots+x_{n}\mathbf{e}_{n}\]</span>
+where <span class="math inline">\(x_{i}\)</span> is the <span class="math inline">\(i\)</span>-th entry of <span class="math inline">\(\mathbf{x}\)</span>, and <span class="math inline">\(\mathbf{e}_{i}\)</span> is the <span class="math inline">\(i\)</span>-th <strong>standard unit vector</strong>. A 3D illustration of the linear combination is given in figure <a href="ch-vecMat.html#fig:3Dvector">10.3</a>.</p>
+<p>An essential aspect we didn’t mention is about the multiplication or the <strong>product</strong> of two <strong>vectors</strong>. As any vector stores the relevant information of direction and length, the product should preserve the metric information, i.e., the measurement of the angles and the lengths of the vectors. The length of an <span class="math inline">\(n\)</span>-vector <span class="math inline">\(\mathbf{x}\)</span> is given by the <a href="sub-continuity.html#sub:continuousFunc">Euclidean distance</a> from the origin
+<span class="math display">\[\mbox{d}(\mathbf{x},\mathbf{0})=\sqrt{x_{1}^{2}+\cdots+x_{n}^{2}}=\|\mathbf{x}\|\in\mathbb{R}\]</span>
+where <span class="math inline">\(\|\cdot\|\)</span> denotes a <em>norm</em>, a function that assigns a strictly positive length to a vector. The <strong>norm</strong> of the vector <span class="math inline">\(\mathbf{x}\)</span> is equivalent to the <a href="sub-continuity.html#sub:continuousFunc"><span class="math inline">\(l_{2}\)</span>-distance</a> function for <span class="math inline">\(\mathbf{x}\)</span> and <span class="math inline">\(\mathbf{0}\)</span>, namely <span class="math inline">\(\mbox{d}(\mathbf{x},\mathbf{0})\)</span>. For zero vector, the length is also zero, thus <span class="math inline">\(\|\mathbf{0}\|=0\)</span>.</p>
+<p>The product of two vectors is called the <em>inner product</em>, and can be defined as follows:
+<span class="math display" id="eq:inner-1">\[\begin{equation}
+\langle\mathbf{a},\,\mathbf{b}\rangle=a_{1}b_{1}+\cdots+a_{n}b_{n}=\sum_{i=1}^{n}a_{i}b_{i}.
+\tag{10.2} 
+\end{equation}
+\]</span>
+On the other hand, one can also define the <strong>inner product</strong> by
+<span class="math display" id="eq:inner-2">\[\begin{equation}
+\langle\mathbf{a},\,\mathbf{b}\rangle=
+\begin{cases}
+\|\mathbf{a}\|\|\mathbf{b}\|\cos\theta, &amp; \mbox{ if }\mathbf{a},\mathbf{b}\neq0,\\
+0, &amp; \mbox{ if }\mathbf{a}=0,\mbox{ or }\mathbf{b}=0,
+\end{cases}
+\tag{10.3}
+\end{equation}
+\]</span>
+where <span class="math inline">\(\theta\)</span> is the smallest angle between <span class="math inline">\(\mathbf{a}\)</span> and <span class="math inline">\(\mathbf{b}\)</span>. These two definitions are equivalent.</p>
+<div class="solution">
+<p class="solution-begin">
+Proof
+</p>
+<div class="solution-body">
+<p>Expression <a href="ch-vecMat.html#eq:inner-1">(10.2)</a> to expression <a href="ch-vecMat.html#eq:inner-2">(10.3)</a></p>
+<p>If either <span class="math inline">\(\mathbf{a}=0\)</span> or <span class="math inline">\(\mathbf{b}=0\)</span>, then <span class="math inline">\(\sum_{i=1}^{n}a_{i}b_{i}=0\)</span> and <span class="math inline">\(\|\mathbf{a}\|\|\mathbf{b}\|=0\)</span>. Thus two expressions give the same answer.</p>
+<p>For a non-zero inner product, let’s first consider the case in <span class="math inline">\(\mathbb{R}^2\)</span>. Any vector satisfying <span class="math inline">\(\|\mathbf{x}\|=1\)</span> is a <em>unit vector</em> (not necessarily being a <strong>standard unit vector</strong>). Note that the vector <span class="math inline">\(\mathbf{u}\)</span>
+satisfying <span class="math display">\[\mathbf{u}=\left[\begin{array}{c}
+\cos\theta\\
+\sin\theta
+\end{array}\right],\:\|\mathbf{u}\|=\sqrt{\cos^{2}\theta+\sin^{2}\theta}=1\]</span>
+is a <strong>unit vector</strong>. The unit vector <span class="math inline">\(\mathbf{u}\)</span> and another unit vector <span class="math inline">\(\mathbf{u}'\)</span>
+have the inner product of their angle differences <span class="math display">\[\langle\mathbf{u},\,\mathbf{u}'\rangle=\cos\theta\times\cos\theta'+\sin\theta\times\sin\theta'=\cos(\theta-\theta')\]</span>
+by the trigonometry formula.<label for="tufte-sn-153" class="margin-toggle sidenote-number">153</label><input type="checkbox" id="tufte-sn-153" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">153</span> When <span class="math inline">\(\theta'=0\)</span>, the unit vector <span class="math inline">\(\mathbf{u}'\)</span> is the <strong>standard unit vector</strong> <span class="math inline">\(\mathbf{e}_{1}\)</span>. Then <span class="math inline">\(\mathbf{u}\)</span> and the <strong>standard unit vector</strong> <span class="math inline">\(\mathbf{e}_{1}\)</span> has the <strong>inner product</strong> <span class="math display">\[\langle\mathbf{u},\,\mathbf{e}_{1}\rangle=\cos\theta\times1+\sin\theta\times0=\cos\theta.\]</span></span>
+Thus we can conclude that for any two unit vectors in <span class="math inline">\(\mathbb{R}^2\)</span>, the two definitions of the inner product are equivalent.</p>
+<p>Now consider the general case in <span class="math inline">\(\mathbb{R}^n\)</span>. It is always true that <span class="math inline">\(\mathbf{a}/\|\mathbf{a}\|\)</span> and <span class="math inline">\(\mathbf{b}/\|\mathbf{b}\|\)</span>
+are <strong>unit vectors</strong>.<label for="tufte-sn-154" class="margin-toggle sidenote-number">154</label><input type="checkbox" id="tufte-sn-154" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">154</span> Take <span class="math inline">\(\mathbf{a}/\|\mathbf{a}\|\)</span> as an example.
+<span class="math display">\[\begin{align*}
+  \left\Vert \frac{\mathbf{a}}{\|\mathbf{a}\|}\right\Vert   =&amp;\sum_{i=1}^{n}\frac{1}{\|\mathbf{a}\|}\left(a_{1}^{2}+\cdots+a_{n}^{2}\right)\\
+    =&amp;\frac{1}{\|\mathbf{a}\|}\sum_{i=1}^{n}\left(a_{1}^{2}+\cdots+a_{n}^{2}\right)
+    \\=
+    &amp;\frac{1}{\|\mathbf{a}\|}\|\mathbf{a}\|=1.
+    \end{align*}\]</span>
+Transforming <span class="math inline">\(\mathbf{a}\)</span> into <span class="math inline">\(\mathbf{a}/\|\mathbf{a}\|\)</span> is called the <em>normalization of the vector</em> <span class="math inline">\(\mathbf{a}\)</span>.</span> Therefore, trigonometry formula tells us <span class="math display">\[\left\langle \frac{\mathbf{a}}{\|\mathbf{a}\|},\,\frac{\mathbf{b}}{\|\mathbf{b}\|}\right\rangle =\cos\theta\]</span>
+which implies <span class="math inline">\(\langle\mathbf{a},\,\mathbf{b}\rangle=\|\mathbf{a}\|\|\mathbf{b}\|\cos\theta.\)</span> The result follows.<label for="tufte-sn-155" class="margin-toggle sidenote-number">155</label><input type="checkbox" id="tufte-sn-155" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">155</span> Note that <span class="math display">\[\begin{align*}\left\langle \frac{\mathbf{a}}{\|\mathbf{a}\|},\,\frac{\mathbf{b}}{\|\mathbf{b}\|}\right\rangle =&amp;\frac{1}{\|\mathbf{a}\|\|\mathbf{b}\|}\sum_{i=1}^{n}a_{i}b_{i}\\=&amp;\frac{\langle\mathbf{a},\,\mathbf{b}\rangle}{\|\mathbf{a}\|\|\mathbf{b}\|}.\end{align*}\]</span></span></p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>There is also an alternative way of expressing an <strong>inner product</strong> as a product of a <strong>row vector</strong> and a <strong>column vector</strong>. See ch[?].</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:projection"></span>
+<img src="fig/Part3/projection.png" alt="Projection" width="100%"><!--
+<p class="caption marginnote">-->Figure 10.4: Projection<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>The expression <a href="ch-vecMat.html#eq:inner-2">(10.3)</a> can imply several important results. If <span class="math inline">\(\langle\mathbf{a},\,\mathbf{b}\rangle=0\)</span>
+in equation <a href="ch-vecMat.html#eq:inner-1">(10.2)</a> and $,$0, then the expression <a href="ch-vecMat.html#eq:inner-2">(10.3)</a> says that <span class="math inline">\(\mathbf{a}\)</span> and <span class="math inline">\(\mathbf{b}\)</span> must be perpendicular (orthogonal to each other), namely <span class="math inline">\(\theta=90^{\circ}\)</span>. Also, since <span class="math inline">\(|\cos\theta|\)</span> never exceeds one, expression <a href="ch-vecMat.html#eq:inner-2">(10.3)</a> gives the following inequality <span class="math display">\[\left|\frac{\langle\mathbf{a},\,\mathbf{b}\rangle}{\|\mathbf{a}\|\|\mathbf{b}\|}\right|\leq1,\;\mbox{ or say}\left|\langle\mathbf{a},\,\mathbf{b}\rangle\right|\leq\|\mathbf{a}\|\|\mathbf{b}\|,\]</span>
+which is called <em>Schwarz inequality</em>. Because the norm <span class="math inline">\(\|\cdot\|\)</span> is a <a href="sub-continuity.html#sub:continuousFunc">distance function</a>, it should also satisfy the <a href="sub-continuity.html#sub:continuousFunc">triangular inequality</a> <span class="math display">\[\|\mathbf{a}+\mathbf{b}\|\leq\|\mathbf{a}\|+\|\mathbf{b}\|.\]</span>
+Finally, by the expression <a href="ch-vecMat.html#eq:inner-2">(10.3)</a>, we can deduce a useful formula called the <em>orthogonal projection</em> formula. Consider a situation in which one vector <span class="math inline">\(\mathbf{a}\)</span> shall be <strong>projected orthogonally</strong> onto another vector <span class="math inline">\(\mathbf{b}\)</span>
+in order to create a new vector <span class="math inline">\(\mathbf{c}\)</span>. Since <span class="math inline">\(\mathbf{a}\)</span> and <span class="math inline">\(\mathbf{c}\)</span>
+make up a triangle with a right angle (see figure <a href="ch-vecMat.html#fig:projection">10.4</a>), by the definition of cosine function, we have <span class="math inline">\(\cos\theta=\|\mathbf{c}\|/\|\mathbf{a}\|\)</span> or <span class="math inline">\(\|\mathbf{c}\|=\cos\theta\|\mathbf{a}\|\)</span>. Then by <strong>normalizing</strong> <span class="math inline">\(\mathbf{b}\)</span> and <span class="math inline">\(\mathbf{c}\)</span>, we have <span class="math inline">\(\mathbf{c}/\|\mathbf{c}\|=\mathbf{b}/\|\mathbf{b}\|\)</span>, and hence <span class="math display">\[\mathbf{c}=\|\mathbf{c}\|\frac{\mathbf{b}}{\|\mathbf{b}\|}=\|\mathbf{a}\|\cos\theta\frac{\mathbf{b}}{\|\mathbf{b}\|}.\]</span>
+By the definition of inner product (expression <a href="ch-vecMat.html#eq:inner-2">(10.3)</a>), we have
+<span class="math display" id="eq:proj">\[
+\begin{equation}
+\mathbf{c}=\|\mathbf{a}\|\|\mathbf{b}\|\cos\theta\frac{\mathbf{b}}{\|\mathbf{b}\|^{2}}=\frac{\langle\mathbf{a},\,\mathbf{b}\rangle}{\|\mathbf{b}\|^{2}}\mathbf{b}.
+\tag{10.4}
+\end{equation}
+\]</span>
+The term <span class="math inline">\(\langle\mathbf{a},\,\mathbf{b}\rangle/\|\mathbf{b}\|^{2}\)</span> gives the <em>orthogonal projection</em> of <span class="math inline">\(\mathbf{a}\)</span> onto <span class="math inline">\(\mathbf{b}\)</span>.<label for="tufte-sn-156" class="margin-toggle sidenote-number">156</label><input type="checkbox" id="tufte-sn-156" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">156</span> Note that <span class="math inline">\(\|\mathbf{b}\|^{2}=\langle\mathbf{b},\,\mathbf{b}\rangle\)</span>, one can also write the ** orthogonal projection** of <span class="math inline">\(\mathbf{a}\)</span> onto <span class="math inline">\(\mathbf{b}\)</span> as <span class="math display" id="eq:proj">\[\frac{\langle\mathbf{a},\,\mathbf{b}\rangle}{\langle\mathbf{b},\,\mathbf{b}\rangle}\mathbf{b}\]</span>.</span></p>
+<p>With the <strong>projection formula</strong> (@ref\tag{10.4}), we can deduce the following rules (axioms).</p>
+<ul>
+<li>Rules of <strong>inner product</strong> <span class="math inline">\(\langle\cdot,\,\cdot\rangle\)</span> for <span class="math inline">\(\mathbf{a},\mathbf{b}\in\mathbb{R}^{n}\)</span> and <span class="math inline">\(k\in\mathbb{R}\)</span>:</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>
+<em>Commutativity</em> : <span class="math inline">\(\langle\mathbf{a},\,\mathbf{b}\rangle=\langle\mathbf{b},\,\mathbf{a}\rangle\)</span>
+</li>
+<li>
+<em>Associativity</em> : <span class="math inline">\(k\langle\mathbf{a},\,\mathbf{b}\rangle=\langle k\mathbf{a},\,\mathbf{b}\rangle=\langle\mathbf{a},\, k\mathbf{b}\rangle\)</span>
+</li>
+<li>
+<em>Distributivity</em> : <span class="math inline">\(\langle\mathbf{a},\,\mathbf{b}+\mathbf{c}\rangle=\langle\mathbf{a},\,\mathbf{b}\rangle+\langle\mathbf{a},\,\mathbf{c}\rangle\)</span>
+</li>
+</ol>
+<div class="solution">
+<p class="solution-begin">
+Proof
+</p>
+<div class="solution-body">
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:distributivity"></span>
+<img src="fig/Part3/distributivity.gif" alt="Distributivity" width="100%"><!--
+<p class="caption marginnote">-->Figure 10.5: Distributivity<!--</p>-->
+<!--</div>--></span>
+</p>
+<p><strong>Commutativity</strong> and <strong>associativity</strong> come directly from the definition <a href="ch-vecMat.html#eq:inner-1">(10.2)</a> and <a href="ch-vecMat.html#eq:inner-2">(10.3)</a>. To see <strong>distributivity</strong>, we need to see that the sum of the <strong>projections</strong> is equal to the <strong>projection</strong> of the sum, (figure <a href="ch-vecMat.html#fig:distributivity">10.5</a>). It means<span class="math display">\[\frac{\langle\mathbf{b}+\mathbf{c},\,\mathbf{a}\rangle}{\|\mathbf{a}\|^{2}}\mathbf{a}=\frac{\langle\mathbf{b},\,\mathbf{a}\rangle}{\|\mathbf{a}\|^{2}}\mathbf{a}+\frac{\langle\mathbf{c},\,\mathbf{a}\rangle}{\|\mathbf{a}\|^{2}}\mathbf{a}.\]</span>
+We only need to focus on the coefficients of this equality. By canceling out <span class="math inline">\(\|\mathbf{a}\|^{2}\)</span>
+on the both sides, we have <span class="math display">\[\langle\mathbf{b}+\mathbf{c},\,\mathbf{a}\rangle=\langle\mathbf{b},\,\mathbf{a}\rangle+\langle\mathbf{c},\,\mathbf{a}\rangle.\]</span>
+Then interchanging the positions of <span class="math inline">\(\mathbf{a}\)</span> by the <strong>commutativity</strong> rule gives the desired result.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>As the expression <a href="ch-vecMat.html#eq:inner-1">(10.2)</a> defines a <a href="sub-continuity.html#sub:continuousFunc">Euclidean distance</a> for two <span class="math inline">\(n\)</span>-vectors <span class="math inline">\(\mathbf{a}\)</span> and <span class="math inline">\(\mathbf{b}\)</span>, the <strong>inner product</strong> is a particular type of <a href="sub-continuity.html#sub:continuousFunc">distance</a>. Note that the <a href="sub-continuity.html#sub:continuousFunc">five axioms of distance functions</a> do not include everything that can be said about distance in our common sense of geometry. Pythagoras’ theorem, for instance, cannot be deduced from those five axioms but it can be deduced by the rules of <strong>inner product</strong>. If <span class="math inline">\(\mathbf{a}\)</span>
+and <span class="math inline">\(\mathbf{b}\)</span>
+are <strong>orthogonal</strong> to each other, then <span class="math display">\[\|\mathbf{a}+\mathbf{b}\|^{2}=\|\mathbf{a}\|^{2}+\|\mathbf{b}\|^{2}\]</span>
+gives a <em>generalized Pythagoras’ theorem</em>.<label for="tufte-sn-157" class="margin-toggle sidenote-number">157</label><input type="checkbox" id="tufte-sn-157" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">157</span> 
+<span class="math display">\[
+\begin{align*}
+\|\mathbf{a}+\mathbf{b}\|^{2}&amp;= \langle\mathbf{a}+\mathbf{b},\,\mathbf{a}+\mathbf{b}\rangle\\
+&amp;\overset{(a)}{=}   \langle\mathbf{a},\,\mathbf{a}+\mathbf{b}\rangle+\langle\mathbf{b},\,\mathbf{a}+\mathbf{b}\rangle\\
+&amp;\overset{(b)}{=}   \langle\mathbf{a},\,\mathbf{a}\rangle+\langle\mathbf{a},\,\mathbf{b}\rangle+\langle\mathbf{b},\,\mathbf{a}\rangle+\langle\mathbf{b},\,\mathbf{b}\rangle\\
+&amp;=  \|\mathbf{a}\|^{2}+\|\mathbf{b}\|^{2}+2\langle\mathbf{a},\,\mathbf{b}\rangle\\
+&amp;\overset{(c)}{=}\|\mathbf{a}\|^{2}+\|\mathbf{b}\|^{2}
+\end{align*}
+\]</span>
+where <span class="math inline">\(\overset{(a)}{=}\)</span> and <span class="math inline">\(\overset{(b)}{=}\)</span> use the <strong>distributive rule</strong>, <span class="math inline">\(\overset{(c)}{=}\)</span> use the <strong>orthogonality</strong> <span class="math inline">\(\langle\mathbf{a},\,\mathbf{b}\rangle=0\)</span>.</span> In this sense, the definition of <strong>inner product</strong> (expression <a href="ch-vecMat.html#eq:inner-2">(10.3)</a>) actually specifies the <strong>projective</strong> geometry properties of vectors.</p>
+</div>
+<div id="sub:linearity" class="section level2">
+<h2>
+<span class="header-section-number">10.2</span> Example: Linearity</h2>
+<p><a href="#sub:Vector">Vectors</a> establish the basic objects in the numerical computation. Consider a function <span class="math inline">\(f:\mathbb{R}^{n}\mapsto\mathbb{R}\)</span>. We can model this function by saying that it maps from real <span class="math inline">\(n\)</span>-vectors to real numbers such as <span class="math inline">\(f(\mathbf{x})=f(x_{1},\dots,x_{n})\)</span>. And the <a href="#sub:Vector">inner product</a> is such a function:<span class="math display">\[f(\mathbf{x})=\langle\mathbf{b},\,\mathbf{x}\rangle=b_{1}x_{1}+\cdots+b_{n}x_{n}\]</span>
+where <span class="math inline">\(b_{1},\dots,b_{n}\)</span> are the coefficients. The <a href="#sub:Vector">inner product</a> can uniquely represent a class of functions called <strong>linear functions</strong>. The linear function is one of the most fundamental functions. For example, in economics, the total income or the total expenses can be expressed by an inner product of quantities and prices of <span class="math inline">\(n\)</span> items.</p>
+<p>A function <span class="math inline">\(f\)</span> is <em>linear</em> or <em>superposition</em> if <span class="math display">\[f(\alpha x+\beta y)=\alpha f(x)+\beta f(y)\]</span>
+for <a href="#sub:Vector">scalars</a> <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. The property <span class="math inline">\(f(\alpha x)=\alpha f(x)\)</span> is called the <em>homogeneity</em>, and the property <span class="math inline">\(f(x+y)=f(x)+f(y)\)</span> is called the <em>additivity</em>.<label for="tufte-sn-158" class="margin-toggle sidenote-number">158</label><input type="checkbox" id="tufte-sn-158" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">158</span> We can easily find that if the linear function is an inner product, then the <strong>aditivity</strong> and <strong>homogeneity</strong> are respectively corresponding to the rules of <a href="#sub:Vector">addition</a> and <a href="#sub:Vector">scalar multiplication</a> of vectors.</span> Combining <strong>homogenity</strong> and <strong>additivity</strong> gives the <strong>superposition</strong>. For any function <span class="math inline">\(f:\mathbb{R}^{n}\mapsto\mathbb{R}\)</span>, if <span class="math inline">\(f\)</span> is <strong>linear</strong>, then <span class="math inline">\(f\)</span> can be uniquely represented by an <a href="#sub:">inner product</a> of its argument <span class="math inline">\(\mathbf{x}\in\mathbb{R}^{n}\)</span> with some fixed vector <span class="math inline">\(\mathbf{b}\in\mathbb{R}^{n}\)</span>, namely <span class="math inline">\(f(\mathbf{x})=\langle\mathbf{b},\,\mathbf{x}\rangle\)</span>.</p>
+<div class="solution">
+<p class="solution-begin">
+Proof <span id="sol-start-34" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-34', 'sol-start-34')"></span>
+</p>
+<div id="sol-body-34" class="solution-body" style="display: none;">
+<p>An arbitrary <span class="math inline">\(n\)</span>-vector <span class="math inline">\(\mathbf{x}\)</span>
+has the <a href="#sub:Vector">linear combination</a> <span class="math inline">\(\mathbf{x}=x_{1}\mathbf{e}_{1}+\cdots+x_{n}\mathbf{e}_{n}\)</span>. For a <strong>linear function</strong> <span class="math inline">\(f\)</span>, the <strong>superposition</strong> gives<span class="math display">\[f(\mathbf{x})=f(x_{1}\mathbf{e}_{1}+\cdots+x_{n}\mathbf{e}_{n})=x_{1}f(\mathbf{e}_{1})+\cdots+x_{n}f(\mathbf{e}_{n})=\langle\mathbf{x},\,\mathbf{b}\rangle\]</span>
+where <span class="math inline">\(\mathbf{b}\)</span> is the vector of <span class="math inline">\(f(\mathbf{e}_{1}),\dots,f(\mathbf{e}_{n})\)</span>.
+By <a href="#sub:Vector">commutativity</a> of the inner product, we have <span class="math inline">\(f(\mathbf{x})=\langle\mathbf{b},\,\mathbf{x}\rangle\)</span>. To see this representation is unique. Suppose there is another vector <span class="math inline">\(\mathbf{c}\)</span> such that <span class="math inline">\(f(\mathbf{x})=\langle\mathbf{c},\,\mathbf{x}\rangle\)</span> for all <span class="math inline">\(\mathbf{x}\in\mathbb{R}^{n}\)</span>. Then let <span class="math inline">\(\mathbf{x}\)</span> be any <a href="#sub:Vector">standard unit vector</a> <span class="math inline">\(\mathbf{e}_{i}\)</span>, we have <span class="math inline">\(f(\mathbf{e}_{i})=\langle\mathbf{c},\,\mathbf{e}_{i}\rangle=c_{i}\)</span>. Similarly, if we use the other representation, then <span class="math inline">\(f(\mathbf{e}_{i})=\langle\mathbf{b},\,\mathbf{e}_{i}\rangle=b_{i}\)</span>. It means <span class="math inline">\(b_{i}=c_{i}\)</span> for any <span class="math inline">\(i=1,\dots,n\)</span>. Thus <span class="math inline">\(\mathbf{b}=\mathbf{c}\)</span>, the representation is unique.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p><span class="newthought">Multi-valued function</span></p>
+<p>The <a href="#sub:Vector">vector</a> also allows us to study some function mapping to higher dimensions <span class="math inline">\(\mathbf{f}:\mathbb{R}\mapsto\mathbb{R}^{n}\)</span>. For example, the dynamical 3D spiral in figure <a href="sub-inferknow.html#fig:3DSpiral">4.6</a> is such a function <span class="math display">\[\mathbf{f}(t)=\left[\begin{array}{c}
+f_{1}(t)\\
+f_{2}(t)\\
+f_{3}(t)
+\end{array}\right]=\left[\begin{array}{c}
+\mbox{e}^{t}\cos t,\\
+\mbox{e}^{t}\sin t\\
+t
+\end{array}\right].\]</span>
+The <a href="sub-continuity.html#sub:continuity">continuity</a> for <span class="math inline">\(\mathbf{f}:\mathbb{R}\mapsto\mathbb{R}^{n}\)</span> should take into account the <a href="sub-continuity.html#sub:continuity">continuity</a> in each dimension, namely the <a href="sub-continuity.html#sub:continuity">continuity</a> of every <span class="math inline">\(f_{i}(x)\)</span> in the vector <span class="math inline">\(\mathbf{f}(x)\)</span>. The <a href="sub-incomplete.html#sub:infinity">limit</a> <span class="math inline">\(\lim_{x\rightarrow a}\mathbf{f}(x)\)</span>
+does not exists if and only if there is a sequence <span class="math inline">\(x_{n}\rightarrow a\)</span> such that <span class="math inline">\(\mathbf{f}(x_{n})\)</span> does not <a href="sub-incomplete.html#sub:infinity">converge</a>. The function <span class="math inline">\(\mathbf{f}(x)\)</span> is <a href="sub-continuity.html#sub:continuity">continuous</a> at a point <span class="math inline">\(a\)</span> if <span class="math inline">\(\lim_{x\rightarrow a}\mathbf{f}(x)=\mathbf{f}(a)\)</span>.</p>
+<p><span class="newthought">Gradient </span></p>
+<p>With the properties of function values in <span class="math inline">\(\mathbb{R}^n\)</span>, let’s consider a special <a href="sub-set-theory.html#sub:func">mapping</a> from <span class="math inline">\(\mathbb{R}^{n}\)</span>
+to <span class="math inline">\(\mathbb{R}^{n}\)</span> which is called the <strong>gradient</strong>. Consider a <a href="sub-calculus.html#sub:diffInt">differentiable</a> function <span class="math inline">\(f:\mathbb{R}^{n}\mapsto\mathbb{R}\)</span>, the <em>gradient</em> of <span class="math inline">\(f\)</span> is an <span class="math inline">\(n\)</span>-vector <span class="math display">\[\nabla f(\mathbf{z})=\left[\begin{array}{c}
+\left.\frac{\partial f}{\partial x_{1}}(\mathbf{x})\right|_{\mathbf{x}=\mathbf{z}}\\
+\vdots\\
+\left.\frac{\partial f}{\partial x_{n}}(\mathbf{x})\right|_{\mathbf{x}=\mathbf{z}}
+\end{array}\right]\]</span>
+where <span class="math inline">\(\partial f/\partial x_{i}\)</span> is the <a href="ch-DE.html#sub:pde">partial derivative</a> <span class="math display">\[\frac{\partial f}{\partial x_{i}}(\mathbf{x})=\lim_{\epsilon\rightarrow0}\frac{f(x_{1},\dots,x_{i}+\epsilon,\dots x_{n})-f(\mathbf{x})}{\epsilon}.\]</span>
+We can <a href="sub-calculus.html#sub:Taylor">linearize</a> a nonlinear (vector) function <span class="math inline">\(f:\mathbb{R}^{n}\mapsto\mathbb{R}\)</span>
+by <a href="sub-calculus.html#sub:Taylor">Taylor series</a> such thatf <span class="math display">\[(\mathbf{x})\approx f(\mathbf{z})+\left\langle \nabla f(\mathbf{z}),\,(\mathbf{x}-\mathbf{z})\right\rangle.\]</span>
+The first term in the <a href="sub-calculus.html#sub:Taylor">Taylor series</a> is a constant vector <span class="math inline">\(f(\mathbf{z})\)</span>, the second term is the inner product of the <strong>gradient</strong> of <span class="math inline">\(f\)</span> at <span class="math inline">\(\mathbf{z}\)</span> and the difference between <span class="math inline">\(\mathbf{x}\)</span> and <span class="math inline">\(\mathbf{z}\)</span>. This first order Taylor expansion is a <strong>linear function</strong> <span class="math inline">\(\left\langle \nabla f(\mathbf{z}),\,(\mathbf{x}-\mathbf{z})\right\rangle\)</span> plus a constant vector <span class="math inline">\(f(\mathbf{z})\)</span>.<label for="tufte-sn-159" class="margin-toggle sidenote-number">159</label><input type="checkbox" id="tufte-sn-159" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">159</span> A linear function <span class="math inline">\(\langle\mathbf{b},\,\mathbf{x}\rangle\)</span> plus a constant vector <span class="math inline">\(\mathbf{a}\)</span> is called an <em>affine function</em> <span class="math inline">\(f(\mathbf{x})=\langle\mathbf{b},\,\mathbf{x}\rangle+\mathbf{a}\)</span>. In many applied contexts <strong>affine functions</strong> are also called <strong>linear functions</strong>. However, in order to satisfy the <strong>superposition</strong> property, the argument <span class="math inline">\(\alpha x+\beta y\)</span> should satisfy <span class="math inline">\(\alpha+\beta=1\)</span>. To see this, note that
+<span class="math display">\[\begin{align*} 
+f(\alpha\mathbf{x}+\beta\mathbf{y}) &amp;=  \langle\mathbf{b},\,\alpha\mathbf{x}+\beta\mathbf{y}\rangle+\mathbf{a}\\
+&amp;=  \alpha\langle\mathbf{b},\,\mathbf{x}\rangle+\beta\langle\mathbf{b},\,\mathbf{y}\rangle+\mathbf{a}. \end{align*}\]</span>
+Using the property <span class="math inline">\(\alpha+\beta=1\)</span>, the previous expression becomes
+<span class="math display" id="eq:sem-1">\[\begin{align*} 
+\alpha\langle\mathbf{b},\,\mathbf{x}\rangle+\beta\langle\mathbf{b},\,\mathbf{y}\rangle+&amp;(\alpha+\beta)\mathbf{a}    =\\
+\alpha(\langle\mathbf{b},\,\mathbf{x}\rangle+\mathbf{a})+&amp;\beta(\langle\mathbf{b},\,\mathbf{y}\rangle+\mathbf{a})=  \alpha f(\mathbf{x})+\beta f(\mathbf{y}).
+\end{align*}\]</span></span></p>
+<p><span class="newthought">Fixed point of vectors </span></p>
+<p>Let’s look at a vector version <a href="sub-continuity.html#sub:Cauchy">fixed point</a> result. The previous system @ref\tag{10.1} can be rewritten as
+<span class="math display">\[\begin{align*}
+\mathbf{x}=&amp;\left[\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right]  =\left[\begin{array}{c}
+0.4x_{1}-0.3x_{2}+1\\
+0.3x_{1}+0.4x_{2}
+\end{array}\right]\\
+&amp;=\left[\begin{array}{c}
+1\\
+0
+\end{array}\right]  +\left[\begin{array}{c}
+g_{1}(\mathbf{x})\\
+g_{2}(\mathbf{x})
+\end{array}\right]=\mathbf{d}+\mathbf{g}(\mathbf{x})=\mathbf{f}(\mathbf{x})
+\end{align*}\]</span>
+where <span class="math inline">\(\mathbf{g}:\mathbb{R}^{2}\mapsto\mathbb{R}^{2}\)</span> is a <strong>linear function</strong> (both <span class="math inline">\(g_{1}\)</span> and <span class="math inline">\(g_{2}\)</span> are <strong>linear</strong>), and <span class="math inline">\(\mathbf{f}:\mathbb{R}^{2}\mapsto\mathbb{R}^{2}\)</span> is an <strong>affine function</strong>. The following simple code shows that the system reach the point around <span class="math inline">\(x_{1}=4/3\)</span> and <span class="math inline">\(x_{2}=2/3\)</span>, namely the solution vector of the linear system.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">x1 =<span class="st"> </span><span class="dv">0</span>; x2 =<span class="st"> </span><span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="cf">for</span> (iter <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){ </a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">  x1 =<span class="st"> </span><span class="fl">0.4</span><span class="op">*</span>x1 <span class="op">-</span><span class="st"> </span><span class="fl">0.3</span><span class="op">*</span>x2 <span class="op">+</span><span class="st"> </span><span class="dv">1</span> ; </a>
+<a class="sourceLine" id="cb24-4" data-line-number="4">  x2 =<span class="st"> </span><span class="fl">0.3</span><span class="op">*</span>x1 <span class="op">+</span><span class="st"> </span><span class="fl">0.4</span><span class="op">*</span>x2; </a>
+<a class="sourceLine" id="cb24-5" data-line-number="5">  <span class="kw">cat</span>(<span class="st">"At iteration"</span>, iter, <span class="st">"x1 is:"</span>, x1, <span class="st">"x2 is:"</span>, x2, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</a>
+<a class="sourceLine" id="cb24-6" data-line-number="6">}</a></code></pre></div>
+<pre><code>## At iteration 1 x1 is: 1 x2 is: 0.3 
+## At iteration 2 x1 is: 1.31 x2 is: 0.513 
+## At iteration 3 x1 is: 1.3701 x2 is: 0.61623 
+## At iteration 4 x1 is: 1.363171 x2 is: 0.6554433 
+## At iteration 5 x1 is: 1.348635 x2 is: 0.6667679 
+## At iteration 6 x1 is: 1.339424 x2 is: 0.6685343 
+## At iteration 7 x1 is: 1.335209 x2 is: 0.6679765 
+## At iteration 8 x1 is: 1.333691 x2 is: 0.6672978 
+## At iteration 9 x1 is: 1.333287 x2 is: 0.6669052 
+## At iteration 10 x1 is: 1.333243 x2 is: 0.666735</code></pre>
+<p>From the result table, we can see that the <a href="sub-continuity.html#sub:Cauchy">Lipschitz continuity</a> is satisfied for this <strong>affine</strong> function. <span class="math display">\[\|\mathbf{f}(\mathbf{x})-\mathbf{f}(\mathbf{x}')\|\leq\|\mathbf{x}-\mathbf{x}'\|.\]</span>
+The sequence is a <a href="sub-continuity.html#sub:Cauchy">Cauchy sequence</a>.</p>
+<p><span class="newthought">Linear regression </span></p>
+<p>A very commonly used <strong>linearity</strong> is the <strong>least square</strong> method. Suppose a simple system generates output <span class="math inline">\(y\)</span> by a linear relation <span class="math inline">\(\beta x\)</span> of the <a href="sub-set-theory.html#sub:func">input</a> <span class="math inline">\(x\)</span> adding an unobservable contaminated error. When the coefficent <span class="math inline">\(\beta\)</span> is unknown, so we need to estimate the value of <span class="math inline">\(\beta\)</span> through a <a href="sub-axioms.html#sub:rec">sequence</a> of observations of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
+<p>In data analysis, the observations of one variable <span class="math inline">\(x\)</span> are stored by an <em>array</em>, namely a data vector.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">2020</span>)</a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">x=<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>; y=<span class="dv">5</span><span class="op">*</span>x<span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">*</span><span class="kw">rnorm</span>(<span class="dv">10</span>); dat=<span class="kw">data.frame</span>(x,y) </a></code></pre></div>
+<div id="htmlwidget-024ceae51381a4e49dc1" style="width:55%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-024ceae51381a4e49dc1">{"x":{"filter":"none","caption":"<caption>Simulated x and y<\/caption>","autoHideNavigation":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[1,2,3,4,5,6,7,8,9,10],[5.75394424987287,10.6030967478713,12.8039536586928,17.7391881927924,19.4069313602565,31.4411469968232,36.878242046018,39.5412445065851,48.5182626939269,50.2347335736057]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>x<\/th>\n      <th>y<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><p>The table displays ten observations for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. These are <span class="math inline">\(10\)</span>-vector <span class="math inline">\(\mathbf{x}\)</span> and <span class="math inline">\(10\)</span>-vector <span class="math inline">\(\mathbf{y}\)</span>. These vectors are generated by a <a href="ch-CalUn.html#sub:divRV">Monte Carlo simulation</a>. The preassumbly relation between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> is linear, so scaling the vector <span class="math inline">\(\mathbf{x}\)</span> by <span class="math inline">\(\beta\)</span> unit was supposed to get the vector <span class="math inline">\(\mathbf{y}\)</span>. Due to the contaminations (added by normal random variable <span class="math inline">\(\mathcal{N}(0,4)\)</span>), the vector <span class="math inline">\(\mathbf{y}\)</span> does not stay with <span class="math inline">\(\mathbf{x}\)</span> at the same plane. We need to estimate <span class="math inline">\(\beta\)</span> by projecting <span class="math inline">\(\mathbf{y}\)</span> onto the plane of <span class="math inline">\(\mathbf{x}\)</span>. . By the <a href="#sub:Vector">projection formula</a> <a href="ch-vecMat.html#eq:proj">(10.4)</a>, we can deduce the estimator<span class="math display">\[\hat{\beta}=\frac{\langle\mathbf{x},\,\mathbf{y}\rangle}{\langle\mathbf{x},\,\mathbf{x}\rangle}\]</span>
+and the estimated output (the projected output) <span class="math inline">\(\hat{\beta}\mathbf{x}\)</span>. For any given input <span class="math inline">\(x\)</span>, one can also predict the output through <span class="math inline">\(\hat{\beta}x\)</span>.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:leastSquare"></span>
+<img src="fig/Part3/leastSquare.gif" alt="Least square estimate" width="100%"><!--
+<p class="caption marginnote">-->Figure 10.6: Least square estimate<!--</p>-->
+<!--</div>--></span>
+</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="co"># least square estimate of beta (True beta is 5)</span></a>
+<a class="sourceLine" id="cb27-2" data-line-number="2"><span class="kw">sum</span>(x<span class="op">*</span>y)<span class="op">/</span><span class="kw">sum</span>(x<span class="op">*</span>x)</a></code></pre></div>
+<pre><code>## [1] 5.027272</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="co"># Plot</span></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2">xp=<span class="kw">c</span>(); yp=<span class="kw">c</span>(); g=<span class="kw">c</span>();</a>
+<a class="sourceLine" id="cb29-3" data-line-number="3"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){ xp=<span class="kw">c</span>(xp,x[<span class="dv">1</span><span class="op">:</span>i]); yp=<span class="kw">c</span>(yp,y[<span class="dv">1</span><span class="op">:</span>i]); g=<span class="kw">c</span>(g,<span class="kw">rep</span>(i,i))}</a>
+<a class="sourceLine" id="cb29-4" data-line-number="4">dataPlot =<span class="st"> </span><span class="kw">data.frame</span>(xp,yp,g) </a>
+<a class="sourceLine" id="cb29-5" data-line-number="5"><span class="kw">library</span>(ggplot2); <span class="kw">library</span>(dplyr);<span class="kw">library</span>(magrittr); <span class="kw">library</span>(gganimate)</a>
+<a class="sourceLine" id="cb29-6" data-line-number="6">plotStatic =<span class="st"> </span><span class="kw">ggplot</span>( dataPlot <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(g) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">beta=</span><span class="kw">sum</span>(xp<span class="op">*</span>yp)<span class="op">/</span><span class="kw">sum</span>(xp<span class="op">*</span>xp)), <span class="kw">aes</span>(xp, yp)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_abline</span>(<span class="kw">aes</span>(<span class="dt">intercept=</span><span class="dv">0</span>, <span class="dt">slope=</span>beta), <span class="dt">col=</span><span class="st">"skyblue"</span>)</a>
+<a class="sourceLine" id="cb29-7" data-line-number="7">plotAni &lt;-<span class="st"> </span>plotStatic <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">'n =  {round(frame_time, 2)}'</span>, <span class="dt">x =</span> <span class="st">'x'</span>, <span class="dt">y =</span> <span class="st">'y'</span>) <span class="op">+</span><span class="st">   </span><span class="kw">transition_time</span>(g) <span class="op">+</span><span class="st">   </span><span class="kw">ease_aes</span>(<span class="st">'linear'</span>)</a></code></pre></div>
+</div>
+</div></body></html>
+
+<p style="text-align: center;">
+<a href="part-iii-emergence-of-abstract-interactions.html"><button class="btn btn-default">Previous</button></a>
+<a href="bibliography.html"><button class="btn btn-default">Next</button></a>
+</p>
+<p class="build-date">Page built: 
+2020-03-18
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
