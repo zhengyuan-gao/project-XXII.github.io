@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2020-03-19" />
+<meta name="date" content="2020-03-28" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -155,6 +155,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a id="active-page" href="ch-vecMat.html"><span class="toc-section-number">10</span> Vector and Matrix</a><ul class="toc-sections">
 <li class="toc"><a href="#sub:vec"> Vector</a></li>
 <li class="toc"><a href="#sub:linearity"> Example: Linearity</a></li>
+<li class="toc"><a href="#sub:matrix"> Matrix</a></li>
 </ul>
 <a href="bibliography.html">Bibliography</a>
 </div>
@@ -177,8 +178,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 \end{cases}
 \tag{10.1} 
 \end{equation}\]</span>
-should be treated separately as in an <a href="sub-set-theory.html#sub:order">ordered list</a> <span class="math inline">\((x_{1},x_{2})\in\mathbb{R}^{2}\)</span>
-. The solution <span class="math inline">\((4/3,\,2/3)\)</span> can be viewed as the point on the plane where two equations intersect (figure <a href="ch-vecMat.html#fig:LinearSys">10.1</a>). The notation of <span class="math inline">\((x_{1},x_{2})\)</span> is free to express any point on the plane. The introduction of a great workable literal symbolism was a significant advance in mathematics. Descartes illustrated his entire scheme of geometry on the Cartesian system of coordinates. This illustration connected algebra to classical geometry.</p>
+should be treated separately as we did it for the <a href="sub-set-theory.html#sub:order">ordered list</a> <span class="math inline">\((x_{1},x_{2})\in\mathbb{R}^{2}\)</span>. The solution <span class="math inline">\((4/3,\,2/3)\)</span> can be viewed as the point on the plane where two equations intersect (figure <a href="ch-vecMat.html#fig:LinearSys">10.1</a>). The notation of <span class="math inline">\((x_{1},x_{2})\)</span> is free to express any point on the plane. The introduction of a great workable literal symbolism was a significant advance in mathematics. Descartes illustrated his entire scheme of geometry on the Cartesian system of coordinates. This illustration connected algebra to classical geometry.</p>
 <p>
 <span class="marginnote shownote">
 <!--
@@ -195,7 +195,7 @@ should be treated separately as in an <a href="sub-set-theory.html#sub:order">or
 1\\
 0
 \end{array}\right].\]</span>
-There is no need to write out all the equals signs or plus signs. These rectangular tables of numbers are handy in representing the system of equations. The first rectangular table of numbers represents a symbol called the <a href="">matrix</a>, and the second represents a symbol called the <a href="">vector</a>. They are the primary objects for studying a general linear system with an arbitrary number of unknowns. By relieving our imagination, we can reduce high-dimensional thought processes to some easily mastered manipulations of symbols.</p>
+There is no need to write out all the equal signs or plus signs. These rectangular tables of numbers are handy in representing the system of equations. The first rectangular table of numbers represents a symbol called the <a href="ch-vecMat.html#sub:matrix">matrix</a>, and the second represents a symbol called the <a href="ch-vecMat.html#sub:vec">vector</a>. They are the primary objects for studying a general linear system with an arbitrary number of unknowns. By relieving our imagination, we can reduce high-dimensional thought processes to some easily mastered manipulations of symbols.</p>
 <div id="sub:vec" class="section level2">
 <h2>
 <span class="header-section-number">10.1</span> Vector</h2>
@@ -225,10 +225,10 @@ c\times a_{1}\\
 \vdots\\
 c\times a_{n}
 \end{array}\right].\]</span></p>
-<p>Like the addition of 2D order lists, when we add one <strong>vector</strong> to another <strong>vector</strong>, the <strong>addition</strong> should take into account the order of the entires of these vectors. Each entry or component of the vector is called the <em>scalar</em>. when we <strong>scale</strong> the vector by some scalar <span class="math inline">\(c\)</span>, this scalar should multiple all components of the vector. The vector <span class="math inline">\(\mathbf{a}\in \mathbb{R}^n\)</span> is of <em>size</em> <span class="math inline">\(n\)</span>, and it is called the <em><span class="math inline">\(n\)</span>-vector</em>. Two equivalent vectors <span class="math inline">\(\mathbf{a}\)</span> and <span class="math inline">\(\mathbf{b}\)</span>, namely <span class="math inline">\(\mathbf{a}=\mathbf{b}\)</span>, implies that they have the same size and the same corresponding entries.</p>
+<p>Like the addition of 2D order lists, when we add one <strong>vector</strong> to another <strong>vector</strong>, the <strong>addition</strong> should take into account the order of the <strong>entires</strong> of these vectors. Each <em>entry</em> or component of the vector is called the <em>scalar</em>. when we <strong>scale</strong> the vector by some scalar <span class="math inline">\(c\)</span>, this scalar should multiple all components of the vector. The vector <span class="math inline">\(\mathbf{a}\in \mathbb{R}^n\)</span> is of <em>size</em> <span class="math inline">\(n\)</span>, and it is called the <em><span class="math inline">\(n\)</span>-vector</em>. Two equivalent vectors <span class="math inline">\(\mathbf{a}\)</span> and <span class="math inline">\(\mathbf{b}\)</span>, namely <span class="math inline">\(\mathbf{a}=\mathbf{b}\)</span>, implies that they have the same size and the same corresponding entries.</p>
 <p>The <em>arithmetic axioms</em> or the <em>algebra axioms</em> of vectors are similar to those rules of real numbers. Suppose that <span class="math inline">\(\mathbf{a}\)</span>, <span class="math inline">\(\mathbf{b}\)</span>, and <span class="math inline">\(\mathbf{c}\)</span> are <span class="math inline">\(n\)</span>-vectors, namely being of the same size, and suppose that <span class="math inline">\(k\)</span> and <span class="math inline">\(l\)</span> are scalars, the axioms can be summarized as follows:</p>
 <ul>
-<li>addition <span class="math inline">\(+\)</span> (or called <em>commutative group</em>)<label for="tufte-sn-152" class="margin-toggle sidenote-number">152</label><input type="checkbox" id="tufte-sn-152" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">152</span> The <strong>commutative group</strong> is a concept from abstract algebra. The <strong>commutative group</strong> generalizes the operations that perform similarly as the arithmetic of addition of <a href="">integers</a>. Here <span class="math inline">\(+\)</span> operation stands for the operation defining the abstract commutative group rather than the simple addition of integers. That is, if we replace <span class="math inline">\(\mathbf{a}, \mathbf{b}\in\mathbb{R}^n\)</span> with <span class="math inline">\(a, b\in\mathbb{Z}\)</span>, the axioms still hold. Moreover, if we use some other objects instead of vector <span class="math inline">\(\mathbf{a}, \mathbf{b}\)</span>, and if those objects are from a commutative group, they should also satisfy the <strong>axioms</strong> regarding this <span class="math inline">\(+\)</span> operation. </span>:</li>
+<li>addition <span class="math inline">\(+\)</span> (or called <em>commutative group</em>)<label for="tufte-sn-152" class="margin-toggle sidenote-number">152</label><input type="checkbox" id="tufte-sn-152" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">152</span> The <strong>commutative group</strong> is a concept from abstract algebra. The <strong>commutative group</strong> generalizes the operations that perform similarly as the arithmetic of addition of <a href="sub-continuity.html#sub:rational">integers</a>. Here <span class="math inline">\(+\)</span> operation stands for the operation defining the abstract commutative group rather than the simple addition of integers. That is, if we replace <span class="math inline">\(\mathbf{a}, \mathbf{b}\in\mathbb{R}^n\)</span> with <span class="math inline">\(a, b\in\mathbb{Z}\)</span>, the axioms still hold. Moreover, if we use some other objects instead of vector <span class="math inline">\(\mathbf{a}, \mathbf{b}\)</span>, and if those objects are from a commutative group, they should also satisfy the <strong>axioms</strong> regarding this <span class="math inline">\(+\)</span> operation.</span>:</li>
 </ul>
 <ol style="list-style-type: decimal">
 <li>
@@ -365,8 +365,8 @@ By the definition of inner product (expression <a href="ch-vecMat.html#eq:inner-
 \tag{10.4}
 \end{equation}
 \]</span>
-The term <span class="math inline">\(\langle\mathbf{a},\,\mathbf{b}\rangle/\|\mathbf{b}\|^{2}\)</span> gives the <em>orthogonal projection</em> of <span class="math inline">\(\mathbf{a}\)</span> onto <span class="math inline">\(\mathbf{b}\)</span>.<label for="tufte-sn-156" class="margin-toggle sidenote-number">156</label><input type="checkbox" id="tufte-sn-156" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">156</span> Note that <span class="math inline">\(\|\mathbf{b}\|^{2}=\langle\mathbf{b},\,\mathbf{b}\rangle\)</span>, one can also write the ** orthogonal projection** of <span class="math inline">\(\mathbf{a}\)</span> onto <span class="math inline">\(\mathbf{b}\)</span> as <span class="math display" id="eq:proj">\[\frac{\langle\mathbf{a},\,\mathbf{b}\rangle}{\langle\mathbf{b},\,\mathbf{b}\rangle}\mathbf{b}\]</span>.</span></p>
-<p>With the <strong>projection formula</strong> (@ref\tag{10.4}), we can deduce the following rules (axioms).</p>
+The term <span class="math inline">\(\langle\mathbf{a},\,\mathbf{b}\rangle/\|\mathbf{b}\|^{2}\)</span> gives the <em>orthogonal projection</em> of <span class="math inline">\(\mathbf{a}\)</span> onto <span class="math inline">\(\mathbf{b}\)</span>.<label for="tufte-sn-156" class="margin-toggle sidenote-number">156</label><input type="checkbox" id="tufte-sn-156" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">156</span> Note that <span class="math inline">\(\|\mathbf{b}\|^{2}=\langle\mathbf{b},\,\mathbf{b}\rangle\)</span>, one can also write the ** orthogonal projection** of <span class="math inline">\(\mathbf{a}\)</span> onto <span class="math inline">\(\mathbf{b}\)</span> as <span class="math display">\[\frac{\langle\mathbf{a},\,\mathbf{b}\rangle}{\langle\mathbf{b},\,\mathbf{b}\rangle}\mathbf{b}\]</span>.</span></p>
+<p>With the <strong>projection formula</strong> <a href="ch-vecMat.html#eq:proj">(10.4)</a>, we can deduce the following rules (axioms).</p>
 <ul>
 <li>Rules of <strong>inner product</strong> <span class="math inline">\(\langle\cdot,\,\cdot\rangle\)</span> for <span class="math inline">\(\mathbf{a},\mathbf{b}\in\mathbb{R}^{n}\)</span> and <span class="math inline">\(k\in\mathbb{R}\)</span>:</li>
 </ul>
@@ -427,9 +427,9 @@ where <span class="math inline">\(b_{1},\dots,b_{n}\)</span> are the coefficient
 for <a href="#sub:Vector">scalars</a> <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. The property <span class="math inline">\(f(\alpha x)=\alpha f(x)\)</span> is called the <em>homogeneity</em>, and the property <span class="math inline">\(f(x+y)=f(x)+f(y)\)</span> is called the <em>additivity</em>.<label for="tufte-sn-158" class="margin-toggle sidenote-number">158</label><input type="checkbox" id="tufte-sn-158" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">158</span> We can easily find that if the linear function is an inner product, then the <strong>aditivity</strong> and <strong>homogeneity</strong> are respectively corresponding to the rules of <a href="#sub:Vector">addition</a> and <a href="#sub:Vector">scalar multiplication</a> of vectors.</span> Combining <strong>homogenity</strong> and <strong>additivity</strong> gives the <strong>superposition</strong>. For any function <span class="math inline">\(f:\mathbb{R}^{n}\mapsto\mathbb{R}\)</span>, if <span class="math inline">\(f\)</span> is <strong>linear</strong>, then <span class="math inline">\(f\)</span> can be uniquely represented by an <a href="#sub:">inner product</a> of its argument <span class="math inline">\(\mathbf{x}\in\mathbb{R}^{n}\)</span> with some fixed vector <span class="math inline">\(\mathbf{b}\in\mathbb{R}^{n}\)</span>, namely <span class="math inline">\(f(\mathbf{x})=\langle\mathbf{b},\,\mathbf{x}\rangle\)</span>.</p>
 <div class="solution">
 <p class="solution-begin">
-Proof <span id="sol-start-68" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-68', 'sol-start-68')"></span>
+Proof <span id="sol-start-34" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-34', 'sol-start-34')"></span>
 </p>
-<div id="sol-body-68" class="solution-body" style="display: none;">
+<div id="sol-body-34" class="solution-body" style="display: none;">
 <p>An arbitrary <span class="math inline">\(n\)</span>-vector <span class="math inline">\(\mathbf{x}\)</span>
 has the <a href="#sub:Vector">linear combination</a> <span class="math inline">\(\mathbf{x}=x_{1}\mathbf{e}_{1}+\cdots+x_{n}\mathbf{e}_{n}\)</span>. For a <strong>linear function</strong> <span class="math inline">\(f\)</span>, the <strong>superposition</strong> gives<span class="math display">\[f(\mathbf{x})=f(x_{1}\mathbf{e}_{1}+\cdots+x_{n}\mathbf{e}_{n})=x_{1}f(\mathbf{e}_{1})+\cdots+x_{n}f(\mathbf{e}_{n})=\langle\mathbf{x},\,\mathbf{b}\rangle\]</span>
 where <span class="math inline">\(\mathbf{b}\)</span> is the vector of <span class="math inline">\(f(\mathbf{e}_{1}),\dots,f(\mathbf{e}_{n})\)</span>.
@@ -466,12 +466,12 @@ The first term in the <a href="sub-calculus.html#sub:Taylor">Taylor series</a> i
 f(\alpha\mathbf{x}+\beta\mathbf{y}) &amp;=  \langle\mathbf{b},\,\alpha\mathbf{x}+\beta\mathbf{y}\rangle+\mathbf{a}\\
 &amp;=  \alpha\langle\mathbf{b},\,\mathbf{x}\rangle+\beta\langle\mathbf{b},\,\mathbf{y}\rangle+\mathbf{a}. \end{align*}\]</span>
 Using the property <span class="math inline">\(\alpha+\beta=1\)</span>, the previous expression becomes
-<span class="math display" id="eq:sem-1">\[\begin{align*} 
+<span class="math display">\[\begin{align*} 
 \alpha\langle\mathbf{b},\,\mathbf{x}\rangle+\beta\langle\mathbf{b},\,\mathbf{y}\rangle+&amp;(\alpha+\beta)\mathbf{a}    =\\
 \alpha(\langle\mathbf{b},\,\mathbf{x}\rangle+\mathbf{a})+&amp;\beta(\langle\mathbf{b},\,\mathbf{y}\rangle+\mathbf{a})=  \alpha f(\mathbf{x})+\beta f(\mathbf{y}).
 \end{align*}\]</span></span></p>
 <p><span class="newthought">Fixed point of vectors </span></p>
-<p>Let’s look at a vector version <a href="sub-continuity.html#sub:Cauchy">fixed point</a> result. The previous system @ref\tag{10.1} can be rewritten as
+<p>Let’s look at a vector version <a href="sub-continuity.html#sub:Cauchy">fixed point</a> result. The previous system <a href="ch-vecMat.html#eq:sem-1">(10.1)</a> can be rewritten as
 <span class="math display">\[\begin{align*}
 \mathbf{x}=&amp;\left[\begin{array}{c}
 x_{1}\\
@@ -507,13 +507,18 @@ where <span class="math inline">\(\mathbf{g}:\mathbb{R}^{2}\mapsto\mathbb{R}^{2}
 ## At iteration 10 x1 is: 1.333243 x2 is: 0.666735</code></pre>
 <p>From the result table, we can see that the <a href="sub-continuity.html#sub:Cauchy">Lipschitz continuity</a> is satisfied for this <strong>affine</strong> function. <span class="math display">\[\|\mathbf{f}(\mathbf{x})-\mathbf{f}(\mathbf{x}')\|\leq\|\mathbf{x}-\mathbf{x}'\|.\]</span>
 The sequence is a <a href="sub-continuity.html#sub:Cauchy">Cauchy sequence</a>.</p>
+<p>For a general case, let the fixed point of the system of two equations <span class="math inline">\(x_1=g_{1}(x_1,x_2),\; x_2=g_{2}(x_1,x_2)\)</span>
+be <span class="math inline">\((x_1^{*},x_2^{*})\)</span> such that <span class="math inline">\(x_1^{*}=g_{1}(x_1^{*},x_2^{*})\)</span> and <span class="math inline">\(x_2^{*}=g_{2}(x_1^{*},x_2^{*})\)</span>. The fixed-point iteration is <span class="math display">\[x_1^{(k+1)}=g_{1}(x_1^{(k)},x_2^{(k)}),\; x_2^{(k+1)}=g_{2}(x_1^{(k)},x_2^{(k)}).\]</span>
+Their paritial derivatives are <a href="sub-continuity.html#sub:Cauchy">continuous</a> on a region that contains the fixed point <span class="math inline">\((x_1^{*},x_2^{*})\)</span>. If <span class="math inline">\((x_1,x_2)\)</span> is sufficiently close to <span class="math inline">\((x_1^{*},x_2^{*})\)</span> and if
+<span class="math display">\[\left|\frac{\partial g_{i}}{\partial x_1}(x_1^{*},x_2^{*})\right|+\left|\frac{\partial g_{i}}{\partial x_2}(x_1^{*},x_2^{*})\right|&lt;1\]</span>
+for <span class="math inline">\(i=1,2\)</span>, then the iteration converges <a href="ch-DE.html#sub:stab">stably</a> to <span class="math inline">\((x_1^{*},x_2^{*})\)</span>.<label for="tufte-sn-160" class="margin-toggle sidenote-number">160</label><input type="checkbox" id="tufte-sn-160" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">160</span> Otherwise, the iteration might diverge. This will usually be the case if the sum of the magnitudes of the partial derivatives is much larger than <span class="math inline">\(1\)</span>. See chapter <a href="ch-DE.html#sub:stab">8.4</a> for the discussion about stability of fixed point algorithms.</span></p>
 <p><span class="newthought">Linear regression </span></p>
-<p>A very commonly used <strong>linearity</strong> is the <strong>least square</strong> method. Suppose a simple system generates output <span class="math inline">\(y\)</span> by a linear relation <span class="math inline">\(\beta x\)</span> of the <a href="sub-set-theory.html#sub:func">input</a> <span class="math inline">\(x\)</span> adding an unobservable contaminated error. When the coefficent <span class="math inline">\(\beta\)</span> is unknown, so we need to estimate the value of <span class="math inline">\(\beta\)</span> through a <a href="sub-axioms.html#sub:rec">sequence</a> of observations of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
-<p>In data analysis, the observations of one variable <span class="math inline">\(x\)</span> are stored by an <em>array</em>, namely a data vector.</p>
+<p>Very often, besides the <a href="sub-set-theory.html#sub:func">input</a> and the <a href="sub-set-theory.html#sub:func">output</a>, the system is also characterized by the parameters. To be precise, we recall the notion of the <a href="ch-CalUn.html#sub:conProb">regression</a> <span class="math inline">\(g(X)=\mathbb{E}[Y|X]\)</span> a conditional expectation with the output <span class="math inline">\(Y\)</span> and the (conditional) input <span class="math inline">\(X\)</span>. If we let <span class="math inline">\(Y\)</span> be a linear function with some additive <a href="ch-CalUn.html#sub:ex">i.i.d. random variable</a> <span class="math inline">\(\varepsilon\)</span> and a <a href="ch-CalUn.html#sub:divRV">parameter</a> <span class="math inline">\(\beta\)</span> as the coefficient of the linear function such that <span class="math display">\[Y=\beta X+\varepsilon,\]</span> then the regression is a <em>linear regression</em>, or say <span class="math inline">\(g(X)=\beta X\)</span> as <span class="math inline">\(\mathbb{E}[\varepsilon|X]=0\)</span> for <a href="ch-CalUn.html#sub:ex">i.i.d. random variable</a>.</p>
+<p>When the parameter <span class="math inline">\(\beta\)</span> is unknown, so we need to <strong>estimate</strong> the value of <span class="math inline">\(\beta\)</span> through a <a href="sub-axioms.html#sub:rec">sequence</a> of observations of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. That is, we want to determine the model parameters that produce the observable data <span class="math inline">\(\mathbf{y}\)</span> we have recorded. This problem is known as the <em>estimation problem</em>: one looks for the model parameter that presumably generates the data. In data analysis, the observations (realizations) of one random variable <span class="math inline">\(X\)</span> are stored by an <em>array</em>, namely a data vector.</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">2020</span>)</a>
 <a class="sourceLine" id="cb26-2" data-line-number="2">x=<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>; y=<span class="dv">5</span><span class="op">*</span>x<span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">*</span><span class="kw">rnorm</span>(<span class="dv">10</span>); dat=<span class="kw">data.frame</span>(x,y) </a></code></pre></div>
-<div id="htmlwidget-b09b8b13d7978b9c8f9f" style="width:55%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b09b8b13d7978b9c8f9f">{"x":{"filter":"none","caption":"<caption>Simulated x and y<\/caption>","autoHideNavigation":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[1,2,3,4,5,6,7,8,9,10],[5.75394424987287,10.6030967478713,12.8039536586928,17.7391881927924,19.4069313602565,31.4411469968232,36.878242046018,39.5412445065851,48.5182626939269,50.2347335736057]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>x<\/th>\n      <th>y<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><p>
+<div id="htmlwidget-9341f6b23abb34f787f2" style="width:55%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9341f6b23abb34f787f2">{"x":{"filter":"none","caption":"<caption>Simulated x and y<\/caption>","autoHideNavigation":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[1,2,3,4,5,6,7,8,9,10],[5.75394424987287,10.6030967478713,12.8039536586928,17.7391881927924,19.4069313602565,31.4411469968232,36.878242046018,39.5412445065851,48.5182626939269,50.2347335736057]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>x<\/th>\n      <th>y<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><p>
 <span class="marginnote shownote">
 <!--
 <div class="figure">--><span id="fig:leastSquare"></span>
@@ -521,11 +526,198 @@ The sequence is a <a href="sub-continuity.html#sub:Cauchy">Cauchy sequence</a>.<
 <p class="caption marginnote">-->Figure 10.6: Least square estimate<!--</p>-->
 <!--</div>--></span>
 </p>
-<p>The table displays ten observations for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. These are <span class="math inline">\(10\)</span>-vector <span class="math inline">\(\mathbf{x}\)</span> and <span class="math inline">\(10\)</span>-vector <span class="math inline">\(\mathbf{y}\)</span>. These vectors are generated by a <a href="ch-CalUn.html#sub:divRV">Monte Carlo simulation</a>. The preassumbly relation between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> is linear, so scaling the vector <span class="math inline">\(\mathbf{x}\)</span> by <span class="math inline">\(\beta\)</span> unit was supposed to get the vector <span class="math inline">\(\mathbf{y}\)</span>. Due to the contaminations (added by normal random variable <span class="math inline">\(\mathcal{N}(0,4)\)</span>), the vector <span class="math inline">\(\mathbf{y}\)</span> does not stay with <span class="math inline">\(\mathbf{x}\)</span> at the same plane. We need to estimate <span class="math inline">\(\beta\)</span> by projecting <span class="math inline">\(\mathbf{y}\)</span> onto the plane of <span class="math inline">\(\mathbf{x}\)</span>. . By the <a href="#sub:Vector">projection formula</a> <a href="ch-vecMat.html#eq:proj">(10.4)</a>, we can deduce the estimator<span class="math display">\[\hat{\beta}=\frac{\langle\mathbf{x},\,\mathbf{y}\rangle}{\langle\mathbf{x},\,\mathbf{x}\rangle}\]</span>
-and the estimated output (the projected output) <span class="math inline">\(\hat{\beta}\mathbf{x}\)</span>. For any given input <span class="math inline">\(x\)</span>, one can also predict the output through <span class="math inline">\(\hat{\beta}x\)</span>.</p>
+<p>The table displays ten observations for <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. These are <span class="math inline">\(10\)</span>-vector <span class="math inline">\(\mathbf{x}\)</span> and <span class="math inline">\(10\)</span>-vector <span class="math inline">\(\mathbf{y}\)</span>. These vectors are generated by a <a href="ch-CalUn.html#sub:divRV">Monte Carlo simulation</a>.
+The parameter recovery simulations have frequently been used to assess the accuracy of the estimation.
+We assume that a model accurately captures the processes that generate data, and fit the model to the data so as to draw conclusions from its parameter estimates.</p>
+<p>A very commonly used <strong>estimation method</strong> for <strong>linear regression models</strong> is the <strong>least square</strong> method. The name of <strong>least square</strong> comes from the fact that the method minimizes the (square of the) error <span class="math inline">\(\mathbf{y} - \beta \mathbf{x}\)</span> by tuning the value of <span class="math inline">\(\beta\)</span>. The unique value of <span class="math inline">\(\beta\)</span> should match the data better than the others.</p>
+<p>We will come back to the minimization point of <strong>least square</strong> in Ch[?]. At the moment, we can find the best <span class="math inline">\(\beta\)</span> from the geometric point of view. The preassumbly relation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is linear, so scaling the vector <span class="math inline">\(\mathbf{x}\)</span> by <span class="math inline">\(\beta\)</span> unit was supposed to get the vector <span class="math inline">\(\mathbf{y}\)</span>. Due to the contaminations (added by normal random variable <span class="math inline">\(\mathcal{N}(0,4)\)</span>), the vector <span class="math inline">\(\mathbf{y}\)</span> does not stay with <span class="math inline">\(\mathbf{x}\)</span> at the same plane. We know that when two points <span class="math inline">\(\mathbf{y}\)</span> and <span class="math inline">\(\mathbf{x}\)</span> are on different planes, the nearest point to <span class="math inline">\(\mathbf{y}\)</span> is the projection of <span class="math inline">\(\mathbf{x}\)</span> onto the plane of <span class="math inline">\(\mathbf{y}\)</span>. The value of <span class="math inline">\(\beta\)</span> comes with such a projection is the least square estimator, denoted by <span class="math inline">\(\hat{\beta}\)</span>.
+In other words, we can <strong>estimate</strong> the parameter <span class="math inline">\(\beta\)</span> by projecting <span class="math inline">\(\mathbf{y}\)</span> onto the plane of <span class="math inline">\(\mathbf{x}\)</span>. By the <a href="#sub:Vector">projection formula</a> <a href="ch-vecMat.html#eq:proj">(10.4)</a>, we can deduce the estimator<span class="math display">\[\hat{\beta}=\frac{\langle\mathbf{x},\,\mathbf{y}\rangle}{\langle\mathbf{x},\,\mathbf{x}\rangle}\]</span>
+and the estimated output (the projected output) <span class="math inline">\(\hat{\beta}\mathbf{x}\)</span>.
+The difference between <span class="math inline">\(\mathbf{y}\)</span> and <span class="math inline">\(\hat{\beta}\mathbf{x}\)</span> is called the <em>residual</em>. The residual measures the discrepancy between the data and the estimated model. For any given input <span class="math inline">\(x\)</span>, one can also predict the output through <span class="math inline">\(\hat{\beta}x\)</span>.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="co"># least square estimate of beta (True beta is 5)</span></a>
 <a class="sourceLine" id="cb27-2" data-line-number="2"><span class="kw">sum</span>(x<span class="op">*</span>y)<span class="op">/</span><span class="kw">sum</span>(x<span class="op">*</span>x)</a></code></pre></div>
 <pre><code>## [1] 5.027272</code></pre>
+</div>
+<div id="sub:matrix" class="section level2">
+<h2>
+<span class="header-section-number">10.3</span> Matrix</h2>
+<p>A <em>matrix</em> is a rectangular array, with rows and columns, of numbers.<label for="tufte-sn-161" class="margin-toggle sidenote-number">161</label><input type="checkbox" id="tufte-sn-161" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">161</span> Strictly speaking, it is a rectangular array of numbers of a <a href="">field</a>, see Ch[?].</span> If a <strong>matrix</strong> has <span class="math inline">\(m\)</span> rows and <span class="math inline">\(n\)</span> columns, then the size of the <strong>matrix</strong> is said to be <span class="math inline">\(m\times n\)</span> (read <span class="math inline">\(m\)</span> by <span class="math inline">\(n\)</span>). We use a boldface capital letter, e.g. <span class="math inline">\(\mathbf{A}\)</span>, to denote a matrix. We write<span class="math display">\[\mathbf{A}=[a_{ij}]_{m\times n}\;\mbox{for }1\leq i\leq m,\:1\leq j\leq n,\]</span>
+where <span class="math inline">\(a_{ij}\)</span> is the <a href="ch-vecMat.html#sub:vec">entry</a> in location <span class="math inline">\((i,j)\)</span>, namely stored in the <span class="math inline">\(i\)</span>-th row and <span class="math inline">\(j\)</span>-th column of the matrix. In the expanded form, we write<span class="math display">\[\mathbf{A}=\left[\begin{array}{ccccc}
+a_{11} &amp; \cdots &amp; a_{1j} &amp; \cdots &amp; a_{1n}\\
+a_{21} &amp; \cdots &amp; a_{2j} &amp; \cdots &amp; a_{2n}\\
+\vdots &amp;  &amp;  &amp;  &amp; \vdots\\
+a_{i1} &amp; \cdots &amp; a_{ij} &amp; \cdots &amp; a_{in}\\
+\vdots &amp;  &amp;  &amp;  &amp; \vdots\\
+a_{m1} &amp; \cdots &amp; a_{mj} &amp; \cdots &amp; a_{mn}
+\end{array}\right].\]</span>
+As you can see, each column of the <span class="math inline">\(m\times n\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span> is an <span class="math inline">\(m\)</span>-<a href="ch-vecMat.html#sub:vec">vector</a> <span class="math inline">\(\mathbf{a}_{j}\)</span> for <span class="math inline">\(j=1,\dots n\)</span>. We can express the <strong>matrix</strong> as <span class="math display">\[\mathbf{A}=[\mathbf{a}_{1},\dots,\mathbf{a}_{n}],\]</span>
+which is an <span class="math inline">\(n\)</span>-row <a href="ch-vecMat.html#sub:vec">vector</a> with <span class="math inline">\(m\)</span> column <a href="ch-vecMat.html#sub:vec">vectors</a>s as <a href="ch-vecMat.html#sub:vec">entries</a>. If <span class="math inline">\(m=1\)</span>, then the <span class="math inline">\(1\times n\)</span> matrix is a row <a href="ch-vecMat.html#sub:vec">vector</a>; if <span class="math inline">\(n=1\)</span>, then this <span class="math inline">\(m\times1\)</span> matrix is a (column) <a href="ch-vecMat.html#sub:vec">vector</a>. If <span class="math inline">\(m=n\)</span>, the matrix is called a <em>squared matrix</em> of <em>order</em> <span class="math inline">\(n\)</span>. In figure <a href="ch-vecMat.html#fig:MatrixVis">10.7</a>, we can see that a <span class="math inline">\(3\times3\)</span> matrix is constructed by three 3-vectors.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:MatrixVis"></span>
+<img src="fig/Part3/MatrixVis.png" alt="Matrix and vectors" width="100%"><!--
+<p class="caption marginnote">-->Figure 10.7: Matrix and vectors<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>Any vector, either a row or a column, can be <em>transposed</em>, which means that a row vector turns into a column vector, and vice versa. Sometimes we define the vector by writing out its elements in the text as a row vector, then using the <strong>transpose</strong> operator to turn it into a standard column vector, e.g. <span class="math inline">\(\mathbf{a}=[a_{1},a_{2},a_{3}]^{\top}\)</span>. For an <span class="math inline">\(m\)</span>-columns vector <span class="math inline">\(\mathbf{a}\)</span>, its transposed vector is an <span class="math inline">\(m\)</span>-rows vector, denoted by <span class="math inline">\(\mathbf{a}^{\top}=[a_{1},\dots,a_{m}\)</span>.] The <a href="ch-vecMat.html#sub:vec">order</a> of the vector components is preserved. we can <strong>transpose</strong> a vector twice, and get back the same vector, i.e., <span class="math inline">\((\mathbf{a}^{\top})^{\top}=\mathbf{a}\)</span>.</p>
+<p>With the <strong>transpose</strong> operation, we can express the <a href="ch-vecMat.html#sub:vec">inner product</a> <span class="math inline">\(\langle\mathbf{a},\,\mathbf{b}\rangle\)</span> as the product of <span class="math inline">\(\mathbf{a}^{\top}\)</span> and <span class="math inline">\(\mathbf{b}\)</span>, such that <span class="math display">\[\langle\mathbf{a},\,\mathbf{b}\rangle=\mathbf{a}^{\top}\mathbf{b}=[a_{1},\dots a_{m}]\left[\begin{array}{c}
+b_{1}\\
+\vdots\\
+b_{m}
+\end{array}\right]=\sum_{i=1}^{m}a_{i}b_{i},\]</span>
+a sum of component-wise multiplications, each <span class="math inline">\(i\)</span>-th position of the row vector times the <span class="math inline">\(i\)</span>-th position of the column vector. Note that for the vector <span class="math inline">\(\mathbf{a}=[a_{1},\dots,a_{m}]^{\top}\)</span>, and <span class="math inline">\(\mathbf{b}^{\top}=[b_{1},\dots,b_{m}]\)</span>, <span class="math inline">\(\mathbf{a}\mathbf{b}^{\top}\)</span> is not a number but a matrix <span class="math inline">\(\mathbf{C}=[a_{i}b_{j}]_{ij}\)</span>.<label for="tufte-sn-162" class="margin-toggle sidenote-number">162</label><input type="checkbox" id="tufte-sn-162" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">162</span> In quantum mechanics, it is common to write the <a href="ch-vecMat.html#sub:vec">inner product</a> <span class="math inline">\(\langle\mathbf{a},\,\mathbf{b}\rangle\)</span> as <span class="math inline">\(\langle\mathbf{a}\,|\,\mathbf{b}\rangle\)</span>, and write <span class="math inline">\(\mathbf{a}\mathbf{b}^{\top}\)</span> as <span class="math inline">\(|\mathbf{a}\rangle\,\langle\mathbf{b}|\)</span> which is called the <em>outer product</em>. The vector <span class="math inline">\(\mathbf{a}\)</span> is denoted by <span class="math inline">\(|\mathbf{a}\rangle\)</span>, and its transport <span class="math inline">\(\mathbf{a}^{\top}\)</span> is denoted by <span class="math inline">\(\langle\mathbf{a}\,|\)</span>.</span></p>
+<p>A matrix can also be <strong>transposed</strong>. The <strong>transpose</strong> of a matrix is the mirror image of the matrix across the diagonal line. The transpose of an <span class="math inline">\(m\times n\)</span> matrix <span class="math inline">\(\mathbf{A}=[a_{ij}]_{m\times n}\)</span> is denoted by <span class="math inline">\(\mathbf{A}^{\top}=[a_{ji}]_{n\times m}\)</span>, i.e.<span class="math display">\[\left[\begin{array}{cc}
+1 &amp; 2\\
+3 &amp; 4\\
+5 &amp; 6
+\end{array}\right]^{\top}=\left[\begin{array}{ccc}
+1 &amp; 3 &amp; 5\\
+2 &amp; 4 &amp; 6
+\end{array}\right].\]</span>
+We make the columns of <span class="math inline">\(\mathbf{A}\)</span> into rows in <span class="math inline">\(\mathbf{A}^{\top}\)</span> (or rows of <span class="math inline">\(\mathbf{A}\)</span> into columns in <span class="math inline">\(\mathbf{A}^{\top}\)</span>).</p>
+<p>Let <span class="math inline">\(\mathbf{A}=[a_{ij}]_{m\times n}\)</span> and <span class="math inline">\(\mathbf{B}=[b_{ij}]_{m\times n}\)</span> be the matrices of the same size. Then the <strong>sum of the matrices</strong>, denoted by <span class="math inline">\(\mathbf{A}+\mathbf{B}\)</span>, results another <span class="math inline">\(m\times n\)</span> matrix: <span class="math display">\[\mathbf{A}+\mathbf{B}=\left[\begin{array}{ccc}
+a_{11}+b_{11} &amp; \cdots &amp; a_{1n}+b_{1n}\\
+\vdots &amp; \cdots &amp; \vdots\\
+a_{m1}+b_{m1} &amp; \cdots &amp; a_{mn}+b_{mn}
+\end{array}\right]=[a_{ij}+b_{ij}]_{m\times n}.\]</span>
+The negative of the matrix <span class="math inline">\(\mathbf{A}\)</span>, denoted by <span class="math inline">\(-\mathbf{A}\)</span> is <span class="math inline">\(-\mathbf{A}=[-a_{ij}]_{m\times n}\)</span>. Thus the difference of <span class="math inline">\(\mathbf{A}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> is <span class="math inline">\(\mathbf{A}-\mathbf{B}=[a_{ij}-b_{ij}]_{m\times n}\)</span>. Notice that both matrices and vectors must be the same size before we attempt to add them. The product of a <a href="ch-vecMat.html#sub:vec">scalar</a> <span class="math inline">\(c\)</span> with the matrix <span class="math inline">\(\mathbf{A}\)</span>
+is <span class="math inline">\(c\mathbf{A}=[ca_{ij}]_{m\times n}\)</span>. Because the matrix is simply constructed by vectors, the algebraic <a href="ch-vecMat.html#sub:vec">axioms of the vector</a>, namely <a href="ch-vecMat.html#sub:vec">addition</a> and <a href="ch-vecMat.html#sub:vec">scalar mutiplication</a>, also work for the matrix.<label for="tufte-sn-163" class="margin-toggle sidenote-number">163</label><input type="checkbox" id="tufte-sn-163" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">163</span>  <em>Addition</em>: (commutativity) <span class="math inline">\(\mathbf{A}+\mathbf{B}=\mathbf{B}+\mathbf{A}\)</span>,
+(associativity) <span class="math inline">\(\mathbf{A}+(\mathbf{B}+\mathbf{C})=(\mathbf{A}+\mathbf{B})+\mathbf{C}\)</span>,
+(additive inverse) <span class="math inline">\(\mathbf{A}+(-1)\mathbf{A}=0\)</span>.
+<em>Scalar multiplication</em>: (associativity) <span class="math inline">\(k(l\mathbf{A})=(kl)\mathbf{A}\)</span>,
+(distributivity) <span class="math inline">\((k+l)\mathbf{A}=k\mathbf{A}+l\mathbf{A}\)</span>, <span class="math inline">\(k(\mathbf{A}+\mathbf{B})=k\mathbf{A}+k\mathbf{B}\)</span>.</span></p>
+<p>While matrix multiplication by a scalar and matrix addition are rather straightforward, the matrix-matrix multiplication may not be so. It is better to consider first the matrix-vector multiplication.</p>
+<p>Since any <strong>matrix</strong> can be expressed as a row vector of column vectors, and since the inner product rule also holds for both types of vectors, we can express the matrix-vector multiplication in terms of <a href="ch-vecMat.html#sub:vec">inner products</a>. For an <span class="math inline">\(m\times n\)</span> matrix <span class="math inline">\(\mathbf{A}=[\mathbf{a}_{1},\dots,\mathbf{a}_{n}]\)</span>
+and an <span class="math inline">\(m\)</span>-vector <span class="math inline">\(\mathbf{b}\)</span>, the inner product between <span class="math inline">\(\mathbf{b}\)</span> and any <span class="math inline">\(\mathbf{a}_{j}\)</span> for <span class="math inline">\(j=1,\dots n\)</span> follows the previous definition such that <span class="math inline">\(\langle\mathbf{b},\,\mathbf{a}_{j}\rangle=\sum_{i=1}^{m}b_{i}a_{ij}\)</span>. As the matrix <span class="math inline">\(\mathbf{A}\)</span> consists of <span class="math inline">\(n\)</span> components of <span class="math inline">\(m\)</span>-vector <span class="math inline">\(\mathbf{a}_{j}\)</span>, we need to have the component-wise inner products for all <span class="math inline">\(\mathbf{a}_{j}\)</span>. The result is a row <span class="math inline">\(n\)</span>-vector <span class="math inline">\([\sum_{i=1}^{m}b_{i}a_{i1},\dots,\sum_{i=1}^{m}b_{i}a_{in}]\)</span>. We can write a compact expression using the transpose operation <span class="math display">\[\mathbf{b}^{\top}\mathbf{A}=\left[\mathbf{b}^{\top}\mathbf{a}_{1},\dots,\mathbf{b}^{\top}\mathbf{a}_{n}\right].\]</span>
+which reads “vector <span class="math inline">\(\mathbf{b}\)</span> times matrix <span class="math inline">\(\mathbf{A}\)</span>.” For an <span class="math inline">\(n\)</span>-vector <span class="math inline">\(\mathbf{x}\)</span>, the mutiplication results in<span class="math display">\[\mathbf{A}\mathbf{x}=[\mathbf{a}_{1},\dots\mathbf{a}_{n}]\left[\begin{array}{c}
+x_{1}\\
+\vdots\\
+x_{n}
+\end{array}\right]=\mathbf{a}_{1}x_{1}+\cdots+\mathbf{a}_{n}x_{n}\]</span></p>
+<p>which is a <a href="ch-vecMat.html#sub:vec">linear combination</a> of <span class="math inline">\(\mathbf{a}_{j}\)</span>, <span class="math inline">\(j=1,\dots,n\)</span>. We read “matrix <span class="math inline">\(\mathbf{A}\)</span> times vector <span class="math inline">\(\mathbf{x}\)</span>”. Note that <span class="math inline">\(\mathbf{A}\mathbf{x}\)</span> is a column <span class="math inline">\(m\)</span>-vector while <span class="math inline">\(\mathbf{b}^{\top}\mathbf{A}\)</span> is a row <span class="math inline">\(n\)</span>-vector. As you can see, the <a href="ch-vecMat.html#sub:vec">inner product</a> restricts the multiplication rule to the case of two vectors with an identical size.<label for="tufte-sn-164" class="margin-toggle sidenote-number">164</label><input type="checkbox" id="tufte-sn-164" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">164</span> For <span class="math inline">\(\mathbf{x}\mathbf{A}\)</span>, the size of the row of <span class="math inline">\(\mathbf{A}\)</span>
+has to equal to the size of <span class="math inline">\(\mathbf{x}\)</span>. For <span class="math inline">\(\mathbf{A}\mathbf{x}\)</span>, the size of the column of <span class="math inline">\(\mathbf{A}\)</span> has to equal to the size of <span class="math inline">\(\mathbf{x}\)</span>.</span> Figure <a href="ch-vecMat.html#fig:MatrixVec">10.8</a> illustrates how to compute the multiplication of <span class="math inline">\(\mathbf{A}\mathbf{x}\)</span> by using row-vectors of <span class="math inline">\(\mathbf{A}\)</span>, then calculating the inner products between the row-vectors and <span class="math inline">\(\mathbf{x}\)</span>.<label for="tufte-sn-165" class="margin-toggle sidenote-number">165</label><input type="checkbox" id="tufte-sn-165" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">165</span> The numerical entries come from Nine Chapters on the Mathematical Art. In the chapter of the system of equations (Chapter 8), it gives 18 problems and one of them (problem 17 about the costs of sheep, a dog, a chick and a rabbit) can be expressed in this multiplication.</span></p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:MatrixVec"></span>
+<img src="fig/Part3/MatrixVecM.gif" alt="Illustration of the rule of matrix-vector multiplication" width="100%"><!--
+<p class="caption marginnote">-->Figure 10.8: Illustration of the rule of matrix-vector multiplication<!--</p>-->
+<!--</div>--></span>
+</p>
+<p><strong>Matrix-vector</strong> notation can help us to simplify the operations for linear systems. Recall that a single linear equation <span class="math inline">\(2x_{1}-3x_{2}+4x_{3}=5\)</span> can be expressed as an inner product: <span class="math display">\[[2,-3,4]\left[\begin{array}{c}
+x_{1}\\
+x_{2}\\
+x_{3}
+\end{array}\right]=5.\]</span>
+The <em>linear system</em> is a collection of linear equations. Consider the following system:
+<span class="math display" id="eq:linearSys">\[\begin{equation}
+\begin{array}{cc}
+x_{1} &amp; =y_{1},\\
+-x_{1}+x_{2} &amp; =y_{2},\\
+-x_{2}+x_{3} &amp; =y_{3}.
+\end{array}
+\tag{10.5}
+\end{equation}\]</span>
+For three vectors <span class="math display">\[\mathbf{a}_{1}=\left[\begin{array}{c}
+1\\
+-1\\
+0
+\end{array}\right],\:\mathbf{a}_{2}=\left[\begin{array}{c}
+0\\
+1\\
+-1
+\end{array}\right],\:\mathbf{a}_{3}=\left[\begin{array}{c}
+0\\
+0\\
+1
+\end{array}\right],\]</span>
+their <a href="ch-vecMat.html#sub:vec">linear combinations</a> <span class="math inline">\(x_{1}\mathbf{a}_{1}+x_{2}\mathbf{a}_{2}+x_{3}\mathbf{a}_{3}\)</span> gives the system <a href="ch-vecMat.html#eq:linearSys">(10.5)</a> <span class="math display">\[x_{1}\left[\begin{array}{c}
+1\\
+-1\\
+0
+\end{array}\right]+x_{2}\left[\begin{array}{c}
+0\\
+1\\
+-1
+\end{array}\right],+x_{3}\left[\begin{array}{c}
+0\\
+0\\
+1
+\end{array}\right]=\left[\begin{array}{c}
+x_{1}\\
+x_{2}-x_{1}\\
+x_{3}-x_{2}
+\end{array}\right]=\mathbf{y}.\]</span>
+We can rewrite this <a href="ch-vecMat.html#sub:vec">combination</a> using the matrix <span class="math inline">\(\mathbf{A}\)</span> whose columns are the vectors <span class="math inline">\(\mathbf{a}_{1}\)</span>, <span class="math inline">\(\mathbf{a}_{2}\)</span>, and <span class="math inline">\(\mathbf{a}_{3}\)</span>. The vector <span class="math inline">\(\mathbf{y}\)</span> is the result of the mutiplication between matrix <span class="math inline">\(\mathbf{A}\)</span> and vector <span class="math inline">\(\mathbf{x}\)</span><label for="tufte-sn-166" class="margin-toggle sidenote-number">166</label><input type="checkbox" id="tufte-sn-166" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">166</span> Solving this system of equations is a simple calculation of inverting the matrix <span class="math inline">\(\mathbf{A}\)</span> to have the solution <span class="math inline">\(\mathbf{x}=\mathbf{A}^{-1}\mathbf{y}\)</span>. We will discuss the matrix inversion in section [?].</span>: <span class="math display">\[\begin{align*}
+\mathbf{A}\mathbf{x}&amp;=\underset{3\times3}{\underbrace{\left[\begin{array}{ccc}
+1 &amp; 0 &amp; 0\\
+-1 &amp; 1 &amp; 0\\
+0 &amp; -1 &amp; 1
+\end{array}\right]}}\underset{3\times1}{\underbrace{\left[\begin{array}{c}
+x_{1}\\
+x_{2}\\
+x_{3}
+\end{array}\right]}}\\ &amp;=\left[\mathbf{a}_{1},\mathbf{a}_{2},\mathbf{a}_{3}\right]\left[\begin{array}{c}
+x_{1}\\
+x_{2}\\
+x_{3}
+\end{array}\right]=x_{1}\mathbf{a}_{1}+x_{2}\mathbf{a}_{2}+x_{3}\mathbf{a}_{3}=\mathbf{y}.\end{align*}\]</span></p>
+<p>Let <span class="math inline">\(\mathbf{A}\)</span> be an <span class="math inline">\(m\times n\)</span> matrix and <span class="math inline">\(\mathbf{B}\)</span>
+be an <span class="math inline">\(n\times p\)</span> matrix. The general <em>matrix-matrix multiplication</em> rule of <span class="math inline">\(\mathbf{A}\mathbf{B}\)</span> can also be expressed in the <a href="ch-vecMat.html#sub:vec">inner product</a> way: taking the inner product of each row of <span class="math inline">\(\mathbf{A}\)</span> with each column of <span class="math inline">\(\mathbf{B}\)</span>. The product <span class="math inline">\(\mathbf{A}\mathbf{B}\)</span> results an <span class="math inline">\(m\times p\)</span> matrix:<span class="math display">\[\underset{m\times n}{\underbrace{\mathbf{A}}}\underset{n\times p}{\underbrace{\mathbf{B}}}=\underset{m\times p}{\underbrace{\mathbf{C}}}\]</span> where the entry <span class="math inline">\(c_{ij}\)</span> of <span class="math inline">\(\mathbf{C}\)</span> is the <span class="math inline">\(i\)</span>-th row of <span class="math inline">\(\mathbf{A}\)</span> multiplying the <span class="math inline">\(j\)</span>-th column of <span class="math inline">\(\mathbf{B}\)</span>. The complete form of this <strong>matrix-matrix multiplication</strong> is as follows:<span class="math display">\[\left[\begin{array}{ccc}
+a_{11} &amp; \cdots &amp; a_{1n}\\
+\vdots &amp; \cdots &amp; \vdots\\
+a_{m1} &amp; \cdots &amp; a_{mn}
+\end{array}\right]\left[\begin{array}{ccc}
+b_{11} &amp; \cdots &amp; b_{1n}\\
+\vdots &amp; \cdots &amp; \vdots\\
+b_{m1} &amp; \cdots &amp; b_{mn}
+\end{array}\right]=\left[\begin{array}{ccc}
+c_{11} &amp; \cdots &amp; c_{1p}\\
+\vdots &amp; \cdots &amp; \vdots\\
+c_{m1} &amp; \cdots &amp; c_{mp}
+\end{array}\right]\]</span>
+where <span class="math inline">\([c_{ij}]_{m\times p}=[\sum_{k=1}^{n}a_{ik}b_{kj}]\)</span>. Figure <a href="ch-vecMat.html#fig:MatrixMatrix">10.9</a> gives a specific example.</p>
+<div class="figure">
+<span id="fig:MatrixMatrix"></span>
+<p class="caption marginnote shownote">
+Figure 10.9: Matrix-matrix multiplication
+</p>
+<img src="fig/Part3/MatrixMatrixM.gif" alt="Matrix-matrix multiplication" width="100%">
+</div>
+<p>Here are the <em>laws of the matrix multiplication</em>. Let <span class="math inline">\(\mathbf{A}=[a_{ij}]_{m\times n}\)</span>, <span class="math inline">\(\mathbf{B}=[b_{ij}]_{n\times p}\)</span>, <span class="math inline">\(\mathbf{C}=[c_{ij}]_{n\times p}\)</span>, <span class="math inline">\(\mathbf{D}=[d_{ij}]_{p\times q}\)</span>, and <span class="math inline">\(c\in\mathbb{R}\)</span>.</p>
+<ul>
+<li>
+<em>Identity</em> : <span class="math inline">\(\mathbf{A}\mathbf{I}_{n}=\mathbf{A}\)</span> and <span class="math inline">\(\mathbf{I}_{m}\mathbf{A}=\mathbf{A}\)</span>, for the <em>identity matrix</em> <span class="math display">\[\mathbf{I}_{k}=\left[\begin{array}{ccccc}
+1 &amp; 0 &amp; \cdots &amp;  &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; \cdots &amp; 0\\
+\vdots &amp;  &amp; \ddots\\
+0 &amp; \cdots &amp;  &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; \cdots &amp; 0 &amp; 1
+\end{array}\right]=[\delta_{ij}]_{k\times k}\]</span>
+where <span class="math inline">\(\delta_{ij}=1\)</span> if <span class="math inline">\(i=j\)</span>, and <span class="math inline">\(\delta_{ij}=0\)</span> otherwise.</li>
+<li>
+<em>Associativity</em> : <span class="math inline">\((\mathbf{A}\mathbf{B})\mathbf{D}=\mathbf{A}(\mathbf{B}\mathbf{D})\)</span>.</li>
+<li>
+<em>Associativity for scalar</em> : <span class="math inline">\(c(\mathbf{A}\mathbf{B})=(c\mathbf{A})\mathbf{B}=\mathbf{A}(c\mathbf{B})\)</span>.</li>
+<li>
+<em>Distributivity</em> : <span class="math inline">\(\mathbf{A}(\mathbf{B}+\mathbf{C})=\mathbf{A}\mathbf{B}+\mathbf{A}\mathbf{C}\)</span>.</li>
+<li>
+<em>Transpose rule</em> : <span class="math inline">\((\mathbf{A}^{\top})^{\top}=\mathbf{A}\)</span>, <span class="math inline">\((\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}\)</span>, <span class="math inline">\((\mathbf{B}+\mathbf{C})^{\top}=\mathbf{B}^{\top}+\mathbf{C}^{\top}\)</span>, <span class="math inline">\((c\mathbf{A})^{\top}=c\mathbf{A}^{\top}\)</span>.</li>
+</ul>
+<div class="solution">
+<p class="solution-begin">
+Proof <span id="sol-start-35" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-35', 'sol-start-35')"></span>
+</p>
+<div id="sol-body-35" class="solution-body" style="display: none;">
+<p>Associativity comes from the scalar multiplication in the <a href="ch-vecMat.html#sub:vec">axioms of vectors</a>.
+Distributivity: Let <span class="math inline">\(\mathbf{B}=[\mathbf{b}_{1},\dots,\mathbf{b}_{p}]\)</span>, <span class="math inline">\(\mathbf{C}=[\mathbf{c}_{1},\dots,\mathbf{c}_{p}]\)</span>. The law <span class="math inline">\(\mathbf{A}(\mathbf{B}+\mathbf{C})=\mathbf{A}\mathbf{B}+\mathbf{A}\mathbf{C}\)</span> is proved a column at a time, <span class="math inline">\(\mathbf{A}(\mathbf{b}_{i}+\mathbf{d}_{i})=\mathbf{A}\mathbf{b}_{i}+\mathbf{A}\mathbf{d}_{i}\)</span> for <span class="math inline">\(i=1,\dots,p\)</span>.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Notice that you can only multiply two matrices <span class="math inline">\(\mathbf{A}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> provided that their dimensions are compatible, which means the number of columns of <span class="math inline">\(\mathbf{A}\)</span> equals the number of rows of <span class="math inline">\(\mathbf{B}\)</span>. Also, notice that the <a href="ch-vecMat.html#sub:vec">commutativity</a> is broken for matrix multiplication in general. That is <span class="math inline">\(\mathbf{A}\mathbf{B}\neq\mathbf{B}\mathbf{A}\)</span>. In fact, <span class="math inline">\(\mathbf{B}\mathbf{A}\)</span> may not even make sense because of incompatible sizes <span class="math inline">\(p\neq m\)</span>. Even when <span class="math inline">\(\mathbf{A}\mathbf{B}\)</span> and <span class="math inline">\(\mathbf{B}\mathbf{A}\)</span> both make sense and are the same size, we do not in general have the <a href="ch-vecMat.html#sub:vec">commutativity</a>. Thus, for matrix multiplications, the order matters.<label for="tufte-sn-167" class="margin-toggle sidenote-number">167</label><input type="checkbox" id="tufte-sn-167" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">167</span> The violation of the commutativity reveals a deeper root in the abstract layer. For an <span class="math inline">\(m\times n\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span>, the <strong>matrix-vector multiplication</strong> <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{y}\)</span> product another <span class="math inline">\(m\)</span>-vector <span class="math inline">\(\mathbf{y}\)</span>. So we can think of <span class="math inline">\(\mathbf{A}:\mathbb{R}^{n}\mapsto\mathbb{R}^{m}\)</span> as a linear function (or mapping) from <span class="math inline">\(n\)</span>-vector <span class="math inline">\(\mathbf{x}\)</span> to <span class="math inline">\(m\)</span>-vector <span class="math inline">\(\mathbf{y}\)</span>. That is, <span class="math inline">\(\mathbf{A}\mathbf{x}=f(\mathbf{x})\)</span>. Similarly, for another <span class="math inline">\(n\times p\)</span> matrix <span class="math inline">\(\mathbf{B}\)</span>, <span class="math inline">\(\mathbf{B}:\mathbb{R}^{n}\mapsto\mathbb{R}^{p}\)</span> is a linear function <span class="math inline">\(g(\cdot)\)</span>. The composition <span class="math inline">\(f\circ g=\mathbf{A}\mathbf{B}\)</span> is generally not commutative, namely <span class="math inline">\(f\circ g\neq g\circ f\)</span>. We will discuss these abstract objects in ch[?].</span></p>
 </div>
 </div></body></html>
 
@@ -534,7 +726,7 @@ and the estimated output (the projected output) <span class="math inline">\(\hat
 <a href="bibliography.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-03-19
+2020-03-28
 </p>
 </div>
 </div>
