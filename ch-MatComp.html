@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="11 Matrix Computation | Project XXII" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Zhengyuan Gao" />
+
+<meta name="date" content="2020-04-17" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="11 Matrix Computation | Project XXII">
+
+<title>11 Matrix Computation | Project XXII</title>
+
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding/datatables.js"></script>
+<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul class="navbar">
+<li class="msmb"><p class="title">Project XXII<p><p class="author">Zhengyuan Gao</p>
+<li class="dropdown" style="float:right">
+<a href="javascript:void(0)" class="dropbtn">&#x25BA; Chapters</a>
+<div class="dropdown-content">
+<a href="index.html">Preface</a>
+<a href="part-i-inference-based-upon-logic-and-logical-computation.html">PART I: Inference Based upon Logic and Logical Computation</a>
+<a href="sub-logic.html"><span class="toc-section-number">1</span> Logic</a>
+<a href="sub-set-theory.html"><span class="toc-section-number">2</span> Set Theory</a>
+<a href="sub-axioms.html"><span class="toc-section-number">3</span> Axioms</a>
+<a href="sub-inferknow.html"><span class="toc-section-number">4</span> Inference and Knowledge</a>
+<a href="sub-incomplete.html"><span class="toc-section-number">5</span> Incompleteness</a>
+<a href="part-ii-infinitesimal-changes-and-their-consequences.html">PART II: Infinitesimal Changes and their Consequences</a>
+<a href="sub-continuity.html"><span class="toc-section-number">6</span> Continuity</a>
+<a href="sub-calculus.html"><span class="toc-section-number">7</span> Calculus</a>
+<a href="ch-DE.html"><span class="toc-section-number">8</span> Differential Equations</a>
+<a href="ch-CalUn.html"><span class="toc-section-number">9</span> Calculus under Uncertainty</a>
+<a href="part-iii-emergence-of-abstract-interactions.html">PART III: Emergence of Abstract Interactions</a>
+<a href="ch-vecMat.html"><span class="toc-section-number">10</span> Vector and Matrix</a>
+<a id="active-page" href="ch-MatComp.html"><span class="toc-section-number">11</span> Matrix Computation</a><ul class="toc-sections">
+<li class="toc"><a href="#sub:GElimination"> Gaussian Elimination</a></li>
+</ul>
+<a href="bibliography.html">Bibliography</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div id="ch:MatComp" class="section level1">
+<h1>
+<span class="header-section-number">11</span> Matrix Computation</h1>
+<p>In etymology, the word “<a href="#sub:Matrix">matrix</a>” can be found in the root of matter and mother. Matrix in latin is to indicate a female animal kept for breeding or a womb. The movie, the Matrix, gives a metaphor for virtual space and cyberspace from which things and beings originate. All these reveal a simultaneous relationship between the embryo and the breeder, where matrix retains its generative and enveloping properties.</p>
+<p>The original role of the matrix disclouses the source of being and becoming. One may wonder whether the entity in a mathematical matrix could also be working as generative as a numerical incubator. That is, whether the numerical matirx can originate an analogous process where various “embryos” can be implanted and can grow. The analogy we consider here is a paradigm about <em>matrix computation</em>. This paradigm is related to Platonic and Aristotelian views on generation. The study of generation is the study of the origination of forms, where the matrixial (or maternal) environment produces space for the emergence of new outcomes, and the computation summarizes purely abstract deductions, and provides foundations for more advanced outcomes.<label for="tufte-sn-179" class="margin-toggle sidenote-number">179</label><input type="checkbox" id="tufte-sn-179" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">179</span> For the system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span>, we can consider the vector <span class="math inline">\(\mathbf{x}\)</span> as the maternal input of matter in generation, the matrix <span class="math inline">\(\mathbf{A}\)</span> as the embryo from which the material is made the resulting product (the vector <span class="math inline">\(\mathbf{b}\)</span>). The matrix <span class="math inline">\(\mathbf{A}\)</span> becomes a productive function, a formation of a “thing” (self) and its “environment” (nonself).</span></p>
+<p>Hereby, I suggest that we could imagine the computational relation as a universal process of the generation, and we could position the matrix as a hospitable space for such generation.<label for="tufte-sn-180" class="margin-toggle sidenote-number">180</label><input type="checkbox" id="tufte-sn-180" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">180</span> Immanuel Kant, who is usually credited with the elaboration of the modern Western conception of ethics and morality, judged nations according to their hospitality: the way they treated strangers in their lands. He also outlined a framework for international law and cosmopolitan ethics in which hospitality was one of its conceptual foundations. From an abstract point of view, the hospitality can be represented in the form of matrices (and their generalized forms: linear operators) that model and manipulate the social norms and interactions.</span> For matrix computations, we will see that a very wide variety of systems, with very different superficial structures, are at some level fundamentally equivalent. That is, many vastly different systems in nature and in human society share something in common. And among these systems, it does make sense to discuss the notion of computation in purely abstract forms, without referring to any specific type of the system. Matrix computation, or computation of linear systems in a general sense, builds up the fundamental equivalence bridging the differences.<label for="tufte-sn-181" class="margin-toggle sidenote-number">181</label><input type="checkbox" id="tufte-sn-181" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">181</span> The basic point of this argument is that if the computational relation is universal, then it must effectively be capable of emulating any other form, and as a result it must be able to produce behavior that is as complex as the behaviors of that form. So knowing that a particular computation is universal immediately implies that its abstract form can produce behavior that is in a sense arbitrarily complex. It reminds ones to reconsider the potential of that relationship of entries, their computational procedures, and their possible outcomes.</span></p>
+<p>One of our goals is to see how these two styles of expression (numerical matrix and social matrix) complement each other. It is important to have an algorithmic sense and an appreciation for high-performance matrix computations.
+After all, it is the clever exploitation of advanced architectures that account for much of the soaring success in the industrial and the social computations.</p>
+<p>Almost all formulations of the matrix computation follows the same update pattern as an iteration such that <span class="math display">\[\mathbf{C}\leftarrow\mathbf{C}+\mathbf{A}\mathbf{B}.\]</span>
+For example, when <span class="math inline">\(\mathbf{A}\)</span>, <span class="math inline">\(\mathbf{B}\)</span> and <span class="math inline">\(\mathbf{C}\)</span> are <span class="math inline">\(3\times3\)</span> matrices having some kind of <a href="ch-MatComp.html#sub:GElimination">echelon form</a>, <span class="math display">\[\begin{align*} \mathbf{C}=\mathbf{A}\mathbf{B}   &amp;=\left[\begin{array}{ccc}
+a_{11} &amp; a_{12} &amp; a_{13}\\
+0 &amp; a_{22} &amp; a_{23}\\
+0 &amp; 0 &amp; a_{33}
+\end{array}\right]\left[\begin{array}{ccc}
+b_{11} &amp; b_{12} &amp; b_{13}\\
+0 &amp; b_{22} &amp; b_{23}\\
+0 &amp; 0 &amp; b_{33}
+\end{array}\right]\\
+    &amp;=\left[\begin{array}{ccc}
+a_{11}b_{11} &amp; a_{11}b_{12}+a_{12}b_{22} &amp; a_{11}b_{13}+a_{12}b_{23}+a_{13}b_{33}\\
+0 &amp; a_{22}b_{22} &amp; a_{22}b_{23}+a_{23}b_{33}\\
+0 &amp; 0 &amp; a_{33}b_{33}
+\end{array}\right], \end{align*}\]</span>
+then the result suggests a similar <a href="ch-MatComp.html#sub:GElimination">echelon form</a>.<label for="tufte-sn-182" class="margin-toggle sidenote-number">182</label><input type="checkbox" id="tufte-sn-182" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">182</span> The word <a href="ch-MatComp.html#sub:GElimination">echelon</a> comes from the military use, where it refers to a step-like formation of troops. Also, it is a government code name of an interception system for collection and analysis network, also known as the Five Eyes. Unlike the normal spy networks or intelligence collective operations developped during the Cold War, Echelon was designed primarily for non-military targets and for public and economic espionages by intercepting communications via conversations, telephones, faxes, e-mails, messages, etc.</span> The entries are the result of the following abbreviated inner products
+<span class="math display">\[
+c_{ij}=\begin{cases}
+a_{ik}b_{kj}=0, &amp; \mbox{ when }k&lt;i\mbox{ or }j&lt;k,\\
+\sum_{k=i}^{j}a_{ik}b_{kj}, &amp; \:\mbox{otherwise}.
+\end{cases}
+\]</span>
+We can implement this matrix mutiplication by an update iteration algorithm:</p>
+<p><code>1: Criteria:</code> <span class="math inline">\(\mathbf{A}=[a_{ij}]_{n\times n},\mathbf{B}=[b_{ij}]_{n\times n}\)</span>. <br><code>2: Variable:</code> <span class="math inline">\(\mathbf{C}=[c_{ij}]_{n\times n}\)</span> <br><code>3: FOR</code> <span class="math inline">\(i\)</span> <code>from</code> <span class="math inline">\(1\)</span> <code>to</code> <span class="math inline">\(n\)</span> <code>DO:</code> <br><code>4:</code> <span class="math inline">\(\qquad\)</span> <code>FOR</code> <span class="math inline">\(j\)</span> <code>from</code> <span class="math inline">\(i\)</span> <code>to</code> <span class="math inline">\(n\)</span> <code>DO:</code> <br><code>5:</code> <span class="math inline">\(\qquad\)</span> <span class="math inline">\(\qquad\)</span> <code>FOR</code> <span class="math inline">\(k\)</span> <code>from</code> <span class="math inline">\(i\)</span> <code>to</code> <span class="math inline">\(j\)</span> <code>DO:</code> <br><code>6:</code> <span class="math inline">\(\qquad\)</span> <span class="math inline">\(\qquad\)</span> <span class="math inline">\(\qquad\)</span> <span class="math inline">\(c_{ij}=c_{ij}+a_{ik}b_{ki}\)</span> <br><code>7:</code> <span class="math inline">\(\qquad\)</span> <span class="math inline">\(\qquad\)</span> <code>END FOR</code>-<span class="math inline">\(k\)</span> <code>LOOP</code> <br><code>8:</code> <span class="math inline">\(\qquad\)</span> <code>END FOR</code>-<span class="math inline">\(j\)</span> <code>LOOP</code> <br><code>9: END FOR</code>-<span class="math inline">\(i\)</span> <code>LOOP</code> <br><code>10:RETURN</code> <span class="math inline">\([c_{ij}]_{n\times n}\)</span><br></p>
+<div id="sub:GElimination" class="section level2">
+<h2>
+<span class="header-section-number">11.1</span> Gaussian Elimination</h2>
+<p><strong>Gaussian elimination</strong> is a method for solving systems of linear equations by the use of <strong>echelon forms</strong>. There are many possible ways to solve systems of equations, however, <strong>Gaussian elimination</strong> is a way that always works. Consider the previous system <a href="ch-vecMat.html#eq:sem-1">(10.1)</a> of two unknowns, <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>. Its elimination form is given by
+<span class="math display">\[\begin{align*}
+0.6x_{1} + 0.3x_{2}=1 &amp; \; &amp; \; &amp;\; &amp;       \frac{6}{10}x_{1} + \frac{3}{10}x_{2}=1 \\
+&amp; \,&amp;   \Rightarrow     &amp;\, &amp;\\
+-0.3x_{1} + 0.6x_{2} =0 &amp; \; &amp;\; &amp;\; &amp;  \frac{15}{20}x_{2}=\frac{1}{2}.
+\end{align*}\]</span>
+Before the elimination, <span class="math inline">\(x_{1}\)</span> and <span class="math inline">\(x_{2}\)</span> appeared in both equations. After the elimination, the first unknown <span class="math inline">\(x_{1}\)</span> has disappeared from the second equation. We can solve the elimination form by substituting <span class="math inline">\(x_{2}=2/3\)</span> back into the first equation.</p>
+<p>If we summarize the coefficient as the matrix, the above elimination produces an <strong>echelon form</strong> of the matrix - an <strong>upper triangular matrix</strong>.<label for="tufte-sn-183" class="margin-toggle sidenote-number">183</label><input type="checkbox" id="tufte-sn-183" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">183</span> An <em>upper triangular matrix</em>, say <span class="math inline">\(\mathbf{U}=[u_{ij}]_{n\times n}\)</span>, is a matrix satisfying with <span class="math inline">\([u_{ij}]_{n\times n}=0\)</span> for <span class="math inline">\(i&gt;j\)</span> and <span class="math inline">\(u_{ii}\neq0\)</span> for <span class="math inline">\(i\leq n\)</span>. Similarly, the <em>lower triangular matrix</em>, say <span class="math inline">\(\mathbf{L}=[l_{ij}]_{n\times n }\)</span>, satisfies <span class="math inline">\([l_{ij}]_{n\times n}=0\)</span> for <span class="math inline">\(i&lt;j\)</span> and <span class="math inline">\(l_{ii}\neq0\)</span> for <span class="math inline">\(i\leq n\)</span>.</span> With the form, we can solve the system from the bottom upwards. This process of solving the system is called <em>backward substitution</em>. It works for any size of unknowns as long as the system can be eliminated to an <strong>upper triangular pattern</strong>. The goal of <strong>Gaussian elimination</strong> is to give an operation to form such a pattern. In above example, we substracted <span class="math inline">\(x_1\)</span> from the second equation. The step that eliminates <span class="math inline">\(x_1\)</span> is done by multiplying some factor(s) to the equation(s). In the example, if you mutiple the frist equation by <span class="math inline">\(0.3/0.6=1/2\)</span>, and then substract the first from the second, you will get this triangular form. The multiplier <span class="math inline">\((0.3)/(0.6)\)</span>, consists of two numerics, <span class="math inline">\(0.3\)</span> and <span class="math inline">\(0.6\)</span> are the (positive) coefficients of the eliminated unknown <span class="math inline">\(x_1\)</span> in the second and the first equation, respectively. The coefficient of the eliminated variable is called the <em>pivot</em>.</p>
+<p>If we present the eliminated form in terms of matrix, the matrix is
+<span class="math display">\[\left[\begin{array}{cc}
+\frac{6}{10} &amp; \frac{3}{10}\\
+0 &amp; \frac{15}{20} 
+\end{array}\right].\]</span>
+Such a staircase matrix format is called the <em>echelon matrix</em>. The nonzero rows of the matrix precede the zero rows. The column numbers of the leading entries, namely the <strong>pivots</strong> of the nonzero rows, form a staircase type.<label for="tufte-sn-184" class="margin-toggle sidenote-number">184</label><input type="checkbox" id="tufte-sn-184" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">184</span> Note that zero is not a <strong>pivot</strong>. For the following system, the <strong>pivot</strong> of <span class="math inline">\(y\)</span> is zero.
+<span class="math display">\[\begin{align*}
+  2x+3y =5 &amp; \; &amp;       2x+ 3y  =5 &amp;\\
+&amp; \,    \Rightarrow     \,  &amp; &amp;\\
+10x+15y =10 &amp; \; &amp;  0y  =5. &amp;
+\end{align*}\]</span>
+Doing <strong>Gaussian elimination</strong> on such a system will result in a contradiction. When this happens, it is safe to say that the system has no solution. However, for the system
+<span class="math display">\[\begin{align*}
+  2x+3y =5 &amp; \; &amp;       2x+ 3y  =5 &amp;\\
+&amp; \,    \Rightarrow     \,  &amp; &amp;\\
+10x+15y =10 &amp; \; &amp;  0y  =0, &amp;
+\end{align*}\]</span>
+the second equation <span class="math inline">\(0y=0\)</span> gives no constraint on <span class="math inline">\(y\)</span>. Then any combination of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> satisfying the first equation will also be the solutions of the second. It means that the system has infinite solutions. Thus, for zero leading entries in the echelon matrix, we may face the situation of either no solution or infinite solutions.</span> In above system, the pivots are <span class="math inline">\(6/10\)</span> and <span class="math inline">\(15/20\)</span>. To solve <span class="math inline">\(n\)</span> equations, we need <span class="math inline">\(n\)</span> pivots.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:GElimination"></span>
+<img src="fig/Part3/GElimination.gif" alt="Gaussian elimination in 3D" width="100%"><!--
+<p class="caption marginnote">-->Figure 11.1: Gaussian elimination in 3D<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>Figure <a href="ch-MatComp.html#fig:GElimination">11.1</a> shows the geometrical interpretation of constructing a <strong>reduced echelon</strong> form.<label for="tufte-sn-185" class="margin-toggle sidenote-number">185</label><input type="checkbox" id="tufte-sn-185" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">185</span> When the <strong>pivots</strong> are normalized to one, the <strong>echelon form</strong> is calle the <em>reduced echelon form</em>.</span> We can see that the procedures (multiplication and substraction) have no effect on the solution point, namely the intersection. Each equation of the system (3D) is represented by a plane (2D). Multiplication extends the plane (which has no visual effect), substraction rotates the plane. None of the operations shift the solution point. This interpretation illuminates some general rules of constructing an <strong>echelon form</strong> or a <strong>Gaussian elimination</strong>. The rules can be summarized as follows:<label for="tufte-sn-186" class="margin-toggle sidenote-number">186</label><input type="checkbox" id="tufte-sn-186" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">186</span> These rules can be presented in terms of <a href="">elimentary matrices</a>, see section[?].</span></p>
+<p>The solutions to a linear system of equations do not change if</p>
+<ol style="list-style-type: decimal">
+<li><p>we swap the order of two rows,</p></li>
+<li><p>multiply a row with a constant ,</p></li>
+<li><p>or add a multiple of another row to a row.</p></li>
+</ol>
+<p>With these rules, let’s consider a general linear system
+<span class="math display">\[\begin{align*}
+a_{11}x_{1}+\cdots+a_{1n}x_{n}  &amp;=y_{1},\\
+a_{21}x_{1}+\cdots+a_{2n}x_{n}  &amp;=y_{2},\\
+\vdots\qquad    \quad &amp; \vdots\\
+a_{m1}x_{1}+\cdots+a_{mn}x_{n}  &amp;=y_{n}.
+\end{align*}\]</span>
+If we first work with <span class="math inline">\(x_{1}\)</span>, then two things can happen. Either all <span class="math inline">\((a_{i1})_{i=1,\dots m}\)</span> are zero, or at least one <span class="math inline">\(a_{i1}\)</span> of is non-zero. We can do nothing for the first case. For the second case, we reorder the system (rule 1) so that the new <span class="math inline">\(a_{11}^{'}=a_{i1}\neq0\)</span> is the first <strong>pivot</strong>. Then we use the mutiplier <span class="math inline">\(-(a_{21}/a_{11}^{'})\)</span>
+to subtract <span class="math inline">\(x_{1}\)</span> from the second equation, use the mutiplier <span class="math inline">\(-(a_{31}/a_{11}^{'})\)</span> to subtract <span class="math inline">\(x_{1}\)</span> from the third equation, so on and so forth. These subtractions will eliminate <span class="math inline">\(x_{1}\)</span> from all equations except the first. The system becomes
+<span class="math display">\[\begin{align*}
+a_{11}^{'}x_{1}+a_{12}^{'}x_{2}\cdots+a_{1n}^{'}x_{n}   &amp;=y_{1}^{'},\\
+a_{22}^{'}x_{2}+\cdots+a_{2n}^{'}x_{n}  &amp;=y_{2}^{'},\\
+\vdots\qquad    \quad &amp; \vdots\\
+a_{m2}^{'}x_{2}+\cdots+a_{mn}^{'}x_{n}  &amp;=y_{n}^{'},
+\end{align*}\]</span>
+where <span class="math inline">\(a_{ij}^{'}\)</span> are the new coefficients after the swaps and mutiplications. Repeating this procedure, we will confront three possible outcomes when <span class="math inline">\(m&gt;n\)</span>.</p>
+<p>The first case is that if at least one equation contains <span class="math inline">\(0=y_{i}^{*}\neq0\)</span> there is no solution (<em>overdetermined</em>).</p>
+<p>In the second case, at the end, there might be equations left of the type <span class="math inline">\(0=0\)</span>. These can just be removed. And we will have an upper triangular form of <span class="math inline">\(n\)</span> non-zero equation as follows
+<span class="math display">\[\begin{align*}
+a_{11}^{*}x_{1}+a_{12}^{*}x_{2}+\cdots+a_{1n}^{*}x_{n}  &amp;=y_{1}^{*},\\
+a_{22}^{*}x_{2}+\cdots+a_{2n}^{*}x_{n}  &amp;=y_{2}^{*},\\
+\vdots\qquad    \quad &amp; \vdots\\
+a_{nn}^{*}x_{n} &amp;=y_{n}^{*},
+\end{align*}\]</span>
+where <span class="math inline">\(a_{ij}^{*}\)</span> and <span class="math inline">\(y_{i}^{*}\)</span> have new values under the elimination procedure. We can use the <strong>backward substitution</strong> to solve this system. In this case, there is a unique solution.</p>
+<p>In the third case, there are fewer equations than unknowns after the elimination (<em>underdetermined</em>). For example,
+<span class="math display">\[\begin{align*}
+a_{11}^{*}x_{1}+a_{12}^{*}x_{2}+\cdots+a_{14}^{*}x_{4}  &amp;=y_{1}^{*},\\
+a_{22}^{*}x_{2}+\cdots+a_{24}^{*}x_{4}  &amp;=y_{2}^{*},\\
+a_{43}^{*}x_{3}+a_{44}^{*}x_{4} &amp;=y_{3}^{*}.
+\end{align*}\]</span>
+We have three equations but four unknonws. In this example, the <strong>pivots</strong> are for <span class="math inline">\(x_{1}\)</span>, <span class="math inline">\(x_{2}\)</span> and <span class="math inline">\(x_{3}\)</span>. There is in fact no constraint on the remaining variable <span class="math inline">\(x_{4}\)</span>. Thus, we have an infinite number of solutions.</p>
+<p>Among these three cases, the second one is of most interests, because it guarantees a unique solution. The unique solution of this general linear system is a vector called <em>solution vector</em> such that the resulting equations are satisfied for these choices of the variables. When there are multiple solutions, the set of all solutions is called the <em>solution set</em> of the linear system, and two linear systems are said to be equivalent if they have the same <strong>solution vector</strong> or <strong>solution set</strong>. The key idea behind the Gaussian elimination is to construct the equivalent systems, i.e. they all have the same <strong>solution vector</strong> or <strong>solution set</strong>.</p>
+<p>The computation for the unique solution in the second case uses the <strong>backward substitution</strong>. Given an <span class="math inline">\(n\times n\)</span>
+<strong>upper triangular matrix</strong> <span class="math inline">\(\mathbf{A}\)</span> with non-zero diagonal entries, and <span class="math inline">\(\mathbf{b}\in\mathbb{R}^{n}\)</span>, the <strong>backward substitution</strong> is as follows:</p>
+<p><code>1: Criteria:</code> <span class="math inline">\(\mathbf{A}=[a_{ij}]_{n\times n}, [a_{ij}]_{n\times n}=0\)</span> <code>for</code> <span class="math inline">\(i&gt;j\)</span> <code>and</code> <span class="math inline">\(a_{ii}\neq0\)</span> <code>for</code> <span class="math inline">\(i\leq n\)</span>, <span class="math inline">\(\mathbf{b}\in\mathbb{R}^n\)</span>. <br><code>2: Variable:</code> <span class="math inline">\(\mathbf{x}\in\mathbb{R}^n\)</span> <br><code>3: FOR</code> <span class="math inline">\(i\)</span> <code>from</code> <span class="math inline">\(n\)</span> <code>to</code> <span class="math inline">\(1\)</span> <code>DO:</code> <br><code>4:</code> <span class="math inline">\(\qquad\)</span> <span class="math inline">\(x_{i}=(b_{i}-a_{i,i+1}x_{i+1}-\cdots-a_{i,n}x_{n})/a_{i,i}\)</span> <br><code>5: END FOR</code>-<span class="math inline">\(i\)</span> <code>LOOP</code> <br><code>6: RETURN</code> <span class="math inline">\(\mathbf{x}\)</span><br></p>
+<p>The <strong>backward substitution</strong> is easy to implement. But when the system grows larger (more unknowns, more equations), a simple algorithm such as backward substitution may become costly. The <strong>complexity</strong> of <strong>backward substitution</strong> is given as follows:<label for="tufte-sn-187" class="margin-toggle sidenote-number">187</label><input type="checkbox" id="tufte-sn-187" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">187</span> The current computers store real numbers in a format called <em>floating points</em>, i.e. a real number using a block of <span class="math inline">\(64\)</span> bits - <span class="math inline">\(0\)</span>s and <span class="math inline">\(1\)</span>s. When computers carry out an arithmetic operation such as addition or subtraction on numbers, a very rough estimate of the time required to proceed this computation can be calculated by counting the total number of <strong>floating point</strong> operations. The <em>complexity</em> of an operation is the (minimum) number of <strong>floating point</strong> operations required to carry it out.</span> From the bottom upwards in the <strong>echelon form</strong>, the first step only requires a division of <span class="math inline">\(a_{nn}\)</span>. The next step requires one multiple, one subtraction, and one division <span class="math inline">\(x_{n-1}=(b_{n-1}-a_{nn}x_{n})/a_{n-1,n-1}\)</span>, so three operations. In <span class="math inline">\(k\)</span>-step, the operations contain <span class="math inline">\(k-1\)</span> multiplies, <span class="math inline">\(k-1\)</span> subtractions, and one division, hence <span class="math inline">\(2k-1\)</span> operations in total. Thus, the total number of operations for <strong>backward substitution</strong> of an <span class="math inline">\(n\)</span>-variables, <span class="math inline">\(n\)</span>-equation <strong>echelon system</strong> is <span class="math inline">\(1+3+\cdots+(2n-1)=n^{2}\)</span>.
+But the <a href="ch-vecMat.html#sub:vec">inner product</a> of two <span class="math inline">\(n\)</span>-vectors only costs <span class="math inline">\(2n-1\)</span> operations: <span class="math inline">\(n\)</span> scalar mutiplications and <span class="math inline">\(n-1\)</span> scalar additions. We can imagine that for a large <span class="math inline">\(n\)</span>, the <strong>complexity</strong> of the <strong>backward substitution</strong> is much larger than that of the <a href="ch-vecMat.html#sub:vec">inner product</a>.<label for="tufte-sn-188" class="margin-toggle sidenote-number">188</label><input type="checkbox" id="tufte-sn-188" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">188</span> In certain settings it is handy to use the “Big-Oh” notation when an order of magnitude assessment of work suffices. <a href="ch-vecMat.html#sub:vec">Inner products</a> are <span class="math inline">\(O(n)\)</span>, <a href="ch-vecMat.html#sub:matrix">matrix-vector products</a> are <span class="math inline">\(O(n^{2})\)</span>, and <a href="ch-vecMat.html#sub:matrix">matrix-matrix products</a> are <span class="math inline">\(O(n^{3})\)</span>.</span></p>
+</div>
+</div></body></html>
+
+<p style="text-align: center;">
+<a href="ch-vecMat.html"><button class="btn btn-default">Previous</button></a>
+<a href="bibliography.html"><button class="btn btn-default">Next</button></a>
+</p>
+<p class="build-date">Page built: 
+2020-04-17
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
