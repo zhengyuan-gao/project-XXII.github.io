@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2020-04-17" />
+<meta name="date" content="2020-05-09" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -155,6 +155,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a href="ch-vecMat.html"><span class="toc-section-number">10</span> Vector and Matrix</a>
 <a id="active-page" href="ch-MatComp.html"><span class="toc-section-number">11</span> Matrix Computation</a><ul class="toc-sections">
 <li class="toc"><a href="#sub:GElimination"> Gaussian Elimination</a></li>
+<li class="toc"><a href="#sub:matInv"> Matrix Inverses</a></li>
+<li class="toc"><a href="#sub:LU"> Example: LU factorization, Forward and Backward Substitution, Distributed Computation</a></li>
 </ul>
 <a href="bibliography.html">Bibliography</a>
 </div>
@@ -281,6 +283,475 @@ We have three equations but four unknonws. In this example, the <strong>pivots</
 <p>The <strong>backward substitution</strong> is easy to implement. But when the system grows larger (more unknowns, more equations), a simple algorithm such as backward substitution may become costly. The <strong>complexity</strong> of <strong>backward substitution</strong> is given as follows:<label for="tufte-sn-187" class="margin-toggle sidenote-number">187</label><input type="checkbox" id="tufte-sn-187" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">187</span> The current computers store real numbers in a format called <em>floating points</em>, i.e. a real number using a block of <span class="math inline">\(64\)</span> bits - <span class="math inline">\(0\)</span>s and <span class="math inline">\(1\)</span>s. When computers carry out an arithmetic operation such as addition or subtraction on numbers, a very rough estimate of the time required to proceed this computation can be calculated by counting the total number of <strong>floating point</strong> operations. The <em>complexity</em> of an operation is the (minimum) number of <strong>floating point</strong> operations required to carry it out.</span> From the bottom upwards in the <strong>echelon form</strong>, the first step only requires a division of <span class="math inline">\(a_{nn}\)</span>. The next step requires one multiple, one subtraction, and one division <span class="math inline">\(x_{n-1}=(b_{n-1}-a_{nn}x_{n})/a_{n-1,n-1}\)</span>, so three operations. In <span class="math inline">\(k\)</span>-step, the operations contain <span class="math inline">\(k-1\)</span> multiplies, <span class="math inline">\(k-1\)</span> subtractions, and one division, hence <span class="math inline">\(2k-1\)</span> operations in total. Thus, the total number of operations for <strong>backward substitution</strong> of an <span class="math inline">\(n\)</span>-variables, <span class="math inline">\(n\)</span>-equation <strong>echelon system</strong> is <span class="math inline">\(1+3+\cdots+(2n-1)=n^{2}\)</span>.
 But the <a href="ch-vecMat.html#sub:vec">inner product</a> of two <span class="math inline">\(n\)</span>-vectors only costs <span class="math inline">\(2n-1\)</span> operations: <span class="math inline">\(n\)</span> scalar mutiplications and <span class="math inline">\(n-1\)</span> scalar additions. We can imagine that for a large <span class="math inline">\(n\)</span>, the <strong>complexity</strong> of the <strong>backward substitution</strong> is much larger than that of the <a href="ch-vecMat.html#sub:vec">inner product</a>.<label for="tufte-sn-188" class="margin-toggle sidenote-number">188</label><input type="checkbox" id="tufte-sn-188" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">188</span> In certain settings it is handy to use the “Big-Oh” notation when an order of magnitude assessment of work suffices. <a href="ch-vecMat.html#sub:vec">Inner products</a> are <span class="math inline">\(O(n)\)</span>, <a href="ch-vecMat.html#sub:matrix">matrix-vector products</a> are <span class="math inline">\(O(n^{2})\)</span>, and <a href="ch-vecMat.html#sub:matrix">matrix-matrix products</a> are <span class="math inline">\(O(n^{3})\)</span>.</span></p>
 </div>
+<div id="sub:matInv" class="section level2">
+<h2>
+<span class="header-section-number">11.2</span> Matrix Inverses</h2>
+<p>When there is little prospect in proceeding, one solution is to take a backward step, to re-examine the passing path and hopefully to explore a possible way out. The solution for many difficult problems in mathematics could also be found if the problems were expressed in the inverse manner. In this sense, the <strong>matrix inversion</strong> could illuminate a deeper mechanism regarding the matrix computation.</p>
+<p>We knew that it is straightforward to compute the quantity <span class="math inline">\(1/a\)</span> if <span class="math inline">\(a\in\mathbb{R}\)</span>. But to compute <span class="math inline">\(1/\mathbf{A}\)</span> for a matrix <span class="math inline">\(\mathbf{A}\)</span>, we should be sure that the inverse <span class="math inline">\(1/\mathbf{A}\)</span> makes sense. That is, the <a href="ch-vecMat.html#sub:matrix">laws of matrix multiplication</a> are not violated under the inversion. Notice that the order matters in a <a href="ch-vecMat.html#sub:matrix">matrix multiplication</a>. We do not expect <span class="math inline">\(\mathbf{A}\mathbf{B}=\mathbf{B}\mathbf{A}\)</span>
+in general. For inversion, the order implies that there exists two types of <strong>pseudo inversions</strong> of a matrix. That is, for a matrix <span class="math inline">\(\mathbf{A}\in\mathbb{R}^{m\times n}\)</span> with <span class="math inline">\(m,n\in\mathbb{N}\)</span>, we expect to have a <strong>left inverse</strong> and a <strong>right inverse</strong> of the matrix <span class="math inline">\(\mathbf{A}\)</span>. If a matrix <span class="math inline">\(\mathbf{B}\in\mathbb{R}^{n\times m}\)</span> satisfies <span class="math inline">\(\mathbf{B}\mathbf{A}=\mathbf{I}\)</span>, then <span class="math inline">\(\mathbf{B}\)</span> is called a <em>left inverse</em> of <span class="math inline">\(\mathbf{A}\)</span>. The matrix <span class="math inline">\(\mathbf{A}\)</span> is said to be <em>left invertible</em> if a <strong>left inverse</strong> exists. Similarly, if <span class="math inline">\(\mathbf{A}\mathbf{C}=\mathbf{I}\)</span>, then <span class="math inline">\(\mathbf{C}\in\mathbb{R}^{n\times m}\)</span> is called the <em>right inverse</em> of <span class="math inline">\(\mathbf{A}\)</span>. The <strong>right inverse</strong> <span class="math inline">\(\mathbf{B}\)</span> and the <strong>left inverse</strong> <span class="math inline">\(\mathbf{C}\)</span> can be completely different matrices. If the right inverse <span class="math inline">\(\mathbf{B}\)</span> and the left inverse <span class="math inline">\(\mathbf{C}\)</span> are different, then the <strong>inverse matrix</strong> of <span class="math inline">\(\mathbf{A}\)</span> does not exist.<label for="tufte-sn-189" class="margin-toggle sidenote-number">189</label><input type="checkbox" id="tufte-sn-189" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">189</span> Usually the <strong>left</strong> or <strong>right inverses</strong> are not unique. There may be more than one left or right inverses.</span> When people refer to an <strong>invertible matrix</strong>, they often implicitly refer to a square matrix (<span class="math inline">\(n=m\)</span>) whose <strong>left inverse</strong> and <strong>right inverse</strong> are equivalent.</p>
+<p>For a square matrix <span class="math inline">\(\mathbf{A}\in\mathbb{R}^{n\times n}\)</span>, the matrix <span class="math inline">\(\mathbf{A}\)</span> is <em>invertible</em> if there exists a matrix <span class="math inline">\(\mathbf{A}^{-1}\)</span>
+such that <span class="math display">\[\mathbf{A}^{-1}\mathbf{A}=\mathbf{I},\quad\mbox{and }\quad\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}.\]</span><label for="tufte-sn-190" class="margin-toggle sidenote-number">190</label><input type="checkbox" id="tufte-sn-190" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">190</span> Note that for square matrices, left inverse, right inverse and inverse <span class="math inline">\(\mathbf{A}^{-1}\)</span> are equivalent. That is, if <span class="math inline">\(\mathbf{A}\)</span> is <strong>right invertible</strong>, then it is <strong>left invertible</strong>, and vice-versa. This inverse is unique. Otherwise, suppose that both <span class="math inline">\(\mathbf{B}\)</span> and <span class="math inline">\(\mathbf{C}\)</span> work as <strong>inverses</strong> to the square matrix <span class="math inline">\(\mathbf{A}\)</span>, we can show that these matrices must be identical. The <a href="ch-vecMat.html#sub:matrix">associative and identity laws</a> of matrices yield
+<span class="math display">\[\mathbf{B}=\mathbf{B}\mathbf{I}\overset{(a)}{=}\mathbf{B}(\mathbf{A}\mathbf{C})\\=(\mathbf{B}\mathbf{A})\mathbf{C}=\mathbf{I}\mathbf{C}=\mathbf{C}.\]</span></span>
+If <span class="math inline">\(\mathbf{A}^{-1}\)</span> exists, then <span class="math inline">\(\mathbf{A}\)</span> is said to be invertible or nonsingular. Otherwise, we say <span class="math inline">\(\mathbf{A}\)</span> is <em>singular</em> or <em>non-invertible</em>.</p>
+<p>The study of <strong>matrix inversion</strong> is equivalent to the study of solving a <a href="ch-MatComp.html#sub:GElimination">linear equation system</a>. Assume <span class="math inline">\(\mathbf{A}\in\mathbb{R}^{m\times n}\)</span>, <span class="math inline">\(\mathbf{b}\in\mathbb{R}^{m}\)</span>, <span class="math inline">\(\mathbf{x}\in\mathbb{R}^{n}\)</span>, and the linear system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span>. The solution of the system <span class="math inline">\(\mathbf{x}=\mathbf{A}^{-1}\mathbf{b}\)</span> includes the matrix inversion <span class="math inline">\(\mathbf{A}^{-1}\)</span>. As for the square matrix <span class="math inline">\(\mathbf{A}\in\mathbb{R}^{n\times n}\)</span>, the inverse <span class="math inline">\(\mathbf{A}^{-1}\)</span>, if it exists, is unique. For example, consider the solution of the following system
+<span class="math display">\[\begin{split}x_{1}= &amp; y_{1}\\
+x_{2}= &amp; y_{1}+y_{2}\\
+x_{3}= &amp; y_{1}+y_{2}+y_{3}
+\end{split}
+\Leftrightarrow\mathbf{x}=\left[\begin{array}{ccc}
+1 &amp; 0 &amp; 0\\
+1 &amp; 1 &amp; 0\\
+1 &amp; 1 &amp; 1
+\end{array}\right]\left[\begin{array}{c}
+y_{1}\\
+y_{2}\\
+y_{3}
+\end{array}\right]=\mathbf{A}^{-1}\mathbf{y}\]</span>
+As we will see, <span class="math inline">\(\mathbf{A}^{-1}\)</span>, the <a href="ch-MatComp.html#sub:GElimination">lower triangular matrix</a>, is both the <strong>left and the right inverse</strong> of <span class="math inline">\(\mathbf{A}\)</span>. <span class="math display">\[\left[\begin{array}{ccc}
+1 &amp; 0 &amp; 0\\
+-1 &amp; 1 &amp; 0\\
+0 &amp; -1 &amp; 1
+\end{array}\right]\left[\begin{array}{ccc}
+1 &amp; 0 &amp; 0\\
+1 &amp; 1 &amp; 0\\
+1 &amp; 1 &amp; 1
+\end{array}\right]=\left[\begin{array}{ccc}
+1 &amp; 0 &amp; 0\\
+1 &amp; 1 &amp; 0\\
+1 &amp; 1 &amp; 1
+\end{array}\right]\left[\begin{array}{ccc}
+1 &amp; 0 &amp; 0\\
+-1 &amp; 1 &amp; 0\\
+0 &amp; -1 &amp; 1
+\end{array}\right]=\left[\begin{array}{ccc}
+1 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 1
+\end{array}\right].\]</span>
+namely, <span class="math inline">\(\mathbf{A}^{-1}\mathbf{A}=\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}\)</span>.
+Thus, we expect to have a unique solution for the system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> when <span class="math inline">\(\mathbf{A}\)</span> is <strong>invertible</strong>.<label for="tufte-sn-191" class="margin-toggle sidenote-number">191</label><input type="checkbox" id="tufte-sn-191" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">191</span> For <span class="math inline">\(\mathbf{A}\in\mathbb{R}^{m\times n}\)</span>, when <span class="math inline">\(m&lt;n\)</span>, the number of unknown variables <span class="math inline">\((x_{i})_{i\leq n}\)</span> is more than the number of equations, the system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> is an <a href="ch-MatComp.html#sub:GElimination">overdetermined linear system</a>. When <span class="math inline">\(n&gt;m\)</span>, the system is an <a href="ch-MatComp.html#sub:GElimination">underdetermined linear system</a>.</span> Therefore, the computational procedure of solving a linear system is equivalent to finding an <strong>inverse</strong>.</p>
+<p>The equivalence can be revealed by consideroing the <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a> in the matrix form. Recall that the idea of <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a> is to reduce the system of equations to an <a href="ch-MatComp.html#sub:GElimination">echelon form</a> by certain legitimate and reversible algebraic operations (elementary operations). In the <a href="ch-MatComp.html#sub:GElimination">echelon form</a>, we can easily see what the solutions to the system are, if there are any. In matrix computations, these elementary operations are summarized by the so-called <strong>elementary matrices</strong>. The <em>elementary matrice</em> provide elementary operations, such as row or column permutations that are transferred from the identity matrix <span class="math inline">\(\mathbf{I}\)</span> by some simple <strong>invertible operations</strong>. Thus, all <strong>elementary matrices</strong> are <strong>invertible matrices</strong> as the elementary operations are invertible. Recall the elemantary operations in the <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a>:</p>
+<ol style="list-style-type: decimal">
+<li><p>The order of two equations can be swapped: Permutations</p></li>
+<li><p>Multiplying an equation by a nonzero constant: Scaling</p></li>
+<li><p>An equation can be replaced by the sum of itself and a nonzero multiple of any other equation: Replacement. In particular, the row can be replaced by the sum of that row and a nonzero multiple of any other row; that is: <span class="math inline">\(\mbox{row}_{i}=\mbox{row}_{i}-a_{ij}\mbox{row}_{j}\)</span>.</p></li>
+</ol>
+<p>These operations can also be stated in an <strong>elementary matrix</strong> form. For example:
+<span class="math display">\[
+\left[\begin{array}{cccc}
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0\\
+-2 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right]\left[\begin{array}{c}
+x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}
+\end{array}\right]=\left[\begin{array}{c}
+x_{1}\\
+x_{2}\\
+-2x_{1}+x_{3}\\
+x_{4}
+\end{array}\right].
+\]</span>
+It is obvious that the matrix is an <strong>elementary matrix</strong>, and the matrix does the job as the subtraction and mutiplication steps in the <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a>. Let <span class="math inline">\(\mathbf{E}_{ij}(d)\)</span> be the <em>replacement elementary matrix</em> for the elementary operation of adding <span class="math inline">\(d\)</span> times the <span class="math inline">\(j\)</span>-th row to the <span class="math inline">\(i\)</span>-th row. The <strong>elementary matrix</strong> (operation) <span class="math inline">\(\mathbf{E}_{ij}(d)\)</span> of switching the <span class="math inline">\(i\)</span>-th and <span class="math inline">\(j\)</span>-th rows can always be undone by applying <span class="math inline">\(\mathbf{E}_{ji}(-d)\)</span> such that <span class="math display">\[\mathbf{E}_{ij}(d)\mathbf{E}_{ji}(-d)=\mathbf{E}_{ji}(-d)\mathbf{E}_{ij}(d)=\mathbf{I}.\]</span>
+We can apply this <strong>elementary matrix</strong> for constructing the triangular matrix (<a href="ch-MatComp.html#sub:GElimination">echelon form</a>).</p>
+<p>Similarly, let <span class="math inline">\(\mathbf{E}_{ij}\)</span> be the <em>permutation elementary matrix</em> of switching the <span class="math inline">\(i\)</span>-th and <span class="math inline">\(j\)</span>-th rows of the matrix, and let <span class="math inline">\(\mathbf{E}_{i}(c)\)</span> be the <em>scaling elementary matrix</em> of multiplying the <span class="math inline">\(i\)</span>-th row by the non-zero constant <span class="math inline">\(c\)</span>. They are also <strong>invertible</strong>.<label for="tufte-sn-192" class="margin-toggle sidenote-number">192</label><input type="checkbox" id="tufte-sn-192" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">192</span> The diagonal square matrix is not an elementary matrix. But if <span class="math inline">\(\mathbf{A}\)</span> is a diagonal square matrix with nonzero diagonal, then it is always <strong>invertible</strong>.
+<span class="math display">\[\mathbf{A}=\left[\begin{array}{cccc}
+a_{1} &amp; 0 &amp; \cdots\\
+0 &amp; a_{2} &amp; 0 &amp; \cdots\\
+\vdots &amp;  &amp; \ddots\\
+0 &amp; \cdots &amp;  &amp; a_{n}
+\end{array}\right],\;\\
+\mathbf{A}^{-1}=\left[\begin{array}{cccc}
+a_{1}^{-1} &amp; 0 &amp; \cdots\\
+0 &amp; a_{2}^{-1} &amp; 0 &amp; \cdots\\
+\vdots &amp;  &amp; \ddots\\
+0 &amp; \cdots &amp;  &amp; a_{n}^{-1}
+\end{array}\right].\]</span>
+We denote the diagonal matrix via <span class="math inline">\(\mathbf{A}=\mbox{diag}(a_{1},\dots,a_{n})\)</span>.</span></p>
+<div class="solution">
+<p class="solution-begin">
+Examples of elementary matrices <span id="sol-start-77" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-77', 'sol-start-77')"></span>
+</p>
+<div id="sol-body-77" class="solution-body" style="display: none;">
+<p>For example, given <span class="math display">\[\mathbf{A}=\left[\begin{array}{cc}
+2 &amp; 1\\
+6 &amp; 8
+\end{array}\right],\]</span> we have</p>
+<p><span class="math display">\[\mathbf{E}_{21}(3)\mathbf{A}=\left[\begin{array}{cc}
+1 &amp; 0\\
+-3 &amp; 1
+\end{array}\right]\left[\begin{array}{cc}
+2 &amp; 1\\
+6 &amp; 8
+\end{array}\right]=\left[\begin{array}{cc}
+2 &amp; 1\\
+0 &amp; 5
+\end{array}\right].\]</span></p>
+<p>The following elemntary matrix <span class="math inline">\(\mathbf{E}_{23}\)</span> gives a permutation of the 2nd and the 3rd row of <span class="math inline">\(\mathbf{A}\in\mathbb{R}^{3\times3}\)</span>
+<span class="math display">\[
+\left[\begin{array}{ccc}
+1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 1\\
+0 &amp; 1 &amp; 0
+\end{array}\right]\left[\begin{array}{ccc}
+a_{11} &amp; a_{12} &amp; a_{13}\\
+a_{21} &amp; a_{22} &amp; a_{23}\\
+a_{31} &amp; a_{32} &amp; a_{33}
+\end{array}\right]=\left[\begin{array}{ccc}
+a_{11} &amp; a_{12} &amp; a_{13}\\
+a_{31} &amp; a_{32} &amp; a_{33}\\
+a_{21} &amp; a_{22} &amp; a_{23}
+\end{array}\right].
+\]</span></p>
+<p>Multiply the first row of <span class="math inline">\(\mathbf{A}\)</span> by <span class="math inline">\(2\)</span> can be done by <span class="math inline">\(\mathbf{E}_{1}(2)\)</span>:
+<span class="math display">\[
+\left[\begin{array}{ccc}
+2 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 1
+\end{array}\right]\left[\begin{array}{ccc}
+a_{11} &amp; a_{12} &amp; a_{13}\\
+a_{21} &amp; a_{22} &amp; a_{23}\\
+a_{31} &amp; a_{32} &amp; a_{33}
+\end{array}\right]=\left[\begin{array}{ccc}
+2a_{11} &amp; 2a_{12} &amp; 2a_{13}\\
+a_{21} &amp; a_{22} &amp; a_{23}\\
+a_{31} &amp; a_{32} &amp; a_{33}
+\end{array}\right].
+\]</span>
+Similarly, both <span class="math inline">\(\mathbf{E}_{ij}\)</span> and <span class="math inline">\(\mathbf{E}_{i}(c)\)</span> have inverses: <span class="math display">\[\mathbf{E}_{ij}\mathbf{E}_{ji}=\mathbf{E}_{ji}\mathbf{E}_{ij}=\mathbf{I}.\quad\mathbf{E}_{i}(c)\mathbf{E}_{i}(1/c)=\mathbf{E}_{i}(1/c)\mathbf{E}_{i}(c)=\mathbf{I}.\]</span></p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:MatrixTransform"></span>
+<img src="fig/Part3/matrixTransform.gif" alt="Matrices transform a set of vectors in two dimensions" width="100%"><!--
+<p class="caption marginnote">-->Figure 11.2: Matrices transform a set of vectors in two dimensions<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>For some vectors in <span class="math inline">\(\mathbb{R}^n\)</span>, a matrix in <span class="math inline">\(\mathbb{R}^{n\times n}\)</span> can transform these vectors into new positions in <span class="math inline">\(\mathbb{R}^n\)</span>. See figure <a href="ch-MatComp.html#fig:MatrixTransform">11.2</a> for an illustration in <span class="math inline">\(\mathbb{R}^2\)</span>.
+As <span class="math inline">\(\mathbf{E}_{ij}(d)\)</span> always satisfies the <a href="ch-vecMat.html#sub:matrix">matrix multiplication laws</a>, for <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span>, multiplying both sides by <span class="math inline">\(\mathbf{E}_{ij}(d)\)</span> gives a transformed system <span class="math inline">\(\mathbf{E}_{ij}(d)\mathbf{A}\mathbf{x}=\mathbf{E}_{ij}(d)\mathbf{b}\)</span>. The solution(s) <span class="math inline">\(\mathbf{x}^{*}\)</span> of the original system will still be the solution(s) of the transformed system <span class="math inline">\(\mathbf{E}_{ij}(d)\mathbf{A}\mathbf{x}^{*}\)</span>. Thus <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> and <span class="math inline">\(\mathbf{E}_{ij}(d)\mathbf{A}\mathbf{x}=\mathbf{E}_{ij}(d)\mathbf{b}\)</span> are two equivalent systems.</p>
+<p>The following illustration gives the compution of the <strong>inverse</strong> <span class="math inline">\(\mathbf{A}^{-1}\)</span> in terms of the <strong>elementary matrices</strong>. Consider the <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a> of
+<span class="math display">\[\begin{align*}
+ 2x_{1}-x_{2}   =1 &amp; \; &amp;   x_{1}+  x_{2}   =-5 &amp;\\
+&amp; \,    \Rightarrow     \,  &amp; &amp;\\
+4x_{1}+4x_{2}   =20     &amp; \; &amp;  -3x_{2} =-9. &amp;
+\end{align*}\]</span>
+The associated procedure of <strong>elementary matrices</strong> is given by
+<span class="math display">\[
+\mathbf{E}_{21}(-2)\mathbf{E}_{1}(1/4)\mathbf{E}_{12}\left[\begin{array}{cc}
+2 &amp; -1\\
+4 &amp; 4
+\end{array}\right]\left[\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right]= \mathbf{E}_{21}(-2)\mathbf{E}_{1}(1/4)\mathbf{E}_{12}\left[\begin{array}{c}
+1\\
+20
+\end{array}\right] \\
+\Rightarrow\mathbf{E}_{21}(-2)\mathbf{E}_{1}(1/4)\left[\begin{array}{cc}
+4 &amp; 4\\
+2 &amp; -1
+\end{array}\right]\left[\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right]= \mathbf{E}_{21}(-2)\mathbf{E}_{1}(1/4)\left[\begin{array}{c}
+20\\
+1
+\end{array}\right] \\
+\Rightarrow\mathbf{E}_{21}(-2)\left[\begin{array}{cc}
+1 &amp; 1\\
+2 &amp; -1
+\end{array}\right]\left[\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right]  =\mathbf{E}_{21}(-2)\left[\begin{array}{c}
+5\\
+1
+\end{array}\right] \\
+\Rightarrow\left[\begin{array}{cc}
+1 &amp; 1\\
+0 &amp; -3
+\end{array}\right]\left[\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right]  =\left[\begin{array}{c}
+5\\
+-9
+\end{array}\right].
+\]</span>
+The <a href="ch-MatComp.html#sub:GElimination">backward substitution</a> can also be done by the <strong>elementary matrices</strong>. Continue our previous representation of the <a href="ch-MatComp.html#sub:GElimination">triangular matrix</a>.
+<span class="math display">\[
+\mathbf{E}_{12}(-1)\mathbf{E}_{2}(-1/3)\left[\begin{array}{cc}
+1 &amp; 1\\
+0 &amp; -3
+\end{array}\right]\left[\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right]= \mathbf{E}_{12}(-1)\mathbf{E}_{2}(-1/3)\left[\begin{array}{c}
+5\\
+-9
+\end{array}\right] \\
+\Rightarrow\mathbf{E}_{12}(-1)\left[\begin{array}{cc}
+1 &amp; 1\\
+0 &amp; 1
+\end{array}\right]\left[\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right]  =\mathbf{E}_{12}(-1)\left[\begin{array}{c}
+5\\
+3
+\end{array}\right] \\
+\Rightarrow\left[\begin{array}{cc}
+1 &amp; 0\\
+0 &amp; 1
+\end{array}\right]\left[\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right]  =\left[\begin{array}{c}
+2\\
+3
+\end{array}\right].
+\]</span>
+Now, we’ve reached the solution <span class="math inline">\(\mathbf{x}=\mathbf{A}^{-1}\mathbf{b}\)</span> where <span class="math inline">\(\mathbf{A}^{-1}=\mathbf{E}_{12}(-1)\mathbf{E}_{2}(-1/3)\mathbf{E}_{21}(-2)\mathbf{E}_{1}(1/4)\mathbf{E}_{12}\)</span>. This procedure is feasible for any linear system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> with the square matrix <span class="math inline">\(\mathbf{A}\)</span>.</p>
+<div class="solution">
+<p class="solution-begin">
+Proof <span id="sol-start-78" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-78', 'sol-start-78')"></span>
+</p>
+<div id="sol-body-78" class="solution-body" style="display: none;">
+<p>Statement: The <strong>inverse</strong> of square <span class="math inline">\(\mathbf{A}\)</span> can be computed by the <strong>elementary matrices</strong>.</p>
+<p>To prove this statement, let <span class="math inline">\(\mathbf{A}\)</span> be an <span class="math inline">\(n\times n\)</span> matrix and suppose that by a <span class="math inline">\(k\)</span>-times succession of elementary row operations <span class="math inline">\((\mathbf{E}^{(1)},\mathbf{E}^{(2)},\dots,\mathbf{E}^{(k)})\)</span>, we reduce <span class="math inline">\(\mathbf{A}\)</span> to <span class="math inline">\(\mathbf{I}\)</span>
+such that <span class="math display">\[\mathbf{E}^{(k)}\cdots\mathbf{E}^{(2)}\mathbf{E}^{(1)}\mathbf{A}=\mathbf{I}.\]</span>
+As all these <strong>elementary matrices</strong> are <strong>invertible</strong>, so we can mutiply their <strong>inverses</strong> successively
+<span class="math display">\[(\mathbf{E}^{(1)})^{-1}(\mathbf{E}^{(2)})^{-1}\cdots(\mathbf{E}^{(k)})^{-1}\mathbf{E}^{(k)}\cdots\mathbf{E}^{(2)}\mathbf{E}^{(1)}\mathbf{A}=(\mathbf{E}^{(1)})^{-1}(\mathbf{E}^{(2)})^{-1}\cdots(\mathbf{E}^{(k)})^{-1}\mathbf{I}.\]</span>
+The left hand side of the equality is <span class="math inline">\(\mathbf{A}\)</span> as any <span class="math inline">\((\mathbf{E}^{(i)})^{-1}\mathbf{E}^{(i)}=\mathbf{I}\)</span> for <span class="math inline">\(i=1,\dots,k\)</span>. Let <span class="math inline">\(\mathbf{E}^{(k)}\cdots\mathbf{E}^{(2)}\mathbf{E}^{(1)}\)</span> be <span class="math inline">\(\mathbf{B}\)</span>. By the <strong>invertible property</strong> of <strong>elementary matrices</strong>, the right hand side mutiplication gives <span class="math display">\[\mathbf{B}^{-1}=(\mathbf{E}^{(1)})^{-1}(\mathbf{E}^{(2)})^{-1}\cdots(\mathbf{E}^{(k)})^{-1}\mathbf{I}.\]</span>
+The above equality states <span class="math inline">\(\mathbf{B}^{-1}\mathbf{B}\mathbf{A}=\mathbf{A}\)</span>. Since <span class="math inline">\(\mathbf{B}\mathbf{A}=\mathbf{I}\)</span>, we have <span class="math inline">\(\mathbf{B}^{-1}=\mathbf{A}\)</span> which means <span class="math inline">\(\mathbf{B}=\mathbf{A}^{-1}\)</span>. Therefore, the result follows.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Matrix inverse properties: If matrices <span class="math inline">\(\mathbf{A}\)</span>
+and <span class="math inline">\(\mathbf{B}\)</span> are <strong>invertible</strong>, then <span class="math inline">\(\mathbf{A}^{\top}\)</span>, <span class="math inline">\(\mathbf{A}^{-1}\)</span>, <span class="math inline">\(\mathbf{B}^{-1}\)</span>, and <span class="math inline">\(\mathbf{A}\mathbf{B}\)</span> are also <strong>invertible</strong>, and</p>
+<ol style="list-style-type: lower-roman">
+<li><p><span class="math inline">\((\mathbf{A}^{-1})^{-1}=\mathbf{A}\)</span>.</p></li>
+<li><p><span class="math inline">\((\mathbf{A}\mathbf{B})^{-1}=\mathbf{B}^{-1}\mathbf{A}^{-1}\)</span>.<label for="tufte-sn-193" class="margin-toggle sidenote-number">193</label><input type="checkbox" id="tufte-sn-193" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">193</span> The inverse of a product <span class="math inline">\(\mathbf{A}\mathbf{B}\)</span> comes in an reverse order because the order matters in the matrix mutiplication.</span></p></li>
+<li><p><span class="math inline">\((\mathbf{A}^{-1})^{\top}=(\mathbf{A}^{\top})^{-1}\)</span>.</p></li>
+</ol>
+<div class="solution">
+<p class="solution-begin">
+Proof <span id="sol-start-79" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-79', 'sol-start-79')"></span>
+</p>
+<div id="sol-body-79" class="solution-body" style="display: none;">
+<ol style="list-style-type: lower-roman">
+<li><p>By definition <span class="math inline">\(\mathbf{A}\mathbf{A}^{-1}=\mathbf{A}^{-1}\mathbf{A}=\mathbf{I}\)</span>, so the inverse of <span class="math inline">\(\mathbf{A}^{-1}\)</span> is <span class="math inline">\(\mathbf{A}\)</span>.</p></li>
+<li><p>Note that <span class="math inline">\((\mathbf{A}\mathbf{B})(\mathbf{B}^{-1}\mathbf{A}^{-1})=\mathbf{I}\)</span>, and <span class="math inline">\((\mathbf{B}^{-1}\mathbf{A}^{-1})(\mathbf{A}\mathbf{B})=\mathbf{I}\)</span>. The result follows.</p></li>
+<li><p>Note that <span class="math inline">\(\mathbf{I}^{\top}=\mathbf{I}\)</span>. Since <span class="math display">\[(\mathbf{A}\mathbf{A}^{-1})^{\top}=(\mathbf{A}^{-1})^{\top}\mathbf{A}^{\top}=\mathbf{I}^{\top}=\mathbf{I},\]</span> <span class="math inline">\((\mathbf{A}^{-1})^{\top}\)</span> is the <strong>left inverse</strong> of <span class="math inline">\(\mathbf{A}^{\top}\)</span>. Similarly <span class="math display">\[(\mathbf{A}^{-1}\mathbf{A})^{\top}=\mathbf{A}^{\top}(\mathbf{A}^{-1})^{\top}=\mathbf{I},\]</span> <span class="math inline">\((\mathbf{A}^{-1})^{\top}\)</span> is also the <strong>right inverse</strong> of <span class="math inline">\(\mathbf{A}^{\top}\)</span>. The result follows.</p></li>
+</ol>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Note that unlike the scalar case, it is hard to say much about the invertibility of <span class="math inline">\(\mathbf{A}+\mathbf{B}\)</span>, even if both <span class="math inline">\(\mathbf{A}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> are invertible.</p>
+<p>In the Gaussian elimination, we saw that having a unique solution, the <a href="ch-MatComp.html#sub:GElimination">pivots</a> of the <a href="ch-MatComp.html#sub:GElimination">echelon form</a> needs to be non-zero. If the <span class="math inline">\(i\)</span>-th <a href="ch-MatComp.html#sub:GElimination">pivot</a> is zero, it means that either there is not enough information for solving the variable <span class="math inline">\(x_{i}\)</span>, namely <a href="ch-MatComp.html#sub:GElimination">underdetermined</a>, or the system has no solution, namely <a href="ch-MatComp.html#sub:GElimination">overdetermined</a>. In this case, it also means that the matrix inversion <span class="math inline">\(\mathbf{A}^{-1}\)</span> does not exist, since the system cannot provide a unique solution. In other words, the inverse <span class="math inline">\(\mathbf{A}^{-1}\)</span> exists when <span class="math inline">\(\mathbf{A}\)</span> has a full set of <span class="math inline">\(n\)</span> <a href="ch-MatComp.html#sub:GElimination">pivots</a>.</p>
+<p>We can summarize the conditions regarding the <strong>invertibility</strong>. Let <span class="math inline">\(\mathbf{A}\)</span> be an <span class="math inline">\(n\times n\)</span> matrix. The following statements are equivalent.</p>
+<ol style="list-style-type: decimal">
+<li><p>The matrix <span class="math inline">\(\mathbf{A}\)</span> is <strong>invertible</strong> or <strong>nonsingular</strong>.</p></li>
+<li><p>Given any <span class="math inline">\(n\times1\)</span> vector <span class="math inline">\(\mathbf{b}\)</span>, the linear system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> has a unique solution.</p></li>
+<li><p>The matrix <span class="math inline">\(\mathbf{A}\)</span> has a full set of <span class="math inline">\(n\)</span> pivots. (Namely, <span class="math inline">\(\mbox{det}(\mathbf{A})\neq0\)</span>.)<label for="tufte-sn-194" class="margin-toggle sidenote-number">194</label><input type="checkbox" id="tufte-sn-194" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">194</span> See section [?] for the definition of <span class="math inline">\(\mbox{det}\)</span>.</span></p></li>
+<li><p>The system of equations <span class="math inline">\(\mathbf{A}\mathbf{x}=0\)</span> has the unique solution <span class="math inline">\(\mathbf{x}=0\)</span>.<label for="tufte-sn-195" class="margin-toggle sidenote-number">195</label><input type="checkbox" id="tufte-sn-195" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">195</span> 
+We can prove this statement from 2). Suppose 2) is true, then <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> has a unique solution, denoted by <span class="math inline">\(\mathbf{x}^{*}\)</span>. Suppose <span class="math inline">\(\mathbf{A}\mathbf{x}=0\)</span> has a non-trivial solution, say <span class="math inline">\(\mathbf{x}=\mathbf{q}\)</span> and <span class="math inline">\(\mathbf{q}\neq0\)</span>, then <span class="math inline">\(\mathbf{A}(\mathbf{x}^{*}+\mathbf{q})=\mathbf{b}\)</span> is also valid. It means that we have obtained another solution <span class="math inline">\(\mathbf{x}^{*}+\mathbf{q}\)</span>, which contradicts with 2). So <span class="math inline">\(\mathbf{q}=0\)</span> is the unique solution of <span class="math inline">\(\mathbf{A}\mathbf{x}=0\)</span>.</span></p></li>
+</ol>
+</div>
+<div id="sub:LU" class="section level2">
+<h2>
+<span class="header-section-number">11.3</span> Example: LU factorization, Forward and Backward Substitution, Distributed Computation</h2>
+<p><a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a> is an approach that always works. But in terms of computational efficiency, very often it may not be the case. For example, a linear system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> with as many as <span class="math inline">\(100,000\)</span> variables of the vector <span class="math inline">\(\mathbf{x}\)</span> often arise in the solution of <a href="ch-DE.html#ch:DE">differential equations</a>. The coefficient matrix <span class="math inline">\(\mathbf{A}\)</span> for the system is <em>sparse</em>; that is, a large percentage of the entries of the coefficient matrix are zero. Inverting <span class="math inline">\(\mathbf{A}\)</span> directly in this situation triggers a high computational cost. Other iterative approaches may provide more efficient solutions if they can utilize some special factors of the matrix <span class="math inline">\(\mathbf{A}\)</span>.</p>
+<p>Let’s review the <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a> procedure. It starts with the last non-zero row, scales all the leading entries on the diagonal to one, then backward substitutes row by row up to the first row. We can think of two phases existing in the <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a>. The first phase (find and scale the pivots) is <strong>forward solving</strong>, and the second phase (backward substitution) is <strong>backward solving</strong>. Many key ideas of computation, when you look at them closely, share such a forward and backward strategy. In matrix computation, this forward and backward procedure can be presented by factorizating one <a href="#sub:matirx">square matrix</a> into two <a href="ch-MatComp.html#sub:GElimination">triangular matrices</a>, called the <strong>LU decomposition</strong>.</p>
+<p>The idea behind Gaussian elimination is to convert a given system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> to an equivalent triangular system (<a href="ch-MatComp.html#sub:GElimination">echelon form</a>. We have seen that the construction of the upper triangular form is to multiple some <a href="ch-MatComp.html#sub:matInv">elementary matrices</a>. Notice that each <a href="ch-MatComp.html#sub:matInv">replacement matrix</a> <span class="math inline">\(\mathbf{E}_{ij}(d)\)</span> has a lower triangular structure for <span class="math inline">\(i&lt;j\)</span>.<label for="tufte-sn-196" class="margin-toggle sidenote-number">196</label><input type="checkbox" id="tufte-sn-196" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">196</span> This is the feature of <strong>forward solving</strong> phase, as the phase eliminates row by row up to the first row.</span> The <strong>forward solving</strong> phase includes a sequence of multiplicative elementary matrices that can be denoted by a <a href="ch-MatComp.html#sub:GElimination">lower triangular matrix</a> <span class="math inline">\(\mathbf{L}\)</span>, e.g. <span class="math inline">\(\mathbf{L}=\mathbf{E}_{12}^{-1}(d_{1})\mathbf{E}_{23}^{-1}(d_{2})\cdots\)</span>. After the <strong>forward solving</strong> phase, the <a href="ch-MatComp.html#sub:matInv">nonsingular matrix</a> <span class="math inline">\(\mathbf{A}\)</span> turns into an <a href="ch-MatComp.html#sub:GElimination">upper triangular matrix</a>, say <span class="math inline">\(\mathbf{U}\)</span>. These two phases are given as follows:</p>
+<ul>
+<li>
+<em>LU factorization</em>: Assume a sequence of multiplications to be <span class="math inline">\(\mathbf{E}_{12}(d_{1})\mathbf{E}_{23}(d_{2})\cdots\mathbf{E}_{ij}(d_{k})\)</span>. Triangularizing the system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> is equivalent to
+<span class="math display">\[\mathbf{E}_{12}(d_{1})\mathbf{E}_{23}(d_{2})\cdots\mathbf{E}_{ij}(d_{k})\mathbf{A}\mathbf{x}=\mathbf{E}_{12}(d_{1})\mathbf{E}_{23}(d_{2})\cdots\mathbf{E}_{ij}(d_{k})\mathbf{b},\]</span>
+or say <span class="math inline">\(\mathbf{U}\mathbf{x}=\mathbf{c}\)</span> where <span class="math inline">\(\mathbf{U}\)</span> is <span class="math inline">\(\mathbf{E}_{12}(d_{1})\mathbf{E}_{23}(d_{2})\cdots\mathbf{E}_{ij}(d_{k})\mathbf{A}\)</span>, and <span class="math inline">\(\mathbf{c}\)</span> is <span class="math inline">\(\mathbf{E}_{12}(d_{1})\mathbf{E}_{23}(d_{2})\cdots\mathbf{E}_{ij}(d_{k})\mathbf{b}\)</span>.
+Then for the matrix <span class="math inline">\(\mathbf{U}=\mathbf{E}_{12}(d_{1})\mathbf{E}_{23}(d_{2})\cdots\mathbf{E}_{ij}(d_{k})\mathbf{A}\)</span>, we can resolve the matrix <span class="math inline">\(\mathbf{A}\)</span> by multiplying the product of the <a href="ch-MatComp.html#sub:matInv">inverses</a> <span class="math inline">\(\mathbf{E}_{ij}^{-1}(d_{k})\cdots\mathbf{E}_{23}^{-1}(d_{2})\mathbf{E}_{12}^{-1}(d_{1})\)</span>. Note that any <span class="math inline">\(\mathbf{E}_{ij}^{-1}(d_{k})\)</span> from the product is also a <a href="ch-MatComp.html#sub:GElimination">lower triangular matrix</a>. Thus, the product of the <a href="ch-MatComp.html#sub:matInv">inverses</a> gives a new <a href="ch-MatComp.html#sub:GElimination">lower triangular matrix</a>: <span class="math inline">\(\mathbf{L}=\mathbf{E}_{ij}^{-1}(d_{k})\cdots\mathbf{E}_{23}^{-1}(d_{2})\mathbf{E}_{12}^{-1}(d_{1})\)</span>.
+We have the <strong>LU factorization</strong> <span class="math display">\[\mathbf{A}=\mathbf{E}_{ij}^{-1}(d_{k})\cdots\mathbf{E}_{23}^{-1}(d_{2})\mathbf{E}_{12}^{-1}(d_{1})\mathbf{U}=\mathbf{L}\mathbf{U}.\]</span>
+</li>
+</ul>
+<p>The <strong>LU factorization</strong> shows that one square system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> is equivalent to two triangular systems <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{L}(\mathbf{U}\mathbf{x})=\mathbf{L}\mathbf{c}=\mathbf{b}\)</span>. In summary, the forward and backward steps solve <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> as follows:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>LU factorization</strong> of <span class="math inline">\(\mathbf{A}\)</span>. <span class="math inline">\(\mathbf{A}=\mathbf{L}\mathbf{U}\)</span>.</p></li>
+<li><p>Forward: <span class="math inline">\(\mathbf{L}\mathbf{c}=\mathbf{b}\)</span></p></li>
+<li><p>Backward: <span class="math inline">\(\mathbf{U}\mathbf{x}=\mathbf{c}\)</span></p></li>
+</ol>
+<p>The <strong>factorization</strong> can gain a lot computational efficiency. In section <a href="ch-MatComp.html#sub:GElimination">11.1</a>, we saw that the <a href="ch-MatComp.html#sub:GElimination">complexity</a> of Gaussian elimination is of the magnitude <span class="math inline">\(O(n^{3})\)</span>, while in the <a href="ch-MatComp.html#sub:GElimination">backward substitution</a> step, <a href="ch-MatComp.html#sub:GElimination">complexity</a> is of the magnitude <span class="math inline">\(O(n^{2})\)</span>. The decrease of complexity comes with the (upper) triangular structure where the first equation involves all the variables, the second equation involve all but the first, and so forth. In other words, the computational <a href="ch-MatComp.html#sub:GElimination">complexity</a> of solving a triangular system is smaller.</p>
+<p>The following matrix is a <strong>second order difference matrix</strong>. It is a discrete counterpart of the <a href="sub-calculus.html#sub:Taylor">second order differentiation</a>, which is used in the <a href="ch-DE.html#sub:pde">diffusion models</a>. Recall that the second difference operation <span class="math inline">\((x_{i+1}-x_{i})-(x_{i}-x_{i-1})=x_{i-1}-2x_{i}+x_{i+1}\)</span> in chapter <a href="ch-DE.html#sub:pde">8.5</a>. The matrix form of this operation is given by <span class="math display">\[\mathbf{A}\mathbf{x}=\left[\begin{array}{ccccc}
+2 &amp; -1 &amp; \cdots &amp;  &amp; 0\\
+-1 &amp; 2 &amp; -1 &amp; \cdots\\
+\vdots &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots\\
+0 &amp; \cdots &amp; -1 &amp; 2 &amp; -1\\
+0 &amp; 0 &amp; \cdots &amp; -1 &amp; 1
+\end{array}\right]\left[\begin{array}{c}
+x_{1}\\
+x_{2}\\
+\vdots\\
+x_{n-1}\\
+x_{n}
+\end{array}\right] \\ =-\left[\begin{array}{c}
+x_{2}-2x_{1}\\
+x_{1}-2x_{2}+x_{3}\\
+\vdots\\
+x_{n-2}-2x_{n-1}+x_{n}\\
+x_{n-1}-x_{n}
+\end{array}\right] =\left[\begin{array}{c}
+b_{1}\\
+b_{2}\\
+\vdots\\
+b_{n-1}\\
+b_{n}
+\end{array}\right].\]</span>
+Except the first and the last row, the matrix <span class="math inline">\(\mathbf{A}\)</span> has the second differences for the rest entries. The system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> numerically approximates the second order differential equation <span class="math inline">\(\mbox{d}^{2}x(t)/\mbox{d}t^{2}=b(t)\)</span>.</p>
+<p>The <strong>LU factorization</strong> of this second difference matrix is <span class="math display">\[\left[\begin{array}{ccccc}
+2 &amp; -1 &amp; \cdots &amp;  &amp; 0\\
+-1 &amp; 2 &amp; -1 &amp; \cdots\\
+\vdots &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots\\
+0 &amp; \cdots &amp; -1 &amp; 2 &amp; -1\\
+0 &amp; 0 &amp; \cdots &amp; -1 &amp; 1
+\end{array}\right]=\left[\begin{array}{ccccc}
+1 &amp; 0 &amp; \cdots &amp;  &amp; 0\\
+-1 &amp; 1 &amp; 0 &amp; \cdots\\
+\vdots &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots\\
+0 &amp; \cdots &amp; -1 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; \cdots &amp; -1 &amp; 1
+\end{array}\right]\left[\begin{array}{ccccc}
+1 &amp; -1 &amp; \cdots &amp;  &amp; 0\\
+0 &amp; 1 &amp; -1 &amp; \cdots\\
+\vdots &amp; 0 &amp; \ddots &amp; \ddots &amp; \vdots\\
+0 &amp; \vdots &amp; 0 &amp; 1 &amp; -1\\
+0 &amp; 0 &amp; \cdots &amp; 0 &amp; 1
+\end{array}\right],\]</span> namely <span class="math inline">\(\mathbf{A}=\mathbf{L}\mathbf{U}\)</span>.<label for="tufte-sn-197" class="margin-toggle sidenote-number">197</label><input type="checkbox" id="tufte-sn-197" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">197</span> If one takes a closer look, one may see that the lower traingular matrix <span class="math inline">\(\mathbf{L}\)</span> is the <a href="ch-vecMat.html#sub:linearSys">difference matrix</a> defined in section <a href="ch-vecMat.html#sub:linearSys">10.4</a>, and that <span class="math inline">\(\mathbf{U}=\mathbf{L}^{\top}\)</span> is the transposed <a href="ch-vecMat.html#sub:linearSys">difference matrix</a>. We know that a <a href="sub-calculus.html#sub:Taylor">second order differentiation</a> is about taking the first order differentiation twice. This is the reason that the second order difference matrix is a product of two first order difference matrices. The <a href="ch-vecMat.html#sub:matrix">transpose operation</a> relates the dual of the <a href="#sub:vector">inner product rule</a> - integration by parts. We will come back to it in ch[?]. </span> When we solve the differential equation numerically, we discretize a continuous domain on <span class="math inline">\(t\in [0,T]\)</span> by which we may confront a large set of discrete points, also a large coefficient matrix <span class="math inline">\(\mathbf{A}\)</span>. However, the pattern of <span class="math inline">\(\mathbf{A}\)</span> is known so that the patterns of <strong>LU factorized</strong> matrices are known. Instead of computing the Gaussian elimination (<span class="math inline">\(O(n^{3})\)</span> complexity), we can compute the forward and backward steps <span class="math inline">\(\mathbf{L}\mathbf{c}=\mathbf{b}\)</span> and <span class="math inline">\(\mathbf{U}\mathbf{x}=\mathbf{c}\)</span> (<span class="math inline">\(O(n^{2})\)</span> complexity). This computational gain is significant when <span class="math inline">\(n\)</span> is large.</p>
+<div class="solution">
+<p class="solution-begin">
+Example of LU factorization <span id="sol-start-80" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-80', 'sol-start-80')"></span>
+</p>
+<div id="sol-body-80" class="solution-body" style="display: none;">
+<p>Consider the following system
+<span class="math display">\[
+\begin{align*}
+x_{1}+2x_{2}++4x_{3}+x_{4}  &amp;=21,\\
+2x_{1}+8x_{2}+6x_{3}+4x_{4} &amp;=52,\\
+3x_{1}+10x_{2}+8x_{3}+8x_{4}    &amp;=79.\\
+4x_{1}+12x_{2}+10x_{3}+6x_{4}   &amp;=82.\end{align*}
+\]</span></p>
+<p>Its <strong>LU factorization</strong> is <span class="math display">\[\left[\begin{array}{cccc}
+1 &amp; 2 &amp; 4 &amp; 1\\
+2 &amp; 8 &amp; 6 &amp; 4\\
+3 &amp; 10 &amp; 8 &amp; 8\\
+4 &amp; 12 &amp; 10 &amp; 6
+\end{array}\right]=\left[\begin{array}{cccc}
+1 &amp; 0 &amp; 0 &amp; 0\\
+2 &amp; 1 &amp; 0 &amp; 0\\
+3 &amp; 1 &amp; 1 &amp; 0\\
+4 &amp; 1 &amp; 2 &amp; 1
+\end{array}\right]\left[\begin{array}{cccc}
+1 &amp; 2 &amp; 4 &amp; 1\\
+0 &amp; 4 &amp; -2 &amp; 2\\
+0 &amp; 0 &amp; -2 &amp; 3\\
+0 &amp; 0 &amp; 0 &amp; -6
+\end{array}\right]=\mathbf{L}\mathbf{U}.\]</span></p>
+<p>The forward step is to solve <span class="math inline">\(\mathbf{L}\mathbf{c}=\mathbf{b}\)</span>:
+<span class="math display">\[
+\begin{align*}
+  c_{1} &amp;=21, \\
+2c_{1}+c_{2}    &amp;=52, \\
+3c_{1}+c_{2}+c_{3}  &amp;=79.\\
+4c_{1}+c_{2}+2c_{2}+c_{4}   &amp;=82.
+\end{align*}
+\]</span>
+The solution is <span class="math inline">\(\mathbf{c}=[21,10,6,-24]^{\top}\)</span>. Then the backward step is to slove <span class="math inline">\(\mathbf{U}\mathbf{x}=\mathbf{c}\)</span>:
+<span class="math display">\[
+\begin{align*}
+ x_{1}+2x_{2}++4x_{3}+x_{4} &amp;=21,\\
+4x_{2}-2x_{3}+2x_{4}    &amp;=10,\\
+-2x_{3}+3x_{4}  &amp;=6.\\
+-6x_{4} &amp;=-24.
+\end{align*} 
+\]</span></p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>The <strong>LU factorization</strong> is a high-level algebraic description of the <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a>. The computational efficiency of <strong>LU factorization</strong> becomes more attractive when the dimension of the matrix grows and the matrix has some structural patterns. The partition of the matrix makes it possible to parallelized the matrix multiplication for otherwise overwhelming system of equations. The idea of effectively parallelization is based on the block-cyclic distribution.</p>
+<p>Let’s consider the following matrix <span class="math display">\[\mathbf{A}=\left[\begin{array}{cc}
+\mathbf{A}_{11} &amp; \mathbf{A}_{12}\\
+\mathbf{A}_{21} &amp; \mathbf{A}_{22}
+\end{array}\right].\]</span>
+Notice that the entries <span class="math inline">\((\mathbf{A}_{ij})_{i,j\leq2}\)</span> are <a href="ch-vecMat.html#sub:matrix">matrices</a> rather than <a href="ch-vecMat.html#sub:matrix">scalars</a>. The entries <span class="math inline">\((\mathbf{A}_{ij})_{i,j\leq2}\)</span> are called the <em>block matrices</em> of <span class="math inline">\(\mathbf{A}\)</span>, because they partition <span class="math inline">\(\mathbf{A}\)</span> into blocks. One virtue of the block form is that the blocks can provide some <em>parallel computations</em>, namely simultaneously evaluating the arithmetic operations.
+For example, we can partition <span class="math inline">\(\mathbf{A}\in\mathbb{R}^{n\times n}\)</span> as follows:
+<span class="math display">\[\begin{array}{cc}
+\left\lceil \begin{array}{cc}
+\mathbf{A}_{11} &amp; \mathbf{A}_{12}\end{array}\right\rceil  &amp; r\\
+\left\lfloor \begin{array}{cc}
+\mathbf{A}_{21} &amp; \mathbf{A}_{22}\end{array}\right\rfloor  &amp; n-r\\
+\begin{array}{cc}
+r &amp; n-r\end{array}
+\end{array}\]</span>
+where <span class="math inline">\(\mathbf{A}_{11}\in\mathbb{R}^{r\times r}\)</span> and <span class="math inline">\(r\)</span> denotes the dimension of this block. The <a href="ch-vecMat.html#sub:matrix">laws of matrix additions and multiplications</a> also hold for the block matrices. The operation regarding the selective blocks are independent of the others.<label for="tufte-sn-198" class="margin-toggle sidenote-number">198</label><input type="checkbox" id="tufte-sn-198" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">198</span> Consider the matrix mutiplication <span class="math display">\[\left[\begin{array}{cccc}
+1 &amp; 2 &amp; 0 &amp; 0\\
+3 &amp; 4 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right]\left[\begin{array}{cccc}
+0 &amp; 0 &amp; 2 &amp; 1\\
+0 &amp; 0 &amp; 1 &amp; 1\\
+0 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right].\]</span>
+It can be written as <span class="math display">\[\left[\begin{array}{cc}
+\mathbf{A} &amp; 0\\
+0 &amp; \mathbf{B}
+\end{array}\right]\left[\begin{array}{cc}
+0 &amp; \mathbf{C}\\
+0 &amp; \mathbf{I}
+\end{array}\right]=\\
+\left[\begin{array}{cc}
+\mathbf{A}\times0+0\times0 &amp; \mathbf{A}\mathbf{C}+0\times\mathbf{I}\\
+0\times0+\mathbf{B}\times0 &amp; 0\times\mathbf{C}+\mathbf{B}\mathbf{I}
+\end{array}\right]=\\
+\left[\begin{array}{cccc}
+0 &amp; 0 &amp; 0 &amp; 3\\
+0 &amp; 0 &amp; 2 &amp; 7\\
+0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right]\]</span>
+where <span class="math inline">\(\mathbf{A}=\left[\begin{array}{cc} 1 &amp; 2\\ 3 &amp; 4 \end{array}\right]\)</span>, <span class="math inline">\(\mathbf{B}=[1,0]  , \mathbf{C}=\left[\begin{array}{cc} 2 &amp; 1\\ -1 &amp; 1 \end{array}\right]\)</span>, <span class="math inline">\(\mathbf{I}=\left[\begin{array}{cc} 1 &amp; 0\\ 0 &amp; 1 \end{array}\right]\)</span>.
+The matrix multiplication <span class="math inline">\(\mathbf{A}\mathbf{C}\)</span> is only valid when the column dimension of <span class="math inline">\(\mathbf{A}\)</span> matches the row dimension of <span class="math inline">\(\mathbf{C}\)</span>.</span> Then the matrix computation regarding the blocks can be carried out parallelly in a distributed-memory system, in which the information is collectively stored in the local blocks, and in which the blocks are connected to form a global matrix. When the size of problem grows, the number of blocks also grows but the existing blocks do not. Then the parallelized algorithm simplifies the process of implementing a growing computational problem as such an algorithm can scale. That is, the algorithm remains effective as problem size grows and the number of involved processors increases.</p>
+<p>For example, it is possible to have a <strong>LU factorization</strong> for the block matrix <span class="math inline">\(\mathbf{A}\)</span>: <span class="math display">\[\mathbf{A}=\left[\begin{array}{cc}
+\mathbf{L}_{11} &amp; 0\\
+\mathbf{L}_{21} &amp; \mathbf{L}_{22}
+\end{array}\right]\left[\begin{array}{cc}
+\mathbf{U}_{11} &amp; \mathbf{U}_{12}\\
+0 &amp; \mathbf{U}_{22}
+\end{array}\right]\]</span>
+where <span class="math inline">\(\mathbf{L}_{ij}\)</span> is the <a href="ch-MatComp.html#sub:GElimination">lower triangular matrix</a>, and <span class="math inline">\(\mathbf{U}_{ij}\)</span> is the <a href="ch-MatComp.html#sub:GElimination">upper triangular matrix</a> for <span class="math inline">\(0&lt;i,j\leq 2\)</span>.<label for="tufte-sn-199" class="margin-toggle sidenote-number">199</label><input type="checkbox" id="tufte-sn-199" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">199</span> The algorithm of computing block LU factorization is a bit different from the standard LU. However, the structure of eliminating the block matrix is similar to the use of the <a href="ch-MatComp.html#sub:matInv">replacement elementary matrix</a> such that <span class="math display">\[\left[\begin{array}{cc}
+\mathbf{I} &amp; 0\\
+-\mathbf{C}\mathbf{A}^{-1} &amp; \mathbf{I}
+\end{array}\right]\left[\begin{array}{cc}
+\mathbf{A} &amp; \mathbf{B}\\
+\mathbf{C} &amp; \mathbf{D}
+\end{array}\right]=\\ \left[\begin{array}{cc}
+\mathbf{A} &amp; \mathbf{B}\\
+\mathbf{0} &amp; \mathbf{D}-\mathbf{C}\mathbf{A}^{-1}\mathbf{B}
+\end{array}\right].\]</span>
+The term <span class="math inline">\(\mathbf{D}-\mathbf{C}\mathbf{A}^{-1}\mathbf{B}\)</span> is called the <em>Schur complement</em>. </span></p>
+</div>
 </div></body></html>
 
 <p style="text-align: center;">
@@ -288,7 +759,7 @@ But the <a href="ch-vecMat.html#sub:vec">inner product</a> of two <span class="m
 <a href="bibliography.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-04-17
+2020-05-09
 </p>
 </div>
 </div>
