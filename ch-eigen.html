@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="12 Eigenvalues and Eigenvectors | Project XXII" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Zhengyuan Gao" />
+
+<meta name="date" content="2020-05-20" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="12 Eigenvalues and Eigenvectors | Project XXII">
+
+<title>12 Eigenvalues and Eigenvectors | Project XXII</title>
+
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding/datatables.js"></script>
+<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul class="navbar">
+<li class="msmb"><p class="title">Project XXII<p><p class="author">Zhengyuan Gao</p>
+<li class="dropdown" style="float:right">
+<a href="javascript:void(0)" class="dropbtn">&#x25BA; Chapters</a>
+<div class="dropdown-content">
+<a href="index.html">Preface</a>
+<a href="part-i-inference-based-upon-logic-and-logical-computation.html">PART I: Inference Based upon Logic and Logical Computation</a>
+<a href="sub-logic.html"><span class="toc-section-number">1</span> Logic</a>
+<a href="sub-set-theory.html"><span class="toc-section-number">2</span> Set Theory</a>
+<a href="sub-axioms.html"><span class="toc-section-number">3</span> Axioms</a>
+<a href="sub-inferknow.html"><span class="toc-section-number">4</span> Inference and Knowledge</a>
+<a href="sub-incomplete.html"><span class="toc-section-number">5</span> Incompleteness</a>
+<a href="part-ii-infinitesimal-changes-and-their-consequences.html">PART II: Infinitesimal Changes and their Consequences</a>
+<a href="sub-continuity.html"><span class="toc-section-number">6</span> Continuity</a>
+<a href="sub-calculus.html"><span class="toc-section-number">7</span> Calculus</a>
+<a href="ch-DE.html"><span class="toc-section-number">8</span> Differential Equations</a>
+<a href="ch-CalUn.html"><span class="toc-section-number">9</span> Calculus under Uncertainty</a>
+<a href="part-iii-emergence-of-abstract-interactions.html">PART III: Emergence of Abstract Interactions</a>
+<a href="ch-vecMat.html"><span class="toc-section-number">10</span> Vector and Matrix</a>
+<a href="ch-MatComp.html"><span class="toc-section-number">11</span> Matrix Computation</a>
+<a id="active-page" href="ch-eigen.html"><span class="toc-section-number">12</span> Eigenvalues and Eigenvectors</a>
+<a href="bibliography.html">Bibliography</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div id="ch:eigen" class="section level1">
+<h1>
+<span class="header-section-number">12</span> Eigenvalues and Eigenvectors</h1>
+<p>If we could express the change of the milieu in a computational form, then the matrix computation of <span class="math inline">\(\mathbf{A}\mathbf{x}\)</span> could describe the generation and the transformation of such milieu. The input <span class="math inline">\(\mathbf{x}\)</span> could be stimulus and cause, and the output <span class="math inline">\(\mathbf{A}\mathbf{x}\)</span> could be reaction and effect. In other words, if the information of the current world were stored in a (huge) vector <span class="math inline">\(\mathbf{x}\)</span> in an <span class="math inline">\(n\)</span>-dimensional field, then the (linear) dynamics of this world were conducted by an <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span>.</p>
+<p>Figure <a href="ch-MatComp.html#fig:MatrixTransform">11.2</a> shows the transformations of vectors in a 2-dimensional <a href="#sub:vecSpace">vector space</a>. We can see that those directions and orientations (in purple and red lines) remain consistent with the transformation. By stretching and compressing the directional arrows, we can scale their magnitudes (scalars) under which the transformation looks <strong>invariant</strong>. Generally speaking, this kind of <strong>invariance</strong> exists for any <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span>, and it is analyzed under the framework of <strong>eigenvalues</strong> and <strong>eigenvectors</strong>.<label for="tufte-sn-214" class="margin-toggle sidenote-number">214</label><input type="checkbox" id="tufte-sn-214" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">214</span> For non-square <span class="math inline">\(m\times n\)</span> matrices <span class="math inline">\(\mathbf{A}\)</span>, we can use an alternative framework of singular values and singular vectors. Roughly speaking, the singular values are the positive square roots of the nonzero eigenvalues of the corresponding matrix <span class="math inline">\(\mathbf{A}^{\top}\mathbf{A}\)</span>. The corresponding eigenvectors are called the singular vectors.</span> <strong>Eigenvalues</strong> and <strong>eigenvectors</strong> can be mathematically defined as sets of <strong>invariants</strong> within processes of transformations. As matrixs can store all sorts of data information, eigenvalues and eigenvectors can in turn represent the corresponding “script lines” with clearly directional “stages”.</p>
+<p>Perhaps the infinitely embodying milieu as computations of matrices makes the symbolization impossible. But as a conceptual ideal, the embodiment of eigenvalues and eigenvectors provide a way to recognize two seperated channels of forming one’s perception, the (concrete) material channel and the (imginary) spiritual one. The logic of using eigenvalues and eigenvectors - that is, the identification, the trace and maybe the selection of its various structural invariants - can reconfigure the relation of the input and output channels of the computation. Physical and metaphysical forces from the aspects in the ontology and the epistemology, form these complemenary channels in milieux.</p>
+<p>As long as a secular transformation, such as a trade or a production, can be expressed in an input-output matrix form, the <strong>eigenvalue</strong> and the <strong>eigenvector</strong> can reconfigure the form as an epistemological and ontological emergence. Maybe I can call this process the <strong>valuation</strong>. The valuation here is defined as the emergence of quantitative “being” that attaches to the transformation, and remains invariant when the structure of the transformation unchanges.</p>
+</div></body></html>
+
+<p style="text-align: center;">
+<a href="ch-MatComp.html"><button class="btn btn-default">Previous</button></a>
+<a href="bibliography.html"><button class="btn btn-default">Next</button></a>
+</p>
+<p class="build-date">Page built: 
+2020-05-20
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
