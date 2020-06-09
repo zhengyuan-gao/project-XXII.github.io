@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="12 Eigenvalues and Eigenvectors | Project XXII" />
+<meta property="og:title" content="3 Eigenvalues and Eigenvectors | Project XXII" />
 <meta property="og:type" content="book" />
 
 
@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2020-05-30" />
+<meta name="date" content="2020-06-09" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -24,9 +24,9 @@ MathJax.Hub.Config({
 </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 
-<meta name="description" content="12 Eigenvalues and Eigenvectors | Project XXII">
+<meta name="description" content="3 Eigenvalues and Eigenvectors | Project XXII">
 
-<title>12 Eigenvalues and Eigenvectors | Project XXII</title>
+<title>3 Eigenvalues and Eigenvectors | Project XXII</title>
 
 <link href="libs/tufte-css/tufte.css" rel="stylesheet" />
 <link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
@@ -141,21 +141,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="dropdown-content">
 <a href="index.html">Preface</a>
 <a href="part-i-inference-based-upon-logic-and-logical-computation.html">PART I: Inference Based upon Logic and Logical Computation</a>
-<a href="sub-logic.html"><span class="toc-section-number">1</span> Logic</a>
-<a href="sub-set-theory.html"><span class="toc-section-number">2</span> Set Theory</a>
-<a href="sub-axioms.html"><span class="toc-section-number">3</span> Axioms</a>
-<a href="sub-inferknow.html"><span class="toc-section-number">4</span> Inference and Knowledge</a>
-<a href="sub-incomplete.html"><span class="toc-section-number">5</span> Incompleteness</a>
 <a href="part-ii-infinitesimal-changes-and-their-consequences.html">PART II: Infinitesimal Changes and their Consequences</a>
-<a href="sub-continuity.html"><span class="toc-section-number">6</span> Continuity</a>
-<a href="sub-calculus.html"><span class="toc-section-number">7</span> Calculus</a>
-<a href="ch-DE.html"><span class="toc-section-number">8</span> Differential Equations</a>
-<a href="ch-CalUn.html"><span class="toc-section-number">9</span> Calculus under Uncertainty</a>
 <a href="part-iii-emergence-of-abstract-interactions.html">PART III: Emergence of Abstract Interactions</a>
-<a href="ch-vecMat.html"><span class="toc-section-number">10</span> Vector and Matrix</a>
-<a href="ch-MatComp.html"><span class="toc-section-number">11</span> Matrix Computation</a>
-<a id="active-page" href="ch-eigen.html"><span class="toc-section-number">12</span> Eigenvalues and Eigenvectors</a><ul class="toc-sections">
+<a href="ch-vecMat.html"><span class="toc-section-number">1</span> Vector and Matrix</a>
+<a href="ch-MatComp.html"><span class="toc-section-number">2</span> Matrix Computation</a>
+<a id="active-page" href="ch-eigen.html"><span class="toc-section-number">3</span> Eigenvalues and Eigenvectors</a><ul class="toc-sections">
 <li class="toc"><a href="#sub:det"> Determinants, Characteristic Polynomials, and Complex Numbers</a></li>
+<li class="toc"><a href="#sub:diag"> Diagonalization in Dynamical Systems</a></li>
 </ul>
 <a href="bibliography.html">Bibliography</a>
 </div>
@@ -169,31 +161,31 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html><body><div id="ch:eigen" class="section level1">
 <h1>
-<span class="header-section-number">12</span> Eigenvalues and Eigenvectors</h1>
+<span class="header-section-number">3</span> Eigenvalues and Eigenvectors</h1>
 <p>If we could express the change of the milieu in a computational form, then the matrix computation of <span class="math inline">\(\mathbf{A}\mathbf{x}\)</span> could describe the generation and the transformation of such milieu. The input <span class="math inline">\(\mathbf{x}\)</span> could be stimulus and cause, and the output <span class="math inline">\(\mathbf{A}\mathbf{x}\)</span> could be reaction and effect. In other words, if the information of the current world were stored in a (huge) vector <span class="math inline">\(\mathbf{x}\)</span> in an <span class="math inline">\(n\)</span>-dimensional <a href="#sub:vecSpace">field</a>, then the (linear) dynamics of this world were conducted by an <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span>.</p>
-<p>Figure <a href="ch-MatComp.html#fig:MatrixTransform">11.2</a> shows the transformations of vectors in a 2-dimensional <a href="#sub:vecSpace">vector space</a>. We can see that those directions and orientations (in purple and red lines) remain consistent with the transformation. By stretching and compressing the directional arrows, we can scale their magnitudes (scalars) under which the transformation looks <strong>invariant</strong>. Generally speaking, this kind of <strong>invariance</strong> exists for any <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span>, and it is analyzable under the framework of <strong>eigenvalues</strong> and <strong>eigenvectors</strong>.<label for="tufte-sn-215" class="margin-toggle sidenote-number">215</label><input type="checkbox" id="tufte-sn-215" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">215</span> For non-square <span class="math inline">\(m\times n\)</span> matrices <span class="math inline">\(\mathbf{A}\)</span>, we can use an alternative framework of singular values and singular vectors. Roughly speaking, the singular values are the positive square roots of the nonzero eigenvalues of the corresponding matrix <span class="math inline">\(\mathbf{A}^{\top}\mathbf{A}\)</span>. The corresponding eigenvectors are called the singular vectors.</span> <strong>Eigenvalues</strong> and <strong>eigenvectors</strong> can be mathematically defined as sets of <strong>invariants</strong> within processes of transformations. As matrixs can store all sorts of data information, eigenvalues and eigenvectors can in turn represent the corresponding “script lines” with clearly directional “stages”.</p>
+<p>Figure <a href="ch-MatComp.html#fig:MatrixTransform">2.2</a> shows the transformations of vectors in a 2-dimensional <a href="#sub:vecSpace">vector space</a>. We can see that those directions and orientations (in purple and red lines) remain consistent with the transformation. By stretching and compressing the directional arrows, we can scale their magnitudes (scalars) under which the transformation looks <strong>invariant</strong>. Generally speaking, this kind of <strong>invariance</strong> exists for any <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span>, and it is analyzable under the framework of <strong>eigenvalues</strong> and <strong>eigenvectors</strong>.<label for="tufte-sn-68" class="margin-toggle sidenote-number">68</label><input type="checkbox" id="tufte-sn-68" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">68</span> For non-square <span class="math inline">\(m\times n\)</span> matrices <span class="math inline">\(\mathbf{A}\)</span>, we can use an alternative framework of singular values and singular vectors. Roughly speaking, the singular values are the positive square roots of the nonzero eigenvalues of the corresponding matrix <span class="math inline">\(\mathbf{A}^{\top}\mathbf{A}\)</span>. The corresponding eigenvectors are called the singular vectors.</span> <strong>Eigenvalues</strong> and <strong>eigenvectors</strong> can be mathematically defined as sets of <strong>invariants</strong> within processes of transformations. As matrixs can store all sorts of data information, eigenvalues and eigenvectors can in turn represent the corresponding “script lines” with clearly directional “stages”.</p>
 <p>Perhaps the infinitely embodying milieu as computations of matrices makes the symbolization impossible. But as a conceptual ideal, the embodiment of eigenvalues and eigenvectors provide a way to recognize two seperated channels of forming one’s perception, the (concrete) material channel and the (imginary) spiritual one. The logic of using eigenvalues and eigenvectors - that is, the identification, the trace and maybe the selection of its various structural invariants - can reconfigure the relation of the input and output channels of the computation. Physical and metaphysical forces from the aspects in the ontology and the epistemology, form these complemenary channels in milieux.</p>
 <p>As long as a secular transformation, such as a trade or a production, can be expressed in an input-output matrix form, the <strong>eigenvalue</strong> and the <strong>eigenvector</strong> can reconfigure the form as an epistemological and ontological emergence. Maybe I can call this process the <strong>valuation</strong>. The valuation here is defined as the emergence of quantitative “being” that attaches to the transformation, and remains invariant when the structure of the transformation unchanges.</p>
 <div id="sub:det" class="section level2">
 <h2>
-<span class="header-section-number">12.1</span> Determinants, Characteristic Polynomials, and Complex Numbers</h2>
-<p>The detective novel often depicts a fragmentary plot to drive the readers in a complete daze. Once the readers were attracted by various bizarre and outrageous transformation scenes, the author, quite likely, has buried the solution clue in some unaltered remainders.</p>
-<p>For mathematical transformations, in passing from one equation to the other, what was left unchanged is called an <strong>invariant</strong>. We explore the invariant properties of the linear transformations through the <strong>determinant</strong>. A <em>determinant</em> of a square matrix <span class="math inline">\(\mathbf{A}\)</span>, denoted by <span class="math inline">\(\mbox{det}(\mathbf{A})\)</span>, is a function mapping <span class="math inline">\(\mathbf{A}\)</span> to a <a href="sub-continuity.html#sub:completeness">real number</a>. The real number contains the information about the product of all <a href="ch-MatComp.html#sub:GElimination">pivots</a> of the matrix (<a href="ch-MatComp.html#sub:GElimination">echelon form</a>).</p>
+<span class="header-section-number">3.1</span> Determinants, Characteristic Polynomials, and Complex Numbers</h2>
+<p>The detective novel often depicts a fragmentary plot to drive the readers in a complete daze. When the readers were attracted by various bizarre and outrageous transforming scenes, the author, quite likely, had buried the solution clue in some unaltered remainders.</p>
+<p>For mathematical transformations, in passing from one equation to the other, what was left unchanged is called an <strong>invariant</strong>. We will explore the invariant properties of the linear transformations through the <strong>determinant</strong>. A <em>determinant</em> of a square matrix <span class="math inline">\(\mathbf{A}\)</span>, denoted by <span class="math inline">\(\mbox{det}(\mathbf{A})\)</span>, is a function mapping <span class="math inline">\(\mathbf{A}\)</span> to a <a href="part-ii-infinitesimal-changes-and-their-consequences.html#sub:completeness">real number</a>. This real number contains the information about the product of all <a href="ch-MatComp.html#sub:GElimination">pivots</a> of the <a href="ch-MatComp.html#sub:GElimination">echelon form</a> of <span class="math inline">\(\mathbf{A}\)</span>.</p>
 <p>Consider a <span class="math inline">\(2\times2\)</span> matrix <span class="math display">\[\mathbf{A}=\left[\begin{array}{cc}
 a_{11} &amp; a_{12}\\
 a_{21} &amp; a_{22}
 \end{array}\right].\]</span>
-The pivots of <span class="math inline">\(\mathbf{A}\)</span> are <span class="math inline">\(a_{11}\)</span> and <span class="math inline">\(a_{22}-(a_{21}/a_{11})a_{12}\)</span>. The product of these pivots is <span class="math inline">\(a_{11}(a_{22}-(a_{21}/a_{11})a_{12})=a_{11}a_{22}-a_{21}a_{12}\)</span>. The <strong>determinant</strong> is sometimes written with a single straight line as left and right brackets, thus we would write the above result as <span class="math display">\[\mbox{det}(\mathbf{A})=\left|\begin{array}{cc}
+The pivots of <span class="math inline">\(\mathbf{A}\)</span> are <span class="math inline">\(a_{11}\)</span> and <span class="math inline">\(a_{22}-(a_{21}/a_{11})a_{12}\)</span>. The product of these pivots is <span class="math inline">\(a_{11}(a_{22}-(a_{21}/a_{11})a_{12})=a_{11}a_{22}-a_{21}a_{12}\)</span>. The <strong>determinant</strong> is sometimes written with a single straight line as left and right brackets. So we would write the above result as <span class="math display">\[\mbox{det}(\mathbf{A})=\left|\begin{array}{cc}
 a_{11} &amp; a_{12}\\
 a_{21} &amp; a_{22}
 \end{array}\right|=a_{11}a_{22}-a_{12}a_{21}.\]</span></p>
-<p>If we think of <span class="math inline">\(\mathbf{A}\)</span> as two row vectors in the plane, i.e. <span class="math inline">\(\mathbf{A}=[\mathbf{a}_{1},\mathbf{a}_{2}]^{\top}\)</span>, then the <strong>determinant</strong> is the (signed) area of the parallelogram spanned by <span class="math inline">\(\mathbf{a}_{1}\)</span> and <span class="math inline">\(\mathbf{a}_{2}\)</span>. The sign of the <strong>determinant</strong> is positive (negative) if the two vectors are positively (negatively) oriented. Figure <a href="ch-eigen.html#fig:det">12.1</a> shows a parallelogram spanned by <span class="math inline">\(\mathbf{z}=[5,1]\)</span> and <span class="math inline">\(\mathbf{u}=[-1,3]\)</span>.</p>
+<p>If we think of <span class="math inline">\(\mathbf{A}\)</span> as two row vectors in the plane, i.e. <span class="math inline">\(\mathbf{A}=[\mathbf{a}_{1},\mathbf{a}_{2}]^{\top}\)</span>, then the <strong>determinant</strong> is the (signed) area of the parallelogram spanned by <span class="math inline">\(\mathbf{a}_{1}\)</span> and <span class="math inline">\(\mathbf{a}_{2}\)</span>. The sign of the <strong>determinant</strong> is positive (negative) if the two vectors are positively (negatively) oriented. Figure <a href="ch-eigen.html#fig:det">3.1</a> shows a parallelogram spanned by <span class="math inline">\(\mathbf{z}=[5,1]\)</span> and <span class="math inline">\(\mathbf{u}=[-1,3]\)</span>.</p>
 <p>
 <span class="marginnote shownote">
 <!--
 <div class="figure">--><span id="fig:det"></span>
 <img src="fig/Part3/det.png" alt="Determinant in a parallelogram" width="100%"><!--
-<p class="caption marginnote">-->Figure 12.1: Determinant in a parallelogram<!--</p>-->
+<p class="caption marginnote">-->Figure 3.1: Determinant in a parallelogram<!--</p>-->
 <!--</div>--></span>
 </p>
 <p>
@@ -201,30 +193,32 @@ a_{21} &amp; a_{22}
 <!--
 <div class="figure">--><span id="fig:det"></span>
 <img src="fig/Part3/det2.png" alt="Determinant in a parallelogram" width="100%"><!--
-<p class="caption marginnote">-->Figure 12.1: Determinant in a parallelogram<!--</p>-->
+<p class="caption marginnote">-->Figure 3.1: Determinant in a parallelogram<!--</p>-->
 <!--</div>--></span>
 </p>
-<p>For an <a href="ch-MatComp.html#sub:matInv">invertible</a> <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span>, its <a href="ch-MatComp.html#sub:GElimination">echelon form</a> says that all <a href="ch-MatComp.html#sub:GElimination">pivots</a> are non-zero<label for="tufte-sn-216" class="margin-toggle sidenote-number">216</label><input type="checkbox" id="tufte-sn-216" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">216</span> As the statement in section <a href="ch-MatComp.html#sub:matInv">11.2</a>, the <strong>determinant</strong> also relates the <a href="ch-MatComp.html#sub:matInv">invertibility</a> of <span class="math inline">\(\mathbf{A}\)</span>. A zero <strong>determinant</strong> induces a non-invertible/singular square matrix.</span>, so is the product of all pivots, namely <span class="math inline">\(\mbox{det}(\mathbf{A})\neq 0\)</span>. Geometrically, the absolute value of <span class="math inline">\(\mbox{det}(\mathbf{A})\)</span> equlas to the volume of the <span class="math inline">\(n\)</span>-dimensional parallelepiped, where the <span class="math inline">\(n\)</span>-dimensional parallelepiped spanned by the column or row vectors of <span class="math inline">\(\mathbf{A}\)</span>.<label for="tufte-sn-217" class="margin-toggle sidenote-number">217</label><input type="checkbox" id="tufte-sn-217" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">217</span> The <strong>determinant</strong> of <span class="math inline">\(\mathbf{A}\)</span> is positive or negative according to whether the linear mapping <span class="math inline">\(\mathbf{A}\mathbf{x}\)</span> preserves or reverses the orientation of the <span class="math inline">\(n\)</span>-dimensional <span class="math inline">\(\mathbf{x}\)</span>. The absolute value of the determinant can be thought of as a measure of how much multiplication by the matrix expands or contracts the space of <span class="math inline">\(\mathbf{x}\)</span>. If the determinant is <span class="math inline">\(0\)</span>, then space is contracted completely along at least one dimension, causing it to lose all of its volume. If the determinant is <span class="math inline">\(1\)</span>, then the transformation preserves volume.</span></p>
-<p>Here are list some properties (facts) of the <strong>determinant</strong> of a square <span class="math inline">\(n\times n\)</span> matrix.</p>
-<p>1). <span class="math inline">\(\mbox{det}(\mathbf{I})=1\)</span>.</p>
-<p>2). <span class="math inline">\(\mbox{det}(\mathbf{A})=0\)</span>, if the matrix <span class="math inline">\(\mathbf{A}\)</span> is <a href="ch-MatComp.html#sub:matInv">singular</a> or <a href="ch-MatComp.html#sub:matInv">non-invertible</a>.</p>
-<p>3). Swapping two vectors of <span class="math inline">\(\mathbf{A}\)</span> changes the sign of <span class="math inline">\(\mbox{det}(\mathbf{A})\)</span>. In other words, <span class="math inline">\(\mbox{det}(\mathbf{E}_{ij}\mathbf{A})=-\mbox{det}(\mathbf{A})\)</span> where <span class="math inline">\(\mathbf{E}_{ij}\)</span> is the <a href="ch-MatComp.html#sub:matInv">permutation elementary matrix</a>.</p>
-<p>4). Scaling a row or column of <span class="math inline">\(\mathcal{A}\)</span> scales the determinant. In other words, <span class="math inline">\(\mbox{det}(\mathbf{E}_{i}(c)\mathbf{A})=c \times \mbox{det}(\mathbf{A})\)</span> where <span class="math inline">\(\mathbf{E}_{i}(c)\)</span> is the <a href="ch-MatComp.html#sub:matInv">scaling elementary matrix</a>.</p>
-<p>5). For the <a href="ch-MatComp.html#sub:matInv">replacement elementary matrix</a>, <span class="math inline">\(\mbox{det}(\mathbf{E}_{ij}(s)\mathbf{A})=\mbox{det}(\mathbf{A})\)</span>.</p>
-<p>Note that the <strong>determinant</strong> of triangular matrices and diagonal matrices are exactly the product of the diagonal entries. Fact 1) comes directly from the product of ones on the diagonal of <span class="math inline">\(\mathbf{I}\)</span>. Fact 2) comes from the definition. Figure <a href="ch-eigen.html#fig:det">12.1</a> gives an example of 3). For 4), figure <a href="ch-eigen.html#fig:Scalingdet">12.2</a> shows how the scaling transformation changes the determinant (the area of the parallelogram). For 5), figure <a href="ch-MatComp.html#fig:GElimination">11.1</a> shows that in the <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a> procedures, forming the <a href="ch-MatComp.html#sub:GElimination">echelon form</a> do not affect the volume. In other words, the <a href="ch-MatComp.html#sub:matInv">replacement elementary matrices</a> simply rotate the intersections of the parallelepiped, and preserve the volume.</p>
+<p>For an <a href="ch-MatComp.html#sub:matInv">invertible</a> <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span>, its <a href="ch-MatComp.html#sub:GElimination">echelon form</a> says that all <a href="ch-MatComp.html#sub:GElimination">pivots</a> are non-zero<label for="tufte-sn-69" class="margin-toggle sidenote-number">69</label><input type="checkbox" id="tufte-sn-69" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">69</span> As the statement in section <a href="ch-MatComp.html#sub:matInv">2.2</a>, the <strong>determinant</strong> also relates the <a href="ch-MatComp.html#sub:matInv">invertibility</a> of <span class="math inline">\(\mathbf{A}\)</span>. A zero <strong>determinant</strong> induces a non-invertible/singular square matrix.</span>, so is the product of all pivots, namely <span class="math inline">\(\mbox{det}(\mathbf{A})\neq 0\)</span>. Geometrically, the absolute value of <span class="math inline">\(\mbox{det}(\mathbf{A})\)</span> is equal to the volume of the <span class="math inline">\(n\)</span>-dimensional parallelepiped, where the <span class="math inline">\(n\)</span>-dimensional parallelepiped spanned by the column or row vectors of <span class="math inline">\(\mathbf{A}\)</span>.<label for="tufte-sn-70" class="margin-toggle sidenote-number">70</label><input type="checkbox" id="tufte-sn-70" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">70</span> The <strong>determinant</strong> of <span class="math inline">\(\mathbf{A}\)</span> is positive or negative according to whether the linear mapping <span class="math inline">\(\mathbf{A}\mathbf{x}\)</span> preserves or reverses the orientation of the <span class="math inline">\(n\)</span>-dimensional <span class="math inline">\(\mathbf{x}\)</span>. The absolute value of the determinant can be thought of as a measure of how much multiplication by the matrix expands or contracts the space of <span class="math inline">\(\mathbf{x}\)</span>. If the determinant is <span class="math inline">\(0\)</span>, then space is contracted completely along at least one dimension, causing it to lose all of its volume. If the determinant is <span class="math inline">\(1\)</span>, then the transformation preserves volume.</span></p>
+<p>Here is a list of some properties (facts) of the <strong>determinant</strong> of a square <span class="math inline">\(n\times n\)</span> matrix.</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\mbox{det}(\mathbf{I})=1\)</span>.</p></li>
+<li><p><span class="math inline">\(\mbox{det}(\mathbf{A})=0\)</span>, if the matrix <span class="math inline">\(\mathbf{A}\)</span> is <a href="ch-MatComp.html#sub:matInv">singular</a> or <a href="ch-MatComp.html#sub:matInv">non-invertible</a>.</p></li>
+<li><p>Swapping two vectors of <span class="math inline">\(\mathbf{A}\)</span> changes the sign of <span class="math inline">\(\mbox{det}(\mathbf{A})\)</span>. In other words, <span class="math inline">\(\mbox{det}(\mathbf{E}_{ij}\mathbf{A})=-\mbox{det}(\mathbf{A})\)</span> where <span class="math inline">\(\mathbf{E}_{ij}\)</span> is the <a href="ch-MatComp.html#sub:matInv">permutation elementary matrix</a>.</p></li>
+<li><p>Scaling a row or a column of <span class="math inline">\(\mathcal{A}\)</span> scales the determinant. In other words, <span class="math inline">\(\mbox{det}(\mathbf{E}_{i}(c)\mathbf{A})=c \times \mbox{det}(\mathbf{A})\)</span> where <span class="math inline">\(\mathbf{E}_{i}(c)\)</span> is the <a href="ch-MatComp.html#sub:matInv">scaling elementary matrix</a>.</p></li>
+<li><p>For the <a href="ch-MatComp.html#sub:matInv">replacement elementary matrix</a>, <span class="math inline">\(\mbox{det}(\mathbf{E}_{ij}(s)\mathbf{A})=\mbox{det}(\mathbf{A})\)</span>.</p></li>
+</ol>
+<p>Note that the <strong>determinants</strong> of triangular matrices and diagonal matrices are exactly the product of the diagonal entries in those matrices. Fact 1) comes directly from the product of ones on the diagonal of <span class="math inline">\(\mathbf{I}\)</span>. Fact 2) comes from the definition. Figure <a href="ch-eigen.html#fig:det">3.1</a> gives an example of 3). For 4), figure <a href="ch-eigen.html#fig:Scalingdet">3.2</a> shows how the scaling transformation changes the determinant (the area of the parallelogram). For fact 5), figure <a href="ch-MatComp.html#fig:GElimination">2.1</a> shows that in the <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a> procedures, forming the <a href="ch-MatComp.html#sub:GElimination">echelon form</a> do not affect the volume. In other words, the <a href="ch-MatComp.html#sub:matInv">replacement elementary matrices</a> simply rotate the intersections of the parallelepiped, and preserve the volume.</p>
 <p>
 <span class="marginnote shownote">
 <!--
 <div class="figure">--><span id="fig:Scalingdet"></span>
 <img src="fig/Part3/Scalingdet.gif" alt="Determinants of the scaling transformations" width="100%"><!--
-<p class="caption marginnote">-->Figure 12.2: Determinants of the scaling transformations<!--</p>-->
+<p class="caption marginnote">-->Figure 3.2: Determinants of the scaling transformations<!--</p>-->
 <!--</div>--></span>
 </p>
 <div class="solution">
 <p class="solution-begin">
-Another definition of the determinant <span id="sol-start-43" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-43', 'sol-start-43')"></span>
+Another definition of the determinant <span id="sol-start-12" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-12', 'sol-start-12')"></span>
 </p>
-<div id="sol-body-43" class="solution-body" style="display: none;">
+<div id="sol-body-12" class="solution-body" style="display: none;">
 <p>The <em>determinant</em> of a square <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\(\mathbf{A}=[a_{ij}]\)</span> is the scalar quantity <span class="math inline">\(\mbox{det}(\mathbf{A})\)</span> that is recursively defined by the following expression: If <span class="math inline">\(n=1\)</span>, then <span class="math inline">\(\mbox{det}\mathbf{A}=a_{11}\)</span>; otherwise, it follows<span class="math display">\[\mbox{det}\mathbf{A}=\sum_{k=1}^{n}a_{k1}(-1)^{k+1}\mbox{det}(\mathbf{A}_{(k)1})\]</span>
 where <span class="math inline">\(\mbox{det}(\mathbf{A}_{(k)1})\)</span> is the <strong>determinant</strong> of the <span class="math inline">\((n-1)\times(n-1)\)</span> matrix obtained from <span class="math inline">\(\mathbf{A}\)</span> by deleting the first row and the <span class="math inline">\(k\)</span>-th coloumn of <span class="math inline">\(\mathbf{A}\)</span>.</p>
 <p>The idea of this formula is to split an <span class="math inline">\(n\times n\)</span> matrix by crossing out row <span class="math inline">\(1\)</span> and column <span class="math inline">\(k\)</span> to get a (sub)matrix <span class="math inline">\(\mathbf{A}_{(k)1}\)</span> of size <span class="math inline">\(n-1\)</span>. Here is an example, <span class="math display">\[\mbox{det}\left[\begin{array}{cc}
@@ -236,16 +230,18 @@ a_{21} &amp; a_{22}
 </p>
 </div>
 </div>
-<p>By the previous facts, it is possible to derive the further properties:</p>
-<p>6). <span class="math inline">\(\mbox{det}(\mathbf{A}\mathbf{B})=\mbox{det}(\mathbf{A})\mbox{det}(\mathbf{B})\)</span>.</p>
-<p>7). <span class="math inline">\(\mbox{det}(\mathbf{A}+\mathbf{B})=\mbox{det}(\mathbf{A})+\mbox{det}(\mathbf{B})\)</span>.</p>
-<p>8). <span class="math inline">\(\mbox{det}\mathbf{A}^{\top}=\mbox{det}\mathbf{A}\)</span>.</p>
-<p>9). <span class="math inline">\(\mbox{det}(\mathbf{A}^{-1})=\frac{1}{\mbox{det}(\mathbf{A})}\)</span>.</p>
+<p>With the previous five results, it is possible to derive further properties:</p>
+<ol start="6" style="list-style-type: decimal">
+<li><p><span class="math inline">\(\mbox{det}(\mathbf{A}\mathbf{B})=\mbox{det}(\mathbf{A})\mbox{det}(\mathbf{B})\)</span>.</p></li>
+<li><p><span class="math inline">\(\mbox{det}(\mathbf{A}+\mathbf{B})=\mbox{det}(\mathbf{A})+\mbox{det}(\mathbf{B})\)</span>.</p></li>
+<li><p><span class="math inline">\(\mbox{det}\mathbf{A}^{\top}=\mbox{det}\mathbf{A}\)</span>.</p></li>
+<li><p><span class="math inline">\(\mbox{det}(\mathbf{A}^{-1})=\frac{1}{\mbox{det}(\mathbf{A})}\)</span>.</p></li>
+</ol>
 <div class="solution">
 <p class="solution-begin">
-Sketch of the proof <span id="sol-start-44" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-44', 'sol-start-44')"></span>
+Sketch of the proof <span id="sol-start-13" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-13', 'sol-start-13')"></span>
 </p>
-<div id="sol-body-44" class="solution-body" style="display: none;">
+<div id="sol-body-13" class="solution-body" style="display: none;">
 <p>For 6), notice that <span class="math inline">\(\mbox{det}(\mathbf{E}_i (c))=c\)</span>, <span class="math inline">\(\mbox{det}(\mathbf{E}_{ij})=-1\)</span>, and <span class="math inline">\(\mbox{det}(\mathbf{E}_{ij}(s))=1\)</span>. From the results of 3),4),5), we have<br><span class="math display">\[
 \begin{align*}
 \mbox{det}(\mathbf{E}_{i}(c)\mathbf{A})&amp;=\mbox{det}(\mathbf{E}_{i}(c)) \mbox{det}(\mathbf{A})=c\times \mbox{det}(\mathbf{A}),\\
@@ -253,7 +249,7 @@ Sketch of the proof <span id="sol-start-44" class="fa fa-plus-square solution-ic
 \mbox{det}(\mathbf{E}_{ij}(s)\mathbf{A})&amp;=\mbox{det}(\mathbf{E}_{ij}(s))\times \mbox{det}(\mathbf{A})=\mbox{det}.
 \end{align*}
 \]</span></p>
-<p>Therefore, all mutiplications of the square matrix <span class="math inline">\(\mathbf{A}\)</span> by the elementary matrices <span class="math inline">\(\mathbf{E}\)</span> satisfy <span class="math inline">\(\mbox{det}(\mathbf{E}\mathbf{A})=\mbox{det}(\mathbf{E}_{i})\mbox{det}(\mathbf{A}).\)</span> Because <span class="math inline">\(\mathbf{A}\)</span> is invertible, we can express it as a product of elementary matrices (see the proof in section <a href="ch-MatComp.html#sub:matInv">11.2</a>), say <span class="math inline">\(\mathbf{A}=\mathbf{E}^{(1)}\mathbf{E}^{(2)}\cdots\mathbf{E}^{(k)}\)</span>. Then for <span class="math inline">\(\mathbf{A}\mathbf{B}\)</span>, we have
+<p>Therefore, all mutiplications of the square matrix <span class="math inline">\(\mathbf{A}\)</span> by the elementary matrices <span class="math inline">\(\mathbf{E}\)</span> satisfy <span class="math inline">\(\mbox{det}(\mathbf{E}\mathbf{A})=\mbox{det}(\mathbf{E}_{i})\mbox{det}(\mathbf{A}).\)</span> Because <span class="math inline">\(\mathbf{A}\)</span> is invertible, we can express it as a product of elementary matrices (see the proof in section <a href="ch-MatComp.html#sub:matInv">2.2</a>), say <span class="math inline">\(\mathbf{A}=\mathbf{E}^{(1)}\mathbf{E}^{(2)}\cdots\mathbf{E}^{(k)}\)</span>. Then for <span class="math inline">\(\mathbf{A}\mathbf{B}\)</span>, we have
 <span class="math display">\[
 \begin{align*}
 \mbox{det}(\mathbf{A}\mathbf{B})&amp;=\mbox{det}(\mathbf{E}^{(1)}\mathbf{E}^{(2)}\cdots\mathbf{E}^{(k)}B)\\
@@ -262,16 +258,16 @@ Sketch of the proof <span id="sol-start-44" class="fa fa-plus-square solution-ic
 \end{align*}
 \]</span>
 The result follows.</p>
-<p>For 7), see figure <a href="ch-eigen.html#fig:detAdd">12.3</a>.</p>
+<p>For 7), see figure <a href="ch-eigen.html#fig:detAdd">3.3</a>.</p>
 <p>
 <span class="marginnote shownote">
 <!--
 <div class="figure">--><span id="fig:detAdd"></span>
 <img src="fig/Part3/detAdd.png" alt="Determinant of the matrix addition" width="100%"><!--
-<p class="caption marginnote">-->Figure 12.3: Determinant of the matrix addition<!--</p>-->
+<p class="caption marginnote">-->Figure 3.3: Determinant of the matrix addition<!--</p>-->
 <!--</div>--></span>
 </p>
-<p>For 8), Similar to the proof for 6). Notice that <span class="math inline">\(\mbox{det}(\mathbf{E}^{\top}_i (c))=c\)</span>, <span class="math inline">\(\mbox{det}(\mathbf{E}^{\top}_{ij})=-1\)</span>, and <span class="math inline">\(\mbox{det}(\mathbf{E}^{\top}_{ij}(s))=1\)</span>. Because the invertible <span class="math inline">\(\mathbf{A}\)</span> can be expressed by a product of elementary matrices (see the proof in section <a href="ch-MatComp.html#sub:matInv">11.2</a>), say <span class="math inline">\(\mathbf{A}=\mathbf{E}^{(1)}\mathbf{E}^{(2)}\cdots\mathbf{E}^{(k)}\)</span>, and because <span class="math inline">\(\mathbf{A}^{\top}=(\mathbf{E}^{(1)})^{\top}(\mathbf{E}^{(2)})^{\top}\cdots(\mathbf{E}^{(k)})^{\top}\)</span>, so by the result of 6), we have
+<p>For 8), Similar to the proof for 6). Notice that <span class="math inline">\(\mbox{det}(\mathbf{E}^{\top}_i (c))=c\)</span>, <span class="math inline">\(\mbox{det}(\mathbf{E}^{\top}_{ij})=-1\)</span>, and <span class="math inline">\(\mbox{det}(\mathbf{E}^{\top}_{ij}(s))=1\)</span>. Because the invertible <span class="math inline">\(\mathbf{A}\)</span> can be expressed by a product of elementary matrices (see the proof in section <a href="ch-MatComp.html#sub:matInv">2.2</a>), say <span class="math inline">\(\mathbf{A}=\mathbf{E}^{(1)}\mathbf{E}^{(2)}\cdots\mathbf{E}^{(k)}\)</span>, and because <span class="math inline">\(\mathbf{A}^{\top}=(\mathbf{E}^{(1)})^{\top}(\mathbf{E}^{(2)})^{\top}\cdots(\mathbf{E}^{(k)})^{\top}\)</span>, so by the result of 6), we have
 <span class="math display">\[
 \begin{align*}
 \mbox{det}(\mathbf{A})&amp;=\mbox{det}((\mathbf{E}^{(1)})^{\top}(\mathbf{E}^{(2)})^{\top}\cdots(\mathbf{E}^{(k)})^{\top})\\
@@ -287,31 +283,36 @@ The result follows.</p>
 </p>
 </div>
 </div>
-<p>Now we return to the <a href="ch-vecMat.html#sub:linearity">fixed point problem</a> in the matrix form <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{x}\)</span> where the transformation is invariant around the solution <span class="math inline">\(\mathbf{x}^{*}\)</span>. Suppose <span class="math inline">\(\mathbf{A}\)</span> is an <span class="math inline">\(n\times n\)</span> <a href="ch-MatComp.html#sub:matInv">invertible</a> matrix, we will see that the existence of <span class="math inline">\(\mathbf{x}^{*}\)</span> can be determinated by the <strong>determinant</strong> of <span class="math inline">\(\mathbf{A}\)</span>.</p>
-<p>To see the relation, notice that the fixed point problem can be presented as <span class="math inline">\(0=\mathbf{x}-\mathbf{A}\mathbf{x}\)</span> or <span class="math display">\[0=(\mathbf{I}-\mathbf{A})\mathbf{x}.\]</span> The statement 4 in section <a href="ch-MatComp.html#sub:matInv">11.2</a> says that for an invertible matrix <span class="math inline">\(\mathbf{I}-\mathbf{A}\)</span>, <span class="math inline">\((\mathbf{I}-\mathbf{A})\mathbf{x}=0\)</span> has a unique solution <span class="math inline">\(\mathbf{x}=0\)</span>. It implies that if we are looking for a non-zero solution of <span class="math inline">\(\mathbf{x}\)</span>, we should expect that <span class="math inline">\(\mathbf{(\mathbf{I}-\mathbf{A})}\)</span> to be <a href="ch-MatComp.html#sub:matInv">singular</a> or non-invertible, namely <span class="math inline">\(\mbox{det}(\mathbf{I}-\mathbf{A})=0\)</span>. In this way, the existence of a non-zero fixed point solution <span class="math inline">\(\mathbf{x}^{*}\)</span> is equivalent to a zero <strong>determinant</strong> of <span class="math inline">\(\mathbf{I}-\mathbf{A}\)</span>.</p>
+<p>To see the use of determinant, let’s return to the <a href="ch-vecMat.html#sub:linearity">fixed point problem</a> in the matrix form <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{x}\)</span> where the transformation is invariant around the solution <span class="math inline">\(\mathbf{x}^{*}\)</span>. Suppose <span class="math inline">\(\mathbf{A}\)</span> is an <span class="math inline">\(n\times n\)</span> <a href="ch-MatComp.html#sub:matInv">invertible</a> matrix, we will see that the existence of <span class="math inline">\(\mathbf{x}^{*}\)</span> can be determinated by the <strong>determinant</strong> of <span class="math inline">\(\mathbf{A}\)</span>.</p>
+<p>Notice that the fixed point problem can be presented as <span class="math inline">\(0=\mathbf{x}-\mathbf{A}\mathbf{x}\)</span> or <span class="math display">\[0=(\mathbf{I}-\mathbf{A})\mathbf{x}.\]</span> The statement 4) in section <a href="ch-MatComp.html#sub:matInv">2.2</a> says that for an invertible matrix <span class="math inline">\(\mathbf{I}-\mathbf{A}\)</span>, <span class="math inline">\((\mathbf{I}-\mathbf{A})\mathbf{x}=0\)</span> has a unique solution <span class="math inline">\(\mathbf{x}^{*}=0\)</span>. This statement implies that if we are looking for a non-zero solution of <span class="math inline">\(\mathbf{x}^{*}\)</span>, we should expect that <span class="math inline">\(\mathbf{(\mathbf{I}-\mathbf{A})}\)</span> to be <a href="ch-MatComp.html#sub:matInv">singular</a> or non-invertible, namely <span class="math inline">\(\mbox{det}(\mathbf{I}-\mathbf{A})=0\)</span>. In this way, the existence of a non-zero fixed point solution <span class="math inline">\(\mathbf{x}^{*}\)</span> is equivalent to a zero <strong>determinant</strong> of <span class="math inline">\(\mathbf{I}-\mathbf{A}\)</span>.</p>
 <p>The linear transformation of the <a href="ch-vecMat.html#sub:linearity">fixed point problem</a> <span class="math inline">\(\mathbf{A}\mathbf{x}^{*}=1\times \mathbf{x}^{*}\)</span> preserve the invariant <span class="math inline">\(n\)</span>-vector <span class="math inline">\(\mathbf{x}^{*}\)</span>. We can call the vector <span class="math inline">\(\mathbf{x}^{*}\)</span> the <strong>eigenvector</strong> of <span class="math inline">\(\mathbf{A}\)</span> with <strong>eigenvalue</strong> <span class="math inline">\(1\)</span>. The formal definition of <strong>eigenvector</strong> and <strong>eigenvalue</strong> is given by the <strong>characteristic polynomial</strong>.</p>
 <ul>
 <li>
 <strong>Eigenvector</strong>, <strong>eigenvalue</strong>, <strong>characteristic polynomial</strong> : Consider an <span class="math inline">\(n\times n\)</span>
 matrix <span class="math inline">\(\mathbf{A}\in\mathbb{F}^{n\times n}\)</span>, where the <a href="ch-MatComp.html#sub:vecSpaces">field</a> <span class="math inline">\(\mathbb{F}\)</span> can be <span class="math inline">\(\mathbb{C}\)</span>
 or <span class="math inline">\(\mathbb{R}\)</span>. The <em>eigenvalues</em> of <span class="math inline">\(\mathbf{A}\)</span>
-are the <span class="math inline">\(n\)</span> roots, <span class="math inline">\(\Lambda=\{\lambda_{1},\dots,\lambda_{n}\}\)</span>, of its <em>characteristic polynomial</em> <span class="math display">\[\mbox{det}(\lambda\mathbf{I}-\mathbf{A}).\]</span> The set of these roots is called the <em>spectrum</em> of <span class="math inline">\(\mathbf{A}\)</span>, and it can also be written as<span class="math display">\[\Lambda=\{\lambda \in {\mathbb{C}} \,:\mbox{det}(\lambda\mathbf{I}-\mathbf{A})=0\}.\]</span>
-For any <span class="math inline">\(\lambda\in\Lambda\)</span>, the non-zero vector <span class="math inline">\(\mathbf{x}\in\mathbb{C}^{n}\)</span> that satisfies <span class="math inline">\(\mathbf{A}\mathbf{x}=\lambda\mathbf{x}\)</span> is an <em>eigenvector</em>.</li>
+are the <span class="math inline">\(n\)</span> roots, <span class="math inline">\(\Lambda=\{\lambda_{1},\dots,\lambda_{n}\}\)</span>, of its <em>characteristic polynomial</em> <span class="math display">\[\mbox{det}(\lambda\mathbf{I}-\mathbf{A}).\]</span> The set of these roots is called the <em>spectrum</em> of <span class="math inline">\(\mathbf{A}\)</span>, and it can also be written as<span class="math display">\[\mathcal{S}=\{\lambda \in {\mathbb{C}} \,:\mbox{det}(\lambda\mathbf{I}-\mathbf{A})=0\}.\]</span>
+For any <span class="math inline">\(\lambda\in\mathcal{S}\)</span>, the non-zero vector <span class="math inline">\(\mathbf{v}\in\mathbb{C}^{n}\)</span> that satisfies <span class="math inline">\(\mathbf{A}\mathbf{v}=\lambda\mathbf{v}\)</span> is an <em>eigenvector</em>.</li>
 </ul>
-<p>The definition says that solving the <strong>characteristic polynomial</strong> gives us the <strong>eigenvalues</strong> <span class="math inline">\(\lambda\)</span>. Given the <strong>eigenvalues</strong> <span class="math inline">\(\lambda\)</span>, the solution of <span class="math inline">\(\mathbf{A}\mathbf{x}=\lambda\mathbf{x}\)</span> gives <strong>eigenvectors</strong>. All the information of the transformation <span class="math inline">\(\mathbf{A}\mathbf{x}^{*}\)</span> is now preserved by <span class="math inline">\(\lambda \mathbf{x}^{*}\)</span>. In other words, the information of linear transformations <span class="math inline">\(\mathbf{A}\)</span> is stored by the pairs <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\mathbf{x}^{*}\)</span>.</p>
-<p>Here is a straightforward property about the eigenvalues. Because <span class="math inline">\(\mbox{det}(\lambda\mathbf{I}-\mathbf{A})=0\)</span>, the determinant fact 7 implies <span class="math inline">\(\mbox{det}(\lambda\mathbf{I})=\mbox{det}(\mathbf{A})\)</span>. Notice that <span class="math inline">\((\lambda\mathbf{I}\)</span> is a diagonal matrix, so <span class="math inline">\(\mbox{det}(\lambda\mathbf{I})=\lambda_{1}\lambda_{2}\cdots\lambda_{n}\)</span>.<label for="tufte-sn-218" class="margin-toggle sidenote-number">218</label><input type="checkbox" id="tufte-sn-218" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">218</span> Also <span class="math inline">\(\mbox{tr}(\mathbf{A})=\lambda_{1}+\cdots+\lambda_{n}\)</span>.</span> We will consider more examples about eigenvalues and eigenvectors in the following sections. So far we focus on the illumination of <strong>invariant property</strong> given by the <strong>characteristic polynomial</strong> and its <strong>determinant</strong>.<label for="tufte-sn-219" class="margin-toggle sidenote-number">219</label><input type="checkbox" id="tufte-sn-219" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">219</span> Our exposition introduced matrices first and <strong>determinants</strong> later, however the historical order of discovery was the opposite: determinants were known long before matrices. Also, the recognition of an invariant as an quantitative object in its own interest emerged together with the determinants (characteristic polynomials).</span></p>
-<p>Perphas, the most familiar <strong>invariant</strong> for a polynomial is the discriminant <span class="math inline">\(b^{2}-ac\)</span> from a quadratic form (a bivariate polynomial) <span class="math display">\[ax_{2}^{2}+2bx_{1}x_{2}+cx_{2}^{2}.\]</span> The discriminant indicates properties of the roots for this bivariate polynomial regardless the specific values of <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span>. One feature about this <strong>invariant</strong> is that after any linear transformation vector <span class="math inline">\([x_{1},x_{2}]\)</span>, the discriminat <span class="math inline">\(b^{2}-ac\)</span> still works.</p>
-<p>The discriminant of bivariate polynomials illuminates that searching the invariant property may receive more rewards than calculating a specific solution. The solution of the polynomial varies when the polynomial is changed by the structure (coefficients), but the discriminant is calculated under the same formula, and it also determine the new solution values. Thus, when we face various systems, it may be more worthy to find the invariant shared by these systems than to solve each system one by one.</p>
-<p>In an economy of <span class="math inline">\(n\)</span>-sectors, one can model both the supply and the demand system of this economy by polynomials. That is, if we have one system, say the supply system, of <span class="math inline">\(n\)</span>-factors (variables), and we expect that there is also another corresponding but different system of the same factors.<label for="tufte-sn-220" class="margin-toggle sidenote-number">220</label><input type="checkbox" id="tufte-sn-220" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">220</span> The factors in different sides may require different quantities, so these two system cannot have the same form.</span> Suppose the factor in the demand side (output) has to be transformed from the supply side (input). An <strong>invariant</strong> of this economy means that the transformation for the factors can equate the supply system with the demand one for all <span class="math inline">\(n\)</span>-sectors. We use a quantitative model to illustrate how to identify the <strong>invariant</strong>.</p>
+<p>The definition says that solving the <strong>characteristic polynomial</strong> gives us the <strong>eigenvalues</strong> <span class="math inline">\(\lambda\)</span>. Given the <strong>eigenvalues</strong> <span class="math inline">\(\lambda\)</span>, the solution of <span class="math inline">\(\mathbf{A}\mathbf{v}=\lambda\mathbf{v}\)</span> (or as a fixed point problem: <span class="math inline">\((\mathbf{A}/\lambda)\mathbf{v}=\mathbf{v}\)</span>) gives the corresponding <strong>eigenvectors</strong>. All the information of the transformation <span class="math inline">\(\mathbf{A}\mathbf{v}\)</span> is now preserved by <span class="math inline">\(\lambda \mathbf{v}\)</span>. In other words, the information of linear transformations <span class="math inline">\(\mathbf{A}\)</span> is stored by the pairs <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\mathbf{v}\)</span>.</p>
+<p>Here are some straightforward properties about the eigenvalues.</p>
+<ul>
+<li>Let <span class="math inline">\(\lambda\mathbf{I}\)</span> be <span class="math inline">\(\Lambda\)</span>. <span class="math inline">\(\mbox{det}(\mathbf{A})=\mbox{det}(\Lambda)=\lambda_{1}\lambda_{2}\cdots\lambda_{n}\)</span>.</li>
+</ul>
+<p>Because <span class="math inline">\(\mbox{det}(\lambda\mathbf{I}-\mathbf{A})=0\)</span>, the determinant fact 7) implies <span class="math inline">\(\mbox{det}(\lambda\mathbf{I})=\mbox{det}(\mathbf{A})\)</span>. Notice that <span class="math inline">\(\lambda\mathbf{I}=\Lambda\)</span> is a diagonal matrix, so <span class="math inline">\(\mbox{det}(\Lambda)=\lambda_{1}\lambda_{2}\cdots\lambda_{n}\)</span>.</p>
+<p>We will consider more examples about eigenvalues and eigenvectors in the following sections. At the moment, we focus on the illumination of <strong>invariant property</strong> given by the <strong>characteristic polynomial</strong> and its <strong>determinant</strong>.<label for="tufte-sn-71" class="margin-toggle sidenote-number">71</label><input type="checkbox" id="tufte-sn-71" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">71</span> Our exposition introduced matrices first and <strong>determinants</strong> later, however the historical order of discovery was the opposite: determinants were known long before matrices. Also, the recognition of an invariant as an quantitative object in its own interest emerged together with the determinants (characteristic polynomials).</span>
+Perphas, the most familiar <strong>invariant</strong> for a polynomial is the discriminant <span class="math inline">\(b^{2}-ac\)</span> from a quadratic form (a bivariate polynomial) <span class="math display">\[ax_{2}^{2}+2bx_{1}x_{2}+cx_{2}^{2}.\]</span> The discriminant indicates properties of the roots for this bivariate polynomial regardless the specific values of <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span>. One feature about this <strong>invariant</strong> is that after any linear transformation vector <span class="math inline">\([x_{1},x_{2}]\)</span>, the discriminat <span class="math inline">\(b^{2}-ac\)</span> still works.</p>
+<p>The discriminant of bivariate polynomials illuminates that searching the invariant property may receive more rewards than calculating a specific solution. The solution of the polynomial varies when the polynomial is changed by the structure (coefficients), but the discriminant formula remains unchanged. Moerover, the formula also determines the new solution values. Thus, when we face various systems, it may be more worthy to find the invariant shared by these systems rather than solve each system one by one.</p>
+<p>In an economy of <span class="math inline">\(n\)</span>-sectors, one can model both the supply and the demand system of this economy by polynomials. That is, if we have one system, say the supply system, of <span class="math inline">\(n\)</span>-factors (variables), and we expect that there is another corresponding but different system of the same factors.<label for="tufte-sn-72" class="margin-toggle sidenote-number">72</label><input type="checkbox" id="tufte-sn-72" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">72</span> The factors in different sides may require different quantities, so these two system cannot have the same form.</span> Suppose the factor in the demand side (output) has to be transformed from the supply side (input). An <strong>invariant</strong> of this economy means that the transformation for the factors can equate the supply system with the demand one for all <span class="math inline">\(n\)</span>-sectors. We use a quantitative model to illustrate how to identify the <strong>invariant</strong>.</p>
 <div class="solution">
 <p class="solution-begin">
 Invariants in the multivariate polynomial system
 </p>
 <div class="solution-body">
-<p>A general <strong>multivariate polynomial</strong> system in the <a href="ch-MatComp.html#sub:vecSpaces">vector space</a> <span class="math inline">\(\mathcal{V}\subset\mathbb{R}^n\)</span> allows an arbitrary <span class="math inline">\(n\)</span>-unknowns, namely an <span class="math inline">\(n\)</span>-length vector <span class="math inline">\(\mathbf{x}=[x_1,\dots,x_n]\)</span>. Each term of such a polynomial is called the <strong>monomial</strong><label for="tufte-sn-221" class="margin-toggle sidenote-number">221</label><input type="checkbox" id="tufte-sn-221" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">221</span> One widely used function of modelling productions and utilities is the <em>Cobb-Douglas function</em>. Its standard form is <span class="math display">\[y = c(x_1)^{\alpha_1}(x_2)^{\alpha_2}\]</span> where <span class="math inline">\(y\)</span> is the output of the function and <span class="math inline">\(\mathbf{x}\)</span> can be interpreted as the production factors, such as labor and capital, or it can be a consumption plan of two different goods.</span> <span class="math display">\[x_{1}^{\alpha_{1}}x_{2}^{\alpha_{2}}\cdots x_{n}^{\alpha_{n}},\quad  \mbox{ where }  \mathbf{x}=[x_{1},\cdots,x_{n}]\in\mathcal{V}, \,\, \alpha_{i}\in\mathbb{N}^{+}.\]</span> Here <span class="math inline">\(\alpha_{i}\in\mathbb{N}^{+}\)</span> means these power indexes are positive integers. We consider a system of <strong>multivariate polynomials</strong> with <span class="math inline">\(n\)</span>-unknowns and with the total order of the monomial less than <span class="math inline">\(n\)</span>:
+<p>So far, we only saw the univariate polynomial. A more general <strong>multivariate polynomial</strong> system in the <a href="ch-MatComp.html#sub:vecSpaces">vector space</a> <span class="math inline">\(\mathcal{V}\subset\mathbb{R}^n\)</span> allows arbitrary <span class="math inline">\(n\)</span>-unknowns, namely an <span class="math inline">\(n\)</span>-length variable vector <span class="math inline">\(\mathbf{x}=[x_1,\dots,x_n]\)</span>. Each term of such a polynomial is called the <strong>monomial</strong><label for="tufte-sn-73" class="margin-toggle sidenote-number">73</label><input type="checkbox" id="tufte-sn-73" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">73</span> One widely used function of modelling productions and utilities is the <em>Cobb-Douglas function</em>. Its standard form is <span class="math display">\[y = c(x_1)^{\alpha_1}(x_2)^{\alpha_2}\]</span> where <span class="math inline">\(y\)</span> is the output of the function and <span class="math inline">\(\mathbf{x}\)</span> can be interpreted as the production factors, such as labor and capital, or it can be a consumption plan of two different goods.</span> <span class="math display">\[x_{1}^{\alpha_{1}}x_{2}^{\alpha_{2}}\cdots x_{n}^{\alpha_{n}},\quad  \mbox{ where }  \mathbf{x}=[x_{1},\cdots,x_{n}]\in\mathcal{V}, \,\, \alpha_{i}\in\mathbb{N}^{+}.\]</span> Here <span class="math inline">\(\alpha_{i}\in\mathbb{N}^{+}\)</span> means these power indexes are positive integers. We consider a system of <em>multivariate polynomials</em> with <span class="math inline">\(n\)</span>-unknowns and with the total order of the <strong>monomial</strong> less than <span class="math inline">\(n\)</span>:
 <span class="math display">\[\mathcal{P}_{n}(\mathcal{V})=\left\{ \left.f(\mathbf{x})=\sum_{i}c_{i}x_{1}^{\alpha_{i,1}}x_{2}^{\alpha_{i.2}}\cdots x_{n}^{\alpha_{i,n}}\right|\,\mathbf{x}\in\mathcal{V},\quad\alpha_{i,1}+\cdots+\alpha_{i,n}\leq n,\:\alpha_{i,j},\:\alpha_{i,j}\in\mathbb{N}^{+} \right\} \]</span></p>
 <p>In this general <span class="math inline">\(n\)</span>-th order <strong>multivariate polynomial</strong> system, the invariants under the linear transformation of <span class="math inline">\(\mathbf{x}\)</span> relate to the determinants of the transformation. Suppose the vector <span class="math inline">\(\mathbf{y}\)</span> is linearly transformed from the vector <span class="math inline">\(\mathbf{x}\)</span> by <span class="math inline">\(\mathbf{A}\)</span>, such that <span class="math inline">\(\mathbf{y}=\mathbf{A}\mathbf{x}\)</span> with <span class="math inline">\(\mathbf{A}=[a_{ij}]_{n\times n}\)</span>. Assume that the supply function <span class="math inline">\(p(\mathbf{x})\)</span>, and the demand function <span class="math inline">\(q(\mathbf{y})\in\mathcal{P}_{n}(\mathcal{V})\)</span> are two multivariate polynomials with <span class="math inline">\(n\)</span> unknown quantities in <span class="math inline">\(n\)</span>-sectors.</p>
-<p>If there is an <strong>invariant</strong> in <span class="math inline">\(p(\mathbf{x})\)</span> and <span class="math inline">\(q(\mathbf{y})\)</span> by making <span class="math inline">\(p(\mathbf{x})=q(\mathbf{y})\)</span>, then any <a href="sub-calculus.html#sub:diffInt">infinitesimal changes</a> of <span class="math inline">\(p(\mathbf{x})\)</span> and <span class="math inline">\(q(\mathbf{x})\)</span> should not violate the equality. So we expect that after taking the partial derivatives the equality still holds:
+<p>If there is an <strong>invariant</strong> in <span class="math inline">\(p(\mathbf{x})\)</span> and <span class="math inline">\(q(\mathbf{y})\)</span> by making <span class="math inline">\(p(\mathbf{x})=q(\mathbf{y})\)</span>, then any <a href="part-ii-infinitesimal-changes-and-their-consequences.html#sub:diffInt">infinitesimal changes</a> of <span class="math inline">\(p(\mathbf{x})\)</span> and <span class="math inline">\(q(\mathbf{x})\)</span> should not violate the equality. So we expect that after taking the partial derivatives the equality still holds:
 <span class="math display">\[
 \begin{align*}
 \frac{\partial p}{\partial y_{1}}\frac{\partial y_{1}}{\partial x_{1}}+\cdots+&amp;\frac{\partial p}{\partial y_{n}}\frac{\partial y_{n}}{\partial x_{1}}   =\frac{\partial q}{\partial x_{1}},\\
@@ -331,9 +332,10 @@ a_{m1}x_{1}+\cdots+a_{mn}x_{n}  &amp;=y_{n},
 \]</span></p>
 <p>we can see that <span class="math inline">\(\partial y_{i}/\partial x_{j}=a_{ij}\)</span>.
 So the above system can be expressed as <span class="math inline">\(\mathbf{A}\nabla p=\nabla q\)</span>, where <span class="math inline">\(\nabla p=[\partial p/\partial y_{i}]_{n\times1}\)</span> and <span class="math inline">\(\nabla q=[\partial q/\partial x_{i}]_{n\times1}\)</span>
-are the <a href="ch-vecMat.html#sub:linearity">gradient vectors</a>. If the <a href="ch-vecMat.html#sub:linearity">infinitesimal changes</a> of <span class="math inline">\(q(\mathbf{x})\)</span>, namely <span class="math inline">\(\nabla q\)</span>, is zero, then we expect <span class="math inline">\(\nabla p\)</span> to be zero. In other words, the linear system <span class="math inline">\(\mathbf{A}\nabla p=0\)</span> has the solution <span class="math inline">\(\nabla p=0\)</span> if and only if <span class="math inline">\(\mbox{det}(\mathbf{A})\neq0\)</span>. (Statement 4 in section <a href="ch-MatComp.html#sub:matInv">11.2</a>.)</p>
-<p>Thus the condition <span class="math inline">\(\mbox{det}(\mathbf{A})\neq0\)</span> is to ensure the existence of the <strong>invariant</strong> in this system.</p>
-<p>The idea of this method, an algebra perspective of bridging the invariance and the determinant of the partially differentiable transformation (the coefficient matrix <span class="math inline">\(\mathbf{A}\)</span>), was first proposed by <span class="citation">Boole (<a href="bibliography.html#ref-Boole1841">1841</a>)</span>.<label for="tufte-sn-222" class="margin-toggle sidenote-number">222</label><input type="checkbox" id="tufte-sn-222" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">222</span> Some British mathematicians even said the study of partial differential equations was initiated by the exploration of the invariant. I am not sure how proper the statement is, but indeed many the early efforts of looking for an invariant were on the path of searching for an equivalent solution of some system of partial differential equations.</span></p>
+are the <a href="ch-vecMat.html#sub:linearity">gradient vectors</a>. If the <a href="ch-vecMat.html#sub:linearity">infinitesimal changes</a> of <span class="math inline">\(q(\mathbf{x})\)</span>, namely <span class="math inline">\(\nabla q\)</span>, is zero, then we expect <span class="math inline">\(\nabla p\)</span> to be zero. In other words, the linear system <span class="math inline">\(\mathbf{A}\nabla p=0\)</span> has the solution <span class="math inline">\(\nabla p=0\)</span> if and only if <span class="math inline">\(\mbox{det}(\mathbf{A})\neq0\)</span>. (Statement 4 in section <a href="ch-MatComp.html#sub:matInv">2.2</a>.)</p>
+<p>Thus the condition <span class="math inline">\(\mbox{det}(\mathbf{A})\neq0\)</span> is to ensure the existence of the <strong>invariant</strong> in this system.
+Then <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a> can reduce the linear system <span class="math inline">\(\mathbf{A}\nabla p= 0\)</span> to an expression of the invariant.</p>
+<p>The idea of this method, an algebra perspective of bridging the invariance and the determinant of the partially differentiable transformation (the coefficient matrix <span class="math inline">\(\mathbf{A}\)</span>), was first proposed by <span class="citation">Boole (<a href="bibliography.html#ref-Boole1841">1841</a>)</span>.<label for="tufte-sn-74" class="margin-toggle sidenote-number">74</label><input type="checkbox" id="tufte-sn-74" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">74</span> Some British mathematicians even said the study of partial differential equations was initiated by the exploration of the invariant. I am not sure how proper the statement is, but indeed many early efforts of looking for an invariant were on the path of searching for an equivalent solution of some system of partial differential equations.</span></p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -341,9 +343,9 @@ are the <a href="ch-vecMat.html#sub:linearity">gradient vectors</a>. If the <a h
 </div>
 <div class="solution">
 <p class="solution-begin">
-Invariants of the discriminant in the bivariate polynomial <span id="sol-start-46" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-46', 'sol-start-46')"></span>
+Invariants of the discriminant in the bivariate polynomial <span id="sol-start-15" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-15', 'sol-start-15')"></span>
 </p>
-<div id="sol-body-46" class="solution-body" style="display: none;">
+<div id="sol-body-15" class="solution-body" style="display: none;">
 <p>Consider the quadratic form
 <span class="math display">\[p(\mathbf{x})=ax_{2}^{2}+2bx_{1}x_{2}+cx_{2}^{2}\in\mathcal{P}_{2}(\mathcal{V}).\]</span>
 Taking the derivatives of <span class="math inline">\(p(\mathbf{x})\)</span> with respect to <span class="math inline">\(x_{1}\)</span> and <span class="math inline">\(x_{2}\)</span>
@@ -367,27 +369,37 @@ which reaches the form of the discriminant <span class="math inline">\(b^{2}-ac=
 </p>
 </div>
 </div>
-<p>Another important implication from the definition of <strong>characteristic polynomial</strong> is that the <strong>eigenvalues</strong>, as the solutions of the <strong>characteristic polynomial</strong>, belong to the <strong>complex number field</strong> <span class="math inline">\(\mathbb{C}\)</span>, for both cases of the real valued matrix and the complex valued matrix <span class="math inline">\(\mathbf{A}\)</span>. This implication comes from the <strong>fundamental theorem of algebra</strong>.</p>
+<p>Another important implication from the definition of <strong>characteristic polynomial</strong> is that the <strong>eigenvalues</strong>, as the solutions of the <strong>characteristic polynomial</strong>, belong to the <strong>complex number field</strong> <span class="math inline">\(\mathbb{C}\)</span>. This is the case for both the real valued and the complex valued matrix <span class="math inline">\(\mathbf{A}\)</span> in <span class="math inline">\(\mathbf{A}\mathbf{v}=\lambda\mathbf{v}\)</span>. This implication comes from the <strong>fundamental theorem of algebra</strong>.</p>
 <ul>
 <li>
 <em>Fundamental theorem of algebra</em>: For a <span class="math inline">\(n\)</span>-th order polynomial <span class="math inline">\(f(x)\)</span>=<span class="math inline">\(a_{0}+a_{1}x+\cdots a_{n}x^{n}\)</span>
 with real (or complex) number coefficients <span class="math inline">\(a_{0},\dots,a_{n}\)</span>, the polynomial equation <span class="math inline">\(f(x)=0\)</span> always has a solution in the complex field <span class="math inline">\(\mathbb{C}\)</span>.</li>
 </ul>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:FTA"></span>
+<img src="fig/Part3/FTA.gif" alt="Fundamental theorem of algebra" width="100%"><!--
+<p class="caption marginnote">-->Figure 3.4: Fundamental theorem of algebra<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>The proof of theorem is beyond our concern. But figure <a href="ch-eigen.html#fig:FTA">3.4</a> gives a rough idea why the theorem works. Suppose we restrict the domain of a polynomial <span class="math inline">\(f(z)\)</span> to a circle <span class="math inline">\(|z|\leq r\)</span> where any <span class="math inline">\(z\in\mathbb{C}\)</span> is a complex number. Then by enlarging the radius <span class="math inline">\(r\)</span> of the circle, the image (cross-hatching area) <span class="math inline">\(\{f(z): \, |z|\leq r \}\)</span> will sooner or later cover the zero origin, namely <span class="math inline">\(f(z)=0\)</span> has a solution <span class="math inline">\(z^*\)</span> where <span class="math inline">\(|z^*|\leq r\)</span>. This may not be the case if we restrict the domain to a real line of the complex plane.</p>
 <p>By the theorem, we can deduce that the complex number system is in the sense of a complete system such that we can solve any polynomial equation in it. The highest degree of a polynomial gives you the highest possible number of distinct complex roots for the polynomial.</p>
-<p>Due to the importance of complex number system, hereby we review some basic concepts and provide some interpretations about the <em>complex number system</em> <span class="math display">\[\mathbb{C}=\{a+\mbox{i}b:\, a,b\in\mathbb{R}\}.\]</span>
+<p>Due to the importance of complex number system, hereby we review some basic concepts, and provide some interpretations about the <em>complex number system</em> <span class="math display">\[\mathbb{C}=\{a+\mbox{i}b:\, a,b\in\mathbb{R}\}.\]</span>
 For a complex number <span class="math inline">\(z\in\mathbb{C}\)</span>, <span class="math inline">\(z=a+\mbox{i}b\)</span> is the standard form. The <em>real part</em> of <span class="math inline">\(z\)</span> is written as <span class="math inline">\(\mbox{Re}(z)=a\)</span>, and the <em>imaginary part</em> is written as <span class="math inline">\(\mbox{Im}(z)=b\)</span>. The imaginary number <span class="math inline">\(\mbox{i}\)</span> satisfies the algebraic identity <span class="math inline">\(\mbox{i}^{2}=-1\)</span>. The <em>complex conjugate</em> of <span class="math inline">\(z\)</span> is defined as <span class="math inline">\(\bar{z}=a-\mbox{i}b\)</span>. Two complex numbers are equal precisely when they have the same <strong>real part</strong> and the same <strong>imaginary part</strong>.</p>
-<p>One can also consider that the complex numbers as <a href="sub-set-theory.html#sub:order">ordered pairs</a> of <a href="sub-continuity.html#sub:completeness">real numbers</a> satisfying the <em>law of complex arithmetic</em>. As complex numbers behave like ordered pairs of real numbers, they can be identified with points in the plane. Real numbers go along the <span class="math inline">\(x\)</span>-axis, and imaginary numbers are on the <span class="math inline">\(y\)</span>-axis. This gives the complex plane. Arithmetic of addition and subtraction in <span class="math inline">\(\mathbb{C}\)</span> is carried out like adding and subtracting vectors in <span class="math inline">\(\mathbb{R}^{2}\)</span>. Arithmetic of multiplication in <span class="math inline">\(\mathbb{C}\)</span> and the norm, however, are different those of vectors in <span class="math inline">\(\mathbb{R}^{2}\)</span>.<label for="tufte-sn-223" class="margin-toggle sidenote-number">223</label><input type="checkbox" id="tufte-sn-223" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">223</span>  The <em>law of complex arithmetic</em> includes addition <span class="math inline">\((a+\mbox{i}b)+(c+\mbox{i}d)=(a+c)+(b+d)\mbox{i}\)</span>, multiplication <span class="math inline">\((a+\mbox{i}b)(c+\mbox{i}d)=(ac-bd)+(ad+bc)\mbox{i}\)</span>, <a href="ch-vecMat.html#sub:vec">norm</a> or absolute value <span class="math inline">\(|a+\mbox{i}b|=\sqrt{a^{2}+b^{2}}=\sqrt{(a+\mbox{i}b)(a-\mbox{i}b)}\)</span>.</span></p>
+<p>One can also consider that the complex numbers as <a href="part-i-inference-based-upon-logic-and-logical-computation.html#sub:order">ordered pairs</a> of <a href="part-ii-infinitesimal-changes-and-their-consequences.html#sub:completeness">real numbers</a> satisfying the <em>law of complex arithmetic</em>. As complex numbers behave like ordered pairs of real numbers, they can be identified with points in the plane. Real numbers go along the <span class="math inline">\(x\)</span>-axis, and imaginary numbers are on the <span class="math inline">\(y\)</span>-axis. This gives the complex plane. Arithmetic of addition and subtraction in <span class="math inline">\(\mathbb{C}\)</span> is carried out like adding and subtracting vectors in <span class="math inline">\(\mathbb{R}^{2}\)</span>. Arithmetic of multiplication in <span class="math inline">\(\mathbb{C}\)</span> and the norm, however, are different those of vectors in <span class="math inline">\(\mathbb{R}^{2}\)</span>.<label for="tufte-sn-75" class="margin-toggle sidenote-number">75</label><input type="checkbox" id="tufte-sn-75" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">75</span> The <em>law of complex arithmetic</em> includes addition <span class="math inline">\((a+\mbox{i}b)+(c+\mbox{i}d)=(a+c)+(b+d)\mbox{i}\)</span>, multiplication <span class="math inline">\((a+\mbox{i}b)(c+\mbox{i}d)=(ac-bd)+(ad+bc)\mbox{i}\)</span>, absolute value (or square root of the <a href="ch-vecMat.html#sub:vec">norm</a>) <span class="math inline">\(|a+\mbox{i}b|= \sqrt{a^{2}+b^{2}}=\sqrt{(a+\mbox{i}b)(a-\mbox{i}b)}\)</span>.</span></p>
 <p>
 <span class="marginnote shownote">
 <!--
 <div class="figure">--><span id="fig:complexPolar"></span>
 <img src="fig/Part3/complexPolar.png" alt="Rotation of complex numbers" width="100%"><!--
-<p class="caption marginnote">-->Figure 12.4: Rotation of complex numbers<!--</p>-->
+<p class="caption marginnote">-->Figure 3.5: Rotation of complex numbers<!--</p>-->
 <!--</div>--></span>
 </p>
-<p>For the multiplication of complex numbers, it may be more straightforward to consider under the <a href="sub-inferknow.html#sub:histgeo">polar coordinate</a>. For a complex number <span class="math inline">\(z=a+\mbox{i}b\)</span> with <span class="math inline">\(|z|=r\)</span>, its polar form is <span class="math inline">\(z=r\mbox{e}^{\mbox{i}\theta}\)</span>
-or <span class="math inline">\(z=r\cos\theta+\mbox{i}r\sin\theta\)</span>, [Euler identity showes that the exponent of an imaginary number power can be turned into the sines and cosines of trigonometry via <span class="math display">\[\mbox{e}^{\mbox{i}\pi}=-1.\]</span> The identity comes from the Euler formula <span class="math inline">\(\mbox{e}^{\mbox{i}\theta}=\cos\theta+\mbox{i}\sin\theta\)</span>. Thus, any point on a plane comes with the polar coordinate pair <span class="math inline">\((r\cos\theta,r\sin\theta)\)</span>. ] where the real number <span class="math inline">\(r\)</span> represents the absolute value (norm) of <span class="math inline">\(z\)</span>, namely <span class="math inline">\(r=|z|=\sqrt{a^{2}+b^{2}}\)</span>, and <span class="math inline">\(\theta\)</span> represents the angle.</p>
-<p>From figure <a href="ch-eigen.html#fig:complexPolar">12.4</a>, we can see that a rotation of the plane on <span class="math inline">\(\mathbb{R}^{2}\)</span> around the origin through angle <span class="math inline">\(\theta\)</span> is a linear transformation that sends the basis vectors <span class="math inline">\([1,0]\)</span> and <span class="math inline">\([0,1]\)</span> to <span class="math inline">\([\cos\theta,\sin\theta]\)</span> and <span class="math inline">\([-\sin\theta,\cos\theta]\)</span>, respectively. Let’s denote this transofrmation <span class="math inline">\(\mathbf{T}_{\theta}\)</span> by <span class="math display">\[\mathbf{T}_{\theta}\left(x\left[\begin{array}{c}
+<p>For the multiplication of complex numbers, it may be more straightforward to consider under the <a href="part-i-inference-based-upon-logic-and-logical-computation.html#sub:histgeo">polar coordinate</a>. For a complex number <span class="math inline">\(z=a+\mbox{i}b\)</span> with <span class="math inline">\(|z|=r\)</span>, its polar form is <span class="math inline">\(z=r\mbox{e}^{\mbox{i}\theta}\)</span>
+or <span class="math inline">\(z=r\cos\theta+\mbox{i}r\sin\theta\)</span>.<label for="tufte-sn-76" class="margin-toggle sidenote-number">76</label><input type="checkbox" id="tufte-sn-76" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">76</span> Euler identity showes that the exponent of an imaginary number power can be turned into the sines and cosines of trigonometry via <span class="math display">\[\mbox{e}^{\mbox{i}\pi}=-1.\]</span> The identity comes from the Euler formula <span class="math inline">\(\mbox{e}^{\mbox{i}\theta}=\cos\theta+\mbox{i}\sin\theta\)</span>. Thus, any point on a plane comes with the polar coordinate pair <span class="math inline">\((r\cos\theta,r\sin\theta)\)</span>. </span> where the real number <span class="math inline">\(r\)</span> represents the absolute value of <span class="math inline">\(z\)</span>, namely <span class="math inline">\(r=|z|=\sqrt{a^{2}+b^{2}}\)</span>, and <span class="math inline">\(\theta\)</span> represents the angle. By using the property of the exponential function, the polar form can easily tell us that <span class="math inline">\(z^{n}=\mbox{e}^{\mbox{i}n\theta}=r^{n}(\cos n\theta+\mbox{i}\sin n\theta)\)</span>, where the absolute value <span class="math inline">\(|z^{n}|=r^{n}\)</span> and the angle is <span class="math inline">\(n\times \theta\)</span>. Also, for the complex multiplication of <span class="math inline">\(z_1=r_1\mbox{e}^{\mbox{i}\theta_1}\)</span> and <span class="math inline">\(z_2=r_2\mbox{e}^{\mbox{i}\theta_2}\)</span>, it is all about rescaling the absolute value to <span class="math inline">\(r_1\times r_2\)</span> and rotating the angle to <span class="math inline">\(\theta_1+\theta_2\)</span>.</p>
+<p>The complex multiplication on a unit circle also relates to a linear transformation.
+From figure <a href="ch-eigen.html#fig:complexPolar">3.5</a>, we can see that a rotation of the plane on <span class="math inline">\(\mathbb{R}^{2}\)</span> around the origin through angle <span class="math inline">\(\theta\)</span> is a linear transformation that sends the basis vectors <span class="math inline">\([1,0]\)</span> and <span class="math inline">\([0,1]\)</span> to <span class="math inline">\([\cos\theta,\sin\theta]\)</span> and <span class="math inline">\([-\sin\theta,\cos\theta]\)</span>, respectively. Let’s denote this transofrmation <span class="math inline">\(\mathbf{T}_{\theta}\)</span> by <span class="math display">\[\mathbf{T}_{\theta}\left(x\left[\begin{array}{c}
 1\\
 0
 \end{array}\right]+y\left[\begin{array}{c}
@@ -400,8 +412,9 @@ x\sin\theta+y\cos\theta
 In fact, this linear transformation can be represented by the matrix <span class="math display">\[\mathbf{T}_{\theta}=\left[\begin{array}{cc}
 \cos\theta &amp; -\sin\theta\\
 \sin\theta &amp; \cos\theta
-\end{array}\right].\]</span></p>
-<p>We call <span class="math inline">\(\mathbf{T}_{\theta}\)</span> the <em>rotation matrix</em> with the angle <span class="math inline">\(\theta\)</span>. The multiplication of two <strong>rotation matrices</strong> <span class="math inline">\(\mathbf{T}_{\theta_{1}}\)</span> and <span class="math inline">\(\mathbf{T}_{\theta_{2}}\)</span> gives the same result as the <strong>rotation matrix</strong> <span class="math inline">\(\mathbf{T}_{\theta_{1}+\theta_{2}}\)</span>. For an arbitrary point <span class="math inline">\((x,y)\)</span> on the complex plane,<span class="math display">\[(\cos\theta+\mbox{i}\sin\theta)(x+\mbox{i}y)=x\cos\theta-y\sin\theta+\mbox{i}(x\sin\theta+y\cos\theta).\]</span>
+\end{array}\right].\]</span>
+We call <span class="math inline">\(\mathbf{T}_{\theta}\)</span> the <em>rotation matrix</em> with the angle <span class="math inline">\(\theta\)</span>.
+Notice that for an arbitrary point <span class="math inline">\((x,y)\)</span> on the complex plane, the rotation of <span class="math inline">\(\theta\)</span> angle simply says <span class="math display">\[(\cos\theta+\mbox{i}\sin\theta)(x+\mbox{i}y)=x\cos\theta-y\sin\theta+\mbox{i}(x\sin\theta+y\cos\theta).\]</span>
 That is, each rotation <span class="math inline">\(\mathbf{T}_{\theta}\)</span> in <span class="math inline">\(\mathbb{R}^{2}\)</span> can represent the complex number <span class="math inline">\(\cos\theta+\mbox{i}\sin\theta\)</span>.</p>
 <p>By decomposing the <strong>rotation matrix</strong> <span class="math display">\[\mathbf{T}_{\theta}=\cos\theta\underset{\mathbf{B}_{1}}{\underbrace{\left[\begin{array}{cc}
 1 &amp; 0\\
@@ -410,7 +423,7 @@ That is, each rotation <span class="math inline">\(\mathbf{T}_{\theta}\)</span> 
 0 &amp; -1\\
 1 &amp; 0
 \end{array}\right]}},\]</span>
-we represent the rotation by its basis matrices <span class="math inline">\(\mathbf{B}_1\)</span> and <span class="math inline">\(\mathbf{B}_2\)</span>. One can verify that these two matrices behave exactly the same as the numbers 1 (<span class="math inline">\(\mathbf{B}_1=\mathbf{I}\)</span>) and <span class="math inline">\(\mbox{i}\)</span> (<span class="math inline">\(\mathbf{B}_2 \mathbf{B}_2= - \mathbf{I}\)</span>). In fact, any <span class="math display">\[\left[\begin{array}{cc}
+we represent the rotation by the matrices <span class="math inline">\(\mathbf{B}_1\)</span> and <span class="math inline">\(\mathbf{B}_2\)</span>. One can verify that these two matrices behave exactly the same as the numbers <span class="math inline">\(1\)</span> (<span class="math inline">\(\mathbf{B}_1=\mathbf{I}\)</span>) and <span class="math inline">\(\mbox{i}\)</span> (<span class="math inline">\(\mathbf{B}_2 \mathbf{B}_2= - \mathbf{I}\)</span>). In fact, any <span class="math display">\[\left[\begin{array}{cc}
 a &amp; -b\\
 b &amp; a
 \end{array}\right]=a\left[\begin{array}{cc}
@@ -421,7 +434,7 @@ b &amp; a
 1 &amp; 0
 \end{array}\right],\; a,b\in\mathbb{R}\]</span>
 behaves exactly the same as the complex number <span class="math inline">\(a+\mbox{i}b\)</span> under addition and multiplication. In other words, all complex numbers can be represented by these <span class="math inline">\(2\times2\)</span> real matrices <span class="math inline">\(a\mathbf{B}_{1}+b\mathbf{B}_{2}\)</span>.</p>
-<p>The <strong>determinant</strong> of real matrices <span class="math inline">\(a\mathbf{B}_{1}+b\mathbf{B}_{2}\)</span> corresponds to the squared <a href="ch-vecMat.html#sub:vec">norm</a> (squared absolute value) <span class="math display">\[\mbox{det}(a\mathbf{B}_{1}+b\mathbf{B}_{2})=|a+\mbox{i}b|^{2}=a^{2}+b^{2}\]</span>. Thus, the multiplicative property of <span class="math inline">\(|z_{1}z_{2}|=|z_{1}||z_{2}|\)</span> for <span class="math inline">\(z_{1},z_{2}\in\mathbb{C}\)</span> can be deduced by the multiplicative property of <strong>determinants</strong> (fact 6).<label for="tufte-sn-224" class="margin-toggle sidenote-number">224</label><input type="checkbox" id="tufte-sn-224" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">224</span> The inverse <span class="math inline">\(z^{-1}=(a-\mbox{i}b)/(a^{2}+b^{2})\)</span>
+<p>The <strong>determinant</strong> of real matrices <span class="math inline">\(a\mathbf{B}_{1}+b\mathbf{B}_{2}\)</span> corresponds to the squared <a href="ch-vecMat.html#sub:vec">norm</a> (squared absolute value) <span class="math display">\[\mbox{det}(a\mathbf{B}_{1}+b\mathbf{B}_{2})=|a+\mbox{i}b|^{2}=a^{2}+b^{2}.\]</span> Thus, the multiplicative property of <span class="math inline">\(|z_{1}z_{2}|=|z_{1}||z_{2}|\)</span> for <span class="math inline">\(z_{1},z_{2}\in\mathbb{C}\)</span> can be deduced by the multiplicative property of <strong>determinants</strong> (fact 6).<label for="tufte-sn-77" class="margin-toggle sidenote-number">77</label><input type="checkbox" id="tufte-sn-77" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">77</span> The inverse <span class="math inline">\(z^{-1}=(a-\mbox{i}b)/(a^{2}+b^{2})\)</span>
 corresponds to the inverse matrix <span class="math display">\[\left[\begin{array}{cc}
 a &amp; -b\\
 b &amp; a
@@ -429,6 +442,308 @@ b &amp; a
 a &amp; b\\
 -b &amp; a
 \end{array}\right].\]</span></span></p>
+<p>As we have seen the <strong>eigenvector and eigenvalues</strong> can present a linear transformation as a scalar multiplication, we may not be surprise by the fact that the polar form <span class="math inline">\(\cos\theta+\mbox{i}\sin\theta\)</span> is an eigenvalue of the rotation matrix <span class="math inline">\(\mathbf{T}_{\theta}\)</span>. The determinant of <span class="math inline">\(\mathbf{T}_{\theta}\)</span> is
+<span class="math display">\[
+\begin{align*}
+\mbox{det}\left(\mathbf{T}_{\theta}-\lambda\mathbf{I}\right)    &amp;=\mbox{det}\left[\begin{array}{cc}
+\cos\theta-\lambda &amp; -\sin\theta\\
+\sin\theta &amp; \cos\theta-\lambda
+\end{array}\right] \\
+=(\cos\theta-\lambda)^{2}+(\sin\theta)^{2} &amp; =\lambda^{2}-2\lambda\cos\theta+1.
+\end{align*}
+\]</span>
+By using the discriminant, we have <span class="math inline">\(cos\theta+\mbox{i}\sin\theta\)</span> as one of the solutions <span class="math inline">\(\lambda=\cos\theta\pm\sqrt{(\cos\theta)^{2}-1}=\cos\theta\pm\sqrt{-(\sin\theta)^{2}}\)</span>.</p>
+<div class="solution">
+<p class="solution-begin">
+Eigenvectors of the rotation <span id="sol-start-16" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-16', 'sol-start-16')"></span>
+</p>
+<div id="sol-body-16" class="solution-body" style="display: none;">
+<p>Two <strong>eigenvalues</strong> are <span class="math inline">\(\lambda_{1}=\cos\theta+\mbox{i}\sin\theta\)</span> and <span class="math inline">\(\lambda_{2}=\cos\theta-\mbox{i}\sin\theta\)</span>.
+Their corresponding eigenvectors are <span class="math inline">\([1,-\mbox{i}]^{\top}\)</span> and <span class="math inline">\([1,\mbox{i}]^{\top}\)</span>. To see this result, notice that the eigenvalue and eigenvector <span class="math inline">\(\mathbf{T}_{\theta}\mathbf{v}_{1}=\lambda_{1}\mathbf{v}_{1}\)</span>, namely <span class="math display">\[\left[\begin{array}{cc}
+\cos\theta &amp; -\sin\theta\\
+\sin\theta &amp; \cos\theta
+\end{array}\right]\left[\begin{array}{c}
+v_{1}\\
+v_{2}
+\end{array}\right]=(\cos\theta+\mbox{i}\sin\theta)\left[\begin{array}{c}
+v_{1}\\
+v_{2}
+\end{array}\right]\]</span>
+which is equivalent to the following system of equations:
+<span class="math display">\[
+\begin{align*}
+v_{1}\cos\theta-v_{2}\sin\theta &amp;=v_{1}\cos\theta+\mbox{i}(v_{2}\sin\theta),\\
+v_{1}\sin\theta+v_{2}\cos\theta &amp;=v_{1}\cos\theta+\mbox{i}(v_{2}\sin\theta).
+\end{align*} 
+\]</span>
+Two sides of equations are complex numbers. They are equal only if they have the same <strong>real parts</strong> and the same <strong>imaginary parts</strong>. It is easy to see that <span class="math inline">\(v_{2}=-\mbox{i}v_{1}\)</span> gives the (infinite) solutions of this equation. We can simply set <span class="math inline">\(v_{1}=1\)</span> so that <span class="math inline">\(v_{2}=-\mbox{i}\)</span>.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
+<div id="sub:diag" class="section level2">
+<h2>
+<span class="header-section-number">3.2</span> Diagonalization in Dynamical Systems</h2>
+<p>A dynamical system of which the solution vector <span class="math inline">\(\mathbf{x}(t)\)</span>
+(continuous time) or <span class="math inline">\(\mathbf{x}_{t}\)</span> (discrete time) is changing with the time <span class="math inline">\(t\)</span> is not easy to be solved by the <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a>. In this type of problems, almost all vectors change “directions” over time, meanwhile the changes couple the vectors to evoke further variations. This is not a pleasant news to any attempt of exploring the unchanged property, say a dynamical law, in pratice. To a proper observer, the law should neither change with the <strong>coordinate system</strong> of the measurements nor evolve with any emerging tendency of the coupling system. Thus, a natural attempt of alleviating the difficulty is to model the dynamical law by a linear transformation<label for="tufte-sn-78" class="margin-toggle sidenote-number">78</label><input type="checkbox" id="tufte-sn-78" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">78</span> For non-linear events, one can linearize them locally. See Ch[?].</span>, and then to represent the linear transformation by the <a href="ch-eigen.html#sub:det">invariants</a>. <a href="ch-eigen.html#sub:det">Eigen values-vectors</a> can - as long as the <a href="ch-eigen.html#sub:det">eigen values-vectors</a> are <strong>diagonalizable</strong> - provide us a perspective under which the vectors evolves seperately and the evolutions are along with their eigen-directions.</p>
+<p>Let’s recall some properties of a <a href="l#sub:matInv">diagonal matrix</a>. Assume that <span class="math inline">\(\mathbf{A}\)</span> is a diagonal matrix such that <span class="math inline">\(\mathbf{A}=[a_{ij}]_{n\times n}=\mbox{diag}\{a_11,\dots,a_nn\}\)</span>. It is easy to determine the output of the transformation <span class="math inline">\(\mathbf{A}\mathbf{x}\)</span> as the transformation <span class="math inline">\(\mathbf{A}\)</span> acts like <span class="math inline">\(n\)</span> scalar multiplications by each <span class="math inline">\(a_{ii}\)</span> along the direction of the <span class="math inline">\(i\)</span>-th entry of <span class="math inline">\(\mathbf{x}\)</span>. Normally, <span class="math inline">\(\mathbf{A}\)</span> is not a diagonal matrix, so each transformed entry (output) <span class="math inline">\(b_{i}\)</span> depends on some <a href="ch-vecMat.html#sub:vec">linear combination</a> of the other entries. However, by using <a href="ch-eigen.html#sub:det">eigenvector and eigenvalue</a>, we can find out under some eigenvector <span class="math inline">\(\mathbf{x}\)</span>, the transformation <span class="math inline">\(\mathbf{A}\mathbf{x}=\lambda\mathbf{x}\)</span> act exactly as a scalar multiplication. (See figure <a href="ch-eigen.html#fig:diagMat">3.6</a>.)</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:diagMat"></span>
+<img src="fig/Part3/diagMat.png" alt="Eigenvalue of a diagonal matrix" width="100%"><!--
+<p class="caption marginnote">-->Figure 3.6: Eigenvalue of a diagonal matrix<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:eigenval"></span>
+<img src="fig/Part3/eigenval.gif" alt="Eigenvalues of non-diagonal matrices" width="100%"><!--
+<p class="caption marginnote">-->Figure 3.7: Eigenvalues of non-diagonal matrices<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>Suppose that we find <span class="math inline">\(n\)</span> distinct <a href="ch-eigen.html#sub:det">eigenvectors</a> <span class="math inline">\(\{\mathbf{v}_{i}\}_{i=1,\dots,n}\)</span> with <span class="math inline">\(n\)</span> distinct real-valued eigenvalues, then the transformation <span class="math inline">\(\mathbf{A}\)</span> is decomposable into <span class="math inline">\(n\)</span> one-dimensional transformations acting along the <span class="math inline">\(\mathbf{v}_{1}, \dots, \mathbf{v}_{n}\)</span> axes: <span class="math display">\[\mathbf{A}\mathbf{v}_{1}=\lambda_{1}\mathbf{v}_{1},\;\dots,\;\mathbf{A}\mathbf{v}_{n}=\lambda_{n}\mathbf{v}_{n}.\]</span>
+This result implies that given an indecomposable non-diagonal matrix <span class="math inline">\(\mathbf{A}\)</span>, it is possible to find new axes, along which the matrix behaves as diagonalizable one. The new axes, namely the <a href="ch-eigen.html#sub:det">eigenvectors</a> <span class="math inline">\(\{\mathbf{v}_{1},\dots,\mathbf{v}_{n}\}\)</span> constructs a new coordinate system.<label for="tufte-sn-79" class="margin-toggle sidenote-number">79</label><input type="checkbox" id="tufte-sn-79" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">79</span> Formally speaking, <span class="math inline">\(\mathbf{v}_{1}, \dots, \mathbf{v}_{n}\)</span> will construct a <a href="ch-MatComp.html#sub:vecSpaces">basis</a> in a finite dimensional vector space <span class="math inline">\(\mathcal{V}\)</span>. Any point in <span class="math inline">\(\mathcal{V}\)</span> can be uniquely represented by a <a href="ch-vecMat.html#sub:vec">linear combination</a> of <span class="math inline">\(\mathbf{v}_{1}, \dots, \mathbf{v}_{n}\)</span>. The coefficients of the linear combination are referred to as <em>coordinates</em>. And the basis is said to construct a <em>coordinate system</em>.</span> The transformation <span class="math inline">\(\mathbf{A}\)</span> can be fully interpreted under the new <strong>coordinate system</strong>.</p>
+<p>The <em>standard coordinate system</em> is constructed by the <a href="ch-vecMat.html#sub:vec">standard unit vectors</a>, i.e. <span class="math inline">\(\{\mathbf{e}_{1},\mathbf{e}_{2}\}\)</span> in <span class="math inline">\(\mathbb{R}^{2}\)</span>, where <span class="math inline">\(\mathbf{e}_{1}=[1,0]^{\top}\)</span> and <span class="math inline">\(\mathbf{e}_{2}=[0,1]^{\top}\)</span>. In the <strong>standard coordinate system</strong>, to get to any point of <span class="math inline">\(\mathbb{R}^{2}\)</span> in this, one can choose to go a certain distance along <span class="math inline">\(\mathbf{e}_{1}\)</span> (horizontally) and then a certain distance along <span class="math inline">\(\mathbf{e}_{2}\)</span> (vertically). Under the coordinate system of the <a href="ch-vecMat.html#sub:vec">eigenvectors</a> <span class="math inline">\(\{\mathbf{v}_{1},\mathbf{v}_{2}\}\)</span>, one can get to any point in <span class="math inline">\(\mathbb{R}^{2}\)</span> by moving along the <span class="math inline">\(\mathbf{v}_{1}\)</span> and <span class="math inline">\(\mathbf{v}_{1}\)</span>-direction.</p>
+<p>Consider the following example of the matrix <span class="math inline">\(\mathbf{A}\)</span>: <span class="math display">\[\mathbf{A}=\left[\begin{array}{cc}
+1 &amp; 2\\
+4 &amp; 3
+\end{array}\right].\]</span>
+The eigenvalues of this matrix is given by
+<span class="math display">\[
+\begin{align*}
+\mbox{det}(\lambda\mathbf{I}-\mathbf{A})=&amp;\mbox{det}\left[\begin{array}{cc}
+\lambda-1 &amp; -2\\
+-4 &amp; \lambda-3
+\end{array}\right]\\=(\lambda-1)(\lambda-3)-8=&amp;\lambda^{2}-4\lambda-5=(\lambda-5)(\lambda+1)
+\end{align*}
+\]</span>
+with the solutions <span class="math inline">\(\lambda_{1}=5\)</span> and <span class="math inline">\(\lambda_{2}=-1\)</span>. Then one can solve the two fixed point problems <span class="math inline">\((\mathbf{A}/5)\mathbf{v}_{1}=\mathbf{v}_{1}\)</span> and <span class="math inline">\((\mathbf{A}/-1)\mathbf{v}_{2}=\mathbf{v}_{2}\)</span> to find out the corresponding eigenvectors <span class="math inline">\(\mathbf{v}_{1}=[1,2]^{\top}\)</span> and <span class="math inline">\(\mathbf{v}_{2}=[1,-1]^{\top}\)</span>.<label for="tufte-sn-80" class="margin-toggle sidenote-number">80</label><input type="checkbox" id="tufte-sn-80" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">80</span>  One can check that
+<span class="math display">\[
+\begin{align*}
+\left[\begin{array}{cc}
+1 &amp; 2\\
+4 &amp; 3
+\end{array}\right]\left[\begin{array}{c}
+1\\
+2
+\end{array}\right]&amp;=5\left[\begin{array}{c}
+1\\
+2
+\end{array}\right],\\ \;\left[\begin{array}{cc}
+1 &amp; 2\\
+4 &amp; 3
+\end{array}\right]\left[\begin{array}{c}
+1\\
+-1
+\end{array}\right]&amp;=-1\left[\begin{array}{c}
+1\\
+-1
+\end{array}\right].
+\end{align*}
+\]</span></span>
+The eigenvectors give a new coordinate system <span class="math inline">\(\{\mathbf{v}_{1},\mathbf{v}_{2}\}\)</span> where we can navigate any point in <span class="math inline">\(\mathbb{R}^{2}\)</span>. For example, the point <span class="math inline">\(\mathbf{x}=[3,0]^{\top}\)</span> under the <span class="math inline">\(\{\mathbf{v}_{1},\mathbf{v}_{2}\}\)</span> is moved by one unit <span class="math inline">\(\mathbf{v}_{1}\)</span>-direction and two units <span class="math inline">\(\mathbf{v}_{2}\)</span>-direction from the origin, namely <span class="math display">\[1\times\left[\begin{array}{c}
+1\\
+2
+\end{array}\right]+2\times\left[\begin{array}{c}
+1\\
+-1
+\end{array}\right]=\left[\begin{array}{c}
+3\\
+0
+\end{array}\right].\]</span>
+If the point is at <span class="math inline">\(\mathbf{A}\mathbf{x}=[3,12]^{\top}\)</span>, under the <span class="math inline">\(\{\mathbf{v}_{1},\mathbf{v}_{2}\}\)</span>-coordinate it can be represented by is <span class="math inline">\([\mathbf{v}_{1},\mathbf{v}_{2}]\cdot[5,-2]^{\top}=5\mathbf{v}_{1}+2\mathbf{v}_{2}\)</span>
+or written as the new coordinates <span class="math inline">\([5,-2]_{\{\mathbf{v}_{1},\mathbf{v}_{2}\}}\)</span>, namely, five units <span class="math inline">\(\mathbf{v}_{1}\)</span> and negative two units <span class="math inline">\(\mathbf{v}_{2}\)</span>.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:coordinate"></span>
+<img src="fig/Part3/coordinate.png" alt="New coordinates" width="100%"><!--
+<p class="caption marginnote">-->Figure 3.8: New coordinates<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>When the eigenvalues are complex numbers, the diagonalization still works, however it becomes difficult to represent in a 2D graph, as the transformation relating to the imaginary numbers are rotation, which cannot be decomposed in 1D.<label for="tufte-sn-81" class="margin-toggle sidenote-number">81</label><input type="checkbox" id="tufte-sn-81" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">81</span> As shown in section <a href="ch-eigen.html#sub:det">3.1</a>, the rotation transformation has complex eigenvalues. Two real eigenvalues mean that the function could be decomposed into two 1D expansions and contractions, but two complex eigenvalues make the transformation in a 4D space (two real and two imaginary axes). So the 1D decomposition cannot visualize the matrix rotation.</span> Because the complex eigenvalues of a transformation imply the existence of rotation in this transformation, and because the eigenvectors are unchanged with the direction of the transformation, we can induce that the associated eigenvectors will also need to be complex. That is to say, when a transformation involves rotations, then its eigenvalues and eigenvectors ought to be complex. For the <span class="math inline">\(2\times2\)</span> matrix, diagonalization implies either two distinct real eigenvalues or a pair of complex conjugate eigenvalues. We can generalize the previous arguments to any square matrix.</p>
+<p>If a matrix <span class="math inline">\(\mathbf{A}\)</span> satisfied <span class="math inline">\(\mathbf{T}^{-1}\mathbf{A}\mathbf{T}=\mathbf{B}\)</span>, then <span class="math inline">\(\mathbf{A}\)</span> is said to be <em>similar</em> to matrix <span class="math inline">\(\mathbf{B}\)</span>. The matrix is <em>diagonalizable</em> if it is <strong>similar</strong> to a diagonal matrix.</p>
+<ul>
+<li>
+<strong>Diagonalization</strong> and <strong>similarity</strong> : For an <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span>, if <span class="math inline">\(\mathbf{A}\)</span> has <span class="math inline">\(n\)</span>-distinct eigenvectors such that <span class="math inline">\(\mathbf{A}\mathbf{v}_{1}=\lambda_{1}\mathbf{v}_{1}, \dots, \mathbf{A}\mathbf{v}_{n}=\lambda_{n}\mathbf{v}_{n}\)</span>, and <span class="math inline">\(\lambda_i \neq \lambda_j\)</span> for any <span class="math inline">\(1\leq i,j\leq n\)</span>, then <span class="math inline">\(\mathbf{v}_{1},\dots,\dots\mathbf{v}_{n}\)</span> are <a href="ch-MatComp.html#sub:vecSpaces">linearly independent</a> and <span class="math inline">\(\mathbf{V}\)</span> is <a href="ch-MatComp.html#sub:matInv">invertible</a> where <span class="math inline">\(\mathbf{V}=[\mathbf{v}_{1},\dots,\dots\mathbf{v}_{n}]\)</span>. Let <span class="math inline">\(\Lambda=\mbox{diag}\{\lambda_{1},\dots,\lambda_{n}\}\)</span>,
+the relation <span class="math inline">\(\mathbf{A}\mathbf{V}=\mathbf{V}\Lambda\)</span> of <a href="ch-eigen.html#sub:det">eigenvectors and eigenvalues</a> implies <span class="math display">\[ \mathbf{V}^{-1}\mathbf{A}\mathbf{V}=\Lambda,\]</span> which says that <span class="math inline">\(\mathbf{A}\)</span> is <strong>similar</strong> to the diagonal matrix <span class="math inline">\(\Lambda\)</span>, namely <span class="math inline">\(\mathbf{A}\)</span> is <strong>diagonalizable</strong>.</li>
+</ul>
+<p>Any two similar matrices have the same <a href="ch-eigen.html#sub:det">eigenvalues</a> and the same <a href="ch-eigen.html#sub:det">characteristic polynomial</a>.<label for="tufte-sn-82" class="margin-toggle sidenote-number">82</label><input type="checkbox" id="tufte-sn-82" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">82</span> In chapter <a href="#sub:example-cryptosystem"><strong>??</strong></a>, the cryptosystem is based on some kind of conjugate operation (to construct two similar system). The idea of this operation exactly follows the fact that encrypted system and the decrypted system share the same eigenvalues (the crypto information). </span> Thus, if <span class="math inline">\(\mathbf{A}\)</span> is <strong>diagonalizable</strong>, and <span class="math inline">\(\mathbf{A}\)</span> is <strong>similar</strong> to <span class="math inline">\(\mathbf{B}\)</span>, one can infer that <span class="math inline">\(\mathbf{B}\)</span> is also <strong>diagonalizable</strong>.</p>
+<div class="solution">
+<p class="solution-begin">
+Proof <span id="sol-start-17" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-17', 'sol-start-17')"></span>
+</p>
+<div id="sol-body-17" class="solution-body" style="display: none;">
+<p>First, we prove that for <span class="math inline">\(n\)</span>-distinct eigenvectors, the columns of <span class="math inline">\(\mathbf{V}\)</span> are <a href="#sub:vecSpace">linearly independent</a> (a <a href="#sub:vecSpace">basis</a>).</p>
+<p>Suppose the columns of <span class="math inline">\(\mathbf{V}\)</span> are linearly dependent. Then there must exist a <a href="ch-vecMat.html#sub:vec">linear combination</a> <span class="math display">\[c_{1}\mathbf{v}_{1}+c_{2}\mathbf{v}_{2}+\cdots+c_{k}\mathbf{v}_{k}=0\]</span>
+with each <span class="math inline">\(c_{i}\neq0\)</span>. Mutiplying this linear combination by <span class="math inline">\(\lambda_{1}\)</span>, we have
+<span class="math display">\[c_{1}\lambda_{1}\mathbf{v}_{1}+c_{2}\lambda_{1}\mathbf{v}_{2}+\cdots+c_{k}\lambda_{1}\mathbf{v}_{k}=0.\]</span>
+Similarly, mutiplying the linear combination by <span class="math inline">\(\mathbf{A}\)</span>, we have
+<span class="math display">\[c_{1}\mathbf{A}\mathbf{v}_{1}+c_{2}\mathbf{A}\mathbf{v}_{2}+\cdots+c_{k}\mathbf{A}\mathbf{v}_{k}=0\]</span>
+or say <span class="math display">\[c_{1}\lambda_{1}\mathbf{v}_{1}+c_{2}\lambda_{2}\mathbf{v}_{2}+\cdots+c_{k}\lambda_{k}\mathbf{v}_{k}=0.\]</span>
+Subtract these two equations, we have<span class="math display">\[0\mathbf{v}_{1}+c_{2}(\lambda_{1}-\lambda_{2})\mathbf{v}_{2}+\cdots+c_{k}(\lambda_{1}-\lambda_{k})\mathbf{v}_{k}=0\]</span> which is another linear combination but with fewer terms. This contradicts with the first linear combination.
+Thus if there are <span class="math inline">\(n\)</span>-distinct eigenvectors, these eigenvectors must be <a href="#sub:vecSpace">linearly independent</a>.</p>
+<p>Secondly, the columns of <span class="math inline">\(\mathbf{V}\)</span> are linearly independent, <span class="math inline">\(\mathbf{V}\)</span> is a full rank matrix and so it is invertible. We can have <span class="math inline">\(\mathbf{V}^{-1}\mathbf{A}\mathbf{V}=\Lambda\)</span>.</p>
+<p>Finally, if <span class="math inline">\(\mathbf{A}\)</span> is <strong>similar</strong> to <span class="math inline">\(\mathbf{B}\)</span>, say <span class="math inline">\(\mathbf{T}^{-1}\mathbf{A}\mathbf{T}=\mathbf{B}\)</span>, by definition and the trick <span class="math inline">\(\mathbf{T}^{-1}\mathbf{I}\mathbf{T}=\mathbf{I}\)</span>,
+we have
+<span class="math display">\[
+\begin{align*}
+\mbox{det}(\lambda\mathbf{I}-\mathbf{B})=&amp;\mbox{det}(\lambda\mathbf{T}^{-1}\mathbf{I}\mathbf{T}-\mathbf{T}^{-1}\mathbf{A}\mathbf{T})\\
+=&amp;\mbox{det}(\mathbf{T}^{-1}(\lambda\mathbf{I}-\mathbf{A})\mathbf{T})\\
+=&amp;\mbox{det}(\mathbf{T}^{-1})\mbox{det}(\lambda\mathbf{I}-\mathbf{A})\mbox{det}(\mathbf{T})\\
+=&amp;\mbox{det}(\lambda\mathbf{I}-\mathbf{A}).
+\end{align*}
+\]</span>
+The result follows.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>To see the use of <strong>diagonalization</strong> in dynamical systems, let’s recall that a matrix-vector multiplication can represent a dynamics of multiple inputs (see chapter <a href="ch-vecMat.html#sub:linearSys">1.4</a>). In the <a href="ch-vecMat.html#sub:linearSys">discrete linear dynamical system</a>, with an initial vector <span class="math inline">\(\mathbf{x}_{0}\)</span>, the linear transformation <span class="math inline">\(\mathbf{A}\mathbf{x}_{1}=\mathbf{x}_{0}\)</span> evokes the system. The iteration <span class="math inline">\(\mathbf{A}\mathbf{x}_{t}=\mathbf{x}_{t-1}\)</span> can simulate the full set of dynamics of this system.</p>
+<p>The computation of <span class="math inline">\(\mathbf{x}_{t}\)</span> based on the initial vector <span class="math inline">\(\mathbf{x}_{0}\)</span> requires <span class="math inline">\(t\)</span> times iterations, namely <span class="math display">\[\mathbf{x}_{t}=\mathbf{A}\mathbf{x}_{t-1}=\mathbf{A}(\mathbf{A}\mathbf{x}_{t-2})=\cdots=\mathbf{A}^{t}\mathbf{x}_{0}.\]</span>
+Computing the power of matrices is not as simple as the power of scalar. Moreover, unexpected chaotic consequences may happen which makes the whole scheme fail.<label for="tufte-sn-83" class="margin-toggle sidenote-number">83</label><input type="checkbox" id="tufte-sn-83" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">83</span> We will come to the topic of chaos in CH[?].</span>. However, computing the power of diagonal matrices is simple. For example:
+<span class="math display">\[
+\begin{align*}
+\Lambda^{k}&amp;=   \left[\begin{array}{ccc}
+\lambda_{1} &amp; 0 &amp; 0\\
+ &amp; \ddots &amp; 0\\
+0 &amp; 0 &amp; \lambda_{n}
+\end{array}\right]\times\left[\begin{array}{ccc}
+\lambda_{1} &amp; 0 &amp; 0\\
+ &amp; \ddots &amp; 0\\
+0 &amp; 0 &amp; \lambda_{n}
+\end{array}\right]\cdots\times\left[\begin{array}{ccc}
+\lambda_{1} &amp; 0 &amp; 0\\
+ &amp; \ddots &amp; 0\\
+0 &amp; 0 &amp; \lambda_{n}
+\end{array}\right]\\
+&amp;=  \left[\begin{array}{ccc}
+\lambda_{1}^{k} &amp; 0 &amp; 0\\
+ &amp; \ddots &amp; 0\\
+0 &amp; 0 &amp; \lambda_{n}^{k}
+\end{array}\right]=\mbox{diag}\{\lambda_{1}^{k},\dots,\lambda_{n}^{k}\}.
+\end{align*}
+\]</span>
+Thus, if the matrix is <strong>diagonalizable</strong> with the <a href="ch-eigen.html#sub:det">eigenvector matrix</a> <span class="math inline">\(\mathbf{V}\)</span> and the <a href="ch-eigen.html#sub:det">eigenvalue matrix</a> <span class="math inline">\(\Lambda\)</span>, we may expect to have <span class="math inline">\(\mathbf{A}^n = (\mathbf{V}^{-1}\Lambda\mathbf{V})^n=(\mathbf{V}^{-1}\Lambda\mathbf{V}\mathbf{V}^{-1}\Lambda\mathbf{V}\cdots\mathbf{V}^{-1}\Lambda\mathbf{V})=\mathbf{V}^{-1}\Lambda^n\mathbf{V}.\)</span> In this case, the advantage is clear: we need to calculate and apply the eigenvector matrix <span class="math inline">\(\mathbf{V}\)</span> and <span class="math inline">\(\mathbf{V}^{-1}\)</span> only once, and the rest of the iteration process is simply applying the <span class="math inline">\(n\)</span>-th power of the diagonal matrix <span class="math inline">\(\Lambda\)</span>.</p>
+<p>Apart from the computational advantage, the <strong>diagonalization</strong> also assists us to disentangle some complex dynamical patterns of the <strong>coupled systems</strong>. In chapter <a href="part-i-inference-based-upon-logic-and-logical-computation.html#sub:dyn">0.16</a>, we have seen how a univariate (1D) time series looks like. For a <span class="math inline">\(2\times2\)</span> diagonal matrix <span class="math inline">\(\mathbf{A}\)</span>, its linear dynamical system <span class="math inline">\(\mathbf{x}_{t}=\mathbf{A}\mathbf{x}_{t-1}\)</span> only consists of two univariate time series seperately. This kind of system is called the <em>uncoupled system</em> where the growth of one series only depends on its own historical states. On the other hand, if the off-diagonal entries of <span class="math inline">\(\mathbf{A}\)</span> are non-zero, then the dynamical system is a <em>coupled system</em>. The <strong>diagonalization</strong> allows us to analyze a <strong>coupled system</strong> in its <strong>uncoupling form</strong>.</p>
+<p>Consider the following system
+<span class="math display">\[
+\left[\begin{array}{c}
+x_{1,t}\\
+x_{2,t}
+\end{array}\right]=\mathbf{A}\mathbf{x}_{t-1}=\left[\begin{array}{cc}
+0.65 &amp; 0.5\\
+0.25 &amp; 0.9
+\end{array}\right]\left[\begin{array}{c}
+x_{1,t-1}\\
+x_{2,t-1}
+\end{array}\right]
+\]</span>
+The eigenvalues of this system are <span class="math inline">\(\lambda_{1}=1.15\)</span>, and <span class="math inline">\(\lambda_{2}=0.4\)</span>. The eigenvectors can be chosen to be <span class="math inline">\(\mathbf{v}_{1}=[1,1]^{\top}\)</span> and <span class="math inline">\(\mathbf{v}_{2}=[-2,1]^{\top}\)</span>. Notice that the eigenvalues are real numbers and <span class="math inline">\(|\lambda_{1}|&gt;1\)</span> and <span class="math inline">\(\lambda_{2}|&lt;1\)</span>. So for the <strong>uncoupled system</strong> <span class="math inline">\((\mathbf{V}\mathbf{x}_{t})=\Lambda(\mathbf{V}\mathbf{x}_{t-1})\)</span>, we expect the behavior of the system must expand along the <span class="math inline">\(\mathbf{v}_{1}\)</span>-coordinate and contract along the <span class="math inline">\(\mathbf{v}_{2}\)</span>-coordinate. Figure <a href="ch-eigen.html#fig:eigenDy1">3.9</a> shows two initial vectors for <span class="math inline">\(\mathbf{x}_{0}\)</span>: <span class="math inline">\([10,50]^{\top}\)</span> and <span class="math inline">\([100,20]^{\top}\)</span>. Both of them grow to the same direction along <span class="math inline">\(\mathbf{v}_{1}\)</span> after five periods.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:eigenDy1"></span>
+<img src="fig/Part3/eigenDy1.png" alt="Linear dynamical system 1" width="100%"><!--
+<p class="caption marginnote">-->Figure 3.9: Linear dynamical system 1<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:eigenDy2"></span>
+<img src="fig/Part3/eigenDy2.png" alt="Linear dynamical system 2" width="100%"><!--
+<p class="caption marginnote">-->Figure 3.10: Linear dynamical system 2<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>Consider another system
+<span class="math display">\[
+\left[\begin{array}{c}
+x_{1,t}\\
+x_{2,t}
+\end{array}\right]=\mathbf{A}\mathbf{x}_{t-1}=\left[\begin{array}{cc}
+0.1 &amp; 1.4\\
+0.4 &amp; 0.2
+\end{array}\right]\left[\begin{array}{c}
+x_{1,t-1}\\
+x_{2,t-1}
+\end{array}\right]
+\]</span></p>
+<p>The eigenvalues of this system are <span class="math inline">\(\lambda_{1}=0.9\)</span>, and <span class="math inline">\(\lambda_{2}=-0.6\)</span>. The eigenvectors can be chosen to be <span class="math inline">\(\mathbf{v}_{1}=[1,1]^{\top}\)</span> and <span class="math inline">\(\mathbf{v}_{2}=[-2,1]^{\top}\)</span>. Figure <a href="#fig:eignDy2"><strong>??</strong></a> shows that the trend shrinks towards <span class="math inline">\(\mathbf{v}_{1}\)</span> but collapse in an oscillating manner along the <span class="math inline">\(\mathbf{v}_{2}\)</span>-axis. The presence of oscillation is due to the negative eigenvalue which means that the matrix will flip the state point back and forth on either side of the <span class="math inline">\(\mathbf{v}_{1}\)</span>-axis. The oscillation is diminishing because the largest absolute eigenvalue is less than one (otherwise, the oscillation will departure).</p>
+<p>For every matrix, let’s define its <em>principal eigenvector</em> as the eigenvector whose eigenvalue has the largest absolute value. In the linear dynamical system, the state will evolve until its motion lies along the <strong>principal eigenvector</strong>. The largest eigenvalue, as the <em>principal eigenvalue</em> will determine the long-term behavior of the iteration, i.e. expansion, contraction, rotation.</p>
+<div class="solution">
+<p class="solution-begin">
+Derivations <span id="sol-start-18" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-18', 'sol-start-18')"></span>
+</p>
+<div id="sol-body-18" class="solution-body" style="display: none;">
+<p>System 1:</p>
+<p>The characteristic equation is
+<span class="math display">\[
+\begin{align*}
+\mbox{det}\left[\begin{array}{cc}
+0.65-\lambda &amp; 0.5\\
+0.25 &amp; 0.9-\lambda
+\end{array}\right]=(0.65-\lambda)(0.9-\lambda)-(0.5)(0.25)\\
+=\lambda^{2}-(0.65+0.9)\lambda-(0.65\times0.9-0.25\times0.5).
+\end{align*}
+\]</span>
+By using the discriminant of this equation, we have <span class="math inline">\(\lambda=\frac{(0.65+0.9)\pm\sqrt{(0.65+0.9)^{2}-4(0.65\times0.9-0.25\times0.5)}}{2}=\frac{1.55\pm0.75}{2},\)</span>
+namely <span class="math inline">\(\lambda=[1.15,\,0.4]^{\top}\)</span>. For <span class="math inline">\(\lambda_{1}=1.15\)</span>,
+<span class="math display">\[\mathbf{A}\mathbf{v}_{1}=\left[\begin{array}{cc}
+0.65 &amp; 0.5\\
+0.25 &amp; 0.9
+\end{array}\right]\left[\begin{array}{c}
+v_{1}\\
+v_{2}
+\end{array}\right]=1.15\left[\begin{array}{c}
+v_{1}\\
+v_{2}
+\end{array}\right].\]</span>
+The simplified version is
+<span class="math display">\[
+\begin{align*}
+ 0.65v_{1}+0.5v_{2} &amp;=1.15v_{1}\\
+0.25v_{1}+0.9v_{2}  &amp;=1.15v_{2}
+\end{align*}
+\]</span>
+Gaussian elimination gives the answer <span class="math inline">\(v_{1}=v_{2}\)</span>. We can choose any vector on the line <span class="math inline">\(v_{1}=v_{2}\)</span> to represent this eigenvector, for example <span class="math inline">\([1,1]^{\top}\)</span>.</p>
+<p>For <span class="math inline">\(\lambda_{2}=0.4\)</span>, the system of equations becomes</p>
+<p><span class="math display">\[
+\begin{align*}
+0.65v_{1}+0.5v_{2}  &amp;=0.4v_{1}\\
+0.25v_{1}+0.9v_{2}  &amp;=0.4v_{2}
+\end{align*}
+\]</span>
+which gives the answer <span class="math inline">\(v_{2}=-0.5v_{1}\)</span>. So we can choose the vector <span class="math inline">\([-2,1]\)</span> to represent the line
+<span class="math inline">\(v_{1}+2v_{2}=0\)</span>.</p>
+<p>System 2:</p>
+<p>The characteristic equation gives <span class="math display">\[\lambda=\frac{(0.1+0.2)\pm\sqrt{(0.1+0.2)^{2}-4(0.1\times0.2-0.4\times1.4)}}{2}=\frac{0.3\pm1.5}{2},\]</span>
+namely <span class="math inline">\(\lambda=[0.9,\,-0.6]^{\top}\)</span>. For <span class="math inline">\(\lambda_{1}=0.9\)</span>, the system of equations of eigenvectors is
+<span class="math display">\[
+\begin{align*}
+0.1v_{1}+1.4v_{2}   &amp;=0.9v_{1}\\
+0.4v_{1}+0.2v_{2}   &amp;=0.9v_{2}
+\end{align*}
+\]</span>
+Gaussian elimination gives the answer <span class="math inline">\(1.75v_{1}=v_{2}\)</span>. We can choose any vector on the line <span class="math inline">\(1.75v_{1}-v_{2}=0\)</span> to represent this eigenvector, for example <span class="math inline">\([4,7]^{\top}\)</span>.
+For <span class="math inline">\(\lambda_{2}=-0.6\)</span>, the system of equations becomes
+<span class="math display">\[
+\begin{align*}
+0.1v_{1}+1.4v_{2}   &amp;=-0.6v_{1}\\
+0.4v_{1}+0.2v_{2}   &amp;=-0.6v_{2}
+\end{align*}
+\]</span>
+which gives the answer <span class="math inline">\(v_{2}=-0.5v_{1}\)</span>. So we can choose the vector <span class="math inline">\([2,-1]\)</span> to represent the line <span class="math inline">\(v_{1}+2v_{2}=0\)</span>.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 </div>
 </div></body></html>
 
@@ -437,7 +752,7 @@ a &amp; b\\
 <a href="bibliography.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-05-30
+2020-06-09
 </p>
 </div>
 </div>
