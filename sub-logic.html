@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2020-05-20" />
+<meta name="date" content="2019-12-07" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -28,9 +28,9 @@ MathJax.Hub.Config({
 
 <title>1 Logic | Project XXII</title>
 
-<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
-<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
-<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
 <script>
 function toggle_visibility(id1, id2) {
 var e = document.getElementById(id1);
@@ -48,15 +48,6 @@ if(f.classList.contains('fa-plus-square')) {
 
 }
 </script>
-<script src="libs/htmlwidgets/htmlwidgets.js"></script>
-<script src="libs/jquery/jquery.min.js"></script>
-<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding/datatables.js"></script>
-<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -151,16 +142,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a href="sub-axioms.html"><span class="toc-section-number">3</span> Axioms</a>
 <a href="sub-inferknow.html"><span class="toc-section-number">4</span> Inference and Knowledge</a>
 <a href="sub-incomplete.html"><span class="toc-section-number">5</span> Incompleteness</a>
+<a href="part-i-inference-based-upon-logic-and-logical-computation-1.html">PART I: Inference Based upon Logic and Logical Computation</a>
 <a href="part-ii-infinitesimal-changes-and-their-consequences.html">PART II: Infinitesimal Changes and their Consequences</a>
-<a href="sub-continuity.html"><span class="toc-section-number">6</span> Continuity</a>
-<a href="sub-calculus.html"><span class="toc-section-number">7</span> Calculus</a>
-<a href="ch-DE.html"><span class="toc-section-number">8</span> Differential Equations</a>
-<a href="ch-CalUn.html"><span class="toc-section-number">9</span> Calculus under Uncertainty</a>
-<a href="part-iii-emergence-of-abstract-interactions.html">PART III: Emergence of Abstract Interactions</a>
-<a href="ch-vecMat.html"><span class="toc-section-number">10</span> Vector and Matrix</a>
-<a href="ch-MatComp.html"><span class="toc-section-number">11</span> Matrix Computation</a>
-<a href="ch-eigen.html"><span class="toc-section-number">12</span> Eigenvalues and Eigenvectors</a>
-<a href="bibliography.html">Bibliography</a>
 </div>
 </li>
 </ul>
@@ -202,13 +185,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="sub:ex-computer" class="section level2">
 <h2>
 <span class="header-section-number">1.2</span> Example: Computer and Boolean Algebra</h2>
-<p>The invention of the computer relates to the intention of finding a way to simulate the rational human brain that can execute logical thinking. <span class="citation">Boole (<a href="bibliography.html#ref-Boole1854">1854</a>)</span>, in his book of laws of thought, suggested an algebra system in which logic can be represented by mathematics. With this kind of algebra, he indicated that it is possible to have a mathematical description of how the brain works. The current computer realizes some of his ambitions.</p>
+<p>The invention of the computer relates to the intention of finding a way to simulate the rational human brain that can execute logical thinking. <span class="citation">Boole (<a href="part-ii-infinitesimal-changes-and-their-consequences.html#ref-Boole1854">1854</a>)</span>, in his book of laws of thought, suggested an algebra system in which logic can be represented by mathematics. With this kind of algebra, he indicated that it is possible to have a mathematical description of how the brain works. The current computer realizes some of his ambitions.</p>
 <p>Here is a simple example of the realization of Boole’s suggestion. If we assign number <span class="math inline">\(1\)</span> to True (<span class="math inline">\(\mbox{T}\)</span>) and number <span class="math inline">\(0\)</span> to False (<span class="math inline">\(\mbox{F}\)</span>), by the <a href="sub-logic.html#sub:zeroth">principle of contradiction</a> and <a href="sub-logic.html#sub:zeroth">principle of the excluded third</a>, we know that any sentence will be assigned a value of either <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. For the logical conjunction AND (<span class="math inline">\(\vee\)</span>) with <span class="math inline">\(\mbox{T}=1\)</span> and <span class="math inline">\(\mbox{F}=0\)</span>, there is <span class="math display">\[0\vee0=0,\:0\vee1=0,\,1\vee0=0,\,1\vee1=1.\]</span> The role of <span class="math inline">\(\vee\)</span> here is very similar to the role of the multiplication operator <span class="math inline">\(\times\)</span>. If you replace <span class="math inline">\(\vee\)</span> with <span class="math inline">\(\times\)</span>, the results above still hold. Similarly, for the logical disjunction OR (<span class="math inline">\(\land\)</span>), there is <span class="math display">\[0\land0=0,\:0\land1=1,\,1\land0=1,\,1\land1=1.\]</span>
 The above results are almost the same as those of regular addition <span class="math inline">\(+\)</span>, except the last case, which now implies <span class="math inline">\(1+1\neq2\)</span>. That is because <span class="math inline">\(2\)</span> is not defined in this algebra system (<a href="sub:zeroth">principle of the excluded third</a>).</p>
 <p>
 <span class="marginnote shownote">
 <!--
-<div class="figure">--><span id="fig:fig-AND"></span>
+<div class="figure">--><span id="fig:fig-margin1"></span>
 <img src="fig/AND.gif" alt="In series (R=right, L=left)" width="100%"><!--
 <p class="caption marginnote">-->Figure 1.1: In series (R=right, L=left)<!--</p>-->
 <!--</div>--></span>
@@ -266,7 +249,7 @@ is also true. This induction extends the reasoning about finite objects to infin
 <a href="sub-set-theory.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-05-20
+2019-12-07
 </p>
 </div>
 </div>
