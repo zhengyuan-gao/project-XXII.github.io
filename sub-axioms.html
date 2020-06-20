@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2019-12-07" />
+<meta name="date" content="2020-06-20" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -28,9 +28,9 @@ MathJax.Hub.Config({
 
 <title>3 Axioms | Project XXII</title>
 
-<link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
-<link href="libs/tufte-css-2015.12.29/envisioned.css" rel="stylesheet" />
-<link href="libs/msmb-css-0/msmb.css" rel="stylesheet" />
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
 <script>
 function toggle_visibility(id1, id2) {
 var e = document.getElementById(id1);
@@ -48,6 +48,15 @@ if(f.classList.contains('fa-plus-square')) {
 
 }
 </script>
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding/datatables.js"></script>
+<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -143,8 +152,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <a href="sub-inferknow.html"><span class="toc-section-number">4</span> Inference and Knowledge</a>
 <a href="sub-incomplete.html"><span class="toc-section-number">5</span> Incompleteness</a>
-<a href="part-i-inference-based-upon-logic-and-logical-computation-1.html">PART I: Inference Based upon Logic and Logical Computation</a>
 <a href="part-ii-infinitesimal-changes-and-their-consequences.html">PART II: Infinitesimal Changes and their Consequences</a>
+<a href="sub-continuity.html"><span class="toc-section-number">6</span> Continuity</a>
+<a href="sub-calculus.html"><span class="toc-section-number">7</span> Calculus</a>
+<a href="ch-DE.html"><span class="toc-section-number">8</span> Differential Equations</a>
+<a href="ch-CalUn.html"><span class="toc-section-number">9</span> Calculus under Uncertainty</a>
+<a href="part-iii-emergence-of-abstract-interactions.html">PART III: Emergence of Abstract Interactions</a>
+<a href="ch-vecMat.html"><span class="toc-section-number">10</span> Vector and Matrix</a>
+<a href="ch-MatComp.html"><span class="toc-section-number">11</span> Matrix Computation</a>
+<a href="ch-eigen.html"><span class="toc-section-number">12</span> Eigenvalues and Eigenvectors</a>
+<a href="bibliography.html">Bibliography</a>
 </div>
 </li>
 </ul>
@@ -159,8 +176,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span class="header-section-number">3</span> Axioms</h1>
 <p>The formulation of <a href="sub-set-theory.html#sub:set-theory">set theory</a> tells us that we can use any <a href="sub-logic.html#sub:1order">predicate</a> to define a set in a more straightforward form. Meanwhile, Peano’s induction rule in section <a href="sub-logic.html#sub:PeanoInd">1.4</a> illustrates a kind of machinery of induction rules to generalize a finite number of predicates to an infinite one. The key of this machinery is the set of natural numbers, <span class="math inline">\(\mathbb{N}\)</span>, as these numbers can automatically extend one predicate <span class="math inline">\(S(x)\)</span> to the next one <span class="math inline">\(S(x+1)\)</span> for any <span class="math inline">\(x\in\mathbb{N}\)</span>. Naturally, one could think about inferences using similar logic: For a collection of sets where each scenario is a particular kind of structured set, when one reasoning is done for a specific scene, its argument can be extended to the rest scenarios of the collection.</p>
 <p>This kind of “automata” spirit roots deeply in people’s thoughts. In the age of Enlightenment, the articles of the automaton, such as clocks, had made significant epistemic and economic consequences. And this spirit is not just restricted to numbers and items. It can be understood as a piece of machinery that can “run” on specific objects and achieve the goals by allowing the objects to make actions of their own wills. For example, Bentham was intended to establish a code of laws that could automatically make men virtuous. The criminal law, in his view, was to guide the individual interests to coincide with the community ones (through legalizations, punishments, and penalties).</p>
-<p><label for="tufte-mn-2" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle"><span class="marginnote">Founders of the United States drafted the Declaration of Independence in an axiomatic way. “We hold these truths to be self-evident” begins a list of explicit axioms, such as “All men are created equal” and “All men have the right to life, liberty, and the pursuit of happiness.” </span></p>
-<p><label for="tufte-mn-3" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle"><span class="marginnote"> In the 1940s and 50s, computer scientists and mathematicians attempted to describe the process of human thinking as the mechanical manipulation of symbols. They consider the process of rational thought to be axiomatizable, which is a reduction of the process of reasoning to a set of axioms. If these axioms, just like the components of a clock, could launch the process of thinking and let the process evolve into a wanted outcome, then the reasoning of human beings or even of any supremacy could be reproduced by merely symbolic operations of the axioms.</span></p>
+<p><label for="tufte-mn-3" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle"><span class="marginnote">Founders of the United States drafted the Declaration of Independence in an axiomatic way. “We hold these truths to be self-evident” begins a list of explicit axioms, such as “All men are created equal” and “All men have the right to life, liberty, and the pursuit of happiness.” </span></p>
+<p><label for="tufte-mn-4" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle"><span class="marginnote"> In the 1940s and 50s, computer scientists and mathematicians attempted to describe the process of human thinking as the mechanical manipulation of symbols. They consider the process of rational thought to be axiomatizable, which is a reduction of the process of reasoning to a set of axioms. If these axioms, just like the components of a clock, could launch the process of thinking and let the process evolve into a wanted outcome, then the reasoning of human beings or even of any supremacy could be reproduced by merely symbolic operations of the axioms.</span></p>
 <p>An <em>axiom</em> is a statement that is not proved to be true but supposed to be so. The axioms create a general process of knowledge-base construction. Just like <a href="sub-logic.html#sub:logic">logical inferences</a>, people investigate some particular domain, learn what concepts are essential in that domain, and develop a set of formal rules of the objects and relations in the field. Then the set of rules can infer further objects and relations, like making different predicates <span class="math inline">\(S(x)\)</span> go from <span class="math inline">\(S(x+1)\)</span> to <span class="math inline">\(S(x+2)\)</span>, <span class="math inline">\(S(x+3)\)</span> and so on. The axioms tell us what the variable <span class="math inline">\(x\)</span> and the predicate <span class="math inline">\(S(\cdot)\)</span> could be. We accept the sentences of axioms without proof. Then basing on these axioms, we infer other sentences via purely deductive reasoning. The sentences with which the various deductive chains come to an end are called the <em>theorems</em>, and the <strong>deductive chains</strong> are the <em>proofs</em>. An <em>axiomatic system</em>, which some people would have called “ideology,” uses a few intuitive notions and the initial postulates to deliver a large number of <strong>theorems</strong> through <strong>deductive chains</strong> that appear to be reasonably clear and rigorous.</p>
 <div id="sub:axiomNum" class="section level2">
 <h2>
@@ -288,7 +305,7 @@ Thus the sequence <span class="math inline">\((x_{i})_{i\in\mathbb{N}}\)</span> 
 <div id="sub:zorn" class="section level2">
 <h2>
 <span class="header-section-number">3.5</span> * Miscellaneous: Zorn’s Lemma, Existence of Preference Satisfaction and Maximal Utility</h2>
-<p><label for="tufte-mn-4" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle"><span class="marginnote">* The content in this section contains the result of my research. That is to say, it has not yet been considered or approved by the academics. Read at your own risks.</span></p>
+<p><label for="tufte-mn-5" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-5" class="margin-toggle"><span class="marginnote">* The content in this section contains the result of my research. That is to say, it has not yet been considered or approved by the academics. Read at your own risks.</span></p>
 <p><a href="sub-axioms.html#sub:axSet">Axiom of choice</a> has a few equivalent versions. One of them is (relatively) convenient to use.</p>
 <ul>
 <li>
@@ -296,7 +313,7 @@ Thus the sequence <span class="math inline">\((x_{i})_{i\in\mathbb{N}}\)</span> 
 must have a maximal element.<label for="tufte-sn-26" class="margin-toggle sidenote-number">26</label><input type="checkbox" id="tufte-sn-26" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">26</span> The rigorous definitions of the upper bound and the maximal element will be given in sec[?].</span>
 </li>
 </ul>
-<p>Zorn’s lemma gives the existence of a maximal element in a partially ordered set <span class="math inline">\(\mathcal{X}\)</span>. We can compare this result with the one about preference satisfaction in economics. Without loss generality, the following sentence is a simplified definition of the existences of <strong>preference satisfaction</strong> (greatest element in the preference) and <strong>equilibrium consumption</strong> given in Chapter 4.9 in <span class="citation">Debreu (<a href="part-ii-infinitesimal-changes-and-their-consequences.html#ref-Debreu1959">1959</a>)</span>:</p>
+<p>Zorn’s lemma gives the existence of a maximal element in a partially ordered set <span class="math inline">\(\mathcal{X}\)</span>. We can compare this result with the one about preference satisfaction in economics. Without loss generality, the following sentence is a simplified definition of the existences of <strong>preference satisfaction</strong> (greatest element in the preference) and <strong>equilibrium consumption</strong> given in Chapter 4.9 in <span class="citation">Debreu (<a href="bibliography.html#ref-Debreu1959">1959</a>)</span>:</p>
 <ul>
 <li>
 <em>Preference satisfaction</em> and <em>equilibrium consumption</em>: Given the price-wealth pair <span class="math inline">\((p,w)\)</span>, the consumer chooses, in the set <span class="math inline">\(\mathcal{A}=\{x\in\mathcal{X}|\, p\cdot x\leq w\}\)</span>, a greatest element for his preference preordering <span class="math inline">\(\leq\)</span>. The resulting action is called an equilibrium consumption of the consumer relative to <span class="math inline">\((p,w)\)</span>.</li>
@@ -316,7 +333,7 @@ must have a maximal element.<label for="tufte-sn-26" class="margin-toggle sideno
 <a href="sub-inferknow.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2019-12-07
+2020-06-20
 </p>
 </div>
 </div>

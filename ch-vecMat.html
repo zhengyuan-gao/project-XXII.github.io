@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2020-05-30" />
+<meta name="date" content="2020-06-20" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -522,8 +522,8 @@ for <span class="math inline">\(i=1,2\)</span>, then the iteration converges <a 
 <p>When the parameter <span class="math inline">\(\beta\)</span> is unknown, we need to <strong>estimate</strong> the value of <span class="math inline">\(\beta\)</span> through the <a href="sub-axioms.html#sub:rec">sequences</a> of observations of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. That is, we want to determine the model parameters that produce the observable data we have recorded. This problem is known as the <em>estimation problem</em>: one looks for the model parameter that presumably generates the data. In data analysis, the observations (realizations) of a random variable <span class="math inline">\(X\)</span> (or <span class="math inline">\(Y\)</span>) are stored by an <em>array</em>, namely the data vector <span class="math inline">\(\mathbf{x}\)</span> (or <span class="math inline">\(\mathbf{y}\)</span>).</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">2020</span>)</a>
 <a class="sourceLine" id="cb26-2" data-line-number="2">x=<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>; y=<span class="dv">5</span><span class="op">*</span>x<span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">*</span><span class="kw">rnorm</span>(<span class="dv">10</span>); dat=<span class="kw">data.frame</span>(x,y) </a></code></pre></div>
-<div id="htmlwidget-9341f6b23abb34f787f2" style="width:55%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9341f6b23abb34f787f2">{"x":{"filter":"none","caption":"<caption>Simulated x and y<\/caption>","autoHideNavigation":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[1,2,3,4,5,6,7,8,9,10],[5.75394424987287,10.6030967478713,12.8039536586928,17.7391881927924,19.4069313602565,31.4411469968232,36.878242046018,39.5412445065851,48.5182626939269,50.2347335736057]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>x<\/th>\n      <th>y<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><p>
+<div id="htmlwidget-b09b8b13d7978b9c8f9f" style="width:55%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b09b8b13d7978b9c8f9f">{"x":{"filter":"none","caption":"<caption>Simulated x and y<\/caption>","autoHideNavigation":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[1,2,3,4,5,6,7,8,9,10],[5.75394424987287,10.6030967478713,12.8039536586928,17.7391881927924,19.4069313602565,31.4411469968232,36.878242046018,39.5412445065851,48.5182626939269,50.2347335736057]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>x<\/th>\n      <th>y<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><p>
 <span class="marginnote shownote">
 <!--
 <div class="figure">--><span id="fig:leastSquare"></span>
@@ -973,7 +973,7 @@ O eternal fighters, implacable brothers!</p>
 <a href="ch-MatComp.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-05-30
+2020-06-20
 </p>
 </div>
 </div>
