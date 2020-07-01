@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2020-06-20" />
+<meta name="date" content="2020-07-01" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -226,9 +226,9 @@ a_{21} &amp; a_{22}
 </p>
 <div class="solution">
 <p class="solution-begin">
-Another definition of the determinant <span id="sol-start-145" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-145', 'sol-start-145')"></span>
+Another definition of the determinant <span id="sol-start-43" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-43', 'sol-start-43')"></span>
 </p>
-<div id="sol-body-145" class="solution-body" style="display: none;">
+<div id="sol-body-43" class="solution-body" style="display: none;">
 <p>The <em>determinant</em> of a square <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\(\mathbf{A}=[a_{ij}]\)</span> is the scalar quantity <span class="math inline">\(\mbox{det}(\mathbf{A})\)</span> that is recursively defined by the following expression: If <span class="math inline">\(n=1\)</span>, then <span class="math inline">\(\mbox{det}\mathbf{A}=a_{11}\)</span>; otherwise, it follows<span class="math display">\[\mbox{det}\mathbf{A}=\sum_{k=1}^{n}a_{k1}(-1)^{k+1}\mbox{det}(\mathbf{A}_{(k)1})\]</span>
 where <span class="math inline">\(\mbox{det}(\mathbf{A}_{(k)1})\)</span> is the <strong>determinant</strong> of the <span class="math inline">\((n-1)\times(n-1)\)</span> matrix obtained from <span class="math inline">\(\mathbf{A}\)</span> by deleting the first row and the <span class="math inline">\(k\)</span>-th coloumn of <span class="math inline">\(\mathbf{A}\)</span>.</p>
 <p>The idea of this formula is to split an <span class="math inline">\(n\times n\)</span> matrix by crossing out row <span class="math inline">\(1\)</span> and column <span class="math inline">\(k\)</span> to get a (sub)matrix <span class="math inline">\(\mathbf{A}_{(k)1}\)</span> of size <span class="math inline">\(n-1\)</span>. Here is an example, <span class="math display">\[\mbox{det}\left[\begin{array}{cc}
@@ -249,9 +249,9 @@ a_{21} &amp; a_{22}
 </ol>
 <div class="solution">
 <p class="solution-begin">
-Sketch of the proof <span id="sol-start-146" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-146', 'sol-start-146')"></span>
+Sketch of the proof <span id="sol-start-44" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-44', 'sol-start-44')"></span>
 </p>
-<div id="sol-body-146" class="solution-body" style="display: none;">
+<div id="sol-body-44" class="solution-body" style="display: none;">
 <p>For 6), notice that <span class="math inline">\(\mbox{det}(\mathbf{E}_i (c))=c\)</span>, <span class="math inline">\(\mbox{det}(\mathbf{E}_{ij})=-1\)</span>, and <span class="math inline">\(\mbox{det}(\mathbf{E}_{ij}(s))=1\)</span>. From the results of 3),4),5), we have<br><span class="math display">\[
 \begin{align*}
 \mbox{det}(\mathbf{E}_{i}(c)\mathbf{A})&amp;=\mbox{det}(\mathbf{E}_{i}(c)) \mbox{det}(\mathbf{A})=c\times \mbox{det}(\mathbf{A}),\\
@@ -353,9 +353,9 @@ Then <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a> can red
 </div>
 <div class="solution">
 <p class="solution-begin">
-Invariants of the discriminant in the bivariate polynomial <span id="sol-start-148" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-148', 'sol-start-148')"></span>
+Invariants of the discriminant in the bivariate polynomial <span id="sol-start-46" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-46', 'sol-start-46')"></span>
 </p>
-<div id="sol-body-148" class="solution-body" style="display: none;">
+<div id="sol-body-46" class="solution-body" style="display: none;">
 <p>Consider the quadratic form
 <span class="math display">\[p(\mathbf{x})=ax_{2}^{2}+2bx_{1}x_{2}+cx_{2}^{2}\in\mathcal{P}_{2}(\mathcal{V}).\]</span>
 Taking the derivatives of <span class="math inline">\(p(\mathbf{x})\)</span> with respect to <span class="math inline">\(x_{1}\)</span> and <span class="math inline">\(x_{2}\)</span>
@@ -396,7 +396,7 @@ with real (or complex) number coefficients <span class="math inline">\(a_{0},\do
 <p>The proof of theorem is beyond our concern. But figure <a href="ch-eigen.html#fig:FTA">12.4</a> gives a rough idea why the theorem works. Suppose we restrict the domain of a polynomial <span class="math inline">\(f(z)\)</span> to a circle <span class="math inline">\(|z|\leq r\)</span> where any <span class="math inline">\(z\in\mathbb{C}\)</span> is a complex number. Then by enlarging the radius <span class="math inline">\(r\)</span> of the circle, the image (cross-hatching area) <span class="math inline">\(\{f(z): \, |z|\leq r \}\)</span> will sooner or later cover the zero origin, namely <span class="math inline">\(f(z)=0\)</span> has a solution <span class="math inline">\(z^*\)</span> where <span class="math inline">\(|z^*|\leq r\)</span>. This may not be the case if we restrict the domain to a real line of the complex plane.</p>
 <p>By the theorem, we can deduce that the complex number system is in the sense of a complete system such that we can solve any polynomial equation in it. The highest degree of a polynomial gives you the highest possible number of distinct complex roots for the polynomial.</p>
 <p>Due to the importance of complex number system, hereby we review some basic concepts, and provide some interpretations about the <em>complex number system</em> <span class="math display">\[\mathbb{C}=\{a+\mbox{i}b:\, a,b\in\mathbb{R}\}.\]</span>
-For a complex number <span class="math inline">\(z\in\mathbb{C}\)</span>, <span class="math inline">\(z=a+\mbox{i}b\)</span> is the standard form. The <em>real part</em> of <span class="math inline">\(z\)</span> is written as <span class="math inline">\(\mbox{Re}(z)=a\)</span>, and the <em>imaginary part</em> is written as <span class="math inline">\(\mbox{Im}(z)=b\)</span>. The imaginary number <span class="math inline">\(\mbox{i}\)</span> satisfies the algebraic identity <span class="math inline">\(\mbox{i}^{2}=-1\)</span>. The <em>complex conjugate</em> of <span class="math inline">\(z\)</span> is defined as <span class="math inline">\(\bar{z}=a-\mbox{i}b\)</span>. Two complex numbers are equal precisely when they have the same <strong>real part</strong> and the same <strong>imaginary part</strong>.</p>
+For a complex number <span class="math inline">\(z\in\mathbb{C}\)</span>, <span class="math inline">\(z=a+\mbox{i}b\)</span> is the standard form. The <em>real part</em> of <span class="math inline">\(z\)</span> is written as <span class="math inline">\(\mbox{Re}(z)=a\)</span>, and the <em>imaginary part</em> is written as <span class="math inline">\(\mbox{Im}(z)=b\)</span>. The imaginary number <span class="math inline">\(\mbox{i}\)</span> satisfies the algebraic identity <span class="math inline">\(\mbox{i}^{2}=-1\)</span>. The <em>complex conjugate</em> of <span class="math inline">\(z\)</span>, having the same real part of <span class="math inline">\(z\)</span> but the opposite imaginary part, is defined as <span class="math inline">\(\bar{z}=a-\mbox{i}b\)</span>. Two complex numbers are equal precisely when they have the same <strong>real part</strong> and the same <strong>imaginary part</strong>.</p>
 <p>One can also consider that the complex numbers as <a href="sub-set-theory.html#sub:order">ordered pairs</a> of <a href="sub-continuity.html#sub:completeness">real numbers</a> satisfying the <em>law of complex arithmetic</em>. As complex numbers behave like ordered pairs of real numbers, they can be identified with points in the plane. Real numbers go along the <span class="math inline">\(x\)</span>-axis, and imaginary numbers are on the <span class="math inline">\(y\)</span>-axis. This gives the complex plane. Arithmetic of addition and subtraction in <span class="math inline">\(\mathbb{C}\)</span> is carried out like adding and subtracting vectors in <span class="math inline">\(\mathbb{R}^{2}\)</span>. Arithmetic of multiplication in <span class="math inline">\(\mathbb{C}\)</span> and the norm, however, are different those of vectors in <span class="math inline">\(\mathbb{R}^{2}\)</span>.<label for="tufte-sn-222" class="margin-toggle sidenote-number">222</label><input type="checkbox" id="tufte-sn-222" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">222</span> The <em>law of complex arithmetic</em> includes addition <span class="math inline">\((a+\mbox{i}b)+(c+\mbox{i}d)=(a+c)+(b+d)\mbox{i}\)</span>, multiplication <span class="math inline">\((a+\mbox{i}b)(c+\mbox{i}d)=(ac-bd)+(ad+bc)\mbox{i}\)</span>, absolute value (or square root of the <a href="ch-vecMat.html#sub:vec">norm</a>) <span class="math inline">\(|a+\mbox{i}b|= \sqrt{a^{2}+b^{2}}=\sqrt{(a+\mbox{i}b)(a-\mbox{i}b)}\)</span>.</span></p>
 <p>
 <span class="marginnote shownote">
@@ -472,9 +472,9 @@ By using the discriminant, we have <span class="math inline">\(cos\theta+\mbox{i
 \]</span></span></p>
 <div class="solution">
 <p class="solution-begin">
-Eigenvectors of the rotation <span id="sol-start-149" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-149', 'sol-start-149')"></span>
+Eigenvectors of the rotation <span id="sol-start-47" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-47', 'sol-start-47')"></span>
 </p>
-<div id="sol-body-149" class="solution-body" style="display: none;">
+<div id="sol-body-47" class="solution-body" style="display: none;">
 <p>Two <strong>eigenvalues</strong> are <span class="math inline">\(\lambda_{1}=\cos\theta+\mbox{i}\sin\theta\)</span> and <span class="math inline">\(\lambda_{2}=\cos\theta-\mbox{i}\sin\theta\)</span>.
 Their corresponding eigenvectors are <span class="math inline">\([1,-\mbox{i}]^{\top}\)</span> and <span class="math inline">\([1,\mbox{i}]^{\top}\)</span>. To see this result, notice that the eigenvalue and eigenvector <span class="math inline">\(\mathbf{T}_{\theta}\mathbf{v}_{1}=\lambda_{1}\mathbf{v}_{1}\)</span>, namely <span class="math display">\[\left[\begin{array}{cc}
 \cos\theta &amp; -\sin\theta\\
@@ -592,9 +592,9 @@ the relation <span class="math inline">\(\mathbf{A}\mathbf{V}=\mathbf{V}\Lambda\
 <p>Any two similar matrices have the same <a href="ch-eigen.html#sub:det">eigenvalues</a> and the same <a href="ch-eigen.html#sub:det">characteristic polynomial</a>.<label for="tufte-sn-230" class="margin-toggle sidenote-number">230</label><input type="checkbox" id="tufte-sn-230" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">230</span> In chapter <a href="sub-set-theory.html#sub:crypto">2.2</a>, the cryptosystem is based on some kind of conjugate operation (to construct two similar system). The idea of this operation exactly follows the fact that encrypted system and the decrypted system share the same eigenvalues (the crypto information). </span> Thus, if <span class="math inline">\(\mathbf{A}\)</span> is <strong>diagonalizable</strong>, and <span class="math inline">\(\mathbf{A}\)</span> is <strong>similar</strong> to <span class="math inline">\(\mathbf{B}\)</span>, one can infer that <span class="math inline">\(\mathbf{B}\)</span> is also <strong>diagonalizable</strong>.</p>
 <div class="solution">
 <p class="solution-begin">
-Proof <span id="sol-start-150" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-150', 'sol-start-150')"></span>
+Proof <span id="sol-start-48" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-48', 'sol-start-48')"></span>
 </p>
-<div id="sol-body-150" class="solution-body" style="display: none;">
+<div id="sol-body-48" class="solution-body" style="display: none;">
 <p>First, we prove that for <span class="math inline">\(n\)</span>-distinct eigenvectors, the columns of <span class="math inline">\(\mathbf{V}\)</span> are <a href="#sub:vecSpace">linearly independent</a> (a <a href="#sub:vecSpace">basis</a>).</p>
 <p>Suppose the columns of <span class="math inline">\(\mathbf{V}\)</span> are linearly dependent. Then there must exist a <a href="ch-vecMat.html#sub:vec">linear combination</a> <span class="math display">\[c_{1}\mathbf{v}_{1}+c_{2}\mathbf{v}_{2}+\cdots+c_{k}\mathbf{v}_{k}=0\]</span>
 with each <span class="math inline">\(c_{i}\neq0\)</span>. Mutiplying this linear combination by <span class="math inline">\(\lambda_{1}\)</span>, we have
@@ -658,9 +658,9 @@ Thus, if the matrix is <strong>diagonalizable</strong> with the <a href="ch-eige
 </p>
 <div class="solution">
 <p class="solution-begin">
-Code <span id="sol-start-151" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-151', 'sol-start-151')"></span>
+Code <span id="sol-start-49" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-49', 'sol-start-49')"></span>
 </p>
-<div id="sol-body-151" class="solution-body" style="display: none;">
+<div id="sol-body-49" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1">time =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span></a>
 <a class="sourceLine" id="cb29-2" data-line-number="2"><span class="co"># Case 1: 0&lt;lambda&lt;1</span></a>
 <a class="sourceLine" id="cb29-3" data-line-number="3">x1 =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>, <span class="dv">20</span>); x1[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">1</span> <span class="co"># At t=0, give x_t an initial value 1 </span></a>
@@ -735,9 +735,9 @@ x_{2,t-1}
 <p>The eigenvalues of this system are <span class="math inline">\(\lambda_{1}=0.9\)</span>, and <span class="math inline">\(\lambda_{2}=-0.6\)</span>. The eigenvectors can be chosen to be <span class="math inline">\(\mathbf{v}_{1}=[1,1]^{\top}\)</span> and <span class="math inline">\(\mathbf{v}_{2}=[-2,1]^{\top}\)</span>. Figure <a href="ch-eigen.html#fig:eigenDy2">12.11</a> shows that the trend shrinks along <span class="math inline">\(\mathbf{v}_{1}\)</span> but collapse in an oscillating manner along the <span class="math inline">\(\mathbf{v}_{2}\)</span>-axis. The presence of oscillation is due to the negative eigenvalue which means that the matrix will flip the state point back and forth on either side of the <span class="math inline">\(\mathbf{v}_{1}\)</span>-axis. The oscillation is diminishing because the largest absolute eigenvalue is less than one (otherwise, the oscillation will departure).</p>
 <div class="solution">
 <p class="solution-begin">
-Derivations <span id="sol-start-152" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-152', 'sol-start-152')"></span>
+Derivations <span id="sol-start-50" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-50', 'sol-start-50')"></span>
 </p>
-<div id="sol-body-152" class="solution-body" style="display: none;">
+<div id="sol-body-50" class="solution-body" style="display: none;">
 <p>System 1:</p>
 <p>The characteristic equation is
 <span class="math display">\[
@@ -880,9 +880,9 @@ a real exponential function and a pair of exponential functions with conjugate i
 </p>
 <div class="solution">
 <p class="solution-begin">
-Code of solving the simple ODE system <span id="sol-start-153" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-153', 'sol-start-153')"></span>
+Code of solving the simple ODE system <span id="sol-start-51" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-51', 'sol-start-51')"></span>
 </p>
-<div class="solution-body" id="sol-body-153" style="display: none;">
+<div class="solution-body" id="sol-body-51" style="display: none;">
 
 
 
@@ -924,14 +924,25 @@ Code of solving the simple ODE system <span id="sol-start-153" class="fa fa-plus
 <p>Alchemy, like other sceintific pursuits, has a skeleton of theory that provides intellectual fundamentals, that instructs the practical works, and illuminates the perspicuous pathways of future developments. Ancient Greek philosophers (Empedocles and later Aristotle) attributed the origin of natural substances and their transformations to four “roots” of things which are fire, air, earth, and water. Similarly, ancient Chinese philosophers attributed the essence, namely the set of properties constructing substances, to five elements which are earth, metal, water, wood, and fire. Both schools of thoughts endeavored to explain matter’s hidden nature and to account for its unending transformations into new forms. Most of the following ideas point to the belief that some sort of an invariant hidden beneath the constantly changing appearances of things. The invariant of Thales was water, of Aristotle was the first matter, of Empedocles were four elements, of Daoists and Confucianists were five elements.</p>
 <p>Just like any current empirical research activities, alchemists relied on those theoretical principles to guide the practical work. The practice of transformative process could involve special psychic states and incorporeal agents. The history of alchemy were simultaneously chemical, spiritual, and psychological, but that the main purpose of those pratical works looked like to unite the several constituents of consciousness and to develop a trascending state of mankind. At this point, we can see a clear bifurcation of two schools.</p>
 <ul>
-<li><p>Judaism-Christian alchemy: The Philosophers’ stone as a perfect metal represents the state of quintessence for transforming corrodible base metals into incorruptible gold.<label for="tufte-sn-235" class="margin-toggle sidenote-number">235</label><input type="checkbox" id="tufte-sn-235" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">235</span> The metals were divided into different categories. By the standards of the intrinsic beauty and the ability to resist corrosion, noble metals (such as gold and silver) are different from the base metals (such as copper, iron, tin, lead, and mercury).</span></p></li>
+<li><p>Judaic-Christian alchemy: The Philosophers’ stone as a perfect metal represents the state of quintessence for transforming corrodible base metals into incorruptible gold.<label for="tufte-sn-235" class="margin-toggle sidenote-number">235</label><input type="checkbox" id="tufte-sn-235" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">235</span> The metals were divided into different categories. By the standards of the intrinsic beauty and the ability to resist corrosion, noble metals (such as gold and silver) are different from the base metals (such as copper, iron, tin, lead, and mercury).</span></p></li>
 <li><p>Chinese alchemy: The Golden elixir as a immortal pellet represents the state of constancy and immutability beyond the change and transiency.<label for="tufte-sn-236" class="margin-toggle sidenote-number">236</label><input type="checkbox" id="tufte-sn-236" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">236</span> In Chinese history, Sulphur and nitre were both used for medicinal purposes to extend the life of a person, and for military purposes to extend the life of the culture.</span></p></li>
 </ul>
 <p>Even though the ultimal goals looked different, if we interpret the chemical processes declared by the alchemists as metaphorical or analogical manifestations of the need for enhancing knowledge to achieve salvation, of the need for distilling human’s inner being to archieve divinity, we may consider what all these alchemists sought were the same, a purely self-transformative, meditative, psychic process.<label for="tufte-sn-237" class="margin-toggle sidenote-number">237</label><input type="checkbox" id="tufte-sn-237" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">237</span> <span class="citation">Jung (<a href="bibliography.html#ref-Jung2008">2008</a>)</span> asserted that the real object of alchemy was the transformation of the psyche, and considered Alchemy’s “true root” was to be found not so much in philosophical ideas and outlooks but rather in “experiences of projection of the individual researcher.” <span class="citation">Jung (<a href="bibliography.html#ref-Jung2008">2008</a>)</span> say,
 “a peculiar attitude of the mind—the concentration of attention on a single thing. The result of this state of concentration is that the mind is absorbed to the exclusion of other things, and to such a degree insensible that the way is opened for automatic actions; and these actions, becoming more complicated, as in the preceding case, may assume a psychic character and constitute intelligences of a parasitic kind, existing side by side with the normal personality, which is not aware of them.” Since the psyche could project its contents onto any sort of matter, the actual substances employed by the alchemist were not crucial. Jung believe that Alchemy’s allegorical language were expressions of a collective unconscious.</span></p>
 <p>Transformation, in a alchemical metaphor, could be about the changes of the non-volatile body and the volatile spirit. The body seems to be the same for all substances; so the identity is dependent on its spirit.</p>
 <p>The Judaism-Christian alchemy focused on a transformation from a state of nature to a state of grace by releasing the imprisoned material body. Themes such as purification and distillation readily lend themselves as moral or spiritual symbols. Knowledge, in this case, was necessary to overcome one’s ignorance, to liberate oneself from the material world and the evil forces.</p>
-<p>The Chinese alchemy focused on a transformation from a fleeting state to an eternal state by collecting the seperated spirits. Metaphorical sublimation and volatilization seperated the spirits from the various bodies. Joining the separated spirits formed a unifed consciousness, and established the desired collective knowledge.</p>
+<p>The Chinese alchemy focused on a transformation from a fleeting state to an eternal state by collecting the seperated spirits. Metaphorical sublimation and volatilization seperated the spirits from the various bodies. Joining the separated temporary spirits formed a unified long-lived consciousness, and established the desired collective knowledge.</p>
+<p>All these alchemical reactions nowadays were thought to be chemical related reactions. It may be interesting to know that an overall chemical reaction consists of a finite number of individual reaction steps that can be represented by a matrix equation <span class="math inline">\(\mathbf{A}\mathbf{x}=0\)</span>, where <span class="math inline">\(\mathbf{A}=[a_{ij}]_{n\times m}\)</span>, <span class="math inline">\(m\)</span> stands for the number of different chemical species, <span class="math inline">\(n\)</span> stands for the number of different reactions, and <span class="math inline">\(\mathbf{x}=[x_{j}]_{m\times1}\)</span> represents the concentrations of <span class="math inline">\(m\)</span> chemical species. The matrix <span class="math inline">\(\mathbf{A}\)</span> is called the <em>stoichiometric matrix</em> that shows certain <a href="#sub:vector">linear combinations</a> of concentrations.<label for="tufte-sn-238" class="margin-toggle sidenote-number">238</label><input type="checkbox" id="tufte-sn-238" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">238</span> An <strong>stoichiometric equation</strong> comes with a reaction arrow, left of which gives the substances with negative stoichiometric coefficients (reactants), and right of which gives the substances with positive stoichiometric coefficients (products). For example a chemical reaction <span class="math inline">\(x_{1}+3x_{2}\rightarrow2x_{3}\)</span> is represented by <span class="math inline">\(-x_{1}-3x_{2}+2x_{3}=0\)</span>. The theory of this model is known as the chemical reaction network theory. </span> Then the same <strong>stoichiometric matrix</strong> can describe the dynamical changes of a system of elementary reactions in a system of differential equations, such as <span class="math inline">\(\mbox{d}\mathbf{x}(t)/\mbox{d}t=\mathbf{A}f(\mathbf{x}(t))\)</span>, where <span class="math inline">\(f(\cdot)\)</span> is a function about the rate of reactions.<label for="tufte-sn-239" class="margin-toggle sidenote-number">239</label><input type="checkbox" id="tufte-sn-239" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">239</span> Usually, the function <span class="math inline">\(f(\cdot)\)</span> adheres to a power law of the kinetic energy, which means that <span class="math inline">\(f(x_{i})\)</span> is obtained by multiplying the concentrations raised to a suitable power (a <a href="ch-eigen.html#sub:det">monomial</a>), i.e. <span class="math inline">\(f(x_{i})=c_{i}\prod_{k=1}^{m}x_{k}^{\beta_{j,k}}\)</span>. Then one can have a <a href="ch-eigen.html#sub:det">multivariate polynomial</a> where the <span class="math inline">\(i\)</span>-entry of <span class="math inline">\(\mathbf{A}f(\mathbf{x}(t))\)</span> is given by <span class="math inline">\(\sum_{j=1}^{n}a_{ij}c_{i}\prod_{k=1}^{m}x_{k}^{\beta_{j,k}}\)</span>. The equations <span class="math inline">\(\mathbf{A}f(\mathbf{x}(t))\)</span> typically preserve the <a href="#sub:ODE">autonomous property</a> of differential equations. A reaction step with this power law can be written as the following chemical equation: <span class="math inline">\(\sum_{j=1}^{m}\beta_{ij}x_{j}\rightarrow\sum_{j=1}^{m}(\beta_{ij}+a_{ij})x_{j}\)</span>.</span></p>
+<blockquote>
+<blockquote>
+<p>Unfinished!</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Will come back later!</p>
+</blockquote>
+</blockquote>
 </div>
 </div>
 </div>
@@ -942,7 +953,7 @@ Code of solving the simple ODE system <span id="sol-start-153" class="fa fa-plus
 <a href="bibliography.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-06-20
+2020-07-01
 </p>
 </div>
 </div>
