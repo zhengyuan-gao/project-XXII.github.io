@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2020-07-10" />
+<meta name="date" content="2020-07-20" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -155,7 +155,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a href="ch-vecMat.html"><span class="toc-section-number">10</span> Vector and Matrix</a>
 <a href="ch-MatComp.html"><span class="toc-section-number">11</span> Matrix Computation</a>
 <a href="ch-eigen.html"><span class="toc-section-number">12</span> Eigenvalues and Eigenvectors</a>
-<a id="active-page" href="ch-UnMulti.html"><span class="toc-section-number">13</span> Uncertainty in Multiple Dimensions</a>
+<a id="active-page" href="ch-UnMulti.html"><span class="toc-section-number">13</span> Uncertainty in Multiple Dimensions</a><ul class="toc-sections">
+<li class="toc"><a href="#sub:MultiVar"> Multivariate Distributions</a></li>
+</ul>
 <a href="bibliography.html">Bibliography</a>
 </div>
 </li>
@@ -171,6 +173,226 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span class="header-section-number">13</span> Uncertainty in Multiple Dimensions</h1>
 <p>Our states are somehow dependent on and co-varies with our experiences, our epistemic and aesthetic norms, or more generally our changable roles in this world. On the other hand, the world has various paradigms, cultures, and belief systems that attribute different values to an individual’s state. An interference with the world could make one’s state an uncertain object.</p>
 <p>In reality, when we consider the uncertainty of multiple <a href="sub-incomplete.html#sub:beyond2">random events</a> ahead that co-vary with each others, we tend to find out a law to characterize these events in a unified way. It turns out that vectors and matrices are indispensable to construct the characterizations for this joint venture.</p>
+<div id="sub:MultiVar" class="section level2">
+<h2>
+<span class="header-section-number">13.1</span> Multivariate Distributions</h2>
+<p>The previous examples in section <a href="ch-eigen.html#sub:matNorms">12.4</a> of data vectors didn’t involve any discussion about uncertainty. In reality, most datasets contain (more or less) some random features. When the uncertainty enters one’s concern, one may think that behind all the uncertain random events lie certain laws of probabilities. The event which one actually observes in a single instance could always be referred to a collection of events that might have happened. In other words, if one observes a single event, say <span class="math inline">\(x_t\)</span> at time <span class="math inline">\(t\)</span> from a random experiment, it is possible that at time <span class="math inline">\(t\)</span> the experiment can generate a set of possible outcomes. It is by chance that the value <span class="math inline">\(x_t\)</span> was generated, but if the experiment runs in a “parallel” world at time <span class="math inline">\(t\)</span>, the outcome <span class="math inline">\(x_t\)</span> could be different from the current one.<label for="tufte-sn-245" class="margin-toggle sidenote-number">245</label><input type="checkbox" id="tufte-sn-245" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">245</span> This argument relates to the <strong>many-worlds interpretation</strong> or <strong>many-minds interpretation</strong> in quantum mechanics where nondeterministic observations root in the system that “selects” a single value in the range of possible values.</span></p>
+<p>By this argument, we can treat <span class="math inline">\(x_t\)</span> at every time <span class="math inline">\(t\)</span> as a realization of a random variable <span class="math inline">\(X_t(\omega)\)</span>. And since the time series data vector contains a series of realizations, say <span class="math inline">\([x_1,\dots,x_T]^\top\)</span>, we have to consider this whole vector to be a realization from a <em>random vector</em> <span class="math inline">\(\mathbf{X}(\omega) =[X_1(\omega),\dots,X_T(\omega)]^\top\)</span>.<label for="tufte-sn-246" class="margin-toggle sidenote-number">246</label><input type="checkbox" id="tufte-sn-246" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">246</span> The <span class="math inline">\(\omega\)</span>, as the use in chapter <a href="ch-CalUn.html#sub:conProb">9.4</a>, stands for a deeper invisible state that generates the outcome of the random variable.</span> Any attempt of understanding the underlying law of such data vectors becomes an attempt of understanding the underlying <a href="ch-CalUn.html#sub:conProb">joint probability</a> law of <span class="math inline">\(X_1(\omega),\dots,X_T(\omega)\)</span>, namely <span class="math inline">\(\mathbb{P}(X_1,\dots,X_T)\)</span>.</p>
+<p>The <a href="ch-CalUn.html#sub:rv">probability distribution</a> refering to a joint probability of a <strong>random vector</strong> is called the <em>multivariate distribution</em>. We explore some properties of the <strong>multivariate distribution</strong> through one of the most important multivariate distributions, the <strong>multivariate normal (Gaussian) distribution</strong>. Recall that a <a href="ch-CalUn.html#sub:divRV">standard normal random variable</a> <span class="math inline">\(X\sim \mathcal{N}(0,1)\)</span> has the density function <span class="math inline">\(f(x)=\frac{1}{\sqrt{2\pi}}\exp(x^2)\)</span> for <span class="math inline">\(x\in\mathbb{R}\)</span>. Now let <span class="math inline">\(X_1(\omega),\dots X_T(\omega) \sim \mathcal{N}(0,1)\)</span> be <a href="ch-CalUn.html#sub:divRV">independent random variables</a>. The <strong>joint density</strong> of such a vector <span class="math inline">\(\mathbf{X}(\omega)=[X_1(\omega),\dots,X_T(\omega)]^\top\)</span> is
+<span class="math display">\[
+\begin{align*}
+f(\mathbf{x})&amp;=\prod_{t=1}^{T}f(x_{t})=\frac{1}{(2\pi)^{T/2}}\exp\left\{ -\frac{1}{2}\sum_{t=1}^{T}x_{t}\right\} \\ &amp;=\frac{1}{(2\pi)^{T/2}}\exp\left\{ -\frac{1}{2}\mathbf{x}^{\top}\mathbf{x}\right\}.
+\end{align*}
+\]</span> which is the <em>standard multivariate normal density</em>.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:mvn3D"></span>
+<img src="fig/Part3/mvn3D.png" alt="Joint density of two independent normal random variables " width="100%"><!--
+<p class="caption marginnote">-->Figure 13.1: Joint density of two independent normal random variables <!--</p>-->
+<!--</div>--></span>
+</p>
+<p>The <a href="#sub:divRv">independence</a> property splits the joint density into product of individual densities <span class="math inline">\(f(\mathbf{x})=\prod_{t=1}^{T}f(x_{t})\)</span>. The assumption of independence may be violated in many situations. In the dynamical enviorments, an event <span class="math inline">\(X_{t}(\omega)\)</span> is followed by another event <span class="math inline">\(X_{t+1}(\omega)\)</span>, so it is natural to think that [the arrow of time] attaches some kind of the dependent chain between these two successive events. From another perspective, when one suspects that an interaction happened between <span class="math inline">\(Y(\omega)\)</span> and <span class="math inline">\(X(\omega)\)</span>, it is also natural to treat <span class="math inline">\(Y(\omega)\)</span> and <span class="math inline">\(X(\omega)\)</span> jointly as a vector, and to assume some degree of dependence between these two random elements.<label for="tufte-sn-247" class="margin-toggle sidenote-number">247</label><input type="checkbox" id="tufte-sn-247" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">247</span> Essentially, since we consider that the variables <span class="math inline">\(\{X_1(\omega),\dots,X_T(\omega)\}\)</span> or <span class="math inline">\(\{Y(\omega), X(\omega)\}\)</span> depend on the same invisible state <span class="math inline">\(\omega\)</span>, the dependence may come with the underlying features that are shared by all the variables generated by <span class="math inline">\(\omega\)</span>.</span> For example, the <a href="ch-CalUn.html#sub:conProb">conditional structure</a> <span class="math inline">\(Y|X\)</span> used in a <a href="ch-CalUn.html#sub:conProb">probabilistic causation</a> simply assumes the dependence exist.<label for="tufte-sn-248" class="margin-toggle sidenote-number">248</label><input type="checkbox" id="tufte-sn-248" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">248</span> If <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> are independent, then the conditional probability <span class="math display">\[
+\begin{align*}
+\mathbb{P}(Y|X)= \frac{\mathbb{P}(X,Y)}{\mathbb{P}(X)}\\
+=\frac{\mathbb{P}(X)\mathbb{P}(Y)}{\mathbb{P}(X)}=\mathbb{P}(Y)
+\end{align*}
+\]</span> will not reveal any convincing <a href="ch-CalUn.html#sub:conProb">causal relation</a> between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>.</span></p>
+<p>The <a href="#sub:divRv">dependence</a> or <a href="#sub:divRv">independence</a> is a condition regarding the joint probability law. For any normal distributed random variable <span class="math inline">\(X\sim \mathcal{N}(\mu,\sigma^2)\)</span>, the whole distribution is characterized by the <a href="ch-CalUn.html#sub:ex">mean</a> <span class="math inline">\(\mu\)</span> and the <a href="ch-CalUn.html#sub:ex">variance</a> <span class="math inline">\(\sigma^2\)</span>, namely a first and a second order information criteron respectively. The <strong>covariance</strong> is a second order information criterion to depict the dependence between any two <a href="#sub:divRv">random variables</a>. Futhermore, the <strong>covariance matrix</strong> of any random vector <span class="math inline">\(\mathbf{X}(\omega)\)</span> gives a characterization of the <a href="#sub:divRv">dependence</a> amongst any two random variables <span class="math inline">\(X_i, X_j\)</span> of the vector <span class="math inline">\(\mathbf{X}(\omega)\)</span>.</p>
+<ul>
+<li>
+<em>Covariance</em>, <em>correlation</em>, and <em>multivariate normal density</em> : Let <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_j\)</span> be random variables with means <span class="math inline">\(\mu_i\)</span> and <span class="math inline">\(\mu_j\)</span> and variance <span class="math inline">\(\sigma_i^2\)</span> and <span class="math inline">\(\sigma_j^2\)</span>. The <strong>covariance</strong> between <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_j\)</span> is given by
+<span class="math display">\[\mbox{Cov} (X_i , X_j) = \mbox{Cov} (X_j , X_i) =\mathbb{E}[(X_i-\mu_i)(X_j-\mu_j)],\]</span>
+and the <strong>correlation</strong> between <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_j\)</span> is defined by
+<span class="math display">\[\rho_{ij} = \rho_{ji} = \frac{\mbox{Cov}(X_i,X_j)}{\sigma_i \sigma_j}.\]</span> The <strong>covariance matrix</strong> random vector <span class="math inline">\(\mathbf{X}(\omega)=[X_1, \dots, X_T]^\top\)</span> is given by
+<span class="math display">\[
+\begin{align*}
+\mbox{Var}(\mathbf{X}(\omega))&amp;=\left[\begin{array}{cccc}
+\mbox{Var}X_{1} &amp; \mbox{Cov}(X_{1},X_{2}) &amp; \cdots &amp; \mbox{Cov}(X_{1},X_{T})\\
+\mbox{Cov}(X_{2},X_{1}) &amp; \mbox{Var}X_{2} &amp; \cdots &amp; \mbox{Cov}(X_{2},X_{T})\\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots\\
+\mbox{Cov}(X_{T},X_{1}) &amp; \mbox{Cov}(X_{T},X_{2}) &amp; \cdots &amp; \mbox{Var}X_{T}
+\end{array}\right]
+\\
+&amp;=\left[\begin{array}{cccc}
+\sigma_{1}^{2} &amp; \sigma_{12} &amp;  &amp; \sigma_{1T}\\
+\sigma_{21} &amp; \sigma_{2}^{2} &amp;  &amp; \sigma_{2T}\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+\sigma_{T1} &amp; \sigma_{T2} &amp; \cdots &amp; \sigma_{T}^{2}
+\end{array}\right]=\left[\begin{array}{ccc}
+\sigma_{1}^{2} &amp; \rho_{12}\sigma_{1}\sigma_{2} &amp; \dots\\
+\rho_{12}\sigma_{1}\sigma_{2} &amp; \sigma_{2}^{2} &amp; \dots\\
+\vdots &amp; \vdots &amp; \ddots
+\end{array}\right]=\Sigma
+\end{align*}
+\]</span>
+</li>
+</ul>
+<p>If any <span class="math inline">\(X_i\)</span> in <span class="math inline">\(\mathbf{X}(\omega)\)</span> is a normal random variable, then <span class="math inline">\(\mathbf{X}(\omega)\)</span> follows the <em>multivariate normal distribution</em> such that
+<span class="math inline">\(\mathbf{X}(\omega)\sim\mathcal{N}\left(\mathbf{\mu},\:\Sigma\right)\)</span>, where <span class="math inline">\(\mathbf{\mu}=[\mu_1,\dots,\mu_T]^\top\)</span> is the <em>mean vector</em>, namely <span class="math inline">\(\mathbf{\mu}\)</span>, and <span class="math inline">\(\Sigma\)</span> is the <strong>covariance matrix</strong>. The density function of <span class="math inline">\(\mathbf{X}(\omega)\)</span> is given by <span class="math display">\[f(\mathbf{x})=\frac{1}{(2\pi)^{T/2}|\Sigma|^{1/2}}\exp\left\{ -\frac{1}{2}(\mathbf{x}-\mathbf{\mu})^{\top}\Sigma^{-1}(\mathbf{x}-\mathbf{\mu})\right\}.\]</span></p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:mvn"></span>
+<img src="fig/Part3/mvn.gif" alt="Correlation (dependence pattern) changes of a bivariate normal density " width="100%"><!--
+<p class="caption marginnote">-->Figure 13.2: Correlation (dependence pattern) changes of a bivariate normal density <!--</p>-->
+<!--</div>--></span>
+</p>
+<p>It is easy to show that for any real vector <span class="math inline">\(\mathbf{a}\)</span> and <span class="math inline">\(\mathbf{b}\)</span> and the <strong>random vector</strong> <span class="math inline">\(\mathbf{X}(\omega) \sim \mathcal{N}(\mathbf{\mu}, \Sigma)\)</span>, the expectation and <strong>(co)variance</strong> operation for a <a href="ch-vecMat.html#sub:linearity">linear/affine transformation</a> have the following results <span class="math inline">\(\mathbb{E}[\mathbf{a}^\top \mathbf{X}(\omega) + \mathbf{b}]=\mathbf{a}^\top \mathbf{\mu} + \mathbf{b}\)</span>, and <span class="math inline">\(\mbox{Var}(\mathbf{a}^\top \mathbf{X}(\omega) + \mathbf{b})=\mathbf{a}^\top \Sigma \mathbf{a}\)</span>. These results are analogous to those in the scalar cases. One can extend the results for any real matrix <span class="math inline">\(\mathbf{A}\)</span>: <span class="math inline">\(\mathbb{E}[\mathbf{A} \mathbf{X}(\omega)]=\mathbf{A} \mathbf{\mu}\)</span>, and <span class="math inline">\(\mbox{Var}(\mathbf{A} \mathbf{X}(\omega))=\mathbf{A} \Sigma\mathbf{A}^\top\)</span>.
+These relations indicate that it is possible to construct any <strong>multivariate normal distribution</strong> by the <strong>standard</strong> one. The idea is to decompose the covariance as product such as
+<span class="math inline">\(\Sigma=\mathbf{A}\mathbf{A}^\top\)</span>, so that any <span class="math inline">\(\mathbf{X}(\omega) \sim \mathcal{N}(\mathbf{\mu}, \Sigma)\)</span> is equivalent to <span class="math display">\[ \mathbf{A}\mathbf{W}(\omega) + \mathbf{\mu},\,\, \mbox{ where } \mathbf{W}(\omega) \sim \mathcal{N}(0, \mathbf{I})\]</span>
+where <span class="math inline">\(\mathbf{W}(\omega)\)</span> is the <strong>standard multivariate normal random vector</strong>. The decomposition <span class="math inline">\(\Sigma=\mathbf{A}\mathbf{A}^\top\)</span> utilizes several properties of the <strong>covariance matrix</strong>. We are going to examine these properties one by one.</p>
+<p>One important property of the variance is that <span class="math inline">\(\mbox{Var}(X)&gt;0\)</span> for any random variable <span class="math inline">\(X\)</span>. The covariance of any two random variables, however, can be either positive or negative, because the dependence can comes from a positive or negative relation. So we cannot say that all entries of the covariance matrix <span class="math inline">\(\mbox{Var}(\mathbf{X}(\omega))\)</span> are positive. But <span class="math inline">\(\mathbf{a}^\top \Sigma \mathbf{a}\)</span> must be non-negative for any real non-zero vector <span class="math inline">\(\mathbf{a}\)</span>.<label for="tufte-sn-249" class="margin-toggle sidenote-number">249</label><input type="checkbox" id="tufte-sn-249" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">249</span> Otherwise, we may have <span class="math inline">\(a^2_i\mbox{Var}(X_i)&lt;0\)</span> at some entry <span class="math inline">\(X_i\)</span>. As <span class="math inline">\(a^2_i\)</span> is non-negative, we have <span class="math inline">\(\mbox{Var}(X_i)&lt;0\)</span> for a random variable <span class="math inline">\(X_i\)</span>. This resutl contradicts with the property of the variance operator.</span> Any matrix satisfying <span class="math inline">\(\mathbf{a}^\top \Sigma \mathbf{a}\geq 0\)</span> for non-zero real vector <span class="math inline">\(\mathbf{a}\)</span> is called <em>positive (semi-)definite matrix</em>.</p>
+<p>The <a href="ch-eigen.html#sub:det">eigenvalues</a> of the <strong>positive (semi-)definite matrix</strong> are real postive.
+Let <span class="math inline">\(\lambda\)</span> be an eigenvalue of <span class="math inline">\(\Sigma\)</span>, and let <span class="math inline">\(\Sigma \mathbf{v}=\lambda \mathbf{v}\)</span> for some non-zero <a href="ch-eigen.html#sub:det">eigenvector</a> <span class="math inline">\(\mathbf{v}\)</span>. It is obvious to see that <span class="math display">\[\mathbf{v}^{\top}\Sigma\mathbf{v}=\mathbf{v}^{\top}\lambda \mathbf{v}=\lambda\|\mathbf{v}\|^{2}.\]</span> As <span class="math inline">\(\mathbf{v}^{\top}\Sigma\mathbf{v}\geq 0\)</span> by the definition of <strong>positive (semi-)definite matrix</strong>, <span class="math inline">\(\lambda\|\mathbf{v}\|^{2}\geq 0\)</span>. Because <span class="math inline">\(\|\mathbf{v}\|^{2}\geq 0\)</span>, we can see that <span class="math inline">\(\lambda\)</span> is a real positive number.</p>
+<p>In addition, we can see that the <strong>covariance matrix</strong> <span class="math inline">\(\Sigma\)</span> is <a href="#sub:">symmetric</a>. Recall that <a href="ch-eigen.html#sub:diag">eigenvalue-eigenvector decomposition</a> <span class="math inline">\(\Sigma=\mathbf{V}\Lambda \mathbf{V}^{-1}\)</span> where <span class="math inline">\(\Lambda\)</span> is the <a href="ch-eigen.html#sub:diag">diagonal eigenvalue matrix</a>. By the <a href="#sub:">transposed operations</a>, we have <span class="math display">\[\Sigma^\top=(\mathbf{V}\Lambda \mathbf{V}^{-1})^\top = (\mathbf{V}^{-1})^\top \Lambda (\mathbf{V})^\top\]</span> where <span class="math inline">\(\Lambda=\Lambda^\top\)</span> by the diagonal property. The symmetry of <span class="math inline">\(\Sigma\)</span> gives
+<span class="math inline">\(\mathbf{V}\Lambda \mathbf{V}^{-1}=(\mathbf{V}^{-1})^\top \Lambda (\mathbf{V})^\top\)</span> or say
+<span class="math display">\[\Lambda = \left(\mathbf{V}^{-1}(\mathbf{V}^{-1})^\top\right) \Lambda \left(\mathbf{V}^\top\mathbf{V}\right).\]</span> One can infer that <span class="math inline">\(\mathbf{V}^\top\mathbf{V}=\mathbf{I}\)</span> or <span class="math inline">\(\mathbf{V}^\top =\mathbf{V}^{-1}\)</span>. In other words, for a symmetric square matrix of real-valued entries, the eigenvector matrix <span class="math inline">\(\mathbf{V}\)</span> are <em>orthonormal</em>
+<span class="math inline">\(\mathbf{V}^\top\mathbf{V}=\mathbf{I}\)</span>, namely all vectors in <span class="math inline">\(\mathbf{V}\)</span> are mutually orthogonal and all of unit length.<label for="tufte-sn-250" class="margin-toggle sidenote-number">250</label><input type="checkbox" id="tufte-sn-250" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">250</span> Any two vectors <span class="math inline">\(\mathbf{v}_i, \mathbf{v}_j\)</span> in the matrix <span class="math inline">\(\mathbf{V}\)</span> are <a href="ch-vecMat.html#sub:vec">orthogonal</a> <span class="math inline">\(\mathbf{v}_i^\top \mathbf{v}_j=\left\langle \mathbf{v}_{i},\mathbf{v}_{j}\right\rangle =0\)</span>. The norm of the any vector in <span class="math inline">\(\mathbf{V}\)</span> is one: <span class="math inline">\(\|\mathbf{v}_i\|=\sqrt{\left\langle \mathbf{v}_{i},\mathbf{v}_{i}\right\rangle}=1\)</span>.</span></p>
+<p>Now we can rewrite <span class="math inline">\(\Sigma=\mathbf{V}\Lambda \mathbf{V}^{-1}\)</span> as <span class="math inline">\(\Sigma=\mathbf{V}\Lambda \mathbf{V}^\top\)</span>. Since <span class="math inline">\(\Lambda\)</span> is a diagonal matrix with real positive entries <span class="math inline">\(\{\lambda_i\}\)</span>, we can represent <span class="math inline">\(\Lambda\)</span> by <span class="math inline">\(\Lambda=\mathbf{S}\mathbf{S}\)</span> where <span class="math inline">\(\mathbf{S}\)</span> is also a diagonal matrix with real positive entries <span class="math inline">\(\{\sqrt{\lambda_i}\}\)</span>. Then the covariance matrix becomes
+<span class="math display">\[\Sigma=\mathbf{V}\mathbf{S}\mathbf{S}^\top \mathbf{V}^\top=(\mathbf{V}\mathbf{S})(\mathbf{V}\mathbf{S})^\top.\]</span> Let’s denote <span class="math inline">\(\mathbf{V}\mathbf{S}\)</span> by <span class="math inline">\(\mathbf{A}\)</span>. We have the desired result <span class="math inline">\(\Sigma=\mathbf{A}\mathbf{A}^\top\)</span>. The result is called the <em>Cholesky decomposition</em>. It says that any symmetric <strong>positive semi-definite</strong> matrix <span class="math inline">\(\Sigma\)</span> can be decomposed as a product of one matrix <span class="math inline">\(\mathbf{A}\)</span> and its transpose <span class="math inline">\(\mathbf{A}^\top\)</span>.<label for="tufte-sn-251" class="margin-toggle sidenote-number">251</label><input type="checkbox" id="tufte-sn-251" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">251</span> Such a matrix <span class="math inline">\(\mathbf{A}\)</span> is analogous to the matrix version square root of <span class="math inline">\(\Sigma\)</span>. Unlike the real numbers, whose expression of a square root is unique. The “square root” of a matrix does not have a unique representation. For example, one cen select an <em>orthonormal</em> matrix <span class="math inline">\(\mathbf{U}\)</span> such that <span class="math inline">\(\mathbf{U}\mathbf{U}^\top = \mathbf{I}\)</span>, then <span class="math inline">\(\Sigma \mathbf{A}\mathbf{A}^\top=\mathbf{A}\mathbf{I}\mathbf{A}^\top=(\mathbf{A}\mathbf{U})(\mathbf{A}\mathbf{U})^\top\)</span> is also a valid representation for <span class="math inline">\(\Sigma\)</span>.</span></p>
+<p>The multivariate normal distribution of <span class="math inline">\(\mathbf{X}(\omega)\)</span> gives a full description about the dependent structure amongst all normal random variables in the random vector <span class="math inline">\(\mathbf{X}(\omega)\)</span>. With the joint probability law, we can derive other useful dependent structures. For example, the <a href="ch-CalUn.html#sub:conProb">conditional probability</a> can induce the <a href="ch-CalUn.html#sub:conProb">probabilistic causal relation</a> as the conditional probability law implicitly treats the conditions as the (probabilitistic) cause.</p>
+<p>The calculation of multivariate conditional probability is non-trivial. Take a <span class="math inline">\(2N\)</span>-dimensional <strong>multivariate normal random vector</strong> as an example. By splitting the vector into two subvectors, we have the following expression for the joint density
+<span class="math display">\[
+\begin{bmatrix}
+ \mathbf{Y}(\omega) \\
+ \mathbf{X}(\omega)
+\end{bmatrix} \sim \mathcal{N} \left( \begin{bmatrix}
+ \mathbf{\mu_y} \\
+ \mathbf{\mu_x}
+\end{bmatrix}
+,  \begin{bmatrix}
+ \Sigma_{11} &amp; \Sigma_{12} \\
+ \Sigma_{21} &amp; \Sigma_{22}
+\end{bmatrix}
+ \right)
+\]</span>
+where <span class="math inline">\(\Sigma_{11}\)</span>, <span class="math inline">\(\Sigma_{22}\)</span> are the <strong>covariance matrices</strong> of the random vectors <span class="math inline">\(\mathbf{Y}(\omega)\)</span> and <span class="math inline">\(\mathbf{X}(\omega)\)</span> respectively, and <span class="math inline">\(\Sigma_{12} = \Sigma_{21}\)</span> is <span class="math inline">\(\mbox{Cov}(\mathbf{Y}(\omega), \mathbf{X}(\omega))\)</span>.</p>
+<p>If we want to calculate the conditional density <span class="math inline">\((\mathbf{Y}|\mathbf{X})(\omega)\)</span>, then in principle we need to compute <span class="math inline">\(f(\mathbf{y}|\mathbf{x})=f(\mathbf{y}, \mathbf{x})/f(\mathbf{x})\)</span>.<label for="tufte-sn-252" class="margin-toggle sidenote-number">252</label><input type="checkbox" id="tufte-sn-252" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">252</span> The full expression of the joint density function <span class="math inline">\(f(\mathbf{y}, \mathbf{x})\)</span> contains the term
+<span class="math display">\[   \left[(\mathbf{y}-\mathbf{\mu_{y}})^{\top},\,(\mathbf{x}-\mathbf{\mu_{x}})^{\top}\right]\left[\begin{array}{cc}
+\Sigma_{11} &amp; \Sigma_{12}\\
+\Sigma_{21} &amp; \Sigma_{22}
+\end{array}\right]^{-1}\left[\begin{array}{c}
+\mathbf{y}-\mathbf{\mu_{y}}\\
+\mathbf{x}-\mathbf{\mu_{x}}
+\end{array}\right]
+\]</span>
+which requires to evaluate the inversion of the block matrices.</span> Rather than derive the procedure of this computating the conditional density, we give the direct
+results of <strong>conditional vector mean</strong> and <strong>conditional covariance matrix</strong>, and then consider why such results make sense.
+<span class="math display">\[
+\begin{align*}
+\mathbb{E}[\mathbf{Y}(\omega) | \mathbf{X}(\omega)=\mathbf{x}]&amp;=
+\mathbf{\mu_y} + \Sigma_{12} \Sigma_{22}^{-1}
+\left(
+ \mathbf{x} - \mathbf{\mu_x}
+\right),\\
+\mbox{Var}[\mathbf{Y}(\omega) | \mathbf{X}(\omega) =\mathbf{x}]
+&amp;=
+\Sigma_{11} - \Sigma_{12} \Sigma_{22}^{-1} \Sigma_{21}.
+\end{align*}
+\]</span>
+The results show that the conditioning vector <span class="math inline">\(\mathbf{x}\)</span> will adjust the first and the second moment information criteria of dependent vector <span class="math inline">\(\mathbf{Y}(\omega)\)</span>.</p>
+<p>This conditional covariance matrix <span class="math inline">\(\Sigma_{11} - \Sigma_{12} \Sigma_{22}^{-1}\Sigma_{21}\)</span> is the <a href="ch-MatComp.html#sub:LU">Schur complement</a> of <span class="math inline">\(\Sigma_{22}\)</span>. Similar to the role in the <a href="ch-MatComp.html#sub:LU">block LU factorization</a>, such a term is to eliminate the covariance blocks corresponding to the variables being conditioned upon. The main instrument <span class="math inline">\(\Sigma_{12} \Sigma_{22}^{-1}\)</span> is to eliminate the dependence caused by <span class="math inline">\(\mathbf{X}(\omega)\)</span>.</p>
+<div class="solution">
+<p class="solution-begin">
+Proof of the elimination <span id="sol-start-113" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-113', 'sol-start-113')"></span>
+</p>
+<div id="sol-body-113" class="solution-body" style="display: none;">
+<p>First, we shows that the covariance <span class="math inline">\(\mbox{Var}[\mathbf{Y}(\omega) | \mathbf{X}(\omega)]=\Sigma_{11} - \Sigma_{12} \Sigma_{22}^{-1} \Sigma_{21}\)</span> is the Schur complement. That is to show <span class="math inline">\(\Sigma_{11} - \Sigma_{12} \Sigma_{22}^{-1}\Sigma_{21}= \mbox{Var}[\mathbf{Y}(\omega)+\Sigma_{12} \Sigma_{22}^{-1}\mathbf{X}(\omega)]\)</span>. To see this,
+<span class="math display">\[
+\begin{align*}
+&amp;\mbox{Var}[\mathbf{Y}(\omega)+\Sigma_{12} \Sigma_{22}^{-1}\mathbf{X}(\omega)]\\
+=&amp;\mbox{Var}(\mathbf{Y}(\omega))+\Sigma_{12} \Sigma_{22}^{-1}\mbox{Var}(\mathbf{X}(\omega))(\Sigma_{12} \Sigma_{22}^{-1})^{\top}\\
+&amp;+\Sigma_{12} \Sigma_{22}^{-1}\mbox{Cov}(\mathbf{Y}(\omega),\,\mathbf{X}(\omega))+\mbox{Cov}(\mathbf{X}(\omega),\,\mathbf{Y}(\omega))(\Sigma_{12} \Sigma_{22}^{-1})^{\top}\\
+=&amp; \Sigma_{11}+\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{22}\Sigma_{22}^{-1}\Sigma_{21}-2\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} \\
+=&amp; \Sigma_{11}+\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}-2\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} \\
+=&amp; \Sigma_{11} - \Sigma_{12} \Sigma_{22}^{-1}\Sigma_{21}
+\end{align*}
+\]</span>
+On the other hand, we can see that
+<span class="math display">\[
+\begin{align*}\mbox{Cov}(\mathbf{Y}(\omega)+\Sigma_{12}\Sigma_{22}^{-1}\mathbf{X}(\omega),\:\mathbf{X}(\omega)) &amp; =\mbox{Cov}(\mathbf{Y}(\omega),\:\mathbf{X}(\omega))+\mbox{Cov}(\Sigma_{12}\Sigma_{22}^{-1}\mathbf{X}(\omega),\:\mathbf{X}(\omega))\\
+ &amp; =\Sigma_{12}+\Sigma_{12}\Sigma_{22}^{-1}\mbox{Cov}(\mathbf{X}(\omega),\:\mathbf{X}(\omega))\\
+ &amp; =\Sigma_{12}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{22}\\
+ &amp; =0.
+\end{align*}
+\]</span>
+So the term <span class="math inline">\(\mathbf{Y}(\omega)+\Sigma_{12}\Sigma_{22}^{-1}\mathbf{X}(\omega)\)</span> gets rid of the dependence of conditional vector <span class="math inline">\(\mathbf{X}(\omega)\)</span> by eliminating the effects of <span class="math inline">\(\Sigma_{22}\)</span> and <span class="math inline">\(\Sigma_{12}=\Sigma_{21}\)</span>.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>The conditional results of mean vector and covariance matrix serve the foundation of estimating the dynamical system adaptively. We will see in [?]. For now, a quick application is to use the conditional results to recover the joint density. Any two dependent random variables <span class="math inline">\(X_2\)</span> and <span class="math inline">\(X_1\)</span> have the expression
+<span class="math display">\[\mathbb{P}(X_2, X_1)=\mathbb{P}(X_2\,|\,X_1)\mathbb{P}(X_1)\]</span>
+which tells how to compute the joint by the conditionals.</p>
+<div class="solution">
+<p class="solution-begin">
+Simulate the bivariate normal random vector <span id="sol-start-114" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-114', 'sol-start-114')"></span>
+</p>
+<div id="sol-body-114" class="solution-body" style="display: none;">
+<p>If <span class="math inline">\(X_2\sim \mathcal{N}(\mu_2,\sigma_2^2)\)</span> and <span class="math inline">\(X_1 \sim \mathcal{N}(\mu_1,\sigma_1^2)\)</span> are normal random variables, then <span class="math inline">\(\mathbb{P}(X_2, X_1)=\mathbb{P}(X_2\,|\,X_1)\mathbb{P}(X_1)\)</span> becomes
+<span class="math display">\[\mathcal{N}(\mu_\mbox{joint},\Sigma_\mbox{joint})=\mathcal{N}\left(\mu_2 + \frac{\rho\sigma_1}{\sigma_{2}}(x_1 - \mu_1),\, \sigma^2_{1}(1 - \rho^2)\right)\mathcal{N}(\mu_1,\sigma_1^2).\]</span>
+Note that <span class="math inline">\(\Sigma_{11}=\sigma_1^2\)</span>, <span class="math inline">\(\Sigma_{12}=\Sigma_{21}=\rho\sigma_1\sigma_2\)</span>, <span class="math inline">\(\Sigma_{22}=\sigma_2^2\)</span>. We simplify the previous conditional mean and covariance expressions to the scalar case: the conditional mean
+<span class="math display">\[\mu_2 + \rho\sigma_1\sigma_2 \sigma_{2}^{-2}(x_1 - \mu_1)=\mu_2 + \frac{\rho\sigma_1}{\sigma_{2}}(x_1 - \mu_1),\]</span>
+and the conditional variance
+<span class="math display">\[\Sigma_{11} - \Sigma_{12} \Sigma_{22}^{-1}\Sigma_{21}= \sigma^2_{1} - (\rho\sigma_{1}\sigma_{2})^2 \sigma_{2}^{-2} =\sigma^2_{1}(1 - \rho^2).\]</span></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">2020</span>)</a>
+<a class="sourceLine" id="cb38-2" data-line-number="2">rbvn=<span class="cf">function</span> (n, m1, s1, m2, s2, rho){</a>
+<a class="sourceLine" id="cb38-3" data-line-number="3">     X1 =<span class="st"> </span><span class="kw">rnorm</span>(n, mu1, s1)</a>
+<a class="sourceLine" id="cb38-4" data-line-number="4">     X2 =<span class="st"> </span><span class="kw">rnorm</span>(n, </a>
+<a class="sourceLine" id="cb38-5" data-line-number="5">                mu2 <span class="op">+</span><span class="st"> </span>(s1<span class="op">/</span>s2) <span class="op">*</span><span class="st"> </span>rho <span class="op">*</span>(X1 <span class="op">-</span><span class="st"> </span>mu1), </a>
+<a class="sourceLine" id="cb38-6" data-line-number="6">                <span class="kw">sqrt</span>((<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>rho<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>s1<span class="op">^</span><span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb38-7" data-line-number="7">     <span class="kw">cbind</span>(X1, X2)}</a>
+<a class="sourceLine" id="cb38-8" data-line-number="8">mu1 =<span class="st"> </span><span class="dv">1</span>; sigma1 =<span class="st"> </span><span class="dv">2</span>; mu2 =<span class="st"> </span><span class="dv">4</span>; sigma2 =<span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb38-9" data-line-number="9">rho =<span class="st"> </span><span class="fl">-0.2</span>; n =<span class="st"> </span><span class="dv">1000</span>;</a>
+<a class="sourceLine" id="cb38-10" data-line-number="10">bvn =<span class="st"> </span><span class="kw">rbvn</span>(n,mu1,sigma1,mu2,sigma2,rho)</a>
+<a class="sourceLine" id="cb38-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb38-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb38-13" data-line-number="13"><span class="co"># Plot</span></a>
+<a class="sourceLine" id="cb38-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb38-15" data-line-number="15">bvn =<span class="st"> </span><span class="kw">data.frame</span>(bvn)</a>
+<a class="sourceLine" id="cb38-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb38-17" data-line-number="17"><span class="kw">library</span>(ggplot2); <span class="kw">library</span>(gridExtra)</a>
+<a class="sourceLine" id="cb38-18" data-line-number="18">htop =<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>bvn, <span class="kw">aes</span>(<span class="dt">x=</span>X1)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb38-19" data-line-number="19"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y=</span>..density..), <span class="dt">fill=</span><span class="st">"skyblue"</span>, <span class="dt">bins=</span><span class="dv">200</span>, <span class="dt">alpha=</span><span class="fl">0.8</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb38-20" data-line-number="20"><span class="st">  </span><span class="kw">stat_density</span>(<span class="dt">colour =</span> <span class="st">"blue"</span>, <span class="dt">geom=</span><span class="st">"line"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb38-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb38-22" data-line-number="22">blank =<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">colour=</span><span class="st">"white"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb38-23" data-line-number="23"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.ticks=</span><span class="kw">element_blank</span>(), <span class="dt">panel.background=</span><span class="kw">element_blank</span>(), <span class="dt">panel.grid=</span><span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb38-24" data-line-number="24">        <span class="dt">axis.text.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.text.y=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb38-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb38-26" data-line-number="26">scatter =<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>bvn, <span class="kw">aes</span>(<span class="dt">x=</span>X1, <span class="dt">y=</span>X2)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb38-27" data-line-number="27"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">col=</span><span class="st">"grey"</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb38-28" data-line-number="28"><span class="st">    </span><span class="kw">stat_ellipse</span>(<span class="dt">type =</span> <span class="st">"norm"</span>, <span class="dt">linetype =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb38-29" data-line-number="29"><span class="st">    </span><span class="kw">annotate</span>(<span class="dt">geom=</span><span class="st">"text"</span>, <span class="dt">x=</span><span class="dv">6</span>, <span class="dt">y=</span><span class="dv">8</span>, <span class="dt">label=</span><span class="st">"rho=-0.2"</span>,</a>
+<a class="sourceLine" id="cb38-30" data-line-number="30">              <span class="dt">color=</span><span class="st">"red"</span>) <span class="op">+</span><span class="st">  </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb38-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb38-32" data-line-number="32">hright =<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>bvn, <span class="kw">aes</span>(<span class="dt">x=</span>X2)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb38-33" data-line-number="33"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y=</span>..density..), <span class="dt">fill=</span><span class="st">"skyblue"</span>, <span class="dt">bins=</span><span class="dv">200</span>, <span class="dt">alpha=</span><span class="fl">0.8</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb38-34" data-line-number="34"><span class="st">  </span><span class="kw">stat_density</span>(<span class="dt">colour =</span> <span class="st">"blue"</span>, <span class="dt">geom=</span><span class="st">"line"</span>) <span class="op">+</span><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb38-35" data-line-number="35"></a>
+<a class="sourceLine" id="cb38-36" data-line-number="36"><span class="kw">grid.arrange</span>(htop, blank, scatter, hright, <span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">widths=</span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">1</span>), <span class="dt">heights=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>))</a>
+<a class="sourceLine" id="cb38-37" data-line-number="37"></a>
+<a class="sourceLine" id="cb38-38" data-line-number="38"></a>
+<a class="sourceLine" id="cb38-39" data-line-number="39"><span class="co">### 3D plot</span></a>
+<a class="sourceLine" id="cb38-40" data-line-number="40">x =<span class="st"> </span><span class="kw">seq</span>( <span class="dv">-3</span>, <span class="dv">3</span>, <span class="dt">length=</span><span class="dv">25</span> ); y =<span class="st"> </span><span class="kw">seq</span>( <span class="dv">-3</span>, <span class="dv">3</span>, <span class="dt">length=</span><span class="dv">25</span> )</a>
+<a class="sourceLine" id="cb38-41" data-line-number="41">z =<span class="st"> </span><span class="kw">outer</span>( x, y, <span class="cf">function</span>(x,y) <span class="kw">dnorm</span>(x,<span class="dv">0</span>,<span class="fl">0.75</span>)<span class="op">*</span><span class="kw">dnorm</span>(y,<span class="dv">0</span>,<span class="fl">0.5</span>) )</a>
+<a class="sourceLine" id="cb38-42" data-line-number="42">zl =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">4</span><span class="op">*</span><span class="kw">max</span>(z))</a>
+<a class="sourceLine" id="cb38-43" data-line-number="43"><span class="co">## persp plot</span></a>
+<a class="sourceLine" id="cb38-44" data-line-number="44">trmat =<span class="st"> </span><span class="kw">persp</span>(x,y,z, <span class="dt">theta=</span><span class="dv">120</span>, <span class="dt">zlim=</span>zl, <span class="dt">box=</span><span class="ot">FALSE</span>, <span class="dt">shade=</span><span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb38-45" data-line-number="45"><span class="co">## marginal for x</span></a>
+<a class="sourceLine" id="cb38-46" data-line-number="46"><span class="kw">lines</span>( <span class="kw">trans3d</span>( <span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dt">length=</span><span class="dv">100</span>), <span class="dv">-3</span>, <span class="kw">dnorm</span>(<span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dt">length=</span><span class="dv">100</span>),<span class="dv">0</span>,.<span class="dv">75</span>), </a>
+<a class="sourceLine" id="cb38-47" data-line-number="47">    trmat), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">'blue'</span> )</a>
+<a class="sourceLine" id="cb38-48" data-line-number="48"><span class="co">## marginal for y</span></a>
+<a class="sourceLine" id="cb38-49" data-line-number="49"><span class="kw">lines</span>( <span class="kw">trans3d</span>( <span class="dv">-3</span>, <span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dt">length=</span><span class="dv">100</span>), <span class="kw">dnorm</span>(<span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dt">length=</span><span class="dv">100</span>),<span class="dv">0</span>,<span class="fl">0.5</span>), </a>
+<a class="sourceLine" id="cb38-50" data-line-number="50">    trmat), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">'blue'</span> )</a></code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
 </div></body></html>
 
 <p style="text-align: center;">
@@ -178,7 +400,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a href="bibliography.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-07-10
+2020-07-20
 </p>
 </div>
 </div>
