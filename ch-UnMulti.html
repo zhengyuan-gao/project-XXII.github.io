@@ -299,9 +299,9 @@ The results show that the conditioning vector <span class="math inline">\(\mathb
 <p>This conditional covariance matrix <span class="math inline">\(\Sigma_{11} - \Sigma_{12} \Sigma_{22}^{-1}\Sigma_{21}\)</span> is the <a href="ch-MatComp.html#sub:LU">Schur complement</a> of <span class="math inline">\(\Sigma_{22}\)</span>. Similar to the role in the <a href="ch-MatComp.html#sub:LU">block LU factorization</a>, such a term is to eliminate the covariance blocks corresponding to the variables being conditioned upon. The main instrument <span class="math inline">\(\Sigma_{12} \Sigma_{22}^{-1}\)</span> is to eliminate the dependence caused by <span class="math inline">\(\mathbf{X}(\omega)\)</span>.</p>
 <div class="solution">
 <p class="solution-begin">
-Proof of the elimination <span id="sol-start-174" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-174', 'sol-start-174')"></span>
+Proof of the elimination <span id="sol-start-233" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-233', 'sol-start-233')"></span>
 </p>
-<div id="sol-body-174" class="solution-body" style="display: none;">
+<div id="sol-body-233" class="solution-body" style="display: none;">
 <p>First, we shows that the covariance <span class="math inline">\(\mbox{Var}[\mathbf{Y}(\omega) | \mathbf{X}(\omega)]=\Sigma_{11} - \Sigma_{12} \Sigma_{22}^{-1} \Sigma_{21}\)</span> is the Schur complement. That is to show <span class="math inline">\(\Sigma_{11} - \Sigma_{12} \Sigma_{22}^{-1}\Sigma_{21}= \mbox{Var}[\mathbf{Y}(\omega)+\Sigma_{12} \Sigma_{22}^{-1}\mathbf{X}(\omega)]\)</span>. To see this,
 <span class="math display">\[
 \begin{align*}
@@ -332,9 +332,9 @@ So the term <span class="math inline">\(\mathbf{Y}(\omega)+\Sigma_{12}\Sigma_{22
 which tells how to compute the joint by the conditionals.</span></p>
 <div class="solution">
 <p class="solution-begin">
-Simulate the bivariate normal random vector <span id="sol-start-175" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-175', 'sol-start-175')"></span>
+Simulate the bivariate normal random vector <span id="sol-start-234" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-234', 'sol-start-234')"></span>
 </p>
-<div id="sol-body-175" class="solution-body" style="display: none;">
+<div id="sol-body-234" class="solution-body" style="display: none;">
 <p>If <span class="math inline">\(X_2\sim \mathcal{N}(\mu_2,\sigma_2^2)\)</span> and <span class="math inline">\(X_1 \sim \mathcal{N}(\mu_1,\sigma_1^2)\)</span> are normal random variables, then <span class="math inline">\(\mathbb{P}(X_2, X_1)=\mathbb{P}(X_2\,|\,X_1)\mathbb{P}(X_1)\)</span> becomes
 <span class="math display">\[\mathcal{N}(\mu_\mbox{joint},\Sigma_\mbox{joint})=\mathcal{N}\left(\mu_2 + \frac{\rho\sigma_1}{\sigma_{2}}(x_1 - \mu_1),\, \sigma^2_{1}(1 - \rho^2)\right)\mathcal{N}(\mu_1,\sigma_1^2).\]</span>
 Note that <span class="math inline">\(\Sigma_{11}=\sigma_1^2\)</span>, <span class="math inline">\(\Sigma_{12}=\Sigma_{21}=\rho\sigma_1\sigma_2\)</span>, <span class="math inline">\(\Sigma_{22}=\sigma_2^2\)</span>. We simplify the previous conditional mean and covariance expressions to the scalar case: the conditional mean
@@ -412,9 +412,9 @@ From the calculus perspective (differential/difference equations), given the und
 </ul>
 <div class="solution">
 <p class="solution-begin">
-Discussion about the filter <span id="sol-start-176" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-176', 'sol-start-176')"></span>
+Discussion about the filter <span id="sol-start-235" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-235', 'sol-start-235')"></span>
 </p>
-<div id="sol-body-176" class="solution-body" style="display: none;">
+<div id="sol-body-235" class="solution-body" style="display: none;">
 <p>We can rigorously define the <strong>filter</strong> by set theory. Let <span class="math inline">\(\mathcal{F}\)</span> belong to the <a href="sub-axioms.html#sub:axSet">power set</a> of a <a href="sub-set-theory.html#sub:order">partially ordered set</a> <span class="math inline">\(\mathcal{G}\)</span>, namely <span class="math inline">\(\mathcal{F}\subset2^{\mathcal{G}}\)</span>, then <span class="math inline">\(\mathcal{F}\)</span> is a <em>filter</em> on <span class="math inline">\(\mathcal{G}\)</span> if <span class="math inline">\(\mathcal{F}\)</span> satisfies</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(\textrm{Ø}\notin\mathcal{F}\)</span>, <span class="math inline">\(\mathcal{G}\in\mathcal{F}\)</span>;</p></li>
@@ -516,9 +516,9 @@ where <span class="math inline">\(p_{ij}=\mathbb{P}(X_{t+1}=j|X_{t}=i)\)</span> 
 <p>Sometimes, it more straightforward to visualize the <strong>probability transition matrix</strong> through its graphic representation. The states are the nodes in the graph, and each probability entry is the flow between two nodes. That is, a (probabilistic) flow departs from the vertex <span class="math inline">\(j\)</span> and enters the vertex <span class="math inline">\(i\)</span> with the weight <span class="math inline">\(p_{ij}\)</span>.<label for="tufte-sn-263" class="margin-toggle sidenote-number">263</label><input type="checkbox" id="tufte-sn-263" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">263</span> The reason of existing a graphic representation for each <strong>Markov chain</strong> comes from that fact that any complete network is a <strong>chain</strong>. Recall that a graph or a network corresponds a collection of order pairs <span class="math inline">\((\mathcal{V},\mathcal{E})\)</span>. In the set theoretic sense, a <strong>chain</strong> means a <a href="sub-set-theory.html#sub:order">total ordered set</a>. The completeness here refers to the fact that <span class="math inline">\((\mathcal{V},\mathcal{E})\)</span> gives a <a href="sub-set-theory.html#sub:order">total ordered set</a>: namely any two vertices in the network can be decided whether they are connected or not.</span></p>
 <div class="solution">
 <p class="solution-begin">
-Code <span id="sol-start-177" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-177', 'sol-start-177')"></span>
+Code <span id="sol-start-236" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-236', 'sol-start-236')"></span>
 </p>
-<div id="sol-body-177" class="solution-body" style="display: none;">
+<div id="sol-body-236" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1">P=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">0.45</span>,<span class="fl">0.5</span>,<span class="fl">0.05</span>,</a>
 <a class="sourceLine" id="cb39-2" data-line-number="2">           <span class="fl">0.15</span>,<span class="fl">0.65</span>,<span class="fl">0.2</span>,</a>
 <a class="sourceLine" id="cb39-3" data-line-number="3">           <span class="dv">0</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>), <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
@@ -557,7 +557,7 @@ We can generalize the result that the <span class="math inline">\(k\)</span>-ste
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="kw">rowSums</span>(P<span class="op">%^%</span><span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## [1] 1 1 1</code></pre>
 <p>Because any <span class="math inline">\(k\)</span> power of the probability transition matrix <span class="math inline">\(\mathbf{P}\)</span> can be splitted as the sum of products of <span class="math inline">\(l\)</span>-step and <span class="math inline">\(k − l\)</span>-step transition probability matrices, we can split <span class="math inline">\(\mathbf{P}^{k+t}\)</span> as the products of <span class="math inline">\(\mathbf{P}^{k}\)</span> and <span class="math inline">\(\mathbf{P}^{t}\)</span> that exactly coincides with the purpose of <strong>Chapman-Kolmogorov equation</strong>.</p>
-<p>The idea of modeling dynamics by chains originated from a metaphysical topic called the <em>great chain of being</em> where the chain was conceived as a static hierarchy, starting with God at the top and descending through angels, human beings, animals, etc. This progression of the life forms gave the basis for the idea of <em>evolution</em>: complex structures emerge from simpler forms through (natural) selection mechanisms.<label for="tufte-sn-264" class="margin-toggle sidenote-number">264</label><input type="checkbox" id="tufte-sn-264" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">264</span> In political and social science, creating secular governmental structures that vested power into various classes of citizens was viewed as an evolutionary movements in Hegel, Marx and Engels’ work. However, the theory of evolution plays several different roles over there, some toward increasing the order and complexity while some mean just the opposite.</span> Another feature of the chain is that although it was viewed as one continuous whole, it has the potential for the missing and overlapping links. Each link in the chain might be splitted further. Based on the dual nature of the chain - divided yet united, Carl Linnaeus, who is considered as one of the founders of ecology, formalised his modern system of naming organisms (taxonomy).</p>
+<p>The idea of modeling dynamics by chains can be traced back to a metaphysical topic called the <em>great chain of being</em> where the chain was conceived as a static hierarchy, starting with God at the top and descending through angels, human beings, animals, etc. This progression of the life forms gave the basis for the idea of <em>evolution</em>: complex structures emerge from simpler forms through (natural) selection mechanisms.<label for="tufte-sn-264" class="margin-toggle sidenote-number">264</label><input type="checkbox" id="tufte-sn-264" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">264</span> In political and social science, creating secular governmental structures that vested power into various classes of citizens was viewed as an evolutionary movements in Hegel, Marx and Engels’ work. However, the theory of evolution plays several different roles over there, some toward increasing the order and complexity while some mean just the opposite.</span> Another feature of the chain is that although it was viewed as one continuous whole, it has the potential for the missing and overlapping links. Each link in the chain might be splitted further. Based on the dual nature of the chain - divided yet united, Carl Linnaeus, who is considered as one of the founders of ecology, formalised his modern system of naming organisms (taxonomy).</p>
 </div>
 </div></body></html>
 
