@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2020-10-04" />
+<meta name="date" content="2020-10-14" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -159,6 +159,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a href="part-iv-three-masons-to-illuminate-the-dual-world.html">PART IV: Three Masons to Illuminate the Dual World</a>
 <a id="active-page" href="ch-representation.html"><span class="toc-section-number">14</span> Representation</a><ul class="toc-sections">
 <li class="toc"><a href="#sub:pseudoRandom"> Rrepresentation of Numbers and Pseudo Random Numbers</a></li>
+<li class="toc"><a href="#sub:"> Construction of the Basis Functions and the Inner Product Space</a></li>
 </ul>
 <a href="bibliography.html">Bibliography</a>
 </div>
@@ -185,11 +186,11 @@ For Kant, the world of our daily experience does not represent how things really
 <span class="header-section-number">14.1</span> Rrepresentation of Numbers and Pseudo Random Numbers</h2>
 <p><span class="newthought">Number representation</span></p>
 <p>For Leibniz, the existence of an external world <strong>representation</strong> is guaranteed by the fact that God could not be a deceiver creating only us and making us <strong>represent</strong> in a vacuum of other substances. He believes that what we represent within has solid ground, a <a href="ch-MatComp.html#sub:vecSpaces">basis</a>.<label for="tufte-sn-304" class="margin-toggle sidenote-number">304</label><input type="checkbox" id="tufte-sn-304" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">304</span> “The nature of every simple substance, Soul, or true monad, being such, that its following state is a consequence of the preceding one; here now is the cause of the harmony found out. For God needs only to make a simple substance become once and from the beginning, a representation of the universe, according to its point of view; since from thence alone it follows, that it will be so perpetually; and that all simple substances will always have a harmony among themselves, because they always represent the same universe.” - <span class="citation">Leibniz (<a href="bibliography.html#ref-LeibnizClarke2000">2000</a>)</span> (section 31)</span></p>
-<p>However, the notion of <a href="ch-representation.html#ch:representation">representation</a> is too general to be specifically explained on a concrete basis. To limit the scope, we should restrict our attention to a smaller domain. The <a href="ch-representation.html#ch:representation">representation</a> of <a href="sub-continuity.html#sub:rational">numbers</a> may be a good starting point for us. Any number comes with a <a href="ch-MatComp.html#sub:vecSpaces">basis</a>.
+<p>However, the notion of Leibniz’s <a href="ch-representation.html#ch:representation">representation</a> is too general to be specifically explained on a concrete basis. To limit the scope, we should restrict our attention to a smaller domain. The <a href="ch-representation.html#ch:representation">representation</a> of <a href="sub-continuity.html#sub:rational">numbers</a> may be a good starting point. Any number comes with a <a href="ch-MatComp.html#sub:vecSpaces">basis</a>.
 For example, the number <span class="math inline">\(123\)</span> has a linear expression in terms of the underlying functions of the <a href="ch-MatComp.html#sub:vecSpaces">basis</a> (here, powers of <span class="math inline">\(10\)</span>):
 <span class="math display">\[123 = 1\times(10)^2 + 2\times(10)^1 + 3\times(10)^0.\]</span></p>
-<p>Such an expression can be formally stated as a <em>modular representation</em>.<label for="tufte-sn-305" class="margin-toggle sidenote-number">305</label><input type="checkbox" id="tufte-sn-305" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">305</span> It is a representation studying linear <strong>representations</strong> of some finite sets called <strong>groups</strong> over a <a href="ch-MatComp.html#sub:vecSpaces">field</a>. In this <span class="math inline">\(123\)</span> example, the <strong>modular representation</strong> says that we can represent any number in the field <span class="math inline">\(\mathbb{Q}\)</span>, (including <span class="math inline">\(123\)</span>) by the integers of the finite set <span class="math inline">\(\{0,1,\dots,10\}\)</span>. We will define <strong>groups</strong> in sec[?]. </span> A <em>modulus</em> is an <a href="sub-continuity.html#sub:rational">integer</a> divisor. If two <a href="sub-continuity.html#sub:rational">integers</a> <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> only differ by a multiple of a <strong>modulus</strong> <span class="math inline">\(m\)</span>, such that <span class="math inline">\(x-y = km\)</span> for any integer <span class="math inline">\(k\)</span>, then we write <span class="math inline">\(x=y \mbox{ mod } m\)</span>, and say that <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are <em>congruent modulo</em> <span class="math inline">\(m\)</span>, or say that <span class="math inline">\(x\)</span> <strong>modulo</strong> <span class="math inline">\(m\)</span> gives the <em>residue</em> <span class="math inline">\(y\)</span>. For example, the coefficient <span class="math inline">\(3\)</span> in <span class="math inline">\(123\)</span> is the <strong>residue</strong> of <span class="math inline">\(123\)</span> <strong>modulo</strong> <span class="math inline">\(10\)</span>, namely <span class="math inline">\(123 = 3 \mbox{ mod } 10\)</span>, as <span class="math inline">\(123 - 3 = 12\times 10\)</span>.
-The coefficients from the base-<span class="math inline">\(10\)</span> representation are simply the <strong>residues</strong> in the <strong>modular representation</strong> under the <strong>modulo</strong> <span class="math inline">\(10\)</span>.<label for="tufte-sn-306" class="margin-toggle sidenote-number">306</label><input type="checkbox" id="tufte-sn-306" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">306</span> Each coefficient from the base-<span class="math inline">\(10\)</span> representation of <span class="math inline">\(123\)</span> comes from
+<p>Such an expression can be formally stated as a <em>modular representation</em>.<label for="tufte-sn-305" class="margin-toggle sidenote-number">305</label><input type="checkbox" id="tufte-sn-305" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">305</span> It studies linear <strong>representations</strong> of some finite sets called <strong>groups</strong> over a <a href="ch-MatComp.html#sub:vecSpaces">field</a>. In this <span class="math inline">\(123\)</span> example, the <strong>modular representation</strong> says that we can represent any number in the field <span class="math inline">\(\mathbb{Q}\)</span>, (including <span class="math inline">\(123\)</span>) by the integers of the finite set <span class="math inline">\(\{0,1,\dots,10\}\)</span>. We will give the definition of <strong>groups</strong> in sec[?].</span> A <em>modulus</em> is an <a href="sub-continuity.html#sub:rational">integer</a> divisor. If two <a href="sub-continuity.html#sub:rational">integers</a> <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> only differ by a multiple of a <strong>modulus</strong> <span class="math inline">\(m\)</span>, such that <span class="math inline">\(x-y = km\)</span> for any integer <span class="math inline">\(k\)</span>, then we write <span class="math inline">\(x=y \mbox{ mod } m\)</span>, and say that <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are <em>congruent modulo</em> <span class="math inline">\(m\)</span>, or say that <span class="math inline">\(x\)</span> <strong>modulo</strong> <span class="math inline">\(m\)</span> gives the <em>residue</em> <span class="math inline">\(y\)</span>. For example, the coefficient <span class="math inline">\(3\)</span> in <span class="math inline">\(123\)</span> is the <strong>residue</strong> of <span class="math inline">\(123\)</span> <strong>modulo</strong> <span class="math inline">\(10\)</span>, namely <span class="math inline">\(123 = 3 \mbox{ mod } 10\)</span>, as <span class="math inline">\(123 - 3 = 12\times 10\)</span>.<label for="tufte-sn-306" class="margin-toggle sidenote-number">306</label><input type="checkbox" id="tufte-sn-306" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">306</span> In fact, we always implicilty use this <strong>modulo operation</strong> in our daily life. For example, when we say it is Sunday, we simply represent the exact date in a finite set of Monday,…, Sunday.</span>
+The coefficients from the base-<span class="math inline">\(10\)</span> representation are simply the <strong>residues</strong> in the <strong>modular representation</strong> under the <strong>modulo</strong> <span class="math inline">\(10\)</span>.<label for="tufte-sn-307" class="margin-toggle sidenote-number">307</label><input type="checkbox" id="tufte-sn-307" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">307</span> Each coefficient from the <strong>base-<span class="math inline">\(10\)</span> representation</strong> of <span class="math inline">\(123\)</span> comes from
 <span class="math display">\[
 \begin{align*}
 123 &amp;= 3 \mbox{ mod } 10,  \\
@@ -201,15 +202,15 @@ Note that we need to get rid of the coefficient(s) of the previously used basis 
 <p>The above representation of <span class="math inline">\(123\)</span> is based on the <a href="sub-axioms.html#sub:axiomNum">decimal numeral system</a> (<em>base-<span class="math inline">\(10\)</span> numeral system</em>).
 The <strong>modular representation</strong> enables us to change the basis of the <strong>representation</strong>.
 For example, one can represent any decimal number under the <a href="sub-logic.html#sub:ex-computer">binary numeral</a> system (<em>base-<span class="math inline">\(2\)</span> numeral system</em>), namely to represent the object <span class="math inline">\(123\)</span> under the <strong>modulus</strong> <span class="math inline">\(2\)</span>.
-While the same object remains the same, the number <span class="math inline">\(123\)</span> in the base-<span class="math inline">\(2\)</span> numeral system will be represented by <span class="math inline">\(1111011\)</span>, where each binary number comes from the following <strong>modular representation</strong>:
-<span class="math display">\[123 = 1\times(2)^6 + 1\times(2)^5 + 1\times(2)^4 + 1\times(2)^3 \\
-+ 0 \times(2)^2 + 1\times(2)^1 + 1\times(2)^0.\]</span></p>
+While the object remains the same, the number <span class="math inline">\(123\)</span> in the base-<span class="math inline">\(2\)</span> numeral system will be represented by <span class="math inline">\(1111011\)</span>, where each binary figure comes from the following <strong>modular representation</strong>:
+<span class="math display">\[123 = \underline{1}\times(2)^6 + \underline{1}\times(2)^5 + \underline{1}\times(2)^4 + \underline{1}\times(2)^3 \\
++ \underline{0}\times(2)^2 + \underline{1}\times(2)^1 + \underline{1}\times(2)^0.\]</span></p>
 <div class="solution">
 <p class="solution-begin">
-Computing the modular representation of 123 <span id="sol-start-71" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-71', 'sol-start-71')"></span>
+Compute the modular representation of 123 <span id="sol-start-71" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-71', 'sol-start-71')"></span>
 </p>
 <div id="sol-body-71" class="solution-body" style="display: none;">
-<p>One can compute the <strong>modular representation</strong> following a similar procedure as we did in the base-<span class="math inline">\(10\)</span> numeral system.
+<p>One can compute the <strong>modular representation</strong> following a similar procedure (a modified <a href="ch-MatComp.html#sub:GElimination">backward substitution</a>) as we did in the base-<span class="math inline">\(10\)</span> numeral system.
 Each coefficient from the base-<span class="math inline">\(2\)</span> representation of <span class="math inline">\(123\)</span> comes from
 <span class="math display">\[
 \begin{align*}
@@ -222,42 +223,42 @@ Each coefficient from the base-<span class="math inline">\(2\)</span> representa
 \frac{3-1}{2} = 1, \,&amp;\, 1 = \underline{1} \mbox{ mod } 2.  \\
 \end{align*}
 \]</span></p>
-<p>We can also obtain the representation via a computer program.</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="co"># Compute the coefficients</span></a>
-<a class="sourceLine" id="cb91-2" data-line-number="2">r =<span class="st"> </span>c =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">7</span>)</a>
-<a class="sourceLine" id="cb91-3" data-line-number="3">r[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">123</span><span class="op">%%</span><span class="dv">2</span>; c[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">123</span></a>
-<a class="sourceLine" id="cb91-4" data-line-number="4"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">7</span>){</a>
-<a class="sourceLine" id="cb91-5" data-line-number="5">  c[i] =<span class="st"> </span>(c[i<span class="dv">-1</span>] <span class="op">-</span><span class="st"> </span>r[i<span class="dv">-1</span>])<span class="op">/</span><span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb91-6" data-line-number="6">  r[i] =<span class="st"> </span>c[i]<span class="op">%%</span><span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb91-7" data-line-number="7">}</a>
-<a class="sourceLine" id="cb91-8" data-line-number="8"><span class="kw">print</span>(r[<span class="dv">7</span><span class="op">:</span><span class="dv">1</span>])</a></code></pre></div>
+<p>We can also obtain the procedure via a computer program.</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="co"># Compute the coefficients</span></a>
+<a class="sourceLine" id="cb90-2" data-line-number="2">r =<span class="st"> </span>c =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb90-3" data-line-number="3">r[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">123</span><span class="op">%%</span><span class="dv">2</span>; c[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">123</span></a>
+<a class="sourceLine" id="cb90-4" data-line-number="4"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">7</span>){</a>
+<a class="sourceLine" id="cb90-5" data-line-number="5">  c[i] =<span class="st"> </span>(c[i<span class="dv">-1</span>] <span class="op">-</span><span class="st"> </span>r[i<span class="dv">-1</span>])<span class="op">/</span><span class="dv">2</span>;</a>
+<a class="sourceLine" id="cb90-6" data-line-number="6">  r[i] =<span class="st"> </span>c[i]<span class="op">%%</span><span class="dv">2</span>;</a>
+<a class="sourceLine" id="cb90-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb90-8" data-line-number="8"><span class="kw">print</span>(r[<span class="dv">7</span><span class="op">:</span><span class="dv">1</span>])</a></code></pre></div>
 <pre><code>## [1] 1 1 1 1 0 1 1</code></pre>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="co"># The representation</span></a>
-<a class="sourceLine" id="cb93-2" data-line-number="2">x =<span class="st"> </span>r[<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb93-3" data-line-number="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">7</span>){</a>
-<a class="sourceLine" id="cb93-4" data-line-number="4">  x =<span class="st"> </span>x <span class="op">+</span><span class="st"> </span>r[i]<span class="op">*</span><span class="dv">2</span><span class="op">^</span>(i<span class="dv">-1</span>) </a>
-<a class="sourceLine" id="cb93-5" data-line-number="5">}</a>
-<a class="sourceLine" id="cb93-6" data-line-number="6">x</a></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="co"># The based-10 number under the based-2 representation</span></a>
+<a class="sourceLine" id="cb92-2" data-line-number="2">x =<span class="st"> </span>r[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb92-3" data-line-number="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">7</span>){</a>
+<a class="sourceLine" id="cb92-4" data-line-number="4">  x =<span class="st"> </span>x <span class="op">+</span><span class="st"> </span>r[i]<span class="op">*</span><span class="dv">2</span><span class="op">^</span>(i<span class="dv">-1</span>) </a>
+<a class="sourceLine" id="cb92-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb92-6" data-line-number="6">x</a></code></pre></div>
 <pre><code>## [1] 123</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
 </div>
-<p>These alternate representations allow us to consider the same object on different <a href="ch-MatComp.html#sub:vecSpaces">bases</a>, power functions of <span class="math inline">\(10\)</span>, or power functions <span class="math inline">\(2\)</span>.<label for="tufte-sn-307" class="margin-toggle sidenote-number">307</label><input type="checkbox" id="tufte-sn-307" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">307</span> The choice of a basis can have a dramatic impact on the efficiency of computation, as well as in the amount of storage taken up by representation, and above all, in revealing deeper properties of the set as a whole. Thus, the selection of a basis is crucial: the <strong>decimal number system</strong> is a notable example of such a selection in human evolution.</span></p>
+<p>These alternate representations allow us to consider the same object on different <a href="ch-MatComp.html#sub:vecSpaces">bases</a>, power functions of <span class="math inline">\(10\)</span> or power functions of <span class="math inline">\(2\)</span>.<label for="tufte-sn-308" class="margin-toggle sidenote-number">308</label><input type="checkbox" id="tufte-sn-308" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">308</span> The choice of a basis can have a dramatic impact on the efficiency of computation, as well as in the amount of storage taken up by representation, and above all, in revealing deeper properties of the set as a whole. Thus, the selection of a basis is crucial: the <strong>decimal number system</strong> is a notable example of such a selection in human evolution.</span></p>
 <p>Apart from the number systems, we will see <strong>representations</strong> in various settings.
-Generally speaking, <strong>representations</strong> of the numerical objects can be thought of as the construction of a “basis” that can capture the general features of these objects. For example, the representation of a particular <a href="ch-MatComp.html#sub:vecSpaces">vector space</a> is to form a <a href="ch-MatComp.html#sub:vecSpaces">basis</a> that can generate all the remaining elements in this space.<label for="tufte-sn-308" class="margin-toggle sidenote-number">308</label><input type="checkbox" id="tufte-sn-308" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">308</span> Also, we can think that the distinction between <strong>subject</strong> and <strong>object</strong> gives us two different sets. Thus, a <a href="ch-MatComp.html#sub:vecSpaces">basis</a> exists in the subjective set, and another <a href="ch-MatComp.html#sub:vecSpaces">basis</a> exists in the objective set. A representation establishes a correspondence of these two <a href="ch-MatComp.html#sub:vecSpaces">bases</a> so that they can explain the same realizations, but they are essentially different things.</span> In a nutshell, <em>representation theory</em> in practice is often thought of as the theory for the <a href="ch-MatComp.html#sub:vecSpaces">basis</a> (or <a href="ch-MatComp.html#sub:vecSpaces">bases</a>) construction.</p>
-<p><span class="newthought">Pseudo random numbers’ generator</span></p>
-<p>Even though the numerical <a href="ch-representation.html#ch:representation">objects</a> being represented can be diverse, the representation provides a <a href="sub-incomplete.html#sub:diagonal">formalism</a> to describe various forms of objects with respect to a well-defined <a href="ch-MatComp.html#sub:vecSpaces">basis</a>.<label for="tufte-sn-309" class="margin-toggle sidenote-number">309</label><input type="checkbox" id="tufte-sn-309" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">309</span>  In the current AI era, the numerical objects can range from the task commands of robotics and biosensors to data such as documents or images in the information-retrieval systems. These objects will be quantified and stored as numerical states in discrete or continuous <a href="ch-DE.html#sub:ode">state spaces</a> for the <strong>representation</strong>.</span> The discovery of the <strong>representation</strong> of numerical <a href="ch-representation.html#ch:representation">objects</a> unifies the issues that would otherwise be somewhat disparate.<label for="tufte-sn-310" class="margin-toggle sidenote-number">310</label><input type="checkbox" id="tufte-sn-310" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">310</span> Let’s look back to figure <span class="math inline">\(123\)</span>. When you read the base-<span class="math inline">\(10\)</span> numeral expression, <span class="math inline">\(123\)</span>, you can immediately sense the ordering structure, a monotone trend from the beginning position to the end position. But you probably cannot sense anything from the base-<span class="math inline">\(2\)</span> numeral expression, <span class="math inline">\(1111011\)</span>. Given that the two expressions come from the same object under the <strong>modular representation</strong> of different bases, we can see that the representations reveal different degrees of information regarding the object’s structure.</span></p>
+Generally speaking, <strong>representations</strong> of the numerical objects can be thought of as the construction of a “basis” that can capture the general features of these objects. For example, the representation of a particular <a href="ch-MatComp.html#sub:vecSpaces">vector space</a> is to form a <a href="ch-MatComp.html#sub:vecSpaces">basis</a> that can generate all the remaining elements in this space.<label for="tufte-sn-309" class="margin-toggle sidenote-number">309</label><input type="checkbox" id="tufte-sn-309" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">309</span> Also, we can think that the distinction between <strong>subject</strong> and <strong>object</strong> gives us two different sets. Thus, a <a href="ch-MatComp.html#sub:vecSpaces">basis</a> exists in the subjective set, and another <a href="ch-MatComp.html#sub:vecSpaces">basis</a> exists in the objective set. A representation establishes a correspondence of these two <a href="ch-MatComp.html#sub:vecSpaces">bases</a> so that they can explain the same realizations, but they are essentially different things.</span> In a nutshell, <em>representation theory</em> in practice is often thought of as the theory for the <a href="ch-MatComp.html#sub:vecSpaces">basis</a> (or <a href="ch-MatComp.html#sub:vecSpaces">bases</a>) construction.</p>
+<p><span class="newthought">Pseudo-random numbers’ generator</span></p>
+<p>Even though the numerical <a href="ch-representation.html#ch:representation">objects</a> being represented can be diverse, the representation provides a <a href="sub-incomplete.html#sub:diagonal">formalism</a> to describe various forms of objects with respect to a well-defined <a href="ch-MatComp.html#sub:vecSpaces">basis</a>.<label for="tufte-sn-310" class="margin-toggle sidenote-number">310</label><input type="checkbox" id="tufte-sn-310" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">310</span>  In the current AI era, the numerical objects can range from the task commands of robotics and biosensors to data such as documents or images in the information-retrieval systems. These objects will be quantified and stored as numerical states in discrete or continuous <a href="ch-DE.html#sub:ode">state spaces</a> for the <strong>representation</strong>.</span> The discovery of the <strong>representation</strong> of numerical <a href="ch-representation.html#ch:representation">objects</a> unifies the issues that would otherwise be somewhat disparate.<label for="tufte-sn-311" class="margin-toggle sidenote-number">311</label><input type="checkbox" id="tufte-sn-311" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">311</span> Let’s look back to figure <span class="math inline">\(123\)</span>. When you read the base-<span class="math inline">\(10\)</span> numeral expression, <span class="math inline">\(123\)</span>, you can immediately sense the ordering structure, a monotone trend from the beginning position to the end position. But you probably cannot sense anything from the base-<span class="math inline">\(2\)</span> numeral expression, <span class="math inline">\(1111011\)</span>. Given that the two expressions come from the same object under the <strong>modular representation</strong> of different bases, we can see that the representations reveal different degrees of information regarding the object’s structure.</span></p>
 <p>Another application using the <strong>modular representation</strong> is to generate <strong>pseudo-random numbers</strong>.
-Whether a true random object that exists in the world is a philosophical or theological question.<label for="tufte-sn-311" class="margin-toggle sidenote-number">311</label><input type="checkbox" id="tufte-sn-311" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">311</span> According to some <a href="sub-inferknow.html#determinism">determinism</a> and theological arguments, the true randomness only occurs in the state with no divine providence: the universe is full of ordered, determined substances, and the seemingly random events merely reflect the ignorance of divine signs or interventions. In other words, they suppose invisible orders hidden beneath the disordered <strong>representational</strong> surfaces.</span> But at least we can answer this question - deny the existence of randomness - for all computational programs, as so far all random numbers generated by the computers are pseudo.</p>
-<p>One of the simplest algorithms to generate (pseudo) random numbers is called the <strong>linear congruential generator</strong>.<label for="tufte-sn-312" class="margin-toggle sidenote-number">312</label><input type="checkbox" id="tufte-sn-312" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">312</span> <strong>Generators</strong> and <a href="ch-MatComp.html#sub:vecSpaces">bases</a> serve similar functions in most circumstances. The term <em>generator</em> or <em>generating set</em> refers to the situation that a smaller set of objects, together with a set of operations that can be applied to it, result in the creation of a larger collection of objects. The larger set is then said to be generated by the smaller set. One can think the <a href="ch-MatComp.html#sub:vecSpaces">basis</a> of a <a href="ch-MatComp.html#sub:vecSpaces">vector space</a> as the smallest <strong>generator</strong> whose components are <a href="ch-MatComp.html#sub:vecSpaces">linearly independent</a>.</span>
-The idea is basically to form a “disordered” dynamics thorough a <a href="ch-vecMat.html#sub:linearSys">linear dynamical system</a> of finite states. The <em>linear congruential generator</em> represents any sequence of numbers on a new base through the <strong>modulo operation</strong> so that the order embedded in the old sequence is shattered. The numbers in the new sequence may “seem” to follow an “unordering” pattern, which creates the illusion of randomness.</p>
-<p>The linear system of <strong>linear congruential generator</strong> follows <span class="math display">\[x_t = (a x_{t-1} + c ) \, \mbox{mod} \, m,\]</span> which is completely deterministic. The <strong>modulus</strong> <span class="math inline">\(m\)</span>, the multiplier <span class="math inline">\(a\)</span>, and the increment <span class="math inline">\(c\)</span> are the dynamical system parameters.<label for="tufte-sn-313" class="margin-toggle sidenote-number">313</label><input type="checkbox" id="tufte-sn-313" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">313</span> Different computer programs usually use different specified parameters for their generators. Very often, the modulus <span class="math inline">\(m\)</span> is chosen for the storage-bit of the central processor i.e., <span class="math inline">\(m=2^{32}\)</span> for a standard <span class="math inline">\(32\)</span>-bit data storage system. For example, in Borland C or C++, <span class="math inline">\(a\)</span> is <span class="math inline">\(22695477\)</span>, and <span class="math inline">\(c\)</span> is <span class="math inline">\(1\)</span>. Some parameters may create ordering patterns, such as the <a href="ch-UnMulti.html#sub:rw">cyclical pattern</a>, for the sequence; in this case, the parameters are not suitable for generating random numbers.</span> The following program generates <span class="math inline">\(5\)</span> pseudo-random numbers using this <strong>generator</strong>. In figure <a href="ch-representation.html#fig:lcg">14.1</a>, we fill the cube with uniformly random vectors generated by the same generator.</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1">x=<span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">10</span>) </a>
-<a class="sourceLine" id="cb95-2" data-line-number="2">x[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">100</span> <span class="co"># seed</span></a>
-<a class="sourceLine" id="cb95-3" data-line-number="3"><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">10</span>){x[t] =<span class="st"> </span>(<span class="dv">1664525</span> <span class="op">*</span><span class="st"> </span>x[t<span class="dv">-1</span>] <span class="op">+</span><span class="st"> </span><span class="dv">1013904223</span>) <span class="op">%%</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">32</span> }</a>
-<a class="sourceLine" id="cb95-4" data-line-number="4">x<span class="op">/</span>(<span class="dv">2</span><span class="op">^</span><span class="dv">32</span>)</a></code></pre></div>
+Whether a true random object that exists in the world is a philosophical or theological question.<label for="tufte-sn-312" class="margin-toggle sidenote-number">312</label><input type="checkbox" id="tufte-sn-312" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">312</span> According to some <a href="sub-inferknow.html#determinism">determinism</a> and theological arguments, the true randomness only occurs in the state with no divine providence: the universe is full of ordered, determined substances, and the seemingly random events merely reflect the ignorance of divine signs or interventions. In other words, they suppose invisible orders hidden beneath the disordered <strong>representational</strong> surfaces.</span> But at least we can answer this question - deny the existence of randomness - for all computational programs, as so far all random numbers generated by the computers are pseudo (in the circuits of electric currents).</p>
+<p>One of the simplest algorithms to generate pseudo-random numbers is called the <strong>linear congruential generator</strong>.<label for="tufte-sn-313" class="margin-toggle sidenote-number">313</label><input type="checkbox" id="tufte-sn-313" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">313</span> <strong>Generators</strong> and <a href="ch-MatComp.html#sub:vecSpaces">bases</a> serve similar purposes in most circumstances. The term <em>generator</em> or <em>generating set</em> refers to the situation that a smaller set of objects, together with a set of operations that can be applied to it, results in the creation of a larger collection of objects. The larger set is then said to be generated by the smaller set. One can think the <a href="ch-MatComp.html#sub:vecSpaces">basis</a> of a <a href="ch-MatComp.html#sub:vecSpaces">vector space</a> as the smallest <strong>generator</strong> whose components are <a href="ch-MatComp.html#sub:vecSpaces">linearly independent</a>.</span>
+The basic idea is to form a “disordered” dynamics thorough a <a href="ch-vecMat.html#sub:linearSys">linear dynamical system</a> of finite states. The <em>linear congruential generator</em> represents any sequence of numbers on a new base through the <strong>modulo operation</strong> so that the order embedded in the old sequence is shattered. The numbers in the new sequence may “seem” to follow an “unordering” pattern, which creates the illusion of randomness.</p>
+<p>The linear system of <strong>linear congruential generator</strong> follows <span class="math display">\[x_t = (a x_{t-1} + c ) \, \mbox{mod} \, m,\]</span> which is completely deterministic. The <strong>modulus</strong> <span class="math inline">\(m\)</span>, the multiplier <span class="math inline">\(a\)</span>, and the increment <span class="math inline">\(c\)</span> are the dynamical system parameters.<label for="tufte-sn-314" class="margin-toggle sidenote-number">314</label><input type="checkbox" id="tufte-sn-314" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">314</span> Different computer programs usually use different specified parameters for their generators. Very often, the modulus <span class="math inline">\(m\)</span> is chosen for the storage-bit of the central processor i.e., <span class="math inline">\(m=2^{32}\)</span> for a standard <span class="math inline">\(32\)</span>-bit data storage system. In Borland C or C++, <span class="math inline">\(a\)</span> is <span class="math inline">\(22695477\)</span>, and <span class="math inline">\(c\)</span> is <span class="math inline">\(1\)</span>. Note that some parameters may create ordering patterns, such as the <a href="ch-UnMulti.html#sub:rw">cyclical pattern</a>, for the sequence; in this case, the parameters are not suitable for generating the pseudo-randomness.</span> The following program generates <span class="math inline">\(5\)</span> pseudo-random numbers using this <strong>generator</strong>. In figure <a href="ch-representation.html#fig:lcg">14.1</a>, we fill the cube with uniformly random vectors created by the same generator.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1">x=<span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">10</span>) </a>
+<a class="sourceLine" id="cb94-2" data-line-number="2">x[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">100</span> <span class="co"># seed</span></a>
+<a class="sourceLine" id="cb94-3" data-line-number="3"><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">10</span>){x[t] =<span class="st"> </span>(<span class="dv">1664525</span> <span class="op">*</span><span class="st"> </span>x[t<span class="dv">-1</span>] <span class="op">+</span><span class="st"> </span><span class="dv">1013904223</span>) <span class="op">%%</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">32</span> }</a>
+<a class="sourceLine" id="cb94-4" data-line-number="4">x<span class="op">/</span>(<span class="dv">2</span><span class="op">^</span><span class="dv">32</span>)</a></code></pre></div>
 <pre><code>##  [1] 2.328306e-08 2.748232e-01 3.489434e-01 2.903610e-01 3.695035e-01
 ##  [6] 3.070315e-02 3.928942e-01 4.474292e-01 2.553318e-01 3.792914e-01</code></pre>
 <p>
@@ -270,114 +271,314 @@ The idea is basically to form a “disordered” dynamics thorough a <a href="ch
 </p>
 <div class="solution">
 <p class="solution-begin">
-Code <span id="sol-start-72" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-72', 'sol-start-72')"></span>
+Code for plotting <span id="sol-start-72" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-72', 'sol-start-72')"></span>
 </p>
 <div id="sol-body-72" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="co"># To see the pseudo randomness generated by the linear congruential generator</span></a>
-<a class="sourceLine" id="cb97-2" data-line-number="2"><span class="co"># U[t] = (1664525 * U[t-1] + 1013904223) %% 2^32</span></a>
-<a class="sourceLine" id="cb97-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb97-4" data-line-number="4"><span class="kw">library</span>(plot3D)</a>
-<a class="sourceLine" id="cb97-5" data-line-number="5"><span class="kw">library</span>(animation)</a>
-<a class="sourceLine" id="cb97-6" data-line-number="6">n =<span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">100</span>, <span class="dv">500</span>, <span class="dv">2000</span>)</a>
-<a class="sourceLine" id="cb97-7" data-line-number="7"><span class="kw">saveGIF</span>({</a>
-<a class="sourceLine" id="cb97-8" data-line-number="8">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(n)) {</a>
-<a class="sourceLine" id="cb97-9" data-line-number="9">    U =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,n[i]); XYZ =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dv">3</span>, n[i]); init=<span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">300</span>) <span class="co"># the seed</span></a>
-<a class="sourceLine" id="cb97-10" data-line-number="10">    <span class="cf">for</span>(d <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb97-11" data-line-number="11">      U[<span class="dv">1</span>]=init[d]</a>
-<a class="sourceLine" id="cb97-12" data-line-number="12">        <span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>n[i]){   </a>
-<a class="sourceLine" id="cb97-13" data-line-number="13">        U[t] =<span class="st"> </span>(<span class="dv">1664525</span> <span class="op">*</span><span class="st"> </span>U[t<span class="dv">-1</span>] <span class="op">+</span><span class="st"> </span><span class="dv">1013904223</span>) <span class="op">%%</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">32</span> </a>
-<a class="sourceLine" id="cb97-14" data-line-number="14">        <span class="co">#  Try  U[t] = (1229 * U[t-1] + 1) %% 2^11</span></a>
-<a class="sourceLine" id="cb97-15" data-line-number="15">        XYZ[d,t] =<span class="st"> </span>U[t]<span class="op">/</span>(<span class="dv">2</span><span class="op">^</span><span class="dv">32</span>) </a>
-<a class="sourceLine" id="cb97-16" data-line-number="16">        }</a>
-<a class="sourceLine" id="cb97-17" data-line-number="17">      }</a>
-<a class="sourceLine" id="cb97-18" data-line-number="18">    <span class="kw">scatter3D</span>(XYZ[<span class="dv">1</span>,], XYZ[<span class="dv">2</span>,], XYZ[<span class="dv">3</span>,], <span class="dt">main =</span> <span class="kw">paste</span>(<span class="st">'n = '</span>, n[i]))</a>
-<a class="sourceLine" id="cb97-19" data-line-number="19">    }</a>
-<a class="sourceLine" id="cb97-20" data-line-number="20">}, <span class="dt">movie.name =</span> <span class="st">'lcg.gif'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="co"># Plot the pseudo-randomness generated by the linear congruential generator</span></a>
+<a class="sourceLine" id="cb96-2" data-line-number="2"><span class="co"># U[t] = (1664525 * U[t-1] + 1013904223) %% 2^32</span></a>
+<a class="sourceLine" id="cb96-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb96-4" data-line-number="4"><span class="kw">library</span>(plot3D)</a>
+<a class="sourceLine" id="cb96-5" data-line-number="5"><span class="kw">library</span>(animation)</a>
+<a class="sourceLine" id="cb96-6" data-line-number="6">n =<span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">100</span>, <span class="dv">500</span>, <span class="dv">2000</span>)</a>
+<a class="sourceLine" id="cb96-7" data-line-number="7"><span class="kw">saveGIF</span>({</a>
+<a class="sourceLine" id="cb96-8" data-line-number="8">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(n)) {</a>
+<a class="sourceLine" id="cb96-9" data-line-number="9">    U =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,n[i]); XYZ =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dv">3</span>, n[i]); init=<span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">300</span>) <span class="co"># the seed</span></a>
+<a class="sourceLine" id="cb96-10" data-line-number="10">    <span class="cf">for</span>(d <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb96-11" data-line-number="11">      U[<span class="dv">1</span>]=init[d]</a>
+<a class="sourceLine" id="cb96-12" data-line-number="12">        <span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>n[i]){   </a>
+<a class="sourceLine" id="cb96-13" data-line-number="13">        U[t] =<span class="st"> </span>(<span class="dv">1664525</span> <span class="op">*</span><span class="st"> </span>U[t<span class="dv">-1</span>] <span class="op">+</span><span class="st"> </span><span class="dv">1013904223</span>) <span class="op">%%</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">32</span> </a>
+<a class="sourceLine" id="cb96-14" data-line-number="14">        <span class="co">#  Try  U[t] = (1229 * U[t-1] + 1) %% 2^11</span></a>
+<a class="sourceLine" id="cb96-15" data-line-number="15">        XYZ[d,t] =<span class="st"> </span>U[t]<span class="op">/</span>(<span class="dv">2</span><span class="op">^</span><span class="dv">32</span>) </a>
+<a class="sourceLine" id="cb96-16" data-line-number="16">        }</a>
+<a class="sourceLine" id="cb96-17" data-line-number="17">      }</a>
+<a class="sourceLine" id="cb96-18" data-line-number="18">    <span class="kw">scatter3D</span>(XYZ[<span class="dv">1</span>,], XYZ[<span class="dv">2</span>,], XYZ[<span class="dv">3</span>,], <span class="dt">main =</span> <span class="kw">paste</span>(<span class="st">'n = '</span>, n[i]))</a>
+<a class="sourceLine" id="cb96-19" data-line-number="19">    }</a>
+<a class="sourceLine" id="cb96-20" data-line-number="20">}, <span class="dt">movie.name =</span> <span class="st">'lcg.gif'</span>)</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
 </div>
-<p>The first value of the sequence is called the <em>seed</em> of the <strong>generator</strong>. Any pseudo-random number of the sequence is created from a fixed specific seed. Together with the <strong>generator</strong>, the seed constructs the implicit order hidden in the presence of the pseudo-randomness. Since the generator is often set as a fixed function, the variations of the pseudo-random outputs are caused by the changes of the <strong>seeds</strong>.</p>
+<p>The first value of the sequence is called the <em>seed</em> of the <strong>generator</strong>. Any pseudo-random number of the sequence is created from such a fixed specific seed. Together with the <strong>generator</strong>, the <strong>seed</strong> constructs the implicit order hidden in the presence of the pseudo-randomness. Since the generator is often given as a fixed function (fixed parameters), the variations of the pseudo-random outputs are caused by the changes of the <strong>seeds</strong>.</p>
 <p>In the rest of the chapter, we will confront representations of other quantitative objects. But at the moment, I want to discuss an attempt to discover a general “basis” that relates to Leibniz’s view of <strong>representation</strong>. Such a “basis” is constructed by the sixty-four hexagrams from I Ching (Book of Changes).</p>
 <p>The importance of the I Ching in Chinese philosophy cannot be overemphasized. However, the practical uses of the book were mainly for divination. The sixty-four hexagrams in I Ching (like the <strong>modulo operation</strong>) is to divide all possibilities arising in the changes into sixty-four modules. That is to say when an object (event) appears, a representation of these hexagrams (interpretations) should be able to explain the object (event). Thus, we can think that the book is to create a <strong>representation</strong> for all kinds of changes; and the sixty-four hexagrams, along with the interpretations attached to them, can be thought of as the “basis” of the I Ching’s system of the world.</p>
-<p>The ordering system of I-Ching’s basis is mathematically logical in the progression from one hexagram to the next<label for="tufte-sn-314" class="margin-toggle sidenote-number">314</label><input type="checkbox" id="tufte-sn-314" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">314</span> In fact, these hexagrams’ ordering system corresponds perfectly with the binary number system (of <span class="math inline">\(2^6=64\)</span>) invented by Leibniz. It is known that the ordering system of I Ching was brought to Leibniz’ attention by Joachim Bouv, a Jesuit missionary in China. </span>; it is not logical, however, in its progression from one interpretation to the next. One needs to rely on some <strong>random generator</strong> to sort out the logic, which we now call divination.<label for="tufte-sn-315" class="margin-toggle sidenote-number">315</label><input type="checkbox" id="tufte-sn-315" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">315</span> When one tries to represent various logically unrelated objects, one has to shatter the original order to select the “wanted” ones. In this case, one needs a random (or pseudo-random) mechanism to generate the “wanted” hexagrams (interpretations). Such a procedure is now thought of as divination.</span></p>
+<p>The ordering system of I-Ching’s basis is mathematically logical in the progression from one hexagram to the next<label for="tufte-sn-315" class="margin-toggle sidenote-number">315</label><input type="checkbox" id="tufte-sn-315" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">315</span> In fact, these hexagrams’ ordering system corresponds perfectly with the binary number system (of <span class="math inline">\(2^6=64\)</span>) invented by Leibniz. It is known that the ordering system of I Ching was brought to Leibniz’ attention by Joachim Bouv, a Jesuit missionary in China.</span>; it is not logical, however, in its progression from one interpretation to the next. One needs to rely on some <strong>random generator</strong> to sort out the logic, which we now call divination.<label for="tufte-sn-316" class="margin-toggle sidenote-number">316</label><input type="checkbox" id="tufte-sn-316" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">316</span> When one tries to represent various logically unrelated objects, one has to shatter the original order to create the “wanted” or “logical” ones. In this case, one needs a random (or pseudo-random) mechanism to generate the “wanted” hexagrams (interpretations). Such a procedure is now thought of as divination.</span></p>
 <div class="solution">
 <p class="solution-begin">
 I Ching divination <span id="sol-start-73" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-73', 'sol-start-73')"></span>
 </p>
 <div id="sol-body-73" class="solution-body" style="display: none;">
-<p>There is a divination procedure described in the commentary on the appended phrases from a collection of commentaries (Ten Wings) to I Ching (Book of Changes).
-We can simply run a (pseudo) monte Carlo simulation to mimic this divination procedure. By specifying the parameter of the <strong>pseudo-random number generator</strong>, one can divine a hexagram based on the chosen <strong>seed</strong> of the <strong>generator</strong>.</p>
-<p>The procedure of this divination is given as follows.<label for="tufte-sn-316" class="margin-toggle sidenote-number">316</label><input type="checkbox" id="tufte-sn-316" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">316</span> “大衍之数五十，其用四十有九。分而为二以象两，挂一以象三，揲之以四以象四时，归奇于扐以象闰。五岁再闰，故再扐而后挂。天一，地二；天三，地四；天五，地六；天七，地八；天九，地十。天数五，地数五。五位相得而各有合，天数二十有五，地数三十，凡天地之数五十有五，此所以成变化而行鬼神也。乾之策二百一十有六，坤之策百四十有四，凡三百六十，当期之日。二篇之策，万有一千五百二十，当万物之数也。是故四营而成《易》，十有八变而成卦，八卦而小成。引而伸之，触类而长之，天下之能事毕矣。显道神德行，是故可与酬酢，可与祐神矣。子曰：‘知变化之道者，其知神之所为乎。’” - 系辞, 十翼</span></p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="co"># Define a linear congruential generator function for pseudo random numbers</span></a>
-<a class="sourceLine" id="cb98-2" data-line-number="2">LCGSample =<span class="st"> </span><span class="cf">function</span>(range, seed){</a>
-<a class="sourceLine" id="cb98-3" data-line-number="3">U =<span class="st"> </span>Sample =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">100000</span>); U[<span class="dv">1</span>] =<span class="st"> </span>seed <span class="co"># the seed</span></a>
-<a class="sourceLine" id="cb98-4" data-line-number="4">  <span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">10000</span>){  </a>
-<a class="sourceLine" id="cb98-5" data-line-number="5">    U[t] =<span class="st"> </span>(<span class="dv">1664525</span> <span class="op">*</span><span class="st"> </span>U[t<span class="dv">-1</span>] <span class="op">+</span><span class="st"> </span><span class="dv">1013904223</span>) <span class="op">%%</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">32</span></a>
-<a class="sourceLine" id="cb98-6" data-line-number="6">    Sample[t] =<span class="st"> </span>U[t]<span class="op">%%</span>(range<span class="dv">-1</span>)<span class="op">+</span><span class="dv">1</span>}</a>
-<a class="sourceLine" id="cb98-7" data-line-number="7">  <span class="kw">return</span>(Sample[<span class="dv">2020</span>])</a>
-<a class="sourceLine" id="cb98-8" data-line-number="8">}</a>
-<a class="sourceLine" id="cb98-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb98-10" data-line-number="10"><span class="co"># You can also try to sample the hexagram by using R's built-in pseudo-number generator</span></a>
-<a class="sourceLine" id="cb98-11" data-line-number="11"><span class="co"># Add the following line</span></a>
-<a class="sourceLine" id="cb98-12" data-line-number="12"><span class="co"># set.seed(2020)</span></a>
-<a class="sourceLine" id="cb98-13" data-line-number="13"><span class="co"># Replace the line</span></a>
-<a class="sourceLine" id="cb98-14" data-line-number="14"><span class="co"># left = LCGSample(49-human-remainder, seed)</span></a>
-<a class="sourceLine" id="cb98-15" data-line-number="15"><span class="co"># with</span></a>
-<a class="sourceLine" id="cb98-16" data-line-number="16"><span class="co"># left = sample(1:(49-human-remainder),1)</span></a>
-<a class="sourceLine" id="cb98-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb98-18" data-line-number="18">N =<span class="st"> </span><span class="dv">6</span>;     <span class="co"># One hexagram (卦) consists of six Yao (爻)</span></a>
-<a class="sourceLine" id="cb98-19" data-line-number="19">hexagram =<span class="st"> </span><span class="ot">NULL</span>;</a>
-<a class="sourceLine" id="cb98-20" data-line-number="20"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>N){</a>
-<a class="sourceLine" id="cb98-21" data-line-number="21">        sign =<span class="st"> </span><span class="dv">0</span>;  remainder =<span class="st"> </span><span class="dv">0</span></a>
-<a class="sourceLine" id="cb98-22" data-line-number="22">        <span class="co"># We need three changes, at each change one needs to substract the remainder stones in the previous changes (remainder) from the total number of stones.</span></a>
-<a class="sourceLine" id="cb98-23" data-line-number="23">        <span class="cf">for</span>(change <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb98-24" data-line-number="24">          <span class="co"># In the 1st changes, we start with 49 stones. One of them represents the mankind</span></a>
-<a class="sourceLine" id="cb98-25" data-line-number="25">            human =<span class="st"> </span><span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb98-26" data-line-number="26">          <span class="co"># Seperate the remainding stones randomly into two parts (heaven and earth)</span></a>
-<a class="sourceLine" id="cb98-27" data-line-number="27">            left =<span class="st"> </span><span class="kw">LCGSample</span>(<span class="dv">49</span><span class="op">-</span>human<span class="op">-</span>remainder, i<span class="op">*</span><span class="dv">127</span>)  <span class="co"># left group represents the heaven</span></a>
-<a class="sourceLine" id="cb98-28" data-line-number="28">            <span class="co"># By changing the value of the seed, you will confront different outputs..</span></a>
-<a class="sourceLine" id="cb98-29" data-line-number="29">            right =<span class="st"> </span><span class="dv">49</span> <span class="op">-</span><span class="st"> </span>human <span class="op">-</span><span class="st"> </span>remainder <span class="op">-</span><span class="st"> </span>left  <span class="co"># right group represents the earth</span></a>
-<a class="sourceLine" id="cb98-30" data-line-number="30">          <span class="co"># For both groups, we divide the number of stones by 4 (four represents four seasons), and compute the remainder. </span></a>
-<a class="sourceLine" id="cb98-31" data-line-number="31">          <span class="co"># If the number can be divided by 4, then return 4, otherwise return the remainder</span></a>
-<a class="sourceLine" id="cb98-32" data-line-number="32">          <span class="co"># ifelse(condition, TRUE, FALSE)</span></a>
-<a class="sourceLine" id="cb98-33" data-line-number="33">            heaven =<span class="st"> </span><span class="kw">ifelse</span>(left<span class="op">%%</span><span class="dv">4</span><span class="op">==</span><span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb98-34" data-line-number="34">                            <span class="dv">4</span>,</a>
-<a class="sourceLine" id="cb98-35" data-line-number="35">                            left<span class="op">%%</span><span class="dv">4</span>);</a>
-<a class="sourceLine" id="cb98-36" data-line-number="36">            earth =<span class="st"> </span><span class="kw">ifelse</span>(right<span class="op">%%</span><span class="dv">4</span><span class="op">==</span><span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb98-37" data-line-number="37">                            <span class="dv">4</span>,</a>
-<a class="sourceLine" id="cb98-38" data-line-number="38">                            right<span class="op">%%</span><span class="dv">4</span>);</a>
-<a class="sourceLine" id="cb98-39" data-line-number="39">          <span class="co"># Heaven, earth, human represent three poles (三才)</span></a>
-<a class="sourceLine" id="cb98-40" data-line-number="40">            new.remainder =<span class="st"> </span>human <span class="op">+</span><span class="st"> </span>earth <span class="op">+</span><span class="st"> </span>heaven</a>
-<a class="sourceLine" id="cb98-41" data-line-number="41">          <span class="co"># End of the change  </span></a>
-<a class="sourceLine" id="cb98-42" data-line-number="42">          <span class="co"># 1st change remainder:  either 9 or 5</span></a>
-<a class="sourceLine" id="cb98-43" data-line-number="43">          <span class="co"># 2nd change (new) remainder:  either 4 or 8 </span></a>
-<a class="sourceLine" id="cb98-44" data-line-number="44">          <span class="co"># 3rd change (new) remainder:  either 4 or 8</span></a>
-<a class="sourceLine" id="cb98-45" data-line-number="45">            remainder =<span class="st"> </span>remainder <span class="op">+</span><span class="st"> </span>new.remainder</a>
-<a class="sourceLine" id="cb98-46" data-line-number="46">          }</a>
-<a class="sourceLine" id="cb98-47" data-line-number="47">        <span class="co"># After 3 changes, there are only four possibilities: 24, 28, 32, 36.</span></a>
-<a class="sourceLine" id="cb98-48" data-line-number="48">        <span class="co"># 49-9-4-4=32, 49-5-4-4=36, 49-9-8-4=28, 49-9-4-8=24</span></a>
-<a class="sourceLine" id="cb98-49" data-line-number="49">        <span class="co"># Dividing these numbers by 4, we have one of the four Yao:</span></a>
-<a class="sourceLine" id="cb98-50" data-line-number="50">        <span class="co"># 6 (old yin),7 (young yang),8 (young yin),9 (old yang)</span></a>
-<a class="sourceLine" id="cb98-51" data-line-number="51">        Yao =<span class="st"> </span>(<span class="dv">49</span><span class="op">-</span>remainder)<span class="op">/</span><span class="dv">4</span> </a>
-<a class="sourceLine" id="cb98-52" data-line-number="52">        hexagram =<span class="st"> </span><span class="kw">c</span>(hexagram, Yao)</a>
-<a class="sourceLine" id="cb98-53" data-line-number="53">}</a>
-<a class="sourceLine" id="cb98-54" data-line-number="54">hexagram</a></code></pre></div>
+<p>There is a divination procedure described in the commentary on the appended phrases from a collection of commentaries (called Ten Wings) to I Ching. We can simply run a (pseudo) monte Carlo simulation to mimic this divination procedure. By specifying the parameter of the <strong>pseudo-random number generator</strong>, one can divine a hexagram based on the chosen <strong>seed</strong>.</p>
+<p>The procedure of this divination is given as follows.<label for="tufte-sn-317" class="margin-toggle sidenote-number">317</label><input type="checkbox" id="tufte-sn-317" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">317</span> “大衍之数五十，其用四十有九。分而为二以象两，挂一以象三，揲之以四以象四时，归奇于扐以象闰。五岁再闰，故再扐而后挂。天一，地二；天三，地四；天五，地六；天七，地八；天九，地十。天数五，地数五。五位相得而各有合，天数二十有五，地数三十，凡天地之数五十有五，此所以成变化而行鬼神也。乾之策二百一十有六，坤之策百四十有四，凡三百六十，当期之日。二篇之策，万有一千五百二十，当万物之数也。是故四营而成《易》，十有八变而成卦，八卦而小成。引而伸之，触类而长之，天下之能事毕矣。显道神德行，是故可与酬酢，可与祐神矣。子曰：‘知变化之道者，其知神之所为乎。’” - 系辞, 《十翼》</span></p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="co"># Define a linear congruential generator function for pseudo-random numbers</span></a>
+<a class="sourceLine" id="cb97-2" data-line-number="2">LCGSample =<span class="st"> </span><span class="cf">function</span>(range, seed){</a>
+<a class="sourceLine" id="cb97-3" data-line-number="3">U =<span class="st"> </span>Sample =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">100000</span>); U[<span class="dv">1</span>] =<span class="st"> </span>seed <span class="co"># the seed</span></a>
+<a class="sourceLine" id="cb97-4" data-line-number="4">  <span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">10000</span>){  </a>
+<a class="sourceLine" id="cb97-5" data-line-number="5">    U[t] =<span class="st"> </span>(<span class="dv">1664525</span> <span class="op">*</span><span class="st"> </span>U[t<span class="dv">-1</span>] <span class="op">+</span><span class="st"> </span><span class="dv">1013904223</span>) <span class="op">%%</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">32</span></a>
+<a class="sourceLine" id="cb97-6" data-line-number="6">    Sample[t] =<span class="st"> </span>U[t]<span class="op">%%</span>(range<span class="dv">-1</span>)<span class="op">+</span><span class="dv">1</span>}</a>
+<a class="sourceLine" id="cb97-7" data-line-number="7">  <span class="kw">return</span>(Sample[<span class="dv">2020</span>])</a>
+<a class="sourceLine" id="cb97-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb97-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb97-10" data-line-number="10"><span class="co"># You can also try to sample the hexagram by using R's built-in pseudo-number generator</span></a>
+<a class="sourceLine" id="cb97-11" data-line-number="11"><span class="co"># Add the following line</span></a>
+<a class="sourceLine" id="cb97-12" data-line-number="12"><span class="co"># set.seed(2020)</span></a>
+<a class="sourceLine" id="cb97-13" data-line-number="13"><span class="co"># Replace the line</span></a>
+<a class="sourceLine" id="cb97-14" data-line-number="14"><span class="co"># left = LCGSample(49-human-remainder, seed)</span></a>
+<a class="sourceLine" id="cb97-15" data-line-number="15"><span class="co"># with</span></a>
+<a class="sourceLine" id="cb97-16" data-line-number="16"><span class="co"># left = sample(1:(49-human-remainder),1)</span></a>
+<a class="sourceLine" id="cb97-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb97-18" data-line-number="18">N =<span class="st"> </span><span class="dv">6</span>;     <span class="co"># One hexagram (卦) consists of six Yao (爻)</span></a>
+<a class="sourceLine" id="cb97-19" data-line-number="19">hexagram =<span class="st"> </span><span class="ot">NULL</span>;</a>
+<a class="sourceLine" id="cb97-20" data-line-number="20"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>N){</a>
+<a class="sourceLine" id="cb97-21" data-line-number="21">        sign =<span class="st"> </span><span class="dv">0</span>;  remainder =<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb97-22" data-line-number="22">        <span class="co"># We need three changes. At each change we need to substract the remainder stones in the previous changes (remainder) from the total number of stones.</span></a>
+<a class="sourceLine" id="cb97-23" data-line-number="23">        <span class="cf">for</span>(change <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb97-24" data-line-number="24">          <span class="co"># In the 1st changes, we start with 49 stones. One of them represents the mankind</span></a>
+<a class="sourceLine" id="cb97-25" data-line-number="25">            human =<span class="st"> </span><span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb97-26" data-line-number="26">          <span class="co"># Seperate the remainding stones randomly into two parts (heaven and earth)</span></a>
+<a class="sourceLine" id="cb97-27" data-line-number="27">            left =<span class="st"> </span><span class="kw">LCGSample</span>(<span class="dv">49</span><span class="op">-</span>human<span class="op">-</span>remainder, i<span class="op">*</span><span class="dv">127</span>)  <span class="co"># left group represents the heaven</span></a>
+<a class="sourceLine" id="cb97-28" data-line-number="28">          <span class="co"># By changing the value of the seed, you will confront different outputs of the seperation..</span></a>
+<a class="sourceLine" id="cb97-29" data-line-number="29">            right =<span class="st"> </span><span class="dv">49</span> <span class="op">-</span><span class="st"> </span>human <span class="op">-</span><span class="st"> </span>remainder <span class="op">-</span><span class="st"> </span>left  <span class="co"># right group represents the earth</span></a>
+<a class="sourceLine" id="cb97-30" data-line-number="30">          <span class="co"># For both groups, we divide the number of stones by 4 (four represents four seasons), and compute the remainder. </span></a>
+<a class="sourceLine" id="cb97-31" data-line-number="31">          <span class="co"># If the number can be divided by 4, then return 4, otherwise return the remainder</span></a>
+<a class="sourceLine" id="cb97-32" data-line-number="32">          <span class="co"># ifelse(condition, TRUE, FALSE)</span></a>
+<a class="sourceLine" id="cb97-33" data-line-number="33">            heaven =<span class="st"> </span><span class="kw">ifelse</span>(left<span class="op">%%</span><span class="dv">4</span><span class="op">==</span><span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb97-34" data-line-number="34">                            <span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb97-35" data-line-number="35">                            left<span class="op">%%</span><span class="dv">4</span>);</a>
+<a class="sourceLine" id="cb97-36" data-line-number="36">            earth =<span class="st"> </span><span class="kw">ifelse</span>(right<span class="op">%%</span><span class="dv">4</span><span class="op">==</span><span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb97-37" data-line-number="37">                            <span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb97-38" data-line-number="38">                            right<span class="op">%%</span><span class="dv">4</span>);</a>
+<a class="sourceLine" id="cb97-39" data-line-number="39">          <span class="co"># Heaven, earth, human represent three poles (三才)</span></a>
+<a class="sourceLine" id="cb97-40" data-line-number="40">            new.remainder =<span class="st"> </span>human <span class="op">+</span><span class="st"> </span>earth <span class="op">+</span><span class="st"> </span>heaven</a>
+<a class="sourceLine" id="cb97-41" data-line-number="41">          <span class="co"># End of the change  </span></a>
+<a class="sourceLine" id="cb97-42" data-line-number="42">          <span class="co"># 1st change remainder:  either 9 or 5</span></a>
+<a class="sourceLine" id="cb97-43" data-line-number="43">          <span class="co"># 2nd change (new) remainder:  either 4 or 8 </span></a>
+<a class="sourceLine" id="cb97-44" data-line-number="44">          <span class="co"># 3rd change (new) remainder:  either 4 or 8</span></a>
+<a class="sourceLine" id="cb97-45" data-line-number="45">            remainder =<span class="st"> </span>remainder <span class="op">+</span><span class="st"> </span>new.remainder</a>
+<a class="sourceLine" id="cb97-46" data-line-number="46">          }</a>
+<a class="sourceLine" id="cb97-47" data-line-number="47">        <span class="co"># After 3 changes, there are only four possibilities: 24, 28, 32, 36.</span></a>
+<a class="sourceLine" id="cb97-48" data-line-number="48">        <span class="co"># 49-9-4-4=32, 49-5-4-4=36, 49-9-8-4=28, 49-9-4-8=24</span></a>
+<a class="sourceLine" id="cb97-49" data-line-number="49">        <span class="co"># Dividing these numbers by 4, we have one of the four Yao:</span></a>
+<a class="sourceLine" id="cb97-50" data-line-number="50">        <span class="co"># 6 (old yin),7 (young yang),8 (young yin),9 (old yang)</span></a>
+<a class="sourceLine" id="cb97-51" data-line-number="51">        Yao =<span class="st"> </span>(<span class="dv">49</span><span class="op">-</span>remainder)<span class="op">/</span><span class="dv">4</span> </a>
+<a class="sourceLine" id="cb97-52" data-line-number="52">        hexagram =<span class="st"> </span><span class="kw">c</span>(hexagram, Yao)</a>
+<a class="sourceLine" id="cb97-53" data-line-number="53">}</a>
+<a class="sourceLine" id="cb97-54" data-line-number="54">hexagram</a></code></pre></div>
 <pre><code>## [1] 7 8 8 8 8 7</code></pre>
 <p>For the hexagram, one uses (⚋) to represent Yin and (⚊) to represent Yang.
-The result <span class="math inline">\(7 8 8 8 8 7\)</span> represents ䷚ (颐) that is named for “swallowing.”<label for="tufte-sn-317" class="margin-toggle sidenote-number">317</label><input type="checkbox" id="tufte-sn-317" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">317</span> Usually, one can consider the change of hexagrams (变卦) for replacing old yin and old yang with youth yin and youth yang. However, this hexagram does not need for the change.</span></p>
-<p>As we know, the <strong>seed</strong>, together with the <strong>generator</strong>, plays a central role in this divination. By changing either the <strong>seed</strong> or the <strong>generator</strong>, the result might differ. For example, the divination run by the built-in generator of R (set.seed=2020) returns <span class="math inline">\(7 8 7 8 8 7\)</span>. It represents ䷔ (噬嗑) whose meaning is “biting through” or “gnawing bite”.</p>
-<p>We can see that as the component of a basis, one hexagram can produce plenty of room for interpretations. Some interpretation may express a convincing array of reasonings that fits certain situations. In this sense, the hexagrams are openly amenable to several kinds of appropriations and manipulations.<label for="tufte-sn-318" class="margin-toggle sidenote-number">318</label><input type="checkbox" id="tufte-sn-318" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">318</span> Its openness comes from its being a <a href="">symbolic system</a> whose principle of composition warrants unlimited interpretations: an open hermeneutic room with infinite possibilities of interpretation.</span></p>
-<p>However, the fuzziness of the symbolic system can easily generate conflicting interpretations. As we have seen in number systems that
-changing the coordinates (coefficients) with respect to the bases can generate two different representations, but the representing object remains the same. I Ching’s representation system can easily release a fallacy in the progression of sorting hexagrams (changes the bases), which makes the system incompatible to the fundamental logical systems in science.<label for="tufte-sn-319" class="margin-toggle sidenote-number">319</label><input type="checkbox" id="tufte-sn-319" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">319</span> Each phenomenon composes various scenes, and parts of these scenes may acquire proper interpretations under some hexagrams. If one considers forming the hexagrams as a basis, then each intepretation can be thought as a representation of the phenomenon under such a basis. Change of basis (adapted by different combinations of hexagrams) should not bring in controversial conclusions.</span>
+The result <span class="math inline">\(7 8 8 8 8 7\)</span> represents ䷚ (颐) that is the name for “swallowing.”<label for="tufte-sn-318" class="margin-toggle sidenote-number">318</label><input type="checkbox" id="tufte-sn-318" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">318</span> Usually, one can consider the change of hexagrams (变卦) for replacing old yin and old yang with youth yin and youth yang. However, this hexagram does not need for the change.</span></p>
+<p>As all the pseudo-randomness in this divination created by the <strong>seed</strong> and <strong>generator</strong>, by changing either or both of them, the result might differ. For example, the divination run by the built-in generator of R (see the comments in the code) returns <span class="math inline">\(7 8 7 8 8 7\)</span>. It represents ䷔ (噬嗑) whose meaning is “biting through” or “gnawing bite”.</p>
+<p>We can see that as the component of a basis, one hexagram can produce plenty of room for interpretations. Some interpretation may express a convincing array of reasonings that fits certain situations. In this sense, the hexagrams are openly amenable to several kinds of appropriations and manipulations.<label for="tufte-sn-319" class="margin-toggle sidenote-number">319</label><input type="checkbox" id="tufte-sn-319" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">319</span> Its openness comes from its being a <a href="ch-vecMat.html#sub:symbolism">symbolic system</a> whose principle of composition warrants unlimited interpretations: an open hermeneutic room with infinite possibilities of interpretation.</span></p>
+<p>However, the fuzziness of the <a href="ch-vecMat.html#sub:symbolism">symbolic system</a> can easily generate conflicting interpretations. Unlike the number systems, where the same object can be represented under two different bases that are compatible to each others, I Ching’s representation system can easily release a fallacy in the progression of sorting hexagrams (changes the bases), which makes the system incompatible to the fundamental logical systems in science.<label for="tufte-sn-320" class="margin-toggle sidenote-number">320</label><input type="checkbox" id="tufte-sn-320" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">320</span> Each phenomenon composes various scenes, and parts of these scenes may acquire proper interpretations under some hexagrams. If the hexagrams had formed a basis, then each intepretation could be a representation of the phenomenon under such a basis; then change of basis (adapted by different combinations of hexagrams) should not have brought in controversial conclusions.</span>
 In other words, I Ching’s representation may release two incompatible “truths” as the hexagrams are not truly from a logical basis.</p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
 </div>
 </div>
-<p>Rather than seek a deeper understanding of randomness, the traditional Chinese philosophy turned to the research on interpreting the divine signs. The studies of I Ching emphasized making various divine advice and guidance for such interpretations. Perhaps, this kind of tendency abolished the emergence of epistemology and logic in Chinese philosophy.</p>
+<p>Rather than seek a deeper understanding of randomness, the traditional Chinese philosophy turned to the research on interpreting the (pseudo) random signs of hexagrams, and the studies of I Ching emphasized making various divine advice and guidance for such interpretations. Perhaps, this kind of tendency abolished the emergence of epistemology and logic in Chinese philosophy.</p>
+</div>
+<div id="sub:" class="section level2">
+<h2>
+<span class="header-section-number">14.2</span> Construction of the Basis Functions and the Inner Product Space</h2>
+<p>Many quantitative objects have well-established theoretical bases on which we expect to find the representations.
+For example, for any finite dimensional vector <span class="math inline">\(\mathbf{x}\in\mathbb{R}^{n}\)</span>, the <a href="ch-vecMat.html#sub:vec">standard unit vectors</a> <span class="math inline">\(\{\mathbf{e}_{i}\}_{i=1}^{n}\)</span> where <span class="math inline">\(\mathbf{e}_{1}=[1,0,\cdots,0]^{\top}\)</span>,…,<span class="math inline">\(\mathbf{e}_{n}=[0,\cdots,0,1]^{\top}\)</span> serve the (default) basis in the representation: <span class="math display">\[\mathbf{x}=x_{1}\mathbf{e}_{1}+\cdots+x_{n}\mathbf{e}_{n}=\sum_{i=1}^{n}x_{i}\mathbf{e}_{i},\]</span>
+namely, the <a href="ch-vecMat.html#sub:vec">linear combination</a> of <span class="math inline">\(\{\mathbf{e}_{i}\}_{i=1}^{n}\)</span>.</p>
+<p>This representation is useful for describing a discrete point from the coordinate-dependent finite-dimensional linear algebraic setting. But we know that many interesting discrete objects are in fact the realizations of their underlying continuous counterparts. For example, <span class="math inline">\(n\)</span>-points may come from the same function under different inputs. For representing a continuous object, such as a function, we need to extend our concerns to the bases from the infinite-dimension.
+A <em>basis function</em> provides a generalization of <a href="ch-MatComp.html#sub:vecSpaces">basis vectors</a> to the <a href="ch-MatComp.html#sub:vecSpaces">vector space</a> of functions.<label for="tufte-sn-321" class="margin-toggle sidenote-number">321</label><input type="checkbox" id="tufte-sn-321" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">321</span> Every function in such a function space can be represented as a <a href="ch-vecMat.html#sub:vec">linear combination</a> of <strong>basis functions</strong>, just as every vector in a vector space can be represented as a <a href="ch-vecMat.html#sub:vec">linear combination</a> of basis vectors.</span> A tractable topological structure for studying those bases is a function space called <strong>inner product space</strong>.</p>
+<p>Before going the abstract construction of the <strong>inner product space</strong>, we should grab a concrete idea of how a <strong>basis function</strong> look like in the <a href="#sub:vecSpace">vector space</a>. Consider <span class="math inline">\(n\)</span> points of two vectors <span class="math inline">\(\mathbf{x}=[x_{1},\dots,x_{n}]\)</span> and <span class="math inline">\(\mathbf{y}=[y_{1},\dots,y_{n}]\)</span> on the plane (no two of which are aligned vertically). We assume that a function <span class="math inline">\(f:\mathbb{R}\mapsto\mathbb{R}\)</span> go through these <span class="math inline">\(n\)</span> points such that <span class="math inline">\(y_{i}=f(x_{i})\)</span>. For any two points <span class="math inline">\((x_{1},y_{1})\)</span> and <span class="math inline">\((x_{2},y_{2})\)</span>, we know that a line with the slope <span class="math inline">\((y_{2}-y_{1})/(x_{2}-x_{1})\)</span> can go through these points.
+Thus the representation of the line <span class="math inline">\(y=f(x)\)</span> connecting these two point is
+<span class="math display">\[
+\begin{align*}
+f(x) &amp;= \frac{y_{2}-y_{1}}{x_{2}-x_{1}}(x-x_{1})+y_{1}=y_{1}+(y_{2}-y_{1})\frac{x-x_{1}}{x_{2}-x_{1}}\\
+&amp;=  y_{1}\frac{x-x_{2}}{x_{1}-x_{2}}+y_{2}\frac{x-x_{1}}{x_{2}-x_{1}}=y_{1}L_{2,1}(x)+y_{2}L_{2,2}(x)
+\end{align*}
+\]</span>
+where the <a href="sub-calculus.html#sub:Taylor">polynomials</a>
+<span class="math display">\[L_{2,1}(x)=\frac{x-x_{2}}{x_{1}-x_{2}},\; L_{2,2}(x)=\frac{x-x_{1}}{x_{2}-x_{1}}\]</span>
+are <strong>basis functions</strong> for the two coefficient values <span class="math inline">\(y_{1}\)</span> and <span class="math inline">\(y_{2}\)</span>, respectively. By inducing the same form of the <a href="sub-calculus.html#sub:Taylor">polynomials</a>, we can construct
+the basis functions for <span class="math inline">\(n-1\)</span> points as<label for="tufte-sn-322" class="margin-toggle sidenote-number">322</label><input type="checkbox" id="tufte-sn-322" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">322</span> Note that the line is also a <a href="sub-calculus.html#sub:Taylor">polynomial</a> with degree one. Because <span class="math inline">\(3\)</span> points are sufficient to define a parabola, <span class="math inline">\(4\)</span> points are sufficient to define a cubic curve and so on, we expect <span class="math inline">\(n\)</span> points to define a <a href="ch-MatComp.html#sub:vecSpaces">polynomial</a> of degree <span class="math inline">\(n-1\)</span>.</span> <span class="math display">\[\begin{align*}
+ L_{n,k}(x)=&amp;\frac{(x-x_{1})\cdots(x-x_{k-1})(x-x_{k+1})\cdots(x-x_{n})}{(x-x_{1})\cdots(x_{k}-x_{k-1})(x_{k}-x_{k+1})\cdots(x_{k}-x_{n})}\\
+=&amp;\frac{\prod_{j=1,j\neq k}^{n}(x-x_{j})}{\prod_{j=1,j\neq k}^{n}(x_{k}-x_{j})}\end{align*}\]</span> such that <span class="math display">\[f(x)=y_{1}L_{n,1}(x)+\cdots+y_{n}L_{n,n}(x)=\sum_{k=1}^{n}y_{k}L_{n,k}(x).\]</span></p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:Lpoly"></span>
+<img src="fig/Part4/Lpoly.gif" alt="Lagrange polynomial basis  four points" width="100%"><!--
+<p class="caption marginnote">-->Figure 14.2: Lagrange polynomial basis four points<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>The <a href="#ch:representatio">representation</a> is a <a href="ch-vecMat.html#sub:vec">linear combination</a> of the polynomials, <span class="math inline">\(L_{n,k}(x)\)</span>, called <em>Lagrange basis polynomials</em>.<label for="tufte-sn-323" class="margin-toggle sidenote-number">323</label><input type="checkbox" id="tufte-sn-323" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">323</span> The function <span class="math inline">\(\sum_{k=1}^{n}y_{k}L_{n,k}(x)\)</span> is called the <em>Lagrange polynomials</em>. Suppose all <span class="math inline">\(x_{i}\)</span> are in the set <span class="math inline">\(\mathcal{X}\)</span>, if this polynomial <span class="math inline">\(\sum_{k=1}^{n}y_{k}L_{n,k}(x)\)</span> is used to approximate some unknown function <span class="math inline">\(g(x):\,\mathcal{X}\mapsto\mathbb{R}\)</span>, we call the procedure <em>interpolation</em>. If the polynomial <span class="math inline">\(\sum_{k=1}^{n}y_{k}L_{n,k}(x)\)</span> approximates <span class="math inline">\(g(x)\)</span> for <span class="math inline">\(x\not \mathcal{X}\)</span>, we call the procedure <em>extrapolation</em>.</span>
+By comparing the representation to that of decimal numbers, we can see that the <strong>basis function</strong> <span class="math inline">\(L_{n,k}(x)\)</span> plays a similar role as the function <span class="math inline">\(10^{i}\)</span> in the <a href="ch-representation.html#sub:pseudoRandom">modular representation</a>. The representation also reveals that the <a href="ch-eigen.html#sub:det">monomials</a> can also perform as a basis (called <em>monomial basis</em>) as <span class="math display">\[\sum_{k=1}^{n}y_{k}L_{n,k}(x)=\sum_{j=0}^{n-1}c_{j}x^{j}\]</span>
+for some coefficients <span class="math inline">\(c_{0},\dots c_{n-1}\)</span>.<label for="tufte-sn-324" class="margin-toggle sidenote-number">324</label><input type="checkbox" id="tufte-sn-324" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">324</span> To find the coefficients <span class="math inline">\(c_{j}\)</span>, one needs to solve <span class="math inline">\(\sum_{j=0}^{n-1}c_{j}x_{i}^{j}=y_{i}\)</span> for <span class="math inline">\(i=1,\dots n\)</span> by inverting the <a href="ch-MatComp.html#sub:vecSpaces">Vandermonde matrix</a> of <span class="math inline">\(x^{j}\)</span>.</span></p>
+<div class="solution">
+<p class="solution-begin">
+Code <span id="sol-start-74" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-74', 'sol-start-74')"></span>
+</p>
+<div id="sol-body-74" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1">x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>)</a>
+<a class="sourceLine" id="cb99-2" data-line-number="2">y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb99-3" data-line-number="3"><span class="kw">library</span>(polynom)</a>
+<a class="sourceLine" id="cb99-4" data-line-number="4"><span class="kw">poly.calc</span>(x,y)</a>
+<a class="sourceLine" id="cb99-5" data-line-number="5">f =<span class="st"> </span><span class="cf">function</span>(x){<span class="fl">18.09028</span> <span class="op">-</span><span class="st"> </span><span class="fl">19.04005</span><span class="op">*</span>x <span class="op">+</span><span class="st"> </span><span class="fl">5.470602</span><span class="op">*</span>x<span class="op">^</span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.5377315</span><span class="op">*</span>x<span class="op">^</span><span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.01689815</span><span class="op">*</span>x<span class="op">^</span><span class="dv">4</span> }</a>
+<a class="sourceLine" id="cb99-6" data-line-number="6">dat =<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">cbind</span>(x, y))</a>
+<a class="sourceLine" id="cb99-7" data-line-number="7"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb99-8" data-line-number="8"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb99-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb99-10" data-line-number="10"><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> f, <span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Although <strong>Lagrange polynomials</strong> illustrate us a class of <strong>basis functions</strong>, the functions do not exactly comparable to the <a href="ch-vecMat.html#sub:vec">standard unit vectors</a> <span class="math inline">\(\{\mathbf{e}_{i}\}_{i=1}^{n}\)</span> in the discrete setting. Note that <span class="math inline">\(\{\mathbf{e}_{i}\}_{i=1}^{n}\)</span> is not only a <a href="ch-MatComp.html#sub:vecSpaces">basis</a>, but an <a href="ch-UnMulti.html#sub:MultiVar">orthonormal basis</a>. That is, <span class="math inline">\(\mathbf{e}_{i}^{\top} \mathbf{e}_{j}=\langle \mathbf{e}_i,\mathbf{e}_j\rangle =0\)</span> for <span class="math inline">\(i\neq j\)</span> and <span class="math inline">\(\|\mathbf{e}_{i}\|=\sqrt{\left\langle \mathbf{e}_i,\mathbf{e}_i\right\rangle} =1\)</span> for any <span class="math inline">\(1 \leq i\leq n\)</span>. The <strong>Lagrange basis polynomials</strong> are neither <a href="ch-UnMulti.html#sub:MultiVar">orthogonal</a> nor <a href="ch-UnMulti.html#sub:MultiVar">orthonormal</a>.</p>
+<p>To obtain <strong>orthonormal basis functions</strong>, we need to alter the way of constructing the <strong>basis functions</strong>. Recall in chapter <a href="ch-UnMulti.html#sub:MultiVar">13.1</a> and <a href="ch-eigen.html#sub:diag">12.2</a>, the <a href="ch-UnMulti.html#sub:MultiVar">orthonormal basis vectors</a> appear as the <a href="ch-eigen.html#ch:eigen">eigenvectors</a> of some specific matrices. As functions are not vectors, we cannot follow the exact procedure of <a href="ch-eigen.html#sub:det">eigen-decomposition</a>, but as functions behave similarly to the infinite large vectors, we can follow a similar procedure of <a href="ch-eigen.html#sub:det">eigen-decomposition</a>, called <em>eigenfunction-eigenvalue</em> decomposition:
+<span class="math display">\[ \mathbf{T}f(x) = \lambda f(x)\]</span> where <span class="math inline">\(\mathbf{T} : \mathcal{X}\rightarrow \mathcal{Y}\)</span> is a <a href="ch-MatComp.html#sub:vecSpaces">linear operator</a> from a vector space <span class="math inline">\(\mathcal{X}\)</span> to another vector space <span class="math inline">\(\mathcal{Y}\)</span>, <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(f(\cdot)\)</span> the <a href="ch-eigen.html#sub:det">eigenvalue</a> and <em>eigenfunction</em> of the <a href="ch-MatComp.html#sub:vecSpaces">linear operator</a>.</p>
+<p>Consider the following <a href="ch-DE.html#ch:DE">differential equation</a> problem:
+<span class="math display" id="eq:2ndOrder">\[
+\begin{equation}
+-\frac{\mbox{d}^{2}f(x)}{\mbox{d}x^{2}}=\lambda f(x).
+\tag{14.1} 
+\end{equation}
+\]</span>
+This is an <strong>eigenfunction-eigenvalue</strong> problem with the <a href="ch-MatComp.html#sub:vecSpaces">linear operator</a> <span class="math inline">\(\mbox{d}^2(\cdot)/\mbox{d}t^2\)</span>. The solutions <span class="math inline">\(f_{1}(x)=\cos\theta x\)</span> and <span class="math inline">\(f_{2}(x)=\sin\theta x\)</span> of the differential equation are <strong>eigenfunction</strong> associated with the eigenvalues <span class="math inline">\(\lambda=\theta^{2}\)</span>.<label for="tufte-sn-325" class="margin-toggle sidenote-number">325</label><input type="checkbox" id="tufte-sn-325" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">325</span> We can easily verify the solutions by substitution <span class="math display">\[\begin{align*}
+- \frac{\mbox{d}^2 \cos(\theta x)}{\mbox{d}x^2}&amp;= \frac{\mbox{d}\theta \sin(\theta x)}{\mbox{d}x}= \theta^2 \cos(\theta x),\\
+- \frac{\mbox{d}^2 \sin(\theta x)}{\mbox{d}x^2}&amp;= - \frac{\mbox{d}\theta \cos(\theta x)}{\mbox{d}x}=  \theta^2 \sin(\theta x).
+\end{align*}\]</span></span></p>
+<p>The arbitrary <a href="ch-eigen.html#ch:eigen">eigenvalue</a> <span class="math inline">\(\lambda=\theta^{2}\)</span> may complicate the expression. For the moment, let’s restrict our attention to three neat expressions.</p>
+<p>1). By setting the eigenvalues to <span class="math inline">\(\lambda=4k^{2}\pi^{2}\)</span> for any integer <span class="math inline">\(k\)</span>, we can refine the set of <strong>eigenfunctions</strong> to <span class="math inline">\(\sin(2\pi k x), \cos(2\pi k x)\)</span> for <span class="math inline">\(k=1,2,\dots\)</span>.</p>
+<p>2). Similarly, if we set <span class="math inline">\(\lambda=k^{2}\)</span> to a squared integer, then the set of <strong>eigenfunctions</strong> shrinks to <span class="math inline">\(\sin( k x), \cos( k x)\)</span> for <span class="math inline">\(k=1,2,\dots\)</span>.</p>
+<p>3). As the eigenvalues are not necessarily real, we can set <span class="math inline">\(\lambda=\mbox{i}k\)</span> with the imaginary unit <span class="math inline">\(\mbox{i}\)</span>. The equation <a href="ch-representation.html#eq:2ndOrder">(14.1)</a> becomes <span class="math display">\[-\frac{\mbox{d}^{2}y(t)}{\mbox{d}t^{2}}= \mbox{i}k y(t).\]</span>
+Notice that the <strong>eigenfunctions</strong> as the solutions of above equation have a compact expression <span class="math inline">\(\{\mbox{e}^{\mbox{i} k}\}_{k\in\mathbb{Z}}\)</span> that includes both <span class="math inline">\(\{\sin(kx)\}_{k\in\mathbb{Z}}\)</span> and <span class="math inline">\(\{\cos(kx)\}_{k\in\mathbb{Z}}\)</span> by the Euler formula <span class="math inline">\(e^{\mbox{i}kx}=\cos (kx)+\mbox{i}\sin (kx)\)</span>.</p>
+<p>As you can see, these three categories are correlated. They are called the <em>Fourier bases</em>. If we can verify the orthogonal property for any of the trinity, then the result can be simultaneously extended to the rest.</p>
+<div class="solution">
+<p class="solution-begin">
+Eigenvectors perspective <span id="sol-start-75" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-75', 'sol-start-75')"></span>
+</p>
+<div id="sol-body-75" class="solution-body" style="display: none;">
+<p>As shown in chapter <a href="ch-MatComp.html#sub:LU">11.3</a>, the <a href="ch-MatComp.html#sub:vecSpaces">second differentation differentation operator</a> <span class="math inline">\(\mbox{d}^2(\cdot)/\mbox{d}t^2\)</span> can be discretized as a <a href="ch-MatComp.html#sub:LU">second difference matrix</a> such as <span class="math display">\[\left[\begin{array}{cccc}
+\ddots\\
+1 &amp; -2 &amp; 1\\
+ &amp; 1 &amp; -2 &amp; 1\\
+ &amp;  &amp;  &amp; \ddots
+\end{array}\right].\]</span>
+Using the <a href="ch-MatComp.html#sub:LU">second difference matrix</a> for <span class="math inline">\(-\mbox{d}^{2}y(t)} / \mbox{d}t^{2}= \mbox{i}k y(t)\)</span>, we have
+<span class="math display">\[
+\begin{align*}
+&amp; \left[\begin{array}{cccc}
+\ddots\\
+1 &amp; -2 &amp; 1\\
+ &amp; 1 &amp; -2 &amp; 1\\
+ &amp;  &amp;  &amp; \ddots
+\end{array}\right]\left[\begin{array}{c}
+\vdots\\
+e^{\mbox{i}(k-1)t}\\
+e^{\mbox{i}kt}\\
+e^{\mbox{i}(k+1)t}\\
+\vdots
+\end{array}\right] = \left[\begin{array}{c}
+\vdots\\
+-e^{\mbox{i}(k-1)\theta}+2e^{\mbox{i}k\theta}-e^{\mbox{i}(k+1)\theta}\\
+-e^{\mbox{i}k\theta}+2e^{\mbox{i}(k+1)\theta}-e^{\mbox{i}(k+2)\theta}\\
+\vdots
+\end{array}\right]\\
+&amp;=\left[\begin{array}{c}
+\vdots\\
+(2-e^{-\mbox{i}\theta}-e^{\mbox{i}\theta})e^{\mbox{i}k\theta}\\
+(2-e^{-\mbox{i}\theta}-e^{\mbox{i}\theta})e^{\mbox{i}(k+1)\theta}\\
+\vdots
+\end{array}\right]  =(2\cos\theta-2)\left[\begin{array}{c}
+\vdots\\
+e^{\mbox{i}(k-1)t}\\
+e^{\mbox{i}kt}\\
+e^{\mbox{i}(k+1)t}\\
+\vdots
+\end{array}\right]
+\end{align*}\]</span>
+where <span class="math inline">\((e^{\mbox{i}\theta}-e^{-\mbox{i}\theta})/2=\cos\theta\)</span>. Note that <span class="math inline">\(e^{\mbox{i}\theta}=\cos\theta+\mbox{i}\sin\theta\)</span>
+. We can split the expression as
+<span class="math display">\[\left[\begin{array}{cccc}
+\ddots\\
+1 &amp; -2 &amp; 1\\
+ &amp; 1 &amp; -2 &amp; 1\\
+ &amp;  &amp;  &amp; \ddots
+\end{array}\right]\left[\begin{array}{c}
+\vdots\\
+\sin t\\
+\sin2t\\
+\sin3t\\
+\sin4t\\
+\vdots
+\end{array}\right]=(2\cos t-2)\left[\begin{array}{c}
+\vdots\\
+\sin t\\
+\sin2t\\
+\sin3t\\
+\sin4t\\
+\vdots
+\end{array}\right]\]</span>
+and
+<span class="math display">\[\left[\begin{array}{cccc}
+\ddots\\
+1 &amp; -2 &amp; 1\\
+ &amp; 1 &amp; -2 &amp; 1\\
+ &amp;  &amp;  &amp; \ddots
+\end{array}\right]\left[\begin{array}{c}
+\vdots\\
+\cos t\\
+\cos2t\\
+\cos3t\\
+\cos4t\\
+\vdots
+\end{array}\right]=(2\cos t-2)\left[\begin{array}{c}
+\vdots\\
+\cos t\\
+\cos2t\\
+\cos3t\\
+\cos4t\\
+\vdots
+\end{array}\right]\]</span>
+So we have the eigen-form. Note that the discretization makes the eigenvalues slightly different from those in the continuous setting: <span class="math display">\[2-2\cos\pi k=2-2(1-\frac{\pi^{2}k^{2}}{2}+\cdots)\approx\pi^{2}k^{2}.\]</span></p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Before showing the <a href="ch-UnMulti.html#sub:MultiVar">orthogonality</a> of those <strong>eigenfunctions</strong>, we need to rigorously define what does <a href="ch-UnMulti.html#sub:MultiVar">orthogonality</a> means for functions. For vectors, saying that <span class="math inline">\(\mathbf{x}\)</span> is orthogonal to <span class="math inline">\(\mathbf{y}\)</span> induces <span class="math inline">\(\mathbf{x}^{\top} \mathbf{y}=\left\langle \mathbf{x},\mathbf{y} \right\rangle =0\)</span>. So the <a href="ch-UnMulti.html#sub:MultiVar">orthogonality</a> comes with the zero value of an <a href="ch-vecMat.html#sub:vec">inner product</a>. But the <a href="ch-vecMat.html#sub:vec">inner product</a> as a product of real-valued vectors given in chapter <a href="ch-vecMat.html#sub:vec">10.1</a> is not suitable for evaluating the products of complex-valued vectors or functions. The following <strong>axioms of inner products</strong> can help us to construct inner products for various objects of our interests.</p>
+<ul>
+<li>
+<em>Axioms of inner product</em> and <em>Inner product space</em> : An inner product on a <a href="ch-MatComp.html#sub:vecSpaces">vector space</a> <span class="math inline">\(\mathcal{V}\)</span> is a function <span class="math inline">\(\langle f,g \rangle\)</span> on pairs <span class="math inline">\((f, g)\)</span> in <span class="math inline">\(\mathcal{V}\times \mathcal{V}\)</span> taking values in the <a href="">field</a> <span class="math inline">\(\mathbb{F}\)</span> satisfying the following axioms:</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p><em>Positive definiteness</em> : <span class="math inline">\(\langle f,f \rangle \geq 0\)</span> for all <span class="math inline">\(f\in\mathcal{V}\)</span> and <span class="math inline">\(\langle f,f \rangle = 0\)</span> only if <span class="math inline">\(f = 0\)</span>.</p></li>
+<li>
+<em>Conjugate symmetry</em> : <span class="math inline">\(\langle f, g \rangle ={\overline {\langle f, g\rangle }}\)</span>
+</li>
+<li><p><em>Linearity at the first argument</em> : for any scalar <span class="math inline">\(a\in\mathbb{F}\)</span>, <span class="math inline">\(\langle a f, g\rangle =a\langle f,g\rangle\)</span>; for any <span class="math inline">\(q\in\mathcal{V}\)</span>, <span class="math inline">\(\langle f + q, g\rangle =\langle f, g \rangle +\langle q, g\rangle\)</span>.<label for="tufte-sn-326" class="margin-toggle sidenote-number">326</label><input type="checkbox" id="tufte-sn-326" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">326</span> Note that if we only consider <a href="">real number field</a> <span class="math inline">\(\mathbb{R}\)</span> for the inner product <span class="math inline">\(\langle \cdot,\cdot \rangle: \mathcal{V}\times \mathcal{V} \rightarrow \mathbb{R}\)</span>, then the 2) axiom becomes symmetry such that <span class="math inline">\(\langle f, g \rangle= \langle g, f \rangle\)</span>, and the 3) axiom is <strong>bilinear</strong>
+<span class="math display">\[
+\begin{align*}
+\langle a f + b q,  g\rangle &amp; = a \langle f, g \rangle + b \langle q, g\rangle \\
+&amp; = \langle  f +  q,  (a+b)g\rangle
+\end{align*}\]</span> for <span class="math inline">\(a,b\in\mathbb{R}\)</span> because of the symmetry property. For <span class="math inline">\(\mathbb{C}\)</span>, the bilinear forms become conjugate linear in one argument.</span></p></li>
+</ol>
+<p>An <strong>inner product space</strong> is a <a href="ch-MatComp.html#sub:vecSpaces">vector space</a> with an inner product.</p>
+<p>In chapter <a href="ch-MatComp.html#sub:vecSpaces">11.4</a>, we have seen that the set of all continuous real-valued functions <span class="math inline">\(f:[a,b]\rightarrow\mathbb{R}\)</span> is a <a href="ch-MatComp.html#sub:vecSpaces">vector space</a> denoted by <span class="math inline">\(\mathcal{C}[a,b]\)</span>. Both <span class="math inline">\(\sin(kx)\)</span> and <span class="math inline">\(\cos(kx)\)</span> as the <strong>eigenfunctions</strong> of equation <a href="ch-representation.html#eq:2ndOrder">(14.1)</a> are continuous and periodic, so they belong to the vector space <span class="math inline">\(\mathcal{C}[0,\pi]\)</span>.</p>
+<p>With above <strong>axioms</strong>, we can define their inner product for any continous function <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> on <span class="math inline">\([a,b]\)</span>:
+<span class="math display">\[\langle f, g \rangle =\int_{a}^{b}  f(x) g(x) \mbox{d}x\]</span>
+Similar to using the <a href="ch-vecMat.html#sub:vec">inner product</a> for inducing vector <a href="ch-vecMat.html#sub:vec">norms</a>, the inner product of any continous functions <span class="math inline">\(f\in \mathcal{C}[a,b]\)</span> gives rise to a <em>function norm</em>, called <em><span class="math inline">\(L_2\)</span>-norm</em>:<label for="tufte-sn-327" class="margin-toggle sidenote-number">327</label><input type="checkbox" id="tufte-sn-327" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">327</span> One can extend this defintion to <em><span class="math inline">\(L_p\)</span>-norm</em> of functions <span class="math display">\[\|f\|_p = \left[\int_{a}^{b}  |f(x)|^p \mbox{d}x \right]^p.\]</span> But they don’t necessarily have associated inner products except the case <span class="math inline">\(p=2\)</span>.</span>
+<span class="math display">\[\sqrt{\langle f, f \rangle} =\left[\int_{a}^{b}  |f(x)|^2 \mbox{d}x \right]^{\frac{1}{2}}= \|f\|.\]</span></p>
+<p>Consider the <strong>eigenfunctions</strong> of equation <a href="ch-representation.html#eq:2ndOrder">(14.1)</a>. Note that <span class="math inline">\(\sin(kx)\)</span> is continuous and periodic, so it belongs to the vector space <span class="math inline">\(\mathcal{C}[0,\pi]\)</span>. For eigenfunctions of <span class="math inline">\(\{\sin(kx)\}_{k\in\mathbb{Z}}\)</span> in <span class="math inline">\(\mathcal{C}[0, \pi]\)</span>, we can see that each pair of <span class="math inline">\(\{\sin(kx)\}_{k\in\mathbb{Z}}\)</span> are <a href="ch-UnMulti.html#sub:MultiVar">orthogonal</a>.
+<span class="math display">\[\begin{align*}
+\langle \sin(kx), \sin(nx) \rangle &amp;=\int_{0}^{\pi}\sin(kx)\sin(nx)\mbox{d}x\\
+&amp;=\int_{0}^{\pi}\left[\frac{1}{2}\cos(n-k)x-\frac{1}{2}\cos(n+k)x\right]=0,
+\end{align*}\]</span>
+for <span class="math inline">\(n\neq k\)</span>.<label for="tufte-sn-328" class="margin-toggle sidenote-number">328</label><input type="checkbox" id="tufte-sn-328" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">328</span> The second equality comes from
+<span class="math display">\[\int_{0}^{\pi}\cos(n\pm k)x=\left.\frac{\sin(n\pm k)x}{n\pm k}\right|_{0}^{\pi}=0-0.\]</span></span>
+By mutiplying each <span class="math inline">\(\sin(kx)\)</span> with the norm <span class="math inline">\(\|\sin(kx)\|\)</span>, we can show that <span class="math inline">\(\{\sin(kx)/\|\sin(kx)\|\}_{k\in\mathbb{Z}}\)</span> is <em>orthonormal</em>:
+<span class="math display">\[\left\langle \frac{\sin(nx)}{\|\sin(nx)\|},\frac{\sin(kx)}{\|\sin(kx)\|}\right\rangle =\begin{cases}
+0, &amp; \mbox{ if }n\neq k,\\
+1, &amp; \mbox{ if }n=k.
+\end{cases}\]</span></p>
 </div>
 </div></body></html>
 
@@ -386,7 +587,7 @@ In other words, I Ching’s representation may release two incompatible “truth
 <a href="bibliography.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-10-04
+2020-10-14
 </p>
 </div>
 </div>
