@@ -207,9 +207,9 @@ While the object remains the same, the number <span class="math inline">\(123\)<
 + \underline{0}\times(2)^2 + \underline{1}\times(2)^1 + \underline{1}\times(2)^0.\]</span></p>
 <div class="solution">
 <p class="solution-begin">
-Compute the modular representation of 123 <span id="sol-start-71" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-71', 'sol-start-71')"></span>
+Compute the modular representation of 123 <span id="sol-start-198" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-198', 'sol-start-198')"></span>
 </p>
-<div id="sol-body-71" class="solution-body" style="display: none;">
+<div id="sol-body-198" class="solution-body" style="display: none;">
 <p>One can compute the <strong>modular representation</strong> following a similar procedure (a modified <a href="ch-MatComp.html#sub:GElimination">backward substitution</a>) as we did in the base-<span class="math inline">\(10\)</span> numeral system.
 Each coefficient from the base-<span class="math inline">\(2\)</span> representation of <span class="math inline">\(123\)</span> comes from
 <span class="math display">\[
@@ -224,21 +224,21 @@ Each coefficient from the base-<span class="math inline">\(2\)</span> representa
 \end{align*}
 \]</span></p>
 <p>We can also obtain the procedure via a computer program.</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="co"># Compute the coefficients</span></a>
-<a class="sourceLine" id="cb90-2" data-line-number="2">r =<span class="st"> </span>c =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">7</span>)</a>
-<a class="sourceLine" id="cb90-3" data-line-number="3">r[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">123</span><span class="op">%%</span><span class="dv">2</span>; c[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">123</span></a>
-<a class="sourceLine" id="cb90-4" data-line-number="4"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">7</span>){</a>
-<a class="sourceLine" id="cb90-5" data-line-number="5">  c[i] =<span class="st"> </span>(c[i<span class="dv">-1</span>] <span class="op">-</span><span class="st"> </span>r[i<span class="dv">-1</span>])<span class="op">/</span><span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb90-6" data-line-number="6">  r[i] =<span class="st"> </span>c[i]<span class="op">%%</span><span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb90-7" data-line-number="7">}</a>
-<a class="sourceLine" id="cb90-8" data-line-number="8"><span class="kw">print</span>(r[<span class="dv">7</span><span class="op">:</span><span class="dv">1</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="co"># Compute the coefficients</span></a>
+<a class="sourceLine" id="cb89-2" data-line-number="2">r =<span class="st"> </span>c =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb89-3" data-line-number="3">r[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">123</span><span class="op">%%</span><span class="dv">2</span>; c[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">123</span></a>
+<a class="sourceLine" id="cb89-4" data-line-number="4"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">7</span>){</a>
+<a class="sourceLine" id="cb89-5" data-line-number="5">  c[i] =<span class="st"> </span>(c[i<span class="dv">-1</span>] <span class="op">-</span><span class="st"> </span>r[i<span class="dv">-1</span>])<span class="op">/</span><span class="dv">2</span>;</a>
+<a class="sourceLine" id="cb89-6" data-line-number="6">  r[i] =<span class="st"> </span>c[i]<span class="op">%%</span><span class="dv">2</span>;</a>
+<a class="sourceLine" id="cb89-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb89-8" data-line-number="8"><span class="kw">print</span>(r[<span class="dv">7</span><span class="op">:</span><span class="dv">1</span>])</a></code></pre></div>
 <pre><code>## [1] 1 1 1 1 0 1 1</code></pre>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="co"># The based-10 number under the based-2 representation</span></a>
-<a class="sourceLine" id="cb92-2" data-line-number="2">x =<span class="st"> </span>r[<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb92-3" data-line-number="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">7</span>){</a>
-<a class="sourceLine" id="cb92-4" data-line-number="4">  x =<span class="st"> </span>x <span class="op">+</span><span class="st"> </span>r[i]<span class="op">*</span><span class="dv">2</span><span class="op">^</span>(i<span class="dv">-1</span>) </a>
-<a class="sourceLine" id="cb92-5" data-line-number="5">}</a>
-<a class="sourceLine" id="cb92-6" data-line-number="6">x</a></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="co"># The based-10 number under the based-2 representation</span></a>
+<a class="sourceLine" id="cb91-2" data-line-number="2">x =<span class="st"> </span>r[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb91-3" data-line-number="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">7</span>){</a>
+<a class="sourceLine" id="cb91-4" data-line-number="4">  x =<span class="st"> </span>x <span class="op">+</span><span class="st"> </span>r[i]<span class="op">*</span><span class="dv">2</span><span class="op">^</span>(i<span class="dv">-1</span>) </a>
+<a class="sourceLine" id="cb91-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb91-6" data-line-number="6">x</a></code></pre></div>
 <pre><code>## [1] 123</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -255,10 +255,10 @@ Whether a true random object that exists in the world is a philosophical or theo
 <p>One of the simplest algorithms to generate pseudo-random numbers is called the <strong>linear congruential generator</strong>.<label for="tufte-sn-313" class="margin-toggle sidenote-number">313</label><input type="checkbox" id="tufte-sn-313" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">313</span> <strong>Generators</strong> and <a href="ch-MatComp.html#sub:vecSpaces">bases</a> serve similar purposes in most circumstances. The term <em>generator</em> or <em>generating set</em> refers to the situation that a smaller set of objects, together with a set of operations that can be applied to it, results in the creation of a larger collection of objects. The larger set is then said to be generated by the smaller set. One can think the <a href="ch-MatComp.html#sub:vecSpaces">basis</a> of a <a href="ch-MatComp.html#sub:vecSpaces">vector space</a> as the smallest <strong>generator</strong> whose components are <a href="ch-MatComp.html#sub:vecSpaces">linearly independent</a>.</span>
 The basic idea is to form a “disordered” dynamics thorough a <a href="ch-vecMat.html#sub:linearSys">linear dynamical system</a> of finite states. The <em>linear congruential generator</em> represents any sequence of numbers on a new base through the <strong>modulo operation</strong> so that the order embedded in the old sequence is shattered. The numbers in the new sequence may “seem” to follow an “unordering” pattern, which creates the illusion of randomness.</p>
 <p>The linear system of <strong>linear congruential generator</strong> follows <span class="math display">\[x_t = (a x_{t-1} + c ) \, \mbox{mod} \, m,\]</span> which is completely deterministic. The <strong>modulus</strong> <span class="math inline">\(m\)</span>, the multiplier <span class="math inline">\(a\)</span>, and the increment <span class="math inline">\(c\)</span> are the dynamical system parameters.<label for="tufte-sn-314" class="margin-toggle sidenote-number">314</label><input type="checkbox" id="tufte-sn-314" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">314</span> Different computer programs usually use different specified parameters for their generators. Very often, the modulus <span class="math inline">\(m\)</span> is chosen for the storage-bit of the central processor i.e., <span class="math inline">\(m=2^{32}\)</span> for a standard <span class="math inline">\(32\)</span>-bit data storage system. In Borland C or C++, <span class="math inline">\(a\)</span> is <span class="math inline">\(22695477\)</span>, and <span class="math inline">\(c\)</span> is <span class="math inline">\(1\)</span>. Note that some parameters may create ordering patterns, such as the <a href="ch-UnMulti.html#sub:rw">cyclical pattern</a>, for the sequence; in this case, the parameters are not suitable for generating the pseudo-randomness.</span> The following program generates <span class="math inline">\(5\)</span> pseudo-random numbers using this <strong>generator</strong>. In figure <a href="ch-representation.html#fig:lcg">14.1</a>, we fill the cube with uniformly random vectors created by the same generator.</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1">x=<span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">10</span>) </a>
-<a class="sourceLine" id="cb94-2" data-line-number="2">x[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">100</span> <span class="co"># seed</span></a>
-<a class="sourceLine" id="cb94-3" data-line-number="3"><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">10</span>){x[t] =<span class="st"> </span>(<span class="dv">1664525</span> <span class="op">*</span><span class="st"> </span>x[t<span class="dv">-1</span>] <span class="op">+</span><span class="st"> </span><span class="dv">1013904223</span>) <span class="op">%%</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">32</span> }</a>
-<a class="sourceLine" id="cb94-4" data-line-number="4">x<span class="op">/</span>(<span class="dv">2</span><span class="op">^</span><span class="dv">32</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1">x=<span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">10</span>) </a>
+<a class="sourceLine" id="cb93-2" data-line-number="2">x[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">100</span> <span class="co"># seed</span></a>
+<a class="sourceLine" id="cb93-3" data-line-number="3"><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">10</span>){x[t] =<span class="st"> </span>(<span class="dv">1664525</span> <span class="op">*</span><span class="st"> </span>x[t<span class="dv">-1</span>] <span class="op">+</span><span class="st"> </span><span class="dv">1013904223</span>) <span class="op">%%</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">32</span> }</a>
+<a class="sourceLine" id="cb93-4" data-line-number="4">x<span class="op">/</span>(<span class="dv">2</span><span class="op">^</span><span class="dv">32</span>)</a></code></pre></div>
 <pre><code>##  [1] 2.328306e-08 2.748232e-01 3.489434e-01 2.903610e-01 3.695035e-01
 ##  [6] 3.070315e-02 3.928942e-01 4.474292e-01 2.553318e-01 3.792914e-01</code></pre>
 <p>
@@ -271,29 +271,29 @@ The basic idea is to form a “disordered” dynamics thorough a <a href="ch-vec
 </p>
 <div class="solution">
 <p class="solution-begin">
-Code for plotting <span id="sol-start-72" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-72', 'sol-start-72')"></span>
+Code for plotting <span id="sol-start-199" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-199', 'sol-start-199')"></span>
 </p>
-<div id="sol-body-72" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="co"># Plot the pseudo-randomness generated by the linear congruential generator</span></a>
-<a class="sourceLine" id="cb96-2" data-line-number="2"><span class="co"># U[t] = (1664525 * U[t-1] + 1013904223) %% 2^32</span></a>
-<a class="sourceLine" id="cb96-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb96-4" data-line-number="4"><span class="kw">library</span>(plot3D)</a>
-<a class="sourceLine" id="cb96-5" data-line-number="5"><span class="kw">library</span>(animation)</a>
-<a class="sourceLine" id="cb96-6" data-line-number="6">n =<span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">100</span>, <span class="dv">500</span>, <span class="dv">2000</span>)</a>
-<a class="sourceLine" id="cb96-7" data-line-number="7"><span class="kw">saveGIF</span>({</a>
-<a class="sourceLine" id="cb96-8" data-line-number="8">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(n)) {</a>
-<a class="sourceLine" id="cb96-9" data-line-number="9">    U =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,n[i]); XYZ =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dv">3</span>, n[i]); init=<span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">300</span>) <span class="co"># the seed</span></a>
-<a class="sourceLine" id="cb96-10" data-line-number="10">    <span class="cf">for</span>(d <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb96-11" data-line-number="11">      U[<span class="dv">1</span>]=init[d]</a>
-<a class="sourceLine" id="cb96-12" data-line-number="12">        <span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>n[i]){   </a>
-<a class="sourceLine" id="cb96-13" data-line-number="13">        U[t] =<span class="st"> </span>(<span class="dv">1664525</span> <span class="op">*</span><span class="st"> </span>U[t<span class="dv">-1</span>] <span class="op">+</span><span class="st"> </span><span class="dv">1013904223</span>) <span class="op">%%</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">32</span> </a>
-<a class="sourceLine" id="cb96-14" data-line-number="14">        <span class="co">#  Try  U[t] = (1229 * U[t-1] + 1) %% 2^11</span></a>
-<a class="sourceLine" id="cb96-15" data-line-number="15">        XYZ[d,t] =<span class="st"> </span>U[t]<span class="op">/</span>(<span class="dv">2</span><span class="op">^</span><span class="dv">32</span>) </a>
-<a class="sourceLine" id="cb96-16" data-line-number="16">        }</a>
-<a class="sourceLine" id="cb96-17" data-line-number="17">      }</a>
-<a class="sourceLine" id="cb96-18" data-line-number="18">    <span class="kw">scatter3D</span>(XYZ[<span class="dv">1</span>,], XYZ[<span class="dv">2</span>,], XYZ[<span class="dv">3</span>,], <span class="dt">main =</span> <span class="kw">paste</span>(<span class="st">'n = '</span>, n[i]))</a>
-<a class="sourceLine" id="cb96-19" data-line-number="19">    }</a>
-<a class="sourceLine" id="cb96-20" data-line-number="20">}, <span class="dt">movie.name =</span> <span class="st">'lcg.gif'</span>)</a></code></pre></div>
+<div id="sol-body-199" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="co"># Plot the pseudo-randomness generated by the linear congruential generator</span></a>
+<a class="sourceLine" id="cb95-2" data-line-number="2"><span class="co"># U[t] = (1664525 * U[t-1] + 1013904223) %% 2^32</span></a>
+<a class="sourceLine" id="cb95-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb95-4" data-line-number="4"><span class="kw">library</span>(plot3D)</a>
+<a class="sourceLine" id="cb95-5" data-line-number="5"><span class="kw">library</span>(animation)</a>
+<a class="sourceLine" id="cb95-6" data-line-number="6">n =<span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">100</span>, <span class="dv">500</span>, <span class="dv">2000</span>)</a>
+<a class="sourceLine" id="cb95-7" data-line-number="7"><span class="kw">saveGIF</span>({</a>
+<a class="sourceLine" id="cb95-8" data-line-number="8">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(n)) {</a>
+<a class="sourceLine" id="cb95-9" data-line-number="9">    U =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,n[i]); XYZ =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dv">3</span>, n[i]); init=<span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">300</span>) <span class="co"># the seed</span></a>
+<a class="sourceLine" id="cb95-10" data-line-number="10">    <span class="cf">for</span>(d <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb95-11" data-line-number="11">      U[<span class="dv">1</span>]=init[d]</a>
+<a class="sourceLine" id="cb95-12" data-line-number="12">        <span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>n[i]){   </a>
+<a class="sourceLine" id="cb95-13" data-line-number="13">        U[t] =<span class="st"> </span>(<span class="dv">1664525</span> <span class="op">*</span><span class="st"> </span>U[t<span class="dv">-1</span>] <span class="op">+</span><span class="st"> </span><span class="dv">1013904223</span>) <span class="op">%%</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">32</span> </a>
+<a class="sourceLine" id="cb95-14" data-line-number="14">        <span class="co">#  Try  U[t] = (1229 * U[t-1] + 1) %% 2^11</span></a>
+<a class="sourceLine" id="cb95-15" data-line-number="15">        XYZ[d,t] =<span class="st"> </span>U[t]<span class="op">/</span>(<span class="dv">2</span><span class="op">^</span><span class="dv">32</span>) </a>
+<a class="sourceLine" id="cb95-16" data-line-number="16">        }</a>
+<a class="sourceLine" id="cb95-17" data-line-number="17">      }</a>
+<a class="sourceLine" id="cb95-18" data-line-number="18">    <span class="kw">scatter3D</span>(XYZ[<span class="dv">1</span>,], XYZ[<span class="dv">2</span>,], XYZ[<span class="dv">3</span>,], <span class="dt">main =</span> <span class="kw">paste</span>(<span class="st">'n = '</span>, n[i]))</a>
+<a class="sourceLine" id="cb95-19" data-line-number="19">    }</a>
+<a class="sourceLine" id="cb95-20" data-line-number="20">}, <span class="dt">movie.name =</span> <span class="st">'lcg.gif'</span>)</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -305,65 +305,65 @@ Code for plotting <span id="sol-start-72" class="fa fa-plus-square solution-icon
 <p>The ordering system of I-Ching’s basis is mathematically logical in the progression from one hexagram to the next<label for="tufte-sn-315" class="margin-toggle sidenote-number">315</label><input type="checkbox" id="tufte-sn-315" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">315</span> In fact, these hexagrams’ ordering system corresponds perfectly with the binary number system (of <span class="math inline">\(2^6=64\)</span>) invented by Leibniz. It is known that the ordering system of I Ching was brought to Leibniz’ attention by Joachim Bouv, a Jesuit missionary in China.</span>; it is not logical, however, in its progression from one interpretation to the next. One needs to rely on some <strong>random generator</strong> to sort out the logic, which we now call divination.<label for="tufte-sn-316" class="margin-toggle sidenote-number">316</label><input type="checkbox" id="tufte-sn-316" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">316</span> When one tries to represent various logically unrelated objects, one has to shatter the original order to create the “wanted” or “logical” ones. In this case, one needs a random (or pseudo-random) mechanism to generate the “wanted” hexagrams (interpretations). Such a procedure is now thought of as divination.</span></p>
 <div class="solution">
 <p class="solution-begin">
-I Ching divination <span id="sol-start-73" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-73', 'sol-start-73')"></span>
+I Ching divination <span id="sol-start-200" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-200', 'sol-start-200')"></span>
 </p>
-<div id="sol-body-73" class="solution-body" style="display: none;">
+<div id="sol-body-200" class="solution-body" style="display: none;">
 <p>There is a divination procedure described in the commentary on the appended phrases from a collection of commentaries (called Ten Wings) to I Ching. We can simply run a (pseudo) monte Carlo simulation to mimic this divination procedure. By specifying the parameter of the <strong>pseudo-random number generator</strong>, one can divine a hexagram based on the chosen <strong>seed</strong>.</p>
 <p>The procedure of this divination is given as follows.<label for="tufte-sn-317" class="margin-toggle sidenote-number">317</label><input type="checkbox" id="tufte-sn-317" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">317</span> “大衍之数五十，其用四十有九。分而为二以象两，挂一以象三，揲之以四以象四时，归奇于扐以象闰。五岁再闰，故再扐而后挂。天一，地二；天三，地四；天五，地六；天七，地八；天九，地十。天数五，地数五。五位相得而各有合，天数二十有五，地数三十，凡天地之数五十有五，此所以成变化而行鬼神也。乾之策二百一十有六，坤之策百四十有四，凡三百六十，当期之日。二篇之策，万有一千五百二十，当万物之数也。是故四营而成《易》，十有八变而成卦，八卦而小成。引而伸之，触类而长之，天下之能事毕矣。显道神德行，是故可与酬酢，可与祐神矣。子曰：‘知变化之道者，其知神之所为乎。’” - 系辞, 《十翼》</span></p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="co"># Define a linear congruential generator function for pseudo-random numbers</span></a>
-<a class="sourceLine" id="cb97-2" data-line-number="2">LCGSample =<span class="st"> </span><span class="cf">function</span>(range, seed){</a>
-<a class="sourceLine" id="cb97-3" data-line-number="3">U =<span class="st"> </span>Sample =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">100000</span>); U[<span class="dv">1</span>] =<span class="st"> </span>seed <span class="co"># the seed</span></a>
-<a class="sourceLine" id="cb97-4" data-line-number="4">  <span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">10000</span>){  </a>
-<a class="sourceLine" id="cb97-5" data-line-number="5">    U[t] =<span class="st"> </span>(<span class="dv">1664525</span> <span class="op">*</span><span class="st"> </span>U[t<span class="dv">-1</span>] <span class="op">+</span><span class="st"> </span><span class="dv">1013904223</span>) <span class="op">%%</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">32</span></a>
-<a class="sourceLine" id="cb97-6" data-line-number="6">    Sample[t] =<span class="st"> </span>U[t]<span class="op">%%</span>(range<span class="dv">-1</span>)<span class="op">+</span><span class="dv">1</span>}</a>
-<a class="sourceLine" id="cb97-7" data-line-number="7">  <span class="kw">return</span>(Sample[<span class="dv">2020</span>])</a>
-<a class="sourceLine" id="cb97-8" data-line-number="8">}</a>
-<a class="sourceLine" id="cb97-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb97-10" data-line-number="10"><span class="co"># You can also try to sample the hexagram by using R's built-in pseudo-number generator</span></a>
-<a class="sourceLine" id="cb97-11" data-line-number="11"><span class="co"># Add the following line</span></a>
-<a class="sourceLine" id="cb97-12" data-line-number="12"><span class="co"># set.seed(2020)</span></a>
-<a class="sourceLine" id="cb97-13" data-line-number="13"><span class="co"># Replace the line</span></a>
-<a class="sourceLine" id="cb97-14" data-line-number="14"><span class="co"># left = LCGSample(49-human-remainder, seed)</span></a>
-<a class="sourceLine" id="cb97-15" data-line-number="15"><span class="co"># with</span></a>
-<a class="sourceLine" id="cb97-16" data-line-number="16"><span class="co"># left = sample(1:(49-human-remainder),1)</span></a>
-<a class="sourceLine" id="cb97-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb97-18" data-line-number="18">N =<span class="st"> </span><span class="dv">6</span>;     <span class="co"># One hexagram (卦) consists of six Yao (爻)</span></a>
-<a class="sourceLine" id="cb97-19" data-line-number="19">hexagram =<span class="st"> </span><span class="ot">NULL</span>;</a>
-<a class="sourceLine" id="cb97-20" data-line-number="20"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>N){</a>
-<a class="sourceLine" id="cb97-21" data-line-number="21">        sign =<span class="st"> </span><span class="dv">0</span>;  remainder =<span class="st"> </span><span class="dv">0</span></a>
-<a class="sourceLine" id="cb97-22" data-line-number="22">        <span class="co"># We need three changes. At each change we need to substract the remainder stones in the previous changes (remainder) from the total number of stones.</span></a>
-<a class="sourceLine" id="cb97-23" data-line-number="23">        <span class="cf">for</span>(change <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb97-24" data-line-number="24">          <span class="co"># In the 1st changes, we start with 49 stones. One of them represents the mankind</span></a>
-<a class="sourceLine" id="cb97-25" data-line-number="25">            human =<span class="st"> </span><span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb97-26" data-line-number="26">          <span class="co"># Seperate the remainding stones randomly into two parts (heaven and earth)</span></a>
-<a class="sourceLine" id="cb97-27" data-line-number="27">            left =<span class="st"> </span><span class="kw">LCGSample</span>(<span class="dv">49</span><span class="op">-</span>human<span class="op">-</span>remainder, i<span class="op">*</span><span class="dv">127</span>)  <span class="co"># left group represents the heaven</span></a>
-<a class="sourceLine" id="cb97-28" data-line-number="28">          <span class="co"># By changing the value of the seed, you will confront different outputs of the seperation..</span></a>
-<a class="sourceLine" id="cb97-29" data-line-number="29">            right =<span class="st"> </span><span class="dv">49</span> <span class="op">-</span><span class="st"> </span>human <span class="op">-</span><span class="st"> </span>remainder <span class="op">-</span><span class="st"> </span>left  <span class="co"># right group represents the earth</span></a>
-<a class="sourceLine" id="cb97-30" data-line-number="30">          <span class="co"># For both groups, we divide the number of stones by 4 (four represents four seasons), and compute the remainder. </span></a>
-<a class="sourceLine" id="cb97-31" data-line-number="31">          <span class="co"># If the number can be divided by 4, then return 4, otherwise return the remainder</span></a>
-<a class="sourceLine" id="cb97-32" data-line-number="32">          <span class="co"># ifelse(condition, TRUE, FALSE)</span></a>
-<a class="sourceLine" id="cb97-33" data-line-number="33">            heaven =<span class="st"> </span><span class="kw">ifelse</span>(left<span class="op">%%</span><span class="dv">4</span><span class="op">==</span><span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb97-34" data-line-number="34">                            <span class="dv">4</span>,</a>
-<a class="sourceLine" id="cb97-35" data-line-number="35">                            left<span class="op">%%</span><span class="dv">4</span>);</a>
-<a class="sourceLine" id="cb97-36" data-line-number="36">            earth =<span class="st"> </span><span class="kw">ifelse</span>(right<span class="op">%%</span><span class="dv">4</span><span class="op">==</span><span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb97-37" data-line-number="37">                            <span class="dv">4</span>,</a>
-<a class="sourceLine" id="cb97-38" data-line-number="38">                            right<span class="op">%%</span><span class="dv">4</span>);</a>
-<a class="sourceLine" id="cb97-39" data-line-number="39">          <span class="co"># Heaven, earth, human represent three poles (三才)</span></a>
-<a class="sourceLine" id="cb97-40" data-line-number="40">            new.remainder =<span class="st"> </span>human <span class="op">+</span><span class="st"> </span>earth <span class="op">+</span><span class="st"> </span>heaven</a>
-<a class="sourceLine" id="cb97-41" data-line-number="41">          <span class="co"># End of the change  </span></a>
-<a class="sourceLine" id="cb97-42" data-line-number="42">          <span class="co"># 1st change remainder:  either 9 or 5</span></a>
-<a class="sourceLine" id="cb97-43" data-line-number="43">          <span class="co"># 2nd change (new) remainder:  either 4 or 8 </span></a>
-<a class="sourceLine" id="cb97-44" data-line-number="44">          <span class="co"># 3rd change (new) remainder:  either 4 or 8</span></a>
-<a class="sourceLine" id="cb97-45" data-line-number="45">            remainder =<span class="st"> </span>remainder <span class="op">+</span><span class="st"> </span>new.remainder</a>
-<a class="sourceLine" id="cb97-46" data-line-number="46">          }</a>
-<a class="sourceLine" id="cb97-47" data-line-number="47">        <span class="co"># After 3 changes, there are only four possibilities: 24, 28, 32, 36.</span></a>
-<a class="sourceLine" id="cb97-48" data-line-number="48">        <span class="co"># 49-9-4-4=32, 49-5-4-4=36, 49-9-8-4=28, 49-9-4-8=24</span></a>
-<a class="sourceLine" id="cb97-49" data-line-number="49">        <span class="co"># Dividing these numbers by 4, we have one of the four Yao:</span></a>
-<a class="sourceLine" id="cb97-50" data-line-number="50">        <span class="co"># 6 (old yin),7 (young yang),8 (young yin),9 (old yang)</span></a>
-<a class="sourceLine" id="cb97-51" data-line-number="51">        Yao =<span class="st"> </span>(<span class="dv">49</span><span class="op">-</span>remainder)<span class="op">/</span><span class="dv">4</span> </a>
-<a class="sourceLine" id="cb97-52" data-line-number="52">        hexagram =<span class="st"> </span><span class="kw">c</span>(hexagram, Yao)</a>
-<a class="sourceLine" id="cb97-53" data-line-number="53">}</a>
-<a class="sourceLine" id="cb97-54" data-line-number="54">hexagram</a></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="co"># Define a linear congruential generator function for pseudo-random numbers</span></a>
+<a class="sourceLine" id="cb96-2" data-line-number="2">LCGSample =<span class="st"> </span><span class="cf">function</span>(range, seed){</a>
+<a class="sourceLine" id="cb96-3" data-line-number="3">U =<span class="st"> </span>Sample =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">100000</span>); U[<span class="dv">1</span>] =<span class="st"> </span>seed <span class="co"># the seed</span></a>
+<a class="sourceLine" id="cb96-4" data-line-number="4">  <span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">10000</span>){  </a>
+<a class="sourceLine" id="cb96-5" data-line-number="5">    U[t] =<span class="st"> </span>(<span class="dv">1664525</span> <span class="op">*</span><span class="st"> </span>U[t<span class="dv">-1</span>] <span class="op">+</span><span class="st"> </span><span class="dv">1013904223</span>) <span class="op">%%</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">32</span></a>
+<a class="sourceLine" id="cb96-6" data-line-number="6">    Sample[t] =<span class="st"> </span>U[t]<span class="op">%%</span>(range<span class="dv">-1</span>)<span class="op">+</span><span class="dv">1</span>}</a>
+<a class="sourceLine" id="cb96-7" data-line-number="7">  <span class="kw">return</span>(Sample[<span class="dv">2020</span>])</a>
+<a class="sourceLine" id="cb96-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb96-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb96-10" data-line-number="10"><span class="co"># You can also try to sample the hexagram by using R's built-in pseudo-number generator</span></a>
+<a class="sourceLine" id="cb96-11" data-line-number="11"><span class="co"># Add the following line</span></a>
+<a class="sourceLine" id="cb96-12" data-line-number="12"><span class="co"># set.seed(2020)</span></a>
+<a class="sourceLine" id="cb96-13" data-line-number="13"><span class="co"># Replace the line</span></a>
+<a class="sourceLine" id="cb96-14" data-line-number="14"><span class="co"># left = LCGSample(49-human-remainder, seed)</span></a>
+<a class="sourceLine" id="cb96-15" data-line-number="15"><span class="co"># with</span></a>
+<a class="sourceLine" id="cb96-16" data-line-number="16"><span class="co"># left = sample(1:(49-human-remainder),1)</span></a>
+<a class="sourceLine" id="cb96-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb96-18" data-line-number="18">N =<span class="st"> </span><span class="dv">6</span>;     <span class="co"># One hexagram (卦) consists of six Yao (爻)</span></a>
+<a class="sourceLine" id="cb96-19" data-line-number="19">hexagram =<span class="st"> </span><span class="ot">NULL</span>;</a>
+<a class="sourceLine" id="cb96-20" data-line-number="20"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>N){</a>
+<a class="sourceLine" id="cb96-21" data-line-number="21">        sign =<span class="st"> </span><span class="dv">0</span>;  remainder =<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb96-22" data-line-number="22">        <span class="co"># We need three changes. At each change we need to substract the remainder stones in the previous changes (remainder) from the total number of stones.</span></a>
+<a class="sourceLine" id="cb96-23" data-line-number="23">        <span class="cf">for</span>(change <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb96-24" data-line-number="24">          <span class="co"># In the 1st changes, we start with 49 stones. One of them represents the mankind</span></a>
+<a class="sourceLine" id="cb96-25" data-line-number="25">            human =<span class="st"> </span><span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb96-26" data-line-number="26">          <span class="co"># Seperate the remainding stones randomly into two parts (heaven and earth)</span></a>
+<a class="sourceLine" id="cb96-27" data-line-number="27">            left =<span class="st"> </span><span class="kw">LCGSample</span>(<span class="dv">49</span><span class="op">-</span>human<span class="op">-</span>remainder, i<span class="op">*</span><span class="dv">127</span>)  <span class="co"># left group represents the heaven</span></a>
+<a class="sourceLine" id="cb96-28" data-line-number="28">          <span class="co"># By changing the value of the seed, you will confront different outputs of the seperation..</span></a>
+<a class="sourceLine" id="cb96-29" data-line-number="29">            right =<span class="st"> </span><span class="dv">49</span> <span class="op">-</span><span class="st"> </span>human <span class="op">-</span><span class="st"> </span>remainder <span class="op">-</span><span class="st"> </span>left  <span class="co"># right group represents the earth</span></a>
+<a class="sourceLine" id="cb96-30" data-line-number="30">          <span class="co"># For both groups, we divide the number of stones by 4 (four represents four seasons), and compute the remainder. </span></a>
+<a class="sourceLine" id="cb96-31" data-line-number="31">          <span class="co"># If the number can be divided by 4, then return 4, otherwise return the remainder</span></a>
+<a class="sourceLine" id="cb96-32" data-line-number="32">          <span class="co"># ifelse(condition, TRUE, FALSE)</span></a>
+<a class="sourceLine" id="cb96-33" data-line-number="33">            heaven =<span class="st"> </span><span class="kw">ifelse</span>(left<span class="op">%%</span><span class="dv">4</span><span class="op">==</span><span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb96-34" data-line-number="34">                            <span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb96-35" data-line-number="35">                            left<span class="op">%%</span><span class="dv">4</span>);</a>
+<a class="sourceLine" id="cb96-36" data-line-number="36">            earth =<span class="st"> </span><span class="kw">ifelse</span>(right<span class="op">%%</span><span class="dv">4</span><span class="op">==</span><span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb96-37" data-line-number="37">                            <span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb96-38" data-line-number="38">                            right<span class="op">%%</span><span class="dv">4</span>);</a>
+<a class="sourceLine" id="cb96-39" data-line-number="39">          <span class="co"># Heaven, earth, human represent three poles (三才)</span></a>
+<a class="sourceLine" id="cb96-40" data-line-number="40">            new.remainder =<span class="st"> </span>human <span class="op">+</span><span class="st"> </span>earth <span class="op">+</span><span class="st"> </span>heaven</a>
+<a class="sourceLine" id="cb96-41" data-line-number="41">          <span class="co"># End of the change  </span></a>
+<a class="sourceLine" id="cb96-42" data-line-number="42">          <span class="co"># 1st change remainder:  either 9 or 5</span></a>
+<a class="sourceLine" id="cb96-43" data-line-number="43">          <span class="co"># 2nd change (new) remainder:  either 4 or 8 </span></a>
+<a class="sourceLine" id="cb96-44" data-line-number="44">          <span class="co"># 3rd change (new) remainder:  either 4 or 8</span></a>
+<a class="sourceLine" id="cb96-45" data-line-number="45">            remainder =<span class="st"> </span>remainder <span class="op">+</span><span class="st"> </span>new.remainder</a>
+<a class="sourceLine" id="cb96-46" data-line-number="46">          }</a>
+<a class="sourceLine" id="cb96-47" data-line-number="47">        <span class="co"># After 3 changes, there are only four possibilities: 24, 28, 32, 36.</span></a>
+<a class="sourceLine" id="cb96-48" data-line-number="48">        <span class="co"># 49-9-4-4=32, 49-5-4-4=36, 49-9-8-4=28, 49-9-4-8=24</span></a>
+<a class="sourceLine" id="cb96-49" data-line-number="49">        <span class="co"># Dividing these numbers by 4, we have one of the four Yao:</span></a>
+<a class="sourceLine" id="cb96-50" data-line-number="50">        <span class="co"># 6 (old yin),7 (young yang),8 (young yin),9 (old yang)</span></a>
+<a class="sourceLine" id="cb96-51" data-line-number="51">        Yao =<span class="st"> </span>(<span class="dv">49</span><span class="op">-</span>remainder)<span class="op">/</span><span class="dv">4</span> </a>
+<a class="sourceLine" id="cb96-52" data-line-number="52">        hexagram =<span class="st"> </span><span class="kw">c</span>(hexagram, Yao)</a>
+<a class="sourceLine" id="cb96-53" data-line-number="53">}</a>
+<a class="sourceLine" id="cb96-54" data-line-number="54">hexagram</a></code></pre></div>
 <pre><code>## [1] 7 8 8 8 8 7</code></pre>
 <p>For the hexagram, one uses (⚋) to represent Yin and (⚊) to represent Yang.
 The result <span class="math inline">\(7 8 8 8 8 7\)</span> represents ䷚ (颐) that is the name for “swallowing.”<label for="tufte-sn-318" class="margin-toggle sidenote-number">318</label><input type="checkbox" id="tufte-sn-318" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">318</span> Usually, one can consider the change of hexagrams (变卦) for replacing old yin and old yang with youth yin and youth yang. However, this hexagram does not need for the change.</span></p>
@@ -413,19 +413,19 @@ By comparing the representation to that of decimal numbers, we can see that the 
 for some coefficients <span class="math inline">\(c_{0},\dots c_{n-1}\)</span>.<label for="tufte-sn-324" class="margin-toggle sidenote-number">324</label><input type="checkbox" id="tufte-sn-324" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">324</span> To find the coefficients <span class="math inline">\(c_{j}\)</span>, one needs to solve <span class="math inline">\(\sum_{j=0}^{n-1}c_{j}x_{i}^{j}=y_{i}\)</span> for <span class="math inline">\(i=1,\dots n\)</span> by inverting the <a href="ch-MatComp.html#sub:vecSpaces">Vandermonde matrix</a> of <span class="math inline">\(x^{j}\)</span>.</span></p>
 <div class="solution">
 <p class="solution-begin">
-Code <span id="sol-start-74" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-74', 'sol-start-74')"></span>
+Code <span id="sol-start-201" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-201', 'sol-start-201')"></span>
 </p>
-<div id="sol-body-74" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1">x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>)</a>
-<a class="sourceLine" id="cb99-2" data-line-number="2">y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb99-3" data-line-number="3"><span class="kw">library</span>(polynom)</a>
-<a class="sourceLine" id="cb99-4" data-line-number="4"><span class="kw">poly.calc</span>(x,y)</a>
-<a class="sourceLine" id="cb99-5" data-line-number="5">f =<span class="st"> </span><span class="cf">function</span>(x){<span class="fl">18.09028</span> <span class="op">-</span><span class="st"> </span><span class="fl">19.04005</span><span class="op">*</span>x <span class="op">+</span><span class="st"> </span><span class="fl">5.470602</span><span class="op">*</span>x<span class="op">^</span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.5377315</span><span class="op">*</span>x<span class="op">^</span><span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.01689815</span><span class="op">*</span>x<span class="op">^</span><span class="dv">4</span> }</a>
-<a class="sourceLine" id="cb99-6" data-line-number="6">dat =<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">cbind</span>(x, y))</a>
-<a class="sourceLine" id="cb99-7" data-line-number="7"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb99-8" data-line-number="8"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb99-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb99-10" data-line-number="10"><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> f, <span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<div id="sol-body-201" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1">x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>)</a>
+<a class="sourceLine" id="cb98-2" data-line-number="2">y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb98-3" data-line-number="3"><span class="kw">library</span>(polynom)</a>
+<a class="sourceLine" id="cb98-4" data-line-number="4"><span class="kw">poly.calc</span>(x,y)</a>
+<a class="sourceLine" id="cb98-5" data-line-number="5">f =<span class="st"> </span><span class="cf">function</span>(x){<span class="fl">18.09028</span> <span class="op">-</span><span class="st"> </span><span class="fl">19.04005</span><span class="op">*</span>x <span class="op">+</span><span class="st"> </span><span class="fl">5.470602</span><span class="op">*</span>x<span class="op">^</span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.5377315</span><span class="op">*</span>x<span class="op">^</span><span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.01689815</span><span class="op">*</span>x<span class="op">^</span><span class="dv">4</span> }</a>
+<a class="sourceLine" id="cb98-6" data-line-number="6">dat =<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">cbind</span>(x, y))</a>
+<a class="sourceLine" id="cb98-7" data-line-number="7"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb98-8" data-line-number="8"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb98-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb98-10" data-line-number="10"><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> f, <span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -433,7 +433,7 @@ Code <span id="sol-start-74" class="fa fa-plus-square solution-icon clickable" o
 </div>
 <p>Although <strong>Lagrange polynomials</strong> illustrate us a class of <strong>basis functions</strong>, the functions do not exactly comparable to the <a href="ch-vecMat.html#sub:vec">standard unit vectors</a> <span class="math inline">\(\{\mathbf{e}_{i}\}_{i=1}^{n}\)</span> in the discrete setting. Note that <span class="math inline">\(\{\mathbf{e}_{i}\}_{i=1}^{n}\)</span> is not only a <a href="ch-MatComp.html#sub:vecSpaces">basis</a>, but an <a href="ch-UnMulti.html#sub:MultiVar">orthonormal basis</a>. That is, <span class="math inline">\(\mathbf{e}_{i}^{\top} \mathbf{e}_{j}=\langle \mathbf{e}_i,\mathbf{e}_j\rangle =0\)</span> for <span class="math inline">\(i\neq j\)</span> and <span class="math inline">\(\|\mathbf{e}_{i}\|=\sqrt{\left\langle \mathbf{e}_i,\mathbf{e}_i\right\rangle} =1\)</span> for any <span class="math inline">\(1 \leq i\leq n\)</span>. The <strong>Lagrange basis polynomials</strong> are neither <a href="ch-UnMulti.html#sub:MultiVar">orthogonal</a> nor <a href="ch-UnMulti.html#sub:MultiVar">orthonormal</a>.</p>
 <p>To obtain <strong>orthonormal basis functions</strong>, we need to alter the way of constructing the <strong>basis functions</strong>. Recall in chapter <a href="ch-UnMulti.html#sub:MultiVar">13.1</a> and <a href="ch-eigen.html#sub:diag">12.2</a>, the <a href="ch-UnMulti.html#sub:MultiVar">orthonormal basis vectors</a> appear as the <a href="ch-eigen.html#ch:eigen">eigenvectors</a> of some specific matrices. As functions are not vectors, we cannot follow the exact procedure of <a href="ch-eigen.html#sub:det">eigen-decomposition</a>, but as functions behave similarly to the infinite large vectors, we can follow a similar procedure of <a href="ch-eigen.html#sub:det">eigen-decomposition</a>, called <em>eigenfunction-eigenvalue</em> decomposition:
-<span class="math display">\[ \mathbf{T}f(x) = \lambda f(x)\]</span> where <span class="math inline">\(\mathbf{T} : \mathcal{X}\rightarrow \mathcal{Y}\)</span> is a <a href="ch-MatComp.html#sub:vecSpaces">linear operator</a> from a vector space <span class="math inline">\(\mathcal{X}\)</span> to another vector space <span class="math inline">\(\mathcal{Y}\)</span>, <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(f(\cdot)\)</span> the <a href="ch-eigen.html#sub:det">eigenvalue</a> and <em>eigenfunction</em> of the <a href="ch-MatComp.html#sub:vecSpaces">linear operator</a>.</p>
+<span class="math display">\[ \mathbf{T}f(x) = \lambda f(x)\]</span> where <span class="math inline">\(\mathbf{T} : \mathcal{X}\rightarrow \mathcal{Y}\)</span> is a <a href="ch-MatComp.html#sub:vecSpaces">linear operator</a> from a vector space <span class="math inline">\(\mathcal{X}\)</span> to another vector space <span class="math inline">\(\mathcal{Y}\)</span>, <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(f(\cdot)\)</span> are the <a href="ch-eigen.html#sub:det">eigenvalue</a> and <em>eigenfunction</em> of the <a href="ch-MatComp.html#sub:vecSpaces">linear operator</a>.</p>
 <p>Consider the following <a href="ch-DE.html#ch:DE">differential equation</a> problem:
 <span class="math display" id="eq:2ndOrder">\[
 \begin{equation}
@@ -448,21 +448,21 @@ This is an <strong>eigenfunction-eigenvalue</strong> problem with the <a href="c
 <p>The arbitrary <a href="ch-eigen.html#ch:eigen">eigenvalue</a> <span class="math inline">\(\lambda=\theta^{2}\)</span> may complicate the expression. For the moment, let’s restrict our attention to three neat expressions.</p>
 <p>1). By setting the eigenvalues to <span class="math inline">\(\lambda=4k^{2}\pi^{2}\)</span> for any integer <span class="math inline">\(k\)</span>, we can refine the set of <strong>eigenfunctions</strong> to <span class="math inline">\(\sin(2\pi k x), \cos(2\pi k x)\)</span> for <span class="math inline">\(k=1,2,\dots\)</span>.</p>
 <p>2). Similarly, if we set <span class="math inline">\(\lambda=k^{2}\)</span> to a squared integer, then the set of <strong>eigenfunctions</strong> shrinks to <span class="math inline">\(\sin( k x), \cos( k x)\)</span> for <span class="math inline">\(k=1,2,\dots\)</span>.</p>
-<p>3). As the eigenvalues are not necessarily real, we can set <span class="math inline">\(\lambda=\mbox{i}k\)</span> with the imaginary unit <span class="math inline">\(\mbox{i}\)</span>. The equation <a href="ch-representation.html#eq:2ndOrder">(14.1)</a> becomes <span class="math display">\[-\frac{\mbox{d}^{2}y(t)}{\mbox{d}t^{2}}= \mbox{i}k y(t).\]</span>
-Notice that the <strong>eigenfunctions</strong> as the solutions of above equation have a compact expression <span class="math inline">\(\{\mbox{e}^{\mbox{i} k}\}_{k\in\mathbb{Z}}\)</span> that includes both <span class="math inline">\(\{\sin(kx)\}_{k\in\mathbb{Z}}\)</span> and <span class="math inline">\(\{\cos(kx)\}_{k\in\mathbb{Z}}\)</span> by the Euler formula <span class="math inline">\(e^{\mbox{i}kx}=\cos (kx)+\mbox{i}\sin (kx)\)</span>.</p>
+<p>3). As the eigenvectors are not necessarily real, we can express <span class="math inline">\(\{\sin(kx)\}_{k\in\mathbb{Z}}\)</span> and <span class="math inline">\(\{\cos(kx)\}_{k\in\mathbb{Z}}\)</span> in a compact form <span class="math inline">\(\{\mbox{e}^{\mbox{i} kx}\}_{k\in\mathbb{Z}}\)</span> by introducing the imaginary unit <span class="math inline">\(\mbox{i}\)</span>. The equation <a href="ch-representation.html#eq:2ndOrder">(14.1)</a> becomes <span class="math display">\[-\frac{\mbox{d}^{2}y(x)}{\mbox{d}x^{2}} = -\frac{\mbox{d}^{2}\mbox{e}^{\mbox{i}k x}}{\mbox{d}x^{2}}  = - \mbox{i}k\frac{\mbox{d}\mbox{e}^{\mbox{i}k x}}{\mbox{d}x} = k^2 y(x).\]</span>
+It shows that <span class="math inline">\(\{\mbox{e}^{\mbox{i} k}\}_{k\in\mathbb{Z}}\)</span> are the <strong>eigenfunctions</strong>.</p>
 <p>As you can see, these three categories are correlated. They are called the <em>Fourier bases</em>. If we can verify the orthogonal property for any of the trinity, then the result can be simultaneously extended to the rest.</p>
 <div class="solution">
 <p class="solution-begin">
-Eigenvectors perspective <span id="sol-start-75" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-75', 'sol-start-75')"></span>
+Eigenvectors perspective <span id="sol-start-202" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-202', 'sol-start-202')"></span>
 </p>
-<div id="sol-body-75" class="solution-body" style="display: none;">
+<div id="sol-body-202" class="solution-body" style="display: none;">
 <p>As shown in chapter <a href="ch-MatComp.html#sub:LU">11.3</a>, the <a href="ch-MatComp.html#sub:vecSpaces">second differentation differentation operator</a> <span class="math inline">\(\mbox{d}^2(\cdot)/\mbox{d}t^2\)</span> can be discretized as a <a href="ch-MatComp.html#sub:LU">second difference matrix</a> such as <span class="math display">\[\left[\begin{array}{cccc}
 \ddots\\
 1 &amp; -2 &amp; 1\\
  &amp; 1 &amp; -2 &amp; 1\\
  &amp;  &amp;  &amp; \ddots
 \end{array}\right].\]</span>
-Using the <a href="ch-MatComp.html#sub:LU">second difference matrix</a> for <span class="math inline">\(-\mbox{d}^{2}y(t)} / \mbox{d}t^{2}= \mbox{i}k y(t)\)</span>, we have
+Using the <a href="ch-MatComp.html#sub:LU">second difference matrix</a> for <span class="math inline">\(-\mbox{d}^2y(x)/\mbox{d}x^2\)</span>, we have
 <span class="math display">\[
 \begin{align*}
 &amp; \left[\begin{array}{cccc}
@@ -472,22 +472,22 @@ Using the <a href="ch-MatComp.html#sub:LU">second difference matrix</a> for <spa
  &amp;  &amp;  &amp; \ddots
 \end{array}\right]\left[\begin{array}{c}
 \vdots\\
-e^{\mbox{i}(k-1)t}\\
-e^{\mbox{i}kt}\\
-e^{\mbox{i}(k+1)t}\\
+e^{\mbox{i}(k-1)x}\\
+e^{\mbox{i}kx}\\
+e^{\mbox{i}(k+1)x}\\
 \vdots
 \end{array}\right] = \left[\begin{array}{c}
 \vdots\\
--e^{\mbox{i}(k-1)\theta}+2e^{\mbox{i}k\theta}-e^{\mbox{i}(k+1)\theta}\\
--e^{\mbox{i}k\theta}+2e^{\mbox{i}(k+1)\theta}-e^{\mbox{i}(k+2)\theta}\\
+-e^{\mbox{i}(k-1)x}+2e^{\mbox{i}kx}-e^{\mbox{i}(k+1)x}\\
+-e^{\mbox{i}kx}+2e^{\mbox{i}(k+1)x}-e^{\mbox{i}(k+2)x}\\
 \vdots
 \end{array}\right]\\
 &amp;=\left[\begin{array}{c}
 \vdots\\
-(2-e^{-\mbox{i}\theta}-e^{\mbox{i}\theta})e^{\mbox{i}k\theta}\\
-(2-e^{-\mbox{i}\theta}-e^{\mbox{i}\theta})e^{\mbox{i}(k+1)\theta}\\
+(2-e^{-\mbox{i}x}-e^{\mbox{i}x})e^{\mbox{i}kx}\\
+(2-e^{-\mbox{i}x}-e^{\mbox{i}x})e^{\mbox{i}(k+1)x}\\
 \vdots
-\end{array}\right]  =(2\cos\theta-2)\left[\begin{array}{c}
+\end{array}\right]  =(2\cos(x)-2)\left[\begin{array}{c}
 \vdots\\
 e^{\mbox{i}(k-1)t}\\
 e^{\mbox{i}kt}\\
@@ -495,7 +495,7 @@ e^{\mbox{i}(k+1)t}\\
 \vdots
 \end{array}\right]
 \end{align*}\]</span>
-where <span class="math inline">\((e^{\mbox{i}\theta}-e^{-\mbox{i}\theta})/2=\cos\theta\)</span>. Note that <span class="math inline">\(e^{\mbox{i}\theta}=\cos\theta+\mbox{i}\sin\theta\)</span>
+where <span class="math inline">\((e^{\mbox{i}x}-e^{-\mbox{i}x})/2=\cos(x)\)</span>. Note that <span class="math inline">\(e^{\mbox{i}x}=\cos(x)+\mbox{i}\sin(x)\)</span>
 . We can split the expression as
 <span class="math display">\[\left[\begin{array}{cccc}
 \ddots\\
@@ -504,17 +504,17 @@ where <span class="math inline">\((e^{\mbox{i}\theta}-e^{-\mbox{i}\theta})/2=\co
  &amp;  &amp;  &amp; \ddots
 \end{array}\right]\left[\begin{array}{c}
 \vdots\\
-\sin t\\
-\sin2t\\
-\sin3t\\
-\sin4t\\
+\sin x\\
+\sin2x\\
+\sin3x\\
+\sin4x\\
 \vdots
-\end{array}\right]=(2\cos t-2)\left[\begin{array}{c}
+\end{array}\right]=(2\cos x-2)\left[\begin{array}{c}
 \vdots\\
-\sin t\\
-\sin2t\\
-\sin3t\\
-\sin4t\\
+\sin x\\
+\sin2x\\
+\sin3x\\
+\sin4x\\
 \vdots
 \end{array}\right]\]</span>
 and
@@ -525,20 +525,32 @@ and
  &amp;  &amp;  &amp; \ddots
 \end{array}\right]\left[\begin{array}{c}
 \vdots\\
-\cos t\\
-\cos2t\\
-\cos3t\\
-\cos4t\\
+\cos x\\
+\cos2x\\
+\cos3x\\
+\cos4x\\
 \vdots
-\end{array}\right]=(2\cos t-2)\left[\begin{array}{c}
+\end{array}\right]=(2\cos x-2)\left[\begin{array}{c}
 \vdots\\
-\cos t\\
-\cos2t\\
-\cos3t\\
-\cos4t\\
+\cos x\\
+\cos2x\\
+\cos3x\\
+\cos4x\\
 \vdots
 \end{array}\right]\]</span>
-So we have the eigen-form. Note that the discretization makes the eigenvalues slightly different from those in the continuous setting: <span class="math display">\[2-2\cos\pi k=2-2(1-\frac{\pi^{2}k^{2}}{2}+\cdots)\approx\pi^{2}k^{2}.\]</span></p>
+So we have the eigen-forms. Note that the discretization makes the eigenvalues differ from those in the continuous setting.
+If we use the approximation <span class="math inline">\(\cos x \approx x\)</span> for small <span class="math inline">\(x\)</span>, the discretization of <span class="math inline">\(-\mbox{d}^{2}f(x)/\mbox{d}x^{2}=\lambda f(x)\)</span> gives
+<span class="math display">\[\left[\begin{array}{ccc}
+1\\
+ &amp; -2\\
+ &amp;  &amp; 1
+\end{array}\right]\left[\begin{array}{c}
+\cos((k-1)x)\\
+\cos(kx)\\
+\cos((k+1)x)
+\end{array}\right]=(2-2x)\cos(kx)\]</span> that induces the recusive form for <span class="math inline">\(k=1,2,\dots\)</span>
+<span class="math display">\[\cos(k+1)x+\cos(k-1)x =2x \cos(kx)\]</span>
+called <em>Chebyshev polynomials</em>.</p>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -574,7 +586,7 @@ Similar to using the <a href="ch-vecMat.html#sub:vec">inner product</a> for indu
 \end{align*}\]</span>
 for <span class="math inline">\(n\neq k\)</span>.<label for="tufte-sn-328" class="margin-toggle sidenote-number">328</label><input type="checkbox" id="tufte-sn-328" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">328</span> The second equality comes from
 <span class="math display">\[\int_{0}^{\pi}\cos(n\pm k)x=\left.\frac{\sin(n\pm k)x}{n\pm k}\right|_{0}^{\pi}=0-0.\]</span></span>
-By mutiplying each <span class="math inline">\(\sin(kx)\)</span> with the norm <span class="math inline">\(\|\sin(kx)\|\)</span>, we can show that <span class="math inline">\(\{\sin(kx)/\|\sin(kx)\|\}_{k\in\mathbb{Z}}\)</span> is <em>orthonormal</em>:
+By mutiplying each <span class="math inline">\(\sin(kx)\)</span> with the norm <span class="math inline">\(\|\sin(kx)\|\)</span>, we can show that <span class="math inline">\(\{\sin(kx)/\|\sin(kx)\|\}_{k\in\mathbb{Z}}\)</span> is <a href="ch-UnMulti.html#sub:MultiVar">orthonormal</a>:
 <span class="math display">\[\left\langle \frac{\sin(nx)}{\|\sin(nx)\|},\frac{\sin(kx)}{\|\sin(kx)\|}\right\rangle =\begin{cases}
 0, &amp; \mbox{ if }n\neq k,\\
 1, &amp; \mbox{ if }n=k.
