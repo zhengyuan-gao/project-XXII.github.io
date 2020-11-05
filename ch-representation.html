@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2020-10-25" />
+<meta name="date" content="2020-11-05" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -158,9 +158,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a href="ch-UnMulti.html"><span class="toc-section-number">13</span> Uncertainty in Multiple Dimensions</a>
 <a href="part-iv-three-masons-to-illuminate-the-dual-world.html">PART IV: Three Masons to Illuminate the Dual World</a>
 <a id="active-page" href="ch-representation.html"><span class="toc-section-number">14</span> Representation</a><ul class="toc-sections">
-<li class="toc"><a href="#sub:pseudoRandom"> Rrepresentation of Numbers and Pseudo Random Numbers</a></li>
+<li class="toc"><a href="#sub:pseudoRandom"> Example: Rrepresentation of Numbers and Pseudo Random Numbers</a></li>
 <li class="toc"><a href="#sub:innerProd"> Construction of the Basis Functions and the Inner Product Space</a></li>
 <li class="toc"><a href="#sub:conjugacy"> Projection, Conjugacy, and Completion</a></li>
+<li class="toc"><a href="#sub:dualBasis"> Miscellaneous: Dual Basis, Unitarity, Turing Computer</a></li>
 </ul>
 <a href="bibliography.html">Bibliography</a>
 </div>
@@ -184,7 +185,7 @@ For Kant, the world of our daily experience does not represent how things really
 <p>In other words, the <strong>representation</strong> connects one’s “visualized” reality with the external world where other living organisms and substances exist. Let’s go back to Galileo’s concern of two relational truths. If one truth is supposed to exist as a <strong>subject</strong> (in our mind) and another related truth as an <strong>object</strong> (outside the mental world), then we may expect one <strong>representation</strong> to express both of them dually.</p>
 <div id="sub:pseudoRandom" class="section level2">
 <h2>
-<span class="header-section-number">14.1</span> Rrepresentation of Numbers and Pseudo Random Numbers</h2>
+<span class="header-section-number">14.1</span> Example: Rrepresentation of Numbers and Pseudo Random Numbers</h2>
 <p><span class="newthought">Number representation</span></p>
 <p>For Leibniz, the existence of an external world <strong>representation</strong> is guaranteed by the fact that God could not be a deceiver creating only us and making us <strong>represent</strong> in a vacuum of other substances. He believes that what we represent within has solid ground, a <a href="ch-MatComp.html#sub:vecSpaces">basis</a>.<label for="tufte-sn-304" class="margin-toggle sidenote-number">304</label><input type="checkbox" id="tufte-sn-304" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">304</span> “The nature of every simple substance, Soul, or true monad, being such, that its following state is a consequence of the preceding one; here now is the cause of the harmony found out. For God needs only to make a simple substance become once and from the beginning, a representation of the universe, according to its point of view; since from thence alone it follows, that it will be so perpetually; and that all simple substances will always have a harmony among themselves, because they always represent the same universe.” - <span class="citation">Leibniz (<a href="bibliography.html#ref-LeibnizClarke2000">2000</a>)</span> (section 31)</span></p>
 <p>However, the notion of Leibniz’s <a href="ch-representation.html#ch:representation">representation</a> is too general to be specifically explained on a concrete basis. To limit the scope, we should restrict our attention to a smaller domain. The <a href="ch-representation.html#ch:representation">representation</a> of <a href="sub-continuity.html#sub:rational">numbers</a> may be a good starting point. Any number comes with a <a href="ch-MatComp.html#sub:vecSpaces">basis</a>.
@@ -208,9 +209,9 @@ While the object remains the same, the number <span class="math inline">\(123\)<
 + \underline{0}\times(2)^2 + \underline{1}\times(2)^1 + \underline{1}\times(2)^0.\]</span></p>
 <div class="solution">
 <p class="solution-begin">
-Compute the modular representation of 123 <span id="sol-start-391" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-391', 'sol-start-391')"></span>
+Compute the modular representation of 123 <span id="sol-start-123" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-123', 'sol-start-123')"></span>
 </p>
-<div id="sol-body-391" class="solution-body" style="display: none;">
+<div id="sol-body-123" class="solution-body" style="display: none;">
 <p>One can compute the <strong>modular representation</strong> following a similar procedure (a modified <a href="ch-MatComp.html#sub:GElimination">backward substitution</a>) as we did in the base-<span class="math inline">\(10\)</span> numeral system.
 Each coefficient from the base-<span class="math inline">\(2\)</span> representation of <span class="math inline">\(123\)</span> comes from
 <span class="math display">\[
@@ -272,9 +273,9 @@ The basic idea is to form a “disordered” dynamics thorough a <a href="ch-vec
 </p>
 <div class="solution">
 <p class="solution-begin">
-Code for plotting <span id="sol-start-392" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-392', 'sol-start-392')"></span>
+Code for plotting <span id="sol-start-124" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-124', 'sol-start-124')"></span>
 </p>
-<div id="sol-body-392" class="solution-body" style="display: none;">
+<div id="sol-body-124" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="co"># Plot the pseudo-randomness generated by the linear congruential generator</span></a>
 <a class="sourceLine" id="cb95-2" data-line-number="2"><span class="co"># U[t] = (1664525 * U[t-1] + 1013904223) %% 2^32</span></a>
 <a class="sourceLine" id="cb95-3" data-line-number="3"></a>
@@ -306,9 +307,9 @@ Code for plotting <span id="sol-start-392" class="fa fa-plus-square solution-ico
 <p>The ordering system of I-Ching’s basis is mathematically logical in the progression from one hexagram to the next<label for="tufte-sn-315" class="margin-toggle sidenote-number">315</label><input type="checkbox" id="tufte-sn-315" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">315</span> In fact, these hexagrams’ ordering system corresponds perfectly with the binary number system (of <span class="math inline">\(2^6=64\)</span>) invented by Leibniz. It is known that the ordering system of I Ching was brought to Leibniz’ attention by Joachim Bouv, a Jesuit missionary in China.</span>; it is not logical, however, in its progression from one interpretation to the next. One needs to rely on some <strong>random generator</strong> to sort out the logic, which we now call divination.<label for="tufte-sn-316" class="margin-toggle sidenote-number">316</label><input type="checkbox" id="tufte-sn-316" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">316</span> When one tries to represent various logically unrelated objects, one has to shatter the original order to create the “wanted” or “logical” ones. In this case, one needs a random (or pseudo-random) mechanism to generate the “wanted” hexagrams (interpretations). Such a procedure is now thought of as divination.</span></p>
 <div class="solution">
 <p class="solution-begin">
-I Ching divination <span id="sol-start-393" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-393', 'sol-start-393')"></span>
+I Ching divination <span id="sol-start-125" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-125', 'sol-start-125')"></span>
 </p>
-<div id="sol-body-393" class="solution-body" style="display: none;">
+<div id="sol-body-125" class="solution-body" style="display: none;">
 <p>There is a divination procedure described in the commentary on the appended phrases from a collection of commentaries (called Ten Wings) to I Ching. We can simply run a (pseudo) monte Carlo simulation to mimic this divination procedure. By specifying the parameter of the <strong>pseudo-random number generator</strong>, one can divine a hexagram based on the chosen <strong>seed</strong>.</p>
 <p>The procedure of this divination is given as follows.<label for="tufte-sn-317" class="margin-toggle sidenote-number">317</label><input type="checkbox" id="tufte-sn-317" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">317</span> “大衍之数五十，其用四十有九。分而为二以象两，挂一以象三，揲之以四以象四时，归奇于扐以象闰。五岁再闰，故再扐而后挂。天一，地二；天三，地四；天五，地六；天七，地八；天九，地十。天数五，地数五。五位相得而各有合，天数二十有五，地数三十，凡天地之数五十有五，此所以成变化而行鬼神也。乾之策二百一十有六，坤之策百四十有四，凡三百六十，当期之日。二篇之策，万有一千五百二十，当万物之数也。是故四营而成《易》，十有八变而成卦，八卦而小成。引而伸之，触类而长之，天下之能事毕矣。显道神德行，是故可与酬酢，可与祐神矣。子曰：‘知变化之道者，其知神之所为乎。’” - 系辞, 《十翼》</span></p>
 <div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="co"># Define a linear congruential generator function for pseudo-random numbers</span></a>
@@ -414,9 +415,9 @@ By comparing the representation to that of decimal numbers, we can see that the 
 for some coefficients <span class="math inline">\(c_{0},\dots c_{n-1}\)</span>.<label for="tufte-sn-324" class="margin-toggle sidenote-number">324</label><input type="checkbox" id="tufte-sn-324" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">324</span> To find the coefficients <span class="math inline">\(c_{j}\)</span>, one needs to solve <span class="math inline">\(\sum_{j=0}^{n-1}c_{j}x_{i}^{j}=y_{i}\)</span> for <span class="math inline">\(i=1,\dots n\)</span> by inverting the <a href="ch-MatComp.html#sub:vecSpaces">Vandermonde matrix</a> of <span class="math inline">\(x^{j}\)</span>.</span></p>
 <div class="solution">
 <p class="solution-begin">
-Code <span id="sol-start-394" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-394', 'sol-start-394')"></span>
+Code <span id="sol-start-126" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-126', 'sol-start-126')"></span>
 </p>
-<div id="sol-body-394" class="solution-body" style="display: none;">
+<div id="sol-body-126" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1">x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>)</a>
 <a class="sourceLine" id="cb98-2" data-line-number="2">y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">4</span>)</a>
 <a class="sourceLine" id="cb98-3" data-line-number="3"><span class="kw">library</span>(polynom)</a>
@@ -454,9 +455,9 @@ It shows that <span class="math inline">\(\{\mbox{e}^{\mbox{i} k}\}_{k\in\mathbb
 <p>As you can see, these three categories are correlated. They are called the <em>Fourier bases</em>.<label for="tufte-sn-327" class="margin-toggle sidenote-number">327</label><input type="checkbox" id="tufte-sn-327" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">327</span> An analysis developped from these bases is called the Fourier analysis. It not only became the crucial tool in mathematics, but also played a leading role in engineering and technology, ranging from signal processing (consumer electronics), time-series analysis (weather prediction) to medical images (Computerized Axial Tomography scanners).</span> If we can verify the orthogonal property for any of the trinity, then the result can be simultaneously extended to the rest.</p>
 <div class="solution">
 <p class="solution-begin">
-Eigenvectors perspective <span id="sol-start-395" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-395', 'sol-start-395')"></span>
+Eigenvectors perspective <span id="sol-start-127" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-127', 'sol-start-127')"></span>
 </p>
-<div id="sol-body-395" class="solution-body" style="display: none;">
+<div id="sol-body-127" class="solution-body" style="display: none;">
 <p>As shown in chapter <a href="ch-MatComp.html#sub:LU">11.3</a>, the <a href="ch-MatComp.html#sub:vecSpaces">second differentation differentation operator</a> <span class="math inline">\(\mbox{d}^2(\cdot)/\mbox{d}t^2\)</span> can be discretized as a <a href="ch-MatComp.html#sub:LU">second difference matrix</a> such as <span class="math display">\[\left[\begin{array}{cccc}
 \ddots\\
 1 &amp; -2 &amp; 1\\
@@ -601,9 +602,9 @@ f(x) &amp;=a_{0}+\sum_{k=1}^{\infty}a_{k}\cos kx+\sum_{k=1}^{\infty}b_{k}\sin kx
 called the <em>Fourier series</em> : <a href="ch-representation.html#eq:Fourier-1">(14.2)</a> is the trigonometric form and <a href="ch-representation.html#eq:Fourier-2">(14.3)</a> is the exponential form.<label for="tufte-sn-333" class="margin-toggle sidenote-number">333</label><input type="checkbox" id="tufte-sn-333" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">333</span> Note that the coefficients in the exponential form need to be complex values, while there are not necessarily the case for the coefficients in the trigonometric form.</span> Fourier’s insight was to transform data defined over time or space into a frequency-oriented representation. This insight has had a lasting impact in mathematics, science, and technology for two centuries.</p>
 <div class="solution">
 <p class="solution-begin">
-Orthonormality of exponential forms in the Fourier series <span id="sol-start-396" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-396', 'sol-start-396')"></span>
+Orthonormality of exponential forms in the Fourier series <span id="sol-start-128" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-128', 'sol-start-128')"></span>
 </p>
-<div id="sol-body-396" class="solution-body" style="display: none;">
+<div id="sol-body-128" class="solution-body" style="display: none;">
 <p>If we consider the complex-valued functions, we have <span class="math display">\[\left\langle f,\, g\right\rangle =\int_{-\infty}^{\infty}f(x)\overline{g(x)}\mbox{d}x\]</span> where <span class="math inline">\(\overline{g(x)}\)</span> is the <a href="ch-eigen.html#sub:det">complex conjugate</a> of <span class="math inline">\(g(x)\)</span>. Let <span class="math inline">\(\phi_{k}(x)=\frac{1}{\sqrt{2\pi}}\mbox{e}^{\mbox{i}kx}\)</span>
 for <span class="math inline">\(k\in\mathbb{Z}\)</span>. This complex-valued function is periodic on every <span class="math inline">\(2\pi\)</span> interval. We can see that
 <span class="math display">\[
@@ -639,9 +640,9 @@ The representation of <span class="math inline">\(\mathbf{x}\)</span> now become
 We call the <span class="math inline">\(\mathbf{P}_{\mathbf{e}}\)</span> an <em>orthonormal projection matrix</em>.</p>
 <div class="solution">
 <p class="solution-begin">
-Orthogonal projection examples in the finite dimensions <span id="sol-start-397" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-397', 'sol-start-397')"></span>
+Orthogonal projection examples in the finite dimensions <span id="sol-start-129" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-129', 'sol-start-129')"></span>
 </p>
-<div id="sol-body-397" class="solution-body" style="display: none;">
+<div id="sol-body-129" class="solution-body" style="display: none;">
 <p>Instead of using the orthonormal basis (<a href="ch-vecMat.html#sub:vec">standard unit vector</a>), let’s consider a <a href="ch-vecMat.html#sub:vec">basis vector</a> <span class="math inline">\(\mathbf{v}_i \in \mathbb{R}^n\)</span>. By the <a href="ch-vecMat.html#sub:vec">projection formula</a>, we define <span class="math inline">\(p_{i}=\mathbf{v}_i\mathbf{v}_{i}^{\top}/\|\mathbf{v}_i\|^2\)</span>. There is
 <span class="math display">\[\mathbf{p}_{i}\mathbf{x}=\frac{\mathbf{v}_{i}}{\|\mathbf{v}_{i}\|^{2}}\mathbf{v}_{i}^{\top}\mathbf{x}=\frac{\mathbf{v}_{i}}{\|\mathbf{v}_{i}\|^{2}}\left\langle \mathbf{v}_{i},\mathbf{x}\right\rangle.\]</span>
 As <span class="math inline">\(\{\mathbf{v}_i \}_{i=1}^{n}\)</span> is a basis in <span class="math inline">\(\mathbb{R}^n\)</span>, for any <span class="math inline">\(\mathbf{x}\in \mathbb{R}^n\)</span> there is <span class="math inline">\(\mathbf{x}= \sum_{i=1}^{n}c_i \mathbf{v}_i\)</span>. We have <span class="math display">\[\mathbf{x}=\sum_{i=1}^{n}\mathbf{p}_{i}\mathbf{x}= \sum_{i=1}^{n} \frac{\left\langle \mathbf{v}_{i},\mathbf{x}\right\rangle}{\left\langle \mathbf{v}_{i},\mathbf{v}_i\right\rangle} \mathbf{v}_{i}=\sum_{i=1}^{n}c_i \mathbf{v}_i \]</span> where the coefficient <span class="math inline">\(c_i=\left\langle \mathbf{v}_{i},\mathbf{x}\right\rangle / \left\langle \mathbf{v}_{i},\mathbf{v}_i\right\rangle\)</span> is the projected value. The <strong>orthogonal projection matrix</strong> (without using orthonormal basis) is <span class="math display">\[\mathbf{P}_{\mathbf{v}}=\mathbf{V}(\mathbf{V}^{\top}\mathbf{V})^{-1}\mathbf{V}^{\top}\]</span> where <span class="math inline">\(\mathbf{V}=[\mathbf{v}_{1},\dots,\mathbf{v}_{n}]\)</span> is an <span class="math inline">\(n\times n\)</span> matrix of the basis.
@@ -685,9 +686,9 @@ If the <strong>Hermitian conjugate</strong> of <span class="math inline">\(\math
 For an <a href="ch-representation.html#sub:innerProd">inner product space</a> spanned by <span class="math inline">\(\{\phi_{1},\dots,\}\)</span>, the <em>orthonormal projection operator</em> is <span class="math display">\[\mathbf{T}_{\mathbf{P}}=\sum_{i}\langle\cdot,\phi_{i}\rangle\phi_{i}.\]</span></p>
 <div class="solution">
 <p class="solution-begin">
-Proof <span id="sol-start-398" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-398', 'sol-start-398')"></span>
+Proof <span id="sol-start-130" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-130', 'sol-start-130')"></span>
 </p>
-<div id="sol-body-398" class="solution-body" style="display: none;">
+<div id="sol-body-130" class="solution-body" style="display: none;">
 <p>We can check this definition satisfying the previous conditions about the orthogonal projection.
 <span class="math display">\[\begin{align*}
 \mathbf{T}_{\mathbf{p}}\mathbf{T}_{\mathbf{p}}&amp;=\sum_{i}\left\langle \mathbf{T}_{\mathbf{P}},\phi_{i}\right\rangle \phi_{i}\\
@@ -712,16 +713,16 @@ for any <span class="math inline">\(j\)</span>. Thus we can conclude <span class
 </div>
 <p>Consider a function <span class="math inline">\(f(\cdot):\mathcal{V}\rightarrow\mathbb{F}\)</span> where the field <span class="math inline">\(\mathbb{F}\)</span> can be either <span class="math inline">\(\mathbb{R}\)</span> or <span class="math inline">\(\mathbb{C}\)</span>. The representation of this function <span class="math inline">\(f(\cdot)\)</span> given by <span class="math inline">\(\mathbf{T}_{\mathbf{P}}=\sum_{i}\langle\cdot,\phi_{i}\rangle\phi_{i}\)</span> follows
 <span class="math display">\[f=\mathbf{T}_{\mathbf{p}}f=\sum_{i}\left\langle f,\phi_{i}\right\rangle \phi_{i}\]</span>
-where <span class="math inline">\(\sum_{i}\left\langle f,\phi_{i}\right\rangle \phi_{i}\)</span> is called the <em>abstract Fourier series</em> of <span class="math inline">\(f\)</span>.<label for="tufte-sn-339" class="margin-toggle sidenote-number">339</label><input type="checkbox" id="tufte-sn-339" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">339</span> Moreover, the <strong>orthonormal projection operator</strong> <span class="math inline">\(\mathbf{T}_{\mathbf{p}}=\sum_{i}\langle \cdot,\phi_{i}\rangle \phi_{i}\)</span> satisfies the following inequality
+where <span class="math inline">\(\sum_{i}\left\langle f,\phi_{i}\right\rangle \phi_{i}\)</span> is called the <em>abstract Fourier series</em> of <span class="math inline">\(f\)</span>.<label for="tufte-sn-339" class="margin-toggle sidenote-number">339</label><input type="checkbox" id="tufte-sn-339" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">339</span> If the basis has not been normalized, then one can use <span class="math display">\[\sum_{i}\frac{\left\langle f,\phi_{i}\right\rangle}{\langle \phi_{i}, \phi_{i}\rangle} \phi_{i}\]</span> as the <strong>orthogonal projection operator</strong>. Moreover, the <strong>orthonormal projection operator</strong> <span class="math inline">\(\mathbf{T}_{\mathbf{p}}=\sum_{i}\langle \cdot,\phi_{i}\rangle \phi_{i}\)</span> satisfies the following inequality
 <span class="math display">\[\begin{align*}\langle \mathbf{T}_{\mathbf{P}}f, \mathbf{T}_{\mathbf{P}}f\rangle &amp;= \|\mathbf{T}_{\mathbf{P}}f\|^{2}
 \\ = &amp; \sum_{i}\left|\left\langle f,\phi_{i}\right\rangle \right|^{2}  \leq \|f\|^{2}.\end{align*}\]</span>
 By the <a href="ch-eigen.html#sub:matNorms">operator norm</a> given in chapter <a href="ch-eigen.html#sub:matNorms">12.4</a>, we have <span class="math display">\[\|\mathbf{T}_{\mathbf{P}}\| =\sup_{f\neq 0}\frac{\|\mathbf{T}_{\mathbf{P}}f\|}{\|f\|} \leq 1\]</span> which implies that <span class="math inline">\(\mathbf{T}_{\mathbf{P}}\)</span> is bounded.
 <a href="sub-continuity.html#sub:completeness">Boundedness</a> is an important property for <a href="(#sub:vecSpaces)">linear operators</a>, because <a href="sub-continuity.html#sub:completeness">boundedness</a> and <a href="sub-continuity.html#sub:continuity">continuity</a> are equivalent for <a href="ch-MatComp.html#sub:vecSpaces">linear operators</a>. Thus, we can say <span class="math inline">\(\mathbf{T}_{\mathbf{P}}\)</span> is a continuous linear operator.</span></p>
 <div class="solution">
 <p class="solution-begin">
-Boundedness and continuity for linear operator <span id="sol-start-399" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-399', 'sol-start-399')"></span>
+Boundedness and continuity for linear operator <span id="sol-start-131" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-131', 'sol-start-131')"></span>
 </p>
-<div id="sol-body-399" class="solution-body" style="display: none;">
+<div id="sol-body-131" class="solution-body" style="display: none;">
 <p>Boundedness to continuity:</p>
 <p>Suppose that <span class="math inline">\(\mathbf{T}\)</span> is bounded <span class="math inline">\(\|\mathbf{T}\|\leq M\)</span>. Then, for all nonzero <span class="math inline">\(f, \epsilon \in \mathcal{V}\)</span>, the linearity of <span class="math inline">\(\mathbf{T}\)</span> tells that
 <span class="math display">\[\|\mathbf{T}(f + \epsilon) - \mathbf{T}(f)\| = \|\mathbf{T}(\epsilon)\| \le M\|\epsilon\|. \]</span>
@@ -797,7 +798,8 @@ So we can conclude that <span class="math inline">\(\{f_{n}\}_{n=1}^{\infty}\)</
 <!--</div>--></span>
 </p>
 <p>To solve this problem needs some additional devices. We will consider some devices in sec[?]. Here we just need a “safe” space where the “incompleteness” issue disappears so that we can make sure the <strong>abstract Fourier series</strong>, namely the representation induced by the <strong>orthonormal projection operators</strong>, works well. The space is called the <em>Hilbert space</em>, or the <em>complete inner product space</em>. Usually, we denote a <strong>Hilbert space</strong> by <span class="math inline">\(\mathcal{H}\)</span>. The <a href="sub-continuity.html#sub:rational">completeness</a> property ensures that all <a href="sub-continuity.html#sub:Cauchy">Cauchy sequences</a> in the <strong>Hilbert space</strong> converge.</p>
-<p>It is clear that <span class="math inline">\(\mathcal{C}[-\pi,\pi]\)</span> is not a <strong>Hilbert space</strong> in the <span class="math inline">\(L_2\)</span>-norm. Thus, we should not expect all the <strong>abstract Fourier series</strong> built in <span class="math inline">\(\mathcal{C}[-\pi,\pi]\)</span> converge to the targeting represented object. On the other hand, the following theorem ensures that all elements in the <strong>Hilbert space</strong> can be represented by the <strong>abstract Fourier series</strong>.<label for="tufte-sn-343" class="margin-toggle sidenote-number">343</label><input type="checkbox" id="tufte-sn-343" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">343</span> 
+<p>It is clear that <span class="math inline">\(\mathcal{C}[-\pi,\pi]\)</span> is not a <strong>Hilbert space</strong> in the <span class="math inline">\(L_2\)</span>-norm. Thus, we should not expect all the <strong>abstract Fourier series</strong> built in <span class="math inline">\(\mathcal{C}[-\pi,\pi]\)</span> converge to the targeting represented object. On the other hand, Let <span class="math inline">\(\{\phi_{i}:i\in\mathbb{Z}\}\)</span> be a set of orthonormal basis functions <a href="ch-MatComp.html#sub:vecSpaces">spanning</a> the <strong>Hilbert space</strong> <span class="math inline">\(\mathcal{H}\)</span>. Then every <span class="math inline">\(f\in\mathcal{H}\)</span> can be represented as <span class="math display">\[f=\sum_{i}c_{i}\phi_{i}=\sum_{i}\left\langle f,\phi_{i}\right\rangle \phi_{i}.\]</span>
+We prove the following <strong>Riesz representation theorem</strong> by this representation.<label for="tufte-sn-343" class="margin-toggle sidenote-number">343</label><input type="checkbox" id="tufte-sn-343" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">343</span> 
 It is possible to complete <span class="math inline">\(\mathcal{C}[-\pi,\pi]\)</span>. Recall that <a href="sub-continuity.html#sub:rational">completeness</a> is the fundamental property that distinguishes the <a href="sub-continuity.html#sub:rational">real numbers</a> from the <a href="sub-continuity.html#sub:rational">rational numbers</a>. We obtain the complete real number set by fill the “holes” of <a href="sub-continuity.html#sub:rational">irrationals</a>. The completion of <span class="math inline">\(\mathcal{C}[-\pi,\pi]\)</span> space follows a similar procedure. One can think of using different norms induced by the inner product that can “ignore” those discontinuous points.</span></p>
 <ul>
 <li>
@@ -806,10 +808,10 @@ It is possible to complete <span class="math inline">\(\mathcal{C}[-\pi,\pi]\)</
 </ul>
 <div class="solution">
 <p class="solution-begin">
-Proof <span id="sol-start-400" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-400', 'sol-start-400')"></span>
+Proof <span id="sol-start-132" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-132', 'sol-start-132')"></span>
 </p>
-<div id="sol-body-400" class="solution-body" style="display: none;">
-<p>Sketch of the proof: Let’s consider a <strong>Hilbert space</strong> <span class="math inline">\(\mathcal{H}\)</span> that can be <a href="ch-MatComp.html#sub:vecSpaces">spanned</a> by countable basis functions. So we can select an orthonormal basis set of countable basis functions, i.e. Fourier series <span class="math inline">\(\{\phi_{j}\}_{j\in\mathbb{N}}\)</span>, for <span class="math inline">\(\mathcal{H}\)</span>. Then let <span class="math inline">\(\mathbf{T}\phi_{j}=a_{j}\)</span>. For any <span class="math inline">\(f\in\mathcal{H}\)</span>, let <span class="math inline">\(c_{j}=\langle f,\phi_{j}\rangle\)</span>, and define the projection series
+<div id="sol-body-132" class="solution-body" style="display: none;">
+<p>Sketch of the proof: Let’s consider a <strong>Hilbert space</strong> <span class="math inline">\(\mathcal{H}\)</span> that can be <a href="ch-MatComp.html#sub:vecSpaces">spanned</a> by countable basis functions.<label for="tufte-sn-345" class="margin-toggle sidenote-number">345</label><input type="checkbox" id="tufte-sn-345" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">345</span> This is known as the <em>separable Hilbert space</em> that is a space with countable <em>dense subset</em>. The real number field <span class="math inline">\(\mathbb{R}\)</span> with the Euclidean metric is <strong>separable</strong>, because the rational number <span class="math inline">\(\mathbb{Q}\)</span> is countable and <strong>dense</strong>. In fact, <span class="math inline">\(\mathcal{C}[a,b]\)</span> is also separable, because the space of polynomials with real coefficients is separable and dense in <span class="math inline">\(\mathcal{C}[a,b]\)</span>. </span> So we can select an orthonormal basis set of countable basis functions, i.e. Fourier series <span class="math inline">\(\{\phi_{j}\}_{j\in\mathbb{N}}\)</span>, for <span class="math inline">\(\mathcal{H}\)</span>. Then let <span class="math inline">\(\mathbf{T}\phi_{j}=a_{j}\)</span>. For any <span class="math inline">\(f\in\mathcal{H}\)</span>, let <span class="math inline">\(c_{j}=\langle f,\phi_{j}\rangle\)</span>, and define the projection series
 <span class="math display">\[f_{n}=\sum_{j=1}^{n}c_{j}\phi_{j}=\sum_{j=1}^{n}\langle f,\phi_{j}\rangle\phi_{j}.\]</span>
 Since <span class="math inline">\(\{\phi_{j}\}_{j\in\mathbb{N}}\)</span> forms a basis, we know that <span class="math display">\[\|f-f_{n}\|\rightarrow0\]</span>
 as <span class="math inline">\(n\rightarrow\infty\)</span>. And since <span class="math inline">\(\mathbf{T}\)</span> is linear, we have
@@ -828,8 +830,338 @@ The result follows.</p>
 </p>
 </div>
 </div>
-<p>Let <span class="math inline">\(\{\phi_{i}:i\in\mathbb{Z}\}\)</span> be a set of orthonormal basis functions <a href="ch-MatComp.html#sub:vecSpaces">spanning</a> the <strong>Hilbert space</strong> <span class="math inline">\(\mathcal{H}\)</span>. The <strong>Riesz representation theorem</strong> tells that every <span class="math inline">\(f\in\mathcal{H}\)</span> can be represented as <span class="math display">\[f=\sum_{i}c_{i}\phi_{i}=\sum_{i}\left\langle f,\phi_{i}\right\rangle \phi_{i}.\]</span>
-The proof of this statement can be found in the proof of the <strong>Riesz representation theorem</strong>.</p>
+</div>
+<div id="sub:dualBasis" class="section level2">
+<h2>
+<span class="header-section-number">14.4</span> Miscellaneous: Dual Basis, Unitarity, Turing Computer</h2>
+<p>The relationship between the coefficients and the <a href="ch-representation.html#sub:innerProd">basis functions</a> in the <a href="ch-representation.html#sub:conjugacy">abstract Fourier series</a> may look miracle. But in fact, such a relationship is merely a paradigm from a more appalling fact:<label for="tufte-sn-346" class="margin-toggle sidenote-number">346</label><input type="checkbox" id="tufte-sn-346" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">346</span> At least I have always been shocked by (re-)confronting this duality.</span></p>
+<blockquote>
+<blockquote>
+<p>the dual structure between scalars and linear functionals.</p>
+</blockquote>
+</blockquote>
+<p>Scalars are numbers, linear functionals are transformations mapping from the input <a href="ch-MatComp.html#sub:vecSpaces">vector space</a> to the output <a href="ch-MatComp.html#sub:vecSpaces">scalar field</a>. They are seemingly two different objects. But if you recall that coefficients are scalars, and the <a href="ch-representation.html#sub:innerProd">basis functions</a> are for representing the <a href="#sbu:vecSpaces">linear functionals</a>, then you may gradually learn to face this fact.</p>
+<p>The idea of making the scalar “adjoin” the linear functional leads us to the <strong>dual space</strong>.</p>
+<ul>
+<li>
+<em>Dual space</em> : The set of all <a href="ch-MatComp.html#sub:vecSpaces">linear functionals</a> on a vector space <span class="math inline">\(\mathcal{V}\)</span> is called the <strong>dual space</strong> of <span class="math inline">\(\mathcal{V}\)</span>, and is denoted by <span class="math inline">\(\mathcal{L}(\mathcal{V},\mathbb{F})\)</span> or <span class="math inline">\(\mathcal{V}^{*}\)</span> for the scalar field <span class="math inline">\(\mathbb{F}\)</span>. The dual space <span class="math inline">\(\mathcal{L}(\mathcal{V},\mathbb{F})\)</span> is also a vector space.</li>
+</ul>
+<p>The definition says that the set of all <a href="ch-MatComp.html#sub:vecSpaces">linear functionals</a> on a vector space forms another vector space by itself, with the functionals as “vectors”. If <span class="math inline">\(\mathcal{V}\)</span> is a finite dimensional vector space, such as <span class="math inline">\(\mathbb{R}^{n}\)</span>, the <strong>dual space</strong> <span class="math inline">\(\mathcal{L}(\mathbb{R}^{n},\mathbb{R})\)</span> is the set of all linear functions <span class="math inline">\(f:\mathbb{R}^{n}\rightarrow \mathbb{R}\)</span> with inputs <span class="math inline">\(\mathbf{x}\in \mathbb{R}^n\)</span>. The <a href="ch-representation.html#sub:conjugacy">Riesz representation theorem</a> gives the form in an <span class="math inline">\(n\)</span>-dimensional
+<span class="math display">\[f(\cdot)=\mathbf{c}^\top (\cdot) =\langle \mathbf{c}, \cdot\rangle \in \mathcal{L}(\mathbb{R}^{n},\mathbb{R})\]</span>
+for a vector <span class="math inline">\(\mathbf{c}\in\mathbb{R}^{n}\)</span>.<label for="tufte-sn-347" class="margin-toggle sidenote-number">347</label><input type="checkbox" id="tufte-sn-347" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">347</span> We know that <span class="math display">\[\begin{align*}f(\mathbf{x})&amp;=\sum_{i=1}^{n}c_ix_i\\
+&amp;=\mathbf{c}^{\top}\mathbf{x}=\langle \mathbf{c}, \mathbf{x}\rangle.\end{align*}\]</span></span>
+As we can see, any <a href="ch-MatComp.html#sub:vecSpaces">linear functional</a> whose domain is in a finite dimension <span class="math inline">\(n\)</span> is mapping from a <span class="math inline">\(n\times 1\)</span> (column-)vector <span class="math inline">\(\mathbf{x}\in\mathbb{R}^{n}\)</span> to a <a href="ch-MatComp.html#sub:vecSpaces">scalar field</a>, and its <strong>dual space</strong> is simply the set of <span class="math inline">\(1\times n\)</span> (row-)vectors <span class="math inline">\(\mathbf{c}^\top \in \mathbb{R}^{n}\)</span>. In this case, the dual space of <span class="math inline">\(\mathbb{R}^n\)</span> is also <span class="math inline">\(\mathbb{R}^n\)</span>, namely <span class="math inline">\(\mathcal{L}(\mathbb{R}^{n},\mathbb{R})=\mathbb{R}^n\)</span>.</p>
+<p>The <strong>dual space</strong> in the infinite dimension is not so straightfoward to be realized, because the topological structures in the dual space is not necessarily equivalent to the original space.<label for="tufte-sn-348" class="margin-toggle sidenote-number">348</label><input type="checkbox" id="tufte-sn-348" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">348</span> Very often the <strong>dual space</strong> is “bigger” than the original space.</span> Instead of struggling with technical details, at the moment it’d be better to only consider the <strong>dual space</strong> that is “close” to the original one. The <a href="ch-vecMat.html#sub:vec">inner product</a> presevers the linearity at the first argument (<a href="ch-representation.html#sub:innerProd">axiom 3</a> of the inner product) so it automatically induces a set of <a href="ch-MatComp.html#sub:vecSpaces">linear functionals</a>. The <a href="ch-representation.html#sub:conjugacy">Riesz representation theorem</a> guarantees us that in the <a href="ch-representation.html#sub:conjugacy">Hilbert space</a> <span class="math inline">\(\mathcal{H}\)</span>, any continuous linear functional <span class="math inline">\(\mathbf{T}(\cdot)\)</span> can be represented by
+<span class="math display">\[\mathbf{T}(\cdot)=\left\langle \cdot ,g\right\rangle \in \mathcal{L}(\mathcal{H},\mathbb{F})\]</span>
+for <span class="math inline">\(g\in\mathcal{H}\)</span>. It implies that the <strong>dual space</strong> of <span class="math inline">\(\mathcal{H}\)</span> is also <span class="math inline">\(\mathcal{H}\)</span>. So the situation is analogous to that in the finite dimensional case.</p>
+<div class="solution">
+<p class="solution-begin">
+A bigger dual space in infinite dimensions <span id="sol-start-133" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-133', 'sol-start-133')"></span>
+</p>
+<div id="sol-body-133" class="solution-body" style="display: none;">
+<p>Let’s consider an example of polynomials. Consider any polynomial with the highest order <span class="math inline">\(n\)</span>, say <span class="math inline">\(n=2\)</span>, the polynomial <span class="math inline">\(ax^{2}-bx-c\)</span> is a linear functional. When we set <span class="math inline">\(x=3\)</span> for the polynomial, it returns a number <span class="math inline">\(9a-3b-c\)</span>. By changing the coefficient numbers of <span class="math inline">\(a,b,c\in\mathbb{R}\)</span> , the output number <span class="math inline">\(9a-3b-c\)</span> also changes. This change <strong>dually</strong> happens for the coefficient and the function.</p>
+<p>Now let’s consider the problem of finding the roots of <span class="math inline">\(ax^{2}-bx-c=0\)</span>. Notice that the roots of this polynomial change simutaneslouly with the change of the coefficients.</p>
+<p>Finding the roots numerically is a procedure of using iterations: with some kind of arbitrary initial <span class="math inline">\(x_0\)</span>
+<span class="math display">\[ x_{n} = \mathbf{T}^{(n)} (x_{0})= \mathbf{T}^{(n-1)} (f_1 (x_{0}))=\cdots =f_n \cdots f_1(x_0), \mbox{ such that } \lim_{n\rightarrow\infty} ax_{n}^2 - bx_{n} -c =0\]</span> where the argument of <span class="math inline">\(\mathb{T}^{n}\)</span> is not <span class="math inline">\(x_0\)</span> but <span class="math inline">\(f_i\)</span>, so it is a mapping from an infinite dimensional vector space that can characterize <span class="math inline">\(n-1\)</span> composition of functions to the scalar field <span class="math inline">\(\mathbb{C}\)</span>. That is to say, <span class="math inline">\(\mathbf{T}_{n}\)</span> is a functional.<label for="tufte-sn-349" class="margin-toggle sidenote-number">349</label><input type="checkbox" id="tufte-sn-349" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">349</span> Even though the roots are non-linear due to the ( formula), we can always use some linear functions to approximate the them (see examples in sec[?]). But the approximation induces a sequence of the linear functions so the problem turns into the domain of functional analysis.</span> This is an infinite dimensional problem. Notice that a polynomial with coefficients in a real number field may have roots in the bigger field, the complex number field. The relationship between these two fields, the bigger one and the smaller one, reveals the complication of duality in the infinite dimension.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>To better understand of the duality, we need some concrete tools.
+For a <a href="ch-MatComp.html#sub:vecSpaces">vector space</a>, we use the <a href="ch-vecMat.html#sub:vec">basis</a> to characterize the space. Following this idea, we consider another <a href="ch-vecMat.html#sub:vec">basis</a> to characterize the functionals in the <strong>dual space</strong>, and to make sure that the new basis does not intertwine with the origin one.</p>
+<p>Let <span class="math inline">\(\{\phi_i\}_{i\in\mathbb{N}}\)</span> is a <a href="ch-representation.html#sub:conjugacy">orthonormal basis</a> for a <a href="ch-representation.html#sub:conjugacy">Hilbert space</a> <span class="math inline">\(\mathcal{H}\)</span>. The <em>dual basis</em> <span class="math inline">\(\{\psi_i\}_{i\in\mathbb{N}}\)</span> satisfying
+<span class="math display">\[
+\psi_1 \left(\sum_{i=1}^{\infty} c_i \phi_i \right) = c_1,\,\dots,  \psi_n \left(\sum_{i=n}^{\infty} c_i \phi_i \right) = c_n, \,\dots
+\]</span>
+is a <a href="ch-representation.html#sub:conjugacy">orthonormal set</a> in <span class="math inline">\(\mathcal{H}\)</span>.</p>
+<p>In the finite dimension <span class="math inline">\(\mathbb{R}^n\)</span>, this definition basically says that if a set of linear functions <span class="math inline">\(\psi_i (\mathbf{x}) = \mathbf{v}^{\top}_i \mathbf{x}\)</span> for <span class="math inline">\(i=1,\dots,n\)</span> have
+<span class="math display">\[\left[\begin{array}{c}
+\mathbf{v}_{1}^{\top}\\
+\vdots\\
+\mathbf{v}_{n}^{\top}
+\end{array}\right]\left[\mathbf{e}_{1},\dots,\mathbf{e}_{n}\right]=\mathbf{I}.
+\]</span>
+for the <a href="#sbu:vec">standard unit basis</a> <span class="math inline">\(\{\mathbf{e}_i\}_{i=1}^{n}\)</span> in <span class="math inline">\(\mathbb{R}^n\)</span>, then <span class="math inline">\(\{\psi_i\}_{i=1}^{n}\)</span> serves as a <strong>dual basis</strong>, namely the set of <a href="ch-representation.html#sub:innerProd">basis functions</a> in <span class="math inline">\(\mathcal{L}(\mathbb{R}^{n}, \mathbb{R})\)</span>.<label for="tufte-sn-350" class="margin-toggle sidenote-number">350</label><input type="checkbox" id="tufte-sn-350" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">350</span> We can see that when
+<span class="math inline">\(\mathbf{v}_i^\top \mathbf{e}_j = 0\)</span> for <span class="math inline">\(i\neq j\)</span> and <span class="math inline">\(\mathbf{v}_i^\top \mathbf{e}_i=1\)</span>,
+the condition
+<span class="math display">\[\begin{align*}
+\psi_i \left(\sum_{j=1}^{n}c_j \mathbf{e}_j \right) &amp;= \mathbf{v}_i^\top \left(\sum_{j=1}^{n}c_j \mathbf{e}_j\right) \\
+&amp;= c_i \mathbf{v}_i^\top \mathbf{e}_i = c_i
+\end{align*}\]</span> holds for <span class="math inline">\(i=1,\dots,n\)</span>. </span></p>
+<div class="solution">
+<p class="solution-begin">
+Proof <span id="sol-start-134" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-134', 'sol-start-134')"></span>
+</p>
+<div id="sol-body-134" class="solution-body" style="display: none;">
+<p>Let <span class="math inline">\(\{\mathbf{e}_i\}_{i=1}^{n}\)</span> be the <a href="ch-vecMat.html#sub:vec">standard unit basis</a> in <span class="math inline">\(\mathbb{R}^n\)</span>. Define the linear function <span class="math inline">\(\phi_i (\mathbf{x}) = \mathbf{v}^{\top}_i \mathbf{x}\)</span> for <span class="math inline">\(i=1,\dots,n\)</span>. If <span class="math inline">\(\mathbf{v}_i\)</span> satisfies <span class="math inline">\(\mathbf{v}_i^\top \mathbf{e}_j = 0\)</span> for <span class="math inline">\(i\neq j\)</span> and <span class="math inline">\(\mathbf{v}_i^\top \mathbf{e}_i=1\)</span>, namely
+<span class="math display">\[\left[\begin{array}{c}
+\mathbf{v}_{1}^{\top}\\
+\vdots\\
+\mathbf{v}_{n}^{\top}
+\end{array}\right]\left[\mathbf{e}_{1},\dots,\mathbf{e}_{n}\right]=\mathbf{I},
+\]</span>
+then we can show that <span class="math inline">\(\phi_i: \mathbb{R}^n\rightarrow \mathbb{R}\)</span> serves the purpose of the <strong>dual basis</strong>, namely the basis functions in <span class="math inline">\(\mathcal{L}(\mathbb{R}^{n}, \mathbb{R})\)</span>.
+Suppose <span class="math inline">\(f(\mathbf{x}) = \sum_{i=1}^{n} a_i x_i\)</span>, we have
+<span class="math display">\[
+\begin{align*}
+f(\mathbf{x})&amp;=\sum_{i=1}^{n} a_i x_i = \mathbf{a}^{\top} \mathbf{I} \mathbf{x} = \mathbf{a}^{\top} \left[\begin{array}{c}
+\mathbf{v}_{1}^{\top}\\
+\vdots\\
+\mathbf{v}_{n}^{\top}
+\end{array}\right]\left[\mathbf{e}_{1},\dots,\mathbf{e}_{n}\right] \mathbf{x}\\
+&amp;= \sum_{i=1}^{n} a_i \mathbf{v}_i^\top \left(\sum_{j=1}^{n}x_j \mathbf{e}_j \right) 
+=\sum_{i=1}^{n} a_i \phi_i (\mathbf{x}).  
+\end{align*}
+\]</span>
+The above representation holds for any linear function <span class="math inline">\(f: \mathbb{R}^{n}\rightarrow \mathbb{R}\)</span>. Thus the set of functions <span class="math inline">\(\phi_i: \mathbb{R}^n\rightarrow \mathbb{R}\)</span> is a set of <a href="ch-representation.html#sub:innerProd">basis functions</a> in <span class="math inline">\(\mathcal{L}(\mathbb{R}^{n}, \mathbb{R})\)</span>, which is the <strong>dual basis</strong> of <span class="math inline">\(\{\mathbf{e}_i\}_{i=1}^{n}\)</span>.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>The <strong>dual basis</strong> can resolve the remaining relationship puzzle about the left- and the right-eigenvectors of a square matrix <span class="math inline">\(\mathbf{A}\in\mathbb{R}^{n\times n}\)</span> (see chapter <a href="ch-UnMulti.html#sub:rw">13.3</a>). We can see the vector space of <span class="math inline">\(\mathbf{A}\)</span> is spanned by some column vectors, say <span class="math inline">\(\{\mathbf{y}_i\}_{i=1}^{n}\)</span> while the vector space of <span class="math inline">\(\mathbf{A}^{\top}\)</span> is spanned by row vectors, say <span class="math inline">\(\{\mathbf{x}^{\top}_j\}_{j=1}^{n}\)</span>. Both are obviously relating to <span class="math inline">\(\mathbb{R}^n\)</span>, but are not necessarily identical. Figure <a href="ch-UnMulti.html#fig:Orthogonal">13.6</a> shows that they are orthogonal to each other. In fact, after properly normalizing <span class="math inline">\(\mathbf{A}\)</span>, the left- and right-eigenvectors will form a pair of <strong>dual bases</strong>
+<span class="math display">\[
+\left[\begin{array}{c}
+\mathbf{x}_{1}^{\top}\\
+\vdots\\
+\mathbf{x}_{n}^{\top}
+\end{array}\right]\left[\mathbf{y}_{1},\dots,\mathbf{y}_{n}\right]=\mathbf{I}.
+\]</span>
+The proof of above statement is given below.<label for="tufte-sn-351" class="margin-toggle sidenote-number">351</label><input type="checkbox" id="tufte-sn-351" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">351</span> This argument can be extended to the case of <span class="math inline">\(\mathbf{A}\in\mathbb{C}^{n\times n}\)</span> except that we use <a href="ch-representation.html#sub:conjugacy">conjugate transpose</a> instead of transpose to describe the pair of dual bases
+<span class="math display">\[
+\left[\begin{array}{c}
+\overline{\mathbf{x}}_{1}^{\top}\\
+\vdots\\
+\overline{\mathbf{x}}_{n}^{\top}
+\end{array}\right]\left[\mathbf{y}_{1},\dots,\mathbf{y}_{n}\right]=\mathbf{I}.
+\]</span></span></p>
+<div class="solution">
+<p class="solution-begin">
+Dual bases and eigenvectors <span id="sol-start-135" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-135', 'sol-start-135')"></span>
+</p>
+<div id="sol-body-135" class="solution-body" style="display: none;">
+<p>Consider a square matrix <span class="math inline">\(\mathbf{A}\)</span>. For each eigenvalue <span class="math inline">\(\lambda_i\)</span> of <span class="math inline">\(\mathbf{A}\)</span>, there are associated left and right-eigenvector <span class="math inline">\(\mathbf{x}+o\)</span> and <span class="math inline">\(\mathbf{y}_i\)</span> such that
+<span class="math display">\[\mathbf{A}\mathbf{y}_i = \lambda_i \mathbf{y}_i, \,\, \mathbf{A}^{\top}\mathbf{x}_i = \lambda_i\mathbf{x}_i,\]</span> where <span class="math inline">\(i=1,\dots, n\)</span> and <span class="math inline">\(\lambda_1\neq\cdots\neq \lambda_n\)</span> are distinct values.</p>
+<p>Then consider the following products with the right-eigenvector and left-eigenvector associating with different eigenvalues <span class="math display">\[
+\begin{align*}
+\mathbf{x}_{i}^{\top}\mathbf{A}\mathbf{y}_{j}&amp;=\mathbf{x}_{i}^{\top}(\mathbf{A}\mathbf{y}_{j})=\lambda_{j}\mathbf{x}_{i}^{\top}\mathbf{y}_{j},\\
+\mathbf{x}_{i}^{\top}\mathbf{A}\mathbf{y}_{j}&amp;=(\mathbf{A}^{\top}\mathbf{x}_{i})^{\top}\mathbf{y}_{j}=\lambda_{i}\mathbf{x}_{i}^{\top}\mathbf{y}_{j},
+\end{align*}
+\]</span>
+which implies the following equality <span class="math display">\[\lambda_{i}\mathbf{x}_{i}^{\top}\mathbf{y}_{j}=\lambda_{j}\mathbf{x}_{i}^{\top}\mathbf{y}_{j}.\]</span>
+Because we consider the case of distinct eigenvalues <span class="math inline">\(\lambda_{i}\neq\lambda_{j}\)</span>, the only possible for holding above equality is to have <span class="math inline">\(\mathbf{x}_{i}^{\top}\mathbf{y}_{j}=0\)</span> for <span class="math inline">\(i\neq j\)</span>. Thus the inner product of the left and the right eigenvectors is a diagonal matrix
+<span class="math display">\[
+ \left[\begin{array}{c}
+\mathbf{x}_{1}^{\top}\\
+\vdots\\
+\mathbf{x}_{n}^{\top}
+\end{array}\right] \left[\mathbf{y}_{1},\dots,\mathbf{y}_{n}\right]  = \mbox{diag}\{\mathbf{x}_{1}^{\top}\mathbf{y}_{1},\dots, \mathbf{x}_{n}^{\top}\mathbf{y}_{n} \}
+\]</span>
+By scalling <span class="math inline">\(\mathbf{A}\)</span> with <span class="math inline">\(\mbox{diag}\{(\mathbf{x}_{1}^{\top}\mathbf{y}_{1})^{-1},\dots, (\mathbf{x}_{n}^{\top}\mathbf{y}_{n})^{-1}\}\)</span>, the left- and right-eigenvectors will be orthonormal so that their product will return an identity matrix.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>The <a href="ch-UnMulti.html#sub:MultiVar">orthonormal basis</a> has its conjugated transpose components as the <strong>dual basis</strong>. We can see this fact by studying the left and right-eigenvectors (eigenfunctions) of <a href="ch-representation.html#sub:conjugacy">self-adjoint</a> matrices (operators).<label for="tufte-sn-352" class="margin-toggle sidenote-number">352</label><input type="checkbox" id="tufte-sn-352" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">352</span> Recall that all symmetric matrices have real eigenvalues. A <a href="ch-representation.html#sub:conjugacy">self-adjoint</a> matrix is a symmetric matrix if all imaginary numbers of all entries are zero. You may expect that the eigenvalues of a <a href="ch-representation.html#sub:conjugacy">self-adjoint</a> matrix are also real. In fact, they are. And that is the reason why in quantum mechanics observable physical quantities are generally associated with the eigenvalues of self-adjoint operators, because the result of any measurement needs to be a real number.</span> Consider a <a href="ch-representation.html#sub:conjugacy">self-adjoint</a> matrix <span class="math inline">\(\mathbf{A}\)</span> such that <span class="math inline">\(\mathbf{A}^{\mbox{H}}=\overline{\mathbf{A}}^{\top}=\mathbf{A}\)</span>.
+The eigen-decompositions give
+<span class="math display">\[\mathbf{A}\mathbf{Y}=\mathbf{Y}\Lambda_1, \, \mbox{ and } \, \mathbf{A}^{\mbox{H}}\mathbf{X}=\mathbf{X}\Lambda_2,\]</span> where
+under a proper normalization the columns of the matrix <span class="math inline">\(\mathbf{Y}\)</span> form an orthonormal basis in <span class="math inline">\(\mathbb{C}^n\)</span>, and the row of the matrix <span class="math inline">\(\overline{\mathbf{X}}\)</span>, namely <span class="math inline">\(\{\overline{\mathbf{x}}^{\top}_i\}_{i=1}^{n}\)</span>, form the dual basis in <span class="math inline">\(\mathbb{C}^n\)</span>. The property of the pair of <strong>dual bases</strong> gives us <span class="math inline">\(\mathbf{X}^{\mbox{H}}\mathbf{Y}=\mathbf{I}\)</span>. Becasue <span class="math inline">\(\mathbf{A}=\mathbf{A}^{\mbox{H}}\)</span>, we have <span class="math inline">\(\mathbf{Y}=\mathbf{X}\)</span> and <span class="math inline">\(\Lambda_1 = \Lambda_2\)</span>, and
+<span class="math display">\[\mathbf{X}^{\mbox{H}}\mathbf{X} = \left[\begin{array}{c}
+\overline{\mathbf{x}}_{1}^{\top}\\
+\vdots\\
+\overline{\mathbf{x}}_{n}^{\top}
+\end{array}\right]\left[\mathbf{x}_{1},\dots,\mathbf{x}_{n}\right] =\mathbf{I}.\]</span>
+Namely the <strong>dual basis</strong> <span class="math inline">\(\{\overline{\mathbf{x}}_{1}^{\top},\dots,\overline{\mathbf{x}}_{n}^{\top} \}\)</span> is the conjugate transpose of the original basis <span class="math inline">\(\{\mathbf{x}_{1},\dots,\mathbf{x}_{n}\}\)</span>.</p>
+<p>Any square matrix <span class="math inline">\(\mathbf{U}\)</span> satisfying the condition <span class="math inline">\(\mathbf{U}^{\mbox{H}}\mathbf{U}=\mathbf{I}\)</span> is called a <em>unitary</em> matrix. The row and the column vectors of any unitary matrix are <a href="ch-UnMulti.html#sub:MultiVar">orthonormal bases</a> and form a pair of <strong>dual bases</strong>.<label for="tufte-sn-353" class="margin-toggle sidenote-number">353</label><input type="checkbox" id="tufte-sn-353" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">353</span> The <a href="ch-UnMulti.html#sub:MultiVar">orthogonal matrix</a> is a special (real-valued) <strong>unitary matrix</strong>. For a square real-valued matrix with <span class="math inline">\(\mathbf{X}^{-1}=\mathbf{X}^{\top}\)</span>, it is an <a href="ch-UnMulti.html#sub:MultiVar">orthogonal matrix</a>. For a complex-valued matrix with <span class="math inline">\(\mathbf{X}^{-1}=\mathbf{X}^{\mbox{H}}\)</span>, it is a <strong>unitary matrix</strong>.</span></p>
+<div class="solution">
+<p class="solution-begin">
+Real eigenvalues for self-adjoint matrices <span id="sol-start-136" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-136', 'sol-start-136')"></span>
+</p>
+<div id="sol-body-136" class="solution-body" style="display: none;">
+<p>If <span class="math inline">\(\mathbf{A}\)</span> is <a href="ch-representation.html#sub:conjugacy">self-adjoint</a>, then the eigenvalues of <span class="math inline">\(\mathbf{A}\)</span> are real.</p>
+<p>Proof: For <span class="math inline">\(\mathbf{A}\mathbf{v}=\lambda\mathbf{v}\)</span>, we form the scalar <span class="math inline">\(c=\mathbf{v}^{\mbox{H}}\mathbf{A}^{\mbox{H}}\mathbf{v}\)</span>. We have
+<span class="math display">\[\bar{c}=c^{\mbox{H}}=(\mathbf{v}^{\mbox{H}}\mathbf{A}^{\mbox{H}}\mathbf{v})^{\mbox{H}}=\mathbf{v}^{\mbox{H}}(\mathbf{A}^{\mbox{H}})^{\mbox{H}}(\mathbf{v}^{\mbox{H}})^{\mbox{H}}=\mathbf{v}^{\mbox{H}}\mathbf{A}\mathbf{v}=c.\]</span>
+It follows that <span class="math inline">\(c\)</span> is a real number. However, we also have
+<span class="math display">\[c=\mathbf{v}^{\mbox{H}}\mathbf{A}\mathbf{v}=\mathbf{v}^{\mbox{H}}\lambda\mathbf{v}=\lambda\mathbf{v}^{\mbox{H}}\mathbf{v}=\lambda\|\mathbf{v}\|^{2}\]</span>
+so that <span class="math inline">\(\lambda=c/\|\mathbf{v}\|^{2}\)</span> is also real.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>A similar argument holds in the infinite dimensional <a href="ch-representation.html#sub:conjugacy">Hilbert space</a>. Let’s consider a <a href="ch-representation.html#sub:conjugacy">abstract Fourier series</a> <span class="math inline">\(\{\phi_i\}_{i\in\mathbb{N}}\)</span> so that <span class="math inline">\(f =\sum_{i=1}^{\infty} \langle f, \phi_i\rangle\phi_i\)</span> for any <span class="math inline">\(f\)</span> in the Hilbert space. If the set <span class="math inline">\(\{ \psi_i \}_{i=1}^{\infty}\)</span> gives
+<span class="math display">\[ f =\sum_{i=1}^{\infty}  \langle f, \psi_i \rangle \phi_i\]</span>
+with <span class="math inline">\(\langle \psi_i, \phi_j \rangle = 0\)</span> for <span class="math inline">\(i\neq j\)</span>, and <span class="math inline">\(\langle \psi_i, \phi_i \rangle = 1\)</span> for any <span class="math inline">\(i\in\mathbb{N}\)</span>,
+then we say <span class="math inline">\(\{ \psi_i \}_{i=1}^{\infty}\)</span> is a <strong>dual basis</strong> of the <a href="ch-representation.html#sub:conjugacy">abstract Fourier series</a>.<label for="tufte-sn-354" class="margin-toggle sidenote-number">354</label><input type="checkbox" id="tufte-sn-354" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">354</span> It is easy to see that for any <span class="math inline">\(f =\sum_{j=1}^{\infty} c_j \phi_j\)</span>, there is
+<span class="math display">\[\psi_i (f) = \langle f, \psi_i \rangle =\sum_{j=1}^{\infty} \langle c_j \phi_j, \psi_i \rangle = c_i,\]</span>
+satisfying the definition.</span></p>
+<p>Since the coefficient <span class="math inline">\(c_i =\langle f,\phi_i \rangle\)</span> comes from <a href="ch-representation.html#sub:conjugacy">Fourier transform</a> <span class="math inline">\(\langle f,\phi_i \rangle\)</span>, we can also define an <em>inverse Fourier transform</em> <span class="math display">\[\langle c_i,\psi_i \rangle =\langle \langle f,\phi_i \rangle,\psi_i \rangle = \langle  f, \langle\phi_i ,\psi_i \rangle \rangle = \langle  f, 1 \rangle = f\]</span> that is for recovering the original function.<label for="tufte-sn-355" class="margin-toggle sidenote-number">355</label><input type="checkbox" id="tufte-sn-355" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">355</span> If the basis function in the Fourier series is <span class="math inline">\(\phi_i = \mbox{e}^{\mbox{i}nk}\)</span>, the <strong>dual basis function</strong> used in the <strong>inverse Fourier transform</strong> will be <span class="math inline">\(\psi_i= \mbox{e}^{-\mbox{i}nk}\)</span> for <span class="math inline">\(n,k\in\mathbb{N}\)</span>.</span></p>
+<p>The finite dimensional (discrete) <a href="ch-representation.html#sub:conjugacy">Fourier transform</a> and <strong>inverse Fourier transform</strong> follows the multiplication of some <strong>unitary matrices</strong> <span class="math inline">\(\mathbf{F}\)</span> and <span class="math inline">\(\mathbf{F}^{\mbox{H}}\)</span> called <em>Fourier and inverse Fourier matrices</em>:
+<span class="math display">\[ \mathbf{x} = \mathbf{I}\mathbf{x} = \mathbf{F}^{\mbox{H}} \mathbf{F} \mathbf{x} = \mathbf{F}^{\mbox{H}} \mathbf{c}\]</span>
+where <span class="math inline">\(\mathbf{F} \mathbf{x}=\mathbf{c}\)</span> is the Fourier transform of <span class="math inline">\(\mathbf{x}\)</span>, and <span class="math inline">\(\mathbf{F}^{\mbox{H}} \mathbf{c} =\mathbf{x}\)</span> is the <strong>inverse Fourier transform</strong>.<label for="tufte-sn-356" class="margin-toggle sidenote-number">356</label><input type="checkbox" id="tufte-sn-356" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">356</span> One can also do the <strong>inverse Fourier transform</strong> first then the Fourier transform: <span class="math display">\[ \mathbf{x} = \mathbf{x}\mathbf{I} = \mathbf{x}\mathbf{F}^{\mbox{H}} \mathbf{F}.\]</span></span></p>
+<div class="solution">
+<p class="solution-begin">
+Discrete Fourier transforms and Fourier matrices <span id="sol-start-137" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-137', 'sol-start-137')"></span>
+</p>
+<div id="sol-body-137" class="solution-body" style="display: none;">
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:unitCircle"></span>
+<img src="fig/Part4/unitCircle.gif" alt="Dividing a unit circle " width="100%"><!--
+<p class="caption marginnote">-->Figure 14.6: Dividing a unit circle <!--</p>-->
+<!--</div>--></span>
+</p>
+<p>For a unit circle, we can divide the circle by any integer number. We represent the <span class="math inline">\(n\)</span> divisions by the complex circle so that <span class="math inline">\(n\)</span>-complex roots of the unit circle stand for <span class="math inline">\(n\)</span>-spllits. Let <span class="math inline">\(x^{n}=1\)</span>. The <span class="math inline">\(n\)</span> roots of the unit circle are <span class="math display">\[\left\{1, \mbox{e}^{\mbox{i}2\pi/1}, \cdots, \mbox{e}^{\mbox{i}2\pi/(n-1)} \right\}\]</span>
+as <span class="math inline">\(\mbox{e}^{\mbox{i}2\pi}=\sin(2\pi) +\mbox{i}\cos(2\pi)=1\)</span>.
+Let <span class="math inline">\(\omega_n = \mbox{e}^{\mbox{i}2\pi/n}\)</span>. The <a href="ch-representation.html#sub:conjugacy">Fourier transform</a> of the vector <span class="math inline">\([x_0,\dots, x_{n-1}] \in\mathbb{C}^n\)</span> into the vector <span class="math inline">\([c_0,\dots, c_{n-1}] \in\mathbb{C}^n\)</span> can be written as
+<span class="math display">\[ c_k = \frac{1}{\sqrt{n}} \sum_{i=0}^{n-1} x_i \omega_n^{ki},\,\, \mbox{ for } k=0,1,\dots,n-1.\]</span>
+The <strong>inverse Fourier transform</strong> is
+<span class="math display">\[ x_i = \frac{1}{\sqrt{n}} \sum_{k=0}^{n-1} c_k \omega_n^{-ki},\,\, \mbox{ for } k=0,1,\dots,n-1.\]</span>
+The <strong>unitary</strong> (<strong>Fourier</strong>) matrix is given by
+<span class="math display">\[\mathbf{F}=\frac{1}{\sqrt{n}}\left[\begin{array}{cccccc}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; \cdots &amp; 1\\
+1 &amp; \omega &amp; \omega^{2} &amp; \omega^{3} &amp; \cdots &amp; \omega^{n-1}\\
+1 &amp; \omega^{2} &amp; \omega^{4} &amp; \omega^{6} &amp; \cdots &amp; \omega^{2(n-1)}\\
+1 &amp; \omega^{3} &amp; \omega^{6} &amp; \omega^{9} &amp; \cdots &amp; \omega^{3(n-1)}\\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp;  &amp; \vdots\\
+1 &amp; \omega^{n-1} &amp; \omega^{2(n-1)} &amp; \omega^{3(n-1)} &amp; \cdots &amp; \omega^{(n-1)(n-1)}
+\end{array}\right].\]</span></p>
+<p>Take <span class="math inline">\(n=4\)</span> as an example. We have
+<span class="math display">\[\mathbf{F}=\frac{1}{2}\left[\begin{array}{cccc}
+1 &amp; 1 &amp; 1 &amp; 1\\
+1 &amp; \omega &amp; \omega^{2} &amp; \omega^{3}\\
+1 &amp; \omega^{2} &amp; \omega^{4} &amp; \omega^{6}\\
+1 &amp; \omega^{3} &amp; \omega^{6} &amp; \omega^{9}
+\end{array}\right]=\frac{1}{2}\left[\begin{array}{cccc}
+1 &amp; 1 &amp; 1 &amp; 1\\
+1 &amp; \mbox{i} &amp; \mbox{i}^{2} &amp; \mbox{i}^{3}\\
+1 &amp; \mbox{i}^{2} &amp; \mbox{i}^{4} &amp; \mbox{i}^{6}\\
+1 &amp; \mbox{i}^{3} &amp; \mbox{i}^{6} &amp; \mbox{i}^{9}
+\end{array}\right]=\frac{1}{2}\left[\begin{array}{cccc}
+1 &amp; 1 &amp; 1 &amp; 1\\
+1 &amp; \mbox{i} &amp; -1 &amp; -\mbox{i}\\
+1 &amp; -1 &amp; 1 &amp; -1\\
+1 &amp; -\mbox{i} &amp; -1 &amp; \mbox{i}
+\end{array}\right].
+\]</span>
+It is easy to see that
+<span class="math display">\[\mathbf{F}^{\mbox{H}}\mathbf{F}=\overline{\mathbf{F}}^{\top}\mathbf{F}=\frac{1}{4}\left[\begin{array}{cccc}
+1 &amp; 1 &amp; 1 &amp; 1\\
+1 &amp; -\mbox{i} &amp; -1 &amp; \mbox{i}\\
+1 &amp; -1 &amp; 1 &amp; -1\\
+1 &amp; \mbox{i} &amp; -1 &amp; -\mbox{i}
+\end{array}\right]\left[\begin{array}{cccc}
+1 &amp; 1 &amp; 1 &amp; 1\\
+1 &amp; \mbox{i} &amp; -1 &amp; -\mbox{i}\\
+1 &amp; -1 &amp; 1 &amp; -1\\
+1 &amp; -\mbox{i} &amp; -1 &amp; \mbox{i}
+\end{array}\right]=\mathbf{I},
+\]</span>
+so the <strong>Fourier matrices</strong> are <strong>unitary</strong>.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Unitary matrices have a certain “rigidity” quality as they preserve the norms and the inner under the transformations<label for="tufte-sn-357" class="margin-toggle sidenote-number">357</label><input type="checkbox" id="tufte-sn-357" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">357</span> 
+We can see that
+<span class="math display">\[
+\begin{align*}
+\| \mathbf{X}\mathbf{v}  \| &amp;= (\mathbf{X}\mathbf{v})^{\mbox{H}} \mathbf{X}\mathbf{v} \\
+&amp;= \mathbf{v}^{\mbox{H}}\mathbf{X}^{\mbox{H}} \mathbf{X}\mathbf{v}\\
+&amp;= \mathbf{v}^{\mbox{H}}\mathbf{v} =\|\mathbf{v}\|.
+\end{align*}\]</span>
+And by the inner product property, there is
+<span class="math display">\[\langle \mathbf{X} \mathbf{v}, \mathbf{X} \mathbf{w}\rangle = \langle \mathbf{v},  \mathbf{X}^{\mbox{H}} \mathbf{X} \mathbf{w}\rangle =\langle\mathbf{v},\mathbf{w}\rangle.\]</span></span>
+<span class="math display">\[\| \mathbf{X}\mathbf{v}  \| =\|\mathbf{v}\|, \,\mbox{ and }\, \langle \mathbf{X} \mathbf{v}, \mathbf{X} \mathbf{w}\rangle =\langle\mathbf{v},\mathbf{w}\rangle.\]</span>
+These properties have turned out to be very useful in numerical calculations and have a very nice geometrical interpretation.</p>
+<p>Recall the <a href="ch-eigen.html#sub:det">rotation matrix</a> <span class="math display">\[ \mathbf{T}_{\theta} = \left[\begin{array}{cc}
+\cos\theta &amp; -\sin\theta\\
+\sin\theta &amp; \cos\theta
+\end{array}\right].\]</span>
+The effect of multiplying a vector <span class="math inline">\(\mathbf{x}\in\mathbb{R}^2\)</span> by <span class="math inline">\(\mathbf{T}_{\theta}\)</span> is to rotate the vector counterclockwise through an angle of <span class="math inline">\(\theta\)</span>. In particular, angles between vectors and lengths of vectors are preserved by such a multiplication. This is no accident of <span class="math inline">\(\mathbf{T}_{\theta}\)</span>, but rather a property of <strong>unitary matrices</strong> in general. We can see that <span class="math inline">\(\mathbf{R}_{\theta}\)</span> is indeed an <a href="ch-UnMulti.html#sub:MultiVar">orthogonal matrix</a>, therefore a special <strong>unitary matrix</strong>.</p>
+<div class="solution">
+<p class="solution-begin">
+Proof <span id="sol-start-138" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-138', 'sol-start-138')"></span>
+</p>
+<div id="sol-body-138" class="solution-body" style="display: none;">
+<p><span class="math display">\[
+\begin{align*}
+&amp;\mathbf{T}_{\theta}^{\top}\mathbf{T}_{\theta}=
+\left[\begin{array}{cc}
+\cos\theta &amp; -\sin\theta\\
+\sin\theta &amp; \cos\theta
+\end{array}\right]^{\top}\left[\begin{array}{cc}
+\cos\theta &amp; -\sin\theta\\
+\sin\theta &amp; \cos\theta
+\end{array}\right]\\
+&amp;=\left[\begin{array}{cc}
+\cos\theta &amp; \sin\theta\\
+-\sin\theta &amp; \cos\theta
+\end{array}\right]\left[\begin{array}{cc}
+\cos\theta &amp; -\sin\theta\\
+\sin\theta &amp; \cos\theta
+\end{array}\right]\\
+&amp;= \left[\begin{array}{cc}
+\cos^{2}\theta+\sin^{2}\theta &amp; \cos\theta\sin\theta-\sin\theta\cos\theta\\
+-\cos\theta\sin\theta+\sin\theta\cos\theta &amp; \cos^{2}\theta+\sin^{2}\theta
+\end{array}\right]=\mathbf{I}
+\end{align*}
+\]</span></p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:complexBall"></span>
+<img src="fig/Part4/complexBall.gif" alt="Representation of a unit sphere by a complex ball " width="100%"><!--
+<p class="caption marginnote">-->Figure 14.7: Representation of a unit sphere by a complex ball <!--</p>-->
+<!--</div>--></span>
+</p>
+<p>Geometrically, the rotation matrices give us a simple way of forming unitary/orthogonal matrices directly without explicitly constructing an orthonormal basis. An analogous fact holds for <strong>unitary matrices</strong>. This seemingly trivial extension from orthogonal matrices to unitary matrices actually has made a huge impact.</p>
+<p>Unlike the real-valued rotation matrix <span class="math inline">\(\mathbf{T}_{\theta}\)</span> that can only characterizes the movement on a <span class="math inline">\(2\)</span>-dimensional circle, a <span class="math inline">\(2\times 2\)</span> complex-valued <strong>unitary matrix</strong> is about to characterize any movement on a <span class="math inline">\(3\)</span>-dimensional sphere (or say a complex ball in <span class="math inline">\(\mathbb{C}^2\)</span>).
+In quantum computation, a <span class="math inline">\(3\)</span>-dimensional sphere corresponds to a <span class="math inline">\(2\)</span>-level quantum system (called <em>qubit</em>).<label for="tufte-sn-358" class="margin-toggle sidenote-number">358</label><input type="checkbox" id="tufte-sn-358" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">358</span> For a quantum computer, a typical computation procedure relates to calculating the movements in an <span class="math inline">\(n\)</span>-level quantum system.</span>
+The <a href="ch-representation.html#ch:representation">representation</a> using <strong>unitary matices</strong> allows us to describe the evolution of the <strong>qubit</strong>, because any movement of the point on the unit sphere is equivalent to multiplying the vector <span class="math inline">\([x_1,x_2]^{\top}\)</span> by some <strong>unitary matrix</strong>.<label for="tufte-sn-359" class="margin-toggle sidenote-number">359</label><input type="checkbox" id="tufte-sn-359" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">359</span> We will come back to this point when we see the Lie algebra and Lie group.</span></p>
+<div class="solution">
+<p class="solution-begin">
+Some remarks about the unit sphere <span id="sol-start-139" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-139', 'sol-start-139')"></span>
+</p>
+<div id="sol-body-139" class="solution-body" style="display: none;">
+<p>For example, any point <span class="math inline">\(\mathbf{x}\)</span> in a unit sphere in <span class="math inline">\(\mathbb{R}^3\)</span> can be represented a vector<br><span class="math inline">\(\left[\sin(\theta)\cos(\phi), \sin(\theta) \sin(\phi), \cos\theta\right]\)</span>
+with the <a href="sub-inferknow.html#sub:histgeo">polar-coordinate</a> angles <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span>.
+On the other hand, it it possible to embed this unit sphere in <span class="math inline">\(\mathbb{R}^{3}\)</span> into a complex unit ball in <span class="math inline">\(\mathbb{C}^{2}\)</span> whose is in fact equivalent to an object in <span class="math inline">\(\mathbb{R}^4\)</span>. The complex unit ball in <span class="math inline">\(\mathbb{C}^2\)</span> is corresponding to a pair of mutually orthogonal vectors. The north and south poles of the ball are corresponding to the standard basis vectors <span class="math inline">\([0,1]\)</span> and <span class="math inline">\([1,0]\)</span> in <span class="math inline">\(\mathbb{C}^2\)</span>. Any point on the surface of the ball can be represented by
+<span class="math display">\[ \left[\begin{array}{c}
+x_{1}\\
+x_{2}
+\end{array}\right]=\cos(\theta)\left[\begin{array}{c}
+1\\
+0
+\end{array}\right]+\mbox{e}^{\mbox{i}\phi}\sin(\theta)\left[\begin{array}{c}
+0\\
+1
+\end{array}\right]
+\]</span>
+where the parameters now <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span> specify respectively the latitude with respect to the <span class="math inline">\([0,1]\)</span>-axis and the longitude with respect to the <span class="math inline">\([\mbox{i},0]\)</span>-axis.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>In a nutshell, the computations in a “quantum computation” can be understood as the <a href="ch-representation.html#ch:representation">representations</a> of various movements within <span class="math inline">\(n\)</span> complex balls. Does this understanding contradict with our intuition about computation?</p>
+<p>Before answering this question, I would like to suggest viewing the <a href="ch-representation.html#ch:representation">representation</a> in slightly different way. A reprsentation provides a way of “ordering” the system, like rotating the ball or shuffling the numbers. In this ordering procedure, the objects (or the information) remain the same but somehow one prefers the ordered outcome than the primitives.</p>
+<p>Now let’s come to the abstract sense of computation. A computation is kind of a causal chain. One gives the input state as the primitive state, the links in the chain generate the operations that transmit the input state to the output state. The links are built by various codes or orders that reflects some kind of epistemological or aesthetical tendency.<label for="tufte-sn-360" class="margin-toggle sidenote-number">360</label><input type="checkbox" id="tufte-sn-360" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">360</span> The operation, such as a light switch (see chapter <a href="sub-logic.html#sub:ex-computer">1.2</a>), is not supposed to be computational if no notion of knowledge/information/signals is involved.</span> In this case, a computation is merely a transition operator. It starts with some initial knowledge (priori), and then progresses according to the transition law from the initial to some conclusive or some <a href="sub-axioms.html#sub:axSet">self-reference</a> (a false loop) knowledge (posteriori). The posteriori knowledge is a representation of this transition operator for the priori one.<label for="tufte-sn-361" class="margin-toggle sidenote-number">361</label><input type="checkbox" id="tufte-sn-361" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">361</span> The analogy between minds and computers may also imply that thinking is a representation of mental symbols under the our peceriving laws. The interaction between physical exterior world and internal cognitive world may make us aware of the existence of a dual paradigm during the transition operation.</span></p>
+<p>A <strong>(quantumn) Turing machine</strong> is an abstract model for the computation, and it can show how to think of the computer as a mechanism that representing symbols. I summarize the <em>Turing machine</em> as follows:
+<span class="math display">\[(\mathcal{S},\sigma(\mathbf{I}),\mathbf{T},\mathbf{x}_{0},\mathbf{X}_{t})\]</span>
+where <span class="math inline">\(\mathcal{S}\)</span> is a finite set of states, <span class="math inline">\(\Sigma\)</span> denotes a set finite symbols, <span class="math inline">\(f\)</span> is a transition operator <span class="math display">\[\mathbf{T}:\mathcal{S}\times\Sigma^{k}\rightarrow \mathcal{S}\times\Sigma^{k},\]</span>
+where <span class="math inline">\(k\)</span> can be understood as the number of processors, <span class="math inline">\(\mathbf{q}_{0}\in\mathcal{S}\)</span> is the initial state, and <span class="math inline">\(\mathbf{X}_{t}\subseteq\mathcal{S}\)</span> is the set of final states.
+In pratice, the transition operators are fullfilled by the various <a href="sub-logic.html#sub:ex-computer">logic gates</a> using electronic circuits.
+If we let <span class="math inline">\(\mathcal{S}\)</span> be a <a href="ch-representation.html#sub:conjugacy">Hilbert space</a>, then we have the <em>quantum Turing machine</em>. The transition operator in the <strong>quantum Turing machine</strong> is a collection of <strong>unitary matrices</strong>. The transition operation will be fullfilled in a quantum circuit of a sequence of quantum gates that are reversible transformations on a quantum mechanical analog of <span class="math inline">\(n\)</span>-<strong>qubits</strong> namely <span class="math inline">\(n\)</span> spheres in <span class="math inline">\(\mathbb{C}^2\)</span>.<label for="tufte-sn-362" class="margin-toggle sidenote-number">362</label><input type="checkbox" id="tufte-sn-362" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">362</span> In some sense, it may be also possible to think that the universe is an ordered, harmonic sphere, and the human’s intellectuals seem to conciously adapte themselves to this sphere.</span></p>
 </div>
 </div></body></html>
 
@@ -838,7 +1170,7 @@ The proof of this statement can be found in the proof of the <strong>Riesz repre
 <a href="bibliography.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-10-25
+2020-11-05
 </p>
 </div>
 </div>
