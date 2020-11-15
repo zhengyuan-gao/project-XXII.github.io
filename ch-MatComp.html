@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2020-10-24" />
+<meta name="date" content="2020-11-15" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -163,6 +163,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a href="ch-UnMulti.html"><span class="toc-section-number">13</span> Uncertainty in Multiple Dimensions</a>
 <a href="part-iv-three-masons-to-illuminate-the-dual-world.html">PART IV: Three Masons to Illuminate the Dual World</a>
 <a href="ch-representation.html"><span class="toc-section-number">14</span> Representation</a>
+<a href="ch-optApp.html"><span class="toc-section-number">15</span> Optimum Approximation</a>
 <a href="bibliography.html">Bibliography</a>
 </div>
 </li>
@@ -378,9 +379,9 @@ a_{1}^{-1} &amp; 0 &amp; \cdots\\
 We denote the diagonal matrix via <span class="math inline">\(\mathbf{A}=\mbox{diag}(a_{1},\dots,a_{n})\)</span>.</span></p>
 <div class="solution">
 <p class="solution-begin">
-Examples of elementary matrices <span id="sol-start-197" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-197', 'sol-start-197')"></span>
+Examples of elementary matrices <span id="sol-start-124" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-124', 'sol-start-124')"></span>
 </p>
-<div id="sol-body-197" class="solution-body" style="display: none;">
+<div id="sol-body-124" class="solution-body" style="display: none;">
 <p>For example, given <span class="math display">\[\mathbf{A}=\left[\begin{array}{cc}
 2 &amp; 1\\
 6 &amp; 8
@@ -528,9 +529,9 @@ x_{2}
 Now, we’ve reached the solution <span class="math inline">\(\mathbf{x}=\mathbf{A}^{-1}\mathbf{b}\)</span> where <span class="math inline">\(\mathbf{A}^{-1}=\mathbf{E}_{12}(-1)\mathbf{E}_{2}(-1/3)\mathbf{E}_{21}(-2)\mathbf{E}_{1}(1/4)\mathbf{E}_{12}\)</span>. This procedure is feasible for any linear system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> with the square matrix <span class="math inline">\(\mathbf{A}\)</span>.</p>
 <div class="solution">
 <p class="solution-begin">
-Proof <span id="sol-start-198" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-198', 'sol-start-198')"></span>
+Proof <span id="sol-start-125" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-125', 'sol-start-125')"></span>
 </p>
-<div id="sol-body-198" class="solution-body" style="display: none;">
+<div id="sol-body-125" class="solution-body" style="display: none;">
 <p>Statement: The <strong>inverse</strong> of square <span class="math inline">\(\mathbf{A}\)</span> can be computed by the <strong>elementary matrices</strong>.</p>
 <p>To prove this statement, let <span class="math inline">\(\mathbf{A}\)</span> be an <span class="math inline">\(n\times n\)</span> matrix and suppose that by a <span class="math inline">\(k\)</span>-times succession of elementary row operations <span class="math inline">\((\mathbf{E}^{(1)},\mathbf{E}^{(2)},\dots,\mathbf{E}^{(k)})\)</span>, we reduce <span class="math inline">\(\mathbf{A}\)</span> to <span class="math inline">\(\mathbf{I}\)</span>
 such that <span class="math display">\[\mathbf{E}^{(k)}\cdots\mathbf{E}^{(2)}\mathbf{E}^{(1)}\mathbf{A}=\mathbf{I}.\]</span>
@@ -552,9 +553,9 @@ and <span class="math inline">\(\mathbf{B}\)</span> are <strong>invertible</stro
 </ol>
 <div class="solution">
 <p class="solution-begin">
-Proof <span id="sol-start-199" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-199', 'sol-start-199')"></span>
+Proof <span id="sol-start-126" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-126', 'sol-start-126')"></span>
 </p>
-<div id="sol-body-199" class="solution-body" style="display: none;">
+<div id="sol-body-126" class="solution-body" style="display: none;">
 <ol style="list-style-type: lower-roman">
 <li><p>By definition <span class="math inline">\(\mathbf{A}\mathbf{A}^{-1}=\mathbf{A}^{-1}\mathbf{A}=\mathbf{I}\)</span>, so the inverse of <span class="math inline">\(\mathbf{A}^{-1}\)</span> is <span class="math inline">\(\mathbf{A}\)</span>.</p></li>
 <li><p>Note that <span class="math inline">\((\mathbf{A}\mathbf{B})(\mathbf{B}^{-1}\mathbf{A}^{-1})=\mathbf{I}\)</span>, and <span class="math inline">\((\mathbf{B}^{-1}\mathbf{A}^{-1})(\mathbf{A}\mathbf{B})=\mathbf{I}\)</span>. The result follows.</p></li>
@@ -645,9 +646,9 @@ Except the first and the last row, the matrix <span class="math inline">\(\mathb
 \end{array}\right],\]</span> namely <span class="math inline">\(\mathbf{A}=\mathbf{L}\mathbf{U}\)</span>.<label for="tufte-sn-198" class="margin-toggle sidenote-number">198</label><input type="checkbox" id="tufte-sn-198" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">198</span> If one takes a closer look, one may see that the lower traingular matrix <span class="math inline">\(\mathbf{L}\)</span> is the <a href="ch-vecMat.html#sub:linearSys">difference matrix</a> defined in section <a href="ch-vecMat.html#sub:linearSys">10.4</a>, and that <span class="math inline">\(\mathbf{U}=\mathbf{L}^{\top}\)</span> is the transposed <a href="ch-vecMat.html#sub:linearSys">difference matrix</a>. We know that a <a href="sub-calculus.html#sub:Taylor">second order differentiation</a> is about taking the differentiation twice. This is the reason that the second order difference matrix is a product of two first order difference matrices. The <a href="ch-vecMat.html#sub:matrix">transpose operation</a> relates the dual of the <a href="#sub:vector">inner product rule</a> - integration by parts. We will come back to it in ch[?]. </span> When we solve the differential equation numerically, we discretize a continuous domain on <span class="math inline">\(t\in [0,T]\)</span> by which we may confront a large set of discrete points, also a large coefficient matrix <span class="math inline">\(\mathbf{A}\)</span>. However, the pattern of <span class="math inline">\(\mathbf{A}\)</span> is known so that the patterns of <strong>LU factorized</strong> matrices are known. Instead of computing the Gaussian elimination (<span class="math inline">\(O(n^{3})\)</span> complexity), we can compute the forward and backward steps <span class="math inline">\(\mathbf{L}\mathbf{c}=\mathbf{b}\)</span> and <span class="math inline">\(\mathbf{U}\mathbf{x}=\mathbf{c}\)</span> (<span class="math inline">\(O(n^{2})\)</span> complexity). This computational gain is significant when <span class="math inline">\(n\)</span> is large.</p>
 <div class="solution">
 <p class="solution-begin">
-Example of LU factorization <span id="sol-start-200" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-200', 'sol-start-200')"></span>
+Example of LU factorization <span id="sol-start-127" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-127', 'sol-start-127')"></span>
 </p>
-<div id="sol-body-200" class="solution-body" style="display: none;">
+<div id="sol-body-127" class="solution-body" style="display: none;">
 <p>Consider the following system
 <span class="math display">\[
 \begin{align*}
@@ -778,9 +779,9 @@ we conclude that the set <span class="math inline">\(\mathcal{C}[a,b]\)</span> i
 Thus, we can formally treat the continuous functions on any bounded interval as “vectors.” This is indeed how we store the information of a continuous function in terms of arrays (vectors) of inputs and outputs.</p>
 <div class="solution">
 <p class="solution-begin">
-Example of polynomial interpolation <span id="sol-start-201" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-201', 'sol-start-201')"></span>
+Example of polynomial interpolation <span id="sol-start-128" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-128', 'sol-start-128')"></span>
 </p>
-<div id="sol-body-201" class="solution-body" style="display: none;">
+<div id="sol-body-128" class="solution-body" style="display: none;">
 <p>We knew that two points, <span class="math inline">\((x_{1},y_{1})\)</span> and <span class="math inline">\((x_{2},y_{2})\)</span>, can uniquely determine a <a href="ch-vecMat.html#sub:linearity">linear function</a>. So three points can determine a quadratic function, and so on. It is reasonable to expect that <span class="math inline">\(n+1\)</span> points will determine an <span class="math inline">\(n\)</span>-th order <a href="sub-calculus.html#sub:calculus">polynomial</a> of the form <span class="math display">\[p(x)=c_{0}+c_{1}x+\cdots+c_{n}x^{n}.\]</span>
 Suppose that the points are <span class="math inline">\((x_{i},y_{i})\)</span> for <span class="math inline">\(i=1,\dots,n+1\)</span> with all distinct <span class="math inline">\(x_{i}\)</span>s. The conditions of interpolation are simply that <span class="math inline">\(p(x_{i})=y_{i}\)</span> for <span class="math inline">\(i=1,\dots,n+1\)</span>. These conditions give a linear system <span class="math display">\[\mathbf{A}\mathbf{c}=\left[\begin{array}{cccccc}
 1 &amp; x_{1} &amp; \cdots &amp; x_{1}^{j} &amp; \cdots &amp; x_{1}^{n}\\
@@ -826,9 +827,9 @@ Hence <span class="math inline">\(\mathcal{P}_{2}[0,1]\)</span> is closed under 
 <p>For <span class="math inline">\(\mathbf{A}\in\mathbb{R}^{n\times m}\)</span>, we will use the <em>rank</em> to denote the number of <a href="ch-MatComp.html#sub:GElimination">pivots</a>, and it is written as <span class="math inline">\(\mbox{rank}A\)</span>. If the matrix has <span class="math inline">\(\mbox{rank}\mathbf{A} =\min(n, m)\)</span>, it is said to be a <em>full rank</em> matrix.</p>
 <div class="solution">
 <p class="solution-begin">
-Four possibilities of system of linear equations <span id="sol-start-202" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-202', 'sol-start-202')"></span>
+Four possibilities of system of linear equations <span id="sol-start-129" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-129', 'sol-start-129')"></span>
 </p>
-<div id="sol-body-202" class="solution-body" style="display: none;">
+<div id="sol-body-129" class="solution-body" style="display: none;">
 <p>For a general linear system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span>, where <span class="math inline">\(\mathbf{A}\in\mathbb{R}^{n\times m}\)</span> with <span class="math inline">\(n\)</span> denoting the number of equations and <span class="math inline">\(m\)</span> denoting the number of unknowns, there are four possibilities depending on the <strong>rank</strong>.</p>
 <p>The matrices in 1,2,3 are full rank, the ones in 4 are not.</p>
 <ol style="list-style-type: decimal">
@@ -881,7 +882,7 @@ has only one solution <span class="math inline">\(a_{1}=a_{2}=\cdots=a_{n}=0\)</
 <a href="ch-eigen.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-10-24
+2020-11-15
 </p>
 </div>
 </div>

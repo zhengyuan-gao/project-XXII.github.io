@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2020-10-24" />
+<meta name="date" content="2020-11-15" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -163,6 +163,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <a href="part-iv-three-masons-to-illuminate-the-dual-world.html">PART IV: Three Masons to Illuminate the Dual World</a>
 <a href="ch-representation.html"><span class="toc-section-number">14</span> Representation</a>
+<a href="ch-optApp.html"><span class="toc-section-number">15</span> Optimum Approximation</a>
 <a href="bibliography.html">Bibliography</a>
 </div>
 </li>
@@ -304,9 +305,9 @@ The results show that the conditioning vector <span class="math inline">\(\mathb
 <p>This conditional covariance matrix <span class="math inline">\(\Sigma_{11} - \Sigma_{12} \Sigma_{22}^{-1}\Sigma_{21}\)</span> is the <a href="ch-MatComp.html#sub:LU">Schur complement</a> of <span class="math inline">\(\Sigma_{22}\)</span>. Similar to the <a href="ch-MatComp.html#sub:LU">block LU factorization</a>, such a term is to eliminate the covariance blocks corresponding to the variables being conditioned upon. The main instrument <span class="math inline">\(\Sigma_{12} \Sigma_{22}^{-1}\)</span> is to eliminate the dependence caused by <span class="math inline">\(\mathbf{X}(\omega)\)</span>.</p>
 <div class="solution">
 <p class="solution-begin">
-Proof of the elimination <span id="sol-start-216" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-216', 'sol-start-216')"></span>
+Proof of the elimination <span id="sol-start-143" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-143', 'sol-start-143')"></span>
 </p>
-<div id="sol-body-216" class="solution-body" style="display: none;">
+<div id="sol-body-143" class="solution-body" style="display: none;">
 <p>First, we show that the covariance <span class="math inline">\(\mbox{Var}[\mathbf{Y}(\omega) | \mathbf{X}(\omega)]=\Sigma_{11} - \Sigma_{12} \Sigma_{22}^{-1} \Sigma_{21}\)</span> is the Schur complement. That is to show <span class="math inline">\(\Sigma_{11} - \Sigma_{12} \Sigma_{22}^{-1}\Sigma_{21}= \mbox{Var}[\mathbf{Y}(\omega)+\Sigma_{12} \Sigma_{22}^{-1}\mathbf{X}(\omega)]\)</span>. To see this,
 <span class="math display">\[
 \begin{align*}
@@ -337,9 +338,9 @@ So the term <span class="math inline">\(\mathbf{Y}(\omega)+\Sigma_{12}\Sigma_{22
 which tells how to compute the joint by the conditionals.</span></p>
 <div class="solution">
 <p class="solution-begin">
-Simulate the bivariate normal random vector <span id="sol-start-217" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-217', 'sol-start-217')"></span>
+Simulate the bivariate normal random vector <span id="sol-start-144" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-144', 'sol-start-144')"></span>
 </p>
-<div id="sol-body-217" class="solution-body" style="display: none;">
+<div id="sol-body-144" class="solution-body" style="display: none;">
 <p>If <span class="math inline">\(X_2\sim \mathcal{N}(\mu_2,\sigma_2^2)\)</span> and <span class="math inline">\(X_1 \sim \mathcal{N}(\mu_1,\sigma_1^2)\)</span> are normal random variables, then <span class="math inline">\(\mathbb{P}(X_2, X_1)=\mathbb{P}(X_2\,|\,X_1)\mathbb{P}(X_1)\)</span> becomes
 <span class="math display">\[\mathcal{N}(\mu_\mbox{joint},\Sigma_\mbox{joint})=\mathcal{N}\left(\mu_2 + \frac{\rho\sigma_1}{\sigma_{2}}(x_1 - \mu_1),\, \sigma^2_{1}(1 - \rho^2)\right)\mathcal{N}(\mu_1,\sigma_1^2).\]</span>
 Note that <span class="math inline">\(\Sigma_{11}=\sigma_1^2\)</span>, <span class="math inline">\(\Sigma_{12}=\Sigma_{21}=\rho\sigma_1\sigma_2\)</span>, <span class="math inline">\(\Sigma_{22}=\sigma_2^2\)</span>. We simplify the previous conditional mean and covariance expressions to the scalar case: the conditional mean
@@ -428,9 +429,9 @@ We also say <span class="math inline">\(\{X(t,\omega),\, t\in\mathbb{R}^{+}\}\)<
 </ul>
 <div class="solution">
 <p class="solution-begin">
-Discussion about the filter <span id="sol-start-218" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-218', 'sol-start-218')"></span>
+Discussion about the filter <span id="sol-start-145" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-145', 'sol-start-145')"></span>
 </p>
-<div id="sol-body-218" class="solution-body" style="display: none;">
+<div id="sol-body-145" class="solution-body" style="display: none;">
 <p>We can rigorously define the <strong>filter</strong> by set theory. Let <span class="math inline">\(\mathcal{F}\)</span> belong to the <a href="sub-axioms.html#sub:axSet">power set</a> of a <a href="sub-set-theory.html#sub:order">partially ordered set</a> <span class="math inline">\(\mathcal{G}\)</span>, namely <span class="math inline">\(\mathcal{F}\subset2^{\mathcal{G}}\)</span>, then <span class="math inline">\(\mathcal{F}\)</span> is a <em>filter</em> on <span class="math inline">\(\mathcal{G}\)</span> if <span class="math inline">\(\mathcal{F}\)</span> satisfies</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(\textrm{Ø}\notin\mathcal{F}\)</span>, <span class="math inline">\(\mathcal{G}\in\mathcal{F}\)</span>;</p></li>
@@ -531,9 +532,9 @@ where <span class="math inline">\(p_{ij}=\mathbb{P}(X_{t+1}=j|X_{t}=i)\)</span> 
 <p>Sometimes, it more straightforward to visualize the <strong>probability transition matrix</strong> through its graphic representation. The states are the nodes in the graph, and each probability entry is the flow between two nodes. That is, a (probabilistic) flow departs from the vertex <span class="math inline">\(i\)</span> and enters the vertex <span class="math inline">\(j\)</span> with the weight <span class="math inline">\(p_{ij}\)</span>.<label for="tufte-sn-264" class="margin-toggle sidenote-number">264</label><input type="checkbox" id="tufte-sn-264" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">264</span> The reason for existing graphic representation for each <strong>Markov chain</strong> is that any complete network is a <strong>chain</strong>. Recall that a graph or a network corresponds to a collection of order pairs <span class="math inline">\((\mathcal{V},\mathcal{E})\)</span>. In the set-theoretic sense, a <strong>chain</strong> means a <a href="sub-set-theory.html#sub:order">totally ordered set</a>. The completeness here refers to the fact that <span class="math inline">\((\mathcal{V},\mathcal{E})\)</span> gives a <a href="sub-set-theory.html#sub:order">totally ordered set</a>: namely, any two vertices in the network can be decided whether they are connected or not.</span></p>
 <div class="solution">
 <p class="solution-begin">
-Code <span id="sol-start-219" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-219', 'sol-start-219')"></span>
+Code <span id="sol-start-146" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-146', 'sol-start-146')"></span>
 </p>
-<div id="sol-body-219" class="solution-body" style="display: none;">
+<div id="sol-body-146" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1">P=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">0.45</span>,<span class="fl">0.5</span>,<span class="fl">0.05</span>,</a>
 <a class="sourceLine" id="cb39-2" data-line-number="2">           <span class="fl">0.15</span>,<span class="fl">0.65</span>,<span class="fl">0.2</span>,</a>
 <a class="sourceLine" id="cb39-3" data-line-number="3">           <span class="dv">0</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>), <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
@@ -598,9 +599,9 @@ We can generalize the result that the <span class="math inline">\(k\)</span>-ste
 </p>
 <div class="solution">
 <p class="solution-begin">
-Code <span id="sol-start-220" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-220', 'sol-start-220')"></span>
+Code <span id="sol-start-147" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-147', 'sol-start-147')"></span>
 </p>
-<div id="sol-body-220" class="solution-body" style="display: none;">
+<div id="sol-body-147" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1">P=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">0.45</span>,<span class="fl">0.5</span>,<span class="fl">0.05</span>,</a>
 <a class="sourceLine" id="cb48-2" data-line-number="2">           <span class="fl">0.15</span>,<span class="fl">0.65</span>,<span class="fl">0.2</span>,</a>
 <a class="sourceLine" id="cb48-3" data-line-number="3">           <span class="dv">0</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>), <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
@@ -628,9 +629,9 @@ Code <span id="sol-start-220" class="fa fa-plus-square solution-icon clickable" 
 and the eigenvector <span class="math inline">\(\mathbf{v}=[1,1,\dots,1]^{\top}\)</span> because each row of <span class="math inline">\(\mathbf{P}\)</span> sums up to one. The other feature is that the eigenvalue <span class="math inline">\(\lambda=1\)</span> turns out to be the <a href="ch-eigen.html#sub:diag">principal eigenvalue</a> of <span class="math inline">\(\mathbf{P}\)</span>. Quick verification of the previous statement is to assume an eigenvalue <span class="math inline">\(|\lambda|&gt;1\)</span> to exist so that <span class="math inline">\(\mathbf{P}^{k}\)</span> must be an expanding transformation. But the property of the <a href="ch-UnMulti.html#sub:Markov">Chapman-Kolmogorov equation</a> implies that any <span class="math inline">\(\mathbf{P}^{k}\)</span> must be a <a href="ch-UnMulti.html#sub:Markov">probability transition matrix</a> whose row sums are one. Thus <span class="math inline">\(\mathbf{P}^{k}\)</span> should not induce an expanding transformation.<label for="tufte-sn-267" class="margin-toggle sidenote-number">267</label><input type="checkbox" id="tufte-sn-267" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">267</span> The formal version of these two features is given by the <em>Perron–Frobenius theorem</em>. The theorem asserts that any <strong>irreducible</strong> real square matrix with non-negative entries has a unique <a href="ch-eigen.html#sub:diag">principal eigenvalue</a> and that the corresponding eigenvector has strictly positive components. We will discuss the <strong>irreducibility</strong> later.</span></p>
 <div class="solution">
 <p class="solution-begin">
-Proof of the non-expanding feature <span id="sol-start-221" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-221', 'sol-start-221')"></span>
+Proof of the non-expanding feature <span id="sol-start-148" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-148', 'sol-start-148')"></span>
 </p>
-<div id="sol-body-221" class="solution-body" style="display: none;">
+<div id="sol-body-148" class="solution-body" style="display: none;">
 <p>We can examine the non-expanding feature of <span class="math inline">\(\mathbf{P}\)</span> by using the <a href="sub-continuity.html#sub:continuousFunc"><span class="math inline">\(\ell_{1}\)</span>-norm</a> of the vector. For any stochastic matrix <span class="math inline">\(\mathbf{P}\in\mathbb{R}^{n\times n}\)</span> and any vector <span class="math inline">\(\mathbf{v}\in\mathbb{R}^n\)</span>, we have<label for="tufte-sn-268" class="margin-toggle sidenote-number">268</label><input type="checkbox" id="tufte-sn-268" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">268</span> In particular, if <span class="math inline">\(\mathbf{v}\)</span> has all non-negative entries, then we can drop the absolute value signs, and the inequality becomes an equality.</span></p>
 <p><span class="math display">\[\begin{align*}
 \sum_{j=1}^{n}\left|\sum_{i=1}^{n}p_{ij}v_{j}\right|&amp; \leq\sum_{i=1}^{n}\sum_{j=1}^{n}p_{ij}|v_{j}| \leq\sum_{j=1}^{n}|v_{j}|\sum_{i=1}^{n}p_{ij}\\
@@ -651,9 +652,9 @@ where <span class="math inline">\(\mathbf{u}^\top\)</span> is a <a href="ch-vecM
 <p>Left-hand and right-hand eigenvectors corresponding to the same eigenvalue are generally different. An exception is when the matrix is symmetric. In the context of Markov’s models, these two types of eigenvectors deliver two opposite world images. For a Markov chain model, the <em>transposed probability transition matrix</em> <span class="math inline">\(\mathbf{P}^{\top}\)</span> is called the <em>time-reversal</em> of <span class="math inline">\(\mathbf{P}\)</span>. If <span class="math inline">\(\mathbf{P}=\mathbb{P}(X_{t+1}|X_t)\)</span> suggests looking at the <a href="ch-UnMulti.html#sub:Markov">time-homogeneous Markov chain</a> run forward in time, <span class="math inline">\(\mathbf{P}^{\top}=\mathbb{P}(X_{t}|X_{t+1})\)</span> suggests looking at the chain run backward in time.<label for="tufte-sn-270" class="margin-toggle sidenote-number">270</label><input type="checkbox" id="tufte-sn-270" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">270</span> Does the <strong>time-reversal</strong> violate our understanding of the real world, namely the world proceed with the <a href="sub-inferknow.html#sub:dyn">arrow of time</a>? Yes and no. If a very ordered (disordered) structure disintegrates (integrates) into disordered (ordered) elements, it is very easy for us to recognize the <a href="sub-inferknow.html#sub:dyn">time arrow</a>, and the reversal of such a process without outer forces or energies is simply impossible. But suppose that the elements will remain what they were forever, then the <a href="sub-inferknow.html#sub:dyn">arrow of time</a> loses its meaning: one cannot tell the direction of time for the timeless objects. In figure <a href="ch-UnMulti.html#fig:probVec">13.5</a>, the from <span class="math inline">\(t=0\)</span> to <span class="math inline">\(t=8\)</span>, one can see the singleton probability vector converges the <strong>stationary probability</strong>. But starting from <span class="math inline">\(t=9\)</span>, the <strong>stationary probability</strong> remains almost the same. It seems no difference by pointing those lines from <span class="math inline">\(t=9\)</span> to <span class="math inline">\(t=12\)</span> or from <span class="math inline">\(t=12\)</span> to <span class="math inline">\(t=9\)</span>.</span> That means if the chain reaches the <strong>stationary probability</strong>, it is quite likely that one cannot tell whether the chain runs forward and backward in time.<label for="tufte-sn-271" class="margin-toggle sidenote-number">271</label><input type="checkbox" id="tufte-sn-271" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">271</span> The <strong>stationary probability</strong>, as a “global” property of the Markov chains, cannot directly acquire the attribute about time-reversibility. For being time-reversible, a Markov chain needs some kind of “local” property saying that <span class="math inline">\(\mathbf{P}\)</span> and <span class="math inline">\(\mathbf{P}^{\top}\)</span> are <a href="ch-eigen.html#sub:diag">similar</a> under the <a href="ch-eigen.html#sub:diag">coordinates</a> given by the <strong>stationary probability</strong> <span class="math inline">\(\mathbf{u}\)</span> with strictly positive components. See the following discussion for details.</span></p>
 <div class="solution">
 <p class="solution-begin">
-Discussion about time-reversal <span id="sol-start-222" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-222', 'sol-start-222')"></span>
+Discussion about time-reversal <span id="sol-start-149" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-149', 'sol-start-149')"></span>
 </p>
-<div id="sol-body-222" class="solution-body" style="display: none;">
+<div id="sol-body-149" class="solution-body" style="display: none;">
 <p>A deterministic process is <em>time-reversible</em> if the equation is invariant when the direction of the <a href="sub-inferknow.html#sub:dyn">arrow of time</a> reverses. Watching the deterministic process in reverse mode corresponds to showing a video backward, frame by frame. When time is turned backward, we can re-define the original process as “another” process called <em>reversed process</em>.</p>
 <p>For stochastic processes, in most cases, the original process, namely the forward process, is not the same as the <strong>reversed process</strong>. <em>Reversibility</em> means that the forward process’s probability law is the same as the law for the reversed one.</p>
 <p>Let’s consider the <strong>stationary probability</strong> of staying at state <span class="math inline">\(i\)</span>, <span class="math display">\[u_i = \sum_{j\in\mathcal{X}}p_{ij}u_j=p_{ii}u_i + \sum_{j\neq i}p_{ij}u_j.\]</span> The expression implies that
@@ -684,9 +685,9 @@ or say <span class="math inline">\(u_i p_{ij} = u_jp_{ji}\)</span>. One can see 
 <p>For <span class="math inline">\(n\)</span> number of states, because <span class="math inline">\(\mathbf{P}\in\mathbb{R}^{n\times n}\)</span> and <span class="math inline">\(\mathbf{P}^\top\in\mathbb{R}^{n\times n}\)</span> share the same set of eigenvalues, and because the <a href="ch-eigen.html#sub:diag">principal eigenvalue</a> of <span class="math inline">\(\mathbf{P}\)</span> (and <span class="math inline">\(\mathbf{P}^\top\)</span>) is one, we can infer that the evolution (or the dynamical system) <span class="math inline">\(\mathbf{u}^{\top}(t) \mathbf{P}\)</span> will <a href="ch-eigen.html#sub:diag">converge</a> to the <strong>left-hand eigenvector</strong> <span class="math inline">\(\mathbf{u}\)</span> if there is a unique <span class="math inline">\(\mathbf{u}\)</span> accompanying the <a href="ch-eigen.html#sub:diag">principal eigenvalue</a>. When the <a href="ch-eigen.html#sub:diag">principal eigenvalue</a> is associated with more than one <strong>left-hand eigenvector</strong>, more than one <strong>left-hand eigenvector</strong> will be eligible for leading the dynamics. In this case, the convergence may not exist. We will use <strong>random walk</strong> examples to illustrate this issue, and the background of the issue is given below.</p>
 <div class="solution">
 <p class="solution-begin">
-Convergence and the principal eigenvalues <span id="sol-start-223" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-223', 'sol-start-223')"></span>
+Convergence and the principal eigenvalues <span id="sol-start-150" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-150', 'sol-start-150')"></span>
 </p>
-<div id="sol-body-223" class="solution-body" style="display: none;">
+<div id="sol-body-150" class="solution-body" style="display: none;">
 <p>Let <span class="math inline">\(\mathbf{u}^\top_1\mathbf{P}=\mathbf{u}^\top_{1}\lambda_{1}\)</span>, <span class="math inline">\(\dots, \mathbf{u}^\top_{n}\mathbf{P}=\mathbf{u}^\top_{n}\lambda_{n}\)</span>. When there is a unique eigenvector associating with the <a href="ch-eigen.html#sub:diag">principal eigenvalue</a>, we can rank the eigenvalues of <span class="math inline">\(\mathbf{P}\in\mathbb{R}^{n\times n}\)</span> by their absolute values. Then we have eigenvalue-eigenvector pairs <span class="math inline">\((\lambda_1, \mathbf{u}_1)\)</span>, <span class="math inline">\((\lambda_2, \mathbf{u}_2)\)</span>, and so on, where <span class="math inline">\(|\lambda_1|=1&gt;|\lambda_2|\geq\dots\geq|\lambda_n|\)</span>. The <strong>left-hand eigenvectors</strong> <span class="math inline">\(\{\mathbf{u}^\top_1,\dots,\mathbf{u}^\top_n\}\)</span> also form a <a href="ch-eigen.html#sub:diag">basis</a> in <span class="math inline">\(\mathbb{R}^n\)</span>.<label for="tufte-sn-273" class="margin-toggle sidenote-number">273</label><input type="checkbox" id="tufte-sn-273" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">273</span> 
 Generally speaking, the set of <strong>left-hand eigenvectors</strong> and (right-hand) eigenvectors together form a pair of bases called the dual basis. We will discuss it in ch[?]. In a nutshell, the duality means that the left-hand eigenvector matrix is orthogonal to the (right-hand) eigenvector matrix. Since the (right-hand) eigenvectors form a basis (see section <a href="ch-eigen.html#sub:diag">12.2</a>), by the orthogonality, we can expect that the <strong>left-hand eigenvectors</strong> also form a basis. See figure <a href="ch-UnMulti.html#fig:Orthogonal">13.6</a>.</span> So any <span class="math inline">\(\mathbf{u}^\top(t)\)</span> can be represented by a <a href="ch-vecMat.html#sub:vec">linear combination</a> of <span class="math inline">\(\{\mathbf{u}^\top_1,\dots,\mathbf{u}^\top_n\}\)</span>:
 <span class="math display">\[\begin{align*}
@@ -780,9 +781,9 @@ i-1, &amp; \mbox{ with probability }1-q.
 \end{cases}\]</span> Thus, we can study <strong>random walks</strong> by Markov chains.<label for="tufte-sn-279" class="margin-toggle sidenote-number">279</label><input type="checkbox" id="tufte-sn-279" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">279</span> For example, the processes in figures <a href="ch-UnMulti.html#fig:rw">13.3</a> are actually simulated by the same random walk model with the states in <span class="math inline">\(\mathcal{X}=\{1,2,\dots,100\}\)</span>.</span></p>
 <div class="solution">
 <p class="solution-begin">
-Simulate the random walks <span id="sol-start-224" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-224', 'sol-start-224')"></span>
+Simulate the random walks <span id="sol-start-151" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-151', 'sol-start-151')"></span>
 </p>
-<div id="sol-body-224" class="solution-body" style="display: none;">
+<div id="sol-body-151" class="solution-body" style="display: none;">
 <p>The simulation in figure <a href="ch-UnMulti.html#fig:rw">13.3</a> is based on the following codes.</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="kw">library</span>(markovchain)</a>
 <a class="sourceLine" id="cb60-2" data-line-number="2"></a>
@@ -837,9 +838,9 @@ We can see that the chain cannot reach the other states once it visits either th
 </p>
 <div class="solution">
 <p class="solution-begin">
-Gambler’s ruining problem <span id="sol-start-225" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-225', 'sol-start-225')"></span>
+Gambler’s ruining problem <span id="sol-start-152" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-152', 'sol-start-152')"></span>
 </p>
-<div id="sol-body-225" class="solution-body" style="display: none;">
+<div id="sol-body-152" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="co"># two unit eigenvalues</span></a>
 <a class="sourceLine" id="cb62-2" data-line-number="2">N=<span class="dv">10</span>;  P=<span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span>N,<span class="dt">ncol=</span>N);</a>
 <a class="sourceLine" id="cb62-3" data-line-number="3">q=<span class="fl">0.5</span>;</a>
@@ -924,9 +925,9 @@ cannot be unique.</p>
 </p>
 <div class="solution">
 <p class="solution-begin">
-Ouroboros <span id="sol-start-226" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-226', 'sol-start-226')"></span>
+Ouroboros <span id="sol-start-153" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-153', 'sol-start-153')"></span>
 </p>
-<div id="sol-body-226" class="solution-body" style="display: none;">
+<div id="sol-body-153" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="co"># eigenvalues: 1 and -1; period 2</span></a>
 <a class="sourceLine" id="cb65-2" data-line-number="2">P =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>,</a>
 <a class="sourceLine" id="cb65-3" data-line-number="3">             <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">0</span>,</a>
@@ -1011,9 +1012,9 @@ Ouroboros <span id="sol-start-226" class="fa fa-plus-square solution-icon clicka
 <p>To sum up, if we want to design a convergent finite-states Markov chain in which the limit of <span class="math inline">\(\mathbf{u}^\top(0)\mathbf{P}^t\)</span> will equal to the unique <strong>stationary probability</strong> and will be independent of the initial <span class="math inline">\(\mathbf{u}^\top(0)\)</span>, then we need to ensure that only one <strong>left-hand eigenvector</strong> associates with the <a href="ch-UnMulti.html#sub:Markov">principal eigenvalue</a> of this chain which means the chain is <strong>irreducible</strong> and <strong>aperiodic</strong>.</p>
 <div class="solution">
 <p class="solution-begin">
-An irreducible and aperiodic random walk <span id="sol-start-227" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-227', 'sol-start-227')"></span>
+An irreducible and aperiodic random walk <span id="sol-start-154" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-154', 'sol-start-154')"></span>
 </p>
-<div id="sol-body-227" class="solution-body" style="display: none;">
+<div id="sol-body-154" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1">N=<span class="dv">10</span>;  P=<span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span>N,<span class="dt">ncol=</span>N);</a>
 <a class="sourceLine" id="cb82-2" data-line-number="2">q=<span class="fl">0.5</span>;</a>
 <a class="sourceLine" id="cb82-3" data-line-number="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="dv">-1</span>)){</a>
@@ -1106,9 +1107,9 @@ The implication sign “<span class="math inline">\(\Rightarrow\)</span>” in <
 <p>Figure <a href="ch-UnMulti.html#fig:WLLN">13.11</a> shows the paths of <span class="math inline">\(20\)</span> simulators. Each path stands for a single simulator that estimates the mean under the different sizes of samples. We can see that those paths tend to converge to <span class="math inline">\(\theta(\omega)=0.5\)</span>.<label for="tufte-sn-290" class="margin-toggle sidenote-number">290</label><input type="checkbox" id="tufte-sn-290" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">290</span> Figure <a href="ch-UnMulti.html#fig:WLLN">13.11</a> also shows that when the sample size is not so large, the difference <span class="math inline">\(\theta(\mathbf{x})\)</span> and <span class="math inline">\(\theta(\omega)\)</span> could be significantly different from zero. That is why we still need a set, say <span class="math inline">\([-1.96+\mu,\:1.96+\mu]\)</span>, to incorporate the qualified <span class="math inline">\(\theta(\mathbf{x})\)</span>. In fact, slower the convergence of the estimator by a factor <span class="math inline">\(\sqrt{n}\)</span>, the statistics <span class="math inline">\(\sum_{i=1}^{n}x_{i}/\sqrt{n}-\mu\)</span> will converge to <span class="math inline">\(\mathcal{N}(0,1)\)</span> by the <strong>central limit theorem</strong> in CH[?]. That means <span class="math inline">\(95%\)</span> of <span class="math inline">\(\theta(\mathbf{x})-\mu\)</span> under the <strong>null hypothesis</strong> <span class="math inline">\(H_{0}=\{\omega:\:\mathbb{E}[X(\omega)]=\mu\}\)</span> will locate on the interval <span class="math inline">\([-1.96,\:1.96]\)</span>.</span></p>
 <div class="solution">
 <p class="solution-begin">
-Proof of weak law of large numbers <span id="sol-start-228" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-228', 'sol-start-228')"></span>
+Proof of weak law of large numbers <span id="sol-start-155" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-155', 'sol-start-155')"></span>
 </p>
-<div id="sol-body-228" class="solution-body" style="display: none;">
+<div id="sol-body-155" class="solution-body" style="display: none;">
 <p>Suppose <span class="math inline">\(X\)</span> is a random variable with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and suppose that <span class="math inline">\(h(\cdot)\)</span> is a non-decreasing non-negative function, and that the expectation <span class="math inline">\(\mathbb{E}[h(X)]=\int_{-\infty}^{\infty}h(x)f(x)\mbox{d}x\)</span> exists with the <a href="ch-CalUn.html#sub:rv">probability density function</a> <span class="math inline">\(f(x)\)</span>.</p>
 <p>By the non-decreasing non-negative property of <span class="math inline">\(h(\cdot)\)</span>, we have <span class="math display">\[\begin{align*}
 \int_{-\infty}^{\infty}h(x)f(x)\mbox{d}x\geq\int_{a}^{\infty}h(x)f(x)\mbox{d}x\geq \\ h(a)\int_{a}^{\infty}f(x)\mbox{d}x=h(a)\Pr\{X\geq a\}.
@@ -1133,9 +1134,9 @@ Now instead of using one <span class="math inline">\(X\)</span>, we use the aver
 <p>The paradigm of <strong>hypothesis testing</strong> plays a crucial role in understanding the frequency interpretation of probability. The testing statistics <span class="math inline">\(\theta(\mathbf{x})\)</span> actually depends on the <strong>frequency</strong> of counting the events. The frequency is an objective property that could be empirically measured and sampled. Thus, the empirical motivated <strong>hypothesis testing</strong> is considered to follow the objective <strong>frequentism</strong> spirit. A short discussion about this connection is given below.</p>
 <div class="solution">
 <p class="solution-begin">
-Frequentism and empiricism in terms of estimators <span id="sol-start-229" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-229', 'sol-start-229')"></span>
+Frequentism and empiricism in terms of estimators <span id="sol-start-156" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-156', 'sol-start-156')"></span>
 </p>
-<div id="sol-body-229" class="solution-body" style="display: none;">
+<div id="sol-body-156" class="solution-body" style="display: none;">
 <p>Traditionally, the estimator <span class="math inline">\(\theta(\mathbf{x})\)</span> was written as <span class="math inline">\(\theta(\hat{F})\)</span>, where <span class="math inline">\(\hat{F}\)</span> is about the frequency of probability events.</p>
 <p>Suppose that we run a long sequence of <span class="math inline">\(n\)</span> trials, on each of which <span class="math inline">\(\mathcal{A}\)</span> might occur or not. It is natural to identify the probability of <span class="math inline">\(\mathcal{A}\)</span> with the <em>relative frequency</em> of trials on which the event occurs:
 <span class="math display">\[\Pr(\mathcal{A})=\frac{\mbox{number of }\mathcal{A}}{n}.\]</span></p>
@@ -1172,9 +1173,9 @@ where the second equality is known as the <em>Bayes’ law</em>, in memory of a 
 <p>The <strong>a priori-a posteriori</strong> relation can also be found in the philosophical literature. In particular, <span class="citation">Kant (<a href="bibliography.html#ref-Kant2008">2008</a>)</span> uses this form in his <em>transcendental deduction</em>. The deduction says that the perception of <a href="sub-inferknow.html#sub:histgeo">temporal and spatial</a> orders is determined by experiencing the world conditional on some pure form that is “transcending the limits of experience.” This pure form, which Kant calls <strong>a priori</strong>, is without any empirical content. Kant’s deduction has made a successful attempt to construct a possible logic of the <strong>a priori</strong> by blending the subjectivity with rationalism and empiricism. However, Bayesian inference does not fully share the <strong>transcendental deduction</strong> logic. The purpose of this statistical inference is intended to recover the transcendental state of the prior, a metaphysical concept at which Kant’s deduction does not target.</p>
 <div class="solution">
 <p class="solution-begin">
-An example of Bayesian inference <span id="sol-start-230" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-230', 'sol-start-230')"></span>
+An example of Bayesian inference <span id="sol-start-157" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-157', 'sol-start-157')"></span>
 </p>
-<div id="sol-body-230" class="solution-body" style="display: none;">
+<div id="sol-body-157" class="solution-body" style="display: none;">
 <p>One can parametrize <span class="math inline">\(\omega\)</span> as <span class="math inline">\(\theta(\omega)\)</span> so that the <strong>Bayes’ law</strong> becomes <span class="math display">\[\Pr(\theta(\omega)|\mathbf{x})=\frac{\Pr(\mathbf{x}|\theta)\Pr(\theta)}{\int_{\theta\in\Theta}\Pr(\mathbf{x}|\theta)\Pr(\theta)\mbox{d}\theta}\propto\Pr(\mathbf{x}|\theta)\Pr(\theta)\]</span>
 where <span class="math inline">\(\Theta\)</span> is the set of all possible parameters.</p>
 <p>Assume that the data <span class="math inline">\(\mathbf{x}\)</span> is a realization from a <a href="ch-CalUn.html#sub:divRV">Poisson distribution</a> <span class="math inline">\(\mbox{Poi}(\theta)\)</span>. The <strong>likelihood</strong> is <span class="math display">\[\Pr(\mathbf{x}|\theta)=\prod_{i=1}^{n}\frac{\theta^{x_{i}}e^{-\theta}}{x_{i}!}=\frac{\theta^{\sum_{i=1}^{n}x_{i}}e^{-n\theta}}{\prod_{i=1}^{n}x_{i}!}\]</span>
@@ -1215,7 +1216,7 @@ which says that the <strong>posterior</strong> is proportional to another <a hre
 <a href="part-iv-three-masons-to-illuminate-the-dual-world.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-10-24
+2020-11-15
 </p>
 </div>
 </div>

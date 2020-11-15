@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2020-10-24" />
+<meta name="date" content="2020-11-15" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -164,6 +164,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a href="ch-UnMulti.html"><span class="toc-section-number">13</span> Uncertainty in Multiple Dimensions</a>
 <a href="part-iv-three-masons-to-illuminate-the-dual-world.html">PART IV: Three Masons to Illuminate the Dual World</a>
 <a href="ch-representation.html"><span class="toc-section-number">14</span> Representation</a>
+<a href="ch-optApp.html"><span class="toc-section-number">15</span> Optimum Approximation</a>
 <a href="bibliography.html">Bibliography</a>
 </div>
 </li>
@@ -330,9 +331,9 @@ which is called the <em>uniform distribution</em>. The probability of <span clas
 Because <span class="math inline">\(F\)</span> is <a href="sub-continuity.html#sub:continuousFunc">discontinuous</a> at <span class="math inline">\(a\)</span>, the difference <span class="math inline">\(F(a)-\lim_{\epsilon\rightarrow0}F(a-\epsilon)\)</span> equals to the size of the jump.</span> For any value <span class="math inline">\(y\in\{y_{1},y_{2}\dots,\}\)</span>, the <strong>discrete probability</strong> <span class="math inline">\(f(y)=\mathbb{P}(Y=y)\)</span> is called as the <em>probability mass function</em>. The distribution of this <strong>discrete variable</strong> is given by <span class="math display">\[F(y)=\mathbb{P}(Y\leq y)=\sum_{y_{i}\leq y}f(y_{i})\]</span> for countably many <span class="math inline">\(y_{i}\)</span>.</p>
 <div class="solution">
 <p class="solution-begin">
-R code for plotting distribution function <span id="sol-start-182" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-182', 'sol-start-182')"></span>
+R code for plotting distribution function <span id="sol-start-109" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-109', 'sol-start-109')"></span>
 </p>
-<div id="sol-body-182" class="solution-body" style="display: none;">
+<div id="sol-body-109" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">y =<span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">3</span>; <span class="co"># values of y</span></a>
 <a class="sourceLine" id="cb16-2" data-line-number="2">py =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">8</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">8</span>); <span class="co"># corresponding probability mass </span></a>
 <a class="sourceLine" id="cb16-3" data-line-number="3">cdfy =<span class="st"> </span><span class="kw">cumsum</span>(py)<span class="op">/</span><span class="kw">sum</span>(py); <span class="co"># cumulative distribution function </span></a>
@@ -374,9 +375,9 @@ It is straightforward to generate binomial probability mass function and its dis
 </p>
 <div class="solution">
 <p class="solution-begin">
-R code for binomial distribution function <span id="sol-start-183" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-183', 'sol-start-183')"></span>
+R code for binomial distribution function <span id="sol-start-110" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-110', 'sol-start-110')"></span>
 </p>
-<div id="sol-body-183" class="solution-body" style="display: none;">
+<div id="sol-body-110" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># Create a sample of 20 numbers which are incremented by 1. </span></a>
 <a class="sourceLine" id="cb17-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="dt">by =</span> <span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb17-3" data-line-number="3"><span class="co"># Create the binomial density.</span></a>
@@ -403,9 +404,9 @@ is<span class="math display">\[\mathbb{P}(z)=\int_{-\infty}^{\infty}f(z-y)g(y)\m
 We often use <span class="math inline">\(\mathbb{P}(z)=(f\star g)(z)\)</span> to denote the <strong>convolution</strong> of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>. The analytical derivation of convolution is often non-trivial, because of the sum or the integral of two non-linear functions. However, computer can easily implement the numerical convolution.</p>
 <div class="solution">
 <p class="solution-begin">
-Proof of convolution of two binomial random variables <span id="sol-start-184" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-184', 'sol-start-184')"></span>
+Proof of convolution of two binomial random variables <span id="sol-start-111" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-111', 'sol-start-111')"></span>
 </p>
-<div id="sol-body-184" class="solution-body" style="display: none;">
+<div id="sol-body-111" class="solution-body" style="display: none;">
 <p>Now consider <span class="math inline">\(Z=Y_{1}+Y_{2}\)</span> with <span class="math inline">\(Y_{1}\sim\mbox{binom}(k,p)\)</span> and <span class="math inline">\(Y_{2}\sim\mbox{binom}(m,p)\)</span>. The <strong>convolution</strong> implies <span class="math display">\[\begin{align*} \mathbb{P}(Z=n)=&amp; \sum_{i=0}^{n}\mathbb{P}(Y_{1}=i)\mathbb{P}(Y_{2}=n-i) \\
 =&amp;  \sum_{i=0}^{n}\left[\binom{k}{i}p^{i}(1-p)^{k-i}\right]\left[\binom{m}{n-i}p^{n-i}(1-p)^{m-n+i}\right] \\
 =&amp;  \binom{k+m}{n}p^{n}(1-p)^{k+m-n} =  \mbox{binom}(k+m,p).\end{align*}\]</span>
@@ -460,9 +461,9 @@ If <span class="math inline">\(Y_{1}\sim\mbox{Poi}(\lambda_{1})\)</span> and <sp
 </p>
 <div class="solution">
 <p class="solution-begin">
-R code for Poisson distribution function <span id="sol-start-185" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-185', 'sol-start-185')"></span>
+R code for Poisson distribution function <span id="sol-start-112" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-112', 'sol-start-112')"></span>
 </p>
-<div id="sol-body-185" class="solution-body" style="display: none;">
+<div id="sol-body-112" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># Create a sample of 20 numbers which are incremented by 1. </span></a>
 <a class="sourceLine" id="cb19-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="dt">by =</span> <span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb19-3" data-line-number="3"><span class="co"># Create the binomial density.</span></a>
@@ -485,9 +486,9 @@ R code for Poisson distribution function <span id="sol-start-185" class="fa fa-p
 <p>We can view Poisson distribution as a limit of the binomial distribution. Suppose <span class="math inline">\(Y\sim\mbox{binom}(k,p)\)</span> and suppose for some fixed <span class="math inline">\(\lambda\)</span>, we have <span class="math inline">\(p=\lambda/k\)</span>, then when <span class="math inline">\(k\rightarrow\infty\)</span>, the distribution of <span class="math inline">\(Y\)</span> approximates to <span class="math inline">\(\mbox{Poi}(\lambda)\)</span>.</p>
 <div class="solution">
 <p class="solution-begin">
-Proof of the limit of the sum of binomial random variables <span id="sol-start-186" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-186', 'sol-start-186')"></span>
+Proof of the limit of the sum of binomial random variables <span id="sol-start-113" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-113', 'sol-start-113')"></span>
 </p>
-<div id="sol-body-186" class="solution-body" style="display: none;">
+<div id="sol-body-113" class="solution-body" style="display: none;">
 <p><span class="math display">\[\begin{align*}\mathbb{P}(Y=y) &amp;=\binom{k}{y}p^{y}(1-p)^{k-y}=\binom{k}{y}\left(\frac{\lambda}{k}\right)^{y}\left(1-\frac{\lambda}{k}\right)^{k-y}\\
 &amp;=\frac{k(k-1)\cdots(k-y+1)\lambda^{y}}{y!\times k^{y}}\left(1-\frac{\lambda}{k}\right)^{k}\left(1-\frac{\lambda}{k}\right)^{-y}\\
 &amp;\overset{(a)}{=} 1\cdot\frac{k-1}{k}\cdots\frac{k-y+1}{k}\cdot\frac{\lambda^{y}}{y!}\left(1-\frac{\lambda}{k}\right)^{k}\left(1-\frac{\lambda}{k}\right)^{-y}\\
@@ -519,9 +520,9 @@ When <span class="math inline">\(\mu=0\)</span> and <span class="math inline">\(
 </p>
 <div class="solution">
 <p class="solution-begin">
-R code for normal distribution function <span id="sol-start-187" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-187', 'sol-start-187')"></span>
+R code for normal distribution function <span id="sol-start-114" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-114', 'sol-start-114')"></span>
 </p>
-<div id="sol-body-187" class="solution-body" style="display: none;">
+<div id="sol-body-114" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co"># Create a sequence of numbers between -10 and 10 incrementing by 0.5. </span></a>
 <a class="sourceLine" id="cb20-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dt">by =</span> <span class="fl">.5</span>)</a>
 <a class="sourceLine" id="cb20-3" data-line-number="3"><span class="co"># Choose the mean and standard deviation. </span></a>
@@ -590,9 +591,9 @@ R code for simulating the normal distributions
 </p>
 <div class="solution">
 <p class="solution-begin">
-R code for Gamma distribution function <span id="sol-start-189" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-189', 'sol-start-189')"></span>
+R code for Gamma distribution function <span id="sol-start-116" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-116', 'sol-start-116')"></span>
 </p>
-<div id="sol-body-189" class="solution-body" style="display: none;">
+<div id="sol-body-116" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># Create a sequence of numbers between 0 and 10 incrementing by 0.2. </span></a>
 <a class="sourceLine" id="cb22-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dt">by =</span> <span class="fl">.2</span>)</a>
 <a class="sourceLine" id="cb22-3" data-line-number="3"><span class="co"># Choose the shape paramter (alpha) and rate paramter (beta). </span></a>
@@ -732,9 +733,9 @@ is called the regression of <span class="math inline">\(Y\)</span> on <span clas
 <p>Let’s consider these reasons one by one. For the first reason, our belief of some condition may be constructed by the isolated evidence, such as <span class="math inline">\(\mathbb{P}(X=x)\)</span> for some separated singletons <span class="math inline">\(x\)</span>s. If the underyling set <span class="math inline">\(\mathcal{X}\)</span> of the condition is represented by a <a href="ch-CalUn.html#sub:rv">continuous random variable</a>, it is known that <span class="math inline">\(\mathbb{P}(X=x)=0\)</span>, a trivial probabilistic condition, for any singleton <span class="math inline">\(x\)</span>.<label for="tufte-sn-144" class="margin-toggle sidenote-number">144</label><input type="checkbox" id="tufte-sn-144" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">144</span> For a continuous random variable, the probability of locating at a singleton <span class="math inline">\(x\)</span> is <a href="#sub:">infinitesimally</a> small.</span> In this case, the conditional probability <span class="math inline">\(\mathbb{P}(Y|X=x)\)</span> is ill-founded. Let’s consider two seperated experiments of a random variable <span class="math inline">\(Y\)</span> generated by two different probability laws <span class="math inline">\(\mathbb{P}(Y|X=x)\sim\mathcal{N}(x,\, x)\)</span> and <span class="math inline">\(\mathbb{P}(Y|X=x)\sim\mbox{Poi}(x)\)</span> for a singleton condition <span class="math inline">\(x\)</span> where <span class="math inline">\(x&gt;0\)</span>. One experiment seeting is continuous (normal) and the other is discrete (Poisson). By only looking at the observations in figure <a href="ch-CalUn.html#fig:NormalvsPoi">9.8</a>, it could be difficult to distinguish which experiment generates the continuous (in blue color) data. In pratice, we may misinterpet a continuous experiment as a discrete one, and compute a conditional probability based on a singleton condition. However, this conditional probability is ill-founded in theory.</p>
 <div class="solution">
 <p class="solution-begin">
-R code for the plot <span id="sol-start-191" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-191', 'sol-start-191')"></span>
+R code for the plot <span id="sol-start-118" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-118', 'sol-start-118')"></span>
 </p>
-<div id="sol-body-191" class="solution-body" style="display: none;">
+<div id="sol-body-118" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a>
 <a class="sourceLine" id="cb23-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">15</span>,<span class="dt">by =</span> <span class="dv">1</span>); normden =<span class="st"> </span><span class="kw">dnorm</span>(y,<span class="dt">sd =</span> <span class="dv">2</span>,<span class="dt">mean =</span> <span class="dv">4</span>); poiden =<span class="st"> </span><span class="kw">dpois</span>(y,<span class="dt">lambda =</span> <span class="dv">4</span>)</a>
 <a class="sourceLine" id="cb23-3" data-line-number="3">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,normden,poiden)</a>
@@ -792,7 +793,7 @@ Under the <span class="math inline">\(\mathbb{Q}\)</span>-law, we can consider t
 <a href="part-iii-emergence-of-abstract-interactions.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-10-24
+2020-11-15
 </p>
 </div>
 </div>
