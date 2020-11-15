@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="15 Optimum Approximation | Project XXII" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Zhengyuan Gao" />
+
+<meta name="date" content="2020-11-15" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="15 Optimum Approximation | Project XXII">
+
+<title>15 Optimum Approximation | Project XXII</title>
+
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding/datatables.js"></script>
+<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul class="navbar">
+<li class="msmb"><p class="title">Project XXII<p><p class="author">Zhengyuan Gao</p>
+<li class="dropdown" style="float:right">
+<a href="javascript:void(0)" class="dropbtn">&#x25BA; Chapters</a>
+<div class="dropdown-content">
+<a href="index.html">Preface</a>
+<a href="part-i-inference-based-upon-logic-and-logical-computation.html">PART I: Inference Based upon Logic and Logical Computation</a>
+<a href="sub-logic.html"><span class="toc-section-number">1</span> Logic</a>
+<a href="sub-set-theory.html"><span class="toc-section-number">2</span> Set Theory</a>
+<a href="sub-axioms.html"><span class="toc-section-number">3</span> Axioms</a>
+<a href="sub-inferknow.html"><span class="toc-section-number">4</span> Inference and Knowledge</a>
+<a href="sub-incomplete.html"><span class="toc-section-number">5</span> Incompleteness</a>
+<a href="part-ii-infinitesimal-changes-and-their-consequences.html">PART II: Infinitesimal Changes and their Consequences</a>
+<a href="sub-continuity.html"><span class="toc-section-number">6</span> Continuity</a>
+<a href="sub-calculus.html"><span class="toc-section-number">7</span> Calculus</a>
+<a href="ch-DE.html"><span class="toc-section-number">8</span> Differential Equations</a>
+<a href="ch-CalUn.html"><span class="toc-section-number">9</span> Calculus under Uncertainty</a>
+<a href="part-iii-emergence-of-abstract-interactions.html">PART III: Emergence of Abstract Interactions</a>
+<a href="ch-vecMat.html"><span class="toc-section-number">10</span> Vector and Matrix</a>
+<a href="ch-MatComp.html"><span class="toc-section-number">11</span> Matrix Computation</a>
+<a href="ch-eigen.html"><span class="toc-section-number">12</span> Eigenvalues and Eigenvectors</a>
+<a href="ch-UnMulti.html"><span class="toc-section-number">13</span> Uncertainty in Multiple Dimensions</a>
+<a href="part-iv-three-masons-to-illuminate-the-dual-world.html">PART IV: Three Masons to Illuminate the Dual World</a>
+<a href="ch-representation.html"><span class="toc-section-number">14</span> Representation</a>
+<a id="active-page" href="ch-optApp.html"><span class="toc-section-number">15</span> Optimum Approximation</a><ul class="toc-sections">
+<li class="toc"><a href="#sub:appSys"> Approximating Systems</a></li>
+</ul>
+<a href="bibliography.html">Bibliography</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div id="ch:optApp" class="section level1">
+<h1>
+<span class="header-section-number">15</span> Optimum Approximation</h1>
+<p>The adjective word optimum and the noun approximation reflect two philosophical, one secular and one sacred, attitudes towards a closeted world. Suppose the representation was thought of relating to the omniscience of God; in that case, the approximation should distract our attention from omnipotences to a milieu of <em>bounded beings</em> whom are continuously driven by the operations with imperfect limited scopes.<label for="tufte-sn-366" class="margin-toggle sidenote-number">366</label><input type="checkbox" id="tufte-sn-366" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">366</span> If bounded operations are defined in a proper space (a <a href="">vector space</a> with defined <a href="">norms</a> and <a href="">linear structures</a>), we can also call these <strong>bounded beings</strong> continuous beings.</span> The preference of aiming for “optimum” as bounded beings is metaphysical: it is believed that optimality relates to evidence of imperfection of the Creator’s wisdom.<label for="tufte-sn-367" class="margin-toggle sidenote-number">367</label><input type="checkbox" id="tufte-sn-367" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">367</span> The metaphysical roots of the principle of extremes (<em>principle of least action</em> in science and <em>principle of maximum utility</em> in social science) can date back to Aristotle’s statement: “Nature does nothing in vain.” It can be interpreted as follows. If there is a purpose in the nature of having imperfection, then it should lead to the disclousre of the perfect means. Later, <span class="citation">Newton (<a href="bibliography.html#ref-Newton1846">1846</a>)</span> wrote the following sentence as the first rule of his reasoning in Philosophy. “We are to admit no more causes of natural things than such as are both true and sufficient to explain their appearances.” <span class="citation">Newton (<a href="bibliography.html#ref-Newton1846">1846</a>)</span> commented on this rule by writing “Nature is pleased with simplicity and affects not the pomp of superfluous causes.”</span></p>
+<p>Our world is too complex, and our life-time, our intellectual scales, and our physical abilities are too limited compared to the orders of magnitudes of such complexity. We have neither the knowledge nor the computational facility required to formulate all the terms correctly in a system of equations for understanding the universe, the earth, the society, or even ourselves. On the other hand, the logical machinery, together with the axiomatizations of laws and orders, have established a closeted world within which the procedures and subroutines of bounded beings make explicit the advantages of natural modularities and hierarchical organizations to achieve constructive triumphs in this limited realm.</p>
+<p>The ideology descending from optimum approximation is <a href="ch-DE.html#sub:MecWorld">reductionism</a>. It allows us to move from an intractable situation with a full set of elements to an easy-going place in the absence of non-principal ones. Unlike the <strong>holism</strong> flavor wrapped in Leibniz’s <a href="ch-representation.html#sub:pseudoRandom">representation</a>, the approximating thing is imperfect so that the ontological identity relation no longer holds.<label for="tufte-sn-368" class="margin-toggle sidenote-number">368</label><input type="checkbox" id="tufte-sn-368" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">368</span> If we set the ontological identity relation as <span class="math display">\[f =\sum_{i=1}^{\infty} \langle f, \phi_i\rangle \phi_i,\]</span>
+then the approximation is intended to reduce the synthesis to, say <span class="math inline">\(N\)</span> principal objects <span class="math inline">\(\sum_{i=1}^{N} \langle f, \phi_i\rangle \phi_i\)</span> by hoping that the approximating function can still reflect the causal relation of <span class="math inline">\(f\)</span>.</span>
+However, with the approximation, the remaining skeleton of the <a href="">representational problem</a> preserves conceptual relations, approaches to the original norms, and provides understandable cognitions and constitutions that can be optimally embodied and socialized by <strong>bounded beings</strong>.</p>
+<div id="sub:appSys" class="section level2">
+<h2>
+<span class="header-section-number">15.1</span> Approximating Systems</h2>
+</div>
+</div></body></html>
+
+<p style="text-align: center;">
+<a href="ch-representation.html"><button class="btn btn-default">Previous</button></a>
+<a href="bibliography.html"><button class="btn btn-default">Next</button></a>
+</p>
+<p class="build-date">Page built: 
+2020-11-15
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
