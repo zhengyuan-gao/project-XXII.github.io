@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2020-11-15" />
+<meta name="date" content="2020-11-25" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -174,7 +174,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <html><body><div id="ch:optApp" class="section level1">
 <h1>
 <span class="header-section-number">15</span> Optimum Approximation</h1>
-<p>The adjective word optimum and the noun approximation reflect two philosophical, one secular and one sacred, attitudes towards a closeted world. Suppose the representation was thought of relating to the omniscience of God; in that case, the approximation should distract our attention from omnipotences to a milieu of <em>bounded beings</em> who are continuously driven by the operations with imperfect, limited scopes.<label for="tufte-sn-366" class="margin-toggle sidenote-number">366</label><input type="checkbox" id="tufte-sn-366" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">366</span> If bounded operations are defined in a proper space (a <a href="ch-MatComp.html#sub:vecSpaces">vector space</a> with defined <a href="ch-vecMat.html#sub:vec">norms</a> and <a href="ch-vecMat.html#sub:linearity">linear structures</a>), we can also call these <strong>bounded beings</strong> continuous beings.</span> The preference of aiming for “optimum” as bounded beings is metaphysical: it is believed that optimality relates to evidence of imperfection of the Creator’s wisdom.<label for="tufte-sn-367" class="margin-toggle sidenote-number">367</label><input type="checkbox" id="tufte-sn-367" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">367</span> The metaphysical roots of the principle of extremes (<em>principle of least action</em> in science and <em>principle of maximum utility</em> in social science) can date back to Aristotle’s statement: “Nature does nothing in vain.” It can be interpreted as follows. If there is a purpose in the nature of having imperfection, then it should lead to the disclosure of the perfect means. Later, <span class="citation">Newton (<a href="bibliography.html#ref-Newton1846">1846</a>)</span> wrote the following sentence as the first rule of his reasoning in Philosophy. “We are to admit no more causes of natural things than such as are both true and sufficient to explain their appearances.” <span class="citation">Newton (<a href="bibliography.html#ref-Newton1846">1846</a>)</span> commented on this rule by writing, “Nature is pleased with simplicity and affects not the pomp of superfluous causes.”</span></p>
+<p>The adjective word optimum and the noun approximation reflect two philosophical, one secular and one sacred, attitudes towards a closeted world. Suppose the representation was thought of relating to the omniscience of God; in that case, the approximation should distract our attention from omnipotences to a milieu of <em>bounded beings</em> who are continuously driven by the operations with imperfect, limited scopes.<label for="tufte-sn-366" class="margin-toggle sidenote-number">366</label><input type="checkbox" id="tufte-sn-366" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">366</span> If bounded operations are defined in a proper space (a <a href="ch-MatComp.html#sub:vecSpaces">vector space</a> with defined <a href="ch-vecMat.html#sub:vec">norms</a> and <a href="ch-vecMat.html#sub:linearity">linear structures</a>), we can also call these <strong>bounded beings</strong> continuous beings.</span> The preference of aiming for “optimum” as bounded beings is metaphysical: it is believed that optimality relates to evidence of imperfection of the Creator’s wisdom.<label for="tufte-sn-367" class="margin-toggle sidenote-number">367</label><input type="checkbox" id="tufte-sn-367" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">367</span> The metaphysical roots of the <em>principle of extremes</em> (<em>principle of least action</em> in science and <em>principle of maximum utility</em> in social science) can date back to Aristotle’s statement: “Nature does nothing in vain.” It can be interpreted as follows. If there is a purpose in the nature of having imperfection, then it should lead to the disclosure of the perfect means. Later, <span class="citation">Newton (<a href="bibliography.html#ref-Newton1846">1846</a>)</span> wrote the following sentence as the first rule of his reasoning in Philosophy. “We are to admit no more causes of natural things than such as are both true and sufficient to explain their appearances.” <span class="citation">Newton (<a href="bibliography.html#ref-Newton1846">1846</a>)</span> commented on this rule by writing, “Nature is pleased with simplicity and affects not the pomp of superfluous causes.”</span></p>
 <p>Our world is too complex, while our life-time, our intellectual scales, and our physical abilities are too limited compared to the orders of magnitudes of such complexity. We have neither the knowledge nor the computational facility required to formulate all the terms correctly in a system of equations for understanding the universe, the earth, the society, or even ourselves. On the other hand, the logical machinery, together with the axiomatizations of laws and orders, has established a closeted limited realm within which the procedures and subroutines of bounded beings make explicit the advantages of natural modularities and hierarchical organizations to achieve constructive triumphs.</p>
 <p>The ideology descending from optimum approximation is <a href="ch-DE.html#sub:MecWorld">reductionism</a>. It allows us to move from an intractable situation with a full set of elements to an easy-going place in the absence of non-principal ones. Unlike the <strong>holism</strong> flavor wrapped in Leibniz’s <a href="ch-representation.html#sub:pseudoRandom">representation</a>, the approximating thing is imperfect so that the ontological identity no longer holds.<label for="tufte-sn-368" class="margin-toggle sidenote-number">368</label><input type="checkbox" id="tufte-sn-368" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">368</span> If we set the ontological identity as <span class="math display">\[f =\sum_{i=1}^{\infty} \langle f, \phi_i\rangle \phi_i,\]</span>
 then the approximation is intended to reduce the synthesis to, say a combination of <span class="math inline">\(N\)</span> principal objects, <span class="math inline">\(\sum_{i=1}^{N} \langle f, \phi_i\rangle \phi_i\)</span> by hoping that the approximating function can still reflect the causal relation of <span class="math inline">\(f\)</span>.</span>
@@ -182,6 +182,178 @@ However, with the approximation, the remaining skeleton of the <a href="ch-repre
 <div id="sub:appSys" class="section level2">
 <h2>
 <span class="header-section-number">15.1</span> Approximating Systems</h2>
+<p>One guiding principle in model development is Occam’s razor: “keep it simple.” More precisely, the model should be no more complicated than is necessary to represent the principal features. The intention of approximation is to replace some complicated system with a new system, one that is simpler and easier to work with, at the price of some (hopefully small) difference between the two systems. The new system is called an <em>approximating system</em>.</p>
+<p>There are two critical criteria in using the approximation as a razor: first, how much nicer (or simpler) is the approximating system? Second, how similar is the approximating system to the original (or the true) one? Of course, the answers to these two questions depend on the exact meanings of nicer and similarity, which vary according to the context. The analyses of giving precise measurements to these two criteria are tied to the notations of <a href="ch-vecMat.html#sub:vec">norms</a>.<label for="tufte-sn-369" class="margin-toggle sidenote-number">369</label><input type="checkbox" id="tufte-sn-369" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">369</span> Recall that in one of the simplest approximations, the <a href="sub-calculus.html#sub:Taylor">Taylor series</a>, if the function <span class="math inline">\(f:\mathbb{R}\rightarrow \mathbb{R}\)</span> is <span class="math inline">\(n\)</span>-th order differentiable, then we have an <span class="math inline">\(n\)</span>-th order <a href="sub-calculus.html#sub:Taylor">polynomial approximation</a> <span class="math inline">\(p_n(x)=\sum_{i=1}^{n} c_i(x -a)^{i}\)</span> where <span class="math inline">\(c_i\)</span> is the <span class="math inline">\(i\)</span>-th order differentiation of <span class="math inline">\(f(x)\)</span> evaluated at <span class="math inline">\(x=a\)</span>. This approximation is only good when the error, namely <span class="math inline">\(|f(x)-p_n(x)|\)</span>, is small. Here the <a href="ch-vecMat.html#sub:vec">norm</a>, namely the absolute value, gives a measurement of the error.</span></p>
+<p>In the infinite-dimensional space, the <a href="ch-vecMat.html#sub:vec">norm</a> is a special functional mapping from a vector space to the non-negative <a href="sub-continuity.html#sub:completeness">real number field</a>, and it shares some similarities with the <strong>non-negative (real-valued) linear functionals</strong>. The following table makes the comparison.<label for="tufte-sn-370" class="margin-toggle sidenote-number">370</label><input type="checkbox" id="tufte-sn-370" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">370</span> If we replace the linearity in point 3 with the condition <span class="math inline">\(\mathbf{T}(f+g)\leq \mathbf{T}(f)+\mathbf{T}(g)\)</span>, the <strong>non-negative linear functional</strong> <span class="math inline">\(\mathbf{T}\)</span> is called the <em>sub-additive functional</em>.</span></p>
+<table>
+<colgroup>
+<col width="30%">
+<col width="38%">
+<col width="30%">
+</colgroup>
+<thead><tr class="header">
+<th align="center">Definition</th>
+<th align="left"><a href="ch-vecMat.html#sub:vec">Norm</a></th>
+<th align="left"><em>Non-negative linear functional</em></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">1.</td>
+<td align="left">Positive definiteness, non-degeneracy:</td>
+<td align="left">Positive definiteness, non-degeneracy:</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="left">
+<span class="math inline">\(\|f\|\geq0\)</span> for all <span class="math inline">\(f\in\mathcal{V}\)</span>, and <span class="math inline">\(\|f\|=0\)</span> if and only if <span class="math inline">\(f=0\)</span>.</td>
+<td align="left">
+<span class="math inline">\(\mathbf{T}(f)\geq0\)</span> for all <span class="math inline">\(f\in\mathcal{V}\)</span>, and <span class="math inline">\(\mathbf{T}(f)=0\)</span> if and only if <span class="math inline">\(f=0\)</span>.</td>
+</tr>
+<tr class="odd">
+<td align="center">2.</td>
+<td align="left">Multiplicativity:</td>
+<td align="left">Multiplicativity:</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="left">
+<span class="math inline">\(\|af\|=|a|\times\|f\|\)</span> for all <span class="math inline">\(f\in\mathcal{V}\)</span> and scalars <span class="math inline">\(a\)</span>.</td>
+<td align="left">
+<span class="math inline">\(|\mathbf{T}(af)|=|a|\times|\mathbf{T}(f)|\)</span> for all <span class="math inline">\(f\in\mathcal{V}\)</span>. and scalars <span class="math inline">\(a\)</span>.</td>
+</tr>
+<tr class="odd">
+<td align="center">3.</td>
+<td align="left">
+<a href="sub-continuity.html#sub:continuousFunc">Triangle inequality</a>:</td>
+<td align="left">Linearity:</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="left">
+<span class="math inline">\(\|f+g\|\leq\|f\|+\|g\|\)</span> for <span class="math inline">\(f,g\in\mathcal{V}\)</span>.</td>
+<td align="left">
+<span class="math inline">\(\mathbf{T}(f+g)=\mathbf{T}(f)+\mathbf{T}(g)\)</span> for <span class="math inline">\(f,g\in\mathcal{V}\)</span>.</td>
+</tr>
+</tbody>
+</table>
+<p>Note that the <a href="ch-vecMat.html#sub:vec">inner product</a> in the infinite-dimensional vector space also plays a role as the <strong>non-negative linear functional</strong>, <span class="math inline">\(\mathbf{T}(f)= \langle f, \cdot \rangle\)</span>. The only difference between the <a href="ch-vecMat.html#sub:vec">norm</a> and the <a href="ch-vecMat.html#sub:vec">inner product</a> comes from point 3 of the table above.
+We know that an <a href="ch-vecMat.html#sub:vec">inner product</a> always gives rise to a norm via <span class="math inline">\(\|f\|=\sqrt{\langle f, f\rangle}\)</span>. The converse statement is not true because the <a href="ch-representation.html#sub:conjugacy">orthogonality</a> defined by the <a href="ch-vecMat.html#sub:vec">inner product</a> does not generally hold for the <a href="ch-vecMat.html#sub:vec">norms</a>. To see this, notice that the orthogonality is characterized by the <a href="ch-vecMat.html#sub:vec">generalized Pythagoras’ theorem</a>:
+<span class="math display">\[\|f+g\|^{2}=\|f\|^2 +\|g\|^2.\]</span>
+The equality holds for every pair <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> from an <a href="ch-representation.html#sub:innerProd">inner product space</a>. But this equality is a special case of the <a href="sub-continuity.html#sub:continuousFunc">triangle inequality</a> when <span class="math inline">\(\|f+g\|=\|f\| +\|g\|\)</span> and <span class="math inline">\(\langle f, g\rangle=0\)</span>. Thus, we can say that the vector space attached to the <a href="ch-vecMat.html#sub:vec">norm</a> structure is more general than the one attached to the <a href="ch-vecMat.html#sub:vec">inner product</a> structure.</p>
+<p>One important motivation for extending the attention from the inner product structure to the norm is that we can confront a “bigger” dual that is <a href="sub-continuity.html#sub:completeness">complete</a>. We discussed in chapter <a href="ch-representation.html#sub:dualBasis">14.4</a> that the <a href="ch-representation.html#sub:dualBasis">dual spaces</a> of the <a href="ch-representation.html#sub:conjugacy">Hilbert spaces</a> or the finite-dimensional <a href="ch-MatComp.html#sub:vecSpaces">vector spaces</a> preserve structures from the original ones. But in general, a <a href="#dualBasis">dual space</a> is “bigger” than its original space. A “bigger” often brings in additional complications. But if the <a href="ch-vecMat.html#sub:vec">vector space</a> is attached to the <a href="ch-vecMat.html#sub:vec">norm</a>, the “bigger” size allows its <a href="ch-representation.html#sub:dualBasis">dual space</a> to makes the <a href="sub-continuity.html#sub:completeness">completion</a> of itself.</p>
+<ul>
+<li>A vector space <span class="math inline">\(\mathcal{V}\)</span> endowed with a <a href="ch-vecMat.html#sub:vec">norm</a> on <span class="math inline">\(\mathcal{V}\)</span> is called the <em>normed vector space</em>, denoted by <span class="math inline">\((\mathcal{V},\|\cdot\|)\)</span>. The <em>dual normed space</em> <span class="math inline">\(\mathcal{V}^{*}\)</span> consists of all the continuous <a href="ch-MatComp.html#sub:vecSpaces">linear functionals</a> of the <strong>normed vector space</strong>. When the dual space <span class="math inline">\(\mathcal{V}^*\)</span> is equipped with the <em>supremum norm</em> or the <em>infimum norm</em><label for="tufte-sn-371" class="margin-toggle sidenote-number">371</label><input type="checkbox" id="tufte-sn-371" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">371</span> Note that definitions given in <a href="ch-optApp.html#eq:norm-2">(15.2)</a> and <a href="ch-optApp.html#eq:norm-4">(15.4)</a> are simply the normalized versions of <a href="ch-optApp.html#eq:norm-1">(15.1)</a> and <a href="ch-optApp.html#eq:norm-3">(15.3)</a>, respectively. The equivalence between <a href="ch-optApp.html#eq:norm-1">(15.1)</a> and <a href="ch-optApp.html#eq:norm-3">(15.3)</a> gives a <a href="ch-representation.html#sub:dualBasis">duality</a> that holds for the functions and their bounds. Such a duality is analogous to the one in the inner product space, i.e., the duality between the basis function and Fourier series coefficient. Examples will be given in sec[?]</span>
+<span class="math display" id="eq:norm-4">\[
+\begin{align}
+\|\mathbf{T}\| &amp;= \sup \left\{ \frac{|\mathbf{T}(f)|}{\|f\|} \,:\,  f\in\mathcal{V},\ \right \} \tag{15.1}\\
+&amp;= \sup_{ f\in\mathcal{V}}\frac{|\mathbf{T}(f)|}{\|f\|}=\sup_{ f\in\mathcal{V},\,  \|f\|=1}|\mathbf{T}(f)| \tag{15.2}\\
+&amp;= \inf \left\{ M \,:\, \frac{|\mathbf{T}(f)|}{\|f\|}\leq M,\, f\in\mathcal{V} \right\} \tag{15.3}\\
+&amp; = \inf_{ f\in\mathcal{V},\,  \|f\|=1, |\mathbf{T}(f)|\leq M} M \tag{15.4}
+\end{align}\]</span>
+for any <a href="ch-MatComp.html#sub:vecSpaces">linear functional</a> <span class="math inline">\(\mathbf{T}\in\mathcal{V}^*\)</span>, then the <strong>dual normed space</strong> is a <em>complete normed space</em> (even if <span class="math inline">\(\mathcal{V}\)</span> is not complete). A <em>complete normed space</em> is also called the <em>Banach space</em>.</li>
+</ul>
+<p>An <a href="ch-representation.html#sub:innerProd">inner product space</a> is a particular kind of <strong>normed vector space</strong>. So the <a href="ch-representation.html#sub:conjugacy">Hilbert space</a> is a particular kind of <strong>Banach space</strong>.</p>
+<div class="solution">
+<p class="solution-begin">
+Equivalence of the supremum norm and the infimum norm <span id="sol-start-177" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-177', 'sol-start-177')"></span>
+</p>
+<div id="sol-body-177" class="solution-body" style="display: none;">
+<p>Let <span class="math inline">\(\sup_{f\in\mathcal{V},\,\|f\|=1}|\mathbf{T}(f)|=\overline{M}\)</span> and let <span class="math inline">\(\inf_{f\in\mathcal{V},\,\|f\|=1,|\mathbf{T}(f)|\leq M}M=\underline{M}\)</span>. We need to show <span class="math inline">\(\underline{M}=\overline{M}\)</span>. Suppose <span class="math inline">\(\underline{M}\neq\overline{M}\)</span>. So there is some <span class="math inline">\(\epsilon\in\mathbb{R}\)</span> such that <span class="math inline">\(\underline{M}+\epsilon=\overline{M}\)</span>.</p>
+<p>Suppose <span class="math inline">\(\epsilon&gt;0\)</span>. The definition of the infimum norm
+<span class="math display">\[\inf_{f\in\mathcal{V},\,\|f\|=1,|\mathbf{T}(f)|\leq M}M=\underline{M}\]</span> says that <span class="math inline">\(|\mathbf{T}(f)|\leq\underline{M}\)</span> for all <span class="math inline">\(\mathbf{T}\in\mathcal{V}^{*}\)</span>. Then for all <span class="math inline">\(\mathbf{T}\in\mathcal{V}^{*}\)</span>, there is
+<span class="math display">\[|\mathbf{T}(f)|\leq\underline{M}\Leftrightarrow|\mathbf{T}(f)|+\epsilon\leq\underline{M}+\epsilon=\overline{M}\]</span>
+which says that <span class="math inline">\(|\mathbf{T}(f)|\leq\overline{M}-\epsilon\)</span>. As <span class="math inline">\(\epsilon&gt;0\)</span>, we can say <span class="math inline">\(|\mathbf{T}(f)|\leq\overline{M}-\epsilon/2\)</span> for all <span class="math inline">\(\mathbf{T}\in\mathcal{V}^{*}\)</span>. Thus, we find another <a href="sub-continuity.html#sub:completeness">supremum</a> <span class="math display">\[\sup_{f\in\mathcal{V},\,\|f\|=1}|\mathbf{T}(f)|=\overline{M}-\epsilon/2\]</span> which contradicts with the definition of <a href="sub-continuity.html#sub:completeness">supremum</a>. So <span class="math inline">\(\epsilon\)</span> cannot be positive.</p>
+<p>Suppose <span class="math inline">\(\epsilon&lt;0\)</span>. So <span class="math inline">\(\underline{M}=\overline{M}-\epsilon\)</span> implies <span class="math inline">\(\underline{M}&gt;\overline{M}\)</span>. It says that
+<span class="math display">\[\inf\left\{ M\,:\,\frac{|\mathbf{T}(f)|}{\|f\|}\leq M,\, f\in\mathcal{V}\right\} &gt;\sup\left\{ \frac{|\mathbf{T}(f)|}{\|f\|}\,:\, f\in\mathcal{V},\ \right\}\]</span> an obvious contradiction. So <span class="math inline">\(\epsilon\)</span> cannot be negative.</p>
+<p>We can conclude that <span class="math inline">\(\epsilon\)</span> has to be zero. The result follows.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>The <a href="sub-continuity.html#sub:completeness">supremum</a> and <a href="sub-continuity.html#sub:completeness">infimum</a> on the <a href="sub-continuity.html#sub:completeness">real number field</a> make sure that a continuous function over a bounded interval <span class="math inline">\([a,b]\)</span> always has its maximum and minimum. The <strong>supremum norm</strong> or the <strong>infimum norm</strong> offers a strict criterion for assessing the continuity.<label for="tufte-sn-372" class="margin-toggle sidenote-number">372</label><input type="checkbox" id="tufte-sn-372" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">372</span> We have seen in figure <a href="ch-representation.html#fig:stepFun">14.4</a> that a convergent sequence of continuous functions may not preserve the continuity under the <span class="math inline">\(l_2\)</span>-norm. Hence, the space of all continuous functions <span class="math inline">\(\mathcal{C}([a,b])\)</span> under the <span class="math inline">\(l_{2}\)</span>-norm is incomplete. But if we assess the continuity using the <strong>supremum norm</strong>, we can see that the functions in the convergent sequence are all discontinuous as
+<span class="math display">\[\sup_{x\in [0,\pi]} f_n(x)= 1\, \\
+\sup_{x\in [-\pi,0)} f_n(x)= 0\]</span>
+for any <span class="math inline">\(n\in\mathbb{N}\)</span>. Also for the <strong>infimum norm</strong>, the discontinuity appears at <span class="math inline">\(1/n\)</span>, as for any <span class="math inline">\(n\in\mathbb{N}\)</span>
+<span class="math display">\[\inf_{x\in [1/n,\pi]} f_n(x)= 1 \\
+\inf_{x\in [-\pi,1/n)} f_n(x)= 0.\]</span> Thus, the function in figure <a href="ch-representation.html#fig:stepFun">14.4</a> should not belong to the space <span class="math inline">\(\mathcal{C}([a,b])\)</span> under the <strong>supremum norm</strong> or <strong>infimum norm</strong>. In fact, <span class="math inline">\(\mathcal{C}([a,b])\)</span> becomes a <a href="sub-continuity.html#sub:completeness">complete</a> <strong>normed space</strong>, namely a <strong>Banach space</strong>, under the <strong>supremum norm</strong> or <strong>infimum norm</strong>.</span> The <a href="sub-continuity.html#sub:completeness">completion</a> of the <strong>dual normed space</strong> is due to this strict criterion: if the functionals under the best scenario and the worst scenario are bounded/continuous according to the <strong>supremum norm</strong> or the <strong>infimum norm</strong>, all the other <a href="ch-MatComp.html#sub:vecSpaces">linear functionals</a> should also be bounded/continuous.</p>
+<p>Note that the <strong>dual normed space</strong> is <a href="sub-continuity.html#sub:completeness">complete</a> even though the original <strong>normed space</strong> is not. This feature is useful. As many approximation problems cannot find an exact answer in the original setting, people have to switch to the <strong>dual normed space</strong> where the “completion” of the space guarantees the existence of the solution. For example, if
+a system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> consists of <span class="math inline">\(n\)</span> linear equations but only <span class="math inline">\(k\)</span> unknown variables (<span class="math inline">\(k&lt;n\)</span>). Then the system is an <a href="ch-MatComp.html#sub:GElimination">overdetermined system</a>. That is, no solution <span class="math inline">\(\mathbf{x}^*\)</span> exists for <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span>. To resolve the problem, one needs to reformulate an <strong>approximating system</strong>. Suppose that the <strong>approximating system</strong> is to make the residual vector <span class="math inline">\(\mathbf{A}\mathbf{x}-\mathbf{x}\)</span> as “small” as possible, and this system is solvable under some functional operation. The solution, say <span class="math inline">\(\hat{\mathbf{x}}\)</span>, will not belong to the set containing the original object but some other set.<label for="tufte-sn-373" class="margin-toggle sidenote-number">373</label><input type="checkbox" id="tufte-sn-373" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">373</span> Let <span class="math inline">\(\mathbf{x}\)</span> belong to the vector space <span class="math inline">\(\mathbb{R}^{k}\)</span>. The solution vector <span class="math inline">\(\hat{\mathbf{x}}\)</span> usually is from the space <span class="math inline">\(\mathcal{L}(\mathbb{R}^{k},\mathbb{R}^{k})\)</span>, a set of all linear operators mapping from <span class="math inline">\(\mathbb{R}^{k}\)</span> to <span class="math inline">\(\mathbb{R}^{k}\)</span>. The linear operator <span class="math inline">\(\hat{\mathbf{x}}\)</span> consists of linear functionals <span class="math inline">\(\hat{x}_1, \dots, \hat{x}_k\)</span>. So the solutions <span class="math inline">\(\hat{x}_1, \dots, \hat{x}_k\)</span> are from in the <strong>dual normed space</strong>. In other words, each <span class="math inline">\(\hat{x}_i\)</span> of the solution vector is a functional belonging to the <strong>dual normed space</strong> rather than a scalar.</span>
+In particular, if the solution set of the <strong>approximating system</strong> belongs to the <strong>dual normed vector space</strong>, we expect that the solution will always exist. So we call the solution of the <strong>approximating system</strong> the <em>approximation</em>.</p>
+<p>To fulfill the goal of pushing the solution set to a <strong>Banach space</strong>, when we model an <strong>approximating system</strong>, we often consider the setup to be solvable by one continuous linear <a href="ch-MatComp.html#sub:vecSpaces">operator</a> or a sequence of them. Also, we hope that the norms of these <a href="ch-MatComp.html#sub:vecSpaces">operators</a> should approximate the unit value so that these <strong>approximations</strong> have the tendencies to preserve the <a href="ch-vecMat.html#sub:vec">norms</a> of the “solutions” in the original system.</p>
+<p>Formally speaking, solving an <strong>approximating system</strong> depends on the <em>“hat” operator</em> <span class="math inline">\(\hat{(\cdot)}:\mathcal{V}\rightarrow\mathcal{V}^{*}\)</span>, namely <span class="math inline">\(\hat{(\cdot)} \in \mathcal{L}(\mathcal{V},\mathcal{V}^{*})\)</span> where <span class="math inline">\(\mathcal{L}(\mathcal{V},\mathcal{V}^{*})\)</span> denotes the set of all continuous linear mapping from <span class="math inline">\(\mathcal{V}\)</span> to <span class="math inline">\(\mathcal{V}^{*}\)</span>.<label for="tufte-sn-374" class="margin-toggle sidenote-number">374</label><input type="checkbox" id="tufte-sn-374" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">374</span> The <strong>hat operator</strong> emerged in several fields under different names. The successive series started in physics (quantum position measurement) around the 1920s, then it spread to operation research (optimizer), statistics and information theory (point estimator), economics and finance (pricing operator). Indeed, there is a hidden inter-connection among these subjects. All their intentions are trying to approximate the real-world phenomena (the quantum movements, the transportation flows, the observable samples or the receiving signals, and changes of commodities) with some analytical systems that are believed to be solvable (eigensystem, linear programming, likelihoods/entropies, and supply-demand models). The <strong>hat operator</strong> did a wonderful job as it can always provide a “solution” to any of these real-world problems. However, many people are apparently ignoring (or perhaps unaware) the fact that these “solutions” given by the dual, and blindly worship some of these operators as “the” solutions of the real phenomena.</span> On many occasions, we want the <strong>hat operator</strong> to preserve the norm such that <span class="math inline">\(\|\hat{f}\|=\|f\|\)</span> for every <span class="math inline">\(f\in\mathcal{V}\)</span>.</p>
+<p>All <strong>approximations</strong> can be conducted in either one-step or multiple-steps. Let’s consider two representative examples.</p>
+<p><span class="newthought">One-step approximation </span></p>
+<p>The <strong>approximation</strong> <span class="math inline">\(\hat{\mathbf{x}}=(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{b}\)</span> of the system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> is a <strong>hat operator</strong>. It is also the solution of the following <strong>approximating system</strong>
+of minimizing the residual <span class="math inline">\(\mathbf{A}\mathbf{x}-\mathbf{b}\)</span> in terms of the <span class="math inline">\(\ell_2\)</span>-norm:
+<span class="math display">\[\min_{\mathbf{x}}(\mathbf{A}\mathbf{x}-\mathbf{b})^\top (\mathbf{A}\mathbf{x}-\mathbf{b}).\]</span>
+To see this, the norm <span class="math inline">\((\mathbf{A}\mathbf{x}-\mathbf{b})^\top (\mathbf{A}\mathbf{x}-\mathbf{b})\)</span> is a quadratic term. By taking a second derivative of the norm with respect to <span class="math inline">\(\mathbf{x}\)</span>, we have <span class="math inline">\(\mathbf{A}^{\top}\mathbf{A}\geq0\)</span>. According to the optimality criterion given in chapter <a href="sub-calculus.html#sub:opt">7.3</a>, we know that any <span class="math inline">\(\mathbf{x}\)</span> that can attain zero for the first derivative of the norm will give the minimum of the norm. The first derivative is
+<span class="math inline">\(2\mathbf{A}^\top (\mathbf{A}\mathbf{x}-\mathbf{b})=0 \Leftrightarrow \mathbf{A}^\top\mathbf{A}\mathbf{x}=\mathbf{A}^\top\mathbf{b}.\)</span>
+By inverting <span class="math inline">\(\mathbf{A}^\top\mathbf{A}\)</span> on both sides, we have the solution <span class="math inline">\(\hat{\mathbf{x}}=(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{b}\)</span>. Note that this solution exists even if <span class="math inline">\(\mathbf{A}\)</span> is not a square matrix (the number of unknowns and the number of equations do not match). That is to say, the solution <span class="math inline">\(\hat{\mathbf{x}}\)</span> may or may not be the solution of <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span>.</p>
+<p><span class="newthought">Sequential approximation </span></p>
+<p>Consider a dynamical system of simultaneous equations:
+<span class="math display">\[u_{t}(x_{j})=\sum_{s=1}^{n}p_{js}u_{t-1}(x_{s}),\, j=1,\dots n,\]</span>
+where <span class="math inline">\(u_t(\cdot)\)</span> stands for an unknown function at time <span class="math inline">\(t\)</span>, <span class="math inline">\(x_{j}\)</span> is the state value of the input of the function, <span class="math inline">\(p_{js}\)</span> is from an <span class="math inline">\(n\times n\)</span>
+<a href="ch-UnMulti.html#sub:Markov">probability transition matrix</a> <span class="math inline">\(\mathbf{P}=[p]_{js}\)</span>. The system can be written in matrix form <span class="math display">\[\mathbf{u}_t=\mathbf{P}\mathbf{u}_{t-1}.\]</span>
+Because <span class="math inline">\(\mathbf{u}_t(\cdot)\)</span> is an unknown vector given by an unknown function, we need to approximate <span class="math inline">\(\mathbf{u}_t(\cdot)\)</span> by some tractable candidate. Let the <strong>approximation</strong> at <span class="math inline">\(t\)</span>-step be
+<span class="math inline">\(\hat{\mathbf{u}}_t= [\langle \mathbf{c}_t, \phi(x_1)\rangle, \dots, \langle \mathbf{c}_t, \phi(x_n)\rangle]^\top\)</span>, where <span class="math inline">\(\phi(\cdot)\)</span> is the <a href="ch-representation.html#sub:innerProd">basis function</a>, and <span class="math inline">\(\mathbf{c}_t\)</span> is the coefficient vector. The <strong>approximating system</strong> is
+<span class="math display">\[\begin{align*}
+\mbox{at time }t: &amp; \,\, \hat{\mathbf{u}}_t= [\langle \hat{\mathbf{c}}_t, \phi(x_1)\rangle, \dots, \langle \hat{\mathbf{c}}_t, \phi(x_n)\rangle]^\top \\
+\mbox{ where } \hat{\mathbf{c}}_t \mbox{ is from } &amp;\,\, \min_{\mathbf{c}_t} \| \hat{\mathbf{u}}_t - \mathbf{P}\hat{\mathbf{u}}_{t-1}\|\\
+\mbox{at time }t+1: &amp; \, \, \hat{\mathbf{u}}_{t+1}= [\langle \hat{\mathbf{c}}_{t+1}, \phi(x_1)\rangle, \dots, \langle \hat{\mathbf{c}}_{t+1}, \phi(x_n)\rangle]\top \\
+\mbox{ where } \hat{\mathbf{c}}_{t+1} \mbox{ is from } &amp;\,\, \min_{\mathbf{c}_{t+1}} \| \hat{\mathbf{u}}_{t+1}- \mathbf{P}\hat{\mathbf{u}}_{t}\|\\
+\vdots &amp;
+\end{align*}
+\]</span>
+Note that we have a sequence of <strong>hat operators</strong> <span class="math inline">\(\{\hat{\mathbf{u}}_1, \hat{\mathbf{u}}_2,\dots, \hat{\mathbf{u}}_t\}\)</span> for this system up to time <span class="math inline">\(t\)</span> rather than a single one.</p>
+<p>By now, we know that if we can present the original system by an approximating one whose solution is defined on the <strong>dual normed space</strong>, the solution for the <strong>approximating system</strong> always exists. But we haven’t known yet how to specify a general routine to set up the <strong>approximating system</strong>.</p>
+<p>Recall the previous routine of representing an object in the <a href="ch-representation.html#sub:innerProd">inner product space</a>. We project any object of the <a href="ch-representation.html#sub:innerProd">inner product space</a> onto a basis system that spans the space. The basis system is known; therefore, they are tractable for presenting the object. Similarly, an <strong>approximating system</strong> emerges when we project some object that belongs to an “unapproachable” set onto an “approachable” set. The minimizations in both above examples are actually the <strong>metric projection operators</strong> for the <strong>normed vector space</strong>.</p>
+<p>For a <strong>normed vector space</strong> <span class="math inline">\((\mathcal{V},\|\cdot\|)\)</span>, the operator <span class="math inline">\(\mathbf{P}_{\mathcal{Y}}(f)\)</span> is called <em>metric projection operator</em> if it yields the multi-valued operator between the point <span class="math inline">\(f\in\mathcal{V}\)</span> and the nearest point(s) <span class="math inline">\(\hat{f}\in\mathcal{Y}\subset\mathcal{V}\)</span>:
+<span class="math display">\[\mathbf{P}_{\mathcal{Y}}(f)=\hat{f},\,\,\mbox{with }\,  \|f - \hat{f}\|=\inf_{g\in\mathcal{Y}}\|f-g\|\]</span>
+where the set <span class="math inline">\(\mathcal{Y}\)</span> is projected set.</p>
+<p>If we consider <span class="math inline">\(f\)</span> as the original system of interests, setting up an <strong>approximating system</strong> is equivalent to defining a <strong>metric projection operator</strong> of <span class="math inline">\(f\)</span> on the <a href="ch-UnMulti.html#sub:WLLN">a priori</a> selected set <span class="math inline">\(\mathcal{Y}\)</span> where the systems are all solvable or computable (or understandable) by human beings.<label for="tufte-sn-375" class="margin-toggle sidenote-number">375</label><input type="checkbox" id="tufte-sn-375" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">375</span> The projected set <span class="math inline">\(\mathcal{Y}\)</span> includes the <strong>approximating system</strong> but does not necessarily <span class="math inline">\(f\)</span>.</span></p>
+<p>Notice that the <strong>metric projection operator</strong> is a multi-valued operator. The multi-valued operator allows us to project the original system onto multiple approximating ones.<label for="tufte-sn-376" class="margin-toggle sidenote-number">376</label><input type="checkbox" id="tufte-sn-376" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">376</span> There could be multiple <span class="math inline">\(\hat{f}_i\)</span> such that
+<span class="math display">\[\inf_{g\in\mathcal{Y}}\|f-g\|=\\
+\|f-\hat{f}_1\|=\|f-\hat{f}_2\|=\cdots\]</span>
+That is to say, you can project <span class="math inline">\(f\)</span> to several directions, and multiple nearest points are corresponding to this projection. Thus the <strong>metric projection operator</strong> is <span class="math inline">\(\mathbf{P}_{\mathcal{Y}}(f)=\{\hat{f}_{i}\}\)</span>.</span> But the cost of this generality is that it is ambiguous to proceed on which system. To avoid ambiguity, people often shift their attention to the set <span class="math inline">\(\mathcal{Y}\)</span> that can generate a single-valued <strong>metric projection operator</strong>, namely a unique nearest point from the projection:
+<span class="math display">\[\mathbf{P}_{\mathcal{Y}}(f)=\hat{f},\,\,\mbox{with }\, \|f-\hat{f}\|=\min_{g\in\mathcal{Y}}\|f-g\|.\]</span>
+A technical discussion about how to characterize <span class="math inline">\(\mathcal{Y}\)</span> to achieve this goal will be given later. For the moment, I should give a remark about the role of uniqueness. Looking for a unique optimum under the <a href="sub-calculus.html#sub:opt">maximization/minimization</a> rather than multiple optima under the <a href="sub-continuity.html#sub:completeness">supremum/infimum</a> somehow relates to the visions towards the world’s order. There are various arguments in favor of the unique optimal outcome.<label for="tufte-sn-377" class="margin-toggle sidenote-number">377</label><input type="checkbox" id="tufte-sn-377" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">377</span> When the light rays are refracted in a glass window, they bend and follow the path that minimizes their travel time. A solid body moves along the direction with the least resistance through a fluid. Soap films seek to minimize their surface area, and adopt a spherical shape. While the circle shape is also the one on which Queen Dido formed the longest loop in order to enclose the largest possible territory.</span> Amongst all the arguments, perhaps the most fundamental one comes from <em>monotheism</em>, where one can derive a unique logical limit of the universal order.</p>
+<div class="solution">
+<p class="solution-begin">
+Descartes’ proposition of NOT MANY GODS <span id="sol-start-178" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-178', 'sol-start-178')"></span>
+</p>
+<div id="sol-body-178" class="solution-body" style="display: none;">
+<p>Proposition V in <span class="citation">Spinoza (<a href="bibliography.html#ref-Spinoza1943">1905</a>)</span></p>
+<blockquote>
+<blockquote>
+<p>“God’s existence is known merely from the consideration of his nature”</p>
+</blockquote>
+</blockquote>
+<p>Proposition IX in <span class="citation">Spinoza (<a href="bibliography.html#ref-Spinoza1943">1905</a>)</span></p>
+<blockquote>
+<blockquote>
+<p>“God is omniscient”</p>
+</blockquote>
+</blockquote>
+<p>Proposition XI in <span class="citation">Spinoza (<a href="bibliography.html#ref-Spinoza1943">1905</a>)</span></p>
+<blockquote>
+<blockquote>
+<p>“There are not many gods”</p>
+</blockquote>
+</blockquote>
+<p>Here is the proof of proposition XI.</p>
+<p>Suppose there are many gods, say A and B.</p>
+<p>Then A and B are both omniscient (Proposition IX).</p>
+<p>A is the cause of the idea of B. (Proposition V)</p>
+<p>B is the cause of the idea of A. (Proposition V)</p>
+<p>Therefore there will be some perfection in A that is not self-caused, and likewise with B.</p>
+<p>Neither A nor B is omniscient, hence they cannot be gods.</p>
+<p>Therefore, there is only one God.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
 </div>
 </div></body></html>
 
@@ -190,7 +362,7 @@ However, with the approximation, the remaining skeleton of the <a href="ch-repre
 <a href="bibliography.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-11-15
+2020-11-25
 </p>
 </div>
 </div>
