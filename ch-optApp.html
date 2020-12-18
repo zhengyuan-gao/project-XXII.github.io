@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2020-12-07" />
+<meta name="date" content="2020-12-19" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -161,6 +161,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a id="active-page" href="ch-optApp.html"><span class="toc-section-number">15</span> Optimum Approximation</a><ul class="toc-sections">
 <li class="toc"><a href="#sub:appSys"> Approximating Systems</a></li>
 <li class="toc"><a href="#sub:Optimization"> Optimization and Inequalities</a></li>
+<li class="toc"><a href="#sub:Proj1"> Miscellaneous Examples: Part 1</a></li>
 </ul>
 <a href="bibliography.html">Bibliography</a>
 </div>
@@ -260,9 +261,9 @@ for any <a href="ch-MatComp.html#sub:vecSpaces">linear functional</a> <span clas
 <p>An <a href="ch-representation.html#sub:innerProd">inner product space</a> is a particular kind of <strong>normed vector space</strong>. So the <a href="ch-representation.html#sub:conjugacy">Hilbert space</a> is a particular kind of <strong>Banach space</strong>.</p>
 <div class="solution">
 <p class="solution-begin">
-Equivalence of the supremum norm and the infimum norm <span id="sol-start-181" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-181', 'sol-start-181')"></span>
+Equivalence of the supremum norm and the infimum norm <span id="sol-start-88" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-88', 'sol-start-88')"></span>
 </p>
-<div id="sol-body-181" class="solution-body" style="display: none;">
+<div id="sol-body-88" class="solution-body" style="display: none;">
 <p>Let <span class="math inline">\(\sup_{f\in\mathcal{V},\,\|f\|=1}|\mathbf{T}(f)|=\overline{M}\)</span> and let <span class="math inline">\(\inf_{f\in\mathcal{V},\,\|f\|=1,|\mathbf{T}(f)|\leq M}M=\underline{M}\)</span>. We need to show <span class="math inline">\(\underline{M}=\overline{M}\)</span>. Suppose <span class="math inline">\(\underline{M}\neq\overline{M}\)</span>. So there is some <span class="math inline">\(\epsilon\in\mathbb{R}\)</span> such that <span class="math inline">\(\underline{M}+\epsilon=\overline{M}\)</span>.</p>
 <p>Suppose <span class="math inline">\(\epsilon&gt;0\)</span>. The definition of the infimum norm
 <span class="math display">\[\inf_{f\in\mathcal{V},\,\|f\|=1,|\mathbf{T}(f)|\leq M}M=\underline{M}\]</span> says that <span class="math inline">\(|\mathbf{T}(f)|\leq\underline{M}\)</span> for all <span class="math inline">\(\mathbf{T}\in\mathcal{V}^{*}\)</span>. Then for all <span class="math inline">\(\mathbf{T}\in\mathcal{V}^{*}\)</span>, there is
@@ -325,9 +326,9 @@ That is to say, you can project <span class="math inline">\(f\)</span> to severa
 A technical discussion about how to characterize <span class="math inline">\(\mathcal{Y}\)</span> to achieve this goal will be given later. For the moment, I should give a remark about the role of uniqueness. Looking for a unique optimum under the <a href="sub-calculus.html#sub:opt">maximization/minimization</a> rather than multiple optima under the <a href="sub-continuity.html#sub:completeness">supremum/infimum</a> somehow relates to the visions towards the world’s order. There are various arguments in favor of the unique optimal outcome.<label for="tufte-sn-378" class="margin-toggle sidenote-number">378</label><input type="checkbox" id="tufte-sn-378" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">378</span> When the light rays are refracted in a glass window, they bend and follow the path that minimizes their travel time. A solid body moves along the direction with the least resistance through a fluid. Soap films seek to minimize their surface area, and adopt a spherical shape. While the circle shape is also the one on which Queen Dido formed the longest loop in order to enclose the largest possible territory.</span> Amongst all the arguments, perhaps the most fundamental one comes from <em>monotheism</em>, where one can derive a unique logical limit of the universal order.</p>
 <div class="solution">
 <p class="solution-begin">
-Descartes’ proposition of NOT MANY GODS <span id="sol-start-182" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-182', 'sol-start-182')"></span>
+Descartes’ proposition of NOT MANY GODS <span id="sol-start-89" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-89', 'sol-start-89')"></span>
 </p>
-<div id="sol-body-182" class="solution-body" style="display: none;">
+<div id="sol-body-89" class="solution-body" style="display: none;">
 <p>Proposition V in <span class="citation">Spinoza (<a href="bibliography.html#ref-Spinoza1943">1905</a>)</span></p>
 <blockquote>
 <blockquote>
@@ -399,9 +400,9 @@ where <span class="math inline">\(\nabla f(\mathbf{y}^{*})\)</span> is the <a hr
 </ul>
 <div class="solution">
 <p class="solution-begin">
-Variational inequality <span id="sol-start-183" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-183', 'sol-start-183')"></span>
+Variational inequality <span id="sol-start-90" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-90', 'sol-start-90')"></span>
 </p>
-<div id="sol-body-183" class="solution-body" style="display: none;">
+<div id="sol-body-90" class="solution-body" style="display: none;">
 <p>To derive the <strong>variational inequality</strong>, let’s consider any <span class="math inline">\(\mathbf{y}\in\mathcal{Y}\)</span> around the minimum <span class="math inline">\(\mathbf{y}^{*}\)</span>.
 The <strong>convexity</strong> tells that
 <span class="math display">\[(1-\epsilon)\mathbf{y}^{*}+\epsilon\mathbf{y}=\mathbf{y}^{*}+\epsilon(\mathbf{y}-\mathbf{y}^{*})\in\mathcal{Y}\]</span>
@@ -446,9 +447,9 @@ for the other case.</span> The <a href="ch-optApp.html#sub:appSys">metric projec
 </ol>
 <div class="solution">
 <p class="solution-begin">
-Proof <span id="sol-start-184" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-184', 'sol-start-184')"></span>
+Proof <span id="sol-start-91" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-91', 'sol-start-91')"></span>
 </p>
-<div id="sol-body-184" class="solution-body" style="display: none;">
+<div id="sol-body-91" class="solution-body" style="display: none;">
 <p><span class="newthought">Equivalence of 1. and 2. </span></p>
 <p>From 2. to 1.</p>
 <p>The inequality <span class="math inline">\(\langle g- \hat{f},\, f-\hat{f}\rangle\leq0\)</span> holds for <span class="math inline">\(g\in\mathcal{Y}\)</span>, then
@@ -495,9 +496,9 @@ This result serves as the foundation in many practical approximation exercises. 
 <span class="math display">\[\| \mathbf{P}_{\mathcal{Y}}(f + \delta f)- \mathbf{P}_{\mathcal{Y}}(f) \|\leq \|\delta f\|\]</span> so that the error incurred in the approximation/projection is no larger than the error in the original variation. This is a desirable property for recursively approximating the object. Because in each step of the iteration, the projection will not blow up the whole scheme.</p>
 <div class="solution">
 <p class="solution-begin">
-Monotonicity and non-expansivity <span id="sol-start-185" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-185', 'sol-start-185')"></span>
+Monotonicity and non-expansivity <span id="sol-start-92" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-92', 'sol-start-92')"></span>
 </p>
-<div id="sol-body-185" class="solution-body" style="display: none;">
+<div id="sol-body-92" class="solution-body" style="display: none;">
 <p>The <strong>variational inequality</strong> tells that
 <span class="math display">\[\langle f_{1}-\mathbf{P}_{\mathcal{Y}}(f_{1}),\mathbf{P}_{\mathcal{Y}}(f_{1})-g\rangle\geq0\;\mbox{for any }g\in\mathcal{Y}.\]</span>
 By choosing <span class="math inline">\(g=\mathbf{P}_{\mathcal{Y}}(f_{2})\)</span>, we have <span class="math display">\[\langle f_{1}-\mathbf{P}_{\mathcal{Y}}(f_{1}),\mathbf{P}_{\mathcal{Y}}(f_{1})-\mathbf{P}_{\mathcal{Y}}(f_{2})\rangle\geq0.\]</span>
@@ -541,12 +542,12 @@ then the <a href="ch-optApp.html#sub:appSys">metric projection operator</a> <spa
 &amp;=\|\mathbf{P}_{\mathcal{Y}}f\|^2 =\|f\|^2.
 \end{align*}\]</span></span>
 <span class="math display">\[\mbox{1. } \langle  \hat{f}, f \rangle = \|\hat{f}\|^2=\|f\|^2,\,\, \mbox{2. }\langle f-\hat{f},\, \hat{f}\rangle = 0\]</span>
-for any <span class="math inline">\(f\in\mathcal{V}\)</span>. The first says the norm of the hat operator is exactly the same as that of the original object. The second says that the error of the projection <span class="math inline">\(f-\hat{f}\)</span> and the projection <span class="math inline">\(\hat{f}\)</span> should be orthogonal to each other.<label for="tufte-sn-390" class="margin-toggle sidenote-number">390</label><input type="checkbox" id="tufte-sn-390" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">390</span> The way of having an orthogonal projection for a <strong>convex set</strong> <span class="math inline">\(\mathcal{Y}\)</span> in the Hilbert space is about having a conical shape of such the <strong>convex set</strong> <span class="math inline">\(\mathcal{Y}\)</span>.</span></p>
+for any <span class="math inline">\(f\in\mathcal{V}\)</span>. The first says the norm of the hat operator is exactly the same as that of the original object. The second says that the error of the projection <span class="math inline">\(f-\hat{f}\)</span> and the projection <span class="math inline">\(\hat{f}\)</span> should be orthogonal to each other.<label for="tufte-sn-390" class="margin-toggle sidenote-number">390</label><input type="checkbox" id="tufte-sn-390" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">390</span> The way of having an orthogonal projection for a <strong>convex set</strong> <span class="math inline">\(\mathcal{Y}\)</span> in the Hilbert space is about having a conical shape of such <strong>convex set</strong> <span class="math inline">\(\mathcal{Y}\)</span>.</span></p>
 <div class="solution">
 <p class="solution-begin">
-Definition and remark about the cone <span id="sol-start-186" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-186', 'sol-start-186')"></span>
+Definition and remark about the cone <span id="sol-start-93" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-93', 'sol-start-93')"></span>
 </p>
-<div id="sol-body-186" class="solution-body" style="display: none;">
+<div id="sol-body-93" class="solution-body" style="display: none;">
 <p>Notice that the derivative is a <a href="ch-MatComp.html#sub:vecSpaces">functional</a>, and the <a href="ch-vecMat.html#sub:linearity">gradient</a> is from the <a href="ch-optApp.html#sub:appSys">dual norm space</a>.
 Consider a function <span class="math inline">\(f:\mathcal{Y}\rightarrow \mathbb{R}\)</span>. The <a href="ch-vecMat.html#sub:vec">inner product</a> of the <strong>variational inequality</strong>, i.e. <span class="math inline">\(\left\langle \nabla f(\mathbf{y}^{*}),\:\mathbf{y} - \mathbf{y}^{*} \right\rangle \geq 0\)</span>, consists of a <em>dual pair</em> such that <span class="math display">\[\langle\cdot,\cdot\rangle:\mathcal{Y}^{*}\times \mathcal{Y} \rightarrow \mathbb{R}.\]</span>
 The inequality of the <strong>dual pair</strong> closely relate to the geometric interpretation about the <strong>cone</strong> in the <a href="ch-representation.html#sub:conjugacy">Hilbert space</a>.<label for="tufte-sn-391" class="margin-toggle sidenote-number">391</label><input type="checkbox" id="tufte-sn-391" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">391</span> 
@@ -587,6 +588,118 @@ forms a <strong>dual cone</strong>. In other words, the variational inequality s
 </div>
 </div>
 </div>
+<div id="sub:Proj1" class="section level2">
+<h2>
+<span class="header-section-number">15.3</span> Miscellaneous Examples: Part 1</h2>
+<p><span class="newthought">Multiple linear regression and hyperplane </span></p>
+<p>Consider the <span class="math inline">\(n\)</span>-length data vectors from an <a href="ch-eigen.html#sub:matNorms">AR(2)</a> model
+<span class="math display">\[\mathbf{x}_T = c_1\mathbf{x}_{T-1} + c_2\mathbf{x}_{T-2} + \mathbf{e}\]</span>
+where <span class="math inline">\(\mathbf{e}\in\mathbb{R}^{n}\)</span> is a vector of errors.</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">2020</span>); time =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">50</span></a>
+<a class="sourceLine" id="cb107-2" data-line-number="2">xT.model =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>, <span class="kw">length</span>(time)); xT.model[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1</span>) <span class="co"># At t=1,2, give the initials random values </span></a>
+<a class="sourceLine" id="cb107-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb107-4" data-line-number="4"><span class="co"># An "explosive" AR(2)</span></a>
+<a class="sourceLine" id="cb107-5" data-line-number="5"><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>(<span class="kw">length</span>(time)<span class="op">-</span><span class="dv">2</span>)){ </a>
+<a class="sourceLine" id="cb107-6" data-line-number="6">  e =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb107-7" data-line-number="7">  xT.model[t<span class="op">+</span><span class="dv">2</span>] =<span class="st"> </span>xT.model[t<span class="op">+</span><span class="dv">1</span>] <span class="op">-</span><span class="st"> </span><span class="fl">1.2</span><span class="op">*</span><span class="st"> </span>xT.model[t] <span class="op">+</span><span class="st"> </span>e</a>
+<a class="sourceLine" id="cb107-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb107-9" data-line-number="9">xT =<span class="st"> </span>xT.model[<span class="dv">3</span><span class="op">:</span><span class="kw">length</span>(time)];  <span class="co"># x_T</span></a>
+<a class="sourceLine" id="cb107-10" data-line-number="10">xT.lag =<span class="st"> </span>xT.model[<span class="dv">2</span><span class="op">:</span>(<span class="kw">length</span>(time)<span class="op">-</span><span class="dv">1</span>)]; <span class="co"># x_{T-1} </span></a>
+<a class="sourceLine" id="cb107-11" data-line-number="11">xT.lag2 =<span class="st"> </span>xT.model[<span class="dv">1</span><span class="op">:</span>(<span class="kw">length</span>(time)<span class="op">-</span><span class="dv">2</span>)] <span class="co"># x_{T-2}</span></a></code></pre></div>
+<p>The <a href="ch-eigen.html#sub:matNorms">AR(2)</a> model tells us that <span class="math inline">\(\mathbf{x}_T\)</span> is “generated” by two “older” vectors <span class="math inline">\(\mathbf{x}_{T-1}\)</span> and <span class="math inline">\(\mathbf{x}_{T-2}\)</span>. Therefore, it is natural to think that <span class="math inline">\(\mathbf{x}_T\)</span> must be in a kind of subspace of the space “generated” by <span class="math inline">\(\mathbf{x}_{T-1}\)</span> and <span class="math inline">\(\mathbf{x}_{T-2}\)</span>. Also, you should not be surprised if I project the <span class="math inline">\(\mathbf{x}_T\)</span> onto such a space.</p>
+<p>By consider <span class="math inline">\([\mathbf{x}_{T-1},\mathbf{x}_{T-2}]^{\top}\)</span> as a <span class="math inline">\(n\times 2\)</span> matrix <span class="math inline">\(\mathbf{X}\)</span>, we can form the <a href="ch-representation.html#sub:conjugacy">projection matrix</a> <span class="math display">\[\mathbf{P}_{\mathbf{X}}=\mathbf{X}(\mathbf{X}^{\top}\mathbf{X})^{-1}\mathbf{X}^{\top}.\]</span> By multiplying the matrices, we can verify the projection property <span class="math inline">\(\mathbf{P}_{\mathbf{X}}\mathbf{P}_{\mathbf{X}}=\mathbf{P}_{\mathbf{X}}\)</span>.
+The projection of <span class="math inline">\(\mathbf{x}_T\)</span> gives <span class="math display">\[\mathbf{P}_{\mathbf{X}}\mathbf{x}_{T} = \mathbf{X} \hat{\mathbf{c}}= \hat{c}_1\mathbf{x}_{T-1} + \hat{c}_2\mathbf{x}_{T-2}\]</span><br>
+where the first equality is another way of presenting the <a href="ch-representation.html#sub:conjugacy">Riesz representation</a> for the projection operator (matrix).<label for="tufte-sn-392" class="margin-toggle sidenote-number">392</label><input type="checkbox" id="tufte-sn-392" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">392</span> The <a href="ch-optApp.html#sub:appSys">hat operator</a> <span class="math inline">\(\hat{\mathbf{c}}=(\mathbf{X}^{\top}\mathbf{X})^{-1}\mathbf{X}^{\top}\mathbf{x}_{T}\)</span> is analogous to the previous <a href="ch-vecMat.html#sub:linearity">least square estimator</a> in the simple <a href="ch-vecMat.html#sub:linearity">linear regression</a>. Indeed, this <a href="ch-eigen.html#sub:matNorms">AR(2)</a> is a <em>multiple linear regression</em> model where the <em>regressors</em>, the variables to be regressed on, have the number more than one. The <strong>regressors</strong> in this <a href="ch-eigen.html#sub:matNorms">AR(2)</a> are <span class="math inline">\(\mathbf{x}_{T-1}\)</span> and <span class="math inline">\(\mathbf{x}_{T-2}\)</span>.</span></p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1">X =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(xT.lag,xT.lag2),<span class="dt">ncol=</span><span class="dv">2</span>);</a>
+<a class="sourceLine" id="cb108-2" data-line-number="2"><span class="co"># An estimate of c(1, -1.2)</span></a>
+<a class="sourceLine" id="cb108-3" data-line-number="3">chat =<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(X) <span class="op">%*%</span><span class="st"> </span>X) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(X) <span class="op">%*%</span><span class="st"> </span>xT; chat</a></code></pre></div>
+<pre><code>##            [,1]
+## [1,]  0.9973927
+## [2,] -1.1978226</code></pre>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:projR2"></span>
+<img src="fig/Part4/projR2.png" alt="Project the 3-dimensional data points onto a 2-dimensional hyperplane" width="100%"><!--
+<p class="caption marginnote">-->Figure 15.3: Project the 3-dimensional data points onto a 2-dimensional hyperplane<!--</p>-->
+<!--</div>--></span>
+</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1"><span class="co"># plot</span></a>
+<a class="sourceLine" id="cb110-2" data-line-number="2"><span class="kw">library</span>(scatterplot3d)</a>
+<a class="sourceLine" id="cb110-3" data-line-number="3">p =<span class="st"> </span><span class="kw">scatterplot3d</span>(xT, xT.lag,xT.lag2, <span class="dt">type=</span><span class="st">"h"</span>, <span class="dt">angle=</span><span class="dv">45</span>, <span class="dt">color=</span><span class="st">"blue"</span>, <span class="dt">highlight.3d=</span><span class="ot">TRUE</span>, <span class="dt">pch =</span> <span class="dv">16</span>)</a>
+<a class="sourceLine" id="cb110-4" data-line-number="4">p<span class="op">$</span><span class="kw">plane3d</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">t</span>(chat)), <span class="dt">draw_polygon =</span> <span class="ot">TRUE</span>) <span class="co"># The approximating plane for the points in R^3 </span></a></code></pre></div>
+<p>Figure <a href="ch-optApp.html#fig:projR2">15.3</a> shows that the projection of <span class="math inline">\(\mathbf{x}_{T}\)</span> locates closely to the plane <span class="math inline">\(x_t = \hat{c}_1x_{t-1} + \hat{c}_2 x_{t-2}\)</span>
+where <span class="math inline">\(x_t\)</span>, <span class="math inline">\(x_{t-1}\)</span>, <span class="math inline">\(x_{t-2}\)</span> are the variable corresponding to the data realizations <span class="math inline">\(\mathbf{x}_{t}\)</span>, <span class="math inline">\(\mathbf{x}_{t-1}\)</span>, <span class="math inline">\(\mathbf{x}_{t-2}\)</span> respectively. The dimension of this plane is two, while the data set of the model is three. Basically, the <strong>multiple linear regression</strong> conducts a projection onto the space one dimensional lower than the original space.<label for="tufte-sn-393" class="margin-toggle sidenote-number">393</label><input type="checkbox" id="tufte-sn-393" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">393</span> Usually people write a multiple linear regression as <span class="math inline">\(Y = \sum_{i=1}^{k} \beta_i X_i +\varepsilon\)</span>. The variable <span class="math inline">\(Y\)</span> together with <span class="math inline">\(k-1\)</span> <strong>regressor</strong> <span class="math inline">\(\{X_i\}_{i=1}^{k}\)</span>s form a <span class="math inline">\(k\)</span>-dimensional regresion problem. We can understand that such a linear regression is to reduce some situation from <span class="math inline">\(k\)</span>-dimemsion to <span class="math inline">\(k-1\)</span>-dimension by explaining one selected variable <span class="math inline">\(Y\)</span> in terms of a <a href="ch-vecMat.html#sub:vec">linear combination</a> of the <span class="math inline">\(k-1\)</span> <strong>regressors</strong>.</span></p>
+<p>Geometrically speaking, a set that is one dimensional lower than the original space and that is form by a linear continuous <a href="ch-MatComp.html#sub:vecSpaces">function(al)</a> is called the <strong>hyperplane</strong>. Let <span class="math inline">\(\mathcal{V}\)</span> be a vector space. Given a linear function(al) <span class="math inline">\(g\in \mathcal{V}\)</span> and a scalar <span class="math inline">\(a\)</span> from the <a href="ch-MatComp.html#sub:vecSpaces">scalar field</a> <span class="math inline">\(\mathbb{F}\)</span>, the set
+<span class="math display">\[\mathcal{S}=\{g\in\mathcal{V}:\langle f, \,g\rangle=a, a\in \mathbb{F} \}\]</span> is a <em>hyperplane</em> in <span class="math inline">\(\mathcal{V}\)</span> determined by <span class="math inline">\(f\)</span> and <span class="math inline">\(a\)</span>. In the previous example, the <strong>hyperplane</strong> is given by <span class="math display">\[\mathcal{S}=\left\{\left[\begin{array}{c}
+x_{t}\\
+x_{t-1}\\
+x_{t-2}
+\end{array}\right]\in\mathbb{R}^{3}:\, \left\langle \left[\begin{array}{c}
+-1\\
+\hat{c}_{1}\\
+\hat{c}_{2}
+\end{array}\right]\,,\,\left[\begin{array}{c}
+x_{t}\\
+x_{t-1}\\
+x_{t-2}
+\end{array}\right]\right\rangle =0 \right\},\]</span>
+a <span class="math inline">\(2\)</span>-dimensional plane in <span class="math inline">\(\mathbb{R}^{3}\)</span>.</p>
+<p><span class="newthought">Separation and non-arbitrage </span></p>
+<p>When the <a href="ch-MatComp.html#sub:vecSpaces">scalar field</a> <span class="math inline">\(\mathbb{F}\)</span> of the <strong>hyperplane</strong> is restricted to <span class="math inline">\(\mathbb{R}\)</span>, one can use inequalities to illustrate how a hyperplane can separate the space into two, i.e. <span class="math inline">\(\{f\in\mathcal{V}:\langle f, \,g\rangle \leq a \}\)</span> and <span class="math inline">\(\{f\in\mathcal{V}:\langle f, \,g\rangle &gt; a \}\)</span>.<label for="tufte-sn-394" class="margin-toggle sidenote-number">394</label><input type="checkbox" id="tufte-sn-394" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">394</span> These two sets are called the <em>half-spaces</em> determined by the <strong>hyperplane</strong> <span class="math inline">\(\mathcal{S}\)</span>. If a subset belongs to one of this half-space, then this subset is on one-side of the <strong>hyperplane</strong>.</span></p>
+<p>The separation is about forming a dichotomy between the objects of interests and the rest. For example, assume that <span class="math inline">\(\mathcal{V}=\mathbb{R}^{n}\)</span>. Let <span class="math inline">\(\mathcal{Y}\in\mathcal{V}\)</span> be a <a href="ch-optApp.html#sub:Optimization">convex set</a>. Let <span class="math inline">\(\mathbf{z}\in\mathcal{V}\)</span> and <span class="math inline">\(\mathbf{z}\notin\mathcal{Y}\)</span>. Then exist non-zero vector <span class="math inline">\(\mathbf{p}\in\mathcal{V}\)</span> and a real number <span class="math inline">\(a\in\mathbb{R}\)</span> such that
+<span class="math display">\[\mathbf{p}^{\top} \mathbf{y} \geq a&gt; \mathbf{p}^{\top}\mathbf{z},\]</span>
+for any <span class="math inline">\(\mathbf{y}\in\mathcal{Y}\)</span>.</p>
+<p>Here the <strong>hyperplane</strong> <span class="math inline">\(\mathcal{S}=\{\mathbf{y}\in\mathbb{R}^{n}:\langle \mathbf{p}, \,\mathbf{y} \rangle=a \}\)</span> strictly separate <span class="math inline">\(\mathbf{z}\)</span> and <span class="math inline">\(\mathcal{Y}\)</span>. This result comes from the <a href="ch-optApp.html#sub:Optimization">variational inequality</a>.<label for="tufte-sn-395" class="margin-toggle sidenote-number">395</label><input type="checkbox" id="tufte-sn-395" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">395</span> Let <span class="math inline">\(\hat{\mathbf{z}}\)</span> be the projection of <span class="math inline">\(\mathbf{z}\)</span> on the set <span class="math inline">\(\mathcal{Y}\)</span>, <span class="math inline">\(\mathbf{P}_{\mathcal{Y}}\mathbf{z}=\hat{\mathbf{z}}\in\mathcal{Y}\)</span>. The <a href="ch-optApp.html#sub:Optimization">variational inequality</a> becomes <span class="math display">\[(\hat{\mathbf{z}}-\mathbf{z})^\top (\mathbf{y}-\hat{\mathbf{z}})\geq0\]</span>
+for all <span class="math inline">\(\mathbf{y}\in\mathcal{Y}\)</span>. Let <span class="math inline">\(\mathbf{p}=\hat{\mathbf{z}}-\mathbf{z}\)</span> and consider non-zero <span class="math inline">\(\mathbf{p}\)</span>. Let <span class="math inline">\(\mathbf{p}^{\top}\hat{\mathbf{z}}=a\)</span>. Then the inequality gives
+<span class="math display">\[\mathbf{p}^{\top}(\mathbf{y}-\hat{\mathbf{z}})\geq0\Leftrightarrow \mathbf{p}^{\top} \mathbf{y} \geq a.\]</span>
+On the other hand, <span class="math display">\[a- \mathbf{p}^{\top}\mathbf{z} =\mathbf{p}^{\top}(\hat{\mathbf{z}}-\mathbf{z})=\|\hat{\mathbf{z}}-\mathbf{z}\|^{2}&gt;0\]</span> implies <span class="math inline">\(a&gt;\mathbf{p}^{\top}\mathbf{z}\)</span>.
+The result follows.</span></p>
+<p>In economics, the vector <span class="math inline">\(\mathbf{p}\)</span> in the above inequalities is often interpreted as a price vector; and the set <span class="math inline">\(\mathcal{Y}\)</span> is treated as a feasible set for production while <span class="math inline">\(\mathbf{z}\notin\mathcal{Y}\)</span> is a non-feasible plan, i.e. the non-profitable production allocation.<label for="tufte-sn-396" class="margin-toggle sidenote-number">396</label><input type="checkbox" id="tufte-sn-396" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">396</span> In this context, the price vector <span class="math inline">\(\mathbf{p}=\hat{\mathbf{z}}-\mathbf{z}\)</span> can be understood as the gain (or the residual) in the projection of some impossibility onto some possibility (of course, the possibile output <span class="math inline">\(\hat{\mathbf{z}}\)</span> should be larger than the impossible <span class="math inline">\(\mathbf{z}\)</span> to attain a positive price). Let <span class="math inline">\(a=0\)</span>, the result says
+<span class="math display">\[\mathbf{p}^{\top}\hat{\mathbf{z}}=(\hat{\mathbf{z}}-\mathbf{z})^{\top}\hat{\mathbf{z}}=0,\]</span> either <span class="math inline">\(\mathbf{p}=0\)</span> or <span class="math inline">\(\hat{\mathbf{z}}=0\)</span>.</span></p>
+<p>The development of these inequalities touch the core of the pricing theory in economics and finance. The basic idea is that
+if the price vector is “generated” by a convex set, a <strong>hyperplane</strong> consisting of this price vector and a vector of the pricing commodities should be able to separate some infeasible situations regarding on those commodities from the feasible ones.</p>
+<p>One typical “infeasible” or “unpleasant”" case in the financial market is the <strong>arbitrage</strong> (making something from nothing).
+Let <span class="math inline">\(\mathbf{A}\in\mathbb{R}^{n\times m}\)</span>, <span class="math inline">\(\mathbf{p},\mathbf{y}\in\mathbb{R}^{n}\)</span>, <span class="math inline">\(\mathbf{x}\in\mathbb{R}^{m}\)</span>, and <span class="math inline">\(\mathbf{x} \succeq \mathbf{0}\)</span>. Here <span class="math inline">\(\mathbf{x} \succeq \mathbf{0}\)</span> means all the entries of the vector <span class="math inline">\(\mathbf{x}\)</span> are non-negative. If we assume that the price vector has a <a href="#">representation</a> <span class="math inline">\(\mathbf{p}=\mathbf{A}\mathbf{x}\)</span> with the positive value “basis” vector <span class="math inline">\(\mathbf{x}\)</span> over <span class="math inline">\(m\)</span> states, then the matrix <span class="math inline">\(\mathbf{A}\in\mathbb{R}^{n\times m}\)</span> can be defined as the pricing plan for <span class="math inline">\(n\)</span> commodities under <span class="math inline">\(m\)</span> states or in financial market it can be be defined as the units of <span class="math inline">\(n\)</span> securities under <span class="math inline">\(m\)</span> states.<label for="tufte-sn-397" class="margin-toggle sidenote-number">397</label><input type="checkbox" id="tufte-sn-397" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">397</span> The vector <span class="math inline">\(\mathbf{A}\)</span> is also known as the pricing kernel.</span></p>
+<p>Let <span class="math inline">\(\mathbf{y} \in \mathbb{R}^{n}\)</span> be a production plan or a porfolio of <span class="math inline">\(n\)</span> commodities (or securities). Having an <em>arbitrage</em> means
+<span class="math display">\[\begin{align*}
+\mbox{Case I, negative profit (or negative market value): }&amp; \quad \mathbf{p}^{\top}\mathbf{y}&lt;0\\
+\mbox{Case II, profitable production plan (positive payoff): }&amp;\quad \mathbf{A}^{\top}\mathbf{y}\succeq 0.
+\end{align*}\]</span></p>
+<p>One fundamental theory about the financial market is that there is no <strong>arbitrage</strong> when the market is efficient.
+In our quantitative context, this statement means if the price vector <span class="math inline">\(\mathbf{p}\)</span> can be efficiently linearly represented some positive vector <span class="math inline">\(\mathbf{x}\)</span> under the linear transformation <span class="math inline">\(\mathbf{A}\)</span>, then there can only be a dichotomy between case I and case II.</p>
+<p>This dichotomy actually comes from the following <strong>Farkas’ lemma</strong> (another dichotomy).</p>
+<ul>
+<li>
+<em>Farkas’ lemma</em> : The system I and the system II
+<span class="math display">\[\begin{align*}
+\mbox{system I: }&amp; \quad \left\{\mathbf{x} : \mathbf{A}\mathbf{x}=\mathbf{p},\,  \mathbf{x}\succeq \mathbf{0}\right\}\\
+\mbox{system II: }&amp;\quad \left\{\mathbf{y} : \mathbf{A}^{\top}\mathbf{y} \succeq \mathbf{0}, \, \mathbf{p}^{\top}\mathbf{y}&lt;0\right\}
+\end{align*}
+\]</span> cannot be solved simultanelously.<label for="tufte-sn-398" class="margin-toggle sidenote-number">398</label><input type="checkbox" id="tufte-sn-398" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">398</span> That is, if system I has a solution for <span class="math inline">\(\mathbf{x}\)</span>, then system II will have no solution for <span class="math inline">\(\mathbf{y}\)</span>, vice versa.</span>
+</li>
+</ul>
+<p>As you can see, the <strong>Farkas’ lemma</strong> says if system I is true, then the condition <span class="math inline">\(\mathbf{p}^{\top}\mathbf{y}&lt;0\)</span> and <span class="math inline">\(\mathbf{A}^{\top}\mathbf{y}\succeq\mathbf{0}\)</span> cannot both be true at the same.<label for="tufte-sn-399" class="margin-toggle sidenote-number">399</label><input type="checkbox" id="tufte-sn-399" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">399</span> One can rule out the <strong>arbitrage</strong> opportunity if system I is true. While if system II is true, it violates the <strong>arbitrage</strong> definition. Based on these deduction, one can claim that the price given by <span class="math inline">\(\mathbf{p}=\mathbf{A}\mathbf{x}\)</span> is a <strong>non-arbitrage price</strong> (also known as the <em>fundamental theorem in the asset pricing</em>). There are many variations of this non-arbitrage claim, but they basically follow the same primitive logic as above.</span></p>
+<p>The result behind the <strong>non-arbitrage pricing</strong> and <strong>Farkas’ lemma</strong> is a <strong>hyperplane</strong> <span class="math inline">\(\mathcal{S}=\{\mathbf{y}\in\mathbb{R}^{n}:\langle \mathbf{p}, \,\mathbf{y} \rangle=0\}\)</span> separating system I and system II.
+Because the system I is in fact equivalent to
+<span class="math display">\[\mbox{system I': } \quad \left\{\mathbf{y}:\,\mathbf{A}^{\top}\mathbf{y} \succeq \mathbf{0}, \, \mathbf{p}^{\top}\mathbf{y}\geq 0\right\}.\]</span></p>
+<div class="solution">
+<p class="solution-begin">
+Equivalence of system I and system I’ <span id="sol-start-94" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-94', 'sol-start-94')"></span>
+</p>
+<div id="sol-body-94" class="solution-body" style="display: none;">
+<p>Let <span class="math inline">\(\mathcal{Y} = \left\{\mathbf{A}\mathbf{x} : \mathbf{x}\succeq 0 \right\}\)</span>. Notice that <span class="math inline">\(\mathcal{Y}\)</span> is a <a href="ch-optApp.html#sub:Optimization">conex set</a>.<label for="tufte-sn-400" class="margin-toggle sidenote-number">400</label><input type="checkbox" id="tufte-sn-400" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">400</span> In fact, the set <span class="math inline">\(\mathcal{Y}\)</span> is a <a href="ch-optApp.html#sub:Optimization">convex cone</a> as any element from <span class="math inline">\(\mathcal{Y}\)</span> is a <em>conical sum</em> <span class="math inline">\(\sum_{i=1}^{m}\mathbf{a}_i x_i\)</span>, a sum of columns vectors <span class="math inline">\(\mathbf{a}_i\)</span> of <span class="math inline">\(\mathbf{A}\)</span> with positive coefficients <span class="math inline">\(\{x_i\}_{i=1}^{m}\)</span>, which coincides with the previous definition of the <a href="ch-optApp.html#sub:Optimization">convex cone</a>.</span> The previous separation inequalities tell us that for any <span class="math inline">\(\mathbf{p}_0 \notin \mathcal{Y}\)</span>, there exist <span class="math inline">\(\mathbf{y}\in\mathbb{R}^n\)</span> and <span class="math inline">\(a\in\mathbb{R}\)</span> such that
+<span class="math display">\[\mathbf{y}^{\top} \mathbf{p}_1 \geq a&gt; \mathbf{y}^{\top}\mathbf{p}_0,\mbox{ for any }\mathbf{p}_1\in\mathcal{Y} .\]</span></p>
+<p>By restricting our attention to the <strong>hyperplane</strong> <span class="math inline">\(\mathcal{S}=\{\mathbf{y}\in\mathbb{R}^{n}:\langle \mathbf{p}, \,\mathbf{y} \rangle=0\}\)</span>, we have<label for="tufte-sn-401" class="margin-toggle sidenote-number">401</label><input type="checkbox" id="tufte-sn-401" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">401</span> Notice that the inner product <span class="math inline">\(\langle \mathbf{p}, \mathbf{y} \rangle = a\)</span> has the “sandwich form” expressions. <span class="math display">\[\langle \mathbf{A}\mathbf{x}, \mathbf{y} \rangle = \langle \mathbf{x}, \mathbf{A}^{\top}\mathbf{y} \rangle = a.\]</span>
+We will come back to this “sandwich form” in sec[?].</span>
+<span class="math display">\[\mathbf{p}_1^{\top} \mathbf{y} = \langle \mathbf{A}\mathbf{x}_1, \mathbf{y} \rangle = \langle \mathbf{x}_1, \mathbf{A}^{\top}\mathbf{y} \rangle  \geq 0 &gt; \mathbf{p}_0^{\top}\mathbf{y}=0\,\mbox{ for any }\mathbf{p}_1\in\mathcal{C} \mbox{ and }\mathbf{p}_0\notin \mathcal{C}.\]</span>
+Thus, if <span class="math inline">\(\mathbf{p}\in \mathcal{C}\)</span>, then <span class="math inline">\(\mathbf{p}\)</span> must behave like <span class="math inline">\(\mathbf{p}_1\)</span>, so <span class="math inline">\(\mathbf{p}^{\top} \mathbf{y}\geq 0\)</span>, and since <span class="math inline">\(\mathbf{x}\succeq 0\)</span> we have <span class="math inline">\(\mathbf{A}^{\top}\mathbf{y}\succeq 0\)</span>. Otherwise, for <span class="math inline">\(\mathbf{p}\notin\mathcal{C}\)</span>, <span class="math inline">\(\mathbf{p}\)</span> must behave like <span class="math inline">\(\mathbf{p}_0\)</span> such that <span class="math inline">\(\mathbf{p}\neq \mathbf{A}\mathbf{x}\)</span> and <span class="math inline">\(\mathbf{p}^{\top} \mathbf{y}&lt;0\)</span>.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
 </div></body></html>
 
 <p style="text-align: center;">
@@ -594,7 +707,7 @@ forms a <strong>dual cone</strong>. In other words, the variational inequality s
 <a href="bibliography.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2020-12-07
+2020-12-19
 </p>
 </div>
 </div>
