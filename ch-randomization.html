@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="3 Randomization | Project XXII" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Zhengyuan Gao" />
+
+<meta name="date" content="2021-02-10" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="3 Randomization | Project XXII">
+
+<title>3 Randomization | Project XXII</title>
+
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul class="navbar">
+<li class="msmb"><p class="title">Project XXII<p><p class="author">Zhengyuan Gao</p>
+<li class="dropdown" style="float:right">
+<a href="javascript:void(0)" class="dropbtn">&#x25BA; Chapters</a>
+<div class="dropdown-content">
+<a href="index.html">Preface</a>
+<a href="part-i-inference-based-upon-logic-and-logical-computation.html">PART I: Inference Based upon Logic and Logical Computation</a>
+<a href="part-ii-infinitesimal-changes-and-their-consequences.html">PART II: Infinitesimal Changes and their Consequences</a>
+<a href="part-iii-emergence-of-abstract-interactions.html">PART III: Emergence of Abstract Interactions</a>
+<a href="part-iv-three-masons-to-illuminate-the-dual-world.html">PART IV: Three Masons to Illuminate the Dual World</a>
+<a href="ch-representation.html"><span class="toc-section-number">1</span> Representation</a>
+<a href="ch-optApp.html"><span class="toc-section-number">2</span> Optimum Approximation</a>
+<a id="active-page" href="ch-randomization.html"><span class="toc-section-number">3</span> Randomization</a>
+<a href="bibliography.html">Bibliography</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div id="ch:randomization" class="section level1">
+<h1>
+<span class="header-section-number">3</span> Randomization</h1>
+<p>Plato, in his work <em><em>the Republic</em></em>, describes a cave in which the residents are chained to a wall so they can’t see the real world; the best they can perceive are shadows reflected on the wall of the cave by some light outside. The residents have to make up their own interpretations of the outside world according to these shadows. All residents lack the omniscient knowledge of the real world, so they perceive the world differently based upon what is going on inside their minds and their “mental” projections of the shadows. That’s to say, facing the same situation, different people may consciously react differently; the different actions consecutively create different life paths. An observer from outside may find the evolutions of these paths somehow <a href="part-ii-infinitesimal-changes-and-their-consequences.html#sub:rv">random</a>.</p>
+<p>The <a href="part-ii-infinitesimal-changes-and-their-consequences.html#sub:rv">randomness</a> emerges when the residents construct various elaborate ideas towards what reality is. The variety of these elaborate “mental” projections breaks down the unitarity and generates random outcomes. Such a construction is called <em>randomization</em>, a process of endowing unpredictable patterns to the events.<label for="tufte-sn-123" class="margin-toggle sidenote-number">123</label><input type="checkbox" id="tufte-sn-123" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">123</span> <strong>Randomization</strong> is particularly important in designing a game. Nobody wants to play a deterministic scissors-paper-stone game. This game is interesting because of the random feature - no one knows the opponent’s action. Similarly, suppose that many residents are characters immersing inside some kind of giant, massively “game platform” that is so well rendered that none of them can detect the artificiality; the way of keeping the game continue, I guess, is to create enough <a href="part-ii-infinitesimal-changes-and-their-consequences.html#sub:rv">randomness</a> to prevent awaking the players. (Although make few of the random events “non-random” to some players would make the game more “addictive,” this trick is non-applicable to all the events and all the players.)</span></p>
+</div></body></html>
+
+<p style="text-align: center;">
+<a href="ch-optApp.html"><button class="btn btn-default">Previous</button></a>
+<a href="bibliography.html"><button class="btn btn-default">Next</button></a>
+</p>
+<p class="build-date">Page built: 
+2021-02-10
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
