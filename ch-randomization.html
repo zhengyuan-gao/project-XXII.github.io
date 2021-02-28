@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2021-02-10" />
+<meta name="date" content="2021-02-28" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -159,7 +159,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a href="part-iv-three-masons-to-illuminate-the-dual-world.html">PART IV: Three Masons to Illuminate the Dual World</a>
 <a href="ch-representation.html"><span class="toc-section-number">14</span> Representation</a>
 <a href="ch-optApp.html"><span class="toc-section-number">15</span> Optimum Approximation</a>
-<a id="active-page" href="ch-randomization.html"><span class="toc-section-number">16</span> Randomization</a>
+<a id="active-page" href="ch-randomization.html"><span class="toc-section-number">16</span> Randomization</a><ul class="toc-sections">
+<li class="toc"><a href="#sub:RHilbert"> Randomized Hilbert Space</a></li>
+</ul>
 <a href="bibliography.html">Bibliography</a>
 </div>
 </li>
@@ -175,6 +177,270 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span class="header-section-number">16</span> Randomization</h1>
 <p>Plato, in his work <em><em>the Republic</em></em>, describes a cave in which the residents are chained to a wall so they can’t see the real world; the best they can perceive are shadows reflected on the wall of the cave by some light outside. The residents have to make up their own interpretations of the outside world according to these shadows. All residents lack the omniscient knowledge of the real world, so they perceive the world differently based upon what is going on inside their minds and their “mental” projections of the shadows. That’s to say, facing the same situation, different people may consciously react differently; the different actions consecutively create different life paths. An observer from outside may find the evolutions of these paths somehow <a href="ch-CalUn.html#sub:rv">random</a>.</p>
 <p>The <a href="ch-CalUn.html#sub:rv">randomness</a> emerges when the residents construct various elaborate ideas towards what reality is. The variety of these elaborate “mental” projections breaks down the unitarity and generates random outcomes. Such a construction is called <em>randomization</em>, a process of endowing unpredictable patterns to the events.<label for="tufte-sn-421" class="margin-toggle sidenote-number">421</label><input type="checkbox" id="tufte-sn-421" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">421</span> <strong>Randomization</strong> is particularly important in designing a game. Nobody wants to play a deterministic scissors-paper-stone game. This game is interesting because of the random feature - no one knows the opponent’s action. Similarly, suppose that many residents are characters immersing inside some kind of giant, massively “game platform” that is so well rendered that none of them can detect the artificiality; the way of keeping the game continue, I guess, is to create enough <a href="ch-CalUn.html#sub:rv">randomness</a> to prevent awakening the players. (Although attributing few random events a “non-random” feature to some players would make the game more “addictive,” this trick is non-applicable to all the events and all the players.)</span></p>
+<div id="sub:RHilbert" class="section level2">
+<h2>
+<span class="header-section-number">16.1</span> Randomized Hilbert Space</h2>
+<p>One way to think about <a href="ch-randomization.html#ch:randomization">randomization</a> is to consider the physical process of heating the crystals. The cooling crystals of a solid locate statically on some perfect lattice. During the heating process, the free energy accumulates so that the solid begins to melt, and the previous static crystals start to move randomly.<label for="tufte-sn-422" class="margin-toggle sidenote-number">422</label><input type="checkbox" id="tufte-sn-422" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">422</span> The inverse of this physical process, namely cooling down a melting solid, is called annealing.</span></p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:annealing"></span>
+<img src="fig/Part4/annealing.gif" alt="Heating the crystals" width="100%"><!--
+<p class="caption marginnote">-->Figure 16.1: Heating the crystals<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>In a technical sense, if we restrict our attention to some objects in a <a href="ch-representation.html#sub:conjugacy">Hilbert space</a>, <span class="math inline">\(\mathcal{H}\)</span>, we can define the <a href="ch-randomization.html#ch:randomization">randomization</a> as mapping these objects into a <strong>Hilbert space</strong> associated with a certain <a href="sub-incomplete.html#sub:beyond2">probability space</a>.</p>
+<ul>
+<li>
+<strong><span class="math inline">\(L_{2}(\Omega,\mathcal{F},\mathbb{P};\mathcal{H})\)</span>-space, and mean square completeness</strong> : Let <span class="math inline">\((\Omega,\mathcal{F},\mathbb{P})\)</span> be a <a href="sub-incomplete.html#sub:beyond2">probability space</a>, and let <span class="math inline">\(\mathcal{H}\)</span> be a (non-random) Hilbert space with the <a href="ch-vecMat.html#sub:vec">inner product</a> <span class="math inline">\(\left\langle \cdot,\cdot\right\rangle\)</span>, the <a href="ch-randomization.html#ch:randomization">randomization</a> of this Hilbert space on <span class="math inline">\((\Omega,\mathcal{F},\mathbb{P})\)</span> gives some measurable maps <span class="math inline">\(X(\omega):\Omega\rightarrow\mathcal{H}\)</span>, <span class="math inline">\(Y(\omega):\Omega\rightarrow\mathcal{H}\)</span>, and the <em><span class="math inline">\(\mathbb{P}\)</span>-inner product</em> <span class="math inline">\(\left\langle \cdot,\cdot\right\rangle _{\mathbb{P}}\)</span> such that:
+<span class="math display">\[\left\langle X(\omega),Y(\omega)\right\rangle _{\mathbb{P}}=\int\left\langle X(\omega),Y(\omega)\right\rangle \mathbb{P}(\mbox{d}\omega)=\mathbb{E}\left[\left\langle X(\omega),Y(\omega)\right\rangle \right].\]</span>
+In particular, let any random element <span class="math inline">\(X(\omega)\)</span> in this randomized Hilbert space has the finite second moment, <span class="math display">\[\mathbb{E}\left[\left\langle X(\omega),X(\omega)\right\rangle \right]^{2}=\mathbb{E}[\|X(\omega)\|^{2}]&lt;\infty.\]</span>
+These random elements are known as <em>mean-square integrable <span class="math inline">\(\mathcal{H}\)</span>-value random variables</em>. The space is denoted by <span class="math inline">\(L_{2}(\Omega,\mathcal{F},\mathbb{P};\mathcal{H})\)</span>.
+A sequence <span class="math inline">\(\{X_{n}(\omega)\}_{n\in\mathbb{N}}\)</span> of the <em><span class="math inline">\(\mathcal{H}\)</span>-valued random variables</em> is said to converge to <span class="math inline">\(X\)</span> in <em>mean square</em> if
+<span class="math display">\[\lim_{n\rightarrow\infty}\mathbb{E}\left[\left|X_{n}-X\right|^{2}\right]=0\]</span> with <span class="math inline">\(\mathbb{E}[|X_{n}|^{2}]&lt;\infty\)</span> for all <span class="math inline">\(n\)</span>.
+The <strong><span class="math inline">\(L_{2}(\Omega,\mathcal{F},\mathbb{P};\mathcal{H})\)</span> space</strong> is <a href="ch-representation.html#sub:conjugacy">complete</a> with respect to the <strong>mean square</strong>.<label for="tufte-sn-423" class="margin-toggle sidenote-number">423</label><input type="checkbox" id="tufte-sn-423" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">423</span> Recall that the Hilbert space is complete with respect to the <a href="ch-representation.html#sub:innerProd"><span class="math inline">\(L_{2}\)</span>-norm</a>.</span>
+</li>
+</ul>
+<p>Here are three examples of the <strong><span class="math inline">\(L_{2}(\Omega,\mathcal{F},\mathbb{P};\mathcal{H})\)</span> space</strong>.
+First, suppose that the <a href="ch-representation.html#sub:conjugacy">Hilbert space</a> <span class="math inline">\(\mathcal{H}\)</span> is just a real-valued <a href="ch-MatComp.html#sub:vecSpaces">vector space</a> in the finite dimension, i.e., <span class="math inline">\(\mathcal{H}=\mathbb{R}^{n}\)</span>, the <strong><span class="math inline">\(\mathcal{H}\)</span>-valued random variables</strong> are standard random vectors, i.e., <span class="math display">\[\begin{align*}\mathbf{\mathbf{X}}(\omega)=\left[\begin{array}{c}
+X_{1}(\omega)\\
+\vdots\\
+X_{n}(\omega)
+\end{array}\right]&amp;,\: \mathbf{\mathbf{Y}}(\omega)=\left[\begin{array}{c}
+Y_{1}(\omega)\\
+\vdots\\
+Y_{n}(\omega)
+\end{array}\right],\\
+\left\langle \mathbf{X}(\omega),\mathbf{Y}(\omega)\right\rangle _{\mathbb{P}}=&amp;\mathbb{E}\left[\sum_{i=1}^{n}X_i(\omega)Y_i(\omega)\right],\end{align*}\]</span>
+where the <span class="math inline">\(\mathbb{P}\)</span>-inner product <span class="math inline">\(\left\langle \mathbf{X}(\omega),\mathbf{Y}(\omega)\right\rangle _{\mathbb{P}}\)</span> can also be written as
+<span class="math display">\[\left\langle \mathbf{X}(\omega),\mathbf{Y}(\omega)\right\rangle _{\mathbb{P}} = \int_{\mathbb{R}^{n}}\int_{\mathbb{R}^{n}}\langle \mathbf{x},\mathbf{y}\rangle p(\mathbf{x},\mathbf{y})\mbox{d}\mathbf{x}\mbox{d}\mathbf{y}=\int\int  (\mathbf{x}^\top\mathbf{y} p(\mathbf{x},\mathbf{y}))\mbox{d}\mathbf{x}\mbox{d}\mathbf{y},\]</span>
+where <span class="math inline">\(p(\cdot,\cdot)\)</span> is the <a href="ch-CalUn.html#sub:conProb">joint probability</a> density function of <span class="math inline">\(\mathbf{x},\mathbf{y}\in\mathbb{R}^{n}\)</span>.<label for="tufte-sn-424" class="margin-toggle sidenote-number">424</label><input type="checkbox" id="tufte-sn-424" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">424</span> If we assume that the set <span class="math inline">\(\Omega\)</span> in the probability space <span class="math inline">\((\Omega, \mathcal{F}, \mathbf{P})\)</span> only contains <a href="ch-CalUn.html#sub:rv">discrete states</a>, the <span class="math inline">\(\mathbb{P}\)</span>-inner product becomes
+<span class="math display">\[\begin{align*}\left\langle \mathbf{X}(\omega),\mathbf{Y}(\omega)\right\rangle _{\mathbb{P}}&amp;= \mathbb{E}[X(\omega)Y(\omega)]\\&amp;=\sum_{i=1}^{n}x_{i}y_{i}p(x_{i},y_{i}).\end{align*}\]</span></span></p>
+<p>Second, suppose that the <a href="ch-representation.html#sub:conjugacy">Hilbert space</a> <span class="math inline">\(\mathcal{H}\)</span> is an infinite-dimensional space of real-valued functions on the domain <span class="math inline">\(t\in[0,T]\)</span>, i.e., <span class="math inline">\(\mathcal{H}=L_2[0,T]\)</span>, the <strong><span class="math inline">\(\mathcal{H}\)</span>-valued random variables</strong> are <a href="ch-UnMulti.html#sub:Markov">stochastic processes</a>, i.e., <span class="math inline">\(X(t,\omega)\)</span> and <span class="math inline">\(Y(t,\omega)\)</span>. Informally, we can think to extend the previous example to the infinite dimension.<label for="tufte-sn-425" class="margin-toggle sidenote-number">425</label><input type="checkbox" id="tufte-sn-425" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">425</span> A <a href="ch-UnMulti.html#sub:Markov">stochastic processes</a> <span class="math inline">\(X(t,\omega)\)</span> can be thought of as a collection of infinite many random variables at infinite time points <span class="math inline">\(t_1, t_2,\dots\)</span>. So we have an infinite-length vector <span class="math inline">\(X_{t_1}(\omega),\dots X_{t_n}(\omega)\dots\)</span>. Also, the probability space of the <strong><span class="math inline">\(L_{2}(\Omega,\mathcal{F},\mathbb{P};\mathcal{H})\)</span>-space</strong> is a <a href="ch-UnMulti.html#sub:Markov">filtered space</a> <span class="math inline">\((\Omega,\mathcal{F},\{\mathcal{F}_{t}\}_{t&gt;0},\mathbb{P})\)</span> where <span class="math inline">\(\mathcal{F}_1\)</span> is for <span class="math inline">\(X_{t_1}\)</span>, etc.</span> That is, given a fixed <span class="math inline">\(\omega\in\Omega\)</span> (the sample path), the <strong><span class="math inline">\(\mathcal{H}\)</span>-valued</strong> <span class="math inline">\(\{X(\cdot,\omega):t\in[0,T]\}\)</span> is a deterministic function, say <span class="math inline">\(X(\cdot,\omega):[0,t]\rightarrow L_{2}[0,T]\)</span>.
+The <span class="math inline">\(\mathbb{P}\)</span>-inner product of these stochastic processes is given by
+<span class="math display">\[\begin{align*}&amp; \left\langle X(t,\omega),Y(t,\omega)\right\rangle _{\mathbb{P}}=\int\int X(s,\omega)Y(s,\omega)\mbox{d}s\mathbb{P}(\mbox{d}\omega)\\&amp;=\mathbb{E}\left[\left\langle X(s,\omega),Y(s,\omega)\right\rangle \right]=\mathbb{E}\left[\int_{0}^{t}X(s,\omega)Y(s,\omega)\mbox{d}s\right].\end{align*}\]</span></p>
+<p>Third, one fundamental <a href="ch-MatComp.html#sub:vecSpaces">subspace</a> in <strong><span class="math inline">\(L_{2}(\Omega,\mathcal{F},\mathbb{P};\mathcal{H})\)</span>-space</strong> is <em>Gaussian Hilbert space</em>, a <a href="ch-CalUn.html#sub:divRV">complete</a> space consisting of zero-mean <a href="ch-CalUn.html#sub:divRV">Gaussian random variables</a> from the probability space <span class="math inline">\((\Omega,\mathcal{F},\mathcal{N})\)</span> where <span class="math inline">\(\mathcal{N}\)</span> stands for the <a href="ch-CalUn.html#sub:divRV">Gaussian probability law</a>. For example, for any <span class="math inline">\(n\)</span> independent identical <span class="math inline">\(\varepsilon_i \sim \mathcal{N}(0,\sigma^2)\)</span>, the <a href="ch-MatComp.html#sub:vecSpaces">span</a> of these <a href="ch-CalUn.html#sub:divRV">Gaussian random variables</a> <span class="math display">\[\mbox{span}\left\{\sum_{i=1}^{n} c_i\varepsilon_i\,:\, \sum_{i=1}^nc_i^2\leq \infty\right\}\]</span> is a <strong>Gaussian Hilbert space</strong>.</p>
+<p>In the <strong><span class="math inline">\(L_{2}(\Omega,\mathcal{F},\mathbb{P};\mathcal{H})\)</span> space</strong>, we can formalize the randomness for infinite-dimensional objects.
+One example of randomization is to randomize the (deterministic) <a href="sub-inferknow.html#sub:dyn">dynamics</a>. Consider the following <a href="ch-DE.html#sub:ode">differential equation</a>
+<span class="math display">\[\frac{\mbox{d}x(t)}{\mbox{d}t} =f(x(t)),  \,\, \mbox{with }
+x(0) =x_{0}.\]</span>
+We know that the solution of the system (if it exists) <span class="math inline">\(x(t)\in\mathcal{H}\)</span> must be a function <span class="math inline">\(x(\cdot):[0,T]\rightarrow\mathbb{R}\)</span>.<label for="tufte-sn-426" class="margin-toggle sidenote-number">426</label><input type="checkbox" id="tufte-sn-426" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">426</span> Suppose the function <span class="math inline">\(f(\cdot)\)</span> is <a href="sub-continuity.html#sub:continuity">Lipschitz continuous</a>; the solution exists and is unique.</span> <a href="ch-randomization.html#ch:randomization">Randomization</a> is to parameterize the function <span class="math inline">\(f(\cdot)\)</span> by a random variable <span class="math inline">\(\varepsilon_{t}\)</span> at time <span class="math inline">\(t\)</span> (with <span class="math inline">\(\mathbb{E}[|\varepsilon_t|^2]\leq0\)</span>). The system then becomes <span class="math display">\[
+\frac{\mbox{d}X(t,\omega)}{\mbox{d}t} =f\left(X(t,\omega),\varepsilon_t\right),\,\, \mbox{with }
+X(0,\omega) =x_{0},\]</span>
+whose solution (if it exists) is a <a href="ch-UnMulti.html#sub:Markov">stochastic process</a> <span class="math display">\[X(\cdot,\cdot):[0,T]\times(\Omega,\mathcal{F},\{\mathcal{F}_{t}\}_{t\in[0,T]},\mathbb{P})\rightarrow\mathbb{R}.\]</span> Given <span class="math inline">\(\omega\)</span>, the deterministic function <span class="math inline">\(X(\cdot,\omega)\)</span> is an <span class="math inline">\(\mathcal{H}\)</span>-valued element.</p>
+<p>The above differentiation notation of the stochastic process <span class="math inline">\(X(t,\omega)\)</span> may look awkward as the stochastic processes often have zigzags and we have seen the “non-differentiability” natural of zigzags (see chapter <a href="sub-calculus.html#sub:noDiff">7.2</a>). The fact is that the differentiation <span class="math inline">\(\mbox{d}X(t,\omega)/\mbox{d}t\)</span> refers to a “differentiation” in the <strong>mean square</strong> sense. For the <strong><span class="math inline">\(L_{2}(\Omega,\mathcal{F},\mathbb{P};\mathcal{H})\)</span> space</strong> processes, we can introduce this new differentiation by some standard calculus conditions on the <a href="ch-CalUn.html#sub:ex">means</a> and the <a href="ch-UnMulti.html#sub:MultiVar">covariances</a>.</p>
+<p>Notice that for a <strong><span class="math inline">\(L_{2}(\Omega,\mathcal{F},\mathbb{P};\mathcal{H})\)</span>-space</strong> stochastic process, the first- and second-order densities (if they exist) can answer most (if not all) important probabilistic questions about the process. In other words, all the probability laws of the process are given by the first- and second-order densities. So it would be quite straightforward to consider the parameters associated with these densities, namely the <a href="ch-CalUn.html#sub:ex">means</a> and the <a href="ch-UnMulti.html#sub:MultiVar">covariance</a>.<br>
+One can define an equivalence class of stochastic processes having prescribed first and second-order <a href="ch-CalUn.html#sub:ex">moments</a>. This class is normally labeled as the <em>second-order process</em>.</p>
+<p>Let <span class="math inline">\(\{X(t,\omega)\}_{t\in\mathbb{R}^{+}}\)</span> be a stochastic process and let <span class="math inline">\(\{X_t(\omega)\}_{t\in\mathbb{N}}\)</span> be a time series.</p>
+<ul>
+<li>
+<em>Mean value function</em> of the process or the time series:
+<span class="math display">\[\mu_X(t) =\mathbb{E}[X(t,\omega)] = \mathbb{E}[X_t(\omega)].\]</span>
+</li>
+<li>
+<em>(Auto)-covariance function</em> of the process or the time series:
+<span class="math display">\[\begin{align*}\mbox{Cov}_X (t,s) &amp;=\mathbb{E}\left[(X(t,\omega)- \mu_{X}(t))(X(s,\omega)- \mu_{X}(s))\right], 
+\\&amp;=\mathbb{E}[X(t,\omega)X(s,\omega)]- \mu_{X}(t)\mu_{X}(s);
+\end{align*}\]</span>
+</li>
+</ul>
+<p>Consider the <a href="ch-eigen.html#sub:matNorms">AR(1)</a> model <span class="math inline">\(X_{t+1}=\phi X_{t}+\varepsilon_{t}\)</span> where <span class="math inline">\(\varepsilon_{t}\sim\mathcal{N}(0,\sigma_{\epsilon}^{2})\)</span> is <a href="ch-CalUn.html#sub:divRV">independent</a> of <span class="math inline">\(X_t\)</span>. The mean and covariance functions follow the following dynamic law:<label for="tufte-sn-427" class="margin-toggle sidenote-number">427</label><input type="checkbox" id="tufte-sn-427" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">427</span> The law comes from
+<span class="math display">\[\begin{align*}
+\mu_{X}(t+1)&amp;=\mathbb{E}[X_{t+1}]\\&amp;=\mathbb{E}[\phi X_{t}+\varepsilon_{t}]\\
+&amp;=\phi\mu_{X}(t)\\
+\mbox{Cov}_{X}(t+1,t)   &amp;=\mbox{Cov}(X_{t+1},X_{t})\\
+&amp;=\mbox{Cov}(\phi X_{t}+\epsilon_{t},X_{t})
+    \\&amp;=\phi\mbox{Cov}(X_{t},X_{t})+\mbox{Cov}(\epsilon_{t},X_{t})
+    \\&amp;=\phi\mbox{Cov}_{X}(t,t)\end{align*}\]</span>
+Sometimes people are interested in AR models with invariant variances, namely <span class="math display">\[\mbox{Var}(X_t(\omega))=\cdots=\mbox{Var}(X_1(\omega))=\sigma^2.\]</span><br>
+Then there is
+<span class="math display">\[\sigma^{2} = \phi^{2} \sigma^{2} + \sigma_{\epsilon}^{2}\]</span> which implies <span class="math inline">\(\sigma=\sigma_{\epsilon}^{2}/(1-\phi)\)</span>. Thus the <strong>covariance function</strong> of this AR(1) model can be simplified into <span class="math display">\[\mbox{Cov}_{X}(t+1,t)=\frac{\sigma_{\epsilon}^{2}\phi}{1-\phi}.\]</span></span>
+<span class="math display">\[\mu_{X}(t+1)=\phi\mu_{X}(t),\,\,\mbox{Cov}_{X}(t+1,t)=\phi\mbox{Cov}_{X}(t,t).\]</span></p>
+<p>One essential sub-class of the <strong>second-order processes</strong> is the <em>Gaussian process</em>, whose probability law is uniquely determined by the following specification <span class="math display">\[X(\cdot,\omega)\sim \mathcal{N}(\mu_X(\cdot),\mbox{Cov}_X(\cdot,\cdot)).\]</span> To understand the above specification, let’s consider a real-valued random vector <span class="math inline">\(\mathbf{X}(\omega)\in\mathbb{R}^{n}\)</span> with <a href="ch-CalUn.html#sub:divRV">Gaussian distribution</a> <span class="math inline">\(\mathbf{X}(\omega)\sim \mathcal{N}(\mathbf{\mu},\Sigma)\)</span>.
+The first-order information is given by the mean vector <span class="math inline">\(\mathbb{E}[\mathbf{X}(\omega)]=\mathbf{\mu}\)</span>; the finite second-order information is contained in the <a href="ch-UnMulti.html#sub:MultiVar">covariance matrix</a> <span class="math inline">\(\mbox{Var}(\mathbf{X}(\omega))=\Sigma\)</span>. For a <strong>Gaussian process</strong> <span class="math inline">\(X(t,\omega)\in\mathbb{R}\)</span> with mean function <span class="math inline">\(\mu_X(\cdot)\)</span> and <span class="math inline">\(\mbox{Cov}_X(\cdot,\cdot)\)</span>, if we visualize the process at any <span class="math inline">\(n\)</span> time points <span class="math inline">\((t_1,\dots,t_n)\)</span>, the process looks like a random vector of the time series <span class="math inline">\(X_{t_1}(\omega),\dots,X_{t_n}(\omega)\)</span>:
+<span class="math display">\[\underset{\mathbf{X}(\omega)}{\underbrace{\left[\begin{array}{c}
+X(t_{1},\omega)\\
+\vdots\\
+X(t_{n},\omega)
+\end{array}\right]}}\sim\mathcal{N}\left(\underset{\mathbf{\mu}}{\underbrace{\left[\begin{array}{c}
+\mu_{X}(t_{1})\\
+\vdots\\
+\mu_{X}(t_{n})
+\end{array}\right]}},\underset{\Sigma}{\underbrace{\left[\begin{array}{ccc}
+\mbox{Cov}_{X}(t_{1},t_{1}) &amp; \cdots &amp; \mbox{Cov}_{X}(t_{1},t_{n})\\
+\vdots &amp; \ddots &amp; \vdots\\
+\mbox{Cov}_{X}(t_{n},t_{1}) &amp; \cdots &amp; \mbox{Cov}_{X}(t_{n},t_{n})
+\end{array}\right]}}\right).\]</span>
+For the Gaussian process, by letting <span class="math inline">\(n\)</span> go to infinity, the above result is supposed to hold and it can be expressed as <span class="math inline">\(X(\cdot,\omega)\sim \mathcal{N}(\mu_X(\cdot),\mbox{Cov}_X(\cdot,\cdot))\)</span>.</p>
+<p>The above discretization of a continuous time <strong>Gaussian process</strong> has one interesting implication. Some <a href="ch-UnMulti.html#sub:MultiVar">positive (semi)-definite matrices</a> (the <a href="ch-UnMulti.html#sub:MultiVar">covariance matrices</a>) may have their corresponding underlying functions. Moreover, these functions may also have corresponding underlying <a href="ch-MatComp.html#sub:vecSpaces">operators</a> (the functions’ infinite-dimensional counterparts). In practice, the discretized <strong>Gaussian process</strong>’s <a href="ch-UnMulti.html#sub:MultiVar">covariance matrices</a> come from some “kernels” or called <strong>positive operators</strong>. We will come back to these concepts in sec[?].</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:GP"></span>
+<img src="fig/Part4/GP.png" alt="Gaussian processes with zero mean" width="100%"><!--
+<p class="caption marginnote">-->Figure 16.2: Gaussian processes with zero mean<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:GPKern"></span>
+<img src="fig/Part4/GPKern.png" alt="The corresponding covariance matrces" width="100%"><!--
+<p class="caption marginnote">-->Figure 16.3: The corresponding covariance matrces<!--</p>-->
+<!--</div>--></span>
+</p>
+<div class="solution">
+<p class="solution-begin">
+Simulation of Gaussian processes <span id="sol-start-199" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-199', 'sol-start-199')"></span>
+</p>
+<div id="sol-body-199" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">20210228</span>)</a>
+<a class="sourceLine" id="cb122-2" data-line-number="2"><span class="kw">library</span>(MASS) <span class="co"># call for multivariate normal sampling function</span></a>
+<a class="sourceLine" id="cb122-3" data-line-number="3">n =<span class="st"> </span><span class="dv">100</span>;</a>
+<a class="sourceLine" id="cb122-4" data-line-number="4">CovMatrix1 =<span class="st"> </span><span class="cf">function</span>(s, t) {<span class="kw">min</span>(s, t)}; <span class="co"># Brownian motion</span></a>
+<a class="sourceLine" id="cb122-5" data-line-number="5">CovMatrix2 =<span class="st"> </span><span class="cf">function</span>(s,t){ <span class="kw">exp</span>(<span class="op">-</span><span class="dv">10</span><span class="op">*</span><span class="kw">abs</span>(s<span class="op">-</span>t))}; <span class="co"># OU</span></a>
+<a class="sourceLine" id="cb122-6" data-line-number="6">CovMatrix3 =<span class="st"> </span><span class="cf">function</span>(s,t){ <span class="kw">as.numeric</span>(s<span class="op">==</span>t)}; <span class="co"># Gaussian white noise</span></a>
+<a class="sourceLine" id="cb122-7" data-line-number="7">t =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1</span>, <span class="dt">length.out =</span> n); <span class="co"># t_1=0,..., t_n=1</span></a>
+<a class="sourceLine" id="cb122-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb122-9" data-line-number="9"><span class="co"># Fill in entities of the covariance matrix</span></a>
+<a class="sourceLine" id="cb122-10" data-line-number="10">CovMatrix1 =<span class="st"> </span><span class="kw">sapply</span>(t, <span class="cf">function</span>(argument_<span class="dv">1</span>){<span class="kw">sapply</span>(t, <span class="cf">function</span>(argument_<span class="dv">2</span>){</a>
+<a class="sourceLine" id="cb122-11" data-line-number="11">     <span class="kw">CovMatrix1</span>(argument_<span class="dv">1</span>, argument_<span class="dv">2</span>)})})</a>
+<a class="sourceLine" id="cb122-12" data-line-number="12">CovMatrix2 =<span class="st"> </span><span class="kw">sapply</span>(t, <span class="cf">function</span>(argument_<span class="dv">1</span>){<span class="kw">sapply</span>(t, <span class="cf">function</span>(argument_<span class="dv">2</span>){</a>
+<a class="sourceLine" id="cb122-13" data-line-number="13">     <span class="kw">CovMatrix2</span>(argument_<span class="dv">1</span>, argument_<span class="dv">2</span>)})})</a>
+<a class="sourceLine" id="cb122-14" data-line-number="14">CovMatrix3 =<span class="st"> </span><span class="kw">sapply</span>(t, <span class="cf">function</span>(argument_<span class="dv">1</span>){<span class="kw">sapply</span>(t, <span class="cf">function</span>(argument_<span class="dv">2</span>){</a>
+<a class="sourceLine" id="cb122-15" data-line-number="15">     <span class="kw">CovMatrix3</span>(argument_<span class="dv">1</span>, argument_<span class="dv">2</span>)})})</a>
+<a class="sourceLine" id="cb122-16" data-line-number="16"><span class="co"># Sampling</span></a>
+<a class="sourceLine" id="cb122-17" data-line-number="17">samplePath1 =<span class="st"> </span><span class="kw">mvrnorm</span>(<span class="dt">mu =</span> <span class="kw">rep</span>(<span class="dv">0</span>, <span class="dt">times =</span> n), <span class="dt">Sigma =</span> CovMatrix1);</a>
+<a class="sourceLine" id="cb122-18" data-line-number="18">samplePath2 =<span class="st"> </span><span class="kw">mvrnorm</span>(<span class="dt">mu =</span> <span class="kw">rep</span>(<span class="dv">0</span>, <span class="dt">times =</span> n), <span class="dt">Sigma =</span> CovMatrix2);</a>
+<a class="sourceLine" id="cb122-19" data-line-number="19">samplePath3 =<span class="st"> </span><span class="kw">mvrnorm</span>(<span class="dt">mu =</span> <span class="kw">rep</span>(<span class="dv">0</span>, <span class="dt">times =</span> n), <span class="dt">Sigma =</span> CovMatrix3);</a>
+<a class="sourceLine" id="cb122-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb122-21" data-line-number="21"><span class="co"># plot</span></a>
+<a class="sourceLine" id="cb122-22" data-line-number="22"><span class="kw">library</span>(ggplot2); <span class="kw">library</span>(reshape2); <span class="kw">library</span>(expm)</a>
+<a class="sourceLine" id="cb122-23" data-line-number="23">dat =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(t,samplePath1, samplePath2, samplePath3), <span class="dt">ncol=</span><span class="dv">4</span>))</a>
+<a class="sourceLine" id="cb122-24" data-line-number="24"><span class="kw">names</span>(dat)=<span class="kw">c</span>(<span class="st">"time"</span>,<span class="st">"Brownian motion"</span>,<span class="st">"Ornstein-Uhlenbeck"</span>,<span class="st">"Gaussian white noise"</span>);</a>
+<a class="sourceLine" id="cb122-25" data-line-number="25"><span class="kw">ggplot</span>( <span class="kw">melt</span>(dat, <span class="dt">id.vars=</span><span class="st">"time"</span>), <span class="kw">aes</span>(time, value, <span class="dt">group=</span>variable)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()   <span class="op">+</span></a>
+<a class="sourceLine" id="cb122-26" data-line-number="26"><span class="op">+</span><span class="st">   </span><span class="kw">facet_grid</span>(.<span class="op">~</span>variable)<span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb122-27" data-line-number="27">m1=<span class="kw">Matrix</span>(CovMatrix1, <span class="dt">sparse=</span><span class="ot">TRUE</span>); m2=<span class="kw">Matrix</span>(CovMatrix2, <span class="dt">sparse=</span><span class="ot">TRUE</span>); m3=<span class="kw">Matrix</span>(CovMatrix3, <span class="dt">sparse=</span><span class="ot">TRUE</span>);</a>
+<a class="sourceLine" id="cb122-28" data-line-number="28"><span class="kw">print</span>(<span class="kw">image</span>(m1, <span class="dt">main=</span><span class="st">"Brownian motion"</span>), <span class="dt">split=</span><span class="kw">c</span>(<span class="dt">x=</span><span class="dv">1</span>,<span class="dt">y=</span><span class="dv">1</span>,<span class="dt">nx=</span><span class="dv">3</span>, <span class="dt">ny=</span><span class="dv">1</span>), <span class="dt">more=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb122-29" data-line-number="29"><span class="kw">print</span>(<span class="kw">image</span>(m2, <span class="dt">main=</span><span class="st">"Ornstein-Uhlenbeck"</span>), <span class="dt">split=</span><span class="kw">c</span>(<span class="dt">x=</span><span class="dv">2</span>,<span class="dt">y=</span><span class="dv">1</span>,<span class="dt">nx=</span><span class="dv">3</span>, <span class="dt">ny=</span><span class="dv">1</span>), <span class="dt">more=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb122-30" data-line-number="30"><span class="kw">print</span>(<span class="kw">image</span>(m3, <span class="dt">main=</span><span class="st">"Gaussian white noise"</span>, <span class="dt">Imult=</span><span class="fl">0.1</span>), <span class="dt">split=</span><span class="kw">c</span>(<span class="dt">x=</span><span class="dv">3</span>,<span class="dt">y=</span><span class="dv">1</span>,<span class="dt">nx=</span><span class="dv">3</span>, <span class="dt">ny=</span><span class="dv">1</span>))</a></code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Now, we come back to the discussion of the differentiation issue for the stochastic process <span class="math inline">\(X(t,\omega)\)</span>. The issue is resolvable with defining a meaningful calculus towards the randomness.</p>
+<p>Let’s discretize the stochastic process <span class="math inline">\(X(t,\omega)\)</span> into a stochastic sequence <span class="math inline">\(\{X_{t}(\omega)\}_{t\in\mathbb{N}}\)</span>. The following definition gives the <em>mean square calculus</em> for such a sequence.</p>
+<ul>
+<li><p><strong>Mean square continuity</strong>: When <span class="math display">\[\lim_{h\rightarrow0}\mathbb{E}\left[\left|X_{t+h}(\omega)-X_{t}(\omega)\right|^{2}\right]=0,\]</span>
+the random variable <span class="math inline">\(X_{t+h}(\omega)\)</span> is <em>mean square continous</em> at <span class="math inline">\(t\)</span>.</p></li>
+<li><p><strong>Mean square differentiability</strong> : When the second order derivative <span class="math display">\[\frac{\partial^{2}\mathbb{E}[X_{t}(\omega)X_{s}(\omega)]}{\partial t\partial s}\]</span>
+exists for any <span class="math inline">\(t,s \in [a,b]\)</span>, <span class="math inline">\(X_{t}(\omega)\)</span> is <em>mean square differentiable</em> such that <span class="math display">\[\lim_{h\rightarrow0}\mathbb{E}\left[\left|\frac{X_{t+h}-X_{t}}{h}-\frac{\mbox{d}X_{t}}{\mbox{d}t}\right|^{2}\right]=0.\]</span></p></li>
+<li><p><strong>Mean square integrability</strong> : When <span class="math inline">\(\mathbb{E}[X_{t}(\omega)X_{s}(\omega)]\)</span> is (Riemann) <a href="sub-calculus.html#sub:diffInt">integrable</a> for <span class="math inline">\(t\in[a,b]\)</span>, <span class="math inline">\(X_{t(\omega)}\)</span> is <em>mean square integrable</em> over <span class="math inline">\([a,b]\)</span> with the <em>mean square integral</em> <span class="math inline">\(\int_{t\in[a,b]} X_{t}(\omega) \mbox{d}t\)</span>.<label for="tufte-sn-428" class="margin-toggle sidenote-number">428</label><input type="checkbox" id="tufte-sn-428" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">428</span> Here is a more formal definition of the <em>mean square integral</em>. For an interval <span class="math inline">\([a,b]\)</span>, we make a partition <span class="math inline">\(a=t_{0}&lt;t_{1}&lt;\cdots&lt;t_{n}=b\)</span> and
+let <span class="math inline">\(\kappa=\max_{i}(t_{i+1}-t_{i})\)</span>, <span class="math inline">\(t_{i}\leq m_{i}\leq t_{i+1}\)</span>. The <strong>mean square integral</strong> of <span class="math inline">\(X_{t}(\omega)\)</span> is given by the <strong>mean square limit</strong> of <span class="math inline">\(\sum_{i=0}^{n-1}X_{m_{i}}(\omega)(t_{i+1}-t_{i})\)</span> that is
+<span class="math display">\[\begin{align*}\lim_{\kappa\rightarrow0, n\rightarrow\infty}\mathbb{E}\left[\left|\sum_{i=0}^{n-1}X_{m_{i}}(\omega)(t_{i+1}-t_{i})-\\
+\int_{a}^{b}X(t,\omega)\mbox{d}t\right|^{2}\right]=0.\end{align*}\]</span></span></p></li>
+<li><p><em>Fundamental theorem of mean square calculus</em> :<span class="math display">\[\Pr\left\{ \left|X_{t}(\omega)-X_{a}(\omega)=\int_{a}^{t}\left(\frac{\mbox{d}X_{\tau}(\omega)}{\mbox{d}\tau}\right)\mbox{d}\tau\right|\right\} =1.\]</span></p></li>
+</ul>
+<p>The term <span class="math inline">\(\mathbb{E}[X_{t}(\omega)X_{s}(\omega)]\)</span> connects to the <strong>mean square</strong> criterion:
+<span class="math display">\[\begin{align*}\mathbb{E}\left[\left|X_{t+h}-X_{t}\right|^{2}\right]&amp;=\mathbb{E}\left[X_{t+h}X_{t+h}\right]-\mathbb{E}\left[X_{t+h}X_{t}\right]\\
+&amp;-\mathbb{E}\left[X_{t}X_{t+h}\right]+\mathbb{E}\left[X_{t}X_{t}\right].\end{align*}\]</span>
+That is to say, <strong>mean square continuity</strong> is all about continuity of <span class="math inline">\(\mathbb{E}[X_{t}(\omega)X_{s}(\omega)]\)</span> for any <span class="math inline">\(t,s\)</span>. Besides, <strong>mean square differentiability and integrability</strong> relate to the calculus of <span class="math inline">\(\mathbb{E}[X_{t}(\omega)X_{s}(\omega)]\)</span>.<label for="tufte-sn-429" class="margin-toggle sidenote-number">429</label><input type="checkbox" id="tufte-sn-429" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">429</span> To have a vague idea about this relationship, recall that the definitions of <a href="sub-calculus.html#sub:diffInt">differentiation</a> and <a href="sub-calculus.html#sub:diffInt">integration</a> are both based on the continuity of some criteria of <a href="sub-continuity.html#sub:rational">infinitesimal changes</a>. Thus, the <strong>mean square differentiability and integrability</strong> must be based on the continuity of some <strong>mean square</strong> criteria of <a href="sub-continuity.html#sub:rational">infinitesimal changes</a>. As these <strong>mean square</strong> criteria all relate to the terms of <span class="math inline">\(\mathbb{E}[X_{t}(\omega)X_{s}(\omega)]\)</span>, we can see that the essence of defining <strong>mean square differentiability and integrability</strong> is to define the differentiability and integrability of <span class="math inline">\(\mathbb{E}[X_{t}(\omega)X_{s}(\omega)]\)</span> for any <span class="math inline">\(t,s\)</span>.</span>
+By the equality
+<span class="math display">\[\mathbb{E}[X_t(\omega)X_s(\omega)]=\mbox{Cov}_X (t,s)+\mu_{X}(t)\mu_{X}(s),\]</span> one can induce that the <strong>mean square continuity, differentiability, and integrability</strong> actually relate to the continuity and the calculus of <strong>mean and covariance functions</strong>.</p>
+<div class="solution">
+<p class="solution-begin">
+Some remark about the mean square criterion <span id="sol-start-200" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-200', 'sol-start-200')"></span>
+</p>
+<div id="sol-body-200" class="solution-body" style="display: none;">
+<ol style="list-style-type: decimal">
+<li>The <strong>mean square convergence</strong> implies probabilistic convergence in section <a href="ch-UnMulti.html#sub:WLLN">13.4</a>.</li>
+</ol>
+<p>Proof: For any <span class="math inline">\(\epsilon&gt;0\)</span> and a random variable <span class="math inline">\(Y\)</span> with a finite second moment, we have
+<span class="math display">\[\begin{align*}\mathbb{E}[|Y|^{2}]=&amp;   \int|y|^{2}p(y)\mbox{d}y\\ &amp;=\int_{-\infty}^{-\epsilon}|y|^{2}p(y)\mbox{d}y+\int_{-\epsilon}^{\infty}|y|^{2}p(y)\mbox{d}y\\
+&amp;\geq   \epsilon^{2}\left(\int_{-\infty}^{-\epsilon}p(y)\mbox{d}y+\int_{-\epsilon}^{\infty}p(y)\mbox{d}y\right)\\
+&amp;=\epsilon^{2}\Pr\left\{ |y|\geq\epsilon\right\}.\end{align*}\]</span>
+Substituting <span class="math inline">\(X-X_{n}\)</span> for <span class="math inline">\(Y\)</span>, we have
+<span class="math display">\[\Pr\left\{ |X-X_{n}|\geq\epsilon\right\} \leq\frac{\mathbb{E}\left[\left|X_{n}-X\right|^{2}\right]}{\epsilon^{2}}\]</span>
+by the <a href="ch-UnMulti.html#sub:WLLN">Markov inequality</a> (see the proof of <a href="ch-UnMulti.html#sub:WLLN">weak law of large numbers</a>).</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>The <a href="sub-continuity.html#sub:Cauchy">Cauchy criterion</a> in the <strong>mean square</strong> sense means
+<span class="math display">\[\lim_{n,m\rightarrow\infty}\mathbb{E}\left[X_{n}-X_{m}\right]^{2}=0.\]</span>
+If the <a href="sub-continuity.html#sub:Cauchy">Cauchy criterion</a> holds, we say that the stochastic sequence <span class="math inline">\(\{X_{n}\}\)</span> <strong>converges in mean square</strong> to some <span class="math inline">\(X\)</span>,
+<span class="math display">\[\lim_{n\rightarrow\infty}\mathbb{E}\left[X_{n}-X\right]^{2}=0.\]</span></p></li>
+<li><p>If <span class="math inline">\(X_n\)</span> <strong>converges in mean square</strong> to <span class="math inline">\(X\)</span>, then
+<span class="math display">\[\mathbb{E}[X]=\lim_{n\rightarrow\infty}\mathbb{E}[X_n].\]</span></p></li>
+</ol>
+<p>Proof: Notice that the following equality <span class="math display">\[\lim_{n\rightarrow\infty}\mathbb{E}\left[\left|X_{n}-X\right|^{2}\right]=\lim_{n\rightarrow\infty}\left|\mathbb{E}[X_{n}-X]\right|^{2}=0\]</span>
+can be verified by the following inequality, called <em>Schwarz’ inequality</em>: <span class="math display">\[\left|\mathbb{E}[X_{n}-X]\right|^{2}\leq\mathbb{E}\left[\left|X_{n}-X\right|^{2}\right].\]</span>
+Because <span class="math inline">\(\lim_{n\rightarrow\infty}\left|\mathbb{E}[X_{n}-X]\right|^{2}=0\)</span> means
+<span class="math display">\[\lim_{n\rightarrow\infty}\mathbb{E}[X_{n}-X]=0,\]</span> the result follows.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>If <span class="math inline">\(X_n\)</span> and <span class="math inline">\(Y_n\)</span> <strong>converge in mean square</strong> to <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, then <span class="math display">\[\mathbb{E}[XY]=\lim_{n\rightarrow\infty}\mathbb{E}[X_{n}Y_{n}].\]</span>
+</li>
+</ol>
+<p>Proof: Note that if <span class="math inline">\(X_n\)</span> and <span class="math inline">\(Y_n\)</span> <strong>converge in mean square</strong> to <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, we have
+<span class="math display">\[\lim_{n\rightarrow\infty}\mathbb{E}[X_{n}-X]=\lim_{n\rightarrow\infty}\mathbb{E}[Y_{n}-Y]=0.\]</span></p>
+<p>To see this, we make the following inequality
+<span class="math display">\[\begin{align*}\left|\mathbb{E}[XY]-\mathbb{E}[X_{n}Y_{n}]\right|  =\left|\mathbb{E}[(Y-Y_{n})X_{n}]+\mathbb{E}[(X-X_{t})Y_{n}]-\mathbb{E}[(X-X_{t})(Y-Y_{n})]\right|\\
+\leq    \left|\mathbb{E}[(Y-Y_{n})X_{n}]\right|+\left|\mathbb{E}[(X-X_{n})Y_{n}]\right|+\left|\mathbb{E}[(X-X_{n})(Y-Y_{n})]\right|.\end{align*}\]</span>
+Then we apply <strong>Schwarz’s inequality</strong> to the last three terms and take the limit
+<span class="math display">\[\begin{align*}
+&amp;\lim_{n\rightarrow\infty}\left|\mathbb{E}[XY]-\mathbb{E}[X_{n}Y_{n}]\right|    \leq
+\lim_{n\rightarrow\infty}   \mathbb{E}\left|Y-Y_{n}|\mathbb{E}|X_{n}\right|\\
++&amp;\mathbb{E}\left|X-X_{n}| \mathbb{E}|Y_{n}\right|+\mathbb{E}\left|X-X_{n}|\mathbb{E}|Y-Y_{n}\right|\rightarrow0.\end{align*}\]</span>
+The result follows.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>In the view of the <a href="sub-continuity.html#sub:Cauchy">Cauchy criterion</a>, the <strong>mean square differentiability</strong> is about the convergence of the infinitesimal stochastic sequence <span class="math inline">\(\left\{\frac{X_{t+h}-X_{t}}{h}\right\}\)</span> such that <span class="math display">\[\lim_{h,s\rightarrow0}\mathbb{E}\left[\left|\frac{X_{t+h}-X_{t}}{h}-\frac{X_{t+s}-X_{t}}{s}\right|^{2}\right]=0.\]</span> We can show that the convergence holds if <span class="math inline">\(\frac{\partial^{2}\mathbb{E}[X_{t}(\omega)X_{s}(\omega)]}{\partial t\partial s}\)</span> exists.</li>
+</ol>
+<p>Proof: Because <span class="math display">\[\begin{align*}\mathbb{E}\left[\left|\frac{X_{t+h}-X_{t}}{h}-\frac{X_{t+s}-X_{t}}{s}\right|^{2}\right]&amp;=\mathbb{E}\left[\frac{X_{t+h}-X_{t}}{h}\frac{X_{t+h}-X_{t}}{h}\right]\\-2\mathbb{E}\left[\frac{X_{t+h}-X_{t}}{h}\frac{X_{t+s}-X_{t}}{s}\right]&amp;+\mathbb{E}\left[\frac{X_{t+s}-X_{t}}{s}\frac{X_{t+s}-X_{t}}{s}\right].\end{align*}\]</span></p>
+<p>Notice that <span class="math display">\[\lim_{h,s\rightarrow0}\mathbb{E}\left[\frac{X_{t+h}-X_{t}}{h}\times\frac{X_{t+s}-X_{t}}{s}\right] =\lim_{h,s\rightarrow0}\frac{1}{hs}\left[\mathbb{E}[X_{t+h}X_{t+s}]\\-\mathbb{E}[X_{t}X_{t+s}]-(\mathbb{E}[X_{t+h}X_{t}]-\mathbb{E}[X_{t}X_{t}])\right]=\frac{\partial^{2}\mathbb{E}[X_{t}X_{t}]}{\partial t\partial t}.\]</span></p>
+<p>Similarly,
+<span class="math display">\[\begin{align*}\lim_{h\rightarrow0}\mathbb{E}\left[\frac{X_{t+h}-X_{t}}{h}\frac{X_{t+h}-X_{t}}{h}\right]&amp;=\lim_{s\rightarrow0}\mathbb{E}\left[\frac{X_{t+h}-X_{t}}{h}\frac{X_{t+h}-X_{t}}{h}\right]\\&amp;=\frac{\partial^{2}\mathbb{E}[X_{t}X_{t}]}{\partial t\partial t}.\end{align*}\]</span>
+So when the second derivatives of <span class="math inline">\(\mathbb{E}[X_{t}X_{t}]\)</span> exists, the sequence <span class="math inline">\(\left\{\frac{X_{t+h}-X_{t}}{h}\right\}\)</span> <strong>converges in mean square</strong> to <span class="math inline">\(\mbox{d}X_{t}/\mbox{d}t\)</span>.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>We can define a baseline of modeling unpredictable fluctuation in the <strong>second-order processes</strong> called the <strong>white noise</strong> with the <strong>mean square calculus</strong>. (See figure <a href="ch-randomization.html#fig:GP">16.2</a>.)</p>
+<p>Let <span class="math inline">\(\varepsilon(t,\omega)\)</span> denote the <strong>white noise</strong>. The process has zero <strong>mean function</strong> and its <strong>covariance function</strong> is <span class="math display">\[\mbox{Cov}_{\varepsilon}(t,s)=\sigma^{2}\delta(t-s)\]</span> where <span class="math inline">\(\delta(\cdot)\)</span> is called the <em>delta function</em> such that <span class="math display">\[\begin{align*}\delta(x)=\begin{cases}
+\infty, &amp; x=0,\\
+0, &amp; x\neq0,
+\end{cases} &amp; \; \mbox{ and }\\ 
+\int_{-\infty}^{\infty}\delta(x)\mbox{d}x=1,&amp; \,\, \int_{-\infty}^{\infty}f(x)\delta(x)\mbox{d}x=f(0)
+\end{align*}\]</span>
+for any continuous function <span class="math inline">\(f(\cdot)\)</span>. Basically, a delta function is an infinite “spike” above a single point.<label for="tufte-sn-430" class="margin-toggle sidenote-number">430</label><input type="checkbox" id="tufte-sn-430" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">430</span> One can shift the origin to any point <span class="math inline">\(t\)</span>
+by setting the argument to <span class="math inline">\(x-t\)</span> such that <span class="math display">\[\delta(x-t)=\begin{cases}
+\infty, &amp; x=t,\\
+0, &amp; x\neq t.
+\end{cases}\]</span></span>
+The <strong>delta function</strong> can be thought of as the derivative of the step function <span class="math inline">\(\mathbf{1}_{\{x&gt;0\}}(x)\)</span> that has zero everywhere and goes to infinity at <span class="math inline">\(0\)</span>.<label for="tufte-sn-431" class="margin-toggle sidenote-number">431</label><input type="checkbox" id="tufte-sn-431" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">431</span> Note that for any <span class="math inline">\(\epsilon&gt;0\)</span>, the derivative of the step function is <span class="math display">\[\begin{align*}
+&amp;\lim_{\epsilon\rightarrow0}\frac{\mathbf{1}_{\{x&gt;0\}}(x+\epsilon)-\mathbf{1}_{\{x&gt;0\}}(x)}{\epsilon}=\\
+&amp;\begin{cases}
+\lim_{\epsilon\rightarrow0}\frac{1}{\epsilon}\rightarrow\infty &amp; x=0\\
+\lim_{\epsilon\rightarrow0}\frac{0}{\epsilon}\rightarrow 0 &amp; x\neq 0
+\end{cases}.\end{align*}\]</span></span></p>
+<p>In addition, if the probability law in the <strong><span class="math inline">\(L_{2}(\Omega,\mathcal{F},\mathbb{P};\mathcal{H})\)</span>-space</strong> is Gaussian, then the <strong>white noise</strong> is called <em>Gaussian white noise</em>,<label for="tufte-sn-432" class="margin-toggle sidenote-number">432</label><input type="checkbox" id="tufte-sn-432" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">432</span> Notice that the inner product <span class="math inline">\(\langle f,\delta \rangle=f(0)\)</span> is well-defined. So the <strong>delta function</strong> is somehow similar to the <a href="sub-set-theory.html#sub:func">indicator function</a> at the origin as <span class="math display">\[\int_{-\infty}^{\infty}f(x)\mathbf{1}_{\{x=0\}}(x)\mbox{d}x=f(0).\]</span> In practice, one implements <span class="math inline">\(\mathbf{1}_{\{x=t\}}(x)\)</span>
+instead of <span class="math inline">\(\delta(x-t)\)</span> as a (numerical) <strong>delta function</strong>, because the infinite value of the <strong>delta function</strong> is impossible for the implementation.</span> <span class="math display">\[\varepsilon(t,\omega)\sim\mathcal{N}(0,\sigma^{2}\delta(x-t)).\]</span></p>
+<p>The <strong>Gaussian white noise</strong> <span class="math inline">\(\varepsilon(t,\omega)\)</span> corresponds to the “derivative” of a <a href="ch-DE.html#sub:pde">Brownian motion</a> <span class="math inline">\(X(t,\omega)\)</span>:
+<span class="math display">\[\varepsilon(t,\omega)=\frac{\mbox{d}X(t)}{\mbox{d}t}.\]</span>
+Because the <strong>covariance function</strong> of the <a href="ch-DE.html#sub:pde">Brownian motion</a> is<label for="tufte-sn-433" class="margin-toggle sidenote-number">433</label><input type="checkbox" id="tufte-sn-433" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">433</span> The discretization of the covariance functions of Brownian motion and white noise can be found in figure <a href="ch-randomization.html#fig:GPKern">16.3</a>. </span> <span class="math inline">\(\mbox{Cov}_{X}(t,s)=\sigma^{2}\min(t,s)\)</span>, its second derivative gives the <strong>white noise’s</strong> one<label for="tufte-sn-434" class="margin-toggle sidenote-number">434</label><input type="checkbox" id="tufte-sn-434" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">434</span> Note that<span class="math display">\[\min(t,s)=\begin{cases}
+s, &amp; s&lt;t\\
+t, &amp; s&gt;t
+\end{cases},\\
+\frac{\partial\min(t,s)}{\partial t}=\mathbf{1}_{\{s&gt;t\}}(s)=\begin{cases}
+0, &amp; s&lt;t\\
+1, &amp; s&gt;t
+\end{cases}.\]</span>
+That is, the first derivative of <span class="math inline">\(\min(t,s)\)</span> is the step function <span class="math inline">\(\mathbf{1}_{\{s&gt;t\}}(s)\)</span>. As we know, the derivative of a step function is the <strong>delta function</strong>. The result follows.</span> <span class="math display">\[\mbox{Cov}_{\varepsilon}(t,s)=\frac{\partial^{2}\mbox{Cov}_{B}(t,s)}{\partial t\partial s}=\sigma^{2}\frac{\partial^{2}\min(t,s)}{\partial t\partial s}=\sigma^{2}\delta(t-s).\]</span>
+That is, the <strong>mean square differentiation</strong> of <a href="ch-DE.html#sub:pde">Brownian motion</a> is a <strong>white noise</strong>.</p>
+<p>By the <strong>fundamental theorem of mean square calculus</strong>, we have
+<span class="math display">\[\int_{s}^{t}\varepsilon(\tau,\omega)\mbox{d}\tau=X(t,\omega)-X(s,\omega)\mbox{ with probability }1,\]</span>
+where <span class="math inline">\(X(t,\omega)-X(s,\omega)\)</span> is also called the <em>increment</em> of <a href="ch-DE.html#sub:pde">Brownian motion</a>.
+The <strong>covariance function</strong> of <span class="math inline">\(\int_{s}^{t}\varepsilon(\tau,\omega)\mbox{d}\tau\)</span> is <span class="math inline">\(t-s\)</span>, so the <strong>increment of Brownian motion</strong> <span class="math inline">\(X(t,\omega)-X(s,\omega)\)</span> follows the probability law <span class="math inline">\(\mathcal{N}(0,t-s)\)</span>.<label for="tufte-sn-435" class="margin-toggle sidenote-number">435</label><input type="checkbox" id="tufte-sn-435" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">435</span> To understand this statement, we should know that <a href="ch-DE.html#sub:pde">Brownian motion</a> is a mathematically tractable version of the idea of the <a href="ch-UnMulti.html#sub:rw">random walk</a> in the continuous time setting. Intuitively, one can think of <a href="ch-UnMulti.html#sub:rw">random walks</a> <span class="math inline">\(X_{s}=\varepsilon_{1}+\cdots+\varepsilon_{s}\)</span>
+and <span class="math inline">\(X_{t}=\varepsilon_{1}+\cdots+\varepsilon_{t}\)</span>. Then <span class="math display">\[X_{t}-X_{s}=\underset{(t-s)-\mbox{entities}}{\underbrace{\varepsilon_{t}+\varepsilon_{t-1}+\cdots+\varepsilon_{s}}}.\]</span> For each <span class="math inline">\(\varepsilon_{i}\sim\mathcal{N}(0,\sigma^{2})\)</span>, the <a href="ch-CalUn.html#sub:divRV">Gaussian property</a> tells that <span class="math display">\[\sum_{i=s}^{t}\varepsilon_{i}\sim\mathcal{N}(0,(t-s)\sigma^{2}).\]</span></span></p>
+</div>
 </div></body></html>
 
 <p style="text-align: center;">
@@ -182,7 +448,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a href="bibliography.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-02-10
+2021-02-28
 </p>
 </div>
 </div>
