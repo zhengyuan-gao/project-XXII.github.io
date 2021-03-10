@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2021-02-10" />
+<meta name="date" content="2021-03-10" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -348,54 +348,54 @@ Note that <span class="math inline">\(\Sigma_{11}=\sigma_1^2\)</span>, <span cla
 <span class="math display">\[\mu_2 + \rho\sigma_1\sigma_2 \sigma_{2}^{-2}(x_1 - \mu_1)=\mu_2 + \frac{\rho\sigma_1}{\sigma_{2}}(x_1 - \mu_1),\]</span>
 and the conditional variance
 <span class="math display">\[\Sigma_{11} - \Sigma_{12} \Sigma_{22}^{-1}\Sigma_{21}= \sigma^2_{1} - (\rho\sigma_{1}\sigma_{2})^2 \sigma_{2}^{-2} =\sigma^2_{1}(1 - \rho^2).\]</span></p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">2020</span>)</a>
-<a class="sourceLine" id="cb39-2" data-line-number="2">rbvn=<span class="cf">function</span> (n, m1, s1, m2, s2, rho){</a>
-<a class="sourceLine" id="cb39-3" data-line-number="3">     X1 =<span class="st"> </span><span class="kw">rnorm</span>(n, mu1, s1)</a>
-<a class="sourceLine" id="cb39-4" data-line-number="4">     X2 =<span class="st"> </span><span class="kw">rnorm</span>(n, </a>
-<a class="sourceLine" id="cb39-5" data-line-number="5">                mu2 <span class="op">+</span><span class="st"> </span>(s1<span class="op">/</span>s2) <span class="op">*</span><span class="st"> </span>rho <span class="op">*</span>(X1 <span class="op">-</span><span class="st"> </span>mu1), </a>
-<a class="sourceLine" id="cb39-6" data-line-number="6">                <span class="kw">sqrt</span>((<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>rho<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>s1<span class="op">^</span><span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb39-7" data-line-number="7">     <span class="kw">cbind</span>(X1, X2)}</a>
-<a class="sourceLine" id="cb39-8" data-line-number="8">mu1 =<span class="st"> </span><span class="dv">1</span>; sigma1 =<span class="st"> </span><span class="dv">2</span>; mu2 =<span class="st"> </span><span class="dv">4</span>; sigma2 =<span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb39-9" data-line-number="9">rho =<span class="st"> </span><span class="fl">-0.2</span>; n =<span class="st"> </span><span class="dv">1000</span>;</a>
-<a class="sourceLine" id="cb39-10" data-line-number="10">bvn =<span class="st"> </span><span class="kw">rbvn</span>(n,mu1,sigma1,mu2,sigma2,rho)</a>
-<a class="sourceLine" id="cb39-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb39-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb39-13" data-line-number="13"><span class="co"># Plot</span></a>
-<a class="sourceLine" id="cb39-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb39-15" data-line-number="15">bvn =<span class="st"> </span><span class="kw">data.frame</span>(bvn)</a>
-<a class="sourceLine" id="cb39-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb39-17" data-line-number="17"><span class="kw">library</span>(ggplot2); <span class="kw">library</span>(gridExtra)</a>
-<a class="sourceLine" id="cb39-18" data-line-number="18">htop =<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>bvn, <span class="kw">aes</span>(<span class="dt">x=</span>X1)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb39-19" data-line-number="19"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y=</span>..density..), <span class="dt">fill=</span><span class="st">"skyblue"</span>, <span class="dt">bins=</span><span class="dv">200</span>, <span class="dt">alpha=</span><span class="fl">0.8</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb39-20" data-line-number="20"><span class="st">  </span><span class="kw">stat_density</span>(<span class="dt">colour =</span> <span class="st">"blue"</span>, <span class="dt">geom=</span><span class="st">"line"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_blank</span>())</a>
-<a class="sourceLine" id="cb39-21" data-line-number="21"></a>
-<a class="sourceLine" id="cb39-22" data-line-number="22">blank =<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">colour=</span><span class="st">"white"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb39-23" data-line-number="23"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.ticks=</span><span class="kw">element_blank</span>(), <span class="dt">panel.background=</span><span class="kw">element_blank</span>(), <span class="dt">panel.grid=</span><span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb39-24" data-line-number="24">        <span class="dt">axis.text.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.text.y=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())</a>
-<a class="sourceLine" id="cb39-25" data-line-number="25"></a>
-<a class="sourceLine" id="cb39-26" data-line-number="26">scatter =<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>bvn, <span class="kw">aes</span>(<span class="dt">x=</span>X1, <span class="dt">y=</span>X2)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb39-27" data-line-number="27"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">col=</span><span class="st">"grey"</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb39-28" data-line-number="28"><span class="st">    </span><span class="kw">stat_ellipse</span>(<span class="dt">type =</span> <span class="st">"norm"</span>, <span class="dt">linetype =</span> <span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb39-29" data-line-number="29"><span class="st">    </span><span class="kw">annotate</span>(<span class="dt">geom=</span><span class="st">"text"</span>, <span class="dt">x=</span><span class="dv">6</span>, <span class="dt">y=</span><span class="dv">8</span>, <span class="dt">label=</span><span class="st">"rho=-0.2"</span>,</a>
-<a class="sourceLine" id="cb39-30" data-line-number="30">              <span class="dt">color=</span><span class="st">"red"</span>) <span class="op">+</span><span class="st">  </span><span class="kw">theme_minimal</span>()</a>
-<a class="sourceLine" id="cb39-31" data-line-number="31"></a>
-<a class="sourceLine" id="cb39-32" data-line-number="32">hright =<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>bvn, <span class="kw">aes</span>(<span class="dt">x=</span>X2)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb39-33" data-line-number="33"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y=</span>..density..), <span class="dt">fill=</span><span class="st">"skyblue"</span>, <span class="dt">bins=</span><span class="dv">200</span>, <span class="dt">alpha=</span><span class="fl">0.8</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb39-34" data-line-number="34"><span class="st">  </span><span class="kw">stat_density</span>(<span class="dt">colour =</span> <span class="st">"blue"</span>, <span class="dt">geom=</span><span class="st">"line"</span>) <span class="op">+</span><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>())</a>
-<a class="sourceLine" id="cb39-35" data-line-number="35"></a>
-<a class="sourceLine" id="cb39-36" data-line-number="36"><span class="kw">grid.arrange</span>(htop, blank, scatter, hright, <span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">widths=</span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">1</span>), <span class="dt">heights=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>))</a>
-<a class="sourceLine" id="cb39-37" data-line-number="37"></a>
-<a class="sourceLine" id="cb39-38" data-line-number="38"></a>
-<a class="sourceLine" id="cb39-39" data-line-number="39"><span class="co">### 3D plot</span></a>
-<a class="sourceLine" id="cb39-40" data-line-number="40">x =<span class="st"> </span><span class="kw">seq</span>( <span class="dv">-3</span>, <span class="dv">3</span>, <span class="dt">length=</span><span class="dv">25</span> ); y =<span class="st"> </span><span class="kw">seq</span>( <span class="dv">-3</span>, <span class="dv">3</span>, <span class="dt">length=</span><span class="dv">25</span> )</a>
-<a class="sourceLine" id="cb39-41" data-line-number="41">xy =<span class="st"> </span><span class="kw">outer</span>( x, y, <span class="cf">function</span>(x,y) <span class="kw">dnorm</span>(x,<span class="dv">0</span>,<span class="fl">0.75</span>)<span class="op">*</span><span class="kw">dnorm</span>(y,<span class="dv">0</span>,<span class="fl">0.5</span>) )</a>
-<a class="sourceLine" id="cb39-42" data-line-number="42">plot<span class="fl">.3</span>D =<span class="st"> </span><span class="kw">persp</span>(x,y,xy, <span class="dt">theta=</span><span class="dv">120</span>, <span class="dt">zlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">4</span><span class="op">*</span><span class="kw">max</span>(z)), <span class="dt">box=</span><span class="ot">FALSE</span>, <span class="dt">shade=</span><span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb39-43" data-line-number="43"><span class="co">## unconditional density for x</span></a>
-<a class="sourceLine" id="cb39-44" data-line-number="44"><span class="kw">lines</span>( <span class="kw">trans3d</span>( <span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dt">length=</span><span class="dv">100</span>), <span class="dv">-3</span>, <span class="kw">dnorm</span>(<span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dt">length=</span><span class="dv">100</span>),<span class="dv">0</span>,.<span class="dv">75</span>), </a>
-<a class="sourceLine" id="cb39-45" data-line-number="45">    plot<span class="fl">.3</span>D), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">'blue'</span> )</a>
-<a class="sourceLine" id="cb39-46" data-line-number="46"><span class="co">## unconditional density for y</span></a>
-<a class="sourceLine" id="cb39-47" data-line-number="47"><span class="kw">lines</span>( <span class="kw">trans3d</span>( <span class="dv">-3</span>, <span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dt">length=</span><span class="dv">100</span>), <span class="kw">dnorm</span>(<span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dt">length=</span><span class="dv">100</span>),<span class="dv">0</span>,<span class="fl">0.5</span>), </a>
-<a class="sourceLine" id="cb39-48" data-line-number="48">    plot<span class="fl">.3</span>D), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">'blue'</span> )</a></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">2020</span>)</a>
+<a class="sourceLine" id="cb40-2" data-line-number="2">rbvn=<span class="cf">function</span> (n, m1, s1, m2, s2, rho){</a>
+<a class="sourceLine" id="cb40-3" data-line-number="3">     X1 =<span class="st"> </span><span class="kw">rnorm</span>(n, mu1, s1)</a>
+<a class="sourceLine" id="cb40-4" data-line-number="4">     X2 =<span class="st"> </span><span class="kw">rnorm</span>(n, </a>
+<a class="sourceLine" id="cb40-5" data-line-number="5">                mu2 <span class="op">+</span><span class="st"> </span>(s1<span class="op">/</span>s2) <span class="op">*</span><span class="st"> </span>rho <span class="op">*</span>(X1 <span class="op">-</span><span class="st"> </span>mu1), </a>
+<a class="sourceLine" id="cb40-6" data-line-number="6">                <span class="kw">sqrt</span>((<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>rho<span class="op">^</span><span class="dv">2</span>)<span class="op">*</span>s1<span class="op">^</span><span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb40-7" data-line-number="7">     <span class="kw">cbind</span>(X1, X2)}</a>
+<a class="sourceLine" id="cb40-8" data-line-number="8">mu1 =<span class="st"> </span><span class="dv">1</span>; sigma1 =<span class="st"> </span><span class="dv">2</span>; mu2 =<span class="st"> </span><span class="dv">4</span>; sigma2 =<span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb40-9" data-line-number="9">rho =<span class="st"> </span><span class="fl">-0.2</span>; n =<span class="st"> </span><span class="dv">1000</span>;</a>
+<a class="sourceLine" id="cb40-10" data-line-number="10">bvn =<span class="st"> </span><span class="kw">rbvn</span>(n,mu1,sigma1,mu2,sigma2,rho)</a>
+<a class="sourceLine" id="cb40-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb40-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb40-13" data-line-number="13"><span class="co"># Plot</span></a>
+<a class="sourceLine" id="cb40-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb40-15" data-line-number="15">bvn =<span class="st"> </span><span class="kw">data.frame</span>(bvn)</a>
+<a class="sourceLine" id="cb40-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb40-17" data-line-number="17"><span class="kw">library</span>(ggplot2); <span class="kw">library</span>(gridExtra)</a>
+<a class="sourceLine" id="cb40-18" data-line-number="18">htop =<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>bvn, <span class="kw">aes</span>(<span class="dt">x=</span>X1)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb40-19" data-line-number="19"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y=</span>..density..), <span class="dt">fill=</span><span class="st">"skyblue"</span>, <span class="dt">bins=</span><span class="dv">200</span>, <span class="dt">alpha=</span><span class="fl">0.8</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb40-20" data-line-number="20"><span class="st">  </span><span class="kw">stat_density</span>(<span class="dt">colour =</span> <span class="st">"blue"</span>, <span class="dt">geom=</span><span class="st">"line"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb40-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb40-22" data-line-number="22">blank =<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">colour=</span><span class="st">"white"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb40-23" data-line-number="23"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.ticks=</span><span class="kw">element_blank</span>(), <span class="dt">panel.background=</span><span class="kw">element_blank</span>(), <span class="dt">panel.grid=</span><span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb40-24" data-line-number="24">        <span class="dt">axis.text.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.text.y=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb40-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb40-26" data-line-number="26">scatter =<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>bvn, <span class="kw">aes</span>(<span class="dt">x=</span>X1, <span class="dt">y=</span>X2)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb40-27" data-line-number="27"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">col=</span><span class="st">"grey"</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb40-28" data-line-number="28"><span class="st">    </span><span class="kw">stat_ellipse</span>(<span class="dt">type =</span> <span class="st">"norm"</span>, <span class="dt">linetype =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb40-29" data-line-number="29"><span class="st">    </span><span class="kw">annotate</span>(<span class="dt">geom=</span><span class="st">"text"</span>, <span class="dt">x=</span><span class="dv">6</span>, <span class="dt">y=</span><span class="dv">8</span>, <span class="dt">label=</span><span class="st">"rho=-0.2"</span>,</a>
+<a class="sourceLine" id="cb40-30" data-line-number="30">              <span class="dt">color=</span><span class="st">"red"</span>) <span class="op">+</span><span class="st">  </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb40-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb40-32" data-line-number="32">hright =<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>bvn, <span class="kw">aes</span>(<span class="dt">x=</span>X2)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb40-33" data-line-number="33"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y=</span>..density..), <span class="dt">fill=</span><span class="st">"skyblue"</span>, <span class="dt">bins=</span><span class="dv">200</span>, <span class="dt">alpha=</span><span class="fl">0.8</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb40-34" data-line-number="34"><span class="st">  </span><span class="kw">stat_density</span>(<span class="dt">colour =</span> <span class="st">"blue"</span>, <span class="dt">geom=</span><span class="st">"line"</span>) <span class="op">+</span><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb40-35" data-line-number="35"></a>
+<a class="sourceLine" id="cb40-36" data-line-number="36"><span class="kw">grid.arrange</span>(htop, blank, scatter, hright, <span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">widths=</span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">1</span>), <span class="dt">heights=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>))</a>
+<a class="sourceLine" id="cb40-37" data-line-number="37"></a>
+<a class="sourceLine" id="cb40-38" data-line-number="38"></a>
+<a class="sourceLine" id="cb40-39" data-line-number="39"><span class="co">### 3D plot</span></a>
+<a class="sourceLine" id="cb40-40" data-line-number="40">x =<span class="st"> </span><span class="kw">seq</span>( <span class="dv">-3</span>, <span class="dv">3</span>, <span class="dt">length=</span><span class="dv">25</span> ); y =<span class="st"> </span><span class="kw">seq</span>( <span class="dv">-3</span>, <span class="dv">3</span>, <span class="dt">length=</span><span class="dv">25</span> )</a>
+<a class="sourceLine" id="cb40-41" data-line-number="41">xy =<span class="st"> </span><span class="kw">outer</span>( x, y, <span class="cf">function</span>(x,y) <span class="kw">dnorm</span>(x,<span class="dv">0</span>,<span class="fl">0.75</span>)<span class="op">*</span><span class="kw">dnorm</span>(y,<span class="dv">0</span>,<span class="fl">0.5</span>) )</a>
+<a class="sourceLine" id="cb40-42" data-line-number="42">plot<span class="fl">.3</span>D =<span class="st"> </span><span class="kw">persp</span>(x,y,xy, <span class="dt">theta=</span><span class="dv">120</span>, <span class="dt">zlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">4</span><span class="op">*</span><span class="kw">max</span>(z)), <span class="dt">box=</span><span class="ot">FALSE</span>, <span class="dt">shade=</span><span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb40-43" data-line-number="43"><span class="co">## unconditional density for x</span></a>
+<a class="sourceLine" id="cb40-44" data-line-number="44"><span class="kw">lines</span>( <span class="kw">trans3d</span>( <span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dt">length=</span><span class="dv">100</span>), <span class="dv">-3</span>, <span class="kw">dnorm</span>(<span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dt">length=</span><span class="dv">100</span>),<span class="dv">0</span>,.<span class="dv">75</span>), </a>
+<a class="sourceLine" id="cb40-45" data-line-number="45">    plot<span class="fl">.3</span>D), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">'blue'</span> )</a>
+<a class="sourceLine" id="cb40-46" data-line-number="46"><span class="co">## unconditional density for y</span></a>
+<a class="sourceLine" id="cb40-47" data-line-number="47"><span class="kw">lines</span>( <span class="kw">trans3d</span>( <span class="dv">-3</span>, <span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dt">length=</span><span class="dv">100</span>), <span class="kw">dnorm</span>(<span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dt">length=</span><span class="dv">100</span>),<span class="dv">0</span>,<span class="fl">0.5</span>), </a>
+<a class="sourceLine" id="cb40-48" data-line-number="48">    plot<span class="fl">.3</span>D), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">'blue'</span> )</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -536,13 +536,13 @@ where <span class="math inline">\(p_{ij}=\mathbb{P}(X_{t+1}=j|X_{t}=i)\)</span> 
 Code <span id="sol-start-59" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-59', 'sol-start-59')"></span>
 </p>
 <div id="sol-body-59" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1">P=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">0.45</span>,<span class="fl">0.5</span>,<span class="fl">0.05</span>,</a>
-<a class="sourceLine" id="cb40-2" data-line-number="2">           <span class="fl">0.15</span>,<span class="fl">0.65</span>,<span class="fl">0.2</span>,</a>
-<a class="sourceLine" id="cb40-3" data-line-number="3">           <span class="dv">0</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>), <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb40-4" data-line-number="4"><span class="kw">library</span>(diagram)</a>
-<a class="sourceLine" id="cb40-5" data-line-number="5"><span class="kw">rownames</span>(P)=<span class="kw">c</span>(<span class="st">"L"</span>, <span class="st">"M"</span>, <span class="st">"U"</span>); <span class="kw">plotmat</span>(<span class="kw">t</span>(P), <span class="dt">lwd =</span> <span class="dv">1</span>, <span class="dt">box.lwd =</span> <span class="dv">2</span>, <span class="dt">cex.txt =</span> <span class="fl">0.8</span>, </a>
-<a class="sourceLine" id="cb40-6" data-line-number="6">               <span class="dt">box.size =</span> <span class="fl">0.1</span>, <span class="dt">box.prop =</span> <span class="fl">0.4</span>, <span class="dt">relsize=</span><span class="fl">0.7</span>,</a>
-<a class="sourceLine" id="cb40-7" data-line-number="7">               <span class="dt">main =</span> <span class="st">"Social mobility"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1">P=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">0.45</span>,<span class="fl">0.5</span>,<span class="fl">0.05</span>,</a>
+<a class="sourceLine" id="cb41-2" data-line-number="2">           <span class="fl">0.15</span>,<span class="fl">0.65</span>,<span class="fl">0.2</span>,</a>
+<a class="sourceLine" id="cb41-3" data-line-number="3">           <span class="dv">0</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>), <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb41-4" data-line-number="4"><span class="kw">library</span>(diagram)</a>
+<a class="sourceLine" id="cb41-5" data-line-number="5"><span class="kw">rownames</span>(P)=<span class="kw">c</span>(<span class="st">"L"</span>, <span class="st">"M"</span>, <span class="st">"U"</span>); <span class="kw">plotmat</span>(<span class="kw">t</span>(P), <span class="dt">lwd =</span> <span class="dv">1</span>, <span class="dt">box.lwd =</span> <span class="dv">2</span>, <span class="dt">cex.txt =</span> <span class="fl">0.8</span>, </a>
+<a class="sourceLine" id="cb41-6" data-line-number="6">               <span class="dt">box.size =</span> <span class="fl">0.1</span>, <span class="dt">box.prop =</span> <span class="fl">0.4</span>, <span class="dt">relsize=</span><span class="fl">0.7</span>,</a>
+<a class="sourceLine" id="cb41-7" data-line-number="7">               <span class="dt">main =</span> <span class="st">"Social mobility"</span>)</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -563,20 +563,20 @@ p_{is}p_{sj}&amp;=\mathbb{P}(X_{t+2}=j|X_{t+1}=s)\mathbb{P}(X_{t+1}=s|X_t=i)\\
 where the second equality comes from <strong>Markov’s principle</strong> of joint probability. Then by calculating all the possible states of <span class="math inline">\(s\)</span>, we have <span class="math inline">\(\mathbb{P}(X_{t+2}=j|X_t=i)= \sum_{s=1}^{3} p_{is}p_{sj}\)</span>. Because
 <span class="math display">\[\mathbf{P}^2 = \left[\sum_{s=1}^{3}p_{is}p_{sj}\right]_{1\leq i\,,\,j\leq3}\]</span> we know that <span class="math inline">\(\mathbf{P}^2\)</span> is a <strong>probability transition matrix</strong> of two-steps ahead, namely <span class="math inline">\(\mathbb{P}(X_{t+2}|X_t)\)</span>.
 We can generalize the result that the <span class="math inline">\(k\)</span>-step <strong>probability transition matrix</strong>of this <strong>time-homogeneous Markov chain</strong> must be <span class="math inline">\(\mathbf{P}^k\)</span>.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1">P<span class="op">%*%</span>P </a></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1">P<span class="op">%*%</span>P </a></code></pre></div>
 <pre><code>##        [,1]   [,2]   [,3]
 ## [1,] 0.2775 0.5750 0.1475
 ## [2,] 0.1650 0.5975 0.2375
 ## [3,] 0.0750 0.5750 0.3500</code></pre>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="kw">rowSums</span>(P<span class="op">%*%</span>P)</a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="kw">rowSums</span>(P<span class="op">%*%</span>P)</a></code></pre></div>
 <pre><code>## [1] 1 1 1</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">library</span>(expm) <span class="co"># Matrix power </span></a>
-<a class="sourceLine" id="cb45-2" data-line-number="2">P<span class="op">%^%</span><span class="dv">10</span> </a></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="kw">library</span>(expm) <span class="co"># Matrix power </span></a>
+<a class="sourceLine" id="cb46-2" data-line-number="2">P<span class="op">%^%</span><span class="dv">10</span> </a></code></pre></div>
 <pre><code>##           [,1]      [,2]      [,3]
 ## [1,] 0.1606135 0.5882353 0.2511512
 ## [2,] 0.1604433 0.5882353 0.2513214
 ## [3,] 0.1602730 0.5882353 0.2514917</code></pre>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="kw">rowSums</span>(P<span class="op">%^%</span><span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="kw">rowSums</span>(P<span class="op">%^%</span><span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## [1] 1 1 1</code></pre>
 <p>Because any <span class="math inline">\(k+t\)</span> power of the probability transition matrix <span class="math inline">\(\mathbf{P}\)</span> can be split as the sum of products of <span class="math inline">\(k\)</span>-step and <span class="math inline">\(t\)</span>-step transition probability matrices, we can split <span class="math inline">\(\mathbf{P}^{k+t}\)</span> as the products of <span class="math inline">\(k+t\)</span> identical matrices <span class="math inline">\(\mathbf{P}\)</span> that exactly coincides with the <strong>Chapman-Kolmogorov equation</strong> in <a href="ch-UnMulti.html#eq:ck-1">(13.1)</a> and <a href="ch-UnMulti.html#eq:ck-2">(13.2)</a>.</p>
 <p>The idea of modeling dynamics by chains can be traced back to a metaphysical topic called the <em>great chain of being</em> where the chain was conceived as a static hierarchy, starting with God at the top and descending through angels, human beings, animals, etc. This progression of the life forms gave the basis for the idea of <em>evolution</em>: complex structures emerge from simpler forms through (natural) selection mechanisms.<label for="tufte-sn-265" class="margin-toggle sidenote-number">265</label><input type="checkbox" id="tufte-sn-265" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">265</span> In political and social science, creating secular governmental structures that vested power into various citizens’ classes was viewed as an (r)evolutionary movements in Hegel, Marx and Engels’ work. However, the theory of evolution plays several different roles over there, some toward increasing the order and complexity while some mean just the opposite.</span> Another feature of the chain is that although it was viewed as one continuous whole, it has the potential for the missing and overlapping links. Each link in the chain might be splitted further. Based on the dual nature of the chain - divided yet united, Carl Linnaeus, who is considered as one of the founders of ecology, formalized his modern system of naming organisms (taxonomy).</p>
@@ -603,23 +603,23 @@ We can generalize the result that the <span class="math inline">\(k\)</span>-ste
 Code <span id="sol-start-60" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-60', 'sol-start-60')"></span>
 </p>
 <div id="sol-body-60" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1">P=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">0.45</span>,<span class="fl">0.5</span>,<span class="fl">0.05</span>,</a>
-<a class="sourceLine" id="cb49-2" data-line-number="2">           <span class="fl">0.15</span>,<span class="fl">0.65</span>,<span class="fl">0.2</span>,</a>
-<a class="sourceLine" id="cb49-3" data-line-number="3">           <span class="dv">0</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>), <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb49-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb49-5" data-line-number="5"><span class="kw">library</span>(expm) <span class="co"># Matrix power </span></a>
-<a class="sourceLine" id="cb49-6" data-line-number="6">init.u =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb49-7" data-line-number="7">L =<span class="st"> </span><span class="kw">c</span>(); M =<span class="st"> </span><span class="kw">c</span>(); U =<span class="st"> </span><span class="kw">c</span>();</a>
-<a class="sourceLine" id="cb49-8" data-line-number="8">L[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">1</span>; M[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">0</span>; U[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb49-9" data-line-number="9"><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">15</span>){</a>
-<a class="sourceLine" id="cb49-10" data-line-number="10">     u.t =<span class="st"> </span>init.u<span class="op">*</span>P<span class="op">%^%</span>(t<span class="dv">-1</span>)</a>
-<a class="sourceLine" id="cb49-11" data-line-number="11">     L[t] =<span class="st"> </span>u.t[<span class="dv">1</span>,<span class="dv">1</span>]; M[t] =<span class="st"> </span>u.t[<span class="dv">1</span>,<span class="dv">2</span>]; U[t] =<span class="st"> </span>u.t[<span class="dv">1</span>,<span class="dv">3</span>]</a>
-<a class="sourceLine" id="cb49-12" data-line-number="12">}</a>
-<a class="sourceLine" id="cb49-13" data-line-number="13">data =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">time=</span><span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, L, M, U)</a>
-<a class="sourceLine" id="cb49-14" data-line-number="14"><span class="co"># plot</span></a>
-<a class="sourceLine" id="cb49-15" data-line-number="15"><span class="kw">library</span>(ggplot2); <span class="kw">library</span>(gganimate); <span class="kw">library</span>(reshape2)</a>
-<a class="sourceLine" id="cb49-16" data-line-number="16">fig =<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">melt</span>(data, <span class="dt">id.vars=</span><span class="st">"time"</span>), <span class="kw">aes</span>(time, value, <span class="dt">colour=</span>variable, <span class="dt">group=</span>variable)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span><span class="st">"Probability"</span>)  </a>
-<a class="sourceLine" id="cb49-17" data-line-number="17">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">group =</span> <span class="kw">seq_along</span>(time))) <span class="op">+</span><span class="st"> </span><span class="kw">transition_reveal</span>(time) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1">P=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">0.45</span>,<span class="fl">0.5</span>,<span class="fl">0.05</span>,</a>
+<a class="sourceLine" id="cb50-2" data-line-number="2">           <span class="fl">0.15</span>,<span class="fl">0.65</span>,<span class="fl">0.2</span>,</a>
+<a class="sourceLine" id="cb50-3" data-line-number="3">           <span class="dv">0</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>), <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb50-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb50-5" data-line-number="5"><span class="kw">library</span>(expm) <span class="co"># Matrix power </span></a>
+<a class="sourceLine" id="cb50-6" data-line-number="6">init.u =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb50-7" data-line-number="7">L =<span class="st"> </span><span class="kw">c</span>(); M =<span class="st"> </span><span class="kw">c</span>(); U =<span class="st"> </span><span class="kw">c</span>();</a>
+<a class="sourceLine" id="cb50-8" data-line-number="8">L[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">1</span>; M[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">0</span>; U[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb50-9" data-line-number="9"><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">15</span>){</a>
+<a class="sourceLine" id="cb50-10" data-line-number="10">     u.t =<span class="st"> </span>init.u<span class="op">*</span>P<span class="op">%^%</span>(t<span class="dv">-1</span>)</a>
+<a class="sourceLine" id="cb50-11" data-line-number="11">     L[t] =<span class="st"> </span>u.t[<span class="dv">1</span>,<span class="dv">1</span>]; M[t] =<span class="st"> </span>u.t[<span class="dv">1</span>,<span class="dv">2</span>]; U[t] =<span class="st"> </span>u.t[<span class="dv">1</span>,<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb50-12" data-line-number="12">}</a>
+<a class="sourceLine" id="cb50-13" data-line-number="13">data =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">time=</span><span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, L, M, U)</a>
+<a class="sourceLine" id="cb50-14" data-line-number="14"><span class="co"># plot</span></a>
+<a class="sourceLine" id="cb50-15" data-line-number="15"><span class="kw">library</span>(ggplot2); <span class="kw">library</span>(gganimate); <span class="kw">library</span>(reshape2)</a>
+<a class="sourceLine" id="cb50-16" data-line-number="16">fig =<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">melt</span>(data, <span class="dt">id.vars=</span><span class="st">"time"</span>), <span class="kw">aes</span>(time, value, <span class="dt">colour=</span>variable, <span class="dt">group=</span>variable)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span><span class="st">"Probability"</span>)  </a>
+<a class="sourceLine" id="cb50-17" data-line-number="17">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">group =</span> <span class="kw">seq_along</span>(time))) <span class="op">+</span><span class="st"> </span><span class="kw">transition_reveal</span>(time) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -712,7 +712,7 @@ So the <strong>left-hand eigenvector</strong> <span class="math inline">\(\mathb
 </div>
 <p>The convergence of <span class="math inline">\(\mathbf{u}^{\top}(t) \mathbf{P}\)</span> or <span class="math inline">\(\mathbf{u}^\top(0)\mathbf{P}^t\)</span> implies that the <strong>stationary probability</strong> is independent of the initial <span class="math inline">\(\mathbf{u}^\top(0)\)</span> because <span class="math inline">\(\mathbf{u}=\lim_{t\rightarrow \infty}\mathbf{u}^\top(0)\mathbf{P}^t\)</span> holds for any <strong>probability vector</strong> <span class="math inline">\(\mathbf{u}^\top(0)\)</span>.<label for="tufte-sn-275" class="margin-toggle sidenote-number">275</label><input type="checkbox" id="tufte-sn-275" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">275</span> It worths to stress that the existence of <span class="math inline">\(\mathbf{u}^\top=\lim_{t\rightarrow\infty}\mathbf{u}^\top(t)\mathbf{P}\)</span> implies that both the vector <span class="math inline">\(\mathbf{u}(t)\)</span> and the matrix <span class="math inline">\(\mathbf{P}^t\)</span> converge independently of the initial <span class="math inline">\(\mathbf{u}(0)\)</span>. The limit <span class="math inline">\(\lim_{t\rightarrow\infty}\mathbf{u}^\top(t)\mathbf{P}\)</span> is also called the <em>equilibrium probability</em> or <em>steady-state probability</em>, to highlight the sense that the effect of the initial state has disappeared.</span></p>
 <p>For the social mobility model in section <a href="ch-UnMulti.html#sub:Markov">13.2</a>, it is easy to see that the <a href="ch-eigen.html#sub:diag">principal eigenvalue</a> accompanies with only one <strong>left-hand eigenvector</strong>. Thus, we can study the equilibrium behavior of its Markov chain by the eigenvectors as the initial state does not matter in this model.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1">v.eigen =<span class="st"> </span><span class="kw">eigen</span>(P, <span class="dt">symmetric=</span><span class="ot">FALSE</span>); v.eigen</a></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1">v.eigen =<span class="st"> </span><span class="kw">eigen</span>(P, <span class="dt">symmetric=</span><span class="ot">FALSE</span>); v.eigen</a></code></pre></div>
 <pre><code>## eigen() decomposition
 ## $values
 ## [1] 1.00 0.45 0.15
@@ -722,9 +722,9 @@ So the <strong>left-hand eigenvector</strong> <span class="math inline">\(\mathb
 ## [1,] 0.5773503 -0.76665188  0.6337243
 ## [2,] 0.5773503 -0.06388766 -0.4436070
 ## [3,] 0.5773503  0.63887656  0.6337243</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1">v.eigen<span class="op">$</span>vectors[,<span class="dv">1</span>] <span class="co"># eigenvector with identical entries</span></a></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">v.eigen<span class="op">$</span>vectors[,<span class="dv">1</span>] <span class="co"># eigenvector with identical entries</span></a></code></pre></div>
 <pre><code>## [1] 0.5773503 0.5773503 0.5773503</code></pre>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1">u.eigen =<span class="st"> </span><span class="kw">eigen</span>(<span class="kw">t</span>(P), <span class="dt">symmetric=</span><span class="ot">FALSE</span>); u.eigen</a></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">u.eigen =<span class="st"> </span><span class="kw">eigen</span>(<span class="kw">t</span>(P), <span class="dt">symmetric=</span><span class="ot">FALSE</span>); u.eigen</a></code></pre></div>
 <pre><code>## eigen() decomposition
 ## $values
 ## [1] 1.00 0.45 0.15
@@ -734,8 +734,8 @@ So the <strong>left-hand eigenvector</strong> <span class="math inline">\(\mathb
 ## [1,] 0.2432601  7.071068e-01  0.4082483
 ## [2,] 0.8919538 -6.077150e-16 -0.8164966
 ## [3,] 0.3811075 -7.071068e-01  0.4082483</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1">u =<span class="st"> </span>u.eigen<span class="op">$</span>vectors[,<span class="dv">1</span>]; </a>
-<a class="sourceLine" id="cb56-2" data-line-number="2">u.normalized =<span class="st"> </span>u<span class="op">/</span><span class="kw">sum</span>(u); u.normalized <span class="co"># see "Convergence and the principal eigenvalues" for the reason of normalization.</span></a></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1">u =<span class="st"> </span>u.eigen<span class="op">$</span>vectors[,<span class="dv">1</span>]; </a>
+<a class="sourceLine" id="cb57-2" data-line-number="2">u.normalized =<span class="st"> </span>u<span class="op">/</span><span class="kw">sum</span>(u); u.normalized <span class="co"># see "Convergence and the principal eigenvalues" for the reason of normalization.</span></a></code></pre></div>
 <pre><code>## [1] 0.1604278 0.5882353 0.2513369</code></pre>
 <p>
 <span class="marginnote shownote">
@@ -745,12 +745,12 @@ So the <strong>left-hand eigenvector</strong> <span class="math inline">\(\mathb
 <p class="caption marginnote">-->Figure 13.6: The product of the right-hand and left-hand eigenvector matrices shows non-zero diagonals (the orthogonality of these two matrices) <!--</p>-->
 <!--</div>--></span>
 </p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="co"># About the basis (see "Convergence and the principal eigenvalues") </span></a>
-<a class="sourceLine" id="cb58-2" data-line-number="2">V=v.eigen<span class="op">$</span>vectors; <span class="co">#right-hand eigenvector matrix</span></a>
-<a class="sourceLine" id="cb58-3" data-line-number="3">U=u.eigen<span class="op">$</span>vectors  <span class="co">#left-hand eigenvector matrix</span></a>
-<a class="sourceLine" id="cb58-4" data-line-number="4"><span class="kw">library</span>(Matrix); VU=<span class="kw">Matrix</span>(<span class="kw">t</span>(U)<span class="op">%*%</span>V, <span class="dt">sparse=</span><span class="ot">TRUE</span>); <span class="kw">image</span>(VU) <span class="co"># plot the diagonal matrix</span></a></code></pre></div>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1"><span class="co"># The limit of P^t</span></a>
-<a class="sourceLine" id="cb59-2" data-line-number="2">P<span class="op">%^%</span><span class="dv">1000</span></a></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1"><span class="co"># About the basis (see "Convergence and the principal eigenvalues") </span></a>
+<a class="sourceLine" id="cb59-2" data-line-number="2">V=v.eigen<span class="op">$</span>vectors; <span class="co">#right-hand eigenvector matrix</span></a>
+<a class="sourceLine" id="cb59-3" data-line-number="3">U=u.eigen<span class="op">$</span>vectors  <span class="co">#left-hand eigenvector matrix</span></a>
+<a class="sourceLine" id="cb59-4" data-line-number="4"><span class="kw">library</span>(Matrix); VU=<span class="kw">Matrix</span>(<span class="kw">t</span>(U)<span class="op">%*%</span>V, <span class="dt">sparse=</span><span class="ot">TRUE</span>); <span class="kw">image</span>(VU) <span class="co"># plot the diagonal matrix</span></a></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="co"># The limit of P^t</span></a>
+<a class="sourceLine" id="cb60-2" data-line-number="2">P<span class="op">%^%</span><span class="dv">1000</span></a></code></pre></div>
 <pre><code>##           [,1]      [,2]      [,3]
 ## [1,] 0.1604278 0.5882353 0.2513369
 ## [2,] 0.1604278 0.5882353 0.2513369
@@ -786,34 +786,34 @@ Simulate the random walks <span id="sol-start-64" class="fa fa-plus-square solut
 </p>
 <div id="sol-body-64" class="solution-body" style="display: none;">
 <p>The simulation in figure <a href="ch-UnMulti.html#fig:rw">13.3</a> is based on the following codes.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="kw">library</span>(markovchain)</a>
-<a class="sourceLine" id="cb61-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb61-3" data-line-number="3">N=<span class="dv">100</span>;  P=<span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span>N,<span class="dt">ncol=</span>N);</a>
-<a class="sourceLine" id="cb61-4" data-line-number="4">p=<span class="fl">0.5</span>; q=<span class="fl">0.5</span>;</a>
-<a class="sourceLine" id="cb61-5" data-line-number="5"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="dv">-1</span>)){</a>
-<a class="sourceLine" id="cb61-6" data-line-number="6">    P[i<span class="op">+</span><span class="dv">1</span>,i]=q;</a>
-<a class="sourceLine" id="cb61-7" data-line-number="7">    P[i<span class="dv">-1</span>,i]=q</a>
-<a class="sourceLine" id="cb61-8" data-line-number="8">}</a>
-<a class="sourceLine" id="cb61-9" data-line-number="9"><span class="co"># Boundary conditions</span></a>
-<a class="sourceLine" id="cb61-10" data-line-number="10">P[<span class="dv">1</span>,<span class="dv">1</span>]=<span class="dv">1</span>; P[<span class="dv">2</span>,<span class="dv">1</span>]=<span class="fl">0.5</span>;P[<span class="dv">1</span>,<span class="dv">2</span>]=<span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb61-11" data-line-number="11">P[N,N]=<span class="dv">1</span>;P[N<span class="dv">-1</span>,N]=<span class="fl">0.5</span>; P[N,N<span class="dv">-1</span>]=<span class="dv">0</span></a>
-<a class="sourceLine" id="cb61-12" data-line-number="12"><span class="co"># P[1,1]=0.5; P[1,2]=0.5; P[N,N-1]=0.5; P[N,N]=0.5</span></a>
-<a class="sourceLine" id="cb61-13" data-line-number="13">P[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>] </a>
-<a class="sourceLine" id="cb61-14" data-line-number="14">P[(N<span class="dv">-5</span>)<span class="op">:</span>N,(N<span class="dv">-5</span>)<span class="op">:</span>N]</a>
-<a class="sourceLine" id="cb61-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb61-16" data-line-number="16"><span class="kw">set.seed</span>(<span class="dv">2020</span>)</a>
-<a class="sourceLine" id="cb61-17" data-line-number="17">MC=<span class="st"> </span><span class="kw">new</span>(<span class="st">"markovchain"</span>, <span class="dt">transitionMatrix=</span>P)</a>
-<a class="sourceLine" id="cb61-18" data-line-number="18"><span class="kw">is.irreducible</span>(MC) </a>
-<a class="sourceLine" id="cb61-19" data-line-number="19"><span class="kw">absorbingStates</span>(MC)</a>
-<a class="sourceLine" id="cb61-20" data-line-number="20">X.omega1=<span class="kw">markovchainSequence</span>(<span class="dt">n=</span><span class="dv">500</span>, <span class="dt">markovchain=</span>MC, <span class="dt">t0=</span><span class="dv">30</span>, <span class="dt">include.t0 =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb61-21" data-line-number="21">X.omega2=<span class="kw">markovchainSequence</span>(<span class="dt">n=</span><span class="dv">500</span>, <span class="dt">markovchain=</span>MC, <span class="dt">t0=</span><span class="dv">30</span>, <span class="dt">include.t0 =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb61-22" data-line-number="22">X.omega3=<span class="kw">markovchainSequence</span>(<span class="dt">n=</span><span class="dv">500</span>, <span class="dt">markovchain=</span>MC, <span class="dt">t0=</span><span class="dv">30</span>, <span class="dt">include.t0 =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb61-23" data-line-number="23">time=<span class="dv">1</span><span class="op">:</span><span class="dv">501</span>;</a>
-<a class="sourceLine" id="cb61-24" data-line-number="24">d=<span class="kw">data.frame</span>(time,X.omega1,X.omega2,X.omega3)</a></code></pre></div>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="co"># Plot</span></a>
-<a class="sourceLine" id="cb62-2" data-line-number="2"><span class="kw">library</span>(ggplot2); <span class="kw">library</span>(reshape2); <span class="kw">library</span>(gganimate)</a>
-<a class="sourceLine" id="cb62-3" data-line-number="3">fig=<span class="kw">ggplot</span>( <span class="kw">melt</span>(d, <span class="dt">id.vars=</span><span class="st">"time"</span>), <span class="kw">aes</span>(time, value, <span class="dt">colour=</span>variable, <span class="dt">group=</span>variable)) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">y =</span><span class="st">"state"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
-<a class="sourceLine" id="cb62-4" data-line-number="4">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span><span class="kw">transition_time</span>(<span class="dt">time=</span>time) <span class="op">+</span><span class="st"> </span><span class="kw">shadow_mark</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="kw">library</span>(markovchain)</a>
+<a class="sourceLine" id="cb62-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb62-3" data-line-number="3">N=<span class="dv">100</span>;  P=<span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span>N,<span class="dt">ncol=</span>N);</a>
+<a class="sourceLine" id="cb62-4" data-line-number="4">p=<span class="fl">0.5</span>; q=<span class="fl">0.5</span>;</a>
+<a class="sourceLine" id="cb62-5" data-line-number="5"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="dv">-1</span>)){</a>
+<a class="sourceLine" id="cb62-6" data-line-number="6">    P[i<span class="op">+</span><span class="dv">1</span>,i]=q;</a>
+<a class="sourceLine" id="cb62-7" data-line-number="7">    P[i<span class="dv">-1</span>,i]=q</a>
+<a class="sourceLine" id="cb62-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb62-9" data-line-number="9"><span class="co"># Boundary conditions</span></a>
+<a class="sourceLine" id="cb62-10" data-line-number="10">P[<span class="dv">1</span>,<span class="dv">1</span>]=<span class="dv">1</span>; P[<span class="dv">2</span>,<span class="dv">1</span>]=<span class="fl">0.5</span>;P[<span class="dv">1</span>,<span class="dv">2</span>]=<span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb62-11" data-line-number="11">P[N,N]=<span class="dv">1</span>;P[N<span class="dv">-1</span>,N]=<span class="fl">0.5</span>; P[N,N<span class="dv">-1</span>]=<span class="dv">0</span></a>
+<a class="sourceLine" id="cb62-12" data-line-number="12"><span class="co"># P[1,1]=0.5; P[1,2]=0.5; P[N,N-1]=0.5; P[N,N]=0.5</span></a>
+<a class="sourceLine" id="cb62-13" data-line-number="13">P[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>] </a>
+<a class="sourceLine" id="cb62-14" data-line-number="14">P[(N<span class="dv">-5</span>)<span class="op">:</span>N,(N<span class="dv">-5</span>)<span class="op">:</span>N]</a>
+<a class="sourceLine" id="cb62-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb62-16" data-line-number="16"><span class="kw">set.seed</span>(<span class="dv">2020</span>)</a>
+<a class="sourceLine" id="cb62-17" data-line-number="17">MC=<span class="st"> </span><span class="kw">new</span>(<span class="st">"markovchain"</span>, <span class="dt">transitionMatrix=</span>P)</a>
+<a class="sourceLine" id="cb62-18" data-line-number="18"><span class="kw">is.irreducible</span>(MC) </a>
+<a class="sourceLine" id="cb62-19" data-line-number="19"><span class="kw">absorbingStates</span>(MC)</a>
+<a class="sourceLine" id="cb62-20" data-line-number="20">X.omega1=<span class="kw">markovchainSequence</span>(<span class="dt">n=</span><span class="dv">500</span>, <span class="dt">markovchain=</span>MC, <span class="dt">t0=</span><span class="dv">30</span>, <span class="dt">include.t0 =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb62-21" data-line-number="21">X.omega2=<span class="kw">markovchainSequence</span>(<span class="dt">n=</span><span class="dv">500</span>, <span class="dt">markovchain=</span>MC, <span class="dt">t0=</span><span class="dv">30</span>, <span class="dt">include.t0 =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb62-22" data-line-number="22">X.omega3=<span class="kw">markovchainSequence</span>(<span class="dt">n=</span><span class="dv">500</span>, <span class="dt">markovchain=</span>MC, <span class="dt">t0=</span><span class="dv">30</span>, <span class="dt">include.t0 =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb62-23" data-line-number="23">time=<span class="dv">1</span><span class="op">:</span><span class="dv">501</span>;</a>
+<a class="sourceLine" id="cb62-24" data-line-number="24">d=<span class="kw">data.frame</span>(time,X.omega1,X.omega2,X.omega3)</a></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="co"># Plot</span></a>
+<a class="sourceLine" id="cb63-2" data-line-number="2"><span class="kw">library</span>(ggplot2); <span class="kw">library</span>(reshape2); <span class="kw">library</span>(gganimate)</a>
+<a class="sourceLine" id="cb63-3" data-line-number="3">fig=<span class="kw">ggplot</span>( <span class="kw">melt</span>(d, <span class="dt">id.vars=</span><span class="st">"time"</span>), <span class="kw">aes</span>(time, value, <span class="dt">colour=</span>variable, <span class="dt">group=</span>variable)) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">y =</span><span class="st">"state"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb63-4" data-line-number="4">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span><span class="kw">transition_time</span>(<span class="dt">time=</span>time) <span class="op">+</span><span class="st"> </span><span class="kw">shadow_mark</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -842,19 +842,19 @@ We can see that the chain cannot reach the other states once it visits either th
 Gambler’s ruining problem <span id="sol-start-65" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-65', 'sol-start-65')"></span>
 </p>
 <div id="sol-body-65" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="co"># two unit eigenvalues</span></a>
-<a class="sourceLine" id="cb63-2" data-line-number="2">N=<span class="dv">10</span>;  P=<span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span>N,<span class="dt">ncol=</span>N);</a>
-<a class="sourceLine" id="cb63-3" data-line-number="3">q=<span class="fl">0.5</span>;</a>
-<a class="sourceLine" id="cb63-4" data-line-number="4"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="dv">-1</span>)){</a>
-<a class="sourceLine" id="cb63-5" data-line-number="5">    P[i<span class="op">+</span><span class="dv">1</span>,i]=q;</a>
-<a class="sourceLine" id="cb63-6" data-line-number="6">    P[i<span class="dv">-1</span>,i]=<span class="dv">1</span><span class="op">-</span>q</a>
-<a class="sourceLine" id="cb63-7" data-line-number="7">}</a>
-<a class="sourceLine" id="cb63-8" data-line-number="8"><span class="co"># Boundary conditions</span></a>
-<a class="sourceLine" id="cb63-9" data-line-number="9">P[<span class="dv">1</span>,<span class="dv">1</span>]=<span class="dv">1</span>; P[<span class="dv">2</span>,<span class="dv">1</span>]=<span class="fl">0.5</span>;P[<span class="dv">1</span>,<span class="dv">2</span>]=<span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb63-10" data-line-number="10">P[N,N]=<span class="dv">1</span>;P[N<span class="dv">-1</span>,N]=<span class="fl">0.5</span>; P[N,N<span class="dv">-1</span>]=<span class="dv">0</span></a>
-<a class="sourceLine" id="cb63-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb63-12" data-line-number="12"><span class="co"># Eigenvalues and left-hand eigenvectors</span></a>
-<a class="sourceLine" id="cb63-13" data-line-number="13"><span class="kw">eigen</span>(<span class="kw">t</span>(P))</a></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="co"># two unit eigenvalues</span></a>
+<a class="sourceLine" id="cb64-2" data-line-number="2">N=<span class="dv">10</span>;  P=<span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span>N,<span class="dt">ncol=</span>N);</a>
+<a class="sourceLine" id="cb64-3" data-line-number="3">q=<span class="fl">0.5</span>;</a>
+<a class="sourceLine" id="cb64-4" data-line-number="4"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="dv">-1</span>)){</a>
+<a class="sourceLine" id="cb64-5" data-line-number="5">    P[i<span class="op">+</span><span class="dv">1</span>,i]=q;</a>
+<a class="sourceLine" id="cb64-6" data-line-number="6">    P[i<span class="dv">-1</span>,i]=<span class="dv">1</span><span class="op">-</span>q</a>
+<a class="sourceLine" id="cb64-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb64-8" data-line-number="8"><span class="co"># Boundary conditions</span></a>
+<a class="sourceLine" id="cb64-9" data-line-number="9">P[<span class="dv">1</span>,<span class="dv">1</span>]=<span class="dv">1</span>; P[<span class="dv">2</span>,<span class="dv">1</span>]=<span class="fl">0.5</span>;P[<span class="dv">1</span>,<span class="dv">2</span>]=<span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb64-10" data-line-number="10">P[N,N]=<span class="dv">1</span>;P[N<span class="dv">-1</span>,N]=<span class="fl">0.5</span>; P[N,N<span class="dv">-1</span>]=<span class="dv">0</span></a>
+<a class="sourceLine" id="cb64-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb64-12" data-line-number="12"><span class="co"># Eigenvalues and left-hand eigenvectors</span></a>
+<a class="sourceLine" id="cb64-13" data-line-number="13"><span class="kw">eigen</span>(<span class="kw">t</span>(P))</a></code></pre></div>
 <pre><code>## eigen() decomposition
 ## $values
 ##  [1]  1.0000000  1.0000000 -0.9396926  0.9396926  0.7660444 -0.7660444
@@ -883,7 +883,7 @@ Gambler’s ruining problem <span id="sol-start-65" class="fa fa-plus-square sol
 ##  [8,] -4.008919e-01 -3.535534e-01  0.1552706 -0.1498398
 ##  [9,]  4.008919e-01 -3.535534e-01 -0.4470840 -0.4314464
 ## [10,] -1.336306e-01  3.535534e-01  0.1904676  0.2610549</code></pre>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1">Pplot=<span class="kw">Matrix</span>(P, <span class="dt">sparse=</span><span class="ot">TRUE</span>); <span class="kw">image</span>(Pplot, <span class="dt">main=</span><span class="st">"t=1"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1">Pplot=<span class="kw">Matrix</span>(P, <span class="dt">sparse=</span><span class="ot">TRUE</span>); <span class="kw">image</span>(Pplot, <span class="dt">main=</span><span class="st">"t=1"</span>)</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -929,12 +929,12 @@ cannot be unique.</p>
 Ouroboros <span id="sol-start-66" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-66', 'sol-start-66')"></span>
 </p>
 <div id="sol-body-66" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="co"># eigenvalues: 1 and -1; period 2</span></a>
-<a class="sourceLine" id="cb66-2" data-line-number="2">P =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb66-3" data-line-number="3">             <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb66-4" data-line-number="4">             <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="fl">0.5</span>,</a>
-<a class="sourceLine" id="cb66-5" data-line-number="5">             <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">nrow=</span><span class="dv">4</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb66-6" data-line-number="6"><span class="kw">eigen</span>(<span class="kw">t</span>(P))</a></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="co"># eigenvalues: 1 and -1; period 2</span></a>
+<a class="sourceLine" id="cb67-2" data-line-number="2">P =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb67-3" data-line-number="3">             <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb67-4" data-line-number="4">             <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="fl">0.5</span>,</a>
+<a class="sourceLine" id="cb67-5" data-line-number="5">             <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">nrow=</span><span class="dv">4</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb67-6" data-line-number="6"><span class="kw">eigen</span>(<span class="kw">t</span>(P))</a></code></pre></div>
 <pre><code>## eigen() decomposition
 ## $values
 ## [1] -1+0.0i  1+0.0i  0+0.5i  0-0.5i
@@ -945,66 +945,66 @@ Ouroboros <span id="sol-start-66" class="fa fa-plus-square solution-icon clickab
 ## [2,] -0.7302967+0i 0.7302967+0i -0.5-0.0i -0.5+0.0i
 ## [3,]  0.3651484+0i 0.3651484+0i  0.0+0.5i  0.0-0.5i
 ## [4,] -0.1825742+0i 0.1825742+0i  0.5+0.0i  0.5+0.0i</code></pre>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1">P<span class="op">%^%</span><span class="dv">25</span></a></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1">P<span class="op">%^%</span><span class="dv">25</span></a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]  0.0  0.8  0.0  0.2
 ## [2,]  0.6  0.0  0.4  0.0
 ## [3,]  0.0  0.8  0.0  0.2
 ## [4,]  0.6  0.0  0.4  0.0</code></pre>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1">P<span class="op">%^%</span><span class="dv">26</span></a></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1">P<span class="op">%^%</span><span class="dv">26</span></a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]  0.6  0.0  0.4  0.0
 ## [2,]  0.0  0.8  0.0  0.2
 ## [3,]  0.6  0.0  0.4  0.0
 ## [4,]  0.0  0.8  0.0  0.2</code></pre>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1">P<span class="op">%^%</span><span class="dv">27</span></a></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1">P<span class="op">%^%</span><span class="dv">27</span></a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]  0.0  0.8  0.0  0.2
 ## [2,]  0.6  0.0  0.4  0.0
 ## [3,]  0.0  0.8  0.0  0.2
 ## [4,]  0.6  0.0  0.4  0.0</code></pre>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1">u2.eigen=<span class="kw">eigen</span>(<span class="kw">t</span>(P))<span class="op">$</span>vectors[,<span class="dv">2</span>]</a>
-<a class="sourceLine" id="cb74-2" data-line-number="2">u2=u2.eigen<span class="op">/</span>(<span class="kw">sum</span>(u2.eigen))</a>
-<a class="sourceLine" id="cb74-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb74-4" data-line-number="4"><span class="kw">c</span>(<span class="fl">0.25</span>,<span class="fl">0.25</span>,<span class="fl">0.25</span>,<span class="fl">0.25</span>)<span class="op">%*%</span>(P<span class="op">%^%</span><span class="dv">1000</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1">u2.eigen=<span class="kw">eigen</span>(<span class="kw">t</span>(P))<span class="op">$</span>vectors[,<span class="dv">2</span>]</a>
+<a class="sourceLine" id="cb75-2" data-line-number="2">u2=u2.eigen<span class="op">/</span>(<span class="kw">sum</span>(u2.eigen))</a>
+<a class="sourceLine" id="cb75-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb75-4" data-line-number="4"><span class="kw">c</span>(<span class="fl">0.25</span>,<span class="fl">0.25</span>,<span class="fl">0.25</span>,<span class="fl">0.25</span>)<span class="op">%*%</span>(P<span class="op">%^%</span><span class="dv">1000</span>)</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]  0.3  0.4  0.2  0.1</code></pre>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="kw">c</span>(<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.2</span>,<span class="fl">0.6</span>)<span class="op">%*%</span>(P<span class="op">%^%</span><span class="dv">1000</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="kw">c</span>(<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.2</span>,<span class="fl">0.6</span>)<span class="op">%*%</span>(P<span class="op">%^%</span><span class="dv">1000</span>)</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,] 0.18 0.56 0.12 0.14</code></pre>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1"><span class="kw">c</span>(<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.2</span>,<span class="fl">0.6</span>)<span class="op">%*%</span>(P<span class="op">%^%</span><span class="dv">1001</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="kw">c</span>(<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.2</span>,<span class="fl">0.6</span>)<span class="op">%*%</span>(P<span class="op">%^%</span><span class="dv">1001</span>)</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,] 0.42 0.24 0.28 0.06</code></pre>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1"><span class="kw">c</span>(<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.2</span>,<span class="fl">0.6</span>)<span class="op">%*%</span>(P<span class="op">%^%</span><span class="dv">1002</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="kw">c</span>(<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.2</span>,<span class="fl">0.6</span>)<span class="op">%*%</span>(P<span class="op">%^%</span><span class="dv">1002</span>)</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,] 0.18 0.56 0.12 0.14</code></pre>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1"><span class="co"># Network Plot</span></a>
-<a class="sourceLine" id="cb82-2" data-line-number="2">N=<span class="dv">10</span>;  P=<span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span>N,<span class="dt">ncol=</span>N);</a>
-<a class="sourceLine" id="cb82-3" data-line-number="3">q=<span class="fl">0.5</span>;</a>
-<a class="sourceLine" id="cb82-4" data-line-number="4"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="dv">-1</span>)){</a>
-<a class="sourceLine" id="cb82-5" data-line-number="5">    P[i<span class="op">+</span><span class="dv">1</span>,i]=q;</a>
-<a class="sourceLine" id="cb82-6" data-line-number="6">    P[i<span class="dv">-1</span>,i]=<span class="dv">1</span><span class="op">-</span>q</a>
-<a class="sourceLine" id="cb82-7" data-line-number="7">}</a>
-<a class="sourceLine" id="cb82-8" data-line-number="8"><span class="co"># Boundary conditions</span></a>
-<a class="sourceLine" id="cb82-9" data-line-number="9">P[<span class="dv">1</span>,<span class="dv">1</span>]=<span class="dv">1</span>; P[<span class="dv">2</span>,<span class="dv">1</span>]=<span class="fl">0.5</span>;P[<span class="dv">1</span>,<span class="dv">2</span>]=<span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb82-10" data-line-number="10">P[N,N]=<span class="dv">1</span>;P[N<span class="dv">-1</span>,N]=<span class="fl">0.5</span>; P[N,N<span class="dv">-1</span>]=<span class="dv">0</span></a>
-<a class="sourceLine" id="cb82-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb82-12" data-line-number="12">N=<span class="dv">10</span>;  Q=<span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span>N,<span class="dt">ncol=</span>N);</a>
-<a class="sourceLine" id="cb82-13" data-line-number="13">q=<span class="fl">0.5</span>;</a>
-<a class="sourceLine" id="cb82-14" data-line-number="14"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="dv">-1</span>)){</a>
-<a class="sourceLine" id="cb82-15" data-line-number="15">    Q[i<span class="op">+</span><span class="dv">1</span>,i]=q;</a>
-<a class="sourceLine" id="cb82-16" data-line-number="16">    Q[i<span class="dv">-1</span>,i]=<span class="dv">1</span><span class="op">-</span>q</a>
-<a class="sourceLine" id="cb82-17" data-line-number="17">}</a>
-<a class="sourceLine" id="cb82-18" data-line-number="18"><span class="co"># Boundary conditions</span></a>
-<a class="sourceLine" id="cb82-19" data-line-number="19">Q[<span class="dv">1</span>,<span class="dv">1</span>]=<span class="dv">0</span>; Q[<span class="dv">2</span>,<span class="dv">1</span>]=<span class="fl">0.5</span>;Q[<span class="dv">1</span>,<span class="dv">2</span>]=<span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb82-20" data-line-number="20">Q[N,N]=<span class="dv">0</span>;Q[N<span class="dv">-1</span>,N]=<span class="fl">0.5</span>; Q[N,N<span class="dv">-1</span>]=<span class="dv">0</span>; Q[N,<span class="dv">1</span>]=<span class="dv">1</span></a>
-<a class="sourceLine" id="cb82-21" data-line-number="21"></a>
-<a class="sourceLine" id="cb82-22" data-line-number="22"><span class="kw">library</span>(igraph)</a>
-<a class="sourceLine" id="cb82-23" data-line-number="23">p1=<span class="kw">graph.adjacency</span>(P, <span class="st">"directed"</span>, <span class="dt">weighted =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb82-24" data-line-number="24">p2=<span class="kw">graph.adjacency</span>(Q, <span class="st">"directed"</span>, <span class="dt">weighted =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb82-25" data-line-number="25"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb82-26" data-line-number="26"><span class="kw">plot</span>(p1, <span class="dt">layout=</span><span class="kw">layout_in_circle</span>(p1), <span class="dt">main=</span><span class="st">"Gambler's ruin"</span>, <span class="dt">vertex.color =</span> <span class="st">"gray90"</span>, <span class="dt">edge.arrow.size=</span><span class="fl">0.2</span>)</a>
-<a class="sourceLine" id="cb82-27" data-line-number="27"><span class="kw">plot</span>(p2, <span class="dt">layout=</span><span class="kw">layout_in_circle</span>(p2), <span class="dt">main=</span><span class="st">"Ouroboros"</span>, <span class="dt">vertex.color =</span> <span class="st">"gray90"</span>, <span class="dt">edge.arrow.size=</span><span class="fl">0.2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="co"># Network Plot</span></a>
+<a class="sourceLine" id="cb83-2" data-line-number="2">N=<span class="dv">10</span>;  P=<span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span>N,<span class="dt">ncol=</span>N);</a>
+<a class="sourceLine" id="cb83-3" data-line-number="3">q=<span class="fl">0.5</span>;</a>
+<a class="sourceLine" id="cb83-4" data-line-number="4"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="dv">-1</span>)){</a>
+<a class="sourceLine" id="cb83-5" data-line-number="5">    P[i<span class="op">+</span><span class="dv">1</span>,i]=q;</a>
+<a class="sourceLine" id="cb83-6" data-line-number="6">    P[i<span class="dv">-1</span>,i]=<span class="dv">1</span><span class="op">-</span>q</a>
+<a class="sourceLine" id="cb83-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb83-8" data-line-number="8"><span class="co"># Boundary conditions</span></a>
+<a class="sourceLine" id="cb83-9" data-line-number="9">P[<span class="dv">1</span>,<span class="dv">1</span>]=<span class="dv">1</span>; P[<span class="dv">2</span>,<span class="dv">1</span>]=<span class="fl">0.5</span>;P[<span class="dv">1</span>,<span class="dv">2</span>]=<span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb83-10" data-line-number="10">P[N,N]=<span class="dv">1</span>;P[N<span class="dv">-1</span>,N]=<span class="fl">0.5</span>; P[N,N<span class="dv">-1</span>]=<span class="dv">0</span></a>
+<a class="sourceLine" id="cb83-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb83-12" data-line-number="12">N=<span class="dv">10</span>;  Q=<span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span>N,<span class="dt">ncol=</span>N);</a>
+<a class="sourceLine" id="cb83-13" data-line-number="13">q=<span class="fl">0.5</span>;</a>
+<a class="sourceLine" id="cb83-14" data-line-number="14"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="dv">-1</span>)){</a>
+<a class="sourceLine" id="cb83-15" data-line-number="15">    Q[i<span class="op">+</span><span class="dv">1</span>,i]=q;</a>
+<a class="sourceLine" id="cb83-16" data-line-number="16">    Q[i<span class="dv">-1</span>,i]=<span class="dv">1</span><span class="op">-</span>q</a>
+<a class="sourceLine" id="cb83-17" data-line-number="17">}</a>
+<a class="sourceLine" id="cb83-18" data-line-number="18"><span class="co"># Boundary conditions</span></a>
+<a class="sourceLine" id="cb83-19" data-line-number="19">Q[<span class="dv">1</span>,<span class="dv">1</span>]=<span class="dv">0</span>; Q[<span class="dv">2</span>,<span class="dv">1</span>]=<span class="fl">0.5</span>;Q[<span class="dv">1</span>,<span class="dv">2</span>]=<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb83-20" data-line-number="20">Q[N,N]=<span class="dv">0</span>;Q[N<span class="dv">-1</span>,N]=<span class="fl">0.5</span>; Q[N,N<span class="dv">-1</span>]=<span class="dv">0</span>; Q[N,<span class="dv">1</span>]=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb83-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb83-22" data-line-number="22"><span class="kw">library</span>(igraph)</a>
+<a class="sourceLine" id="cb83-23" data-line-number="23">p1=<span class="kw">graph.adjacency</span>(P, <span class="st">"directed"</span>, <span class="dt">weighted =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb83-24" data-line-number="24">p2=<span class="kw">graph.adjacency</span>(Q, <span class="st">"directed"</span>, <span class="dt">weighted =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb83-25" data-line-number="25"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb83-26" data-line-number="26"><span class="kw">plot</span>(p1, <span class="dt">layout=</span><span class="kw">layout_in_circle</span>(p1), <span class="dt">main=</span><span class="st">"Gambler's ruin"</span>, <span class="dt">vertex.color =</span> <span class="st">"gray90"</span>, <span class="dt">edge.arrow.size=</span><span class="fl">0.2</span>)</a>
+<a class="sourceLine" id="cb83-27" data-line-number="27"><span class="kw">plot</span>(p2, <span class="dt">layout=</span><span class="kw">layout_in_circle</span>(p2), <span class="dt">main=</span><span class="st">"Ouroboros"</span>, <span class="dt">vertex.color =</span> <span class="st">"gray90"</span>, <span class="dt">edge.arrow.size=</span><span class="fl">0.2</span>)</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1016,22 +1016,22 @@ Ouroboros <span id="sol-start-66" class="fa fa-plus-square solution-icon clickab
 An irreducible and aperiodic random walk <span id="sol-start-67" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-67', 'sol-start-67')"></span>
 </p>
 <div id="sol-body-67" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1">N=<span class="dv">10</span>;  P=<span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span>N,<span class="dt">ncol=</span>N);</a>
-<a class="sourceLine" id="cb83-2" data-line-number="2">q=<span class="fl">0.5</span>;</a>
-<a class="sourceLine" id="cb83-3" data-line-number="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="dv">-1</span>)){</a>
-<a class="sourceLine" id="cb83-4" data-line-number="4">    P[i<span class="op">+</span><span class="dv">1</span>,i]=q;</a>
-<a class="sourceLine" id="cb83-5" data-line-number="5">    P[i<span class="dv">-1</span>,i]=<span class="dv">1</span><span class="op">-</span>q</a>
-<a class="sourceLine" id="cb83-6" data-line-number="6">}</a>
-<a class="sourceLine" id="cb83-7" data-line-number="7"><span class="co"># Boundary conditions for an irreducible and aperiodic Markov chain</span></a>
-<a class="sourceLine" id="cb83-8" data-line-number="8">P[<span class="dv">1</span>,<span class="dv">1</span>]=<span class="fl">0.5</span>; P[<span class="dv">2</span>,<span class="dv">1</span>]=<span class="fl">0.5</span>;P[<span class="dv">1</span>,<span class="dv">2</span>]=<span class="fl">0.5</span>;</a>
-<a class="sourceLine" id="cb83-9" data-line-number="9">P[N,N]=<span class="fl">0.5</span>;P[N<span class="dv">-1</span>,N]=<span class="fl">0.5</span>; P[N,N<span class="dv">-1</span>]=<span class="fl">0.5</span> </a>
-<a class="sourceLine" id="cb83-10" data-line-number="10"><span class="kw">eigen</span>(<span class="kw">t</span>(P))<span class="op">$</span>values</a></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1">N=<span class="dv">10</span>;  P=<span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dt">nrow=</span>N,<span class="dt">ncol=</span>N);</a>
+<a class="sourceLine" id="cb84-2" data-line-number="2">q=<span class="fl">0.5</span>;</a>
+<a class="sourceLine" id="cb84-3" data-line-number="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(N<span class="dv">-1</span>)){</a>
+<a class="sourceLine" id="cb84-4" data-line-number="4">    P[i<span class="op">+</span><span class="dv">1</span>,i]=q;</a>
+<a class="sourceLine" id="cb84-5" data-line-number="5">    P[i<span class="dv">-1</span>,i]=<span class="dv">1</span><span class="op">-</span>q</a>
+<a class="sourceLine" id="cb84-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb84-7" data-line-number="7"><span class="co"># Boundary conditions for an irreducible and aperiodic Markov chain</span></a>
+<a class="sourceLine" id="cb84-8" data-line-number="8">P[<span class="dv">1</span>,<span class="dv">1</span>]=<span class="fl">0.5</span>; P[<span class="dv">2</span>,<span class="dv">1</span>]=<span class="fl">0.5</span>;P[<span class="dv">1</span>,<span class="dv">2</span>]=<span class="fl">0.5</span>;</a>
+<a class="sourceLine" id="cb84-9" data-line-number="9">P[N,N]=<span class="fl">0.5</span>;P[N<span class="dv">-1</span>,N]=<span class="fl">0.5</span>; P[N,N<span class="dv">-1</span>]=<span class="fl">0.5</span> </a>
+<a class="sourceLine" id="cb84-10" data-line-number="10"><span class="kw">eigen</span>(<span class="kw">t</span>(P))<span class="op">$</span>values</a></code></pre></div>
 <pre><code>##  [1]  1.000000e+00  9.510565e-01  8.090170e-01  5.877853e-01  3.090170e-01
 ##  [6] -4.440892e-16 -3.090170e-01 -5.877853e-01 -8.090170e-01 -9.510565e-01</code></pre>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1">u.eigen =<span class="st"> </span><span class="kw">eigen</span>(<span class="kw">t</span>(P))<span class="op">$</span>vector[,<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb85-2" data-line-number="2">u =<span class="st"> </span>u.eigen<span class="op">/</span><span class="kw">sum</span>(u.eigen); u</a></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">u.eigen =<span class="st"> </span><span class="kw">eigen</span>(<span class="kw">t</span>(P))<span class="op">$</span>vector[,<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb86-2" data-line-number="2">u =<span class="st"> </span>u.eigen<span class="op">/</span><span class="kw">sum</span>(u.eigen); u</a></code></pre></div>
 <pre><code>##  [1] 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1</code></pre>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1">P<span class="op">%^%</span><span class="dv">1000</span></a></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1">P<span class="op">%^%</span><span class="dv">1000</span></a></code></pre></div>
 <pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
 ##  [1,]  0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1   0.1
 ##  [2,]  0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1   0.1
@@ -1187,16 +1187,16 @@ The <strong>posterior</strong> follows
 \Pr(\theta(\alpha,\beta)|\mathbf{x})&amp;\propto\Pr(\mathbf{x}|\theta(\alpha,\beta))\Pr(\theta(\alpha,\beta))\\
 &amp;=  \frac{\beta^{\alpha}}{\prod_{i=1}^{n}x_{i}!\Gamma(\alpha)}\left(\theta^{\sum_{i=1}^{n}x_{i}}e^{-n\theta}\theta^{\alpha-1}e^{-\beta\theta}\right)\\&amp;\propto\theta^{\sum_{i=1}^{n}x_{i}+\alpha-1}e^{-(\beta+n)\theta}\end{align*}\]</span>
 which says that the <strong>posterior</strong> is proportional to another <a href="ch-CalUn.html#sub:divRV">Gamma distribution</a>, <span class="math inline">\(\mbox{Gamma}(\sum_{i=1}^{n}x_{i}+\alpha,\beta+n)\)</span>. Note that the posterior of <span class="math inline">\(\theta\)</span> updates the prior <span class="math inline">\(\mbox{Gamma}(\alpha,\beta)\)</span> by the information from the sample, namely <span class="math inline">\(\sum_{i}x_{i}\)</span> and <span class="math inline">\(n\)</span>.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1">n=<span class="dv">15</span>; <span class="co"># Number of observations</span></a>
-<a class="sourceLine" id="cb89-2" data-line-number="2">theta.under =<span class="st"> </span><span class="dv">3</span>  <span class="co"># Underlying parameter theta</span></a>
-<a class="sourceLine" id="cb89-3" data-line-number="3">theta.d =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">7</span>, <span class="fl">0.01</span>) <span class="co"># domain of theta</span></a>
-<a class="sourceLine" id="cb89-4" data-line-number="4">prior =<span class="st"> </span><span class="kw">dgamma</span>(theta.d, <span class="dt">shape=</span><span class="dv">1</span>, <span class="dt">rate=</span><span class="dv">1</span>) <span class="co"># prior density over the domain</span></a>
-<a class="sourceLine" id="cb89-5" data-line-number="5">x =<span class="st"> </span><span class="kw">rpois</span>(n, theta.under) <span class="co"># empirical evidence</span></a>
-<a class="sourceLine" id="cb89-6" data-line-number="6">posterior =<span class="st"> </span><span class="kw">dgamma</span>(theta.d, <span class="dt">shape=</span><span class="dv">1</span><span class="op">+</span><span class="kw">sum</span>(x), <span class="dt">rate=</span><span class="dv">1</span><span class="op">+</span>n) <span class="co"># posterior </span></a>
-<a class="sourceLine" id="cb89-7" data-line-number="7">data =<span class="st"> </span><span class="kw">data.frame</span>(theta.d, prior, posterior)</a>
-<a class="sourceLine" id="cb89-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb89-9" data-line-number="9"><span class="kw">library</span>(ggplot2);  <span class="kw">library</span>(reshape2)</a>
-<a class="sourceLine" id="cb89-10" data-line-number="10">fig =<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">melt</span>(data, <span class="dt">id.vars=</span><span class="st">"theta.d"</span>), <span class="kw">aes</span>(theta.d, value, <span class="dt">colour=</span>variable, <span class="dt">group=</span>variable)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span><span class="st">"Probability"</span>, <span class="dt">x=</span><span class="st">"x"</span>) <span class="op">+</span><span class="st">  </span><span class="kw">annotate</span>(<span class="dt">geom=</span><span class="st">"text"</span>, <span class="dt">x=</span><span class="dv">5</span>, <span class="dt">y=</span><span class="fl">0.8</span>, <span class="dt">label=</span><span class="st">"n=15"</span>, <span class="dt">color=</span><span class="st">"red"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1">n=<span class="dv">15</span>; <span class="co"># Number of observations</span></a>
+<a class="sourceLine" id="cb90-2" data-line-number="2">theta.under =<span class="st"> </span><span class="dv">3</span>  <span class="co"># Underlying parameter theta</span></a>
+<a class="sourceLine" id="cb90-3" data-line-number="3">theta.d =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">7</span>, <span class="fl">0.01</span>) <span class="co"># domain of theta</span></a>
+<a class="sourceLine" id="cb90-4" data-line-number="4">prior =<span class="st"> </span><span class="kw">dgamma</span>(theta.d, <span class="dt">shape=</span><span class="dv">1</span>, <span class="dt">rate=</span><span class="dv">1</span>) <span class="co"># prior density over the domain</span></a>
+<a class="sourceLine" id="cb90-5" data-line-number="5">x =<span class="st"> </span><span class="kw">rpois</span>(n, theta.under) <span class="co"># empirical evidence</span></a>
+<a class="sourceLine" id="cb90-6" data-line-number="6">posterior =<span class="st"> </span><span class="kw">dgamma</span>(theta.d, <span class="dt">shape=</span><span class="dv">1</span><span class="op">+</span><span class="kw">sum</span>(x), <span class="dt">rate=</span><span class="dv">1</span><span class="op">+</span>n) <span class="co"># posterior </span></a>
+<a class="sourceLine" id="cb90-7" data-line-number="7">data =<span class="st"> </span><span class="kw">data.frame</span>(theta.d, prior, posterior)</a>
+<a class="sourceLine" id="cb90-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb90-9" data-line-number="9"><span class="kw">library</span>(ggplot2);  <span class="kw">library</span>(reshape2)</a>
+<a class="sourceLine" id="cb90-10" data-line-number="10">fig =<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">melt</span>(data, <span class="dt">id.vars=</span><span class="st">"theta.d"</span>), <span class="kw">aes</span>(theta.d, value, <span class="dt">colour=</span>variable, <span class="dt">group=</span>variable)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span><span class="st">"Probability"</span>, <span class="dt">x=</span><span class="st">"x"</span>) <span class="op">+</span><span class="st">  </span><span class="kw">annotate</span>(<span class="dt">geom=</span><span class="st">"text"</span>, <span class="dt">x=</span><span class="dv">5</span>, <span class="dt">y=</span><span class="fl">0.8</span>, <span class="dt">label=</span><span class="st">"n=15"</span>, <span class="dt">color=</span><span class="st">"red"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1217,7 +1217,7 @@ which says that the <strong>posterior</strong> is proportional to another <a hre
 <a href="part-iv-three-masons-to-illuminate-the-dual-world.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-02-10
+2021-03-10
 </p>
 </div>
 </div>

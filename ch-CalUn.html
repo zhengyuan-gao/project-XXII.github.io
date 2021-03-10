@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2021-02-10" />
+<meta name="date" content="2021-03-10" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -335,15 +335,15 @@ Because <span class="math inline">\(F\)</span> is <a href="sub-continuity.html#s
 R code for plotting distribution function <span id="sol-start-22" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-22', 'sol-start-22')"></span>
 </p>
 <div id="sol-body-22" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">y =<span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">3</span>; <span class="co"># values of y</span></a>
-<a class="sourceLine" id="cb17-2" data-line-number="2">py =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">8</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">8</span>); <span class="co"># corresponding probability mass </span></a>
-<a class="sourceLine" id="cb17-3" data-line-number="3">cdfy =<span class="st"> </span><span class="kw">cumsum</span>(py)<span class="op">/</span><span class="kw">sum</span>(py); <span class="co"># cumulative distribution function </span></a>
-<a class="sourceLine" id="cb17-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb17-5" data-line-number="5"><span class="co"># plot </span></a>
-<a class="sourceLine" id="cb17-6" data-line-number="6"><span class="kw">library</span>(ggplot2) </a>
-<a class="sourceLine" id="cb17-7" data-line-number="7">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,py,cdfy)</a>
-<a class="sourceLine" id="cb17-8" data-line-number="8">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, cdfy))</a>
-<a class="sourceLine" id="cb17-9" data-line-number="9">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(y,py), <span class="dt">fill=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_step</span>(<span class="kw">aes</span>(y,cdfy), <span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">y =<span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">3</span>; <span class="co"># values of y</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">py =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">8</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">8</span>); <span class="co"># corresponding probability mass </span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">cdfy =<span class="st"> </span><span class="kw">cumsum</span>(py)<span class="op">/</span><span class="kw">sum</span>(py); <span class="co"># cumulative distribution function </span></a>
+<a class="sourceLine" id="cb18-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb18-5" data-line-number="5"><span class="co"># plot </span></a>
+<a class="sourceLine" id="cb18-6" data-line-number="6"><span class="kw">library</span>(ggplot2) </a>
+<a class="sourceLine" id="cb18-7" data-line-number="7">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,py,cdfy)</a>
+<a class="sourceLine" id="cb18-8" data-line-number="8">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, cdfy))</a>
+<a class="sourceLine" id="cb18-9" data-line-number="9">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(y,py), <span class="dt">fill=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_step</span>(<span class="kw">aes</span>(y,cdfy), <span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -379,19 +379,19 @@ It is straightforward to generate binomial probability mass function and its dis
 R code for binomial distribution function <span id="sol-start-23" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-23', 'sol-start-23')"></span>
 </p>
 <div id="sol-body-23" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co"># Create a sample of 20 numbers which are incremented by 1. </span></a>
-<a class="sourceLine" id="cb18-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="dt">by =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="co"># Create the binomial density.</span></a>
-<a class="sourceLine" id="cb18-4" data-line-number="4">den1 =<span class="st"> </span><span class="kw">dbinom</span>(y,<span class="dv">20</span>,<span class="fl">0.3</span>); den2 =<span class="st"> </span><span class="kw">dbinom</span>(y,<span class="dv">20</span>,<span class="fl">0.5</span>); den3 =<span class="st"> </span><span class="kw">dbinom</span>(y,<span class="dv">20</span>,<span class="fl">0.8</span>)</a>
-<a class="sourceLine" id="cb18-5" data-line-number="5"><span class="co"># Create the cumulative distribution function</span></a>
-<a class="sourceLine" id="cb18-6" data-line-number="6">cdf1 =<span class="st"> </span><span class="kw">cumsum</span>(den1)<span class="op">/</span><span class="kw">sum</span>(den1); cdf2 =<span class="st"> </span><span class="kw">cumsum</span>(den2)<span class="op">/</span><span class="kw">sum</span>(den2); cdf3 =<span class="st"> </span><span class="kw">cumsum</span>(den3)<span class="op">/</span><span class="kw">sum</span>(den3)</a>
-<a class="sourceLine" id="cb18-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb18-8" data-line-number="8"><span class="co"># Plot</span></a>
-<a class="sourceLine" id="cb18-9" data-line-number="9">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,den1,cdf1,den2,cdf2,den3,cdf3)</a>
-<a class="sourceLine" id="cb18-10" data-line-number="10"><span class="kw">png</span>(<span class="dt">file =</span> <span class="st">"dbinom.png"</span>)</a>
-<a class="sourceLine" id="cb18-11" data-line-number="11">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, cdf1))</a>
-<a class="sourceLine" id="cb18-12" data-line-number="12">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(y,den1), <span class="dt">fill=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_step</span>(<span class="kw">aes</span>(y,cdf1), <span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>, <span class="dt">title=</span><span class="st">"k=20, p=0.3"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
-<a class="sourceLine" id="cb18-13" data-line-number="13"><span class="kw">dev.off</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># Create a sample of 20 numbers which are incremented by 1. </span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="dt">by =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="co"># Create the binomial density.</span></a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">den1 =<span class="st"> </span><span class="kw">dbinom</span>(y,<span class="dv">20</span>,<span class="fl">0.3</span>); den2 =<span class="st"> </span><span class="kw">dbinom</span>(y,<span class="dv">20</span>,<span class="fl">0.5</span>); den3 =<span class="st"> </span><span class="kw">dbinom</span>(y,<span class="dv">20</span>,<span class="fl">0.8</span>)</a>
+<a class="sourceLine" id="cb19-5" data-line-number="5"><span class="co"># Create the cumulative distribution function</span></a>
+<a class="sourceLine" id="cb19-6" data-line-number="6">cdf1 =<span class="st"> </span><span class="kw">cumsum</span>(den1)<span class="op">/</span><span class="kw">sum</span>(den1); cdf2 =<span class="st"> </span><span class="kw">cumsum</span>(den2)<span class="op">/</span><span class="kw">sum</span>(den2); cdf3 =<span class="st"> </span><span class="kw">cumsum</span>(den3)<span class="op">/</span><span class="kw">sum</span>(den3)</a>
+<a class="sourceLine" id="cb19-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb19-8" data-line-number="8"><span class="co"># Plot</span></a>
+<a class="sourceLine" id="cb19-9" data-line-number="9">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,den1,cdf1,den2,cdf2,den3,cdf3)</a>
+<a class="sourceLine" id="cb19-10" data-line-number="10"><span class="kw">png</span>(<span class="dt">file =</span> <span class="st">"dbinom.png"</span>)</a>
+<a class="sourceLine" id="cb19-11" data-line-number="11">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, cdf1))</a>
+<a class="sourceLine" id="cb19-12" data-line-number="12">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(y,den1), <span class="dt">fill=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_step</span>(<span class="kw">aes</span>(y,cdf1), <span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>, <span class="dt">title=</span><span class="st">"k=20, p=0.3"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb19-13" data-line-number="13"><span class="kw">dev.off</span>()</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -425,19 +425,19 @@ where <span class="math inline">\(\sum_{i=0}^{n}\binom{k}{i}\binom{m}{n-i}=\sum_
 <p class="caption marginnote">-->Figure 9.3: Convolution of binom(20,0.3) and binom(30, 0.3) (points), and binom(50,0.3) (bins)<!--</p>-->
 <!--</div>--></span>
 </p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># Create a sequence of 50 indexes</span></a>
-<a class="sourceLine" id="cb19-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">50</span>,<span class="dt">by =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb19-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb19-4" data-line-number="4"><span class="co"># Create the binomial density.</span></a>
-<a class="sourceLine" id="cb19-5" data-line-number="5">den1 =<span class="st"> </span><span class="kw">dbinom</span>(y,<span class="dv">20</span>,<span class="fl">0.3</span>)</a>
-<a class="sourceLine" id="cb19-6" data-line-number="6">den2 =<span class="st"> </span><span class="kw">dbinom</span>(y,<span class="dv">30</span>,<span class="fl">0.3</span>)</a>
-<a class="sourceLine" id="cb19-7" data-line-number="7">den3 =<span class="st"> </span><span class="kw">dbinom</span>(y,<span class="dv">50</span>,<span class="fl">0.3</span>)</a>
-<a class="sourceLine" id="cb19-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb19-9" data-line-number="9"><span class="co"># Convolution</span></a>
-<a class="sourceLine" id="cb19-10" data-line-number="10">conv=<span class="kw">convolve</span>(den1,den2, <span class="dt">conj=</span><span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb19-11" data-line-number="11">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,den3,conv)</a>
-<a class="sourceLine" id="cb19-12" data-line-number="12">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, den3))</a>
-<a class="sourceLine" id="cb19-13" data-line-number="13">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>(<span class="dt">fill=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(y,conv),<span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st">  </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co"># Create a sequence of 50 indexes</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">50</span>,<span class="dt">by =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="co"># Create the binomial density.</span></a>
+<a class="sourceLine" id="cb20-5" data-line-number="5">den1 =<span class="st"> </span><span class="kw">dbinom</span>(y,<span class="dv">20</span>,<span class="fl">0.3</span>)</a>
+<a class="sourceLine" id="cb20-6" data-line-number="6">den2 =<span class="st"> </span><span class="kw">dbinom</span>(y,<span class="dv">30</span>,<span class="fl">0.3</span>)</a>
+<a class="sourceLine" id="cb20-7" data-line-number="7">den3 =<span class="st"> </span><span class="kw">dbinom</span>(y,<span class="dv">50</span>,<span class="fl">0.3</span>)</a>
+<a class="sourceLine" id="cb20-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb20-9" data-line-number="9"><span class="co"># Convolution</span></a>
+<a class="sourceLine" id="cb20-10" data-line-number="10">conv=<span class="kw">convolve</span>(den1,den2, <span class="dt">conj=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb20-11" data-line-number="11">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,den3,conv)</a>
+<a class="sourceLine" id="cb20-12" data-line-number="12">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, den3))</a>
+<a class="sourceLine" id="cb20-13" data-line-number="13">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>(<span class="dt">fill=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(y,conv),<span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st">  </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <ul>
 <li>
 <em>Divisibility</em> and <em>infinite divisibility</em>: <strong>Divisibility</strong> of a random variable <span class="math inline">\(Z\)</span> means that <span class="math inline">\(Z\)</span> can be divided into <strong>independent</strong> parts that have the same distribution. A probability distribution <span class="math inline">\(F\)</span> is <strong>infinitely divisible</strong>, if for every positive integer <span class="math inline">\(n\)</span>, there exist <span class="math inline">\(n\)</span>
@@ -465,20 +465,20 @@ If <span class="math inline">\(Y_{1}\sim\mbox{Poi}(\lambda_{1})\)</span> and <sp
 R code for Poisson distribution function <span id="sol-start-25" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-25', 'sol-start-25')"></span>
 </p>
 <div id="sol-body-25" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co"># Create a sample of 20 numbers which are incremented by 1. </span></a>
-<a class="sourceLine" id="cb20-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="dt">by =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="co"># Create the binomial density.</span></a>
-<a class="sourceLine" id="cb20-4" data-line-number="4">den1 =<span class="st"> </span><span class="kw">dpois</span>(y,<span class="fl">0.5</span>); den2 =<span class="st"> </span><span class="kw">dpois</span>(y,<span class="fl">1.5</span>); den3 =<span class="st"> </span><span class="kw">dpois</span>(y,<span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="co"># Create the cumulative distribution function</span></a>
-<a class="sourceLine" id="cb20-6" data-line-number="6">cdf1 =<span class="st"> </span><span class="kw">cumsum</span>(den1)<span class="op">/</span><span class="kw">sum</span>(den1); cdf2 =<span class="st"> </span><span class="kw">cumsum</span>(den2)<span class="op">/</span><span class="kw">sum</span>(den2); cdf3 =<span class="st"> </span><span class="kw">cumsum</span>(den3)<span class="op">/</span><span class="kw">sum</span>(den3)</a>
-<a class="sourceLine" id="cb20-7" data-line-number="7">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,den1,cdf1,den2,cdf2,den3,cdf3)</a>
-<a class="sourceLine" id="cb20-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb20-9" data-line-number="9"><span class="co"># Plot the figure </span></a>
-<a class="sourceLine" id="cb20-10" data-line-number="10"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb20-11" data-line-number="11"><span class="kw">png</span>(<span class="dt">file =</span> <span class="st">"dpois.png"</span>)</a>
-<a class="sourceLine" id="cb20-12" data-line-number="12">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, cdf1))</a>
-<a class="sourceLine" id="cb20-13" data-line-number="13">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(y,den1), <span class="dt">fill=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_step</span>(<span class="kw">aes</span>(y,cdf1), <span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
-<a class="sourceLine" id="cb20-14" data-line-number="14"><span class="kw">dev.off</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co"># Create a sample of 20 numbers which are incremented by 1. </span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="dt">by =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="co"># Create the binomial density.</span></a>
+<a class="sourceLine" id="cb21-4" data-line-number="4">den1 =<span class="st"> </span><span class="kw">dpois</span>(y,<span class="fl">0.5</span>); den2 =<span class="st"> </span><span class="kw">dpois</span>(y,<span class="fl">1.5</span>); den3 =<span class="st"> </span><span class="kw">dpois</span>(y,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb21-5" data-line-number="5"><span class="co"># Create the cumulative distribution function</span></a>
+<a class="sourceLine" id="cb21-6" data-line-number="6">cdf1 =<span class="st"> </span><span class="kw">cumsum</span>(den1)<span class="op">/</span><span class="kw">sum</span>(den1); cdf2 =<span class="st"> </span><span class="kw">cumsum</span>(den2)<span class="op">/</span><span class="kw">sum</span>(den2); cdf3 =<span class="st"> </span><span class="kw">cumsum</span>(den3)<span class="op">/</span><span class="kw">sum</span>(den3)</a>
+<a class="sourceLine" id="cb21-7" data-line-number="7">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,den1,cdf1,den2,cdf2,den3,cdf3)</a>
+<a class="sourceLine" id="cb21-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb21-9" data-line-number="9"><span class="co"># Plot the figure </span></a>
+<a class="sourceLine" id="cb21-10" data-line-number="10"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb21-11" data-line-number="11"><span class="kw">png</span>(<span class="dt">file =</span> <span class="st">"dpois.png"</span>)</a>
+<a class="sourceLine" id="cb21-12" data-line-number="12">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, cdf1))</a>
+<a class="sourceLine" id="cb21-13" data-line-number="13">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(y,den1), <span class="dt">fill=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_step</span>(<span class="kw">aes</span>(y,cdf1), <span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb21-14" data-line-number="14"><span class="kw">dev.off</span>()</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -524,19 +524,19 @@ When <span class="math inline">\(\mu=0\)</span> and <span class="math inline">\(
 R code for normal distribution function <span id="sol-start-27" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-27', 'sol-start-27')"></span>
 </p>
 <div id="sol-body-27" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co"># Create a sequence of numbers between -10 and 10 incrementing by 0.5. </span></a>
-<a class="sourceLine" id="cb21-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dt">by =</span> <span class="fl">.5</span>)</a>
-<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="co"># Choose the mean and standard deviation. </span></a>
-<a class="sourceLine" id="cb21-4" data-line-number="4">den1 =<span class="st"> </span><span class="kw">dnorm</span>(y, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>); den2 =<span class="st"> </span><span class="kw">dnorm</span>(y, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb21-5" data-line-number="5">den3 =<span class="st"> </span><span class="kw">dnorm</span>(y, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">2</span>); den4 =<span class="st"> </span><span class="kw">dnorm</span>(y, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">1</span>) </a>
-<a class="sourceLine" id="cb21-6" data-line-number="6">cdf1 =<span class="st"> </span><span class="kw">cumsum</span>(den1)<span class="op">/</span><span class="kw">sum</span>(den1); cdf2 =<span class="st"> </span><span class="kw">cumsum</span>(den2)<span class="op">/</span><span class="kw">sum</span>(den2)</a>
-<a class="sourceLine" id="cb21-7" data-line-number="7">cdf3 =<span class="st"> </span><span class="kw">cumsum</span>(den3)<span class="op">/</span><span class="kw">sum</span>(den3); cdf4 =<span class="st"> </span><span class="kw">cumsum</span>(den4)<span class="op">/</span><span class="kw">sum</span>(den4)</a>
-<a class="sourceLine" id="cb21-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb21-9" data-line-number="9">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,den1,cdf1,den2,cdf2,den3,cdf3,den4,cdf4)</a>
-<a class="sourceLine" id="cb21-10" data-line-number="10"><span class="kw">png</span>(<span class="dt">file =</span> <span class="st">"dnorm1.png"</span>)</a>
-<a class="sourceLine" id="cb21-11" data-line-number="11">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, cdf1))</a>
-<a class="sourceLine" id="cb21-12" data-line-number="12">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(y,den1), <span class="dt">fill=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(y,cdf1), <span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>) <span class="op">+</span><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>, <span class="dt">title=</span><span class="st">"mu = 0, sigma = 1"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
-<a class="sourceLine" id="cb21-13" data-line-number="13"><span class="kw">dev.off</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># Create a sequence of numbers between -10 and 10 incrementing by 0.5. </span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dt">by =</span> <span class="fl">.5</span>)</a>
+<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="co"># Choose the mean and standard deviation. </span></a>
+<a class="sourceLine" id="cb22-4" data-line-number="4">den1 =<span class="st"> </span><span class="kw">dnorm</span>(y, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>); den2 =<span class="st"> </span><span class="kw">dnorm</span>(y, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb22-5" data-line-number="5">den3 =<span class="st"> </span><span class="kw">dnorm</span>(y, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">2</span>); den4 =<span class="st"> </span><span class="kw">dnorm</span>(y, <span class="dt">mean =</span> <span class="dv">2</span>, <span class="dt">sd =</span> <span class="dv">1</span>) </a>
+<a class="sourceLine" id="cb22-6" data-line-number="6">cdf1 =<span class="st"> </span><span class="kw">cumsum</span>(den1)<span class="op">/</span><span class="kw">sum</span>(den1); cdf2 =<span class="st"> </span><span class="kw">cumsum</span>(den2)<span class="op">/</span><span class="kw">sum</span>(den2)</a>
+<a class="sourceLine" id="cb22-7" data-line-number="7">cdf3 =<span class="st"> </span><span class="kw">cumsum</span>(den3)<span class="op">/</span><span class="kw">sum</span>(den3); cdf4 =<span class="st"> </span><span class="kw">cumsum</span>(den4)<span class="op">/</span><span class="kw">sum</span>(den4)</a>
+<a class="sourceLine" id="cb22-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb22-9" data-line-number="9">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,den1,cdf1,den2,cdf2,den3,cdf3,den4,cdf4)</a>
+<a class="sourceLine" id="cb22-10" data-line-number="10"><span class="kw">png</span>(<span class="dt">file =</span> <span class="st">"dnorm1.png"</span>)</a>
+<a class="sourceLine" id="cb22-11" data-line-number="11">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, cdf1))</a>
+<a class="sourceLine" id="cb22-12" data-line-number="12">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(y,den1), <span class="dt">fill=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(y,cdf1), <span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>) <span class="op">+</span><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>, <span class="dt">title=</span><span class="st">"mu = 0, sigma = 1"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb22-13" data-line-number="13"><span class="kw">dev.off</span>()</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -556,25 +556,25 @@ R code for normal distribution function <span id="sol-start-27" class="fa fa-plu
 R code for simulating the normal distributions
 </p>
 <div class="solution-body">
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># Simulate 10000 times, each simulated event follows N(1,1) </span></a>
-<a class="sourceLine" id="cb22-2" data-line-number="2">y1 =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10000</span>, <span class="dt">mean=</span><span class="dv">1</span>, <span class="dt">sd=</span><span class="dv">1</span>) </a>
-<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="co"># Simulate 10000 times, each simulated event follows N(1,2) </span></a>
-<a class="sourceLine" id="cb22-4" data-line-number="4">y2 =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10000</span>, <span class="dt">mean=</span><span class="dv">1</span>, <span class="dt">sd=</span><span class="dv">2</span>) </a>
-<a class="sourceLine" id="cb22-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb22-6" data-line-number="6">z =<span class="st"> </span>y1<span class="op">+</span>y2 <span class="co"># mu is 2, sigma is 1^2+ 2^2 = 5</span></a>
-<a class="sourceLine" id="cb22-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb22-8" data-line-number="8"><span class="co"># Create N(2, 5) density function</span></a>
-<a class="sourceLine" id="cb22-9" data-line-number="9">f =<span class="st"> </span><span class="cf">function</span>(y) <span class="kw">exp</span>(<span class="op">-</span>(y<span class="dv">-2</span>)<span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="dv">10</span>)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">10</span><span class="op">*</span>pi) </a>
-<a class="sourceLine" id="cb22-10" data-line-number="10"><span class="co"># Create the domain of the density function </span></a>
-<a class="sourceLine" id="cb22-11" data-line-number="11">y =<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">14</span>, <span class="dt">length.out=</span><span class="dv">10000</span>) </a>
-<a class="sourceLine" id="cb22-12" data-line-number="12"><span class="co"># Density function on [-10, 14]</span></a>
-<a class="sourceLine" id="cb22-13" data-line-number="13">fy =<span class="st"> </span><span class="kw">f</span>(y) </a>
-<a class="sourceLine" id="cb22-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb22-15" data-line-number="15"><span class="co"># Plot</span></a>
-<a class="sourceLine" id="cb22-16" data-line-number="16"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb22-17" data-line-number="17">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,fy,z)</a>
-<a class="sourceLine" id="cb22-18" data-line-number="18">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, fy))</a>
-<a class="sourceLine" id="cb22-19" data-line-number="19">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(z,<span class="dt">y=</span>..density..), <span class="dt">fill=</span><span class="st">"skyblue"</span>, <span class="dt">bins=</span><span class="dv">200</span>,<span class="dt">alpha=</span><span class="fl">0.8</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(y,fy), <span class="dt">color=</span><span class="st">"blue"</span>)   <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="co"># Simulate 10000 times, each simulated event follows N(1,1) </span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2">y1 =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10000</span>, <span class="dt">mean=</span><span class="dv">1</span>, <span class="dt">sd=</span><span class="dv">1</span>) </a>
+<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="co"># Simulate 10000 times, each simulated event follows N(1,2) </span></a>
+<a class="sourceLine" id="cb23-4" data-line-number="4">y2 =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10000</span>, <span class="dt">mean=</span><span class="dv">1</span>, <span class="dt">sd=</span><span class="dv">2</span>) </a>
+<a class="sourceLine" id="cb23-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb23-6" data-line-number="6">z =<span class="st"> </span>y1<span class="op">+</span>y2 <span class="co"># mu is 2, sigma is 1^2+ 2^2 = 5</span></a>
+<a class="sourceLine" id="cb23-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb23-8" data-line-number="8"><span class="co"># Create N(2, 5) density function</span></a>
+<a class="sourceLine" id="cb23-9" data-line-number="9">f =<span class="st"> </span><span class="cf">function</span>(y) <span class="kw">exp</span>(<span class="op">-</span>(y<span class="dv">-2</span>)<span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="dv">10</span>)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">10</span><span class="op">*</span>pi) </a>
+<a class="sourceLine" id="cb23-10" data-line-number="10"><span class="co"># Create the domain of the density function </span></a>
+<a class="sourceLine" id="cb23-11" data-line-number="11">y =<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">14</span>, <span class="dt">length.out=</span><span class="dv">10000</span>) </a>
+<a class="sourceLine" id="cb23-12" data-line-number="12"><span class="co"># Density function on [-10, 14]</span></a>
+<a class="sourceLine" id="cb23-13" data-line-number="13">fy =<span class="st"> </span><span class="kw">f</span>(y) </a>
+<a class="sourceLine" id="cb23-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb23-15" data-line-number="15"><span class="co"># Plot</span></a>
+<a class="sourceLine" id="cb23-16" data-line-number="16"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb23-17" data-line-number="17">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,fy,z)</a>
+<a class="sourceLine" id="cb23-18" data-line-number="18">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, fy))</a>
+<a class="sourceLine" id="cb23-19" data-line-number="19">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(z,<span class="dt">y=</span>..density..), <span class="dt">fill=</span><span class="st">"skyblue"</span>, <span class="dt">bins=</span><span class="dv">200</span>,<span class="dt">alpha=</span><span class="fl">0.8</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(y,fy), <span class="dt">color=</span><span class="st">"blue"</span>)   <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -595,20 +595,20 @@ R code for simulating the normal distributions
 R code for Gamma distribution function <span id="sol-start-29" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-29', 'sol-start-29')"></span>
 </p>
 <div id="sol-body-29" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="co"># Create a sequence of numbers between 0 and 10 incrementing by 0.2. </span></a>
-<a class="sourceLine" id="cb23-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dt">by =</span> <span class="fl">.2</span>)</a>
-<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="co"># Choose the shape paramter (alpha) and rate paramter (beta). </span></a>
-<a class="sourceLine" id="cb23-4" data-line-number="4">den1 =<span class="st"> </span><span class="kw">dgamma</span>(y, <span class="dt">shape =</span> <span class="dv">1</span>, <span class="dt">rate =</span> <span class="fl">0.5</span>); den2 =<span class="st"> </span><span class="kw">dgamma</span>(y, <span class="dt">shape =</span> <span class="dv">3</span>, <span class="dt">rate =</span> <span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb23-5" data-line-number="5">den3 =<span class="st"> </span><span class="kw">dgamma</span>(y, <span class="dt">shape =</span> <span class="dv">3</span>, <span class="dt">rate =</span> <span class="dv">1</span>); den4 =<span class="st"> </span><span class="kw">dgamma</span>(y, <span class="dt">shape =</span> <span class="dv">1</span>, <span class="dt">rate =</span> <span class="dv">1</span>) </a>
-<a class="sourceLine" id="cb23-6" data-line-number="6">cdf1 =<span class="st"> </span><span class="kw">cumsum</span>(den1)<span class="op">/</span><span class="kw">sum</span>(den1); cdf2 =<span class="st"> </span><span class="kw">cumsum</span>(den2)<span class="op">/</span><span class="kw">sum</span>(den2)</a>
-<a class="sourceLine" id="cb23-7" data-line-number="7">cdf3 =<span class="st"> </span><span class="kw">cumsum</span>(den3)<span class="op">/</span><span class="kw">sum</span>(den3); cdf4 =<span class="st"> </span><span class="kw">cumsum</span>(den4)<span class="op">/</span><span class="kw">sum</span>(den4)</a>
-<a class="sourceLine" id="cb23-8" data-line-number="8">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,den1,cdf1,den2,cdf2,den3,cdf3,den4,cdf4)</a>
-<a class="sourceLine" id="cb23-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb23-10" data-line-number="10"><span class="co"># Plot</span></a>
-<a class="sourceLine" id="cb23-11" data-line-number="11"><span class="kw">png</span>(<span class="dt">file =</span> <span class="st">"dgamma1.png"</span>)</a>
-<a class="sourceLine" id="cb23-12" data-line-number="12">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, cdf1))</a>
-<a class="sourceLine" id="cb23-13" data-line-number="13">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(y,den1), <span class="dt">fill=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(y,cdf1), <span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>, <span class="dt">title=</span><span class="st">"shape = 1, rate = 0.5"</span>)  <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
-<a class="sourceLine" id="cb23-14" data-line-number="14"><span class="kw">dev.off</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="co"># Create a sequence of numbers between 0 and 10 incrementing by 0.2. </span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dt">by =</span> <span class="fl">.2</span>)</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="co"># Choose the shape paramter (alpha) and rate paramter (beta). </span></a>
+<a class="sourceLine" id="cb24-4" data-line-number="4">den1 =<span class="st"> </span><span class="kw">dgamma</span>(y, <span class="dt">shape =</span> <span class="dv">1</span>, <span class="dt">rate =</span> <span class="fl">0.5</span>); den2 =<span class="st"> </span><span class="kw">dgamma</span>(y, <span class="dt">shape =</span> <span class="dv">3</span>, <span class="dt">rate =</span> <span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb24-5" data-line-number="5">den3 =<span class="st"> </span><span class="kw">dgamma</span>(y, <span class="dt">shape =</span> <span class="dv">3</span>, <span class="dt">rate =</span> <span class="dv">1</span>); den4 =<span class="st"> </span><span class="kw">dgamma</span>(y, <span class="dt">shape =</span> <span class="dv">1</span>, <span class="dt">rate =</span> <span class="dv">1</span>) </a>
+<a class="sourceLine" id="cb24-6" data-line-number="6">cdf1 =<span class="st"> </span><span class="kw">cumsum</span>(den1)<span class="op">/</span><span class="kw">sum</span>(den1); cdf2 =<span class="st"> </span><span class="kw">cumsum</span>(den2)<span class="op">/</span><span class="kw">sum</span>(den2)</a>
+<a class="sourceLine" id="cb24-7" data-line-number="7">cdf3 =<span class="st"> </span><span class="kw">cumsum</span>(den3)<span class="op">/</span><span class="kw">sum</span>(den3); cdf4 =<span class="st"> </span><span class="kw">cumsum</span>(den4)<span class="op">/</span><span class="kw">sum</span>(den4)</a>
+<a class="sourceLine" id="cb24-8" data-line-number="8">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,den1,cdf1,den2,cdf2,den3,cdf3,den4,cdf4)</a>
+<a class="sourceLine" id="cb24-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb24-10" data-line-number="10"><span class="co"># Plot</span></a>
+<a class="sourceLine" id="cb24-11" data-line-number="11"><span class="kw">png</span>(<span class="dt">file =</span> <span class="st">"dgamma1.png"</span>)</a>
+<a class="sourceLine" id="cb24-12" data-line-number="12">fig =<span class="st"> </span><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y, cdf1))</a>
+<a class="sourceLine" id="cb24-13" data-line-number="13">fig <span class="op">+</span><span class="st"> </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(y,den1), <span class="dt">fill=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(y,cdf1), <span class="dt">color=</span><span class="st">"blue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>, <span class="dt">title=</span><span class="st">"shape = 1, rate = 0.5"</span>)  <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb24-14" data-line-number="14"><span class="kw">dev.off</span>()</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -737,10 +737,10 @@ is called the regression of <span class="math inline">\(Y\)</span> on <span clas
 R code for the plot <span id="sol-start-31" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-31', 'sol-start-31')"></span>
 </p>
 <div id="sol-body-31" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb24-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">15</span>,<span class="dt">by =</span> <span class="dv">1</span>); normden =<span class="st"> </span><span class="kw">dnorm</span>(y,<span class="dt">sd =</span> <span class="dv">2</span>,<span class="dt">mean =</span> <span class="dv">4</span>); poiden =<span class="st"> </span><span class="kw">dpois</span>(y,<span class="dt">lambda =</span> <span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb24-3" data-line-number="3">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,normden,poiden)</a>
-<a class="sourceLine" id="cb24-4" data-line-number="4"><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y,normden)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(y,poiden),<span class="dt">color=</span><span class="st">"red"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb25-2" data-line-number="2">y =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">15</span>,<span class="dt">by =</span> <span class="dv">1</span>); normden =<span class="st"> </span><span class="kw">dnorm</span>(y,<span class="dt">sd =</span> <span class="dv">2</span>,<span class="dt">mean =</span> <span class="dv">4</span>); poiden =<span class="st"> </span><span class="kw">dpois</span>(y,<span class="dt">lambda =</span> <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb25-3" data-line-number="3">pdata =<span class="st"> </span><span class="kw">data.frame</span>(y,normden,poiden)</a>
+<a class="sourceLine" id="cb25-4" data-line-number="4"><span class="kw">ggplot</span>(pdata, <span class="kw">aes</span>(y,normden)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">"skyblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(y,poiden),<span class="dt">color=</span><span class="st">"red"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">"Y"</span>, <span class="dt">y=</span><span class="st">"Probability"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -794,7 +794,7 @@ Under the <span class="math inline">\(\mathbb{Q}\)</span>-law, we can consider t
 <a href="part-iii-emergence-of-abstract-interactions.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-02-10
+2021-03-10
 </p>
 </div>
 </div>

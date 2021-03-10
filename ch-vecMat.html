@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2021-02-10" />
+<meta name="date" content="2021-03-10" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -352,7 +352,7 @@ which implies <span class="math inline">\(\langle\mathbf{a},\,\mathbf{b}\rangle=
 </p>
 </div>
 </div>
-<p>There is also an alternative way of expressing an <strong>inner product</strong> as a product of a <strong>row vector</strong> and a <strong>column vector</strong>. See ch[?].</p>
+<p>There is also an alternative way of expressing an <strong>inner product</strong> as a product of a <strong>row vector</strong> and a <strong>column vector</strong>. See chapter <a href="ch-vecMat.html#sub:matrix">10.3</a>.</p>
 <p>
 <span class="marginnote shownote">
 <!--
@@ -361,8 +361,7 @@ which implies <span class="math inline">\(\langle\mathbf{a},\,\mathbf{b}\rangle=
 <p class="caption marginnote">-->Figure 10.4: Projection<!--</p>-->
 <!--</div>--></span>
 </p>
-<p>The expression <a href="ch-vecMat.html#eq:inner-2">(10.3)</a> can imply several important results. If <span class="math inline">\(\langle\mathbf{a},\,\mathbf{b}\rangle=0\)</span>
-in equation <a href="ch-vecMat.html#eq:inner-1">(10.2)</a> and $,$0, then the expression <a href="ch-vecMat.html#eq:inner-2">(10.3)</a> says that <span class="math inline">\(\mathbf{a}\)</span> and <span class="math inline">\(\mathbf{b}\)</span> must be perpendicular (orthogonal to each other), namely <span class="math inline">\(\theta=90^{\circ}\)</span>. Also, since <span class="math inline">\(|\cos\theta|\)</span> never exceeds one, expression <a href="ch-vecMat.html#eq:inner-2">(10.3)</a> gives the following inequality <span class="math display">\[\left|\frac{\langle\mathbf{a},\,\mathbf{b}\rangle}{\|\mathbf{a}\|\|\mathbf{b}\|}\right|\leq1,\;\mbox{ or say}\left|\langle\mathbf{a},\,\mathbf{b}\rangle\right|\leq\|\mathbf{a}\|\|\mathbf{b}\|,\]</span>
+<p>The expression <a href="ch-vecMat.html#eq:inner-2">(10.3)</a> can imply several important results. If <span class="math inline">\(\langle\mathbf{a},\,\mathbf{b}\rangle=0\)</span> in equation <a href="ch-vecMat.html#eq:inner-1">(10.2)</a> and <span class="math inline">\(\mathbf{a},\mathbf{b}\neq0\)</span>, then the expression <a href="ch-vecMat.html#eq:inner-2">(10.3)</a> says that <span class="math inline">\(\mathbf{a}\)</span> and <span class="math inline">\(\mathbf{b}\)</span> must be perpendicular (orthogonal to each other), namely <span class="math inline">\(\theta=90^{\circ}\)</span>. Also, since <span class="math inline">\(|\cos\theta|\)</span> never exceeds one, expression <a href="ch-vecMat.html#eq:inner-2">(10.3)</a> gives the following inequality <span class="math display">\[\left|\frac{\langle\mathbf{a},\,\mathbf{b}\rangle}{\|\mathbf{a}\|\|\mathbf{b}\|}\right|\leq1,\;\mbox{ or say}\left|\langle\mathbf{a},\,\mathbf{b}\rangle\right|\leq\|\mathbf{a}\|\|\mathbf{b}\|,\]</span>
 which is called <em>Schwarz inequality</em>. Because the norm <span class="math inline">\(\|\cdot\|\)</span> is a <a href="sub-continuity.html#sub:continuousFunc">distance function</a>, it should also satisfy the <a href="sub-continuity.html#sub:continuousFunc">triangular inequality</a> <span class="math display">\[\|\mathbf{a}+\mathbf{b}\|\leq\|\mathbf{a}\|+\|\mathbf{b}\|.\]</span>
 Finally, by the expression <a href="ch-vecMat.html#eq:inner-2">(10.3)</a>, we can deduce a useful formula called the <em>orthogonal projection</em> formula. Consider a situation in which one vector <span class="math inline">\(\mathbf{a}\)</span> shall be <strong>projected orthogonally</strong> onto another vector <span class="math inline">\(\mathbf{b}\)</span>
 in order to create a new vector <span class="math inline">\(\mathbf{c}\)</span>. Since <span class="math inline">\(\mathbf{a}\)</span> and <span class="math inline">\(\mathbf{c}\)</span>
@@ -499,12 +498,12 @@ g_{2}(\mathbf{x})
 \end{array}\right]=\mathbf{d}+\mathbf{g}(\mathbf{x})=\mathbf{f}(\mathbf{x})
 \end{align*}\]</span>
 where <span class="math inline">\(\mathbf{g}:\mathbb{R}^{2}\mapsto\mathbb{R}^{2}\)</span> is a <strong>linear function</strong> (both <span class="math inline">\(g_{1}\)</span> and <span class="math inline">\(g_{2}\)</span> are <strong>linear</strong>), and <span class="math inline">\(\mathbf{f}:\mathbb{R}^{2}\mapsto\mathbb{R}^{2}\)</span> is an <strong>affine function</strong>. The following simple code shows that the system reach the point around <span class="math inline">\(x_{1}=4/3\)</span> and <span class="math inline">\(x_{2}=2/3\)</span>, namely the solution vector of the linear system.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1">x1 =<span class="st"> </span><span class="dv">0</span>; x2 =<span class="st"> </span><span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="cf">for</span> (iter <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){ </a>
-<a class="sourceLine" id="cb25-3" data-line-number="3">  x1 =<span class="st"> </span><span class="fl">0.4</span><span class="op">*</span>x1 <span class="op">-</span><span class="st"> </span><span class="fl">0.3</span><span class="op">*</span>x2 <span class="op">+</span><span class="st"> </span><span class="dv">1</span> ; </a>
-<a class="sourceLine" id="cb25-4" data-line-number="4">  x2 =<span class="st"> </span><span class="fl">0.3</span><span class="op">*</span>x1 <span class="op">+</span><span class="st"> </span><span class="fl">0.4</span><span class="op">*</span>x2; </a>
-<a class="sourceLine" id="cb25-5" data-line-number="5">  <span class="kw">cat</span>(<span class="st">"At iteration"</span>, iter, <span class="st">"x1 is:"</span>, x1, <span class="st">"x2 is:"</span>, x2, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</a>
-<a class="sourceLine" id="cb25-6" data-line-number="6">}</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">x1 =<span class="st"> </span><span class="dv">0</span>; x2 =<span class="st"> </span><span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="cf">for</span> (iter <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){ </a>
+<a class="sourceLine" id="cb26-3" data-line-number="3">  x1 =<span class="st"> </span><span class="fl">0.4</span><span class="op">*</span>x1 <span class="op">-</span><span class="st"> </span><span class="fl">0.3</span><span class="op">*</span>x2 <span class="op">+</span><span class="st"> </span><span class="dv">1</span> ; </a>
+<a class="sourceLine" id="cb26-4" data-line-number="4">  x2 =<span class="st"> </span><span class="fl">0.3</span><span class="op">*</span>x1 <span class="op">+</span><span class="st"> </span><span class="fl">0.4</span><span class="op">*</span>x2; </a>
+<a class="sourceLine" id="cb26-5" data-line-number="5">  <span class="kw">cat</span>(<span class="st">"At iteration"</span>, iter, <span class="st">"x1 is:"</span>, x1, <span class="st">"x2 is:"</span>, x2, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</a>
+<a class="sourceLine" id="cb26-6" data-line-number="6">}</a></code></pre></div>
 <pre><code>## At iteration 1 x1 is: 1 x2 is: 0.3 
 ## At iteration 2 x1 is: 1.31 x2 is: 0.513 
 ## At iteration 3 x1 is: 1.3701 x2 is: 0.61623 
@@ -525,8 +524,8 @@ for <span class="math inline">\(i=1,2\)</span>, then the iteration converges <a 
 <p><span class="newthought">Linear regression </span></p>
 <p>Very often, besides the <a href="sub-set-theory.html#sub:func">input</a> and the <a href="sub-set-theory.html#sub:func">output</a>, the system is also characterized by the parameters. To be precise, we recall the notion of the <a href="ch-CalUn.html#sub:conProb">regression</a> <span class="math inline">\(g(X)=\mathbb{E}[Y|X]\)</span>, a conditional expectation with the output <span class="math inline">\(Y\)</span> and the (conditional) input <span class="math inline">\(X\)</span>. If we let <span class="math inline">\(Y\)</span> be a linear function with an additive <a href="ch-CalUn.html#sub:ex">i.i.d. random variable</a> <span class="math inline">\(\varepsilon\)</span> and a <a href="ch-CalUn.html#sub:divRV">parameter</a> <span class="math inline">\(\beta\)</span> as the coefficient of this linear function such that <span class="math display">\[Y=\beta X+\varepsilon,\]</span> then the regression is a <em>linear regression</em>, or say <span class="math inline">\(g(X)=\beta X\)</span> as <span class="math inline">\(\mathbb{E}[\varepsilon|X]=0\)</span> for the <a href="ch-CalUn.html#sub:ex">i.i.d. random variable</a>.</p>
 <p>When the parameter <span class="math inline">\(\beta\)</span> is unknown, we need to <strong>estimate</strong> the value of <span class="math inline">\(\beta\)</span> through the <a href="sub-axioms.html#sub:rec">sequences</a> of observations of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. That is, we want to determine the model parameters that produce the observable data we have recorded. This problem is known as the <em>estimation problem</em>: one looks for the model parameter that presumably generates the data. In data analysis, the observations (realizations) of a random variable <span class="math inline">\(X\)</span> (or <span class="math inline">\(Y\)</span>) are stored by an <em>array</em>, namely the data vector <span class="math inline">\(\mathbf{x}\)</span> (or <span class="math inline">\(\mathbf{y}\)</span>).</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">2020</span>)</a>
-<a class="sourceLine" id="cb27-2" data-line-number="2">x=<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>; y=<span class="dv">5</span><span class="op">*</span>x<span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">*</span><span class="kw">rnorm</span>(<span class="dv">10</span>); dat=<span class="kw">data.frame</span>(x,y) </a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">2020</span>)</a>
+<a class="sourceLine" id="cb28-2" data-line-number="2">x=<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>; y=<span class="dv">5</span><span class="op">*</span>x<span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">*</span><span class="kw">rnorm</span>(<span class="dv">10</span>); dat=<span class="kw">data.frame</span>(x,y) </a></code></pre></div>
 <div id="htmlwidget-279dc4f046b1faddc99b" style="width:55%;height:auto;" class="datatables html-widget"></div>
 <script type="application/json" data-for="htmlwidget-279dc4f046b1faddc99b">{"x":{"filter":"none","caption":"<caption>Simulated x and y<\/caption>","autoHideNavigation":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[1,2,3,4,5,6,7,8,9,10],[5.75394424987287,10.6030967478713,12.8039536586928,17.7391881927924,19.4069313602565,31.4411469968232,36.878242046018,39.5412445065851,48.5182626939269,50.2347335736057]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>x<\/th>\n      <th>y<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><p>
 <span class="marginnote shownote">
@@ -544,8 +543,8 @@ We assume that a model accurately captures the processes that generate data, and
 In other words, we can <strong>estimate</strong> the parameter <span class="math inline">\(\beta\)</span> by projecting <span class="math inline">\(\mathbf{y}\)</span> onto the plane of <span class="math inline">\(\mathbf{x}\)</span>. By the <a href="#sub:Vector">projection formula</a> <a href="ch-vecMat.html#eq:proj">(10.4)</a>, we can deduce the estimator<span class="math display">\[\hat{\beta}=\frac{\langle\mathbf{x},\,\mathbf{y}\rangle}{\langle\mathbf{x},\,\mathbf{x}\rangle}\]</span>
 and the estimated output (the projected output) <span class="math inline">\(\hat{\beta}\mathbf{x}\)</span>.
 The difference between <span class="math inline">\(\mathbf{y}\)</span> and <span class="math inline">\(\hat{\beta}\mathbf{x}\)</span> is called the <em>residual</em>. The residual measures the discrepancy between the data and the estimated model. For any given input <span class="math inline">\(x\)</span>, one can also predict the output through <span class="math inline">\(\hat{\beta}x\)</span>.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="co"># least square estimate of beta (True beta is 5)</span></a>
-<a class="sourceLine" id="cb28-2" data-line-number="2"><span class="kw">sum</span>(x<span class="op">*</span>y)<span class="op">/</span><span class="kw">sum</span>(x<span class="op">*</span>x)</a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="co"># least square estimate of beta (True beta is 5)</span></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="kw">sum</span>(x<span class="op">*</span>y)<span class="op">/</span><span class="kw">sum</span>(x<span class="op">*</span>x)</a></code></pre></div>
 <pre><code>## [1] 5.027272</code></pre>
 </div>
 <div id="sub:matrix" class="section level2">
@@ -978,7 +977,7 @@ O eternal fighters, implacable brothers!</p>
 <a href="ch-MatComp.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-02-10
+2021-03-10
 </p>
 </div>
 </div>
