@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2021-03-10" />
+<meta name="date" content="2021-03-31" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -234,9 +234,9 @@ Note that <span class="math inline">\(\epsilon\)</span> is <strong>infinitesimal
 Because <span class="math inline">\((a_{n})_{n\in\mathbb{R}}\)</span> (<span class="math inline">\((b_{n})_{n\in\mathbb{R}}\)</span>) is a <strong>monotone</strong> increasing (decreasing) sequence, we will have<label for="tufte-sn-73" class="margin-toggle sidenote-number">73</label><input type="checkbox" id="tufte-sn-73" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">73</span> This result is called the <em>monotone convergence theorem</em>. If <span class="math inline">\((a_{n})_{n\in\mathbb{N}}\)</span> is a monotone increasing sequence, and <span class="math inline">\(a_{n}\)</span> is bounded above for any <span class="math inline">\(n\in\mathbb{N}\)</span>, then <span class="math inline">\(a_{n}\)</span> must be convergent. Similar, if <span class="math inline">\((b_{n})_{n\in\mathbb{N}}\)</span> is a monotone decreasing sequence, and <span class="math inline">\(b_{n}\)</span> is bounded below for any <span class="math inline">\(n\in\mathbb{N}\)</span>, then <span class="math inline">\(b_{n}\)</span> must be convergent.</span> <span class="math display">\[\lim_{n\rightarrow\infty}a_{n}=\sup(a_{n})_{n\in\mathbb{N}}, \,\,  \lim_{n\rightarrow\infty}b_{n}=\inf(b_{n})_{n\in\mathbb{N}}\]</span></p>
 <div class="solution">
 <p class="solution-begin">
-Proof of monotone convergence theorem <span id="sol-start-7" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-7', 'sol-start-7')"></span>
+Proof of monotone convergence theorem <span id="sol-start-95" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-95', 'sol-start-95')"></span>
 </p>
-<div id="sol-body-7" class="solution-body" style="display: none;">
+<div id="sol-body-95" class="solution-body" style="display: none;">
 <p>Because <span class="math inline">\((a_{n})_{n\in\mathbb{N}}\)</span> is bounded above, by the axiom of completeness, <span class="math inline">\(\sup(a_{n})_{n\in\mathbb{N}}\)</span> exists. Let <span class="math inline">\(\epsilon&gt;0\)</span> and let <span class="math inline">\(\sup(a_{n})_{n\in\mathbb{N}}\)</span> be <span class="math inline">\(\bar{a}\)</span>. Since <span class="math inline">\(\bar{a}-\epsilon\)</span> is not an upper bound for <span class="math inline">\((a_{n})_{n\in\mathbb{R}}\)</span>, there is some integer <span class="math inline">\(N\)</span> such that <span class="math inline">\(a_{N}&gt;\bar{a}-\epsilon\)</span>.</p>
 <p>The sequence <span class="math inline">\((a_{n})_{n\in\mathbb{N}}\)</span> is monotone increasing, <span class="math display">\[\bar{a}-\epsilon&lt;a_{N}\leq a_{n}\leq\bar{a}\]</span>
 for all <span class="math inline">\(n\geq N\)</span>, so <span class="math inline">\(|a_{n}-\bar{a}|&lt;\epsilon\)</span> for all <span class="math inline">\(n\geq N\)</span>, namely <span class="math inline">\(\lim_{n\rightarrow \infty} a_{n}=\bar{a}\)</span>.</p>
@@ -267,9 +267,9 @@ for all <span class="math inline">\(n\geq N\)</span>, so <span class="math inlin
 where <span class="math inline">\((p_{i})_{i=1}^{k}\)</span> is a sequence of primes, and <span class="math inline">\((a_{i})_{i=1}^{k}\)</span> is a sequence of natural numbers. The <em>fundamental theorem of arithmetic</em> states that the <strong>standard form</strong> for any natural number <span class="math inline">\(n\)</span> is unique.<label for="tufte-sn-75" class="margin-toggle sidenote-number">75</label><input type="checkbox" id="tufte-sn-75" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">75</span> If a distinct natural number <span class="math inline">\(n\)</span> can label a type of good, one can think <span class="math inline">\(p_{i}\)</span> is the basic element of generating the good.</span></p>
 <div class="solution">
 <p class="solution-begin">
-Proof <span id="sol-start-8" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-8', 'sol-start-8')"></span>
+Proof <span id="sol-start-96" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-96', 'sol-start-96')"></span>
 </p>
-<div id="sol-body-8" class="solution-body" style="display: none;">
+<div id="sol-body-96" class="solution-body" style="display: none;">
 <p>Here is a sketchy derivation of the standard form.</p>
 <p>If <span class="math inline">\(n\)</span> is prime, then we have the trivial case <span class="math inline">\(n=p\)</span>. Provided that <span class="math inline">\(n\)</span> is not a prime, <span class="math inline">\(n\)</span> has possible divisors. The least of these divisors must be a prime <span class="math inline">\(p_{1}\)</span>; otherwise, we can always induce a smaller divisor by dividing <span class="math inline">\(p_{1}\)</span> with some number. Hence <span class="math inline">\(n=p_{1}n_{1}\)</span> with <span class="math inline">\(1&lt;n_{1}&lt;n\)</span>. Here <span class="math inline">\(n_{1}\)</span> is either a prime or not. If it is, then <span class="math inline">\(n=p_{1}n_{1}\)</span> is the standard form. If not, we continue to divide <span class="math inline">\(n_{1}\)</span> by its least divisor, another prime <span class="math inline">\(p_{2}\)</span>, so that <span class="math inline">\(n=p_{1}p_{2}n_{2}\)</span>. Repeating the argument, we obtain a sequence of decreasing numbers <span class="math inline">\(n_{1},n_{2}\dots n_{m}\)</span>. The last element of this sequence <span class="math inline">\(n_{m}\)</span> must be a prime <span class="math inline">\(n_{m}=p_{m}\)</span>; otherwise, the sequence can still grow. So we have <span class="math display">\[n=p_{1}n_{1}=p_{1}p_{2}n_{2}=\cdots=p_{1}p_{2}\cdots p_{m}.\]</span>
 The primes <span class="math inline">\(p_{1},\dots,p_{m}\)</span> are not necessarily distinct, nor arranged in any particular order.</p>
@@ -357,9 +357,9 @@ can characterize an openness in a two-dimensional plane. The notation <span clas
 </p>
 <div class="solution">
 <p class="solution-begin">
-Curse of dimensionality <span id="sol-start-9" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-9', 'sol-start-9')"></span>
+Curse of dimensionality <span id="sol-start-97" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-97', 'sol-start-97')"></span>
 </p>
-<div id="sol-body-9" class="solution-body" style="display: none;">
+<div id="sol-body-97" class="solution-body" style="display: none;">
 <p>The differences of the distance functions maybe not so obvious in low dimensions, like in <span class="math inline">\(\mathbb{R}^{2}\)</span>, but when the dimension grows, the differences become crucial.</p>
 <p>The ratio of volumes between a <span class="math inline">\(d\)</span>-dimensional unit ball and a <span class="math inline">\(d\)</span>-dimensional unit (hyper-)cube is given by the following formula
 <span class="math display">\[\frac{\pi^{d/2}}{2^{d-1}\times\Gamma(\frac{d}{2}+1)}\]</span>
@@ -445,9 +445,9 @@ where the inequality comes from the fact that <span class="math inline">\(x_{n},
 <p>The Lipschitz continuous preserve the completeness. That is, if <span class="math inline">\((x_n)_{n\in \mathbb{N}}\)</span> is a Cauchy sequence, <span class="math inline">\((f(x_n))_{n\in \mathbb{N}}\)</span> will be a <strong>Cauchy sequence</strong>.</p>
 <div class="solution">
 <p class="solution-begin">
-Proof <span id="sol-start-11" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-11', 'sol-start-11')"></span>
+Proof <span id="sol-start-99" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-99', 'sol-start-99')"></span>
 </p>
-<div id="sol-body-11" class="solution-body" style="display: none;">
+<div id="sol-body-99" class="solution-body" style="display: none;">
 <p>Let <span class="math inline">\(f\)</span> be Lipschitz. <span class="math display">\[|f(b)-f(a)|\leq K|b-a|,\; K\geq0.\]</span>
 Let <span class="math inline">\((x_n)_{n\in\mathbb{N}}\)</span> be a Cauchy sequence. Thus exists <span class="math inline">\(N\in\mathbb{N}\)</span> such that for any <span class="math inline">\(m,n&gt;N\)</span>
 <span class="math display">\[|x_{m}-x_{n}|&lt;\frac{\epsilon}{K}.\]</span>
@@ -485,7 +485,7 @@ where <span class="math inline">\(r_{i}\)</span> denotes the <span class="math i
 <a href="sub-calculus.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-03-10
+2021-03-31
 </p>
 </div>
 </div>
