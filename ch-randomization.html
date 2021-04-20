@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2021-03-31" />
+<meta name="date" content="2021-04-20" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -165,6 +165,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc"><a href="#sub:Kalman"> Miscellaneous: Sample Average, Reduction Principle, and Kalman’s Filter</a></li>
 <li class="toc"><a href="#example-global-optimization"> Example: Global Optimization</a></li>
 </ul>
+<a href="part-v-complex-ensembles.html">PART V: Complex Ensembles</a>
+<a href="ch-complexAn.html"><span class="toc-section-number">17</span> Complex Analysis</a>
 <a href="bibliography.html">Bibliography</a>
 </div>
 </li>
@@ -292,9 +294,9 @@ Extending this <span class="math inline">\(n\)</span>-length random vector to in
 </p>
 <div class="solution">
 <p class="solution-begin">
-Simulation of Gaussian processes <span id="sol-start-187" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-187', 'sol-start-187')"></span>
+Simulation of Gaussian processes <span id="sol-start-99" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-99', 'sol-start-99')"></span>
 </p>
-<div id="sol-body-187" class="solution-body" style="display: none;">
+<div id="sol-body-99" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">20210228</span>)</a>
 <a class="sourceLine" id="cb122-2" data-line-number="2"><span class="kw">library</span>(MASS) <span class="co"># call for multivariate normal sampling function</span></a>
 <a class="sourceLine" id="cb122-3" data-line-number="3">n =<span class="st"> </span><span class="dv">100</span>;</a>
@@ -351,9 +353,9 @@ By the equality
 <span class="math display">\[\mathbb{E}[X(t,\omega)X(s,\omega)]=\mbox{Cov}_X (t,s)+\mu_{X}(t)\mu_{X}(s),\]</span> one can induce that the <strong>mean square continuity, differentiability, and integrability</strong> actually relate to the continuity and the calculus of <strong>mean and covariance functions</strong>.</p>
 <div class="solution">
 <p class="solution-begin">
-Some remark about the mean square criterion <span id="sol-start-188" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-188', 'sol-start-188')"></span>
+Some remark about the mean square criterion <span id="sol-start-100" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-100', 'sol-start-100')"></span>
 </p>
-<div id="sol-body-188" class="solution-body" style="display: none;">
+<div id="sol-body-100" class="solution-body" style="display: none;">
 <p>Let’s discretize the stochastic process <span class="math inline">\(X(t,\omega)\)</span> into a stochastic sequence <span class="math inline">\(\{X_{n}(\omega)\}_{n\in\mathbb{N}}\)</span>.</p>
 <ol style="list-style-type: decimal">
 <li>The <strong>mean square convergence</strong> implies probabilistic convergence in section <a href="ch-UnMulti.html#sub:WLLN">13.4</a>.</li>
@@ -470,9 +472,9 @@ and <span class="math inline">\(\mathcal{V}_{2}\)</span> are <a href="ch-represe
 </ul>
 <div class="solution">
 <p class="solution-begin">
-Proof <span id="sol-start-189" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-189', 'sol-start-189')"></span>
+Proof <span id="sol-start-101" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-101', 'sol-start-101')"></span>
 </p>
-<div id="sol-body-189" class="solution-body" style="display: none;">
+<div id="sol-body-101" class="solution-body" style="display: none;">
 <p>For two subspaces <span class="math inline">\(\mathcal{V}_1\)</span> and <span class="math inline">\(\mathcal{V}_2\)</span>, the following two statements are equivalent:</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(f\in \mathcal{V}_{1} + \mathcal{V}_{2}\)</span>, and <span class="math inline">\(\mathcal{V}_{1}\)</span> and <span class="math inline">\(\mathcal{V}_{2}\)</span> are disjoint.</p></li>
@@ -505,9 +507,9 @@ This result is a generalization of the <a href="ch-optApp.html#sub:Proj1">Farkas
 &amp;=\left\langle \mathbf{y},\,\mathbf{y}\right\rangle =\|\mathbf{y}\|^{2}\neq0.\end{align*}\]</span></span> The dichotomy is also known as the <em>Fredholm alternative</em>.</p>
 <div class="solution">
 <p class="solution-begin">
-Fredholm alternative <span id="sol-start-190" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-190', 'sol-start-190')"></span>
+Fredholm alternative <span id="sol-start-102" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-102', 'sol-start-102')"></span>
 </p>
-<div id="sol-body-190" class="solution-body" style="display: none;">
+<div id="sol-body-102" class="solution-body" style="display: none;">
 <p>The <strong>Fredholm alternative</strong> states as follows:</p>
 <p>For any <span class="math inline">\(\mathbf{y}\in\mathbb{R}^{n}\)</span> such that <span class="math inline">\(\mathbf{A}^{\top}\mathbf{y}=0\)</span>, then <span class="math inline">\(\mathbf{b}=\mathbf{A}\mathbf{x}\)</span> has a solution if and only if
 <span class="math display">\[\langle\mathbf{A}\mathbf{x},\mathbf{y}\rangle=\langle\mathbf{b},\mathbf{y}\rangle=0.\]</span></p>
@@ -523,9 +525,9 @@ Fredholm alternative <span id="sol-start-190" class="fa fa-plus-square solution-
 where <span class="math inline">\(\mathbb{P}(\mbox{d}x)=f(x)\mbox{d}x\)</span> for the density function <span class="math inline">\(f(\cdot)\)</span>. For a non-trivial <a href="ch-MatComp.html#sub:vecSpaces">linear functional</a> <span class="math inline">\(\langle \cdot,f\rangle\)</span>, i.e., <span class="math inline">\(f\neq0\)</span>, the <strong>null space</strong> <span class="math display">\[\mbox{Null}(f)=\{x\in\mathcal{H}:\langle x,f\rangle=0\}\]</span> is a subspace of <span class="math inline">\(\mathcal{H}\)</span>. In fact, the space <span class="math inline">\(\mbox{Null}(f)\)</span> is so large that it is the “maximal” subspace of <span class="math inline">\(\mathcal{H}\)</span>, i.e., one dimensional lower than <span class="math inline">\(\mathcal{H}\)</span>.</span></p>
 <div class="solution">
 <p class="solution-begin">
-Remarks about the null space of a linear functional <span id="sol-start-191" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-191', 'sol-start-191')"></span>
+Remarks about the null space of a linear functional <span id="sol-start-103" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-103', 'sol-start-103')"></span>
 </p>
-<div id="sol-body-191" class="solution-body" style="display: none;">
+<div id="sol-body-103" class="solution-body" style="display: none;">
 <p>Consider the null space of a linear functional <span class="math inline">\(g:\mathcal{V}\rightarrow\mathbb{F}\)</span> <span class="math display">\[\mbox{Null}(g):=\left\{ \langle f,\, g\rangle=0,\; f\in\mathcal{V}\right\}.\]</span></p>
 <ol style="list-style-type: decimal">
 <li>
@@ -562,9 +564,9 @@ Combing the past and the future gives us the whole space, namely <span class="ma
 <p>In other words, one <a href="ch-representation.html#sub:conjugacy">projection</a> can uniquely decompose the Hilbert space into two <strong>disjoint subspaces</strong>. The <strong>range space</strong> of the projection operator is simply the target subspace (<span class="math inline">\(\mathcal{Y}\)</span>) of the projection. Given a target space, there could be many projections. If we want the <strong>null space</strong> of the projection to be <a href="ch-vecMat.html#sub:vec">orthogonal</a> to the <strong>range space</strong>, then we need the <a href="ch-representation.html#sub:conjugacy">orthogonal projection</a>. Because the <strong>decomposition</strong> is unique, we expect that for any target subspace, there is one and only one <a href="ch-representation.html#sub:conjugacy">orthogonal projection</a>.<label for="tufte-sn-451" class="margin-toggle sidenote-number">451</label><input type="checkbox" id="tufte-sn-451" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">451</span> In fact, if <span class="math inline">\(\mathcal{A}\)</span> is any <strong>closed</strong> subspace of a Hilbert space <span class="math inline">\(\mathcal{H}\)</span>. Then <span class="math inline">\(\mathcal{H}=\mathcal{A}\oplus\mathcal{A}^{\bot}\)</span>. The proof is given below.</span></p>
 <div class="solution">
 <p class="solution-begin">
-Proof <span id="sol-start-192" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-192', 'sol-start-192')"></span>
+Proof <span id="sol-start-104" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-104', 'sol-start-104')"></span>
 </p>
-<div id="sol-body-192" class="solution-body" style="display: none;">
+<div id="sol-body-104" class="solution-body" style="display: none;">
 <p>Let <span class="math inline">\(\mathbf{P}_{\mathcal{Y}}:\mathcal{H}\rightarrow \mathcal{Y}\)</span> be the <a href="ch-representation.html#sub:conjugacy">projection operator</a> defined on the Hilbert space <span class="math inline">\(\mathcal{H}\)</span>, such that <span class="math inline">\(\mathbf{P}_{\mathcal{Y}}\mathbf{P}_{\mathcal{Y}}=\mathbf{P}_{\mathcal{Y}}\)</span>.</p>
 <p>To show that <span class="math inline">\(\mbox{Null}(\mathbf{P}_{\mathcal{Y}})\)</span> and <span class="math inline">\(\mbox{Range}(\mathbf{P}_{\mathcal{Y}})\)</span>, are <strong>disjoint subspaces</strong>, let <span class="math inline">\(f\in \mbox{Null}(\mathbf{P}_{\mathcal{Y}}) \cap \mbox{Range}(\mathbf{P}_{\mathcal{Y}})\)</span>. Because <span class="math inline">\(f\in \mbox{Range}(\mathbf{P}_{\mathcal{Y}})\)</span> then there must be some <span class="math inline">\(g \in \mathcal{H}\)</span> such that <span class="math inline">\(\mathbf{P}_{\mathcal{Y}} (g) =f\)</span>. By the projection property, we know that <span class="math display">\[\mathbf{P}_{\mathcal{Y}}\mathbf{P}_{\mathcal{Y}} (g) = \mathbf{P}_{\mathcal{Y}} f =f.\]</span> Also, because <span class="math inline">\(f\in \mbox{Null}(\mathbf{P}_{\mathcal{Y}})\)</span>, <span class="math inline">\(\mathbf{P}_{\mathcal{Y}} f=0\)</span>. That tells <span class="math inline">\(f=\mathbf{P}_{\mathcal{Y}} f=0\)</span>. Since <span class="math inline">\(f\)</span> is any object in <span class="math inline">\(\mbox{Null}(\mathbf{P}_{\mathcal{Y}}) \cap \mbox{Range}(\mathbf{P}_{\mathcal{Y}})\)</span>, we have <span class="math inline">\(\mbox{Null}(\mathbf{P}_{\mathcal{Y}}) \cap \mbox{Range}(\mathbf{P}_{\mathcal{Y}})=\{0\}\)</span>.</p>
 <p>Now consider the orthogonal projection.
@@ -674,9 +676,9 @@ for any <span class="math inline">\(g\in\mathcal{Y}\)</span>.</span>
 \end{cases}\end{align*}\]</span></p>
 <div class="solution">
 <p class="solution-begin">
-Numerical illustration <span id="sol-start-193" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-193', 'sol-start-193')"></span>
+Numerical illustration <span id="sol-start-105" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-105', 'sol-start-105')"></span>
 </p>
-<div id="sol-body-193" class="solution-body" style="display: none;">
+<div id="sol-body-105" class="solution-body" style="display: none;">
 <div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">2021</span>)</a>
 <a class="sourceLine" id="cb123-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb123-3" data-line-number="3">n =<span class="st"> </span><span class="dv">5</span>; x=<span class="kw">rnorm</span>(n,<span class="dv">3</span>); one=<span class="kw">rep</span>(<span class="dv">1</span>,n); </a>
@@ -736,9 +738,9 @@ Notice that this expectation coincides with <span class="math inline">\(\mathbb{
 where <span class="math inline">\(e_{12}(\omega)=\hat\beta_{2}e_{1}(\omega)+e_{2}(\omega)\)</span>.<label for="tufte-sn-473" class="margin-toggle sidenote-number">473</label><input type="checkbox" id="tufte-sn-473" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">473</span> The result <span class="math display">\[\begin{align*}&amp;\mathbb{E}\left[\left.\mathbb{E}\left[\left.Y(\omega)\right|X(\omega)\right]\right|Z(\omega)\right]\\&amp;=\mathbb{E}\left[\left.Y(\omega)\right|Z(\omega)\right]\end{align*}\]</span> is also known as the <em>law of iterated expectations</em> when the <span class="math inline">\(\sigma\)</span>-algebra generated by <span class="math inline">\(X(\omega)\)</span> is contained in the <span class="math inline">\(\sigma\)</span>-algebra generated by <span class="math inline">\(Z(\omega)\)</span>.</span></p>
 <div class="solution">
 <p class="solution-begin">
-Numerical illustration <span id="sol-start-194" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-194', 'sol-start-194')"></span>
+Numerical illustration <span id="sol-start-106" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-106', 'sol-start-106')"></span>
 </p>
-<div id="sol-body-194" class="solution-body" style="display: none;">
+<div id="sol-body-106" class="solution-body" style="display: none;">
 <p>Using the formula <span class="math display">\[\mathbb{E}\left[\left.\cdot\right|Z(\omega)\right]=\frac{\left\langle \cdot,Z(\omega)\right\rangle _{\mathbb{P}}}{\left\langle Z(\omega),Z(\omega)\right\rangle _{\mathbb{P}}}Z(\omega),\]</span>
 we have <span class="math inline">\(\mathbf{P}_{\mathcal{H}_{Z(\omega)}}Y(\omega)=\mathbb{E}[Y(\omega)|Z(\omega)]=\frac{\left\langle Y(\omega),Z(\omega)\right\rangle _{\mathbb{P}}}{\left\langle Z(\omega),Z(\omega)\right\rangle _{\mathbb{P}}}Z(\omega)\)</span>, and<label for="tufte-sn-474" class="margin-toggle sidenote-number">474</label><input type="checkbox" id="tufte-sn-474" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">474</span> The result follows by combining <span class="math display">\[\begin{align*}&amp;\mathbb{E}\left[\left.\mathbb{E}\left[\left.Y(\omega)\right|X(\omega)\right]\right|Z(\omega)\right]\\&amp;=\mathbb{E}\left[\left.\hat{\beta}_{2}X(\omega)\right|Z(\omega)\right]\end{align*}\]</span>
 and <span class="math display">\[\begin{align*}&amp;\mathbb{E}\left[\left.\hat{\beta}_{2}X(\omega)\right|Z(\omega)\right]\\&amp;=\mathbb{E}\left[\left.\mathbf{P}_{\mathcal{H}_{X(\omega)}}Y(\omega)\right|Z(\omega)\right].\end{align*}\]</span></span><br><span class="math display">\[\begin{align*}&amp;\mathbf{P}_{\mathcal{H}_{Z(\omega)}}\mathbf{P}_{\mathcal{H}_{X(\omega)}}Y(\omega)\\
@@ -751,29 +753,25 @@ The following example shows the equivalence of <span class="math inline">\(\math
 <div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">2021</span>)</a>
 <a class="sourceLine" id="cb133-2" data-line-number="2">n =<span class="st"> </span><span class="dv">300</span>; b1=<span class="fl">0.5</span>; b2=<span class="dv">2</span>; z =<span class="st"> </span><span class="kw">runif</span>(n,<span class="op">-</span><span class="dv">10</span>,<span class="dv">10</span>); </a>
 <a class="sourceLine" id="cb133-3" data-line-number="3"><span class="co"># create orthogonal noises</span></a>
-<a class="sourceLine" id="cb133-4" data-line-number="4"><span class="kw">library</span>(MASS); orth =<span class="st"> </span><span class="kw">sample</span>(n<span class="op">*</span><span class="dv">2</span>, n); orth.sample =<span class="st"> </span><span class="kw">Null</span>(orth);</a></code></pre></div>
-<pre><code>## 
-## Attaching package: 'MASS'</code></pre>
-<pre><code>## The following object is masked from 'package:dplyr':
-## 
-##     select</code></pre>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1">error1 =<span class="st"> </span>orth.sample[,<span class="kw">sample</span>(n,<span class="dv">1</span>)];  </a>
-<a class="sourceLine" id="cb136-2" data-line-number="2">error2 =<span class="st"> </span>orth.sample[,<span class="kw">sample</span>(n,<span class="dv">1</span>)]; </a>
-<a class="sourceLine" id="cb136-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb136-4" data-line-number="4"><span class="co"># commuting property appears in a slower rate: </span></a>
-<a class="sourceLine" id="cb136-5" data-line-number="5"><span class="co"># error1 = rnorm(n,0); error2 =rnorm(n,0)</span></a>
-<a class="sourceLine" id="cb136-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb136-7" data-line-number="7">x =<span class="st"> </span>b1<span class="op">*</span>z <span class="op">+</span><span class="st"> </span>error1;</a>
-<a class="sourceLine" id="cb136-8" data-line-number="8">y =<span class="st"> </span>b2<span class="op">*</span>x <span class="op">+</span><span class="st"> </span>error2;</a>
-<a class="sourceLine" id="cb136-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb136-10" data-line-number="10">proj.x =x <span class="op">%*%</span><span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(x) <span class="op">%*%</span><span class="st"> </span>x) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(x);</a>
-<a class="sourceLine" id="cb136-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb136-12" data-line-number="12"><span class="co"># b12 = 2*0.5 = 1</span></a>
-<a class="sourceLine" id="cb136-13" data-line-number="13">b12h.Pz =<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(z) <span class="op">%*%</span><span class="st"> </span>z) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(z)<span class="op">%*%</span><span class="st"> </span>y; </a>
-<a class="sourceLine" id="cb136-14" data-line-number="14">b12h.PzPx =<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(z) <span class="op">%*%</span><span class="st"> </span>z) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(z)<span class="op">%*%</span><span class="st"> </span>proj.x <span class="op">%*%</span><span class="st"> </span>y; </a>
-<a class="sourceLine" id="cb136-15" data-line-number="15">b12h.PxPz=<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(x) <span class="op">%*%</span><span class="st"> </span>x) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(x)<span class="op">%*%</span><span class="st"> </span>(<span class="kw">c</span>(b12h.Pz)<span class="op">*</span>x) ;</a>
-<a class="sourceLine" id="cb136-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb136-17" data-line-number="17"><span class="kw">print</span>(<span class="kw">c</span>(b12h.Pz,b12h.PzPx,b12h.PxPz))</a></code></pre></div>
+<a class="sourceLine" id="cb133-4" data-line-number="4"><span class="kw">library</span>(MASS); orth =<span class="st"> </span><span class="kw">sample</span>(n<span class="op">*</span><span class="dv">2</span>, n); orth.sample =<span class="st"> </span><span class="kw">Null</span>(orth);</a>
+<a class="sourceLine" id="cb133-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb133-6" data-line-number="6">error1 =<span class="st"> </span>orth.sample[,<span class="kw">sample</span>(n,<span class="dv">1</span>)];  </a>
+<a class="sourceLine" id="cb133-7" data-line-number="7">error2 =<span class="st"> </span>orth.sample[,<span class="kw">sample</span>(n,<span class="dv">1</span>)]; </a>
+<a class="sourceLine" id="cb133-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb133-9" data-line-number="9"><span class="co"># commuting property appears in a slower rate: </span></a>
+<a class="sourceLine" id="cb133-10" data-line-number="10"><span class="co"># error1 = rnorm(n,0); error2 =rnorm(n,0)</span></a>
+<a class="sourceLine" id="cb133-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb133-12" data-line-number="12">x =<span class="st"> </span>b1<span class="op">*</span>z <span class="op">+</span><span class="st"> </span>error1;</a>
+<a class="sourceLine" id="cb133-13" data-line-number="13">y =<span class="st"> </span>b2<span class="op">*</span>x <span class="op">+</span><span class="st"> </span>error2;</a>
+<a class="sourceLine" id="cb133-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb133-15" data-line-number="15">proj.x =x <span class="op">%*%</span><span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(x) <span class="op">%*%</span><span class="st"> </span>x) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(x);</a>
+<a class="sourceLine" id="cb133-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb133-17" data-line-number="17"><span class="co"># b12 = 2*0.5 = 1</span></a>
+<a class="sourceLine" id="cb133-18" data-line-number="18">b12h.Pz =<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(z) <span class="op">%*%</span><span class="st"> </span>z) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(z)<span class="op">%*%</span><span class="st"> </span>y; </a>
+<a class="sourceLine" id="cb133-19" data-line-number="19">b12h.PzPx =<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(z) <span class="op">%*%</span><span class="st"> </span>z) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(z)<span class="op">%*%</span><span class="st"> </span>proj.x <span class="op">%*%</span><span class="st"> </span>y; </a>
+<a class="sourceLine" id="cb133-20" data-line-number="20">b12h.PxPz=<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(x) <span class="op">%*%</span><span class="st"> </span>x) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(x)<span class="op">%*%</span><span class="st"> </span>(<span class="kw">c</span>(b12h.Pz)<span class="op">*</span>x) ;</a>
+<a class="sourceLine" id="cb133-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb133-22" data-line-number="22"><span class="kw">print</span>(<span class="kw">c</span>(b12h.Pz,b12h.PzPx,b12h.PxPz))</a></code></pre></div>
 <pre><code>## [1] 1.001882 1.001882 1.001882</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -791,9 +789,9 @@ Let <span class="math inline">\(\mathbf{P}_{\mathcal{V}_{1}}:\mathcal{V}\rightar
 </ul>
 <div class="solution">
 <p class="solution-begin">
-Proof <span id="sol-start-195" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-195', 'sol-start-195')"></span>
+Proof <span id="sol-start-107" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-107', 'sol-start-107')"></span>
 </p>
-<div id="sol-body-195" class="solution-body" style="display: none;">
+<div id="sol-body-107" class="solution-body" style="display: none;">
 <ol style="list-style-type: lower-roman">
 <li>Assume <span class="math display">\[\mathbf{P}_{\mathcal{V}_{1}}\mathbf{P}_{\mathcal{V}_{2}}=\mathbf{P}_{\mathcal{V}_{2}}\mathbf{P}_{\mathcal{V}_{1}}=\mathbf{P}_{\mathcal{V}_{1}}.\]</span>
 </li>
@@ -827,9 +825,9 @@ holds for any <span class="math inline">\(f\)</span> as <span class="math inline
 emerges for any <span class="math inline">\(f\in\mathcal{H}\)</span>.</span> In several quantum mechanics related disciplines, the experiments are identified by the orthogonal projections on a Hilbert space. For example, a binary decision of yes and no may be thought of as a projection onto two orthogonal subspaces, the <a href="ch-randomization.html#sub:SumDecomp">range space</a>, and the <a href="ch-randomization.html#sub:SumDecomp">null space</a>. Moreover, unlike classical mechanics, the outcome of two yes-no experiments may depend on the order in which the experiments are measured. Therefore, the <strong>reduction principle</strong> can play an essential role in simplifying the identification.</p>
 <div class="solution">
 <p class="solution-begin">
-Two-stage estimate and pseudo-norm <span id="sol-start-196" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-196', 'sol-start-196')"></span>
+Two-stage estimate and pseudo-norm <span id="sol-start-108" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-108', 'sol-start-108')"></span>
 </p>
-<div id="sol-body-196" class="solution-body" style="display: none;">
+<div id="sol-body-108" class="solution-body" style="display: none;">
 <p>Consider the data vector <span class="math inline">\(\mathbf{x},\mathbf{y},\mathbf{z}\in\mathbb{R}^n\)</span>. One may assume that they are generated by the following model <span class="math display">\[\begin{cases}
 \mathbf{x}= &amp; \beta_{1,0}\mathbf{z}+\mathbf{e}_{1},\\
 \mathbf{y}= &amp; \beta_{2,0}\mathbf{x}+\mathbf{e}_{2}.
@@ -843,22 +841,22 @@ Two-stage estimate and pseudo-norm <span id="sol-start-196" class="fa fa-plus-sq
 we have <span class="math inline">\((\mathbf{P}_{\mathbf{z}}\mathbf{x})^{\top}\mathbf{y}-\hat{\beta}_{2}\mathbf{x}^{\top}\mathbf{P}_{\mathbf{z}}\mathbf{x}=0\)</span> which implies <span class="math inline">\(\hat{\beta}_{2}=(\mathbf{x}^{\top}\mathbf{P}_{\mathbf{z}}\mathbf{x})^{-1}\mathbf{x}^{\top}\mathbf{P}_{\mathbf{z}}\mathbf{y}\)</span>.</p></li>
 </ol>
 <p>The numerical example will show us these two estimates return exactly the same results. Because the second expression is just a mathematical tautology of the first one.</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1"><span class="co"># Method 1</span></a>
-<a class="sourceLine" id="cb138-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb138-3" data-line-number="3"><span class="co"># regression x = b1 * z + e_1</span></a>
-<a class="sourceLine" id="cb138-4" data-line-number="4">b1h =<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(z) <span class="op">%*%</span><span class="st"> </span>z) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(z)<span class="op">%*%</span><span class="st"> </span>x; </a>
-<a class="sourceLine" id="cb138-5" data-line-number="5"><span class="co"># construct x_hat</span></a>
-<a class="sourceLine" id="cb138-6" data-line-number="6">xhat=<span class="st"> </span>z<span class="op">%*%</span>b1h;</a>
-<a class="sourceLine" id="cb138-7" data-line-number="7"><span class="co"># regression y = b2 * x_hat + e_2</span></a>
-<a class="sourceLine" id="cb138-8" data-line-number="8">b2h<span class="fl">.1</span> =<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(xhat) <span class="op">%*%</span><span class="st"> </span>xhat) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(xhat)<span class="op">%*%</span><span class="st"> </span>y;</a>
-<a class="sourceLine" id="cb138-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb138-10" data-line-number="10"><span class="co"># Method 2</span></a>
-<a class="sourceLine" id="cb138-11" data-line-number="11"><span class="co"># projection matrix</span></a>
-<a class="sourceLine" id="cb138-12" data-line-number="12">proj.z =z <span class="op">%*%</span><span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(z) <span class="op">%*%</span><span class="st"> </span>z) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(z);</a>
-<a class="sourceLine" id="cb138-13" data-line-number="13"><span class="co"># || y-b2x || under the pseudo-norm induced by P_z</span></a>
-<a class="sourceLine" id="cb138-14" data-line-number="14">b2h<span class="fl">.2</span>  =<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(x) <span class="op">%*%</span><span class="st"> </span>proj.z <span class="op">%*%</span><span class="st"> </span>x) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(x) <span class="op">%*%</span><span class="st"> </span>proj.z <span class="op">%*%</span><span class="st"> </span>y</a>
-<a class="sourceLine" id="cb138-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb138-16" data-line-number="16"><span class="kw">print</span>(<span class="kw">c</span>(b2h<span class="fl">.1</span>,b2h<span class="fl">.2</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1"><span class="co"># Method 1</span></a>
+<a class="sourceLine" id="cb135-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb135-3" data-line-number="3"><span class="co"># regression x = b1 * z + e_1</span></a>
+<a class="sourceLine" id="cb135-4" data-line-number="4">b1h =<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(z) <span class="op">%*%</span><span class="st"> </span>z) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(z)<span class="op">%*%</span><span class="st"> </span>x; </a>
+<a class="sourceLine" id="cb135-5" data-line-number="5"><span class="co"># construct x_hat</span></a>
+<a class="sourceLine" id="cb135-6" data-line-number="6">xhat=<span class="st"> </span>z<span class="op">%*%</span>b1h;</a>
+<a class="sourceLine" id="cb135-7" data-line-number="7"><span class="co"># regression y = b2 * x_hat + e_2</span></a>
+<a class="sourceLine" id="cb135-8" data-line-number="8">b2h<span class="fl">.1</span> =<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(xhat) <span class="op">%*%</span><span class="st"> </span>xhat) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(xhat)<span class="op">%*%</span><span class="st"> </span>y;</a>
+<a class="sourceLine" id="cb135-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb135-10" data-line-number="10"><span class="co"># Method 2</span></a>
+<a class="sourceLine" id="cb135-11" data-line-number="11"><span class="co"># projection matrix</span></a>
+<a class="sourceLine" id="cb135-12" data-line-number="12">proj.z =z <span class="op">%*%</span><span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(z) <span class="op">%*%</span><span class="st"> </span>z) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(z);</a>
+<a class="sourceLine" id="cb135-13" data-line-number="13"><span class="co"># || y-b2x || under the pseudo-norm induced by P_z</span></a>
+<a class="sourceLine" id="cb135-14" data-line-number="14">b2h<span class="fl">.2</span>  =<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(x) <span class="op">%*%</span><span class="st"> </span>proj.z <span class="op">%*%</span><span class="st"> </span>x) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(x) <span class="op">%*%</span><span class="st"> </span>proj.z <span class="op">%*%</span><span class="st"> </span>y</a>
+<a class="sourceLine" id="cb135-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb135-16" data-line-number="16"><span class="kw">print</span>(<span class="kw">c</span>(b2h<span class="fl">.1</span>,b2h<span class="fl">.2</span>))</a></code></pre></div>
 <pre><code>## [1] 2.000449 2.000449</code></pre>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
@@ -919,9 +917,9 @@ plays the same role as <span class="math inline">\(\mbox{Cov}(Y(\omega),X(\omega
 <p>The exact expression of <span class="math inline">\(\mathbf{K}_{t}\)</span> is given below.</p>
 <div class="solution">
 <p class="solution-begin">
-Kalman gain matrix <span id="sol-start-197" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-197', 'sol-start-197')"></span>
+Kalman gain matrix <span id="sol-start-109" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-109', 'sol-start-109')"></span>
 </p>
-<div id="sol-body-197" class="solution-body" style="display: none;">
+<div id="sol-body-109" class="solution-body" style="display: none;">
 <p>The mean and covariance matrix of dynamical law are
 <span class="math display">\[\begin{align*}
 \hat{\mathbf{x}}_{t}    &amp;=\mathbb{E}[\mathbf{X}_{t}(\omega)|\mathcal{F}_{t-1}]\\
@@ -954,91 +952,91 @@ which is the <strong>Kalman gain</strong>.</p>
 <p>The <strong>Kalman gain</strong> <span class="math inline">\(\mathbf{K}_t(\mathbf{y}_{t}-\mathbf{B}\hat{\mathbf{x}}_{t})\)</span> basically is a correction term, and it represents the amount by which to correct the propagated state estimate due to the measurement <span class="math inline">\(\mathbf{y}_{t}\)</span>. In other words, <strong>Kalman’s filter</strong> provides the best linear approximation of the observation vector <span class="math inline">\(\hat{\mathbf{y}}_{t}\)</span> when the projection <span class="math inline">\(\mathbf{K}_t\)</span> can minimize the distance between the error vectors <span class="math inline">\(\mathbf{X}_{t}(\omega)-\hat{\mathbf{x}}_{t}\)</span> and <span class="math inline">\(\mathbf{y}_{t}-\mathbf{B}\hat{\mathbf{x}}_{t}\)</span>.</p>
 <div class="solution">
 <p class="solution-begin">
-code <span id="sol-start-198" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-198', 'sol-start-198')"></span>
+code <span id="sol-start-110" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-110', 'sol-start-110')"></span>
 </p>
-<div id="sol-body-198" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1">Kalman.filter =<span class="st"> </span><span class="cf">function</span>(A, C, B, Q, R, y, xhat, Sigma){</a>
-<a class="sourceLine" id="cb140-2" data-line-number="2">  <span class="co"># x[t+1] = Ax[t] + Cv[t]</span></a>
-<a class="sourceLine" id="cb140-3" data-line-number="3">  <span class="co"># y[t] = Bx[t] + w[t]</span></a>
-<a class="sourceLine" id="cb140-4" data-line-number="4">  <span class="co"># v[t] ~ N(0, Q)</span></a>
-<a class="sourceLine" id="cb140-5" data-line-number="5">  <span class="co"># w[t] ~ N(0, R)</span></a>
-<a class="sourceLine" id="cb140-6" data-line-number="6">  <span class="co"># y = observation value at [t]</span></a>
-<a class="sourceLine" id="cb140-7" data-line-number="7">  <span class="co"># xhat = prior state estimates at [t-1]</span></a>
-<a class="sourceLine" id="cb140-8" data-line-number="8">  <span class="co"># Sigma    = posteriror state variance at [t-1]</span></a>
-<a class="sourceLine" id="cb140-9" data-line-number="9">  <span class="co"># prior and posterior</span></a>
-<a class="sourceLine" id="cb140-10" data-line-number="10">  <span class="co"># xpri = xpri[t+1], xpost = xpost[t], </span></a>
-<a class="sourceLine" id="cb140-11" data-line-number="11">  <span class="co"># Sigmapri = Sigmapri[t+1], Sigmapost = Sigmapost[t],</span></a>
-<a class="sourceLine" id="cb140-12" data-line-number="12">  <span class="co"># K = Kalman gain at t</span></a>
-<a class="sourceLine" id="cb140-13" data-line-number="13">  y =<span class="st"> </span><span class="kw">matrix</span>(y, <span class="dt">ncol=</span><span class="dv">1</span>); xhat =<span class="st"> </span><span class="kw">matrix</span>(xhat, <span class="dt">ncol=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb140-14" data-line-number="14">  <span class="co"># error/innovataion term</span></a>
-<a class="sourceLine" id="cb140-15" data-line-number="15">  error =<span class="st"> </span>y <span class="op">-</span><span class="st"> </span>B <span class="op">%*%</span><span class="st"> </span>xhat</a>
-<a class="sourceLine" id="cb140-16" data-line-number="16">  V.error =<span class="st"> </span>B <span class="op">%*%</span><span class="st"> </span>Sigma <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(B) <span class="op">+</span><span class="st"> </span>R</a>
-<a class="sourceLine" id="cb140-17" data-line-number="17">  <span class="co"># Kalman gain</span></a>
-<a class="sourceLine" id="cb140-18" data-line-number="18">  K =<span class="st"> </span>Sigma <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(B) <span class="op">%*%</span><span class="st"> </span><span class="kw">solve</span>(V.error)</a>
-<a class="sourceLine" id="cb140-19" data-line-number="19">  <span class="co"># filtering step</span></a>
-<a class="sourceLine" id="cb140-20" data-line-number="20">   <span class="cf">if</span>(<span class="op">!</span><span class="kw">any</span>(<span class="kw">is.na</span>(error))){</a>
-<a class="sourceLine" id="cb140-21" data-line-number="21">    xpost =<span class="st"> </span>xhat <span class="op">+</span><span class="st"> </span>K <span class="op">%*%</span><span class="st"> </span>error</a>
-<a class="sourceLine" id="cb140-22" data-line-number="22">    Sigmapost =<span class="st"> </span>Sigma <span class="op">-</span><span class="st"> </span>K <span class="op">%*%</span><span class="st"> </span>V.error <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(K) <span class="co"># variance</span></a>
-<a class="sourceLine" id="cb140-23" data-line-number="23">  } <span class="cf">else</span>{</a>
-<a class="sourceLine" id="cb140-24" data-line-number="24">    <span class="co"># NA</span></a>
-<a class="sourceLine" id="cb140-25" data-line-number="25">    xpost =<span class="st"> </span>xhat</a>
-<a class="sourceLine" id="cb140-26" data-line-number="26">    Sigmapost =<span class="st"> </span>Sigma</a>
-<a class="sourceLine" id="cb140-27" data-line-number="27">  }</a>
-<a class="sourceLine" id="cb140-28" data-line-number="28"> </a>
-<a class="sourceLine" id="cb140-29" data-line-number="29">  <span class="co"># one-step-ahead forecast (prior in the next period)</span></a>
-<a class="sourceLine" id="cb140-30" data-line-number="30">  xpred =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>xpost; Sigmapred =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>Sigmapost <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(A) <span class="op">+</span><span class="st"> </span><span class="kw">t</span>(C) <span class="op">%*%</span><span class="st"> </span>Q <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(C) </a>
-<a class="sourceLine" id="cb140-31" data-line-number="31">  <span class="kw">return</span>(<span class="kw">list</span>(<span class="dt">xpost=</span>xpost, <span class="dt">xpred=</span>xpred, <span class="dt">Sigmapost=</span>Sigmapost, <span class="dt">Sigmapred=</span>Sigmapred, <span class="dt">K=</span>K))</a>
-<a class="sourceLine" id="cb140-32" data-line-number="32">}</a>
-<a class="sourceLine" id="cb140-33" data-line-number="33"></a>
-<a class="sourceLine" id="cb140-34" data-line-number="34"></a>
-<a class="sourceLine" id="cb140-35" data-line-number="35"><span class="co">## Data and Model</span></a>
-<a class="sourceLine" id="cb140-36" data-line-number="36">N      =<span class="st"> </span><span class="dv">30</span></a>
-<a class="sourceLine" id="cb140-37" data-line-number="37"><span class="kw">set.seed</span>(<span class="dv">2021</span>)</a>
-<a class="sourceLine" id="cb140-38" data-line-number="38">y =<span class="st"> </span><span class="kw">arima.sim</span>(<span class="dt">model=</span><span class="kw">list</span>(<span class="dt">ar=</span><span class="fl">0.5</span>, <span class="dt">ma=</span><span class="fl">0.2</span>),<span class="dt">n=</span>N, <span class="dt">innov=</span><span class="kw">rnorm</span>(N))</a>
-<a class="sourceLine" id="cb140-39" data-line-number="39">y =<span class="st"> </span>y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span> <span class="op">*</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span>N</a>
-<a class="sourceLine" id="cb140-40" data-line-number="40"></a>
-<a class="sourceLine" id="cb140-41" data-line-number="41"><span class="co"># data y</span></a>
-<a class="sourceLine" id="cb140-42" data-line-number="42"></a>
-<a class="sourceLine" id="cb140-43" data-line-number="43">y =<span class="st"> </span><span class="kw">matrix</span>(y, <span class="dt">nrow=</span>N, <span class="dt">ncol=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb140-44" data-line-number="44"></a>
-<a class="sourceLine" id="cb140-45" data-line-number="45"><span class="co"># system: x[t+1] = Ax[t] + Cv[t]</span></a>
-<a class="sourceLine" id="cb140-46" data-line-number="46"><span class="co"># obs:    y[t]   = Bx[t] + e[t]</span></a>
-<a class="sourceLine" id="cb140-47" data-line-number="47"><span class="co"># v[t] ~ NID(0,Q), e[t] ~ NID(0, R)</span></a>
-<a class="sourceLine" id="cb140-48" data-line-number="48"></a>
-<a class="sourceLine" id="cb140-49" data-line-number="49"></a>
-<a class="sourceLine" id="cb140-50" data-line-number="50">A =<span class="st">  </span><span class="kw">matrix</span>(<span class="kw">c</span>(.<span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb140-51" data-line-number="51">               <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb140-52" data-line-number="52">               <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb140-53" data-line-number="53">               <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">nrow=</span><span class="dv">4</span>, <span class="dt">ncol=</span><span class="dv">4</span>, <span class="dt">byrow =</span> T)</a>
-<a class="sourceLine" id="cb140-54" data-line-number="54">B =<span class="st">  </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">nrow=</span><span class="dv">1</span>, <span class="dt">ncol=</span><span class="dv">4</span>, <span class="dt">byrow =</span> T)</a>
-<a class="sourceLine" id="cb140-55" data-line-number="55">C =<span class="st">  </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb140-56" data-line-number="56">               <span class="fl">.5</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb140-57" data-line-number="57">               <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb140-58" data-line-number="58">               <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">nrow=</span><span class="dv">4</span>, <span class="dt">ncol=</span><span class="dv">4</span>, <span class="dt">byrow =</span> T)</a>
-<a class="sourceLine" id="cb140-59" data-line-number="59">Q =<span class="st"> </span><span class="kw">diag</span>(<span class="dv">1</span>, <span class="dv">4</span>); R =<span class="st"> </span><span class="kw">diag</span>(<span class="dv">0</span>, <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb140-60" data-line-number="60"></a>
-<a class="sourceLine" id="cb140-61" data-line-number="61"><span class="co"># Recurisve filtering the data y</span></a>
-<a class="sourceLine" id="cb140-62" data-line-number="62"></a>
-<a class="sourceLine" id="cb140-63" data-line-number="63">recursive.kalman =<span class="st"> </span><span class="cf">function</span>(A, C, B, Q, R, y, xini, Sigmaini){</a>
-<a class="sourceLine" id="cb140-64" data-line-number="64">  N =<span class="st"> </span><span class="kw">nrow</span>(y); err =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,N)</a>
-<a class="sourceLine" id="cb140-65" data-line-number="65">  xpri =<span class="st"> </span>xpost  =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dt">nrow=</span>N, <span class="dt">ncol=</span><span class="kw">nrow</span>(A))</a>
-<a class="sourceLine" id="cb140-66" data-line-number="66">  Sigma =<span class="st"> </span>K =<span class="st"> </span><span class="kw">list</span>(<span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dt">nrow=</span><span class="kw">nrow</span>(A), <span class="dt">ncol=</span><span class="kw">nrow</span>(A)))</a>
-<a class="sourceLine" id="cb140-67" data-line-number="67">  <span class="co"># Initial state</span></a>
-<a class="sourceLine" id="cb140-68" data-line-number="68">  xpri[<span class="dv">1</span>, ] =<span class="st"> </span>xini</a>
-<a class="sourceLine" id="cb140-69" data-line-number="69">  Sigma[[<span class="dv">1</span>]]    =<span class="st"> </span>Sigmaini</a>
-<a class="sourceLine" id="cb140-70" data-line-number="70">  <span class="co"># Run the filter at every time t</span></a>
-<a class="sourceLine" id="cb140-71" data-line-number="71">  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>N){</a>
-<a class="sourceLine" id="cb140-72" data-line-number="72">    temp     =<span class="st"> </span><span class="kw">Kalman.filter</span>(<span class="dt">A =</span> A, <span class="dt">C =</span> C, <span class="dt">B =</span> B, <span class="dt">Q =</span> Q, <span class="dt">R =</span> R,</a>
-<a class="sourceLine" id="cb140-73" data-line-number="73">                         <span class="dt">y =</span> y[i, ], <span class="dt">xhat =</span> xpri[i, ], <span class="dt">Sigma =</span> Sigma[[i]])</a>
-<a class="sourceLine" id="cb140-74" data-line-number="74">    xpost[i,] =<span class="st"> </span>temp<span class="op">$</span>xpost</a>
-<a class="sourceLine" id="cb140-75" data-line-number="75">    <span class="cf">if</span>(i <span class="op">&lt;</span><span class="st"> </span>N)</a>
-<a class="sourceLine" id="cb140-76" data-line-number="76">      xpri[i<span class="op">+</span><span class="dv">1</span>,] =<span class="st"> </span>temp<span class="op">$</span>xpred; Sigma[[i<span class="op">+</span><span class="dv">1</span>]] =<span class="st"> </span>temp<span class="op">$</span>Sigmapred; K[[i]] =<span class="st"> </span>temp<span class="op">$</span>K; </a>
-<a class="sourceLine" id="cb140-77" data-line-number="77">  }</a>
-<a class="sourceLine" id="cb140-78" data-line-number="78">  <span class="kw">return</span>(<span class="kw">list</span>(<span class="dt">xpost=</span>xpost, <span class="dt">xpri=</span>xpri, <span class="dt">Sigma=</span>Sigma, <span class="dt">K=</span>K))</a>
-<a class="sourceLine" id="cb140-79" data-line-number="79">}</a>
-<a class="sourceLine" id="cb140-80" data-line-number="80"></a>
-<a class="sourceLine" id="cb140-81" data-line-number="81"><span class="co">#</span></a>
-<a class="sourceLine" id="cb140-82" data-line-number="82">result =<span class="st"> </span><span class="kw">recursive.kalman</span>(A, C, B, Q, R, y, <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="kw">diag</span>(<span class="fl">1.5</span>, <span class="dv">4</span>))</a></code></pre></div>
+<div id="sol-body-110" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" data-line-number="1">Kalman.filter =<span class="st"> </span><span class="cf">function</span>(A, C, B, Q, R, y, xhat, Sigma){</a>
+<a class="sourceLine" id="cb137-2" data-line-number="2">  <span class="co"># x[t+1] = Ax[t] + Cv[t]</span></a>
+<a class="sourceLine" id="cb137-3" data-line-number="3">  <span class="co"># y[t] = Bx[t] + w[t]</span></a>
+<a class="sourceLine" id="cb137-4" data-line-number="4">  <span class="co"># v[t] ~ N(0, Q)</span></a>
+<a class="sourceLine" id="cb137-5" data-line-number="5">  <span class="co"># w[t] ~ N(0, R)</span></a>
+<a class="sourceLine" id="cb137-6" data-line-number="6">  <span class="co"># y = observation value at [t]</span></a>
+<a class="sourceLine" id="cb137-7" data-line-number="7">  <span class="co"># xhat = prior state estimates at [t-1]</span></a>
+<a class="sourceLine" id="cb137-8" data-line-number="8">  <span class="co"># Sigma    = posteriror state variance at [t-1]</span></a>
+<a class="sourceLine" id="cb137-9" data-line-number="9">  <span class="co"># prior and posterior</span></a>
+<a class="sourceLine" id="cb137-10" data-line-number="10">  <span class="co"># xpri = xpri[t+1], xpost = xpost[t], </span></a>
+<a class="sourceLine" id="cb137-11" data-line-number="11">  <span class="co"># Sigmapri = Sigmapri[t+1], Sigmapost = Sigmapost[t],</span></a>
+<a class="sourceLine" id="cb137-12" data-line-number="12">  <span class="co"># K = Kalman gain at t</span></a>
+<a class="sourceLine" id="cb137-13" data-line-number="13">  y =<span class="st"> </span><span class="kw">matrix</span>(y, <span class="dt">ncol=</span><span class="dv">1</span>); xhat =<span class="st"> </span><span class="kw">matrix</span>(xhat, <span class="dt">ncol=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb137-14" data-line-number="14">  <span class="co"># error/innovataion term</span></a>
+<a class="sourceLine" id="cb137-15" data-line-number="15">  error =<span class="st"> </span>y <span class="op">-</span><span class="st"> </span>B <span class="op">%*%</span><span class="st"> </span>xhat</a>
+<a class="sourceLine" id="cb137-16" data-line-number="16">  V.error =<span class="st"> </span>B <span class="op">%*%</span><span class="st"> </span>Sigma <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(B) <span class="op">+</span><span class="st"> </span>R</a>
+<a class="sourceLine" id="cb137-17" data-line-number="17">  <span class="co"># Kalman gain</span></a>
+<a class="sourceLine" id="cb137-18" data-line-number="18">  K =<span class="st"> </span>Sigma <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(B) <span class="op">%*%</span><span class="st"> </span><span class="kw">solve</span>(V.error)</a>
+<a class="sourceLine" id="cb137-19" data-line-number="19">  <span class="co"># filtering step</span></a>
+<a class="sourceLine" id="cb137-20" data-line-number="20">   <span class="cf">if</span>(<span class="op">!</span><span class="kw">any</span>(<span class="kw">is.na</span>(error))){</a>
+<a class="sourceLine" id="cb137-21" data-line-number="21">    xpost =<span class="st"> </span>xhat <span class="op">+</span><span class="st"> </span>K <span class="op">%*%</span><span class="st"> </span>error</a>
+<a class="sourceLine" id="cb137-22" data-line-number="22">    Sigmapost =<span class="st"> </span>Sigma <span class="op">-</span><span class="st"> </span>K <span class="op">%*%</span><span class="st"> </span>V.error <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(K) <span class="co"># variance</span></a>
+<a class="sourceLine" id="cb137-23" data-line-number="23">  } <span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb137-24" data-line-number="24">    <span class="co"># NA</span></a>
+<a class="sourceLine" id="cb137-25" data-line-number="25">    xpost =<span class="st"> </span>xhat</a>
+<a class="sourceLine" id="cb137-26" data-line-number="26">    Sigmapost =<span class="st"> </span>Sigma</a>
+<a class="sourceLine" id="cb137-27" data-line-number="27">  }</a>
+<a class="sourceLine" id="cb137-28" data-line-number="28"> </a>
+<a class="sourceLine" id="cb137-29" data-line-number="29">  <span class="co"># one-step-ahead forecast (prior in the next period)</span></a>
+<a class="sourceLine" id="cb137-30" data-line-number="30">  xpred =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>xpost; Sigmapred =<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>Sigmapost <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(A) <span class="op">+</span><span class="st"> </span><span class="kw">t</span>(C) <span class="op">%*%</span><span class="st"> </span>Q <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(C) </a>
+<a class="sourceLine" id="cb137-31" data-line-number="31">  <span class="kw">return</span>(<span class="kw">list</span>(<span class="dt">xpost=</span>xpost, <span class="dt">xpred=</span>xpred, <span class="dt">Sigmapost=</span>Sigmapost, <span class="dt">Sigmapred=</span>Sigmapred, <span class="dt">K=</span>K))</a>
+<a class="sourceLine" id="cb137-32" data-line-number="32">}</a>
+<a class="sourceLine" id="cb137-33" data-line-number="33"></a>
+<a class="sourceLine" id="cb137-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb137-35" data-line-number="35"><span class="co">## Data and Model</span></a>
+<a class="sourceLine" id="cb137-36" data-line-number="36">N      =<span class="st"> </span><span class="dv">30</span></a>
+<a class="sourceLine" id="cb137-37" data-line-number="37"><span class="kw">set.seed</span>(<span class="dv">2021</span>)</a>
+<a class="sourceLine" id="cb137-38" data-line-number="38">y =<span class="st"> </span><span class="kw">arima.sim</span>(<span class="dt">model=</span><span class="kw">list</span>(<span class="dt">ar=</span><span class="fl">0.5</span>, <span class="dt">ma=</span><span class="fl">0.2</span>),<span class="dt">n=</span>N, <span class="dt">innov=</span><span class="kw">rnorm</span>(N))</a>
+<a class="sourceLine" id="cb137-39" data-line-number="39">y =<span class="st"> </span>y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span> <span class="op">*</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span>N</a>
+<a class="sourceLine" id="cb137-40" data-line-number="40"></a>
+<a class="sourceLine" id="cb137-41" data-line-number="41"><span class="co"># data y</span></a>
+<a class="sourceLine" id="cb137-42" data-line-number="42"></a>
+<a class="sourceLine" id="cb137-43" data-line-number="43">y =<span class="st"> </span><span class="kw">matrix</span>(y, <span class="dt">nrow=</span>N, <span class="dt">ncol=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb137-44" data-line-number="44"></a>
+<a class="sourceLine" id="cb137-45" data-line-number="45"><span class="co"># system: x[t+1] = Ax[t] + Cv[t]</span></a>
+<a class="sourceLine" id="cb137-46" data-line-number="46"><span class="co"># obs:    y[t]   = Bx[t] + e[t]</span></a>
+<a class="sourceLine" id="cb137-47" data-line-number="47"><span class="co"># v[t] ~ NID(0,Q), e[t] ~ NID(0, R)</span></a>
+<a class="sourceLine" id="cb137-48" data-line-number="48"></a>
+<a class="sourceLine" id="cb137-49" data-line-number="49"></a>
+<a class="sourceLine" id="cb137-50" data-line-number="50">A =<span class="st">  </span><span class="kw">matrix</span>(<span class="kw">c</span>(.<span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb137-51" data-line-number="51">               <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb137-52" data-line-number="52">               <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb137-53" data-line-number="53">               <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">nrow=</span><span class="dv">4</span>, <span class="dt">ncol=</span><span class="dv">4</span>, <span class="dt">byrow =</span> T)</a>
+<a class="sourceLine" id="cb137-54" data-line-number="54">B =<span class="st">  </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">nrow=</span><span class="dv">1</span>, <span class="dt">ncol=</span><span class="dv">4</span>, <span class="dt">byrow =</span> T)</a>
+<a class="sourceLine" id="cb137-55" data-line-number="55">C =<span class="st">  </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb137-56" data-line-number="56">               <span class="fl">.5</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb137-57" data-line-number="57">               <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb137-58" data-line-number="58">               <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">nrow=</span><span class="dv">4</span>, <span class="dt">ncol=</span><span class="dv">4</span>, <span class="dt">byrow =</span> T)</a>
+<a class="sourceLine" id="cb137-59" data-line-number="59">Q =<span class="st"> </span><span class="kw">diag</span>(<span class="dv">1</span>, <span class="dv">4</span>); R =<span class="st"> </span><span class="kw">diag</span>(<span class="dv">0</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb137-60" data-line-number="60"></a>
+<a class="sourceLine" id="cb137-61" data-line-number="61"><span class="co"># Recurisve filtering the data y</span></a>
+<a class="sourceLine" id="cb137-62" data-line-number="62"></a>
+<a class="sourceLine" id="cb137-63" data-line-number="63">recursive.kalman =<span class="st"> </span><span class="cf">function</span>(A, C, B, Q, R, y, xini, Sigmaini){</a>
+<a class="sourceLine" id="cb137-64" data-line-number="64">  N =<span class="st"> </span><span class="kw">nrow</span>(y); err =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,N)</a>
+<a class="sourceLine" id="cb137-65" data-line-number="65">  xpri =<span class="st"> </span>xpost  =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dt">nrow=</span>N, <span class="dt">ncol=</span><span class="kw">nrow</span>(A))</a>
+<a class="sourceLine" id="cb137-66" data-line-number="66">  Sigma =<span class="st"> </span>K =<span class="st"> </span><span class="kw">list</span>(<span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dt">nrow=</span><span class="kw">nrow</span>(A), <span class="dt">ncol=</span><span class="kw">nrow</span>(A)))</a>
+<a class="sourceLine" id="cb137-67" data-line-number="67">  <span class="co"># Initial state</span></a>
+<a class="sourceLine" id="cb137-68" data-line-number="68">  xpri[<span class="dv">1</span>, ] =<span class="st"> </span>xini</a>
+<a class="sourceLine" id="cb137-69" data-line-number="69">  Sigma[[<span class="dv">1</span>]]    =<span class="st"> </span>Sigmaini</a>
+<a class="sourceLine" id="cb137-70" data-line-number="70">  <span class="co"># Run the filter at every time t</span></a>
+<a class="sourceLine" id="cb137-71" data-line-number="71">  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>N){</a>
+<a class="sourceLine" id="cb137-72" data-line-number="72">    temp     =<span class="st"> </span><span class="kw">Kalman.filter</span>(<span class="dt">A =</span> A, <span class="dt">C =</span> C, <span class="dt">B =</span> B, <span class="dt">Q =</span> Q, <span class="dt">R =</span> R,</a>
+<a class="sourceLine" id="cb137-73" data-line-number="73">                         <span class="dt">y =</span> y[i, ], <span class="dt">xhat =</span> xpri[i, ], <span class="dt">Sigma =</span> Sigma[[i]])</a>
+<a class="sourceLine" id="cb137-74" data-line-number="74">    xpost[i,] =<span class="st"> </span>temp<span class="op">$</span>xpost</a>
+<a class="sourceLine" id="cb137-75" data-line-number="75">    <span class="cf">if</span>(i <span class="op">&lt;</span><span class="st"> </span>N)</a>
+<a class="sourceLine" id="cb137-76" data-line-number="76">      xpri[i<span class="op">+</span><span class="dv">1</span>,] =<span class="st"> </span>temp<span class="op">$</span>xpred; Sigma[[i<span class="op">+</span><span class="dv">1</span>]] =<span class="st"> </span>temp<span class="op">$</span>Sigmapred; K[[i]] =<span class="st"> </span>temp<span class="op">$</span>K; </a>
+<a class="sourceLine" id="cb137-77" data-line-number="77">  }</a>
+<a class="sourceLine" id="cb137-78" data-line-number="78">  <span class="kw">return</span>(<span class="kw">list</span>(<span class="dt">xpost=</span>xpost, <span class="dt">xpri=</span>xpri, <span class="dt">Sigma=</span>Sigma, <span class="dt">K=</span>K))</a>
+<a class="sourceLine" id="cb137-79" data-line-number="79">}</a>
+<a class="sourceLine" id="cb137-80" data-line-number="80"></a>
+<a class="sourceLine" id="cb137-81" data-line-number="81"><span class="co">#</span></a>
+<a class="sourceLine" id="cb137-82" data-line-number="82">result =<span class="st"> </span><span class="kw">recursive.kalman</span>(A, C, B, Q, R, y, <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="kw">diag</span>(<span class="fl">1.5</span>, <span class="dv">4</span>))</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1065,21 +1063,21 @@ As you can see, the randomized algorithm is similar to the <a href="ch-UnMulti.h
 <p class="caption marginnote">-->Figure 16.5: Objective function and its derivative <!--</p>-->
 <!--</div>--></span>
 </p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" data-line-number="1"><span class="co"># objective function and its gradient</span></a>
-<a class="sourceLine" id="cb141-2" data-line-number="2">ftn =<span class="st"> </span><span class="cf">function</span>(x) {fx =<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="kw">sin</span>(x); dfx =<span class="st"> </span><span class="dv">2</span><span class="op">*</span>x <span class="op">-</span><span class="st"> </span><span class="kw">cos</span>(x); <span class="kw">return</span>(<span class="kw">c</span>(fx, dfx))}</a>
-<a class="sourceLine" id="cb141-3" data-line-number="3"><span class="co"># optimization</span></a>
-<a class="sourceLine" id="cb141-4" data-line-number="4"><span class="kw">set.seed</span>(<span class="dv">2021</span>); x =<span class="st"> </span>x.s =<span class="st"> </span><span class="dv">1</span> ; fx =<span class="st"> </span>fx.s =<span class="st"> </span><span class="kw">ftn</span>(x); epsilon =<span class="st"> </span>sigma =<span class="st"> </span><span class="fl">0.1</span>; </a>
-<a class="sourceLine" id="cb141-5" data-line-number="5">iter =<span class="st"> </span>iter.s =<span class="st"> </span><span class="dv">0</span>; max.iter =<span class="st"> </span><span class="dv">1000</span>; tol =<span class="st"> </span><span class="fl">1e-3</span>; <span class="co"># try epsilon = sigma = 0.01; tol=1e-5; max.iter=10000</span></a>
-<a class="sourceLine" id="cb141-6" data-line-number="6"><span class="cf">while</span> ((<span class="kw">abs</span>(fx[<span class="dv">2</span>]) <span class="op">&gt;</span><span class="st"> </span>tol) <span class="op">&amp;&amp;</span><span class="st"> </span>(iter <span class="op">&lt;</span><span class="st"> </span>max.iter)) {</a>
-<a class="sourceLine" id="cb141-7" data-line-number="7">    x =<span class="st"> </span>x <span class="op">-</span><span class="st"> </span>epsilon<span class="op">*</span>fx[<span class="dv">2</span>]; <span class="co"># gradient search</span></a>
-<a class="sourceLine" id="cb141-8" data-line-number="8">    fx =<span class="st"> </span><span class="kw">ftn</span>(x); iter =<span class="st"> </span>iter <span class="op">+</span><span class="st"> </span><span class="dv">1</span>}</a>
-<a class="sourceLine" id="cb141-9" data-line-number="9"><span class="cf">while</span> ((<span class="kw">abs</span>(fx.s[<span class="dv">2</span>]) <span class="op">&gt;</span><span class="st"> </span>tol) <span class="op">&amp;&amp;</span><span class="st"> </span>(iter.s <span class="op">&lt;</span><span class="st"> </span>max.iter)) {</a>
-<a class="sourceLine" id="cb141-10" data-line-number="10">    x.s =<span class="st"> </span>x.s <span class="op">-</span><span class="st"> </span>epsilon<span class="op">*</span>fx.s[<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span>sigma<span class="op">*</span><span class="kw">rnorm</span>(<span class="dv">1</span>,<span class="dv">0</span>); <span class="co"># stochastic gradient search</span></a>
-<a class="sourceLine" id="cb141-11" data-line-number="11">    fx.s =<span class="st"> </span><span class="kw">ftn</span>(x.s); iter.s =<span class="st"> </span>iter.s <span class="op">+</span><span class="st"> </span><span class="dv">1</span>}</a>
-<a class="sourceLine" id="cb141-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb141-13" data-line-number="13"><span class="cf">if</span> ((<span class="kw">abs</span>(fx[<span class="dv">2</span>]) <span class="op">&gt;</span><span class="st"> </span>tol) <span class="op">|</span><span class="st"> </span>(<span class="kw">abs</span>(fx.s[<span class="dv">2</span>]) <span class="op">&gt;</span><span class="st"> </span>tol)) {<span class="kw">return</span>(<span class="ot">NULL</span>)} <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb141-14" data-line-number="14">  <span class="kw">cat</span>(<span class="st">"Deterministic x:"</span>, x,  <span class="st">"converges at"</span>, iter, <span class="st">"iteration </span><span class="ch">\n</span><span class="st">"</span>)</a>
-<a class="sourceLine" id="cb141-15" data-line-number="15">  <span class="kw">cat</span>(<span class="st">"Randomized X:"</span>, x.s, <span class="st">"converges at"</span>, iter.s, <span class="st">"iteration </span><span class="ch">\n</span><span class="st">"</span>)}</a></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1"><span class="co"># objective function and its gradient</span></a>
+<a class="sourceLine" id="cb138-2" data-line-number="2">ftn =<span class="st"> </span><span class="cf">function</span>(x) {fx =<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="kw">sin</span>(x); dfx =<span class="st"> </span><span class="dv">2</span><span class="op">*</span>x <span class="op">-</span><span class="st"> </span><span class="kw">cos</span>(x); <span class="kw">return</span>(<span class="kw">c</span>(fx, dfx))}</a>
+<a class="sourceLine" id="cb138-3" data-line-number="3"><span class="co"># optimization</span></a>
+<a class="sourceLine" id="cb138-4" data-line-number="4"><span class="kw">set.seed</span>(<span class="dv">2021</span>); x =<span class="st"> </span>x.s =<span class="st"> </span><span class="dv">1</span> ; fx =<span class="st"> </span>fx.s =<span class="st"> </span><span class="kw">ftn</span>(x); epsilon =<span class="st"> </span>sigma =<span class="st"> </span><span class="fl">0.1</span>; </a>
+<a class="sourceLine" id="cb138-5" data-line-number="5">iter =<span class="st"> </span>iter.s =<span class="st"> </span><span class="dv">0</span>; max.iter =<span class="st"> </span><span class="dv">1000</span>; tol =<span class="st"> </span><span class="fl">1e-3</span>; <span class="co"># try epsilon = sigma = 0.01; tol=1e-5; max.iter=10000</span></a>
+<a class="sourceLine" id="cb138-6" data-line-number="6"><span class="cf">while</span> ((<span class="kw">abs</span>(fx[<span class="dv">2</span>]) <span class="op">&gt;</span><span class="st"> </span>tol) <span class="op">&amp;&amp;</span><span class="st"> </span>(iter <span class="op">&lt;</span><span class="st"> </span>max.iter)) {</a>
+<a class="sourceLine" id="cb138-7" data-line-number="7">    x =<span class="st"> </span>x <span class="op">-</span><span class="st"> </span>epsilon<span class="op">*</span>fx[<span class="dv">2</span>]; <span class="co"># gradient search</span></a>
+<a class="sourceLine" id="cb138-8" data-line-number="8">    fx =<span class="st"> </span><span class="kw">ftn</span>(x); iter =<span class="st"> </span>iter <span class="op">+</span><span class="st"> </span><span class="dv">1</span>}</a>
+<a class="sourceLine" id="cb138-9" data-line-number="9"><span class="cf">while</span> ((<span class="kw">abs</span>(fx.s[<span class="dv">2</span>]) <span class="op">&gt;</span><span class="st"> </span>tol) <span class="op">&amp;&amp;</span><span class="st"> </span>(iter.s <span class="op">&lt;</span><span class="st"> </span>max.iter)) {</a>
+<a class="sourceLine" id="cb138-10" data-line-number="10">    x.s =<span class="st"> </span>x.s <span class="op">-</span><span class="st"> </span>epsilon<span class="op">*</span>fx.s[<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span>sigma<span class="op">*</span><span class="kw">rnorm</span>(<span class="dv">1</span>,<span class="dv">0</span>); <span class="co"># stochastic gradient search</span></a>
+<a class="sourceLine" id="cb138-11" data-line-number="11">    fx.s =<span class="st"> </span><span class="kw">ftn</span>(x.s); iter.s =<span class="st"> </span>iter.s <span class="op">+</span><span class="st"> </span><span class="dv">1</span>}</a>
+<a class="sourceLine" id="cb138-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb138-13" data-line-number="13"><span class="cf">if</span> ((<span class="kw">abs</span>(fx[<span class="dv">2</span>]) <span class="op">&gt;</span><span class="st"> </span>tol) <span class="op">|</span><span class="st"> </span>(<span class="kw">abs</span>(fx.s[<span class="dv">2</span>]) <span class="op">&gt;</span><span class="st"> </span>tol)) {<span class="kw">return</span>(<span class="ot">NULL</span>)} <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb138-14" data-line-number="14">  <span class="kw">cat</span>(<span class="st">"Deterministic x:"</span>, x,  <span class="st">"converges at"</span>, iter, <span class="st">"iteration </span><span class="ch">\n</span><span class="st">"</span>)</a>
+<a class="sourceLine" id="cb138-15" data-line-number="15">  <span class="kw">cat</span>(<span class="st">"Randomized X:"</span>, x.s, <span class="st">"converges at"</span>, iter.s, <span class="st">"iteration </span><span class="ch">\n</span><span class="st">"</span>)}</a></code></pre></div>
 <pre><code>## Deterministic x: 0.4505276 converges at 26 iteration 
 ## Randomized X: 0.4498334 converges at 482 iteration</code></pre>
 <p>In this example, given the same degree of accuracy for the convergences (<span class="math inline">\(0.001\)</span>), we can see that the number of iterations in the randomized algorithm is about <span class="math inline">\(19\)</span> times larger than the deterministic one. That’s to say, the stochastic algorithm is less efficient than the deterministic counterpart for this optimization problem.</p>
@@ -1094,70 +1092,70 @@ As you can see, the randomized algorithm is similar to the <a href="ch-UnMulti.h
 <p>Now let’s consider another optimization problem with a slightly more complex objective function. Figure <a href="ch-randomization.html#fig:stochOpt">16.6</a> is about maximizing <span class="math inline">\(f(x_1, x_2)\)</span> where <span class="math inline">\(f(\cdot,\cdot)\)</span> has many <strong>local optima</strong>. Let the initial point be on a pseudo plateau in the central basin (the yellow square). The deterministic and randomized search algorithms are similar to the previous setting. However, this time, the deterministic algorithm (after around <span class="math inline">\(1500\)</span> iterations) gets stuck on the pseudo plateau (the red triangle). In contrast, the stochastic algorithm’s search trajectory (the blue path), although it does not seem to converge, explores several peaks that are much higher than the heaps in the central valley.<label for="tufte-sn-485" class="margin-toggle sidenote-number">485</label><input type="checkbox" id="tufte-sn-485" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">485</span> he algorithm fails to converge due to “unbounded” numerical gradients generated by the peaks.</span></p>
 <div class="solution">
 <p class="solution-begin">
-code <span id="sol-start-199" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-199', 'sol-start-199')"></span>
+code <span id="sol-start-111" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-111', 'sol-start-111')"></span>
 </p>
-<div id="sol-body-199" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb143-1" data-line-number="1">obj=<span class="cf">function</span>(x){(x[<span class="dv">1</span>]<span class="op">*</span><span class="kw">sin</span>(<span class="dv">20</span><span class="op">*</span>x[<span class="dv">2</span>])<span class="op">+</span>x[<span class="dv">2</span>]<span class="op">*</span><span class="kw">sin</span>(<span class="dv">20</span><span class="op">*</span>x[<span class="dv">1</span>]))<span class="op">^</span><span class="dv">2</span><span class="op">*</span><span class="kw">cosh</span>(<span class="kw">sin</span>(<span class="dv">10</span><span class="op">*</span>x[<span class="dv">1</span>])<span class="op">*</span>x[<span class="dv">1</span>])<span class="op">+</span></a>
-<a class="sourceLine" id="cb143-2" data-line-number="2">(x[<span class="dv">1</span>]<span class="op">*</span><span class="kw">cos</span>(<span class="dv">10</span><span class="op">*</span>x[<span class="dv">2</span>])<span class="op">+</span>x[<span class="dv">2</span>]<span class="op">*</span><span class="kw">sin</span>(<span class="dv">10</span><span class="op">*</span>x[<span class="dv">1</span>]))<span class="op">^</span><span class="dv">2</span><span class="op">*</span><span class="kw">cosh</span>(<span class="kw">cos</span>(<span class="dv">20</span><span class="op">*</span>x[<span class="dv">2</span>])<span class="op">*</span>x[<span class="dv">2</span>])}</a>
-<a class="sourceLine" id="cb143-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb143-4" data-line-number="4">init=<span class="kw">c</span>(.<span class="dv">65</span>,.<span class="dv">8</span>); xvec =<span class="st"> </span>xvec.s =<span class="st"> </span><span class="kw">matrix</span>(init,<span class="dt">ncol=</span><span class="dv">2</span>); epsilon=<span class="fl">0.01</span>; sigma =<span class="fl">0.1</span>;</a>
-<a class="sourceLine" id="cb143-5" data-line-number="5">grad =<span class="st"> </span>grad.s =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">0.1</span>,<span class="fl">0.1</span>),<span class="dt">ncol=</span><span class="dv">2</span>); grad.norm =<span class="st"> </span>grad.norm.s =iter=iter.s=<span class="dv">1</span>; max.iter =<span class="st"> </span><span class="dv">2000</span>;</a>
-<a class="sourceLine" id="cb143-6" data-line-number="6">obj.cur=obj.val =<span class="st"> </span>obj.cur.s =<span class="st"> </span>obj.val.s =<span class="kw">obj</span>(init);</a>
-<a class="sourceLine" id="cb143-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb143-8" data-line-number="8"><span class="cf">while</span> ((grad.norm<span class="op">&gt;</span><span class="fl">10e-3</span>) <span class="op">&amp;&amp;</span><span class="st"> </span>(iter <span class="op">&lt;</span><span class="st"> </span>max.iter)){</a>
-<a class="sourceLine" id="cb143-9" data-line-number="9">  obj.cur =<span class="st"> </span><span class="kw">obj</span>(xvec[iter, ]);</a>
-<a class="sourceLine" id="cb143-10" data-line-number="10">  x =<span class="st"> </span>xvec[iter,] <span class="op">+</span><span class="st">  </span>epsilon<span class="op">*</span>grad ; <span class="co"># deterministic search</span></a>
-<a class="sourceLine" id="cb143-11" data-line-number="11">  xvec=<span class="kw">rbind</span>(xvec,x); obj.val =<span class="st"> </span><span class="kw">rbind</span>(obj.val, <span class="kw">obj</span>(x));</a>
-<a class="sourceLine" id="cb143-12" data-line-number="12">  grad =<span class="st"> </span>epsilon<span class="op">*</span>(<span class="kw">obj</span>(x)<span class="op">-</span>obj.cur)<span class="op">/</span>(x <span class="op">-</span><span class="st"> </span>xvec[iter,]);</a>
-<a class="sourceLine" id="cb143-13" data-line-number="13">  grad.norm=<span class="kw">sqrt</span>(<span class="kw">norm</span>(grad));</a>
-<a class="sourceLine" id="cb143-14" data-line-number="14">  iter=iter<span class="op">+</span><span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb143-15" data-line-number="15">  } </a>
-<a class="sourceLine" id="cb143-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb143-17" data-line-number="17"><span class="kw">set.seed</span>(<span class="dv">2021</span>)</a>
-<a class="sourceLine" id="cb143-18" data-line-number="18"><span class="cf">while</span> ((grad.norm.s<span class="op">&gt;</span><span class="fl">10e-3</span>) <span class="op">&amp;&amp;</span><span class="st"> </span>(iter.s <span class="op">&lt;</span><span class="st"> </span>max.iter)){</a>
-<a class="sourceLine" id="cb143-19" data-line-number="19">  obj.cur.s =<span class="st"> </span><span class="kw">obj</span>(xvec.s[iter.s, ]);</a>
-<a class="sourceLine" id="cb143-20" data-line-number="20">  x.s =<span class="st"> </span>xvec.s[iter.s,] <span class="op">+</span><span class="st">  </span>epsilon<span class="op">*</span>grad.s <span class="op">+</span><span class="st"> </span>sigma<span class="op">*</span><span class="kw">rnorm</span>(<span class="dv">2</span>); <span class="co"># stochastic search</span></a>
-<a class="sourceLine" id="cb143-21" data-line-number="21">  xvec.s=<span class="kw">rbind</span>(xvec.s,x.s); obj.val.s =<span class="st"> </span><span class="kw">rbind</span>(obj.val.s, <span class="kw">obj</span>(x.s));</a>
-<a class="sourceLine" id="cb143-22" data-line-number="22">  grad.s =<span class="st"> </span>epsilon<span class="op">*</span>(<span class="kw">obj</span>(x.s)<span class="op">-</span>obj.cur.s)<span class="op">/</span>(x.s <span class="op">-</span><span class="st"> </span>xvec.s[iter.s,]);</a>
-<a class="sourceLine" id="cb143-23" data-line-number="23">  grad.norm.s=<span class="kw">sqrt</span>(<span class="kw">norm</span>(grad.s))</a>
-<a class="sourceLine" id="cb143-24" data-line-number="24">  iter.s=iter.s<span class="op">+</span><span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb143-25" data-line-number="25">  <span class="cf">if</span> (<span class="kw">is.nan</span>(grad.norm.s)){<span class="cf">break</span>}</a>
-<a class="sourceLine" id="cb143-26" data-line-number="26">  <span class="cf">if</span> (<span class="kw">abs</span>(<span class="kw">max</span>(x.s)<span class="op">&gt;</span><span class="dv">3</span>)){<span class="cf">break</span>}</a>
-<a class="sourceLine" id="cb143-27" data-line-number="27">} </a>
-<a class="sourceLine" id="cb143-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb143-29" data-line-number="29"><span class="co"># remove all rows with non-finite values</span></a>
-<a class="sourceLine" id="cb143-30" data-line-number="30">obj.val.s=obj.val.s[<span class="op">!</span><span class="kw">rowSums</span>(<span class="op">!</span><span class="kw">is.finite</span>(obj.val.s)),];</a>
-<a class="sourceLine" id="cb143-31" data-line-number="31"></a>
-<a class="sourceLine" id="cb143-32" data-line-number="32">grad.norm<span class="op">&lt;</span><span class="fl">10e-3</span></a></code></pre></div>
+<div id="sol-body-111" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1">obj=<span class="cf">function</span>(x){(x[<span class="dv">1</span>]<span class="op">*</span><span class="kw">sin</span>(<span class="dv">20</span><span class="op">*</span>x[<span class="dv">2</span>])<span class="op">+</span>x[<span class="dv">2</span>]<span class="op">*</span><span class="kw">sin</span>(<span class="dv">20</span><span class="op">*</span>x[<span class="dv">1</span>]))<span class="op">^</span><span class="dv">2</span><span class="op">*</span><span class="kw">cosh</span>(<span class="kw">sin</span>(<span class="dv">10</span><span class="op">*</span>x[<span class="dv">1</span>])<span class="op">*</span>x[<span class="dv">1</span>])<span class="op">+</span></a>
+<a class="sourceLine" id="cb140-2" data-line-number="2">(x[<span class="dv">1</span>]<span class="op">*</span><span class="kw">cos</span>(<span class="dv">10</span><span class="op">*</span>x[<span class="dv">2</span>])<span class="op">+</span>x[<span class="dv">2</span>]<span class="op">*</span><span class="kw">sin</span>(<span class="dv">10</span><span class="op">*</span>x[<span class="dv">1</span>]))<span class="op">^</span><span class="dv">2</span><span class="op">*</span><span class="kw">cosh</span>(<span class="kw">cos</span>(<span class="dv">20</span><span class="op">*</span>x[<span class="dv">2</span>])<span class="op">*</span>x[<span class="dv">2</span>])}</a>
+<a class="sourceLine" id="cb140-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb140-4" data-line-number="4">init=<span class="kw">c</span>(.<span class="dv">65</span>,.<span class="dv">8</span>); xvec =<span class="st"> </span>xvec.s =<span class="st"> </span><span class="kw">matrix</span>(init,<span class="dt">ncol=</span><span class="dv">2</span>); epsilon=<span class="fl">0.01</span>; sigma =<span class="fl">0.1</span>;</a>
+<a class="sourceLine" id="cb140-5" data-line-number="5">grad =<span class="st"> </span>grad.s =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">0.1</span>,<span class="fl">0.1</span>),<span class="dt">ncol=</span><span class="dv">2</span>); grad.norm =<span class="st"> </span>grad.norm.s =iter=iter.s=<span class="dv">1</span>; max.iter =<span class="st"> </span><span class="dv">2000</span>;</a>
+<a class="sourceLine" id="cb140-6" data-line-number="6">obj.cur=obj.val =<span class="st"> </span>obj.cur.s =<span class="st"> </span>obj.val.s =<span class="kw">obj</span>(init);</a>
+<a class="sourceLine" id="cb140-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb140-8" data-line-number="8"><span class="cf">while</span> ((grad.norm<span class="op">&gt;</span><span class="fl">10e-3</span>) <span class="op">&amp;&amp;</span><span class="st"> </span>(iter <span class="op">&lt;</span><span class="st"> </span>max.iter)){</a>
+<a class="sourceLine" id="cb140-9" data-line-number="9">  obj.cur =<span class="st"> </span><span class="kw">obj</span>(xvec[iter, ]);</a>
+<a class="sourceLine" id="cb140-10" data-line-number="10">  x =<span class="st"> </span>xvec[iter,] <span class="op">+</span><span class="st">  </span>epsilon<span class="op">*</span>grad ; <span class="co"># deterministic search</span></a>
+<a class="sourceLine" id="cb140-11" data-line-number="11">  xvec=<span class="kw">rbind</span>(xvec,x); obj.val =<span class="st"> </span><span class="kw">rbind</span>(obj.val, <span class="kw">obj</span>(x));</a>
+<a class="sourceLine" id="cb140-12" data-line-number="12">  grad =<span class="st"> </span>epsilon<span class="op">*</span>(<span class="kw">obj</span>(x)<span class="op">-</span>obj.cur)<span class="op">/</span>(x <span class="op">-</span><span class="st"> </span>xvec[iter,]);</a>
+<a class="sourceLine" id="cb140-13" data-line-number="13">  grad.norm=<span class="kw">sqrt</span>(<span class="kw">norm</span>(grad));</a>
+<a class="sourceLine" id="cb140-14" data-line-number="14">  iter=iter<span class="op">+</span><span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb140-15" data-line-number="15">  } </a>
+<a class="sourceLine" id="cb140-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb140-17" data-line-number="17"><span class="kw">set.seed</span>(<span class="dv">2021</span>)</a>
+<a class="sourceLine" id="cb140-18" data-line-number="18"><span class="cf">while</span> ((grad.norm.s<span class="op">&gt;</span><span class="fl">10e-3</span>) <span class="op">&amp;&amp;</span><span class="st"> </span>(iter.s <span class="op">&lt;</span><span class="st"> </span>max.iter)){</a>
+<a class="sourceLine" id="cb140-19" data-line-number="19">  obj.cur.s =<span class="st"> </span><span class="kw">obj</span>(xvec.s[iter.s, ]);</a>
+<a class="sourceLine" id="cb140-20" data-line-number="20">  x.s =<span class="st"> </span>xvec.s[iter.s,] <span class="op">+</span><span class="st">  </span>epsilon<span class="op">*</span>grad.s <span class="op">+</span><span class="st"> </span>sigma<span class="op">*</span><span class="kw">rnorm</span>(<span class="dv">2</span>); <span class="co"># stochastic search</span></a>
+<a class="sourceLine" id="cb140-21" data-line-number="21">  xvec.s=<span class="kw">rbind</span>(xvec.s,x.s); obj.val.s =<span class="st"> </span><span class="kw">rbind</span>(obj.val.s, <span class="kw">obj</span>(x.s));</a>
+<a class="sourceLine" id="cb140-22" data-line-number="22">  grad.s =<span class="st"> </span>epsilon<span class="op">*</span>(<span class="kw">obj</span>(x.s)<span class="op">-</span>obj.cur.s)<span class="op">/</span>(x.s <span class="op">-</span><span class="st"> </span>xvec.s[iter.s,]);</a>
+<a class="sourceLine" id="cb140-23" data-line-number="23">  grad.norm.s=<span class="kw">sqrt</span>(<span class="kw">norm</span>(grad.s))</a>
+<a class="sourceLine" id="cb140-24" data-line-number="24">  iter.s=iter.s<span class="op">+</span><span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb140-25" data-line-number="25">  <span class="cf">if</span> (<span class="kw">is.nan</span>(grad.norm.s)){<span class="cf">break</span>}</a>
+<a class="sourceLine" id="cb140-26" data-line-number="26">  <span class="cf">if</span> (<span class="kw">abs</span>(<span class="kw">max</span>(x.s)<span class="op">&gt;</span><span class="dv">3</span>)){<span class="cf">break</span>}</a>
+<a class="sourceLine" id="cb140-27" data-line-number="27">} </a>
+<a class="sourceLine" id="cb140-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb140-29" data-line-number="29"><span class="co"># remove all rows with non-finite values</span></a>
+<a class="sourceLine" id="cb140-30" data-line-number="30">obj.val.s=obj.val.s[<span class="op">!</span><span class="kw">rowSums</span>(<span class="op">!</span><span class="kw">is.finite</span>(obj.val.s)),];</a>
+<a class="sourceLine" id="cb140-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb140-32" data-line-number="32">grad.norm<span class="op">&lt;</span><span class="fl">10e-3</span></a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" data-line-number="1">grad.norm.s<span class="op">&lt;</span><span class="fl">10e-3</span></a></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1">grad.norm.s<span class="op">&lt;</span><span class="fl">10e-3</span></a></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" data-line-number="1"><span class="kw">max</span>(obj.val) </a></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" data-line-number="1"><span class="kw">max</span>(obj.val) </a></code></pre></div>
 <pre><code>## [1] 0.05264206</code></pre>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" data-line-number="1"><span class="kw">max</span>(obj.val.s)</a></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" data-line-number="1"><span class="kw">max</span>(obj.val.s)</a></code></pre></div>
 <pre><code>## [1] 113.4229</code></pre>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1"><span class="co"># plot</span></a>
-<a class="sourceLine" id="cb151-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb151-3" data-line-number="3">x=y=<span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dt">le=</span><span class="dv">435</span>);</a>
-<a class="sourceLine" id="cb151-4" data-line-number="4">plotU=<span class="cf">function</span>(x,y){(x<span class="op">*</span><span class="kw">sin</span>(<span class="dv">20</span><span class="op">*</span>y)<span class="op">+</span>y<span class="op">*</span><span class="kw">sin</span>(<span class="dv">20</span><span class="op">*</span>x))<span class="op">^</span><span class="dv">2</span><span class="op">*</span><span class="kw">cosh</span>(<span class="kw">sin</span>(<span class="dv">10</span><span class="op">*</span>x)<span class="op">*</span>x)<span class="op">+</span></a>
-<a class="sourceLine" id="cb151-5" data-line-number="5">(x<span class="op">*</span><span class="kw">cos</span>(<span class="dv">10</span><span class="op">*</span>y)<span class="op">+</span>y<span class="op">*</span><span class="kw">sin</span>(<span class="dv">10</span><span class="op">*</span>x))<span class="op">^</span><span class="dv">2</span><span class="op">*</span><span class="kw">cosh</span>(<span class="kw">cos</span>(<span class="dv">20</span><span class="op">*</span>y)<span class="op">*</span>y)}</a>
-<a class="sourceLine" id="cb151-6" data-line-number="6">z=<span class="kw">outer</span>(x,y,plot)</a>
-<a class="sourceLine" id="cb151-7" data-line-number="7"><span class="kw">par</span>(<span class="dt">bg =</span> <span class="st">"white"</span>,<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb151-8" data-line-number="8">res=<span class="kw">persp</span>(x, y, z, <span class="dt">theta=</span><span class="dv">155</span>, <span class="dt">phi=</span><span class="dv">30</span>, <span class="dt">col=</span><span class="st">"green"</span>, <span class="dt">ltheta=</span><span class="op">-</span><span class="dv">120</span>, </a>
-<a class="sourceLine" id="cb151-9" data-line-number="9">          <span class="dt">shade=</span><span class="fl">0.75</span>, <span class="dt">border =</span><span class="ot">NA</span>, <span class="dt">xlab=</span><span class="st">"x1"</span>, <span class="dt">ylab=</span><span class="st">"x2"</span>, <span class="dt">zlab=</span><span class="st">"objective function"</span>, <span class="dt">box=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb151-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb151-11" data-line-number="11"><span class="co"># initial point for both searches</span></a>
-<a class="sourceLine" id="cb151-12" data-line-number="12">routexy0=<span class="kw">expand.grid</span>(init,init)</a>
-<a class="sourceLine" id="cb151-13" data-line-number="13"><span class="kw">points</span>(<span class="kw">trans3d</span>(routexy0[,<span class="dv">1</span>],routexy0[,<span class="dv">2</span>],maxd,<span class="dt">pmat=</span>res), <span class="dt">col=</span><span class="st">"yellow"</span>, <span class="dt">pch=</span><span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb151-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb151-15" data-line-number="15"><span class="co"># local optimal point for the deterministic search </span></a>
-<a class="sourceLine" id="cb151-16" data-line-number="16">maxd =<span class="st"> </span><span class="kw">max</span>(obj.val); position.d =<span class="st"> </span><span class="kw">which</span>(obj.val <span class="op">==</span><span class="st"> </span>maxd, <span class="dt">arr.ind =</span> <span class="ot">TRUE</span>); position.d =<span class="st"> </span>xvec[position.d[<span class="dv">1</span>],]</a>
-<a class="sourceLine" id="cb151-17" data-line-number="17">route1=(position.d); routexy1=<span class="kw">expand.grid</span>(route1,route1)</a>
-<a class="sourceLine" id="cb151-18" data-line-number="18"><span class="kw">points</span>(<span class="kw">trans3d</span>(routexy1[,<span class="dv">1</span>],routexy1[,<span class="dv">2</span>],maxd,<span class="dt">pmat=</span>res), <span class="dt">col=</span><span class="st">"red"</span>, <span class="dt">pch=</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb151-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb151-20" data-line-number="20"><span class="co"># climbing path for the stochastic search</span></a>
-<a class="sourceLine" id="cb151-21" data-line-number="21">xvec.s=xvec.s[<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(obj.val.s),];</a>
-<a class="sourceLine" id="cb151-22" data-line-number="22"><span class="kw">lines</span>(<span class="kw">trans3d</span>(xvec.s[,<span class="dv">1</span>], xvec.s[,<span class="dv">2</span>], obj.val.s, <span class="dt">pmat =</span> res), <span class="dt">col =</span> <span class="st">"blue"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" data-line-number="1"><span class="co"># plot</span></a>
+<a class="sourceLine" id="cb148-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb148-3" data-line-number="3">x=y=<span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dt">le=</span><span class="dv">435</span>);</a>
+<a class="sourceLine" id="cb148-4" data-line-number="4">plotU=<span class="cf">function</span>(x,y){(x<span class="op">*</span><span class="kw">sin</span>(<span class="dv">20</span><span class="op">*</span>y)<span class="op">+</span>y<span class="op">*</span><span class="kw">sin</span>(<span class="dv">20</span><span class="op">*</span>x))<span class="op">^</span><span class="dv">2</span><span class="op">*</span><span class="kw">cosh</span>(<span class="kw">sin</span>(<span class="dv">10</span><span class="op">*</span>x)<span class="op">*</span>x)<span class="op">+</span></a>
+<a class="sourceLine" id="cb148-5" data-line-number="5">(x<span class="op">*</span><span class="kw">cos</span>(<span class="dv">10</span><span class="op">*</span>y)<span class="op">+</span>y<span class="op">*</span><span class="kw">sin</span>(<span class="dv">10</span><span class="op">*</span>x))<span class="op">^</span><span class="dv">2</span><span class="op">*</span><span class="kw">cosh</span>(<span class="kw">cos</span>(<span class="dv">20</span><span class="op">*</span>y)<span class="op">*</span>y)}</a>
+<a class="sourceLine" id="cb148-6" data-line-number="6">z=<span class="kw">outer</span>(x,y,plot)</a>
+<a class="sourceLine" id="cb148-7" data-line-number="7"><span class="kw">par</span>(<span class="dt">bg =</span> <span class="st">"white"</span>,<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb148-8" data-line-number="8">res=<span class="kw">persp</span>(x, y, z, <span class="dt">theta=</span><span class="dv">155</span>, <span class="dt">phi=</span><span class="dv">30</span>, <span class="dt">col=</span><span class="st">"green"</span>, <span class="dt">ltheta=</span><span class="op">-</span><span class="dv">120</span>, </a>
+<a class="sourceLine" id="cb148-9" data-line-number="9">          <span class="dt">shade=</span><span class="fl">0.75</span>, <span class="dt">border =</span><span class="ot">NA</span>, <span class="dt">xlab=</span><span class="st">"x1"</span>, <span class="dt">ylab=</span><span class="st">"x2"</span>, <span class="dt">zlab=</span><span class="st">"objective function"</span>, <span class="dt">box=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb148-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb148-11" data-line-number="11"><span class="co"># initial point for both searches</span></a>
+<a class="sourceLine" id="cb148-12" data-line-number="12">routexy0=<span class="kw">expand.grid</span>(init,init)</a>
+<a class="sourceLine" id="cb148-13" data-line-number="13"><span class="kw">points</span>(<span class="kw">trans3d</span>(routexy0[,<span class="dv">1</span>],routexy0[,<span class="dv">2</span>],maxd,<span class="dt">pmat=</span>res), <span class="dt">col=</span><span class="st">"yellow"</span>, <span class="dt">pch=</span><span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb148-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb148-15" data-line-number="15"><span class="co"># local optimal point for the deterministic search </span></a>
+<a class="sourceLine" id="cb148-16" data-line-number="16">maxd =<span class="st"> </span><span class="kw">max</span>(obj.val); position.d =<span class="st"> </span><span class="kw">which</span>(obj.val <span class="op">==</span><span class="st"> </span>maxd, <span class="dt">arr.ind =</span> <span class="ot">TRUE</span>); position.d =<span class="st"> </span>xvec[position.d[<span class="dv">1</span>],]</a>
+<a class="sourceLine" id="cb148-17" data-line-number="17">route1=(position.d); routexy1=<span class="kw">expand.grid</span>(route1,route1)</a>
+<a class="sourceLine" id="cb148-18" data-line-number="18"><span class="kw">points</span>(<span class="kw">trans3d</span>(routexy1[,<span class="dv">1</span>],routexy1[,<span class="dv">2</span>],maxd,<span class="dt">pmat=</span>res), <span class="dt">col=</span><span class="st">"red"</span>, <span class="dt">pch=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb148-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb148-20" data-line-number="20"><span class="co"># climbing path for the stochastic search</span></a>
+<a class="sourceLine" id="cb148-21" data-line-number="21">xvec.s=xvec.s[<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(obj.val.s),];</a>
+<a class="sourceLine" id="cb148-22" data-line-number="22"><span class="kw">lines</span>(<span class="kw">trans3d</span>(xvec.s[,<span class="dv">1</span>], xvec.s[,<span class="dv">2</span>], obj.val.s, <span class="dt">pmat =</span> res), <span class="dt">col =</span> <span class="st">"blue"</span>)</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1184,33 +1182,33 @@ where <span class="math inline">\(B(t,\omega)=\int_{0}^{t}\varepsilon(s,\omega)\
 <p>The <strong>Ornstein-Uhlenbeck</strong> equation (or simulating the <strong>Ornstein-Uhlenbeck</strong> process) can be solved by an improved Euler’s scheme that counts for the <a href="ch-randomization.html#sub:RHilbert">increments of the Brownian motion</a>.<label for="tufte-sn-489" class="margin-toggle sidenote-number">489</label><input type="checkbox" id="tufte-sn-489" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">489</span> When we discretize the time interval into <span class="math inline">\(n\)</span> subintervals, Euler’s algorithm needs to appropriately adjust the variance of the <a href="ch-randomization.html#sub:RHilbert">increments of the Brownian motion</a>. Otherwise, the variance will blow up. Recall that the increment between time <span class="math inline">\(t\)</span> and <span class="math inline">\(s\)</span> is distributed to <span class="math inline">\(\mathcal{N}(0,t-s)\)</span>, so when we model the <a href="ch-randomization.html#sub:RHilbert">Brownian motion</a> on a <span class="math inline">\(T\)</span>-length time interval with <span class="math inline">\(n\)</span> slices, the time increment for each slice is <span class="math inline">\(T/n\)</span>. So the <a href="ch-randomization.html#sub:RHilbert">increment of Brownian motion</a> on this slice is drawn from <span class="math inline">\(\mathcal{N}(0,T/n)\)</span>. This is often called the <em>Euler-Maruyama method</em>.</span> The specific algorithm of the simulation is given below.</p>
 <div class="solution">
 <p class="solution-begin">
-Simulate the Ornstein-Uhlenbeck process <span id="sol-start-200" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-200', 'sol-start-200')"></span>
+Simulate the Ornstein-Uhlenbeck process <span id="sol-start-112" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-112', 'sol-start-112')"></span>
 </p>
-<div id="sol-body-200" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">2021</span>)</a>
-<a class="sourceLine" id="cb152-2" data-line-number="2">T =<span class="st"> </span><span class="dv">200</span>; n.iter =<span class="st"> </span><span class="dv">2000</span>; epsilon =<span class="st"> </span><span class="fl">0.1</span>; sigma =<span class="st"> </span><span class="fl">0.1</span>; mu=<span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb152-3" data-line-number="3">x =<span class="st"> </span>x.s =<span class="st"> </span>x.ss =<span class="st"> </span>time =<span class="kw">rep</span>(<span class="dv">0</span>,n.iter); step.size =<span class="st"> </span>T<span class="op">/</span>n.iter; </a>
-<a class="sourceLine" id="cb152-4" data-line-number="4">x[<span class="dv">1</span>] =<span class="st"> </span>x.s[<span class="dv">1</span>] =<span class="st"> </span>x.ss[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">0</span>; time[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">0</span>; </a>
-<a class="sourceLine" id="cb152-5" data-line-number="5">e=<span class="kw">rnorm</span>(n.iter,<span class="dv">0</span>,<span class="kw">sqrt</span>(step.size)<span class="op">*</span>sigma); <span class="co"># Increments of the Brownian motion at n.iter time points</span></a>
-<a class="sourceLine" id="cb152-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb152-7" data-line-number="7"><span class="cf">for</span>(t <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span>(n.iter<span class="dv">-1</span>))){</a>
-<a class="sourceLine" id="cb152-8" data-line-number="8">    x[t<span class="op">+</span><span class="dv">1</span>] =<span class="st"> </span>x[t] <span class="op">-</span><span class="st"> </span>epsilon <span class="op">*</span><span class="st"> </span>(x[t]<span class="op">-</span>mu)<span class="op">*</span>step.size;</a>
-<a class="sourceLine" id="cb152-9" data-line-number="9">    x.s[t<span class="op">+</span><span class="dv">1</span>] =<span class="st"> </span>x.s[t] <span class="op">-</span><span class="st"> </span>epsilon <span class="op">*</span><span class="st"> </span>(x.s[t]<span class="op">-</span>mu)<span class="op">*</span>step.size <span class="op">+</span><span class="st"> </span>e[t];</a>
-<a class="sourceLine" id="cb152-10" data-line-number="10">    x.ss[t<span class="op">+</span><span class="dv">1</span>] =<span class="st"> </span>x.ss[t] <span class="op">-</span><span class="st"> </span>epsilon <span class="op">*</span><span class="st"> </span>(x.ss[t]<span class="op">-</span>mu)<span class="op">*</span>step.size <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span><span class="op">*</span>e[t]; <span class="co"># smaller diffusion</span></a>
-<a class="sourceLine" id="cb152-11" data-line-number="11">    time[t<span class="op">+</span><span class="dv">1</span>] =<span class="st"> </span>time[t] <span class="op">+</span><span class="st"> </span>step.size</a>
-<a class="sourceLine" id="cb152-12" data-line-number="12">}</a>
-<a class="sourceLine" id="cb152-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb152-14" data-line-number="14">stationary.x =<span class="st"> </span>x.s[(n.iter<span class="op">/</span><span class="dv">2</span>)<span class="op">:</span>n.iter]</a>
-<a class="sourceLine" id="cb152-15" data-line-number="15"><span class="co"># stationary mean : mu </span></a>
-<a class="sourceLine" id="cb152-16" data-line-number="16"><span class="kw">mean</span>(stationary.x)</a></code></pre></div>
+<div id="sol-body-112" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">2021</span>)</a>
+<a class="sourceLine" id="cb149-2" data-line-number="2">T =<span class="st"> </span><span class="dv">200</span>; n.iter =<span class="st"> </span><span class="dv">2000</span>; epsilon =<span class="st"> </span><span class="fl">0.1</span>; sigma =<span class="st"> </span><span class="fl">0.1</span>; mu=<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb149-3" data-line-number="3">x =<span class="st"> </span>x.s =<span class="st"> </span>x.ss =<span class="st"> </span>time =<span class="kw">rep</span>(<span class="dv">0</span>,n.iter); step.size =<span class="st"> </span>T<span class="op">/</span>n.iter; </a>
+<a class="sourceLine" id="cb149-4" data-line-number="4">x[<span class="dv">1</span>] =<span class="st"> </span>x.s[<span class="dv">1</span>] =<span class="st"> </span>x.ss[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">0</span>; time[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">0</span>; </a>
+<a class="sourceLine" id="cb149-5" data-line-number="5">e=<span class="kw">rnorm</span>(n.iter,<span class="dv">0</span>,<span class="kw">sqrt</span>(step.size)<span class="op">*</span>sigma); <span class="co"># Increments of the Brownian motion at n.iter time points</span></a>
+<a class="sourceLine" id="cb149-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb149-7" data-line-number="7"><span class="cf">for</span>(t <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span>(n.iter<span class="dv">-1</span>))){</a>
+<a class="sourceLine" id="cb149-8" data-line-number="8">    x[t<span class="op">+</span><span class="dv">1</span>] =<span class="st"> </span>x[t] <span class="op">-</span><span class="st"> </span>epsilon <span class="op">*</span><span class="st"> </span>(x[t]<span class="op">-</span>mu)<span class="op">*</span>step.size;</a>
+<a class="sourceLine" id="cb149-9" data-line-number="9">    x.s[t<span class="op">+</span><span class="dv">1</span>] =<span class="st"> </span>x.s[t] <span class="op">-</span><span class="st"> </span>epsilon <span class="op">*</span><span class="st"> </span>(x.s[t]<span class="op">-</span>mu)<span class="op">*</span>step.size <span class="op">+</span><span class="st"> </span>e[t];</a>
+<a class="sourceLine" id="cb149-10" data-line-number="10">    x.ss[t<span class="op">+</span><span class="dv">1</span>] =<span class="st"> </span>x.ss[t] <span class="op">-</span><span class="st"> </span>epsilon <span class="op">*</span><span class="st"> </span>(x.ss[t]<span class="op">-</span>mu)<span class="op">*</span>step.size <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span><span class="op">*</span>e[t]; <span class="co"># smaller diffusion</span></a>
+<a class="sourceLine" id="cb149-11" data-line-number="11">    time[t<span class="op">+</span><span class="dv">1</span>] =<span class="st"> </span>time[t] <span class="op">+</span><span class="st"> </span>step.size</a>
+<a class="sourceLine" id="cb149-12" data-line-number="12">}</a>
+<a class="sourceLine" id="cb149-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb149-14" data-line-number="14">stationary.x =<span class="st"> </span>x.s[(n.iter<span class="op">/</span><span class="dv">2</span>)<span class="op">:</span>n.iter]</a>
+<a class="sourceLine" id="cb149-15" data-line-number="15"><span class="co"># stationary mean : mu </span></a>
+<a class="sourceLine" id="cb149-16" data-line-number="16"><span class="kw">mean</span>(stationary.x)</a></code></pre></div>
 <pre><code>## [1] 1.140312</code></pre>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1"><span class="co"># stationary variance : sigma^2/epsilon </span></a>
-<a class="sourceLine" id="cb154-2" data-line-number="2"><span class="kw">var</span>(stationary.x)</a></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1"><span class="co"># stationary variance : sigma^2/epsilon </span></a>
+<a class="sourceLine" id="cb151-2" data-line-number="2"><span class="kw">var</span>(stationary.x)</a></code></pre></div>
 <pre><code>## [1] 0.09210787</code></pre>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" data-line-number="1"><span class="kw">library</span>(ggplot2); <span class="kw">library</span>(reshape2)</a>
-<a class="sourceLine" id="cb156-2" data-line-number="2">dat =<span class="st"> </span><span class="kw">data.frame</span>(time,x,x.s,x.ss)</a>
-<a class="sourceLine" id="cb156-3" data-line-number="3"><span class="kw">names</span>(dat)[<span class="dv">2</span>]=<span class="st">"x(t)"</span>; <span class="kw">names</span>(dat)[<span class="dv">3</span>]=<span class="st">"X(t,w)"</span>; <span class="kw">names</span>(dat)[<span class="dv">4</span>]=<span class="st">"X(t,w) smaller sigma"</span></a>
-<a class="sourceLine" id="cb156-4" data-line-number="4"><span class="kw">ggplot</span>( <span class="kw">melt</span>(dat, <span class="dt">id.vars=</span><span class="st">"time"</span>), <span class="kw">aes</span>(time, value, <span class="dt">colour=</span>variable, <span class="dt">group=</span>variable)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()   <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" data-line-number="1"><span class="kw">library</span>(ggplot2); <span class="kw">library</span>(reshape2)</a>
+<a class="sourceLine" id="cb153-2" data-line-number="2">dat =<span class="st"> </span><span class="kw">data.frame</span>(time,x,x.s,x.ss)</a>
+<a class="sourceLine" id="cb153-3" data-line-number="3"><span class="kw">names</span>(dat)[<span class="dv">2</span>]=<span class="st">"x(t)"</span>; <span class="kw">names</span>(dat)[<span class="dv">3</span>]=<span class="st">"X(t,w)"</span>; <span class="kw">names</span>(dat)[<span class="dv">4</span>]=<span class="st">"X(t,w) smaller sigma"</span></a>
+<a class="sourceLine" id="cb153-4" data-line-number="4"><span class="kw">ggplot</span>( <span class="kw">melt</span>(dat, <span class="dt">id.vars=</span><span class="st">"time"</span>), <span class="kw">aes</span>(time, value, <span class="dt">colour=</span>variable, <span class="dt">group=</span>variable)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()   <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -1248,18 +1246,18 @@ The inequality says that the probability of arriving at <span class="math inline
 <p class="caption marginnote">-->Figure 16.8: Non-convex objective function <!--</p>-->
 <!--</div>--></span>
 </p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" data-line-number="1">p =<span class="st"> </span><span class="fl">0.4</span>; <span class="co"># a mixture objective function</span></a>
-<a class="sourceLine" id="cb157-2" data-line-number="2">U =<span class="st"> </span><span class="cf">function</span>(x)</a>
-<a class="sourceLine" id="cb157-3" data-line-number="3">     p     <span class="op">*</span><span class="st"> </span>(x<span class="dv">-20</span>)<span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="dv">8</span> <span class="op">+</span></a>
-<a class="sourceLine" id="cb157-4" data-line-number="4"><span class="st">     </span>(<span class="dv">1</span><span class="op">-</span>p) <span class="op">*</span><span class="st"> </span>(<span class="kw">sin</span>(x)<span class="op">-</span><span class="dv">5</span>)<span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb157-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb157-6" data-line-number="6"><span class="co"># Local deterministic search</span></a>
-<a class="sourceLine" id="cb157-7" data-line-number="7">NM =<span class="st"> </span><span class="kw">optim</span>(<span class="dv">8</span>,U)<span class="op">$</span>par; CG =<span class="st"> </span><span class="kw">optim</span>(<span class="dv">8</span>,U, <span class="dt">method=</span><span class="st">"CG"</span>)<span class="op">$</span>par; LBFGS =<span class="st"> </span><span class="kw">optim</span>(<span class="dv">8</span>,U, <span class="dt">method=</span><span class="st">"L-BFGS-B"</span>)<span class="op">$</span>par; BFGS =<span class="st"> </span><span class="kw">optim</span>(<span class="dv">8</span>,U,<span class="dt">method=</span><span class="st">"BFGS"</span>)<span class="op">$</span>par;</a>
-<a class="sourceLine" id="cb157-8" data-line-number="8"><span class="kw">set.seed</span>(<span class="dv">2021</span>); SANN =<span class="st"> </span><span class="kw">optim</span>(<span class="dv">8</span>,U,<span class="dt">method=</span><span class="st">"SANN"</span>)<span class="op">$</span>par <span class="co"># SANN a variant of simulated annealing </span></a>
-<a class="sourceLine" id="cb157-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb157-10" data-line-number="10"><span class="kw">cat</span>(<span class="st">"Local methods - NM:"</span>, NM, <span class="st">" CG:"</span>, CG, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</a>
-<a class="sourceLine" id="cb157-11" data-line-number="11"><span class="kw">cat</span>(<span class="st">"Local methods - BFGS:"</span>, BFGS, <span class="st">" LBFGS:"</span>, LBFGS, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</a>
-<a class="sourceLine" id="cb157-12" data-line-number="12"><span class="kw">cat</span>(<span class="st">"Simulated Annealing - SANN:"</span>, SANN, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1">p =<span class="st"> </span><span class="fl">0.4</span>; <span class="co"># a mixture objective function</span></a>
+<a class="sourceLine" id="cb154-2" data-line-number="2">U =<span class="st"> </span><span class="cf">function</span>(x)</a>
+<a class="sourceLine" id="cb154-3" data-line-number="3">     p     <span class="op">*</span><span class="st"> </span>(x<span class="dv">-20</span>)<span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="dv">8</span> <span class="op">+</span></a>
+<a class="sourceLine" id="cb154-4" data-line-number="4"><span class="st">     </span>(<span class="dv">1</span><span class="op">-</span>p) <span class="op">*</span><span class="st"> </span>(<span class="kw">sin</span>(x)<span class="op">-</span><span class="dv">5</span>)<span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb154-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb154-6" data-line-number="6"><span class="co"># Local deterministic search</span></a>
+<a class="sourceLine" id="cb154-7" data-line-number="7">NM =<span class="st"> </span><span class="kw">optim</span>(<span class="dv">8</span>,U)<span class="op">$</span>par; CG =<span class="st"> </span><span class="kw">optim</span>(<span class="dv">8</span>,U, <span class="dt">method=</span><span class="st">"CG"</span>)<span class="op">$</span>par; LBFGS =<span class="st"> </span><span class="kw">optim</span>(<span class="dv">8</span>,U, <span class="dt">method=</span><span class="st">"L-BFGS-B"</span>)<span class="op">$</span>par; BFGS =<span class="st"> </span><span class="kw">optim</span>(<span class="dv">8</span>,U,<span class="dt">method=</span><span class="st">"BFGS"</span>)<span class="op">$</span>par;</a>
+<a class="sourceLine" id="cb154-8" data-line-number="8"><span class="kw">set.seed</span>(<span class="dv">2021</span>); SANN =<span class="st"> </span><span class="kw">optim</span>(<span class="dv">8</span>,U,<span class="dt">method=</span><span class="st">"SANN"</span>)<span class="op">$</span>par <span class="co"># SANN a variant of simulated annealing </span></a>
+<a class="sourceLine" id="cb154-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb154-10" data-line-number="10"><span class="kw">cat</span>(<span class="st">"Local methods - NM:"</span>, NM, <span class="st">" CG:"</span>, CG, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</a>
+<a class="sourceLine" id="cb154-11" data-line-number="11"><span class="kw">cat</span>(<span class="st">"Local methods - BFGS:"</span>, BFGS, <span class="st">" LBFGS:"</span>, LBFGS, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</a>
+<a class="sourceLine" id="cb154-12" data-line-number="12"><span class="kw">cat</span>(<span class="st">"Simulated Annealing - SANN:"</span>, SANN, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</a></code></pre></div>
 <pre><code>## Local methods - NM: 8.345313  CG: 8.345172</code></pre>
 <pre><code>## Local methods - BFGS: 8.345155  LBFGS: 8.345173</code></pre>
 <pre><code>## Simulated Annealing - SANN: 20.40368</code></pre>
@@ -1278,41 +1276,42 @@ Within two thousand realizations of <span class="math inline">\(X_{\infty}(\omeg
 <p class="caption marginnote">-->Figure 16.9: Sampling the global optimum by the Metropolis algorithm <!--</p>-->
 <!--</div>--></span>
 </p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">2021</span>)</a>
-<a class="sourceLine" id="cb161-2" data-line-number="2">sampling =<span class="st"> </span><span class="cf">function</span>(x, U, n.iter, sigmaX2) {</a>
-<a class="sourceLine" id="cb161-3" data-line-number="3">    data.vec =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>, n.iter)</a>
-<a class="sourceLine" id="cb161-4" data-line-number="4">    <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_len</span>(n.iter)){</a>
-<a class="sourceLine" id="cb161-5" data-line-number="5">        <span class="co">## Propose a new x</span></a>
-<a class="sourceLine" id="cb161-6" data-line-number="6">        xp =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1</span>,x)</a>
-<a class="sourceLine" id="cb161-7" data-line-number="7">        <span class="co">## Accept new point xp, if U(xp) &lt; U(x)</span></a>
-<a class="sourceLine" id="cb161-8" data-line-number="8">        <span class="cf">if</span> (<span class="kw">U</span>(xp) <span class="op">&lt;</span><span class="st"> </span><span class="kw">U</span>(x)) { x =<span class="st"> </span>xp }</a>
-<a class="sourceLine" id="cb161-9" data-line-number="9">        <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb161-10" data-line-number="10">          <span class="co">## Metropolis criterion: </span></a>
-<a class="sourceLine" id="cb161-11" data-line-number="11">          Mc =<span class="st"> </span><span class="kw">exp</span>((<span class="kw">U</span>(x) <span class="op">-</span><span class="st"> </span><span class="kw">U</span>(xp))<span class="op">/</span>sigmaX2)</a>
-<a class="sourceLine" id="cb161-12" data-line-number="12">          <span class="cf">if</span> (Mc <span class="op">&gt;</span><span class="st"> </span><span class="kw">runif</span>(<span class="dv">1</span>) ){ x =<span class="st"> </span>xp }</a>
-<a class="sourceLine" id="cb161-13" data-line-number="13">        }</a>
-<a class="sourceLine" id="cb161-14" data-line-number="14">        data.vec[i] =<span class="st"> </span>x}</a>
-<a class="sourceLine" id="cb161-15" data-line-number="15">    <span class="kw">return</span>(data.vec)</a>
-<a class="sourceLine" id="cb161-16" data-line-number="16">}</a>
-<a class="sourceLine" id="cb161-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb161-18" data-line-number="18">result =<span class="st"> </span><span class="kw">sampling</span>(<span class="dv">0</span>, U, <span class="dt">n.iter=</span><span class="dv">2000</span>, <span class="dt">sigmaX2=</span><span class="dv">2</span>) <span class="co"># blue</span></a>
-<a class="sourceLine" id="cb161-19" data-line-number="19">result.fast =<span class="st"> </span><span class="kw">sampling</span>(<span class="dv">0</span>, U, <span class="dt">n.iter=</span><span class="dv">2000</span>, <span class="dt">sigmaX2=</span><span class="dv">3</span>) <span class="co"># green</span></a>
-<a class="sourceLine" id="cb161-20" data-line-number="20">result.slow =<span class="st"> </span><span class="kw">sampling</span>(<span class="dv">0</span>, U, <span class="dt">n.iter=</span><span class="dv">2000</span>, <span class="dt">sigmaX2=</span><span class="dv">1</span>) <span class="co"># red</span></a></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">2021</span>)</a>
+<a class="sourceLine" id="cb158-2" data-line-number="2">sampling =<span class="st"> </span><span class="cf">function</span>(x, U, n.iter, sigmaX2) {</a>
+<a class="sourceLine" id="cb158-3" data-line-number="3">    data.vec =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>, n.iter)</a>
+<a class="sourceLine" id="cb158-4" data-line-number="4">    <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_len</span>(n.iter)){</a>
+<a class="sourceLine" id="cb158-5" data-line-number="5">        <span class="co">## Propose a new x</span></a>
+<a class="sourceLine" id="cb158-6" data-line-number="6">        xp =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1</span>,x)</a>
+<a class="sourceLine" id="cb158-7" data-line-number="7">        <span class="co">## Accept new point xp, if U(xp) &lt; U(x)</span></a>
+<a class="sourceLine" id="cb158-8" data-line-number="8">        <span class="cf">if</span> (<span class="kw">U</span>(xp) <span class="op">&lt;</span><span class="st"> </span><span class="kw">U</span>(x)) { x =<span class="st"> </span>xp }</a>
+<a class="sourceLine" id="cb158-9" data-line-number="9">        <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb158-10" data-line-number="10">          <span class="co">## Metropolis criterion: </span></a>
+<a class="sourceLine" id="cb158-11" data-line-number="11">          Mc =<span class="st"> </span><span class="kw">exp</span>((<span class="kw">U</span>(x) <span class="op">-</span><span class="st"> </span><span class="kw">U</span>(xp))<span class="op">/</span>sigmaX2)</a>
+<a class="sourceLine" id="cb158-12" data-line-number="12">          <span class="cf">if</span> (Mc <span class="op">&gt;</span><span class="st"> </span><span class="kw">runif</span>(<span class="dv">1</span>) ){ x =<span class="st"> </span>xp }</a>
+<a class="sourceLine" id="cb158-13" data-line-number="13">        }</a>
+<a class="sourceLine" id="cb158-14" data-line-number="14">        data.vec[i] =<span class="st"> </span>x}</a>
+<a class="sourceLine" id="cb158-15" data-line-number="15">    <span class="kw">return</span>(data.vec)</a>
+<a class="sourceLine" id="cb158-16" data-line-number="16">}</a>
+<a class="sourceLine" id="cb158-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb158-18" data-line-number="18">result =<span class="st"> </span><span class="kw">sampling</span>(<span class="dv">0</span>, U, <span class="dt">n.iter=</span><span class="dv">2000</span>, <span class="dt">sigmaX2=</span><span class="dv">2</span>) <span class="co"># blue</span></a>
+<a class="sourceLine" id="cb158-19" data-line-number="19">result.fast =<span class="st"> </span><span class="kw">sampling</span>(<span class="dv">0</span>, U, <span class="dt">n.iter=</span><span class="dv">2000</span>, <span class="dt">sigmaX2=</span><span class="dv">3</span>) <span class="co"># green</span></a>
+<a class="sourceLine" id="cb158-20" data-line-number="20">result.slow =<span class="st"> </span><span class="kw">sampling</span>(<span class="dv">0</span>, U, <span class="dt">n.iter=</span><span class="dv">2000</span>, <span class="dt">sigmaX2=</span><span class="dv">1</span>) <span class="co"># red</span></a></code></pre></div>
 <p>Let’s turn to the other side of global optimization. We saw that global optimization relies on the idea of randomization, while randomization means destabilizing the deterministic structure. It seems that, given the current computational layout of <a href="ch-representation.html#sub:pseudoRandom">pseudo-randomness</a>, instability is somehow an intrinsic feature in the global optimization procedure.</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">2019</span>); <span class="kw">optim</span>(<span class="dv">8</span>,U,<span class="dt">method=</span><span class="st">"SANN"</span>)<span class="op">$</span>par  </a></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">2019</span>); <span class="kw">optim</span>(<span class="dv">8</span>,U,<span class="dt">method=</span><span class="st">"SANN"</span>)<span class="op">$</span>par  </a></code></pre></div>
 <pre><code>## [1] 14.37226</code></pre>
 <p>The algorithm is, by nature, unstable under the changes of the <a href="ch-representation.html#sub:pseudoRandom">pseudo-random</a> structure.<label for="tufte-sn-497" class="margin-toggle sidenote-number">497</label><input type="checkbox" id="tufte-sn-497" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">497</span> When the random seed changes, the new <a href="ch-representation.html#sub:pseudoRandom">pseudo-random numbers</a> do not generate enough randomness to escape the local optimum. The root of this problem is due to the lack of real “randomness” in the computational equipmens.</span> It is up to the user to decide whether the cost of this instability can be compensated by the benefit of discovering a better-off objective.<label for="tufte-sn-498" class="margin-toggle sidenote-number">498</label><input type="checkbox" id="tufte-sn-498" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">498</span> The board game GO was considered much more difficult for computers to win than other games such as chess because of its large state space and the requirement of the global strategies from the openning to the end-game. However, the current Monte-Carlo search algorithm has successfully made the computers as being “an entity that cannot be defeated” by their human opponents.</span></p>
 <p>But this interesting cut-in may be a good moment to meditate on our understanding of <a href="sub-inferknow.html#determinism">determinism</a>. To conclude this chapter, let’s have a glimpse on the so-called <em>dilemma of determinism</em>, “the conflict between freedom and universal determination” (<span class="citation">James (<a href="bibliography.html#ref-James1884">1956</a>)</span>), a philosophical question of whether and to what extent the course of natural events is predetermined. This question inevitably binds to another question of whether and to what extent acquiring human freedom is a simultaneous state of chasing spiritual <a href="">rationality</a> (with respect to mind) and material <a href="sub-axioms.html#sub:zorn">utility</a> (with respect to body). It seems to me that any attempt of answering this question is equivalent to reconciling freedom of the will and moral law with a mechanical order of the universe, which is not my ambition.</p>
 <p>However, I think the previous examples may help us recognize some deeper functions inside <a href="sub-inferknow.html#determinism">determinism</a>. The current fundamental scientific paradigm has shifted its focus to stochastics in the wake of quantum mechanics. But in fact, reducing the (material) world into a single observation of combined elements, e.g., a statistical mean, through the projection operator is definitely back to the realm of determinism. That is, the end of this causal dynamics randomly locates at a state space, where the values are predetermined. The causal structure is neither globally nor locally very different between the randomized and deterministic models: the skeleton dynamics is deterministic, random things may flow around the deterministic tracks. Free particles participating in the stochastic flow are lead by some predetermined gradient type structure. The disordered randomness, like the freedom of the will, belongs to an experiential category, and it helps explore the unknowns ahead and escape from the unwanted traps.</p>
+
 </div>
 </div></body></html>
 
 <p style="text-align: center;">
 <a href="ch-optApp.html"><button class="btn btn-default">Previous</button></a>
-<a href="bibliography.html"><button class="btn btn-default">Next</button></a>
+<a href="part-v-complex-ensembles.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-03-31
+2021-04-20
 </p>
 </div>
 </div>

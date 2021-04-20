@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="PART V: Complex Ensembles | Project XXII" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Zhengyuan Gao" />
+
+<meta name="date" content="2021-04-20" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="PART V: Complex Ensembles | Project XXII">
+
+<title>PART V: Complex Ensembles | Project XXII</title>
+
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding/datatables.js"></script>
+<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul class="navbar">
+<li class="msmb"><p class="title">Project XXII<p><p class="author">Zhengyuan Gao</p>
+<li class="dropdown" style="float:right">
+<a href="javascript:void(0)" class="dropbtn">&#x25BA; Chapters</a>
+<div class="dropdown-content">
+<a href="index.html">Preface</a>
+<a href="part-i-inference-based-upon-logic-and-logical-computation.html">PART I: Inference Based upon Logic and Logical Computation</a>
+<a href="sub-logic.html"><span class="toc-section-number">1</span> Logic</a>
+<a href="sub-set-theory.html"><span class="toc-section-number">2</span> Set Theory</a>
+<a href="sub-axioms.html"><span class="toc-section-number">3</span> Axioms</a>
+<a href="sub-inferknow.html"><span class="toc-section-number">4</span> Inference and Knowledge</a>
+<a href="sub-incomplete.html"><span class="toc-section-number">5</span> Incompleteness</a>
+<a href="part-ii-infinitesimal-changes-and-their-consequences.html">PART II: Infinitesimal Changes and their Consequences</a>
+<a href="sub-continuity.html"><span class="toc-section-number">6</span> Continuity</a>
+<a href="sub-calculus.html"><span class="toc-section-number">7</span> Calculus</a>
+<a href="ch-DE.html"><span class="toc-section-number">8</span> Differential Equations</a>
+<a href="ch-CalUn.html"><span class="toc-section-number">9</span> Calculus under Uncertainty</a>
+<a href="part-iii-emergence-of-abstract-interactions.html">PART III: Emergence of Abstract Interactions</a>
+<a href="ch-vecMat.html"><span class="toc-section-number">10</span> Vector and Matrix</a>
+<a href="ch-MatComp.html"><span class="toc-section-number">11</span> Matrix Computation</a>
+<a href="ch-eigen.html"><span class="toc-section-number">12</span> Eigenvalues and Eigenvectors</a>
+<a href="ch-UnMulti.html"><span class="toc-section-number">13</span> Uncertainty in Multiple Dimensions</a>
+<a href="part-iv-three-masons-to-illuminate-the-dual-world.html">PART IV: Three Masons to Illuminate the Dual World</a>
+<a href="ch-representation.html"><span class="toc-section-number">14</span> Representation</a>
+<a href="ch-optApp.html"><span class="toc-section-number">15</span> Optimum Approximation</a>
+<a href="ch-randomization.html"><span class="toc-section-number">16</span> Randomization</a>
+<a id="active-page" href="part-v-complex-ensembles.html">PART V: Complex Ensembles</a>
+<a href="ch-complexAn.html"><span class="toc-section-number">17</span> Complex Analysis</a>
+<a href="bibliography.html">Bibliography</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div id="part-v-complex-ensembles" class="section level1 unnumbered">
+<h1>PART V: Complex Ensembles</h1>
+<blockquote>
+<p>“Heaven is high, the earth is low; thus the Creative and the Receptive are determined. […] In the heavens phenomena take form; on earth shapes take form. In this way change and transformation become manifest.” <label for="tufte-mn-6" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-6" class="margin-toggle"><span class="marginnote">“天尊地卑，乾坤定矣。[…] 在天成象，在地成形，变化见矣。” - 易经·系辞</span></p>
+<footer>
+– “The Great Treatise”
+</footer>
+</blockquote>
+<p>The <em>complex ensembles</em> refer to a certain amount of distinctions resulting from the application of some universal structure to a collection of objects. The objects should invariantly share the structure, and in turn, the structure should provide the richness of complex dynamical phenomena through the interactions amongst the objects, such as the aesthetic ordering structure rooted in various <a href="sub-inferknow.html#sub:expGrowth">spirals</a> (the <a href="sub-inferknow.html#sub:expGrowth">golden ratio</a>). The more complex a structure can represent, the more robust its <strong>universal order</strong> should be.<label for="tufte-sn-499" class="margin-toggle sidenote-number">499</label><input type="checkbox" id="tufte-sn-499" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">499</span> An <em>universal order</em> is capable of interpreting the complex phenomena generated by the syncretization of non-trivial connected components.</span></p>
+<p>Since ancient times, the Chinese have been obsessed with changes. So it is not surprising that the Chinese type of “epistemology,” unlike the orthodox epistemology that follows the logico-causal model, is presented through the recognition of dynamics: The Chinese theory of knowledge consisted of capturing the <strong>universal order</strong>, which they considered to be intrinsic harmonic, amongst the empirically observed objects throughout large-scale historical ensembles of natural and social events.<label for="tufte-sn-500" class="margin-toggle sidenote-number">500</label><input type="checkbox" id="tufte-sn-500" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">500</span> The attempts included various forms of analyzing and examining the detailed dynamics of both natural and social processes. Thus reasoning in Chinese philosophy is not strictly logical in the formal sense. Instead, it somehow involved complex pattern recognition and matching, and deriving ambiguous, sometimes sloppy, conclusions from empirical (incomplete) observations and repetitions.</span></p>
+<p>A part of the reason for being obsessed by this unorthodox approach, I think, is the fact that the invariant structure embedded in the dynamics may not be delivered by the ordering sets.<label for="tufte-sn-501" class="margin-toggle sidenote-number">501</label><input type="checkbox" id="tufte-sn-501" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">501</span> The complex patterns (<a href="ch-representation.html#sub:pseudoRandom">hexagrams</a>) of I-Ching disclosed that ancient Chinese had observed the features similar to the matrix-based dynamics and multi-level (hierarchical) causation.</span> For example, matrices and complex numbers are standard quantitative objects that can generate the dynamics while their entities do not satisfy the ordering relations.<label for="tufte-sn-502" class="margin-toggle sidenote-number">502</label><input type="checkbox" id="tufte-sn-502" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">502</span> Recall that the <a href="ch-eigen.html#sub:det">complex scalar</a> <span class="math inline">\(\mbox{e}^{\mbox{i}\theta}\)</span> is equivalent to a <a href="ch-eigen.html#sub:det">rotation matrix</a> <span class="math display">\[\left[\begin{array}{cc}
+\cos\theta &amp; -\sin\theta\\
+\sin\theta &amp; \cos\theta
+\end{array}\right].\]</span> See chapter <a href="ch-eigen.html#sub:det">12.1</a>.</span> Then the ancient empirical studies of interactions and behaviors of many objects, i.e. a big evolutionary network modeled by matrix operations, would inevitably confront the representations from of the “matrix-orders,” a phenomenon that is hard to grasp and recognize, and is often counter-intuitive.<label for="tufte-sn-503" class="margin-toggle sidenote-number">503</label><input type="checkbox" id="tufte-sn-503" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">503</span> The orders of matrices are quite different from those of scalars. For example, the following order gives us the <a href="ch-eigen.html#sub:det">rotation matrix</a>:
+<span class="math display">\[\exp\left\{ \left[\begin{array}{cc}
+0 &amp; -\theta\\
+\theta &amp; 0
+\end{array}\right]\right\} =\left[\begin{array}{cc}
+\cos\theta &amp; -\sin\theta\\
+\sin\theta &amp; \cos\theta
+\end{array}\right].\]</span> Unlike the scalar exponents that are always monotonic (an order), the matrix exponents can also be rotating (a disorder). Thus, the dynmaical system generated by exponential matrices, unlike the dynamics generated by exponential scalars, can induce a mixture of chaos and order.</span></p>
+<p>On the other hand, the logico-causal models from orthodox epistemology associate with <a href="sub-set-theory.html#sub:order">well-ordering</a> structures.<label for="tufte-sn-504" class="margin-toggle sidenote-number">504</label><input type="checkbox" id="tufte-sn-504" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">504</span> The (quantitative) causal laws, like the <a href="ch-DE.html#sub:MecWorld">Newtonian mechanics</a>, govern or specify the history of state transitions of a system given some initial conditions. Logical deductions, as the dynamical states preserving well-ordering structures, serve the cornerstone in the orthodox epistemology as well as in the metaphysical accounts of reality.</span> Being in order entails following a law. The obedience is either inherent in the object (discovered - it is with the natural orders) or imposed on the object (constituted - it is with moral or legal laws from the social realm).<label for="tufte-sn-505" class="margin-toggle sidenote-number">505</label><input type="checkbox" id="tufte-sn-505" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">505</span> The former obedience relies on the inherent principle which the force of the observers merely encounter, while the latter depends on the force that can create and maintain the principles.</span> In contrast, the (ancient Chinese) empirics utilized the founded complex patterns for inference and reasoning and became the force to confirm or defense the (pseudo-)dynamical “laws” established by the ensembles.</p>
+<p>Without a doubt, these primitive empirical approaches, although they may at certain degrees simplify several complicated appearances and let the believers grasp some relative essences, systematically prevented the enlightenments on the shadow of the general knowledge that heavily depends on the forms of <a href="sub-logic.html#sub:1order">first-order logic</a> and the <a href="sub-inferknow.html#determinism">causal laws</a>. Without sophisticated quantitative methods (laws), the ancient Chinese “epistemology” lost almost completely in a mist of complexity.<label for="tufte-sn-506" class="margin-toggle sidenote-number">506</label><input type="checkbox" id="tufte-sn-506" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">506</span> By merely observing the seemingly disordered representations of the complex processes, the believers of “the changes” could find some “disordered” consequences from the matrix dynamics more convincing than the ones based on rational reasoning and the ordering principle. Therefore, the seeds of rebellion to the rigid ordering and rational spirits can be easily set and spreaded amongst the believers. Using the empirically observing “matrix-orders” rather than the logico-causal model as the <strong>universal order</strong>, the ancient Chinese “epistemology” let the unordered ensembles corrupt and distort the efforts of advocating rationality and logicality, setting up massive obstacles to progress epistemological development.</span></p>
+<p>The failure of ancient Chinese “epistemology” may be attributed to the limited knowledge of the ancestors towards the structure of complex dynamics, their ignorance of the fundamental laws of coupling massive components, also their resistance to abandoning the traditional ineffective inferential system. Nevertheless, the failure should remind the current generation for their attitudes towards the complexity. When the situations are sufficiently complex enough, when the plausible well-ordering structures are hidden in the unpredictable representing outcomes of the matrices’ operations, to me, the seemingly “orthodox” approaches, such as some scalar based instruments and logico-causal analyses, also appear to misguide the advancement of inferential paths; in an exaggerated sense, I prosit that it could obstruct the progress of civilization in the “imaginary” dimension.</p>
+</div></body></html>
+
+<p style="text-align: center;">
+<a href="ch-randomization.html"><button class="btn btn-default">Previous</button></a>
+<a href="ch-complexAn.html"><button class="btn btn-default">Next</button></a>
+</p>
+<p class="build-date">Page built: 
+2021-04-20
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
