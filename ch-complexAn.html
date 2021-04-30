@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2021-04-20" />
+<meta name="date" content="2021-04-30" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -161,7 +161,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a href="ch-optApp.html"><span class="toc-section-number">15</span> Optimum Approximation</a>
 <a href="ch-randomization.html"><span class="toc-section-number">16</span> Randomization</a>
 <a href="part-v-complex-ensembles.html">PART V: Complex Ensembles</a>
-<a id="active-page" href="ch-complexAn.html"><span class="toc-section-number">17</span> Complex Analysis</a>
+<a id="active-page" href="ch-complexAn.html"><span class="toc-section-number">17</span> Complex Analysis</a><ul class="toc-sections">
+<li class="toc"><a href="#sub:coupling"> Coupling and Complexification</a></li>
+</ul>
 <a href="bibliography.html">Bibliography</a>
 </div>
 </li>
@@ -176,17 +178,356 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h1>
 <span class="header-section-number">17</span> Complex Analysis</h1>
 <p>By viewing the war as an act of (the maximum use of) force, <span class="citation">Clausewitz (<a href="bibliography.html#ref-Clausewitz2006">2006</a>)</span> defined the war as a duel of imposing the will of one force onto its’ opponent(s).<label for="tufte-sn-507" class="margin-toggle sidenote-number">507</label><input type="checkbox" id="tufte-sn-507" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">507</span> “I shall proceed from the simple to the complex. But in war more than in any other subject we must begin by looking at the nature of the whole; for here more than elsewhere the part and the whole must always be thought of together.” - <span class="citation">Clausewitz (<a href="bibliography.html#ref-Clausewitz2006">2006</a>)</span> </span> Later a scientific simplification of Clausewitz’s duel stood out with the following form:
-<span class="math display">\[\left[\begin{array}{c}
+<span class="math display" id="eq:coupling">\[\left[\begin{array}{c}
 \frac{\mbox{d}x_{1}(t)}{\mbox{d}t}\\
 \frac{\mbox{d}x_{2}(t)}{\mbox{d}t}
 \end{array}\right]=\left[\begin{array}{cc}
-0 &amp; a_{1}\\
-a_{2} &amp; 0
+0 &amp; a_{12}\\
+a_{21} &amp; 0
 \end{array}\right]\left[\begin{array}{c}
 x_{1}(t)\\
 x_{2}(t)
-\end{array}\right]\Leftrightarrow\frac{\mbox{d}\mathbf{x}(t)}{\mbox{d}t}=\mathbf{A}\mathbf{x}(t)\]</span>
-where <span class="math inline">\(x_{1}(t)\)</span> and <span class="math inline">\(x_{2}(t)\)</span> are the numbers of force units in the two sides at time <span class="math inline">\(t\)</span>, their derivatives represent the attrition rate, and the coefficient <span class="math inline">\(a_{i}\)</span> represents the effective firing rate of a single force unit. You may not be surprised to see similar forms as above for modeling love affairs (Romeo and Juliet model), modeling Yin and Yang, or describing Newton’s laws in pendulums. So I suggest that we start our exposition of complexity from here.</p>
+\end{array}\right]\tag{17.1}\]</span>
+where <span class="math inline">\(x_{1}(t)\)</span> and <span class="math inline">\(x_{2}(t)\)</span> are the numbers of force units in the two sides at time <span class="math inline">\(t\)</span>, their derivatives represent the attrition rates, and the non-zero coefficient <span class="math inline">\(a_{i}\)</span> represents the effective firing rate of a single force unit. You may not be surprised to see similar forms as equation <a href="ch-complexAn.html#eq:coupling">(17.1)</a> for modeling love affairs (Romeo and Juliet model), modeling Yin and Yang, or describing Newton’s laws in pendulums. So I suggest that we start our exposition of complexity from here.</p>
+<div id="sub:coupling" class="section level2">
+<h2>
+<span class="header-section-number">17.1</span> Coupling and Complexification</h2>
+<p>Without any further restriction of variables <span class="math inline">\(x_1(t)\)</span> and <span class="math inline">\(x_2(t)\)</span>, the system <a href="ch-complexAn.html#eq:coupling">(17.1)</a> is equivalent to a <a href="ch-optApp.html#sub:Proj2">second-order differential equation</a> of a single variable. The re-written system is<label for="tufte-sn-508" class="margin-toggle sidenote-number">508</label><input type="checkbox" id="tufte-sn-508" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">508</span> One can check the equivalence by substituting <span class="math inline">\(a_{12}x_{2}=\mbox{d}x_{1}(t)/\mbox{d}t\)</span> into the second order differentiation: <span class="math display">\[\begin{align*}\frac{1}{a_{12}}\frac{\mbox{d}^{2}x_{1}(t)}{\mbox{d}t^{2}}&amp;=\frac{1}{a_{12}}\frac{\mbox{d}}{\mbox{d}t}\left(a_{12}x_{2}(t)\right)\\
+&amp;=\frac{\mbox{d}x_{2}(t)}{\mbox{d}t}.\end{align*}\]</span>
+The above result implies <span class="math inline">\(\mbox{d}x_{2}(t)/\mbox{d}t=a_{21}x_{1}(t)\)</span>.</span> <span class="math display">\[\frac{1}{a_{12}}\frac{\mbox{d}^{2}x_{1}(t)}{\mbox{d}t^{2}}-a_{21}x_{1}(t)=0.\]</span>
+To understand the dynamics of this differential equation, we study the behavior of <a href="ch-eigen.html#sub:det">eigenvalues</a> for the <a href="ch-representation.html#sub:innerProd">differentiation operator</a> <span class="math inline">\(\mbox{d}/\mbox{d}x_{1}\)</span>. The <a href="ch-eigen.html#sub:det">characteristic polynomial</a> of the eigenvalues is given by<label for="tufte-sn-509" class="margin-toggle sidenote-number">509</label><input type="checkbox" id="tufte-sn-509" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">509</span> Recall that <span class="math display">\[\begin{align*}(\frac{\mbox{d}}{\mbox{d}x_{1}})(v)=&amp;\lambda v,\\
+(\frac{\mbox{d}^2}{\mbox{d}x^2_{1}})(v)=&amp;\lambda^2 v,\end{align*}\]</span>
+under the <a href="ch-representation.html#sub:innerProd">eigenfunction</a> <span class="math inline">\(v\)</span>.</span> <span class="math display">\[\frac{1}{a_{12}}\lambda^{2}-a_{21}=0.\]</span>
+The equation <span class="math inline">\(\lambda^2 = a_{12}a_{21}\)</span> provides three possible solution sets of the <a href="ch-eigen.html#sub:det">eigenvalues</a> <span class="math inline">\(\lambda_1\)</span> and <span class="math inline">\(\lambda_2\)</span>.<label for="tufte-sn-510" class="margin-toggle sidenote-number">510</label><input type="checkbox" id="tufte-sn-510" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">510</span> Figure <a href="ch-complexAn.html#fig:coupling">17.1</a> shows the numerical demonstrations of four possible combinations of the coefficients pair <span class="math inline">\(a_{12}\)</span> and <span class="math inline">\(a_{21}\)</span>: the pair have both negative signs, negative and positive signs, both positive signs, finally, positive and negative signs. When the signs are positive, the pair tend to form the wave curves; when both signs are positive, the pair both grow; when both signs are negative, the pair diverge, one growing and the other, with a bigger negative value, falling. Note that it is not possible to have simultaneous falling in this “magical” <strong>coupling</strong> structure.</span></p>
+<ol style="list-style-type: decimal">
+<li><p>When <span class="math inline">\(a_{12}, a_{21}&gt;0\)</span>, we have <span class="math inline">\(\lambda_{1},\lambda_{2}&gt;0\)</span>. One may expect that the coupling system has two simultaneously growing components <span class="math inline">\(x_1(t)\)</span> and <span class="math inline">\(x_2(t)\)</span>.</p></li>
+<li><p>When <span class="math inline">\(a_{12}, a_{21}\)</span> have opposite signs, then <span class="math inline">\(\lambda^2&lt;0\)</span>, which implies both <span class="math inline">\(\lambda_{1}\)</span> and <span class="math inline">\(\lambda_{2}\)</span> contain the imaginary unit number. In this case, one may expect to see some rotational dynamics of <span class="math inline">\(x_1(t)\)</span> and <span class="math inline">\(x_2(t)\)</span>.<label for="tufte-sn-511" class="margin-toggle sidenote-number">511</label><input type="checkbox" id="tufte-sn-511" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">511</span> One can compute the eigenvalues by solving the zero <a href="ch-eigen.html#sub:det">determinant</a> of <span class="math inline">\(\mathbf{A}-\lambda\mathbf{I}\)</span>, which is
+<span class="math display">\[\begin{align*}&amp;\mbox{det}\left[\begin{array}{cc}
+-\lambda &amp; a_{12}\\
+a_{21} &amp; -\lambda
+\end{array}\right]\\
+&amp;=\lambda^{2}-a_{12}a_{21}=0.\end{align*}\]</span>
+Obviously, if <span class="math inline">\(a_{12}a_{21}&lt;0\)</span>, namely <span class="math inline">\(a_{12}\)</span> and <span class="math inline">\(a_{21}\)</span> with oppositive signs, then the distinct roots of the characteristic function will contain the imaginary unit <span class="math inline">\(\mbox{i}\)</span>.</span></p></li>
+<li><p>When <span class="math inline">\(a_{12}, a_{21}&lt;0\)</span>, we have <span class="math inline">\(\lambda_{1},\lambda_{2}&lt;0\)</span>. One may expect to see the monotonic patterns of both components. But due to the negativity, two components will move in the opposite direction. Suppose that <span class="math inline">\(\lambda_{2}&lt;\lambda_{1}&lt;0\)</span>, then <span class="math inline">\(x_{2}(t)\)</span> is falling while <span class="math inline">\(x_{1}(t)\)</span> is rising.</p></li>
+</ol>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:coupling"></span>
+<img src="fig/Part5/coupling.png" alt="Possible dynamical patterns" width="100%"><!--
+<p class="caption marginnote">-->Figure 17.1: Possible dynamical patterns<!--</p>-->
+<!--</div>--></span>
+</p>
+<div class="solution">
+<p class="solution-begin">
+Code <span id="sol-start-113" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-113', 'sol-start-113')"></span>
+</p>
+<div id="sol-body-113" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" data-line-number="1">times =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">8</span>,<span class="dt">by=</span><span class="fl">0.01</span>)</a>
+<a class="sourceLine" id="cb161-2" data-line-number="2">Sys =<span class="st"> </span><span class="cf">function</span>(t, init, parms){</a>
+<a class="sourceLine" id="cb161-3" data-line-number="3">  x1 =<span class="st"> </span>init[<span class="dv">1</span>]; </a>
+<a class="sourceLine" id="cb161-4" data-line-number="4">  x2 =<span class="st"> </span>init[<span class="dv">2</span>];</a>
+<a class="sourceLine" id="cb161-5" data-line-number="5">  dx1 =<span class="st"> </span>parms[<span class="dv">1</span>]<span class="op">*</span>x2; </a>
+<a class="sourceLine" id="cb161-6" data-line-number="6">  dx2 =<span class="st"> </span>parms[<span class="dv">2</span>]<span class="op">*</span>x1;</a>
+<a class="sourceLine" id="cb161-7" data-line-number="7">  <span class="kw">list</span>(<span class="kw">c</span>(dx1,dx2))}</a>
+<a class="sourceLine" id="cb161-8" data-line-number="8"><span class="kw">require</span>(deSolve)</a>
+<a class="sourceLine" id="cb161-9" data-line-number="9">cinit =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>); parms =<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="fl">0.25</span>,<span class="op">-</span><span class="fl">0.5</span>) <span class="co"># one expands, one decays</span></a>
+<a class="sourceLine" id="cb161-10" data-line-number="10">result1 =<span class="st"> </span><span class="kw">ode</span>(cinit,times,Sys,parms); <span class="kw">colnames</span>(result1)=<span class="kw">c</span>(<span class="st">"time"</span>,<span class="st">"x1_1"</span>,<span class="st">"x2_1"</span>) </a>
+<a class="sourceLine" id="cb161-11" data-line-number="11">cinit =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>); parms =<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">1</span>) <span class="co"># rotation</span></a>
+<a class="sourceLine" id="cb161-12" data-line-number="12">result2 =<span class="st"> </span><span class="kw">ode</span>(cinit,times,Sys,parms); <span class="kw">colnames</span>(result2)=<span class="kw">c</span>(<span class="st">"time"</span>,<span class="st">"x1_2"</span>,<span class="st">"x2_2"</span>) </a>
+<a class="sourceLine" id="cb161-13" data-line-number="13">cinit =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>); parms =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">0.25</span>) <span class="co"># both expand</span></a>
+<a class="sourceLine" id="cb161-14" data-line-number="14">result3 =<span class="st"> </span><span class="kw">ode</span>(cinit,times,Sys,parms); <span class="kw">colnames</span>(result3)=<span class="kw">c</span>(<span class="st">"time"</span>,<span class="st">"x1_3"</span>,<span class="st">"x2_3"</span>) </a>
+<a class="sourceLine" id="cb161-15" data-line-number="15">cinit =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>); parms =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>) <span class="co"># rotation</span></a>
+<a class="sourceLine" id="cb161-16" data-line-number="16">result4 =<span class="st"> </span><span class="kw">ode</span>(cinit,times,Sys,parms); <span class="kw">colnames</span>(result4)=<span class="kw">c</span>(<span class="st">"time"</span>,<span class="st">"x1_4"</span>,<span class="st">"x2_4"</span>) </a>
+<a class="sourceLine" id="cb161-17" data-line-number="17">d =<span class="st"> </span><span class="kw">data.frame</span>(result1,result2[,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>],result3[,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>], result4[,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>])</a>
+<a class="sourceLine" id="cb161-18" data-line-number="18"><span class="kw">ggplot</span>( <span class="kw">melt</span>(d, <span class="dt">id.vars=</span><span class="st">"time"</span>), <span class="kw">aes</span>(time, value, <span class="dt">colour=</span>variable, <span class="dt">group=</span>variable)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()   <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() </a>
+<a class="sourceLine" id="cb161-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb161-20" data-line-number="20"><span class="kw">library</span>(gganimate)</a>
+<a class="sourceLine" id="cb161-21" data-line-number="21">fig =<span class="st"> </span><span class="kw">ggplot</span>(d, <span class="kw">aes</span>(<span class="dt">x =</span> x1_<span class="dv">4</span>, <span class="dt">y =</span> x2_<span class="dv">4</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">"red"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>x1_<span class="dv">2</span>,<span class="dt">y=</span>x2_<span class="dv">2</span>), <span class="dt">color=</span><span class="st">"blue"</span>)   <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">"x1 "</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"x2"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="op">-</span><span class="dv">180</span>,<span class="dv">180</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlim</span>(<span class="op">-</span><span class="dv">180</span>,<span class="dv">180</span>)</a>
+<a class="sourceLine" id="cb161-22" data-line-number="22">fig  <span class="op">+</span><span class="st">  </span><span class="kw">transition_time</span>(<span class="dt">time=</span>time) <span class="op">+</span><span class="st"> </span><span class="kw">shadow_mark</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Perhaps, the most interesting patterns in these three cases (shown in figure <a href="ch-complexAn.html#fig:coupling">17.1</a>) are the waves induced by the opposite signs of the coefficients in case 2. In this case, each pair of the coefficients induces two waves oscillating in a corresponding manner. These kinds of waves are said to be <em>coupled</em>. For example, let <span class="math display">\[\mathbf{A}=\left[\begin{array}{cc}
+0 &amp; -2\\
+1 &amp; 0
+\end{array}\right].\]</span>
+The eigenvalues of <span class="math inline">\(\mathbf{A}\)</span> are <span class="math inline">\(\mbox{i}\sqrt{2}\)</span> and <span class="math inline">\(-\mbox{i}\sqrt{2}\)</span>.<label for="tufte-sn-512" class="margin-toggle sidenote-number">512</label><input type="checkbox" id="tufte-sn-512" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">512</span> The associated eigenvectors of <span class="math inline">\(\mbox{i}\sqrt{2}\)</span> and <span class="math inline">\(-\mbox{i}\sqrt{2}\)</span> could be, for example, <span class="math inline">\([\sqrt{2},-\mbox{i}]\)</span> and <span class="math inline">\([\sqrt{2},\mbox{i}]\)</span>, respectively. In this case, we have <span class="math display">\[
+\begin{align*}\mathbf{V}=\left[\begin{array}{cc}
+\sqrt{2} &amp; \sqrt{2}\\
+-\mbox{i} &amp; \mbox{i}
+\end{array}\right], \\
+\mathbf{V}^{-1}=\frac{1}{\mbox{i}2\sqrt{2}}\left[\begin{array}{cc}
+\mbox{i} &amp; -\sqrt{2}\\
+\mbox{i} &amp; \sqrt{2}
+\end{array}\right].\end{align*}\]</span>
+A simple calculation leads to <span class="math inline">\(\mathbf{V}^{-1}\mathbf{A}\mathbf{V}=\mbox{diag}[\mbox{i}\sqrt{2},-\mbox{i}\sqrt{2}]\)</span>.</span>
+The imaginary eigenvalues are of the same absolute sizes but different signs. This specification will make <span class="math inline">\(x_1(t)\)</span> and <span class="math inline">\(x_2(t)\)</span> travel on an ellipsoidal orbit in the <a href="ch-eigen.html#sub:diag">phase plots</a>, see figure <a href="ch-complexAn.html#fig:ellipses">17.2</a>. Therefore, the two equations are <strong>coupled</strong>.<label for="tufte-sn-513" class="margin-toggle sidenote-number">513</label><input type="checkbox" id="tufte-sn-513" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">513</span> If the entities’ signs exchange, namely <span class="math inline">\(a_{12}&gt;0\)</span> and <span class="math inline">\(a_{21}&lt;0\)</span>, a similar movement pattern will occur, but the rotation will be oriented in the opposite direction.</span></p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:ellipses"></span>
+<img src="fig/Part5/ellipses.gif" alt="Phase plot of coupled waves (the second and the fourth curves in the previous figure)" width="100%"><!--
+<p class="caption marginnote">-->Figure 17.2: Phase plot of coupled waves (the second and the fourth curves in the previous figure)<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>We can almost confirm that the waves or the ellipses in the figures are induced by the imaginary unit <span class="math inline">\(\mbox{i}\)</span> that emerges in the <strong>coupling</strong> structure.</p>
+<p>We can decompose any <span class="math inline">\(2\times2\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span> into <span class="math display">\[\left[\begin{array}{cc}
+a_{11} &amp; 0\\
+0 &amp; a_{22}
+\end{array}\right]+\left[\begin{array}{cc}
+0 &amp; a_{12}\\
+a_{12} &amp; 0
+\end{array}\right]\]</span> a diagonal matrix and an off-diagonal matrix. The diagonal matrix will induce a decoupling system of two independent differential equations with the possibilities of growth <span class="math inline">\(a_{ii}&gt;0\)</span>, decay <span class="math inline">\(a_{ii}&lt;0\)</span>, or equilibrium <span class="math inline">\(a_{ii}=0\)</span>. In contrast, the off-diagonal one will cause dependence and will induce a system with three possible dynamical patterns listed above. Moreover, the <strong>coupled</strong> waves always come with <span class="math inline">\(a_{12}a_{21}&lt;0\)</span>. Thus, we can roughly infer what its dynamics may look like for any system <span class="math inline">\(\mbox{d}\mathbf{x}(t)/\mbox{d}t=\mathbf{A}\mathbf{x}(t)\)</span> with an <span class="math inline">\(2\times 2\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span>.</p>
+<p>In chapter <a href="ch-eigen.html#sub:det">12.1</a>, we have seen that all the unit <a href="ch-eigen.html#sub:det">imaginary numbers</a> locate on the unit circle. The circle of the red orbit in figure <a href="ch-complexAn.html#fig:ellipses">17.2</a> implies that the <strong>coupling</strong> structure of unit eigenvalues, i.e., <span class="math display">\[\left[\begin{array}{cc}
+0 &amp; 1\\
+-1 &amp; 0
+\end{array}\right]\, \mbox{ or } \left[\begin{array}{cc}
+0 &amp; -1\\
+1 &amp; 0
+\end{array}\right], \]</span> can form the <a href="ch-representation.html#sub:pseudoRandom">generator</a> of the imaginary number.</p>
+<p>Let’s extend this special <strong>coupling</strong> structure to a higher dimension. For any complex vector <span class="math inline">\(\mathbf{a}+\mbox{i}\mathbf{b}\)</span> where <span class="math inline">\(\mathbf{a},\mathbf{b}\in\mathbb{R}^{n}\)</span>, let’s construct a <span class="math inline">\(2n\times 2n\)</span> matrix by the block diagonal matrix <span class="math inline">\(\mathbf{I}_{2n}\)</span> and off-diagonal matrix <span class="math inline">\(\mathbf{J}_{2n}\)</span> to store the real and imaginary parts of the complex vector <span class="math inline">\(\mathbf{a}+\mbox{i}\mathbf{b}\)</span>:
+<span class="math display">\[\underset{\mathbf{I}_{2n}}{\underbrace{\left[\begin{array}{cc}
+\mathbf{I} &amp; \mathbf{0}\\
+\mathbf{0} &amp; \mathbf{I}
+\end{array}\right]}}\left[\begin{array}{c}
+\mathbf{a}\\
+\mathbf{a}
+\end{array}\right],\,\,\underset{\mathbf{J}_{2n}}{\underbrace{\left[\begin{array}{cc}
+\mathbf{0} &amp; \mathbf{I}\\
+-\mathbf{I} &amp; \mathbf{0}
+\end{array}\right]}}\left[\begin{array}{c}
+\mathbf{b}\\
+\mathbf{b}
+\end{array}\right]\]</span>
+where <span class="math inline">\(\mathbf{I}\)</span> is the <span class="math inline">\(n\times n\)</span> identity matrix. It turns out that this construction will allow us to map any complex vector in <span class="math inline">\(\mathbb{C}^{n}\)</span> to some real-valued vector in a <a href="ch-MatComp.html#sub:vecSpaces">subspace</a> of <span class="math inline">\(\mathbb{R}^{2n}\)</span> without losing the <a href="ch-representation.html#sub:dualBasis">algebraic structure</a> of <span class="math inline">\(\mathbb{C}^{n}\)</span>.</p>
+<p>Consider two complex vectors <span class="math inline">\(\mathbf{z}=\mathbf{x}_{1}+\mbox{i}\mathbf{x}_{2}\)</span>, and <span class="math inline">\(\mathbf{w}=\mathbf{y}_{1}+\mbox{i}\mathbf{y}_{2}\)</span>, with <span class="math inline">\(\mathbf{z},\mathbf{w}\in\mathbb{C}^{n}\)</span>. If we want to treat them as real (column) vectors <span class="math inline">\([\mathbf{x}_{1},\mathbf{x}_{2}]\)</span> and <span class="math inline">\([\mathbf{y}_{1},\mathbf{y}_{2}]\)</span> in <span class="math inline">\(\mathbb{R}^{2n}\)</span>, we need to make sure the <a href="ch-vecMat.html#sub:vec">inner product</a> of these vectors in <span class="math inline">\(\mathbb{R}^{2n}\)</span> preserves the <a href="ch-representation.html#sub:dualBasis">algebraic structure</a> of the <a href="ch-representation.html#sub:dualBasis">complex inner product</a> used in <span class="math inline">\(\mathbb{C}^{n}\)</span>. The following equivalent relation shows that the inner product structure is indeed preserved:<label for="tufte-sn-514" class="margin-toggle sidenote-number">514</label><input type="checkbox" id="tufte-sn-514" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">514</span> Note that
+<span class="math display">\[\begin{align*}\langle\mathbf{z},\mathbf{w}\rangle&amp;=\mathbf{z}^{\mbox{H}}\mathbf{w}=\overline{\mathbf{z}}^{\top}\mathbf{w}\\
+&amp;=(\mathbf{x}_{1}-\mbox{i}\mathbf{x}_{2})^{\top}(\mathbf{y}_{1}+\mbox{i}\mathbf{y}_{2})
+\\&amp;=    (\mathbf{x}_{1}^{\top}\mathbf{y}_{1}+\mathbf{x}_{2}^{\top}\mathbf{y}_{2})+\mbox{i}(\mathbf{x}_{1}^{\top}\mathbf{y}_{2}-\mathbf{x}_{2}^{\top}\mathbf{y}_{1})\\
+&amp;=  \left[\begin{array}{c}
+\mathbf{x}_{1}\\
+\mathbf{x}_{2}
+\end{array}\right]^{\top}\left[\begin{array}{cc}
+\mathbf{I} &amp; \mathbf{0}\\
+\mathbf{0} &amp; \mathbf{I}
+\end{array}\right]\left[\begin{array}{c}
+\mathbf{y}_{1}\\
+\mathbf{y}_{2}
+\end{array}\right]\\&amp;+\mbox{i}\left[\begin{array}{c}
+\mathbf{x}_{1}\\
+\mathbf{x}_{2}
+\end{array}\right]^{\top}\left[\begin{array}{cc}
+\mathbf{0} &amp; \mathbf{I}\\
+-\mathbf{I} &amp; \mathbf{0}
+\end{array}\right]\left[\begin{array}{c}
+\mathbf{y}_{1}\\
+\mathbf{y}_{2}
+\end{array}\right]
+\\&amp;=    \left[\begin{array}{c}
+\mathbf{x}_{1}\\
+\mathbf{x}_{2}
+\end{array}\right]^{\top}\left(\mathbf{I}_{2n}+\mbox{i}\mathbf{J}_{2n}\right)\left[\begin{array}{c}
+\mathbf{y}_{1}\\
+\mathbf{y}_{2}
+\end{array}\right].\end{align*}\]</span></span>
+<span class="math display">\[\langle\mathbf{z},\mathbf{w}\rangle\Leftrightarrow\left(\left[\begin{array}{c}
+\mathbf{x}_{1}\\
+\mathbf{x}_{2}
+\end{array}\right]^{\top}\mathbf{I}_{2n}\left[\begin{array}{c}
+\mathbf{y}_{1}\\
+\mathbf{y}_{2}
+\end{array}\right],\,\, \left[\begin{array}{c}
+\mathbf{x}_{1}\\
+\mathbf{x}_{2}
+\end{array}\right]^{\top}\mathbf{J}_{2n}\left[\begin{array}{c}
+\mathbf{y}_{1}\\
+\mathbf{y}_{2}
+\end{array}\right]\right)\in\mathbb{R}^{2}.\]</span>
+In particular, the sandwich form induced by <span class="math inline">\(\mathbf{J}_{2n}\)</span> corresponds to the multiplication that happened on the imaginary part of <span class="math inline">\(\mathbf{z}\)</span> and <span class="math inline">\(\mathbf{w}\)</span>. Thus, one can think that the <strong>coupling</strong> matrix <span class="math inline">\(\mathbf{J}_{2n}\)</span> encodes the multiplication operation of the imaginary numbers in the matrix form.</p>
+<p>The previous equivalent relation reveals a more important (and perhaps magical) possibility. If any vector in <span class="math inline">\(\mathbb{C}^{n}\)</span> has the corresponding entity in <span class="math inline">\(\mathbb{R}^{2n}\)</span>, the relation points out that a converse route is also possible. That is, when we have one real-valued subspace <span class="math inline">\(\mathcal{V}\)</span> in <span class="math inline">\(\mathbb{R}^{n}\)</span>, we may be able to fabricate a “complex-looking” subspace in <span class="math inline">\(\mathbb{C}^{n}\)</span> by making use of the <strong>coupling</strong> structure induced by <span class="math inline">\(\mathbf{J}_{2n}\in\mathbb{R}^{2n}\)</span>. The trick is known as <strong>complexification</strong>. The <em>complexification</em> of <span class="math inline">\(\mathcal{V}\subset\mathbb{R}^{n}\)</span> based on <span class="math inline">\(\mathbf{J}_{2n}\)</span>, denoted by the <span class="math inline">\(\mathcal{V}_{\mathbb{C}}\)</span>, is a <a href="ch-randomization.html#sub:SumDecomp">direct sum</a>: <span class="math display">\[\mathcal{V}_{\mathbb{C}}=\mathcal{V}+\mbox{i}\mathcal{V}=\mathcal{V}+\mathbf{J}_{2n}\mathcal{V}\]</span> where any object from <span class="math inline">\(\mathbf{J}_{2n}\mathcal{V}\)</span> is constructed by multiplying the matrix <span class="math inline">\(\mathbf{J}_{2n}\)</span> to two (replicated) objects from <span class="math inline">\(\mathcal{V}\)</span>.</p>
+<p>For any two real vectors <span class="math inline">\(\mathbf{x}_1\)</span> and <span class="math inline">\(\mathbf{x}_2\)</span> in <span class="math inline">\(\mathcal{V}\subset\mathbb{R}^{n}\)</span>, the following equation
+<span class="math display">\[\mathbf{I}_{2n}\left[\begin{array}{c}
+\mathbf{x}_{1}\\
+\mathbf{x}_{2}
+\end{array}\right]+\mathbf{J}_{2n}\left[\begin{array}{c}
+\mathbf{x}_{1}\\
+\mathbf{x}_{2}
+\end{array}\right]=\left[\begin{array}{c}
+\mbox{Re}(\mathbf{z})+\mbox{Im}(\mathbf{z})\\
+\mbox{Im}(\mathbf{z})-\mbox{Re}(\mathbf{z})
+\end{array}\right]\tag{17.2}\]</span> gives a <strong>complexification</strong> of <span class="math inline">\(\mathcal{V}\)</span>, where <span class="math inline">\(\mathbf{z}\in \mathcal{V}_{\mathbb{C}}\subset\mathbb{C}^{n}\)</span> is the corresponding complex vector.<label for="tufte-sn-515" class="margin-toggle sidenote-number">515</label><input type="checkbox" id="tufte-sn-515" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">515</span> Here <span class="math inline">\(\mbox{Re}(\mathbf{z})\)</span> and <span class="math inline">\(\mbox{Im}(\mathbf{z})\)</span> stand for the real and imaginary parts of the complex vector <span class="math inline">\(\mathbf{z}\)</span>. Note that for <span class="math inline">\(\mathbf{z}=\mathbf{x}_1 +\mbox{i}\mathbf{x}_2\)</span>, we have <span class="math display" id="eq:complexification">\[\mathbf{x}_{1}=\mbox{Re}(\mathbf{z})=\frac{\mathbf{z}+\bar{\mathbf{z}}}{2}\\
+\mathbf{x}_{2}=\mbox{Im}(\mathbf{z})=-\mbox{i}\frac{\mathbf{z}-\bar{\mathbf{z}}}{2}.\]</span>
+So the equation also implies <span class="math display">\[\begin{align*} &amp;\mathbf{I}_{2n}\left[\begin{array}{c}
+\mathbf{x}_{1}\\
+\mathbf{x}_{2}
+\end{array}\right]+\mathbf{J}_{2n}\left[\begin{array}{c}
+\mathbf{x}_{1}\\
+\mathbf{x}_{2}
+\end{array}\right]\\&amp;=
+\left[\begin{array}{c}
+\mathbf{x}_{1}+\mathbf{x}_{2}\\
+\mathbf{x}_{2}-\mathbf{x}_{1}
+\end{array}\right]\\&amp;= \left[\begin{array}{c}
+\frac{\mathbf{z}+\overline{\mathbf{z}}-\mbox{i}(\mathbf{z}-\overline{\mathbf{z}})}{2}\\
+\frac{\mathbf{z}+\overline{\mathbf{z}}+\mbox{i}(\mathbf{z}-\overline{\mathbf{z}})}{2}
+\end{array}\right].\end{align*}\]</span></span> An important feature of this <strong>complexification</strong> is the invariance of the <a href="ch-vecMat.html#sub:vec">norm</a>:
+<span class="math display">\[\|\mathbf{z}\|^2=\langle\mathbf{z},\mathbf{z}\rangle=\left[\begin{array}{c}
+\mathbf{x}_{1}\\
+\mathbf{x}_{2}
+\end{array}\right]^{\top}\left(\mathbf{I}_{2n}+\mbox{i}\mathbf{J}_{2n}\right)\left[\begin{array}{c}
+\mathbf{x}_{1}\\
+\mathbf{x}_{2}
+\end{array}\right]=\left[\begin{array}{c}
+\mathbf{x}_{1}\\
+\mathbf{x}_{2}
+\end{array}\right]^{\top}\left[\begin{array}{c}
+\mathbf{x}_{1}\\
+\mathbf{x}_{2}
+\end{array}\right].\]</span>
+The invariance comes from the fact that for any vector <span class="math inline">\(\mathbf{x}_{1},\mathbf{x}_{2}\in\mathbb{R}^{n}\)</span>, <span class="math display">\[\begin{align*} \left[\begin{array}{c}
+\mathbf{x}_{1}\\
+\mathbf{x}_{2}
+\end{array}\right]^{\top}\mathbf{J}_{2n}\left[\begin{array}{c}
+\mathbf{x}_{1}\\
+\mathbf{x}_{2}
+\end{array}\right]=\left[\begin{array}{cc}
+\mathbf{x}_{2}, &amp; -\mathbf{x}_{1}\end{array}\right]\left[\begin{array}{c}
+\mathbf{x}_{1}\\
+\mathbf{x}_{2}
+\end{array}\right]=0.\end{align*}\]</span> Such a property is often called <strong>reciprocity</strong> because the coupling structure of <span class="math inline">\(\mathbf{J}_{2n}\)</span> tends to intertwine the values of two objects from <span class="math inline">\(\mathcal{V}\)</span>.<label for="tufte-sn-516" class="margin-toggle sidenote-number">516</label><input type="checkbox" id="tufte-sn-516" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">516</span> The sandwich form <span class="math inline">\(\mathbf{a}^{\top}\mathbf{J}\mathbf{b}\)</span> defines an inner <span class="math inline">\(\langle\mathbf{a},\mathbf{b}\rangle_{\mathbf{J}}\)</span> known as the <em>standard symplectic inner product</em>. An <a href="ch-representation.html#sub:innerProd">inner product vector space</a> attached with the <strong>symplectic inner product</strong> is called the <em>symplectic vector space</em>. Several natural phenomena can be described in the <strong>symplectic vector space</strong>, such as electromagnetism reciprocity or force-energy reciprocity. The quadratic form <span class="math inline">\(\langle\mathbf{x},\mathbf{x}\rangle_{\mathbf{J}}\)</span> often represents the energy at state <span class="math inline">\(\mathbf{x}\)</span> under the action <span class="math inline">\(\mathbf{J}\)</span>. The zero value of <span class="math inline">\(\langle\mathbf{x},\mathbf{x}\rangle_{\mathbf{J}}\)</span> means that zero-energy creates or disappears in this <strong>reciprocal relation</strong> in this system.</span></p>
+<p>This <strong>reciprocal coupling</strong> property actually is from a special symmetry, called <strong>skew symmetry</strong>. We define it as follows. For any square matrix defined on the <a href="ch-MatComp.html#sub:vecSpaces">scalar field</a> <span class="math inline">\(\mathbb{F}\)</span>, i.e., <span class="math inline">\(\mathbf{J}_s\in\mathbb{F}^{k\times k}\)</span>, the following statements are equivalent:<label for="tufte-sn-517" class="margin-toggle sidenote-number">517</label><input type="checkbox" id="tufte-sn-517" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">517</span> We can see that, the <strong>standard simpletic inner</strong> induced by <span class="math inline">\(\mathbf{J}\)</span> is a special case of the <strong>skew symmetry</strong>.</span></p>
+<ul>
+<li>
+<em>Skew symmetry</em> : <span class="math inline">\(\mathbf{J}_s+\mathbf{J}_s^{\mbox{H}}=0\)</span>.</li>
+<li>
+<em>Zero-sum</em> : <span class="math inline">\(\langle\mathbf{J}_s\mathbf{x},\mathbf{y}\rangle=-\langle\mathbf{x},\mathbf{J}_s\mathbf{y}\rangle\)</span>.<label for="tufte-sn-518" class="margin-toggle sidenote-number">518</label><input type="checkbox" id="tufte-sn-518" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">518</span> The <strong>zero-sum</strong> condition can induce the so-call zero-sum game. We will see in sec[?]</span>
+</li>
+</ul>
+<div class="solution">
+<p class="solution-begin">
+Proof <span id="sol-start-114" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-114', 'sol-start-114')"></span>
+</p>
+<div id="sol-body-114" class="solution-body" style="display: none;">
+<p>From <strong>zero-sum</strong> to <strong>skew symmetry</strong> is obvious.</p>
+<p>From <strong>skew symmetry</strong> to <strong>zero-sum</strong>:
+Let <span class="math inline">\(\{\mathbf{e}_{i}\}_{i\leq n}\)</span> be the standard basis.
+<span class="math display">\[\langle\mathbf{J}_s\mathbf{e}_{i},\mathbf{e}_{j}\rangle=a_{ij}=-\bar{a}_{ji}=-\overline{\langle\mathbf{J}_{s}\mathbf{e}_{j},\mathbf{e}_{i}\rangle}=-\langle\mathbf{e}_{i},\mathbf{J}_s\mathbf{e}_{j}\rangle\]</span>
+For any <span class="math inline">\(\mathbf{x}, \mathbf{y}\in \mathbb{R}^{n}\)</span>, we can represent both of them by the linear combinations of <span class="math inline">\(\{\mathbf{e}_{i}\}\)</span>,
+<span class="math display">\[\begin{align*}\langle\mathbf{J}_s\mathbf{x},\mathbf{y}\rangle&amp;=\left\langle\mathbf{J}_s(\sum c_{i}\mathbf{e}_{i}),(\sum d_{j}\mathbf{e}_{j})\right\rangle\\&amp;=-\left\langle(\sum c_{i}\mathbf{e}_{i}),\mathbf{J}_s(\sum d_{i}\mathbf{e}_{i})\right\rangle\\&amp;=-\langle\mathbf{x},\mathbf{J}_s\mathbf{y}\rangle.\end{align*}\]</span></p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>In particular, for any <span class="math inline">\(\mathbf{x}\in\mathbb{R}^{k}\)</span>, when the <strong>reciprocity</strong> happens, namely <span class="math inline">\(\langle\mathbf{J}_s\mathbf{x},\mathbf{x}\rangle=0\)</span>, there must be <span class="math inline">\(\mathbf{J}_s+\mathbf{J}_s^{\top}=0\)</span>.<label for="tufte-sn-519" class="margin-toggle sidenote-number">519</label><input type="checkbox" id="tufte-sn-519" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">519</span> To see this argument, note that
+<span class="math display">\[\begin{align*} 0&amp;=\langle\mathbf{J}_s(\mathbf{x}+\mathbf{y}),\,\mathbf{x}+\mathbf{y}\rangle\\&amp;=\langle\mathbf{J}_s\mathbf{x},\,\mathbf{x}\rangle+\langle\mathbf{J}_s\mathbf{y},\,\mathbf{y}\rangle\\
+&amp;+\langle\mathbf{J}_s\mathbf{x},\,\mathbf{y}\rangle+\langle\mathbf{J}_s\mathbf{y},\,\mathbf{x}\rangle\\&amp;=0+0+\langle\mathbf{J}_s\mathbf{x},\,\mathbf{y}\rangle+\langle\mathbf{J}_s\mathbf{y},\,\mathbf{x}\rangle.\end{align*}\]</span>
+Because <span class="math display">\[\langle\mathbf{J}_s\mathbf{y},\,\mathbf{x}\rangle=\langle \mathbf{x},\,\mathbf{J}_s\mathbf{y}\rangle=\langle\mathbf{J}_s^{\top}\mathbf{x},\,\mathbf{y}\rangle,\]</span> the result follows.</span></p>
+<p>For the dynamical system <a href="ch-complexAn.html#eq:coupling">(17.1)</a>, <strong>coupling</strong> the <strong>skew-symmetry</strong> objects is the reason for having the invariants.<label for="tufte-sn-520" class="margin-toggle sidenote-number">520</label><input type="checkbox" id="tufte-sn-520" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">520</span> These invariants are called the Hamiltonian. We will come back to them at [?].</span> Consider <span class="math inline">\(n\)</span>-dimensional variables, <span class="math inline">\(\mathbf{x}_{1}(t)\)</span> and <span class="math inline">\(\mathbf{x}_{2}(t)\)</span>, <span class="math inline">\(\mathbf{x}_{i}(t)\in\mathbb{F}^{n}\)</span> and <span class="math inline">\(\mathbf{A}_{i}\in\mathbb{F}^{n\times n}\)</span> for <span class="math inline">\(i=1,2\)</span>. The <strong>coupling</strong> system <span class="math display">\[\left[\begin{array}{c}
+\frac{\mbox{d}\mathbf{x}_{1}(t)}{\mbox{d}t}\\
+\frac{\mbox{d}\mathbf{x}_{2}(t)}{\mbox{d}t}
+\end{array}\right]=\underset{J_{s}}{\underbrace{\left[\begin{array}{cc}
+0 &amp; \mathbf{A}\\
+-\mathbf{A}^{\mbox{H}} &amp; 0
+\end{array}\right]}}\left[\begin{array}{c}
+\mathbf{x}_{1}(t)\\
+\mathbf{x}_{2}(t)
+\end{array}\right]\]</span> is invariant with respect to <span class="math inline">\(\langle \mathbf{x}_{1}(t),\mathbf{x}_{2}(t)\rangle\)</span>, namely
+<span class="math display">\[\left\langle \mathbf{x}_{1}(t),\mathbf{x}_{2}(t)\right\rangle =\left\langle \mathbf{x}_{1}(0),\mathbf{x}_{2}(0)\right\rangle\]</span>
+for any <span class="math inline">\(t\in\mathbb{R}\)</span>. Both systems in figure <a href="ch-complexAn.html#fig:ellipses">17.2</a> are <strong>skew symmetry</strong>, so the objects only travel on the invariants orbits.<label for="tufte-sn-521" class="margin-toggle sidenote-number">521</label><input type="checkbox" id="tufte-sn-521" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">521</span> After <a href="ch-eigen.html#sub:diag">diagonalization</a>, the coefficient matrices of both systems are <strong>skew-symmetry</strong>: <span class="math display">\[\left[\begin{array}{cc}
+0 &amp; \mbox{i}\sqrt{a_{21}a_{12}} \\
+-\mbox{i}\sqrt{a_{21}a_{12}} &amp; 0
+\end{array}\right].\]</span></span></p>
+<div class="solution">
+<p class="solution-begin">
+Proof <span id="sol-start-115" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-115', 'sol-start-115')"></span>
+</p>
+<div id="sol-body-115" class="solution-body" style="display: none;">
+<p><span class="math display">\[\begin{align*}\frac{\mbox{d}}{\mbox{d}t}\left\langle \mathbf{x}_{1}(t),\mathbf{x}_{2}(t)\right\rangle     &amp;=\lim_{h\rightarrow0}\frac{1}{h}\left[\left\langle \mathbf{x}_{1}(t+h),\mathbf{x}_{2}(t+h)\right\rangle -\left\langle \mathbf{x}_{1}(t),\mathbf{x}_{2}(t)\right\rangle \right]\\
+    &amp;=\lim_{h\rightarrow0}\frac{1}{h}\left[\left\langle \mathbf{x}_{1}(t+h)-\mathbf{x}_{1}(t),\mathbf{x}_{2}(t+h)\right\rangle +\left\langle \mathbf{x}_{1}(t),\mathbf{x}_{2}(t+h)-\mathbf{x}_{2}(t)\right\rangle \right]\\
+    &amp;=\lim_{h\rightarrow0}\left\{ \left\langle \frac{\mathbf{x}_{1}(t+h)-\mathbf{x}_{1}(t)}{h},\mathbf{x}_{2}(t+h)\right\rangle +\left\langle \mathbf{x}_{1}(t),\frac{\mathbf{x}_{2}(t+h)-\mathbf{x}_{2}(t)}{h}\right\rangle \right\} \\
+    &amp;=\left\langle \frac{\mbox{d}\mathbf{x}_{1}(t)}{\mbox{d}t},\mathbf{x}_{2}(t)\right\rangle +\left\langle \mathbf{x}_{1}(t), \frac{\mbox{d}\mathbf{x}_{2}(t)}{\mbox{d}t}\right\rangle.\end{align*}\]</span>
+Therefore
+<span class="math display">\[\begin{align*}\frac{\mbox{d}}{\mbox{d}t}\left\langle \mathbf{x}_{1}(t),\mathbf{x}_{2}(t)\right\rangle    &amp;=\left\langle \frac{\mbox{d}\mathbf{x}_{1}(t)}{\mbox{d}t},\mathbf{x}_{2}(t)\right\rangle +\left\langle \mathbf{x}_{1}(t),\frac{\mbox{d}\mathbf{x}_{2}(t)}{\mbox{d}t}\right\rangle \\
+    &amp;=\left\langle \mathbf{A}\mathbf{x}_{1}(t),\mathbf{x}_{2}(t)\right\rangle +\left\langle \mathbf{x}_{1}(t),-\mathbf{A}^{\mbox{H}}\mathbf{x}_{2}(t)\right\rangle \\
+    &amp;=\left\langle \mathbf{A}\mathbf{x}_{1}(t),\mathbf{x}_{2}(t)\right\rangle -\left\langle \mathbf{A}\mathbf{x}_{1}(t),\mathbf{x}_{2}(t)\right\rangle =0.\end{align*}\]</span>
+The result follows.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>The <strong>skew symmetry</strong> or the <strong>reciprocity</strong> gives an <a href="ch-randomization.html#sub:SumDecomp">orthogonality condition</a> under <span class="math inline">\(\mathbf{J}_s\)</span>:
+<span class="math display">\[\langle\mathbf{J}_{s}\mathbf{x},\,\mathbf{x}\rangle=0.\]</span>
+Note that for any <span class="math inline">\(\mathbf{x}\in\mathcal{V}\)</span>, the vector <span class="math inline">\(\mathbf{J}_s\mathbf{x}\in\mathcal{V}^{*}\)</span> is from the <a href="ch-representation.html#sub:dualBasis">dual space</a> of <span class="math inline">\(\mathcal{V}\)</span>.
+The condition inspires us that for any real-valued vector space <span class="math inline">\(\mathcal{V}\subset\mathbb{R}^{n}\)</span>, there would be a class of linear transformations <span class="math inline">\(\mathbf{J}_s\)</span> that can define a <a href="ch-representation.html#sub:dualBasis">dual subspace</a> <span class="math inline">\(\mathcal{V}^{*}\)</span> that is <a href="ch-randomization.html#sub:SumDecomp">orthogonal</a> to <span class="math inline">\(\mathcal{V}\)</span>, namely <span class="math inline">\(\mathcal{V}^{*}=\mathcal{V}^{\bot}\)</span>. In this case, the <strong>complexification</strong> based on <span class="math inline">\(\mathbf{J}_s\)</span> can construct an <a href="ch-randomization.html#sub:SumDecomp">orthogonal direct sum</a> such that <span class="math display">\[\mathcal{V}_{\mathbb{C}}=\mathcal{V}+\mathbf{J}_{s}\mathcal{V}=\mathcal{V}\oplus\mathcal{V}^{*}.\]</span></p>
+<p>Let’s illustrate such a <strong>complexification</strong> by the following examples. Suppose a matrix <span class="math inline">\(\mathbf{A}\in\mathbb{R}^{m\times n}\)</span> and a vector <span class="math inline">\(\mathbf{b}\in \mathbb{R}^{m}\)</span>. Our problem is to solve the system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> with the unknown vector <span class="math inline">\(\mathbf{x}\in \mathbb{R}^{n}\)</span>. We know the <a href="ch-randomization.html#sub:SumDecomp">orthogonal condition</a> of this problem is <span class="math inline">\(\mathbf{A}^{\top}\mathbf{A}\mathbf{x}=\mathbf{A}^{\top}\mathbf{b}\)</span>. The <strong>complexification</strong> of this condition gives the following system <span class="math display">\[\left[\begin{array}{cc}
+\mathbf{I} &amp; \mathbf{A}\\
+-\mathbf{A}^{\top} &amp; \mathbf{I}
+\end{array}\right]\left[\begin{array}{c}
+\mathbf{\lambda}\\
+\mathbf{x}
+\end{array}\right]=\left[\begin{array}{c}
+\mathbf{b}\\
+\mathbf{x}
+\end{array}\right]\]</span>
+where <span class="math inline">\(\mathbf{\lambda}\)</span>, according to the <strong>reciprocal</strong> requirement, is orthogonal to <span class="math inline">\(\mathbf{A}^{\top}\)</span> such that <span class="math inline">\(\mathbf{A}^{\top}\mathbf{\lambda}=\mathbf{0}\)</span>. The multiplication <span class="math inline">\(\mathbf{A}^{\top}\mathbf{\lambda}=\mathbf{0}\)</span> is often knowns as the <em>Lagrangian condition</em>, and <span class="math inline">\(\mathbf{\lambda}\)</span> is called the <em>Lagrangian multiplier</em>. We can see that <span class="math inline">\(\mathbf{\lambda}\)</span> is also the residual of <span class="math inline">\(\mathbf{\lambda}+\mathbf{A}\mathbf{x}=\mathbf{b}\)</span>.<label for="tufte-sn-522" class="margin-toggle sidenote-number">522</label><input type="checkbox" id="tufte-sn-522" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">522</span> This is just another way to state the orthogonal condition. Substituting <span class="math inline">\(\mathbf{\lambda}=\mathbf{b}-\mathbf{A}\mathbf{x}\)</span>
+into <span class="math inline">\(\mathbf{A}^{\top}\mathbf{\lambda}=\mathbf{0}\)</span> gives <span class="math display">\[\mathbf{A}^{\top}(\mathbf{b}-\mathbf{A}\mathbf{x})=0,\]</span>
+which is the original orthogonal condition <span class="math display">\[\mathbf{A}^{\top}\mathbf{A}\mathbf{x}=\mathbf{A}^{\top}\mathbf{b}.\]</span></span></p>
+<p>The complexified problem can be decomposed into <span class="math display">\[\left[\begin{array}{cc}
+\mathbf{I} &amp; 0\\
+0 &amp; \mathbf{I}
+\end{array}\right]\left[\begin{array}{c}
+\mathbf{\lambda}\\
+\mathbf{x}
+\end{array}\right]+\underset{\mathbf{J}_s}{\underbrace{\left[\begin{array}{cc}
+0 &amp; \mathbf{A}\\
+-\mathbf{A}^{\top} &amp; 0
+\end{array}\right]}}\left[\begin{array}{c}
+\mathbf{\lambda}\\
+\mathbf{x}
+\end{array}\right]=\left[\begin{array}{c}
+\mathbf{b}\\
+\mathbf{x}
+\end{array}\right].\]</span>
+The <strong>skew symmetry</strong> matrix <span class="math inline">\(\mathbf{J}_s\)</span> above plays the same role as <span class="math inline">\(\mathbf{J}_{2n}\)</span> in the previous <strong>complexification</strong> <a href="ch-complexAn.html#eq:complexification">(17.2)</a>. Intuitively, the new system <strong>complexifies</strong> the vector <span class="math inline">\(\mathbf{x}\in\mathbb{R}^{n}\)</span> to the new vector <span class="math inline">\(\mathbf{z}=[\mathbf{\lambda},\mathbf{x}]\in\mathbb{R}^{n+m}\)</span> so that the corresponding “complex” vector of <span class="math inline">\(\mathbf{I}_{n+m}\mathbf{\mathbf{z}}+\mathbf{J}_{s}\mathbf{z}\)</span> is <span class="math inline">\([\mathbf{b},\mathbf{x}]\)</span>. Thus, solving the original system and solving the complexified one are essentially equivalent.<label for="tufte-sn-523" class="margin-toggle sidenote-number">523</label><input type="checkbox" id="tufte-sn-523" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">523</span> This <strong>complexified</strong> system casts the original least square problem in the form of a square linear system. It provides a possibility to set up an iterative computational scheme when the inversion of <span class="math inline">\(\mathbf{A}^{\top}\mathbf{A}\)</span> is too costly, i.e., <span class="math inline">\(\mathbf{A}\)</span> is an extremely large matrix.</span></p>
+<p>The previous example may look trivial. Before you doubt the impact of the <strong>complexification</strong>, I should propose a more tricky problem. Still, let’s consider solving the system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> for <span class="math inline">\(\mathbf{A}^{m\times n}\)</span>, <span class="math inline">\(\mathbf{b}\in \mathbb{R}^{m}\)</span> with the unknown vector <span class="math inline">\(\mathbf{x}\in \mathbb{R}^{n}\)</span>. However, this time the solution <span class="math inline">\(\mathbf{x}\)</span> should satisfy an additional linear constraint <span class="math inline">\(\mathbf{B}\mathbf{x}=\mathbf{d}\)</span> for a given matrix <span class="math inline">\(\mathbf{B} \in\mathbb{R}^{k\times n}\)</span> and a given vector <span class="math inline">\(\mathbf{d}\in\mathbb{R}^{k}\)</span>. The <strong>complexification</strong> system is <span class="math display">\[\left[\begin{array}{ccc}
+\mathbf{I} &amp; \mathbf{0} &amp; \mathbf{0}\\
+\mathbf{0} &amp; \mathbf{I} &amp; \mathbf{0}\\
+\mathbf{0} &amp; \mathbf{0} &amp; \mathbf{I}
+\end{array}\right]\left[\begin{array}{c}
+\mathbf{x}\\
+\lambda_{1}\\
+\lambda_{2}
+\end{array}\right]+\underset{\mathbf{J}_s}{\underbrace{\left[\begin{array}{ccc}
+0 &amp; \mathbf{A}^{\top} &amp; \mathbf{B}^{\top}\\
+-\mathbf{A} &amp; 0 &amp; \mathbf{0}\\
+-\mathbf{B} &amp; \mathbf{0} &amp; 0
+\end{array}\right]}}\left[\begin{array}{c}
+\mathbf{x}\\
+\lambda_{1}\\
+\lambda_{2}
+\end{array}\right]=\left[\begin{array}{c}
+\mathbf{x}\\
+-\mathbf{b}\\
+\mathbf{0}
+\end{array}\right],\]</span>
+where <span class="math inline">\(\mathbf{\lambda}_1\)</span>, <span class="math inline">\(\mathbf{\lambda}_2\)</span> are the <strong>Lagrangian multipliers</strong> for the <strong>reciprocal</strong> conditions
+<span class="math display">\[\mathbf{A}^{\top}\lambda_{1}+\mathbf{B}^{\top}\mathbf{\lambda}_{2}=\mathbf{0},\,\,\,\, \mathbf{A}^{\top}\lambda_{1}=\mathbf{0}.\]</span> These two conditions can be merged into one<label for="tufte-sn-524" class="margin-toggle sidenote-number">524</label><input type="checkbox" id="tufte-sn-524" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">524</span> 
+Note that the second <strong>reciprocal</strong> condition <span class="math inline">\(\mathbf{A}^{\top}\mathbf{\lambda}_{1}=\mathbf{0}\)</span> implies <span class="math display">\[\mathbf{A}\mathbf{x}-\lambda_{1}=\mathbf{b}.\]</span>
+Substituting this expression into the first reciprocal condition <span class="math display">\[\mathbf{A}^{\top}\lambda_{1}+\mathbf{B}^{\top}\mathbf{\lambda}_{2}=\mathbf{0},\]</span>
+we have the result. In practice, this orthogonal condition often comes from the optimization of the following objective function
+<span class="math display">\[f(\mathbf{x},\mathbf{\lambda}_{2})=\frac{1}{2}\|\mathbf{A}\mathbf{x}-\mathbf{b}\|^2 +\mathbf{\lambda}_2^{\top}(\mathbf{c}-\mathbf{B}\mathbf{x}).\]</span>
+Take the gradient of <span class="math inline">\(f(\mathbf{x},\mathbf{\lambda}_{2})\)</span> with respect to <span class="math inline">\(\mathbf{x}\)</span> gives
+<span class="math display">\[\frac{\partial f(\mathbf{x},\mathbf{\lambda})}{\partial\mathbf{x}}=\mathbf{A}^{\top}(\mathbf{A}\mathbf{x}-\mathbf{b})-\mathbf{\lambda}^{\top}\mathbf{B}.\]</span></span>
+<span class="math display">\[\mathbf{A}^{\top}\mathbf{A}\mathbf{x}-\mathbf{A}^{\top}\mathbf{b}-\mathbf{B}^{\top}\mathbf{\lambda}_{2}=0.\]</span>
+This new orthogonal condition incorporates the information from the linear constraint.
+Therefore, solving the square linear <strong>complexification</strong> system will give the solution of the constrained least square problem. One can even think the foundation of equilibrium analyses lurks in this <strong>complexification</strong>.</p>
+<p>Generally speaking, the <strong>complexification</strong> idea tells that for every real-valued vector space <span class="math inline">\(\mathcal{V}\)</span>, it is possible to construct a dual subspace <span class="math inline">\(\mathcal{V}^{*}\)</span> in which one can place the “imaginary” dual(s). Especially when the dual subspace corresponds to <span class="math inline">\(\mathcal{V}\)</span> in a “rigid” sense, i.e., orthogonality, additional invariants may emerge.</p>
+</div>
 </div></body></html>
 
 <p style="text-align: center;">
@@ -194,7 +535,7 @@ where <span class="math inline">\(x_{1}(t)\)</span> and <span class="math inline
 <a href="bibliography.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-04-20
+2021-04-30
 </p>
 </div>
 </div>
