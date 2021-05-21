@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2021-05-10" />
+<meta name="date" content="2021-05-21" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -164,6 +164,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a id="active-page" href="ch-complexAn.html"><span class="toc-section-number">17</span> Complex Analysis</a><ul class="toc-sections">
 <li class="toc"><a href="#sub:coupling"> Coupling and Complexification</a></li>
 <li class="toc"><a href="#sub:complexCal"> Complex Calculus</a></li>
+<li class="toc"><a href="#sub:ImRelation"> * Example: An Imaginary Relationship</a></li>
 </ul>
 <a href="bibliography.html">Bibliography</a>
 </div>
@@ -224,28 +225,28 @@ Obviously, if <span class="math inline">\(a_{12}a_{21}&lt;0\)</span>, namely <sp
 Code <span id="sol-start-113" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-113', 'sol-start-113')"></span>
 </p>
 <div id="sol-body-113" class="solution-body" style="display: none;">
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" data-line-number="1">times =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">8</span>,<span class="dt">by=</span><span class="fl">0.01</span>)</a>
-<a class="sourceLine" id="cb161-2" data-line-number="2">Sys =<span class="st"> </span><span class="cf">function</span>(t, init, parms){</a>
-<a class="sourceLine" id="cb161-3" data-line-number="3">  x1 =<span class="st"> </span>init[<span class="dv">1</span>]; </a>
-<a class="sourceLine" id="cb161-4" data-line-number="4">  x2 =<span class="st"> </span>init[<span class="dv">2</span>];</a>
-<a class="sourceLine" id="cb161-5" data-line-number="5">  dx1 =<span class="st"> </span>parms[<span class="dv">1</span>]<span class="op">*</span>x2; </a>
-<a class="sourceLine" id="cb161-6" data-line-number="6">  dx2 =<span class="st"> </span>parms[<span class="dv">2</span>]<span class="op">*</span>x1;</a>
-<a class="sourceLine" id="cb161-7" data-line-number="7">  <span class="kw">list</span>(<span class="kw">c</span>(dx1,dx2))}</a>
-<a class="sourceLine" id="cb161-8" data-line-number="8"><span class="kw">require</span>(deSolve)</a>
-<a class="sourceLine" id="cb161-9" data-line-number="9">cinit =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>); parms =<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="fl">0.25</span>,<span class="op">-</span><span class="fl">0.5</span>) <span class="co"># one expands, one decays</span></a>
-<a class="sourceLine" id="cb161-10" data-line-number="10">result1 =<span class="st"> </span><span class="kw">ode</span>(cinit,times,Sys,parms); <span class="kw">colnames</span>(result1)=<span class="kw">c</span>(<span class="st">"time"</span>,<span class="st">"x1_1"</span>,<span class="st">"x2_1"</span>) </a>
-<a class="sourceLine" id="cb161-11" data-line-number="11">cinit =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>); parms =<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">1</span>) <span class="co"># rotation</span></a>
-<a class="sourceLine" id="cb161-12" data-line-number="12">result2 =<span class="st"> </span><span class="kw">ode</span>(cinit,times,Sys,parms); <span class="kw">colnames</span>(result2)=<span class="kw">c</span>(<span class="st">"time"</span>,<span class="st">"x1_2"</span>,<span class="st">"x2_2"</span>) </a>
-<a class="sourceLine" id="cb161-13" data-line-number="13">cinit =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>); parms =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">0.25</span>) <span class="co"># both expand</span></a>
-<a class="sourceLine" id="cb161-14" data-line-number="14">result3 =<span class="st"> </span><span class="kw">ode</span>(cinit,times,Sys,parms); <span class="kw">colnames</span>(result3)=<span class="kw">c</span>(<span class="st">"time"</span>,<span class="st">"x1_3"</span>,<span class="st">"x2_3"</span>) </a>
-<a class="sourceLine" id="cb161-15" data-line-number="15">cinit =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>); parms =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>) <span class="co"># rotation</span></a>
-<a class="sourceLine" id="cb161-16" data-line-number="16">result4 =<span class="st"> </span><span class="kw">ode</span>(cinit,times,Sys,parms); <span class="kw">colnames</span>(result4)=<span class="kw">c</span>(<span class="st">"time"</span>,<span class="st">"x1_4"</span>,<span class="st">"x2_4"</span>) </a>
-<a class="sourceLine" id="cb161-17" data-line-number="17">d =<span class="st"> </span><span class="kw">data.frame</span>(result1,result2[,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>],result3[,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>], result4[,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>])</a>
-<a class="sourceLine" id="cb161-18" data-line-number="18"><span class="kw">ggplot</span>( <span class="kw">melt</span>(d, <span class="dt">id.vars=</span><span class="st">"time"</span>), <span class="kw">aes</span>(time, value, <span class="dt">colour=</span>variable, <span class="dt">group=</span>variable)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()   <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() </a>
-<a class="sourceLine" id="cb161-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb161-20" data-line-number="20"><span class="kw">library</span>(gganimate)</a>
-<a class="sourceLine" id="cb161-21" data-line-number="21">fig =<span class="st"> </span><span class="kw">ggplot</span>(d, <span class="kw">aes</span>(<span class="dt">x =</span> x1_<span class="dv">4</span>, <span class="dt">y =</span> x2_<span class="dv">4</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">"red"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>x1_<span class="dv">2</span>,<span class="dt">y=</span>x2_<span class="dv">2</span>), <span class="dt">color=</span><span class="st">"blue"</span>)   <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">"x1 "</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"x2"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="op">-</span><span class="dv">180</span>,<span class="dv">180</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlim</span>(<span class="op">-</span><span class="dv">180</span>,<span class="dv">180</span>)</a>
-<a class="sourceLine" id="cb161-22" data-line-number="22">fig  <span class="op">+</span><span class="st">  </span><span class="kw">transition_time</span>(<span class="dt">time=</span>time) <span class="op">+</span><span class="st"> </span><span class="kw">shadow_mark</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" data-line-number="1">times =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">8</span>,<span class="dt">by=</span><span class="fl">0.01</span>)</a>
+<a class="sourceLine" id="cb165-2" data-line-number="2">Sys =<span class="st"> </span><span class="cf">function</span>(t, init, parms){</a>
+<a class="sourceLine" id="cb165-3" data-line-number="3">  x1 =<span class="st"> </span>init[<span class="dv">1</span>]; </a>
+<a class="sourceLine" id="cb165-4" data-line-number="4">  x2 =<span class="st"> </span>init[<span class="dv">2</span>];</a>
+<a class="sourceLine" id="cb165-5" data-line-number="5">  dx1 =<span class="st"> </span>parms[<span class="dv">1</span>]<span class="op">*</span>x2; </a>
+<a class="sourceLine" id="cb165-6" data-line-number="6">  dx2 =<span class="st"> </span>parms[<span class="dv">2</span>]<span class="op">*</span>x1;</a>
+<a class="sourceLine" id="cb165-7" data-line-number="7">  <span class="kw">list</span>(<span class="kw">c</span>(dx1,dx2))}</a>
+<a class="sourceLine" id="cb165-8" data-line-number="8"><span class="kw">require</span>(deSolve)</a>
+<a class="sourceLine" id="cb165-9" data-line-number="9">cinit =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>); parms =<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="fl">0.25</span>,<span class="op">-</span><span class="fl">0.5</span>) <span class="co"># one expands, one decays</span></a>
+<a class="sourceLine" id="cb165-10" data-line-number="10">result1 =<span class="st"> </span><span class="kw">ode</span>(cinit,times,Sys,parms); <span class="kw">colnames</span>(result1)=<span class="kw">c</span>(<span class="st">"time"</span>,<span class="st">"x1_1"</span>,<span class="st">"x2_1"</span>) </a>
+<a class="sourceLine" id="cb165-11" data-line-number="11">cinit =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>); parms =<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">1</span>) <span class="co"># rotation</span></a>
+<a class="sourceLine" id="cb165-12" data-line-number="12">result2 =<span class="st"> </span><span class="kw">ode</span>(cinit,times,Sys,parms); <span class="kw">colnames</span>(result2)=<span class="kw">c</span>(<span class="st">"time"</span>,<span class="st">"x1_2"</span>,<span class="st">"x2_2"</span>) </a>
+<a class="sourceLine" id="cb165-13" data-line-number="13">cinit =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>); parms =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">0.25</span>) <span class="co"># both expand</span></a>
+<a class="sourceLine" id="cb165-14" data-line-number="14">result3 =<span class="st"> </span><span class="kw">ode</span>(cinit,times,Sys,parms); <span class="kw">colnames</span>(result3)=<span class="kw">c</span>(<span class="st">"time"</span>,<span class="st">"x1_3"</span>,<span class="st">"x2_3"</span>) </a>
+<a class="sourceLine" id="cb165-15" data-line-number="15">cinit =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>); parms =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>) <span class="co"># rotation</span></a>
+<a class="sourceLine" id="cb165-16" data-line-number="16">result4 =<span class="st"> </span><span class="kw">ode</span>(cinit,times,Sys,parms); <span class="kw">colnames</span>(result4)=<span class="kw">c</span>(<span class="st">"time"</span>,<span class="st">"x1_4"</span>,<span class="st">"x2_4"</span>) </a>
+<a class="sourceLine" id="cb165-17" data-line-number="17">d =<span class="st"> </span><span class="kw">data.frame</span>(result1,result2[,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>],result3[,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>], result4[,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>])</a>
+<a class="sourceLine" id="cb165-18" data-line-number="18"><span class="kw">ggplot</span>( <span class="kw">melt</span>(d, <span class="dt">id.vars=</span><span class="st">"time"</span>), <span class="kw">aes</span>(time, value, <span class="dt">colour=</span>variable, <span class="dt">group=</span>variable)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()   <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() </a>
+<a class="sourceLine" id="cb165-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb165-20" data-line-number="20"><span class="kw">library</span>(gganimate)</a>
+<a class="sourceLine" id="cb165-21" data-line-number="21">fig =<span class="st"> </span><span class="kw">ggplot</span>(d, <span class="kw">aes</span>(<span class="dt">x =</span> x1_<span class="dv">4</span>, <span class="dt">y =</span> x2_<span class="dv">4</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">"red"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>x1_<span class="dv">2</span>,<span class="dt">y=</span>x2_<span class="dv">2</span>), <span class="dt">color=</span><span class="st">"blue"</span>)   <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">"x1 "</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"x2"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="op">-</span><span class="dv">180</span>,<span class="dv">180</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlim</span>(<span class="op">-</span><span class="dv">180</span>,<span class="dv">180</span>)</a>
+<a class="sourceLine" id="cb165-22" data-line-number="22">fig  <span class="op">+</span><span class="st">  </span><span class="kw">transition_time</span>(<span class="dt">time=</span>time) <span class="op">+</span><span class="st"> </span><span class="kw">shadow_mark</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <p class="solution-end">
 <span class="fa fa-square-o solution-icon"></span>
 </p>
@@ -778,7 +779,7 @@ the result follows.</p>
 </p>
 </div>
 </div>
-<p>The above theorem gives us a very handy implication regarding the integrals over the <strong>closed curved</strong> or the <strong>closed contour</strong>. If the curve <span class="math inline">\(\gamma([a,b])\)</span> is closed, namely the initial and the terminal points coincide <span class="math inline">\(z(a)=z(b)\)</span> for <span class="math inline">\(z(t)\)</span> with <span class="math inline">\(t\in[a,b]\)</span>, then the integral of any <strong>analytic function</strong> along this <strong>closed curve</strong> is zero.<label for="tufte-sn-545" class="margin-toggle sidenote-number">545</label><input type="checkbox" id="tufte-sn-545" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">545</span> See figure <a href="ch-complexAn.html#fig:Cauchy">17.5</a> is about the integral of the complex squaring function. The background image assigns the vector <span class="math inline">\((u(x,y),v(x,y))\)</span> to each <span class="math inline">\((x,y)\)</span> at discrete points. The arrow depicts the vector <span class="math inline">\((u(x,y),v(x,y))\)</span>, and the length of the arrow depicts the norm of the vector. Note that the function exists everywhere on the plane, but the image only shows the vector values of the lattice.</span> By the <strong>fundamental theorem of complex integral</strong>, we can see that
+<p>The above theorem gives us a very handy implication regarding the integrals over the <strong>closed curved</strong> or the <strong>closed contour</strong>. If the curve <span class="math inline">\(\gamma([a,b])\)</span> is closed, namely the initial and the terminal points coincide <span class="math inline">\(z(a)=z(b)\)</span> for <span class="math inline">\(z(t)\)</span> with <span class="math inline">\(t\in[a,b]\)</span>, then the integral of any <strong>analytic function</strong> along this <strong>closed curve</strong> is zero.<label for="tufte-sn-545" class="margin-toggle sidenote-number">545</label><input type="checkbox" id="tufte-sn-545" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">545</span> See figure <a href="ch-complexAn.html#fig:Cauchy">17.5</a> is about the integral of the complex squaring function. The background image assigns the vector <span class="math inline">\((u(x,y),v(x,y))\)</span> to each <span class="math inline">\((x,y)\)</span> at discrete points. The arrow depicts the vector <span class="math inline">\((u(x,y),v(x,y))\)</span>, and the length of the arrow depicts the norm of the vector. Note that the function exists everywhere on the plane, but the image only shows the vectors on a lattice.</span> By the <strong>fundamental theorem of complex integral</strong>, we can see that
 <span class="math display">\[\int_{\gamma([a,b])}f(z)\mbox{d}z=F(z(b))-F(z(a))=0.\]</span> This is a fantastic result because it simply tells us the region inside any <strong>closed smooth curve</strong> is not important for the <strong>complex integration</strong> of <strong>analytics functions</strong>.<label for="tufte-sn-546" class="margin-toggle sidenote-number">546</label><input type="checkbox" id="tufte-sn-546" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">546</span> In figure <a href="ch-complexAn.html#fig:Cauchy">17.5</a>, <span class="math inline">\(f(z)=u+\mbox{i}v\)</span> has <span class="math inline">\(u(x,y)=x^{2}-y^{2}\)</span> and <span class="math inline">\(v(x,y)=2xy\)</span>. Note that
 <span class="math display">\[\partial u/\partial x=2x=\partial v/\partial y\\
 \partial u/\partial y=-2y=-\partial v/\partial v.\]</span>
@@ -791,12 +792,12 @@ The representation based on the <strong>Cauchy integral</strong> becomes <span c
 f(z_0) &amp;=   \frac{1}{2\pi\mbox{i}}\int_{\gamma([a,b])}f(z)\left[\frac{1}{z}+\frac{z_{0}}{z^{2}}+\frac{z_{0}^{2}}{z^{3}}+\cdots\right]\mbox{d}z\\
 &amp;=  \underset{c_{0}}{\underbrace{\frac{1}{2\pi\mbox{i}}\int_{\gamma([a,b])}\frac{f(z)}{z}\mbox{d}z}}+\underset{c_{1}z_{0}}{\underbrace{\left(\frac{1}{2\pi\mbox{i}}\int_{\gamma([a,b])}\frac{f(z)}{z^{2}}\mbox{d}z\right)z_{0}}}+\cdots\\
 &amp;= \sum_{k=0}^{\infty}c_{k}z_{0}^{k}. \end{align*}\]</span>
-The representation tells us that any <strong>analytic function</strong> is a <a href="sub-calculus.html#sub:Taylor">power series</a>.<label for="tufte-sn-548" class="margin-toggle sidenote-number">548</label><input type="checkbox" id="tufte-sn-548" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">548</span> For real functions, one can work with their ordering properties, such as <a href="sub-continuity.html#sub:completeness">maximum</a> and <a href="sub-continuity.html#sub:completeness">minimum</a>. The calculus of the real functions, therefore, pays a lot of attention to the instantaneous rate of changes that increase or decrease the functions. However, none of those tools carry much sense in complex calculus. In complex analysis, the primary concern is not what a derivative or an integral of a function is, but rather, it is whether a function <span class="math inline">\(f\)</span> actually is <strong>analytic</strong>. The fact that a <strong>complex function</strong> <span class="math inline">\(f\)</span> possesses <strong>analyticity</strong> tells us a lot about the function.</span> This argument is also valid for the <strong>analytic function</strong> of several complex variables. For a multivariate complex function <span class="math inline">\(f(z_{1},\dots,z_{n})\)</span>, either one can define the function via a <a href="sub-calculus.html#sub:Taylor">power series</a> form, e.g., <span class="math display">\[f(z_{1},\dots,z_{n})=\sum_{i_{1},\dots,i_{n}}c_{i_{1},\dots,i_{n}}z_{1}^{i_{1}}\cdots z_{n}^{i_{n}},\]</span>
+The representation tells us that any <strong>analytic function</strong> is a <a href="sub-calculus.html#sub:Taylor">power series</a>.<label for="tufte-sn-548" class="margin-toggle sidenote-number">548</label><input type="checkbox" id="tufte-sn-548" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">548</span> For real functions, one can work with their ordering properties, such as <a href="sub-continuity.html#sub:completeness">maximum</a> and <a href="sub-continuity.html#sub:completeness">minimum</a>. The calculus of the real functions, therefore, pays a lot of attention to the instantaneous rate of changes that increase or decrease the functions. However, none of those tools carry much sense in complex calculus. In complex calculus, the primary concern is not what a derivative or an integral of a function is, but rather, it is whether a function actually is <strong>analytic</strong>. The fact that a <strong>complex function</strong> possesses <strong>analyticity</strong> tells us a lot about the intrinsic properties of the function.</span> This argument is also valid for the <strong>analytic function</strong> of several complex variables. For a multivariate complex function <span class="math inline">\(f(z_{1},\dots,z_{n})\)</span>, one can either define the function via a <a href="sub-calculus.html#sub:Taylor">power series</a> form, e.g., <span class="math display">\[f(z_{1},\dots,z_{n})=\sum_{i_{1},\dots,i_{n}}c_{i_{1},\dots,i_{n}}z_{1}^{i_{1}}\cdots z_{n}^{i_{n}},\]</span>
 or use <span class="math inline">\(n\)</span>-pairs <strong>Cauchy-Riemann equations</strong> <span class="math display">\[\frac{\partial u}{\partial x_{i}}=\frac{\partial v}{\partial y_{i}},\:\frac{\partial u}{\partial y_{i}}=-\frac{\partial v}{\partial x_{i}}\:\mbox{for }i=1,\dots n\]</span>
 to define a system where the function <span class="math inline">\(f(z_{1,},\dots,z_{n})=u+\mbox{i}v\)</span> is located.</p>
 <div class="solution">
 <p class="solution-begin">
-Sketch of the proof <span id="sol-start-120" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-120', 'sol-start-120')"></span>
+Sketch of the proof of Cauchy integral <span id="sol-start-120" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-120', 'sol-start-120')"></span>
 </p>
 <div id="sol-body-120" class="solution-body" style="display: none;">
 <p>For simplicity, let’s assume that the <strong>closed smooth curve</strong> is a ball with radius <span class="math inline">\(1\)</span> centering at <span class="math inline">\(z_0\)</span> such that<label for="tufte-sn-549" class="margin-toggle sidenote-number">549</label><input type="checkbox" id="tufte-sn-549" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">549</span> For any <strong>smooth closed curve</strong> <span class="math inline">\(\gamma_{2}([a_2,b_2])\)</span> that covers <span class="math inline">\(z_0\)</span> but is different from <span class="math inline">\(\gamma([a,b])\)</span>, we can always establish a differentiable function <span class="math inline">\(\phi\)</span> such that <span class="math inline">\(\gamma_{2}=\gamma\circ\phi\)</span> with <span class="math inline">\(\phi(a_{2})=a\)</span> and <span class="math inline">\(\phi(b_{2})=b\)</span>. In this case, the two curves <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(\gamma_2\)</span> are in fact equivalent, so as the integral defined on them, namely <span class="math display">\[\int_{\gamma([a,b])}f(z)\mbox{d}z=\int_{\gamma_{2}([a_2,b_2])}f(z)\mbox{d}z.\]</span></span> <span class="math display">\[\gamma([a,b])=\left\{z(t):z(t)=\mbox{e}^{\mbox{i}t}\right\}.\]</span></p>
@@ -813,6 +814,627 @@ implies
 </div>
 </div>
 </div>
+<div id="sub:ImRelation" class="section level2">
+<h2>
+<span class="header-section-number">17.3</span> * Example: An Imaginary Relationship</h2>
+<p>In science, the use of <a href="ch-eigen.html#sub:det">complex numbers</a> is more a convenient choice rather than a compulsory essential. The <a href="ch-representation.html#sub:pseudoRandom">representations</a> of the dynamical phenomena caused by the sequential pairing interactions, such as rotations, waves, cycles, etc., will have more convenient, complex counterparts. Meanwhile, these coupling outcomes can also be mathematically formulated by the real numbers.</p>
+<p>Let’s consider the connection between the <a href="ch-complexAn.html#sub:coupling">coupling structure</a> in a dynamical system and the <a href="ch-complexAn.html#sub:coupling">skew-symmetry</a> and <a href="ch-complexAn.html#sub:complexCal">Cauchy-Riemann relation</a> of <a href="ch-complexAn.html#sub:complexCal">complex functions</a>. To establish this relationship, we need a new invariant. Let’s stack the pair <span class="math inline">\(\mathbf{x}(t),\mathbf{y}(t)\in\mathbb{R}^{n}\)</span> into a vector <span class="math inline">\(\mathbf{z}(t)=[\mathbf{x},\mathbf{y}]^\top\in\mathbb{R}^{2n}\)</span> with <span class="math inline">\(t\in\mathbb{R}\)</span>. The differentiation <span class="math inline">\(\mbox{d}\mathbf{z}(t)/\mbox{d}t\)</span> characterizes the dynamics of <span class="math inline">\(\mathbf{z}(t)\)</span>. The new invariant is called the <em>Hamiltonian function</em>, a function <span class="math inline">\(H(\cdot):\,\mathbb{R}^{2n}\rightarrow\mathbb{R}\)</span> satisfying the following conditions<label for="tufte-sn-550" class="margin-toggle sidenote-number">550</label><input type="checkbox" id="tufte-sn-550" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">550</span> We will see that the <strong>Hamiltonian function</strong> is time-invariant. The <a href="ch-DE.html#sub:pde">partial derivatives</a> on the left-hand sides of the equalities do not depend on the time variable <span class="math inline">\(t\)</span>. For this reason, we don’t put the time variable <span class="math inline">\(t\)</span> inside the vectors.</span> <span class="math display">\[\frac{\mbox{d}\mathbf{x}(t)}{\mbox{d}t}=\frac{\partial H(\mathbf{z})}{\partial\mathbf{y}},\quad\frac{\mbox{d}\mathbf{y}(t)}{\mbox{d}t}=-\frac{\partial H(\mathbf{z})}{\partial\mathbf{x}}.\]</span>
+The <strong>Hamiltonian function</strong> assumes that all the dynamical effect of <span class="math inline">\(\mathbf{z}(t)\)</span> comes from the <a href="ch-complexAn.html#sub:coupling">reciprocal changes</a> of the pairing vectors <span class="math inline">\(\mathbf{x}(t)\)</span> and <span class="math inline">\(\mathbf{y}(t)\)</span> through a kind of the modified <a href="ch-complexAn.html#sub:complexCal">Cauchy-Riemann relation</a>. We can express this <strong>Hamiltonian condition</strong> by the <a href="ch-complexAn.html#sub:coupling">skew-symmetry</a> matrix <span class="math inline">\(\mathbf{J}_{2n}\)</span>: <span class="math display">\[\begin{align*}\frac{\mbox{d}\mathbf{z}(t)}{\mbox{d}t}=\left[\begin{array}{cc}
+ &amp; \mathbf{I}\\
+-\mathbf{I}
+\end{array}\right]\left[\begin{array}{c}
+\frac{\partial H(\mathbf{z})}{\partial\mathbf{y}}\\
+\frac{\partial H(\mathbf{z})}{\partial\mathbf{x}}
+\end{array}\right]=\mathbf{J}_{2n}\nabla H(\mathbf{z}),\end{align*}\]</span>
+where <span class="math inline">\(\nabla H(\mathbf{z}) \in \mathbb{R}^{2n}\)</span> is the <a href="ch-vecMat.html#sub:linearity">gradient vector</a>.</p>
+<p>The <strong>Hamiltonian condition</strong> uses the <a href="ch-complexAn.html#sub:coupling">reciprocal changes</a> of the real and imaginary parts of a complex vector <span class="math inline">\(\mathbf{z}=\mathbf{x}+\mbox{i}\mathbf{y}\)</span> to represent the dynamics of this vector <span class="math inline">\(\mathbf{z}(t)\)</span>.<label for="tufte-sn-551" class="margin-toggle sidenote-number">551</label><input type="checkbox" id="tufte-sn-551" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">551</span> If we let <span class="math inline">\(\mathbf{z}=\mathbf{x}+\mbox{i}\mathbf{y}\)</span>, the <strong>Hamiltonian condition</strong> becomes <span class="math display">\[\frac{\mbox{d}\mathbf{z}(t)}{\mbox{d}t}=-2\mbox{i}\frac{\partial H(\mathbf{z})}{\partial\overline{\mathbf{z}}}.\]</span> The proof is given below.</span></p>
+<div class="solution">
+<p class="solution-begin">
+Complex Hamiltonian form <span id="sol-start-121" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-121', 'sol-start-121')"></span>
+</p>
+<div id="sol-body-121" class="solution-body" style="display: none;">
+<p>Let <span class="math inline">\(\mathbf{z}=\mathbf{x}+\mbox{i}\mathbf{y}\)</span>, then we have<span class="math display">\[\mathbf{z}+\overline{\mathbf{z}}=2\mathbf{x},\quad\mathbf{z}-\overline{\mathbf{z}}=\mbox{i}2\mathbf{y}.\]</span>
+If we take the derivative of <span class="math inline">\(\mathbf{x}\)</span> with respect to <span class="math inline">\(\mathbf{z}\)</span>, we have<label for="tufte-sn-552" class="margin-toggle sidenote-number">552</label><input type="checkbox" id="tufte-sn-552" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">552</span> Note that <span class="math inline">\(\mathbf{z}\)</span> and <span class="math inline">\(\overline{\mathbf{z}}\)</span> are perpendicular/orthogonal to each other.</span> <span class="math display">\[\frac{\partial\mathbf{x}}{\partial\mathbf{z}}=\frac{1}{2}\frac{\partial\left(\mathbf{z}+\overline{\mathbf{z}}\right)}{\partial\mathbf{z}}=\frac{1}{2}.\]</span>
+Similarly, if we take the derivative of <span class="math inline">\(\mathbf{y}\)</span> with respect to <span class="math inline">\(\mathbf{z}\)</span>, we have
+<span class="math display">\[\frac{\partial\mathbf{y}}{\partial\mathbf{z}}=\frac{1}{2\mbox{i}}\frac{\partial\left(\mathbf{z}-\overline{\mathbf{z}}\right)}{\partial\mathbf{z}}=-\frac{\mbox{i}}{2}.\]</span>
+We can also have the derivatives with respect to <span class="math inline">\(\overline{\mathbf{z}}\)</span>, namely
+<span class="math display">\[\frac{\partial\mathbf{x}}{\partial\overline{\mathbf{z}}}=\frac{1}{2}\frac{\partial\left(\mathbf{z}+\overline{\mathbf{z}}\right)}{\partial\overline{\mathbf{z}}}=\frac{1}{2},\quad\frac{\partial\mathbf{y}}{\partial\overline{\mathbf{z}}}=\frac{1}{2\mbox{i}}\frac{\partial\left(\mathbf{z}-\overline{\mathbf{z}}\right)}{\partial\overline{\mathbf{z}}}=\frac{\mbox{i}}{2}.\]</span></p>
+<p>Now by the <a href="sub-calculus.html#sub:diffInt">chain rule</a>, we can express the derivative operators <span class="math inline">\(\frac{\partial}{\partial\mathbf{z}}\)</span> and <span class="math inline">\(\frac{\partial}{\partial\overline{\mathbf{z}}}\)</span>
+in terms of <span class="math inline">\(\frac{\partial}{\partial\mathbf{x}}\)</span> and <span class="math inline">\(\frac{\partial}{\partial\mathbf{y}}\)</span> respectively:
+<span class="math display">\[\begin{align*}\frac{\partial}{\partial\mathbf{z}} &amp;=\frac{\partial\mathbf{x}}{\partial\mathbf{z}}\frac{\partial}{\partial\mathbf{x}}+\frac{\partial\mathbf{y}}{\partial\mathbf{z}}\frac{\partial}{\partial\mathbf{y}}=\frac{1}{2}\left(\frac{\partial}{\partial\mathbf{x}}-\mbox{i}\frac{\partial}{\partial\mathbf{y}}\right),\\
+\frac{\partial}{\partial\overline{\mathbf{z}}}  &amp;=\frac{\partial\mathbf{x}}{\partial\overline{\mathbf{z}}}\frac{\partial}{\partial\mathbf{x}}+\frac{\partial\mathbf{y}}{\partial\overline{\mathbf{z}}}\frac{\partial}{\partial\mathbf{y}}=\frac{1}{2}\left(\frac{\partial}{\partial\mathbf{x}}+\mbox{i}\frac{\partial}{\partial\mathbf{y}}\right).
+\end{align*}\]</span></p>
+<p>Now we consider the <strong>Hamiltonian function</strong>
+<span class="math display">\[\begin{align*}\frac{\mbox{d}\mathbf{z}(t)}{\mbox{d}t} &amp;=\frac{\mbox{d}\mathbf{x}(t)}{\mbox{d}t}+\mbox{i}\frac{\mbox{d}\mathbf{y}(t)}{\mbox{d}t}=\left(\frac{\partial H(\mathbf{z})}{\partial\mathbf{y}}-\mbox{i}\frac{\partial H(\mathbf{z})}{\partial\mathbf{x}}\right)\\
+&amp;=\left(\frac{\partial}{\partial\mathbf{y}}-\mbox{i}\frac{\partial}{\partial\mathbf{x}}\right)H(\mathbf{z})=-2\mbox{i}\frac{1}{2}\left(\frac{\partial}{\partial\mathbf{x}}+\mbox{i}\frac{\partial}{\partial\mathbf{y}}\right)H(\mathbf{z})\\
+&amp;=-2\mbox{i}\frac{\partial H(\mathbf{z})}{\partial\overline{\mathbf{z}}}.\end{align*}\]</span>
+The result follows.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>The <strong>Hamiltonian</strong> is time-independent<label for="tufte-sn-553" class="margin-toggle sidenote-number">553</label><input type="checkbox" id="tufte-sn-553" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">553</span> For a function <span class="math inline">\(f(\mathbf{z}(t))=f(x(t),y(t))\)</span> with <span class="math inline">\(\mathbf{z}=[x,y]^{\top}\)</span>, using the <a href="sub-calculus.html#sub:diffInt">chain rule</a> and taking the derivative of <span class="math inline">\(f(\cdot,\cdot)\)</span> with respect to <span class="math inline">\(t\)</span>, we have
+<span class="math display">\[\begin{align*}
+\frac{\mbox{d} f}{\mbox{d} t}&amp;=\frac{\partial f}{\partial x}\frac{\mbox{d}x}{\mbox{d}t}+\frac{\partial f}{\partial y}\frac{\mbox{d}y}{\mbox{d}t}
+\\&amp;=\left[\frac{\partial f}{\partial x},\,\frac{\partial f}{\partial y}\right]\left[\begin{array}{c}
+\frac{\mbox{d}x}{\mbox{d}t}\\
+\frac{\mbox{d}y}{\mbox{d}t}
+\end{array}\right]\\
+&amp;=\left\langle \nabla f,\,\frac{\mbox{d}\mathbf{z}}{\mbox{d}t}\right\rangle =0.\end{align*}\]</span> In particular, if we have the <strong>Hamiltonian function</strong> of <span class="math inline">\(\mathbf{z}(t)\)</span>, the dynamics of <span class="math inline">\(f(\cdot)\)</span> can be written as <span class="math display">\[\begin{align*}&amp;\frac{\mbox{d}f(\mathbf{z}(t))}{\mbox{d}t}=\left\langle \nabla f(\mathbf{z}),\frac{\mbox{d}\mathbf{z}(t)}{\mbox{d}t}\right\rangle\\
+&amp;=\left[\frac{\partial f}{\partial\mathbf{z}}\right]^{\top}\mathbf{J}\frac{\partial H}{\partial\mathbf{z}}\\
+&amp;=\left[\begin{array}{c}
+\frac{\partial f}{\partial x}\\
+\frac{\partial f}{\partial y}
+\end{array}\right]^{\top}\left[\begin{array}{cc}
+ &amp; 1\\
+-1
+\end{array}\right]\left[\begin{array}{c}
+\frac{\partial H}{\partial x}\\
+\frac{\partial H}{\partial y}
+\end{array}\right].\end{align*}\]</span>
+The above sandwich form is usually expressed by the symbol
+<span class="math display">\[\begin{align*}&amp;\{f,H\}=\frac{\partial f}{\partial x}\frac{\partial H}{\partial y}-\frac{\partial f}{\partial x}\frac{\partial H}{\partial y}\\
+&amp;=\left[\begin{array}{c}
+\frac{\partial f}{\partial x}\\
+\frac{\partial f}{\partial y}
+\end{array}\right]^{\top}\left[\begin{array}{cc}
+ &amp; 1\\
+-1
+\end{array}\right]\left[\begin{array}{c}
+\frac{\partial H}{\partial x}\\
+\frac{\partial H}{\partial y}
+\end{array}\right]\end{align*}\]</span>
+where the notation <span class="math inline">\(\{\cdot,\cdot\}\)</span> is called the <em>Poisson bracket</em>.</span> <span class="math display">\[\frac{\mbox{d}H(\mathbf{z})}{\mbox{d}t}=\underset{1\times2n}{\underbrace{\nabla H(\mathbf{z})^{\top}}}\underset{2n\times1}{\underbrace{\frac{\mbox{d}\mathbf{z}(t)}{\mbox{d}t}}}=\nabla H(\mathbf{z})^{\top} \mathbf{J}_{2n}\nabla H(\mathbf{z})=0\]</span>
+due to the <a href="ch-complexAn.html#sub:coupling">reciprocity</a>. That means the quantity of the <strong>Hamiltonian function</strong> will be invariant over time <span class="math inline">\(t\)</span>. If the <strong>Hamiltonian function</strong> stands for the energy, then the system is called a <em>conservative system</em> because there is no energy loss. If the <strong>Hamiltonian function</strong> stands for the utility, then the dynamics of the system are moving along the <a href="ch-optApp.html#sub:Proj2">indifferent</a> utility curve; or perhaps, we should use a more proper term, <em>utility contour</em>, even though the <a href="ch-complexAn.html#sub:complexCal">contour</a> geometrically violates the classical assumptions on the <a href="ch-optApp.html#sub:Proj2">utility function</a>, e.g., <a href="ch-optApp.html#sub:Proj2">convex preferences</a>.</p>
+<p>In other words, if a <strong>Hamiltonian function</strong> can characterize the dynamical system of <span class="math inline">\(\mathbf{z}(t)\)</span>, then the system is <strong>conservative</strong>, and the <a href="ch-eigen.html#sub:diag">phase plots</a> of its variables are restricted to some <a href="ch-complexAn.html#sub:complexCal">contours</a>.</p>
+<p>For example, we can show the <strong>conservative property</strong> of the <a href="ch-complexAn.html#sub:coupling">coupling systems</a> in figure <a href="ch-complexAn.html#fig:ellipses">17.2</a>. For any standard ellipse centered at the origin with width <span class="math inline">\(2a_1\)</span> and height <span class="math inline">\(2a_2\)</span>, it is known that the ellipse has the following form<label for="tufte-sn-554" class="margin-toggle sidenote-number">554</label><input type="checkbox" id="tufte-sn-554" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">554</span> For any general elllipse, the ellipse equation<span class="math display">\[c_{1}x^{2}+c_{2}xy+c_{3}y^{2}+c_{4}x+c_{5}y=c_{6}\]</span>
+can be written in the following quadratic form:<span class="math display">\[\left[\begin{array}{c}
+x\\
+y\\
+1
+\end{array}\right]^{\top}\left[\begin{array}{ccc}
+c_{1} &amp; \frac{c_{2}}{2} &amp; \frac{c_{4}}{2}\\
+\frac{c_{2}}{2} &amp; c_{3} &amp; \frac{c_{5}}{2}\\
+\frac{c_{4}}{2} &amp; \frac{c_{5}}{2} &amp; -c_{6}
+\end{array}\right]\left[\begin{array}{c}
+x\\
+y\\
+1
+\end{array}\right]=0\]</span>
+or a linear-quadratic form: <span class="math display">\[\left[\begin{array}{c}
+x\\
+y
+\end{array}\right]^{\top}\left[\begin{array}{cc}
+c_{1} &amp; \frac{c_{2}}{2}\\
+\frac{c_{2}}{2} &amp; c_{3}
+\end{array}\right]\left[\begin{array}{c}
+x\\
+y
+\end{array}\right]+\left[\begin{array}{c}
+c_{4}\\
+c_{5}
+\end{array}\right]^{\top}\left[\begin{array}{c}
+x\\
+y
+\end{array}\right]=c_{6}.\]</span></span>
+<span class="math display">\[\begin{align*}1&amp;=\frac{x^{2}}{c_1^2}+\frac{y^{2}}{c_2^2} =\left[\begin{array}{c}
+x\\
+y
+\end{array}\right]\left[\begin{array}{cc}
+c^{-2}_{1} &amp; 0\\
+0 &amp; c^{-2}_{2}
+\end{array}\right]\left[\begin{array}{c}
+x\\
+y
+\end{array}\right]\\
+&amp;=\mathbf{z}^{\top}\mathbf{C}\mathbf{z}=H(x,y).\end{align*}\]</span>
+The <strong>Hamiltonian condition</strong> for <span class="math inline">\(H(\cdot,\cdot)\)</span> induces the dynamical system
+<span class="math display">\[\begin{cases}
+\frac{\mbox{d}x(t)}{\mbox{d}t}=\frac{\partial H(x,y)}{\partial y} &amp; =\frac{2y}{c_{2}^{2}},\\
+\frac{\mbox{d}y(t)}{\mbox{d}t}=-\frac{\partial H(x,y)}{\partial x} &amp; =-\frac{2x}{c_{1}^{2}}.
+\end{cases}\]</span>
+This system coincides with the coupling cases in <a href="ch-complexAn.html#eq:coupling">(17.1)</a> (by setting <span class="math inline">\(c^{2}_1=1/a_{12}\)</span>, <span class="math inline">\(c_2^{2}=-1/a_{21}\)</span>, <span class="math inline">\(x=x_1\)</span> and <span class="math inline">\(y=x_2\)</span>). Therefore, the ellipses in figure <a href="ch-complexAn.html#fig:ellipses">17.2</a> reflect the <a href="ch-DE.html#sub:ode">law of conservation</a> or the invariance of the <strong>Hamiltonian</strong> <span class="math inline">\(H(\cdot,\cdot)\)</span> that is specified by the <a href="ch-complexAn.html#sub:coupling">coupling</a> structure in equation <a href="ch-complexAn.html#eq:coupling">(17.1)</a>.</p>
+<p>Now let’s shift our concerns to the realm of social science. Without the scientific experimental environment, most of the (causal) relation laws in social science are “justified” by exploring the <a href="ch-UnMulti.html#sub:WLLN">significance</a> of some <a href="ch-UnMulti.html#sub:WLLN">statistical relations</a> amongst the entities.
+The property of the <a href="ch-eigen.html#sub:diag">phases</a> and the “conservative” <a href="ch-complexAn.html#sub:complexCal">contour</a> can be useful for detecting some unrealized relations that are hidden under the veil of simple statistical significances.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:simFake"></span>
+<img src="fig/Part5/simFake.png" alt="Linear regression on a dataset generated by the coupling model" width="100%"><!--
+<p class="caption marginnote">-->Figure 17.6: Linear regression on a dataset generated by the coupling model<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:simFake2"></span>
+<img src="fig/Part5/simFake2.png" alt="Linear regressions on subsamples" width="100%"><!--
+<p class="caption marginnote">-->Figure 17.7: Linear regressions on subsamples<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>Figure <a href="ch-complexAn.html#fig:simFake">17.6</a> gives the simulated observations from the system <a href="ch-complexAn.html#eq:coupling">(17.1)</a> with the coupling coefficients <span class="math inline">\(|a_{21}|=a_{12}\)</span>. However the dynamical system is randomized so that the samples are “corrupted” by the noises. It becomes uneasy to detect the circle contour in the data visualization. The significance of the statistically estimated coefficient may misguide the readers to conclude that the relation amongst these two variables is linear and positive, while neither is true. If the analyses are conditional on some partial contour paths, namely regressions in smaller time windows, the linear models seem to provide more misleading reports, see figure <a href="ch-complexAn.html#fig:simFake2">17.7</a>.</p>
+<div class="solution">
+<p class="solution-begin">
+Simulation <span id="sol-start-122" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-122', 'sol-start-122')"></span>
+</p>
+<div id="sol-body-122" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" data-line-number="1"><span class="kw">library</span>(MASS)</a>
+<a class="sourceLine" id="cb166-2" data-line-number="2"><span class="kw">set.seed</span>(<span class="dv">2021</span>)</a>
+<a class="sourceLine" id="cb166-3" data-line-number="3">T =<span class="st"> </span><span class="dv">40</span>; n.iter =<span class="st"> </span><span class="dv">340</span>; epsilon =<span class="st"> </span><span class="fl">0.1</span>; sigma =<span class="st"> </span><span class="fl">0.1</span>;</a>
+<a class="sourceLine" id="cb166-4" data-line-number="4">x =<span class="st"> </span>y =<span class="st"> </span>time =<span class="kw">rep</span>(<span class="dv">0</span>,n.iter); step.size =<span class="st"> </span>T<span class="op">/</span>n.iter; x[<span class="dv">1</span>] =<span class="st"> </span>y[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">0</span>; time[<span class="dv">1</span>] =<span class="st"> </span><span class="dv">0</span>; </a>
+<a class="sourceLine" id="cb166-5" data-line-number="5">v.matrix =<span class="st"> </span><span class="kw">diag</span>((<span class="kw">sqrt</span>(step.size)<span class="op">*</span>sigma)<span class="op">^</span><span class="dv">2</span>, <span class="dv">2</span>); <span class="co"># covariance matrix</span></a>
+<a class="sourceLine" id="cb166-6" data-line-number="6">e =<span class="st"> </span><span class="kw">mvrnorm</span>(n.iter, <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), v.matrix) <span class="co"># Increments of the Brownian motion at n.iter time points</span></a>
+<a class="sourceLine" id="cb166-7" data-line-number="7"><span class="cf">for</span>(t <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span>(n.iter<span class="dv">-1</span>))){</a>
+<a class="sourceLine" id="cb166-8" data-line-number="8">   <span class="co"># modified Euler's scheme</span></a>
+<a class="sourceLine" id="cb166-9" data-line-number="9">    x[t<span class="op">+</span><span class="dv">1</span>] =<span class="st"> </span>x[t] <span class="op">-</span><span class="st"> </span>epsilon <span class="op">*</span><span class="st"> </span>y[t]<span class="op">*</span>step.size <span class="op">+</span><span class="st"> </span>e[t,<span class="dv">1</span>];</a>
+<a class="sourceLine" id="cb166-10" data-line-number="10">    y[t<span class="op">+</span><span class="dv">1</span>] =<span class="st"> </span>y[t] <span class="op">-</span><span class="st"> </span>epsilon <span class="op">*</span><span class="st"> </span>(<span class="op">-</span>x[t])<span class="op">*</span>step.size <span class="op">+</span><span class="st"> </span>e[t,<span class="dv">2</span>]; </a>
+<a class="sourceLine" id="cb166-11" data-line-number="11">    time[t<span class="op">+</span><span class="dv">1</span>] =<span class="st"> </span>time[t] <span class="op">+</span><span class="st"> </span>step.size</a>
+<a class="sourceLine" id="cb166-12" data-line-number="12">}</a>
+<a class="sourceLine" id="cb166-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb166-14" data-line-number="14"><span class="co">#### Plot #####</span></a>
+<a class="sourceLine" id="cb166-15" data-line-number="15"><span class="kw">library</span>(ggplot2); <span class="kw">library</span>(ggpmisc)</a>
+<a class="sourceLine" id="cb166-16" data-line-number="16">dat.orig=<span class="kw">data.frame</span>(x,y)</a>
+<a class="sourceLine" id="cb166-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb166-18" data-line-number="18"><span class="kw">ggplot</span>(<span class="dt">data=</span>dat.orig, <span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y))<span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">colour=</span><span class="st">"steelblue"</span>)<span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">"lm"</span>, <span class="dt">colour=</span><span class="st">"royalblue"</span>)<span class="op">+</span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"x(t)"</span>, <span class="dt">y =</span> <span class="st">"y(t)"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">stat_poly_eq</span>(<span class="dt">formula =</span> y<span class="op">~</span>x,  <span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">paste</span>(..eq.label.., <span class="kw">stat</span>(p.value.label), <span class="dt">sep =</span> <span class="st">"~~~"</span>)), <span class="dt">parse =</span> <span class="ot">TRUE</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb166-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb166-20" data-line-number="20"><span class="co"># Split the data into four subsets</span></a>
+<a class="sourceLine" id="cb166-21" data-line-number="21">dat=<span class="kw">data.frame</span>(x,y); </a>
+<a class="sourceLine" id="cb166-22" data-line-number="22">group =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">"t=1:90"</span>), <span class="dv">90</span>),<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">"t=91:180"</span>), <span class="dv">90</span>),<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">"t=181:270"</span>), <span class="dv">90</span>),<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">"t=271:340"</span>), <span class="dv">70</span>))</a>
+<a class="sourceLine" id="cb166-23" data-line-number="23">dat<span class="op">$</span>group=<span class="kw">factor</span>(group)</a>
+<a class="sourceLine" id="cb166-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb166-25" data-line-number="25"><span class="co"># plot</span></a>
+<a class="sourceLine" id="cb166-26" data-line-number="26"><span class="kw">ggplot</span>(<span class="dt">data=</span>dat, <span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">color=</span>group))<span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()<span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">"lm"</span>)<span class="op">+</span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"x(t)"</span>, <span class="dt">y =</span> <span class="st">"y(t)"</span>) <span class="op">+</span><span class="st">  </span><span class="kw">stat_poly_eq</span>(<span class="dt">formula =</span> y<span class="op">~</span>x, <span class="dt">data=</span>dat, <span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">paste</span>(..eq.label.., <span class="kw">stat</span>(p.value.label), <span class="dt">sep =</span> <span class="st">"~~~"</span>)), <span class="dt">parse =</span> <span class="ot">TRUE</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() </a></code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>As now we know that the contour is a geometric invariance reflecting through the phase’s property, we can try another way to analyze the relationship. We will build a phase structure from a higher dimensional space and check whether we can find the invariance lower-dimensional geometric shape embedded in this space.<label for="tufte-sn-555" class="margin-toggle sidenote-number">555</label><input type="checkbox" id="tufte-sn-555" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">555</span> This procedure is known as <em>delay embedding</em>. </span> Recall that system <a href="ch-complexAn.html#eq:coupling">(17.1)</a> is equivalent to a single second-order differential equation. That means there must be a relation for <span class="math inline">\(x(t)\)</span>, <span class="math inline">\(\mbox{d}x(t)/\mbox{d}t\)</span>, and <span class="math inline">\(\mbox{d}^{2}x(t)/\mbox{d}t^{2}\)</span>. Intuitively, when we discrete the equation to have a time series data <span class="math inline">\(\mathbf{x}_t\)</span>, we expect to see a relation amongst <span class="math inline">\(\mathbf{x}_t\)</span>, <span class="math inline">\(\mathbf{x}_{t-1}\)</span>, and <span class="math inline">\(\mathbf{x}_{t-2}\)</span>. In this way, we can construct a 3D matrix that embeds the 1D time series <span class="math inline">\(\mathbf{x}_t\)</span>:<label for="tufte-sn-556" class="margin-toggle sidenote-number">556</label><input type="checkbox" id="tufte-sn-556" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">556</span> One can choose more than three series to construct this matrix, but for visualization, one can only use three series to represent the 3D geometric shape.</span> <span class="math display">\[\left[\begin{array}{ccc}
+\mathbf{x}_{t}, &amp; \mathbf{x}_{t-1}, &amp; \mathbf{x}_{t-2}\end{array}\right]=\left[\begin{array}{ccc}
+\vdots &amp; \vdots &amp; \vdots\\
+x_{s-1} &amp; x_{s-2} &amp; x_{s-3}\\
+x_{s} &amp; x_{s-1} &amp; x_{s-2}\\
+x_{s+1} &amp; x_{s} &amp; x_{s-1}\\
+\vdots &amp; \vdots &amp; \vdots
+\end{array}\right] =\mathbf{M}.\]</span></p>
+<p>The data <strong>manifold</strong> <span class="math inline">\(\mathbf{M}\)</span> is an empirical (re)construction of the <a href="ch-UnMulti.html#sub:Markov">state space</a> of the process <span class="math inline">\(X(t,\omega)\)</span>. Each time series <span class="math inline">\(\mathbf{x}_{t-k} \in \mathbf{M}\)</span> can be thought of as a <a href="ch-UnMulti.html#sub:Markov">sample path</a> of <span class="math inline">\(X(t,\omega)\)</span>. The characteristic invariants of <span class="math inline">\(X(t,\omega)\)</span> are conserved in the (re)constructed state space <span class="math inline">\(\mathbf{M}\)</span>. There is no universal rule to select the proper values of the <strong>embedding dimension</strong> to achieve a “faithful” reconstruction of the ‘true’ state space. The choice of <strong>embedding parameters</strong> <span class="math inline">\(k\)</span> depends on the specific problem to which the embedding procedure is applied.<label for="tufte-sn-557" class="margin-toggle sidenote-number">557</label><input type="checkbox" id="tufte-sn-557" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">557</span> A rule of thumb is to choose <span class="math inline">\(k\)</span> is that <span class="math inline">\(k&gt;2d_{f}+1\)</span> where <span class="math inline">\(d_{f}\)</span> is the <a href="sub-incomplete.html#sub:fdim">fractional dimension</a> of the series.</span></p>
+<p>The line trajectory in figure <a href="ch-complexAn.html#fig:cirEmbed">17.8</a> gives the <a href="ch-eigen.html#sub:diag">phase plot</a> of <span class="math inline">\([\mathbf{x}_t, \mathbf{x}_{t-6}, \mathbf{x}_{t-12}]\)</span>. This plot gives a 3D angle to visualize the relation between the 1D series <span class="math inline">\(\mathbf{x}_{t}\)</span> and its lags. The trajectory clearly outlines a 2D geometric <strong>manifold</strong> matrix <span class="math inline">\(\mathbf{M}\)</span> embedded in the <span class="math inline">\(\mathbb{R}^{3}\)</span> Euclidean space.<label for="tufte-sn-558" class="margin-toggle sidenote-number">558</label><input type="checkbox" id="tufte-sn-558" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">558</span> Formally speaking, a <em>manifold</em> <span class="math inline">\(\mathcal{M}\)</span> is a locally Euclidean set, with a <a href="ch-complexAn.html#sub:coupling">homeomorphism</a> from an open set containing the element <span class="math inline">\([x_t,\dots,x_{t-k+1}]\in\mathcal{M}\)</span> to the <span class="math inline">\(k\)</span>-dimensional Euclidean space <span class="math inline">\(\mathbb{R}^{k}\)</span>, where <span class="math inline">\(k\)</span> is a parameter called the <strong>embedding dimension</strong>. In this example, we choose <span class="math inline">\(k=12\)</span>. If the manifold is <a href="ch-complexAn.html#sub:complexCal">smooth</a>, the <a href="ch-complexAn.html#sub:coupling">homeomorphism</a> becomes a <em>diffeomorphism</em>, a continuous bijective mapping with a continuous inverse mapping, to the Euclidean space <span class="math inline">\(\mathbb{R}^{k}\)</span>.</span> The dotted curve in figure <a href="ch-complexAn.html#fig:cirEmbed">17.8</a> is generated by the deterministic coupling model in <a href="ch-complexAn.html#eq:coupling">(17.1)</a> generated with the simulated parameters used in Euler’s scheme. The fact that the contour of the deterministic model almost matches the stochastic <strong>manifold</strong> reflects: the coupling (or the <a href="ch-complexAn.html#sub:coupling">skew-symmetric</a>) structure is preserved under the <a href="ch-randomization.html#sub:RHilbert">randomization</a>.<label for="tufte-sn-559" class="margin-toggle sidenote-number">559</label><input type="checkbox" id="tufte-sn-559" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">559</span> To formally verify this statement, one needs stochastic geometry and stochastic embedding tools, which is not our concern. But intuitively speaking, when the (expectation of) Hamiltonian functions in the deterministic case and randomized case provide similar forms, then the trajectories from two cases also share such similarities.</span></p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:cirEmbed"></span>
+<img src="fig/Part5/cirEmbed.gif" alt="Embedding the " width="100%"><!--
+<p class="caption marginnote">-->Figure 17.8: Embedding the <!--</p>-->
+<!--</div>--></span>
+</p>
+<p>Therefore, the (re)constructed manifold induces that the intrinsic shape created by the lagged vectors <span class="math inline">\(\mathbf{x}_{t-6}\)</span>, <span class="math inline">\(\mathbf{x}_{t-12}\)</span> may actually come from the coupling effect involving another variable. We can quickly estimate the coupling relation for this simple simulated model by creating the difference vector and then regressing it on the other variable.</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb167-1" data-line-number="1">x.lag=<span class="kw">c</span>(<span class="dv">0</span>,x); x.lag=x.lag[<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x.lag)<span class="op">-</span><span class="dv">1</span>];</a>
+<a class="sourceLine" id="cb167-2" data-line-number="2">y.lag=<span class="kw">c</span>(<span class="dv">0</span>,y); y.lag=y.lag[<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(y.lag)<span class="op">-</span><span class="dv">1</span>];</a>
+<a class="sourceLine" id="cb167-3" data-line-number="3">d.x=x<span class="op">-</span>x.lag; d.y=y<span class="op">-</span>y.lag <span class="co"># difference</span></a>
+<a class="sourceLine" id="cb167-4" data-line-number="4"><span class="kw">summary</span>(<span class="kw">lm</span>(d.x<span class="op">~</span><span class="dv">0</span><span class="op">+</span>y))<span class="op">$</span>coefficients <span class="co"># epsilon*step.size= 0.0117</span></a></code></pre></div>
+<pre><code>##      Estimate  Std. Error   t value    Pr(&gt;|t|)
+## y -0.01028566 0.003901228 -2.636518 0.008761567</code></pre>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" data-line-number="1"><span class="kw">summary</span>(<span class="kw">lm</span>(d.y<span class="op">~</span><span class="dv">0</span><span class="op">+</span>x))<span class="op">$</span>coefficients <span class="co"># epsilon*step.size= 0.0117</span></a></code></pre></div>
+<pre><code>##     Estimate Std. Error  t value    Pr(&gt;|t|)
+## x 0.01101499 0.00350714 3.140734 0.001833556</code></pre>
+<p>The specific values of the estimation do not make much sense unless one knows the discretized parameters in Euler’s scheme. However, the signs and the ratio of estimates indicate that the underlying <strong>manifold</strong> of the <a href="ch-eigen.html#sub:diag">phase plot</a> can be an ellipse whose height and weight are approximately equivalent. This indication is very close to the underlying true simulated parameters.</p>
+<div class="solution">
+<p class="solution-begin">
+Embedding <span id="sol-start-123" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-123', 'sol-start-123')"></span>
+</p>
+<div id="sol-body-123" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" data-line-number="1"><span class="co"># Embed x(t) in [x(t),x(t-1),...,x(t-11)]</span></a>
+<a class="sourceLine" id="cb171-2" data-line-number="2">x.embed =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rep</span>(<span class="dv">0</span>,n.iter<span class="op">*</span><span class="dv">12</span>), <span class="dt">ncol=</span><span class="dv">12</span>); x.embed[,<span class="dv">1</span>] =<span class="st"> </span>x</a>
+<a class="sourceLine" id="cb171-3" data-line-number="3"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">12</span>) {</a>
+<a class="sourceLine" id="cb171-4" data-line-number="4">  miter =<span class="st"> </span>n.iter<span class="op">-</span>i</a>
+<a class="sourceLine" id="cb171-5" data-line-number="5">  x.embed[<span class="dv">1</span><span class="op">:</span>(miter<span class="op">+</span><span class="dv">1</span>),i] =<span class="st"> </span>x[i<span class="op">:</span>n.iter];</a>
+<a class="sourceLine" id="cb171-6" data-line-number="6">  x.embed[(miter<span class="op">+</span><span class="dv">1</span>)<span class="op">:</span>n.iter,i] =<span class="st"> </span>x[<span class="dv">1</span><span class="op">:</span>i];</a>
+<a class="sourceLine" id="cb171-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb171-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb171-9" data-line-number="9"><span class="co"># Comparison: deterministic model </span></a>
+<a class="sourceLine" id="cb171-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb171-11" data-line-number="11">times =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">600</span>,<span class="dt">len=</span><span class="dv">340</span>)</a>
+<a class="sourceLine" id="cb171-12" data-line-number="12">Sys.det =<span class="st"> </span><span class="cf">function</span>(t, init, parms){</a>
+<a class="sourceLine" id="cb171-13" data-line-number="13">  x1 =<span class="st"> </span>init[<span class="dv">1</span>]; x2 =<span class="st"> </span>init[<span class="dv">2</span>]; dx1 =<span class="st"> </span>parms[<span class="dv">1</span>]<span class="op">*</span>x2; dx2 =<span class="st"> </span>parms[<span class="dv">2</span>]<span class="op">*</span>x1;</a>
+<a class="sourceLine" id="cb171-14" data-line-number="14">  <span class="kw">list</span>(<span class="kw">c</span>(dx1,dx2))}</a>
+<a class="sourceLine" id="cb171-15" data-line-number="15"><span class="kw">require</span>(deSolve)</a>
+<a class="sourceLine" id="cb171-16" data-line-number="16">cinit =<span class="st"> </span><span class="kw">c</span>(x[<span class="dv">2</span>],y[<span class="dv">2</span>]); parms =<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span>epsilon<span class="op">*</span>step.size,epsilon<span class="op">*</span>step.size) </a>
+<a class="sourceLine" id="cb171-17" data-line-number="17">res =<span class="st"> </span><span class="kw">ode</span>(cinit,times, Sys.det ,parms);</a>
+<a class="sourceLine" id="cb171-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb171-19" data-line-number="19">det.x=res[,<span class="dv">2</span>]; det.y=res[,<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb171-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb171-21" data-line-number="21">detX.embed =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rep</span>(<span class="dv">0</span>,n.iter<span class="op">*</span><span class="dv">12</span>), <span class="dt">ncol=</span><span class="dv">12</span>); detX.embed[,<span class="dv">1</span>] =<span class="st"> </span>det.x</a>
+<a class="sourceLine" id="cb171-22" data-line-number="22"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">12</span>) {</a>
+<a class="sourceLine" id="cb171-23" data-line-number="23">  miter =<span class="st"> </span>n.iter<span class="op">-</span>i</a>
+<a class="sourceLine" id="cb171-24" data-line-number="24">  detX.embed[<span class="dv">1</span><span class="op">:</span>(miter<span class="op">+</span><span class="dv">1</span>),i] =<span class="st"> </span>det.x[i<span class="op">:</span>n.iter];</a>
+<a class="sourceLine" id="cb171-25" data-line-number="25">  detX.embed[(miter<span class="op">+</span><span class="dv">1</span>)<span class="op">:</span>n.iter,i] =<span class="st"> </span>det.x[<span class="dv">1</span><span class="op">:</span>i];</a>
+<a class="sourceLine" id="cb171-26" data-line-number="26">}</a>
+<a class="sourceLine" id="cb171-27" data-line-number="27"><span class="co">## Plot</span></a>
+<a class="sourceLine" id="cb171-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb171-29" data-line-number="29"><span class="kw">library</span>(scatterplot3d)</a>
+<a class="sourceLine" id="cb171-30" data-line-number="30">p=<span class="kw">scatterplot3d</span>(x.embed[,<span class="dv">1</span>],x.embed[,<span class="dv">6</span>],x.embed[,<span class="dv">12</span>], <span class="dt">type=</span><span class="st">"l"</span>, <span class="dt">color=</span><span class="st">"steelblue"</span>, <span class="dt">xlab=</span><span class="st">"x(t)"</span>, <span class="dt">ylab=</span><span class="st">"x(t-6)"</span>, <span class="dt">zlab=</span><span class="st">"x(t-12)"</span>)</a>
+<a class="sourceLine" id="cb171-31" data-line-number="31"><span class="co"># For the deterministic data, only the shape is preserved not the scale. </span></a>
+<a class="sourceLine" id="cb171-32" data-line-number="32"><span class="co"># We need to rescale the shape to fit the stochastic sample.</span></a>
+<a class="sourceLine" id="cb171-33" data-line-number="33">p<span class="op">$</span><span class="kw">points3d</span>(<span class="dv">20</span><span class="op">*</span>detX.embed[,<span class="dv">1</span>],<span class="dv">20</span><span class="op">*</span>detX.embed[,<span class="dv">6</span>],<span class="dv">20</span><span class="op">*</span>detX.embed[,<span class="dv">12</span>], <span class="dt">col=</span><span class="st">"navyblue"</span>, <span class="dt">pch=</span><span class="st">"."</span>)</a></code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>Now we can turn to a more challenging exercise. Unlike its fundamental role in science, the <a href="ch-complexAn.html#sub:coupling">coupling</a> dynamical structure has not yet been (widely) observed in social science. There seemed not sufficient statistical evidence to support a coupling relation existing amongst two essential variables that can influence the social dynamics.<label for="tufte-sn-560" class="margin-toggle sidenote-number">560</label><input type="checkbox" id="tufte-sn-560" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">560</span> The coupling relation is not a <a href="sub-inferknow.html#determinism">causal relation</a> but a <a href="ch-vecMat.html#sub:linearSys">simultaneous relation</a>. Much empirical social research seems reluctant to propose a conclusion that aspires to be epistemologically acceptable for simultaneity, since simultaneity neither displays an analyzable causal chain nor provides a simple assessment of the truth or falsity of the direct actions.</span></p>
+<p>Hereby, I plan to demonstrate a procedure to explore a (hidden) coupling structure in the labor market. In economics, people tend to consider an inverse relationship between unemployment and inflation: lowering the unemployment rate may cause an increase in the inflation rate and vice versa. The empirical evidence supporting this relationship was given by a declined estimated slope of a curve that describes the unemployment and wages from 1861-1957 in the U.K. The curve is called the <em>Phillips curve</em>.<label for="tufte-sn-561" class="margin-toggle sidenote-number">561</label><input type="checkbox" id="tufte-sn-561" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">561</span> The <strong>Phillips curve</strong> inspired economists to propose fiscal policies to lower the unemployment rate by stimulating the economy that causes the rise of GDP and consumption index, which is called <em>Keynesian policies</em>. Although this idea has been questioned about being effective in the long run, the <strong>Phillips curve</strong> remains one of the primary devices for analyzing unemployment and inflation in the central bureaucracies.</span></p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:PhillipsCurve"></span>
+<img src="fig/Part5/PhillipsCurve.png" alt="(Seasonally adjusted) U.S. Unemployment Rate Percent Change and CPI Percent Change (1950-2019) " width="100%"><!--
+<p class="caption marginnote">-->Figure 17.9: (Seasonally adjusted) U.S. Unemployment Rate Percent Change and CPI Percent Change (1950-2019) <!--</p>-->
+<!--</div>--></span>
+</p>
+<p>Figure <a href="ch-complexAn.html#fig:PhillipsCurve">17.9</a> is the <a href="ch-eigen.html#sub:diag">phase plot</a> of two variables representing the dynamics of unemployment and inflation. The dynamics in this phase plot are drawn by a path with the morphed color starting from 1950 (dark blue) to 2020 (light blue). In the early stage of the path (dark blue part), a downward cluster seems to favor the Phillips curve’s argument. However, the later stage of the path (light blue part) seems to lead to a rotation or a curl. The statistical regression shows a positive significant coefficient that is similar to the misleading result we saw in figure <a href="ch-complexAn.html#fig:simFake">17.6</a>.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:DataEmbed"></span>
+<img src="fig/Part5/DataEmbed.gif" alt="Embedded manifolds " width="100%"><!--
+<p class="caption marginnote">-->Figure 17.10: Embedded manifolds <!--</p>-->
+<!--</div>--></span>
+</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" data-line-number="1"><span class="kw">library</span>(readxl)</a>
+<a class="sourceLine" id="cb172-2" data-line-number="2"><span class="co"># Data resource (article): https://www.stlouisfed.org/open-vault/2020/january/what-is-phillips-curve-why-flattened)</span></a>
+<a class="sourceLine" id="cb172-3" data-line-number="3"><span class="co"># Data download: https://fred.stlouisfed.org/graph/fredgraph.xls?g=xar2</span></a>
+<a class="sourceLine" id="cb172-4" data-line-number="4">fredgraph =<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">"~/Documents/fredgraph.xls"</span>,<span class="dt">skip =</span> <span class="dv">11</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" data-line-number="1">ur=fredgraph<span class="op">$</span>UNRATE <span class="co"># Unemployment Rate Percent Change (Seasonally Adjusted)</span></a>
+<a class="sourceLine" id="cb173-2" data-line-number="2">CTPI=fredgraph<span class="op">$</span>PCECTPI_PC1 <span class="co"># Personal Consumption Expenditures Chain-type Price Index Percent Change from Year Ago (Seasonally Adjusted)</span></a>
+<a class="sourceLine" id="cb173-3" data-line-number="3"><span class="kw">ar</span>(ur)<span class="op">$</span>order</a></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" data-line-number="1"><span class="kw">ar</span>(CTPI)<span class="op">$</span>order</a></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<p>Both series show the AR structure having two or more lags. So we can (re)construct the empirical state space by embedding.<label for="tufte-sn-562" class="margin-toggle sidenote-number">562</label><input type="checkbox" id="tufte-sn-562" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">562</span> The AR structure vaguely relates to the fractal one. Since the statistical model selects the maximum lag of the series as <span class="math inline">\(9\)</span>, I am setting the <strong>embedding parameter</strong> in an interval covering <span class="math inline">\(19\)</span>.</span> The embedded manifolds of the two series show some geometric similarities to what we saw in figure <a href="ch-complexAn.html#fig:cirEmbed">17.8</a>.</p>
+<p>After differencing the series, we proceed to estimate the <a href="ch-complexAn.html#sub:coupling">coupling</a> structure as we did in the previous simulation. Even though the signs favor the coupling, the estimates are not <a href="ch-UnMulti.html#sub:WLLN">statistically significantly</a> different from zero.<label for="tufte-sn-563" class="margin-toggle sidenote-number">563</label><input type="checkbox" id="tufte-sn-563" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">563</span> This <a href="ch-UnMulti.html#sub:WLLN">statistical insignificancy</a> perhaps implies a profound issue in exploring the empirical coupling structure in social science. As a crucial invariant in dynamics, I conjecture that an essential coupling structure in social science must be hidden in the deep layers beneath the superficial social relations. This structure itself brings in certain foreseeable trajectories for the social dynamics that may or may not be of interest for the participants who are part of the processes. In this sense, if the relation is too “obvious,” then many forces will involve directing, twisting, or manipulating the dynamical laws, which will consequently erase the trace of this relation. On the other hand, if we view the <a href="sub:coupling">coupling</a> structure in terms of waves or cycles (in figure <a href="ch-complexAn.html#fig:Recon">17.13</a>), we can still observe the series acquiring such patterns (as well as numerous social variables). It would be absurd to attribute all fluctuations and vibrations to the causes of noises or exogenous forces, and to confirm the vanish of the coupling based on the statistical insignificancy.</span></p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" data-line-number="1"><span class="co"># Take the lag operator on ur and CTPI</span></a>
+<a class="sourceLine" id="cb177-2" data-line-number="2">ur.lag=<span class="kw">c</span>(<span class="dv">0</span>,ur); ur.lag=ur.lag[<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(ur.lag)<span class="op">-</span><span class="dv">1</span>]; CTPI.lag=<span class="kw">c</span>(<span class="dv">0</span>,CTPI); CTPI.lag=CTPI.lag[<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(CTPI.lag)<span class="op">-</span><span class="dv">1</span>];</a>
+<a class="sourceLine" id="cb177-3" data-line-number="3"><span class="co"># Difference</span></a>
+<a class="sourceLine" id="cb177-4" data-line-number="4">d.ur=ur <span class="op">-</span><span class="st"> </span>ur.lag; d.CTPI=CTPI <span class="op">-</span><span class="st"> </span>CTPI.lag</a>
+<a class="sourceLine" id="cb177-5" data-line-number="5"><span class="co"># Regressions</span></a>
+<a class="sourceLine" id="cb177-6" data-line-number="6"><span class="kw">summary</span>(<span class="kw">lm</span>(d.ur <span class="op">~</span><span class="st"> </span><span class="dv">0</span> <span class="op">+</span><span class="st"> </span>CTPI))<span class="op">$</span>coefficient</a></code></pre></div>
+<pre><code>##         Estimate  Std. Error   t value  Pr(&gt;|t|)
+## CTPI 0.007086629 0.008124984 0.8722021 0.3838508</code></pre>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" data-line-number="1"><span class="kw">summary</span>(<span class="kw">lm</span>(d.CTPI <span class="op">~</span><span class="st"> </span><span class="dv">0</span> <span class="op">+</span><span class="st"> </span>ur))<span class="op">$</span>coefficient</a></code></pre></div>
+<pre><code>##        Estimate  Std. Error    t value  Pr(&gt;|t|)
+## ur -0.004749481 0.006394057 -0.7427962 0.4582323</code></pre>
+<p>One potential cause of the statistical insignificancy in the example is that the linearity is too significant. The principal measurements of the two variables must share a significant linear relation. This relation is so obvious that the other features of the correlations of the two series are de facto covered or suppressed in this linear model. To recover any other potentially non-linear relation, we need to get rid of the effect caused by the linear one or to extract the effect caused by the one of our interests.</p>
+<p>I will decompose the data <strong>manifold</strong> <span class="math inline">\(\mathbf{M}=[\mathbf{x}_t,\dots,\mathbf{x}_{t-k}] \in \mathcal{M}\)</span> to extract interesting components. The idea is to ignore the “basis” associated with the largest “eigenvalue” that is thought to bring in the significant linear relation of two series and to focus on the “bases” associated with the rest of essential “eigenvalues” straight afterward, i.e., the 2nd and the 3rd largest “eigenvalues.”</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:svd"></span>
+<img src="fig/Part5/SVD.png" alt="Singular value decomposition " width="100%"><!--
+<p class="caption marginnote">-->Figure 17.11: Singular value decomposition <!--</p>-->
+<!--</div>--></span>
+</p>
+<p>Let <span class="math inline">\(T\)</span> be the length of the time series, and <span class="math inline">\(k\)</span> be the <strong>embedding dimension</strong>. Because the data manifold <span class="math inline">\(\mathbf{M}\in\mathbb{R}^{T\times k}\)</span> is not a square matrix, the standard <a href="ch-eigen.html#sub:det">eigen-decomposition</a> does not work for <span class="math inline">\(\mathbf{M}\)</span>, but it works for <span class="math inline">\(\mathbf{M}^{\top}\mathbf{M} \in \mathbb{R}^{k\times k}\)</span>, and <span class="math inline">\(\mathbf{M}\mathbf{M}^{\top} \in \mathbb{R}^{T\times T}\)</span>. Assume that the matrix <span class="math inline">\(\mathbf{M}\)</span> has any <a href="ch-MatComp.html#sub:vecSpaces">rank</a> <span class="math inline">\(n\)</span>, such that <span class="math inline">\(n\leq k&lt;T\)</span>, let <span class="math inline">\(\mathbf{U}^{\top}\in\mathbb{R}^{n\times T}\)</span> be the <a href="ch-UnMulti.html#sub:rw">left eigenvector</a> of <span class="math inline">\(\mathbf{M}\mathbf{M}^{\top}\)</span> and <span class="math inline">\(\mathbf{V}\in\mathbb{R}^{k\times n}\)</span>
+be the <a href="ch-UnMulti.html#sub:rw">right eigenvector</a> of <span class="math inline">\(\mathbf{M}^{\top}\mathbf{M}\)</span>, then we have the following decomposition <span class="math display">\[\begin{align*}\mathbf{M}=\mathbf{U}\Sigma\mathbf{V}^{\top} &amp;\mbox{ where }  \mathbf{\Sigma}=\mbox{diag}(\sigma_{1},\dots,\sigma_{n}),\\&amp; \mbox{ and } \sigma_{1}&gt;\sigma_2&gt;\dots&gt;\sigma_{n}\in\mathbb{R}  \end{align*}\]</span>
+The <span class="math inline">\(\{\sigma_{i}\}_{i=1,\dots,k}\)</span> are the roots of the <a href="ch-eigen.html#sub:det">characteristic functions</a> <span class="math display">\[\mbox{det}\left(\mathbf{M}\mathbf{M}^{\top}-\sigma_{i}^{2}\mathbf{I}_{T}\right)=\mbox{det}\left(\mathbf{M}^{\top}\mathbf{M}-\sigma_{i}^{2}\mathbf{I}_{k}\right)=0\]</span>
+by the fact <span class="math inline">\(\mbox{det}(\mathbf{M}\mathbf{M}^{\top})=\mbox{det}(\mathbf{M}^{\top}\mathbf{M})\)</span>. The value <span class="math inline">\(\sigma_i\)</span> is called the <em>singular value</em> of the matrix <span class="math inline">\(\mathbf{M}\)</span>, and the decomposition <span class="math inline">\(\mathbf{M}=\mathbf{U}\Sigma\mathbf{V}^{\top}\)</span> is called the <em>singular value decomposition</em>.</p>
+<div class="solution">
+<p class="solution-begin">
+Sketch of the proof <span id="sol-start-124" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-124', 'sol-start-124')"></span>
+</p>
+<div id="sol-body-124" class="solution-body" style="display: none;">
+<p>The eigen-decompositions give us
+<span class="math display">\[\begin{align*}\mathbf{U}^{\top}(\mathbf{M}\mathbf{M}^{\top})=&amp;\mathbf{U}^{\top}\mathbf{\Sigma}_{1}\\
+(\mathbf{M}^{\top}\mathbf{M})\mathbf{V}=&amp;\mathbf{\Sigma}_{2}\mathbf{V}\end{align*}\]</span>
+where <span class="math inline">\(\mathbf{\Sigma}_{\mathbf{U}}\)</span>
+and <span class="math inline">\(\mathbf{\Sigma}_{\mathbf{V}}\)</span> are <span class="math inline">\(n\times n\)</span> matrix of <span class="math inline">\(n\)</span> real - eigenvalues (due to the symmetrcitiy of <span class="math inline">\(\mathbf{M}\mathbf{M}^{\top}\)</span>
+and <span class="math inline">\(\mathbf{M}^{\top}\mathbf{M}\)</span>).</p>
+<p>It turns out that <span class="math inline">\(\mathbf{\Sigma}_{\mathbf{U}}=\mathbf{\Sigma}_{\mathbf{V}}=\mathbf{\Sigma}^{2}\)</span> where <span class="math inline">\(\mathbf{\Sigma}^{2}=\mbox{diag}(\sigma_{1}^{2},\dots,\sigma_{n}^{2})\)</span>
+and <span class="math inline">\(\sigma_{i}\)</span> are the roots of the characteristic function<span class="math display">\[\mbox{det}\left(\mathbf{M}\mathbf{M}^{\top}-\sigma_{i}^{2}\mathbf{I}_{T}\right)=\mbox{det}\left(\mathbf{M}^{\top}\mathbf{M}-\sigma_{i}^{2}\mathbf{I}_{k}\right)=0\]</span>
+as <span class="math inline">\(\mbox{det}(\mathbf{M}\mathbf{M}^{\top})=\mbox{det}(\mathbf{M}^{\top}\mathbf{M})\)</span>. Because <span class="math display">\[\begin{align*}\mathbf{U}^{\top}(\mathbf{M}\mathbf{M}^{\top})\mathbf{V}&amp;=\mathbf{U}^{\top}\mathbf{\Sigma}_{\mathbf{U}}\mathbf{V}=\mathbf{U}^{\top}\mathbf{\Sigma}^{2}\mathbf{V}\\
+\mathbf{U}^{\top}(\mathbf{M}^{\top}\mathbf{M})\mathbf{V}&amp;=\mathbf{U}^{\top}\mathbf{\Sigma}_{\mathbf{V}}\mathbf{V}=\mathbf{U}^{\top}\mathbf{\Sigma}^{2}\mathbf{V}\end{align*}\]</span>
+we can infer that <span class="math display">\[\mathbf{U}^{\top}\mathbf{M}\mathbf{V}=\mathbf{\Sigma}=\mbox{diag}(\sigma_{1},\dots,\sigma_{n}).\]</span></p>
+<p>As <span class="math inline">\(\mathbf{U}\)</span> and <span class="math inline">\(\mathbf{V}\)</span> are orthogonal matrices <span class="math display">\[\mathbf{U}\mathbf{U}^{T}=\mathbf{I}_{T},\,\mathbf{U}^{T}\mathbf{U}=\mathbf{I}_{n},\,\mathbf{V}^{T}\mathbf{V}=\mathbf{I}_{n},\,\mathbf{V}\mathbf{V}^{T}=\mathbf{I}_{k},\]</span>
+we have the representation<span class="math display">\[\mathbf{U}\mathbf{U}^{\top}\mathbf{M}\mathbf{V}\mathbf{V}^{\top}=\mathbf{M}=\mathbf{U}\Sigma\mathbf{V}^{\top}.\]</span>
+The result follows.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:EigenTriple"></span>
+<img src="fig/Part5/EigenTriple.gif" alt="Characteristic contributions of the singular alues" width="100%"><!--
+<p class="caption marginnote">-->Figure 17.12: Characteristic contributions of the singular alues<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>As the role of the <a href="ch-eigen.html#sub:diag">principal eigenvalue</a> (see chapter <a href="ch-eigen.html#sub:diag">12.2</a>), the principal <strong>singular value</strong> <span class="math inline">\(\sigma_1\)</span> associates with the base <span class="math inline">\(\mathbf{u}_1\)</span> and <span class="math inline">\(\mathbf{v}_1\)</span> that intends to capture the main <em>characteristic contribution</em> of the data manifold. Figure <a href="ch-complexAn.html#fig:EigenTriple">17.12</a> shows the relative weights of the <strong>characteristic contributions</strong> <span class="math display">\[\left\{\frac{\sigma_{i}}{\sum_{j=1}^{k} \sigma_j}\right\}_{i=1,\dots,k}.\]</span> As you can see, the principal <strong>singular values</strong> <span class="math inline">\(\sigma_1\)</span> in unemployment and CPI series respectively count for about <span class="math inline">\(75\%\)</span> and <span class="math inline">\(50\%\)</span> of the <strong>characteristic contributions</strong>.</p>
+<p>Each <strong>singular value</strong> induces an <em>eigentriplet</em> <span class="math inline">\(\mathbf{U}\Sigma_{i}\mathbf{V}^{\top}\)</span>
+<span class="math display">\[\begin{align*}\mathbf{M}&amp;=\mathbf{U}\Sigma\mathbf{V}^{\top}=\mathbf{U}\left(\left[\begin{array}{cccc}
+\sigma_{1}\\
+ &amp; 0\\
+ &amp;  &amp; \ddots\\
+ &amp;  &amp;  &amp; 0
+\end{array}\right]+\cdots+\left[\begin{array}{cccc}
+0\\
+ &amp; \ddots\\
+ &amp;  &amp; 0\\
+ &amp;  &amp;  &amp; \sigma_{n}
+\end{array}\right]\right)\mathbf{V}^{T}\\
+&amp;=\mathbf{U}\Sigma_{1}\mathbf{V}^{\top}+\cdots + \mathbf{U}\Sigma_n\mathbf{V}^{\top}\end{align*}\]</span>
+By the particular data structure of the <strong>embedding data manifold</strong>, we can reconstruct the data series <span class="math inline">\(\mathbf{x}_{T}\)</span> by diagonally averaging the entities.<label for="tufte-sn-564" class="margin-toggle sidenote-number">564</label><input type="checkbox" id="tufte-sn-564" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">564</span> 
+<span class="math display">\[\begin{align*}&amp;\mbox{diagonal average of }\mathbf{M}
+\\&amp;=\frac{1}{k}\left[\begin{array}{ccccc}
+x_{1} &amp;  &amp; x_{T}\\
+\vdots &amp; \overset{\mbox{add}}{\searrow}\\
+x_{i} &amp;  &amp; x_{1}\\
+ &amp; \overset{\mbox{add}}{\searrow} &amp;  &amp; \overset{\mbox{add}}{\searrow}\\
+\vdots &amp;  &amp; x_{i} &amp;  &amp; x_{1}\\
+x_{T-1} &amp;  &amp; \vdots &amp; \overset{\mbox{add}}{\searrow}\\
+ &amp; \overset{\mbox{add}}{\searrow} &amp;  &amp;  &amp; x_{i}\\
+x_{T} &amp;  &amp; x_{T-1} &amp;  &amp; \vdots
+\end{array}\right]\\
+&amp;=\left[\begin{array}{c}
+\frac{x_{1}k}{k}\\
+\vdots\\
+\frac{x_{T}k}{k}
+\end{array}\right]=\mathbf{x}_{T}.\end{align*}\]</span></span>
+Then applying the diagonally averaging on both sides of the <strong>eigentriplets</strong> representation, we have
+<span class="math display">\[\begin{align*}\mathbf{x}_T&amp;=\mbox{diag. average }(\mathbf{U}\Sigma_{1}\mathbf{V}^{\top})+\cdots + \mbox{diag. average }(\mathbf{U}\Sigma_n\mathbf{V}^{\top})\\
+&amp;= \tilde{\mathbf{x}}_{1,T} + \cdots + \tilde{\mathbf{x}}_{n,T}.\end{align*}\]</span> where <span class="math inline">\(\tilde{\mathbf{x}}_{i,T}\)</span> is the <span class="math inline">\(i\)</span>-th reconstructed <strong>eigentriplets</strong> of the series <span class="math inline">\(\mathbf{x}_T\)</span>. This procedure of analyzing <span class="math inline">\(\mathbf{x}_{T}\)</span> by its <strong>eigentriplets</strong> is called the <em>singular spectrum analysis</em>.</p>
+<p>The results of detecting statistical significant <strong>coupling</strong> structure from the 2nd and 3rd <strong>eigentriplets</strong> are given below.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:Recon"></span>
+<img src="fig/Part5/Recon.gif" alt="Series (blue lines) and the reconstructed series (1st eigentriples - red lines, 2nd and 3rd eigentriples - blue dots)" width="100%"><!--
+<p class="caption marginnote">-->Figure 17.13: Series (blue lines) and the reconstructed series (1st eigentriples - red lines, 2nd and 3rd eigentriples - blue dots)<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:PhaseCP"></span>
+<img src="fig/Part5/PhaseCP.gif" alt="Phase plot of the reconstructed series (2nd and 3rd eigentriples)" width="100%"><!--
+<p class="caption marginnote">-->Figure 17.14: Phase plot of the reconstructed series (2nd and 3rd eigentriples)<!--</p>-->
+<!--</div>--></span>
+</p>
+<div class="solution">
+<p class="solution-begin">
+Code for singular spectrum analysis under different embedding dimensions <span id="sol-start-125" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-125', 'sol-start-125')"></span>
+</p>
+<div id="sol-body-125" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" data-line-number="1"><span class="kw">library</span>(readxl); <span class="kw">library</span>(gridExtra); <span class="kw">library</span>(ggplot2); <span class="kw">library</span>(ggpmisc); <span class="kw">library</span>(scatterplot3d); </a>
+<a class="sourceLine" id="cb181-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb181-3" data-line-number="3"><span class="co"># Data resource (article): https://www.stlouisfed.org/open-vault/2020/january/what-is-phillips-curve-why-flattened)</span></a>
+<a class="sourceLine" id="cb181-4" data-line-number="4"><span class="co"># Data download: https://fred.stlouisfed.org/graph/fredgraph.xls?g=xar2</span></a>
+<a class="sourceLine" id="cb181-5" data-line-number="5">fredgraph =<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">"~/Downloads/fredgraph.xls"</span>,<span class="dt">skip =</span> <span class="dv">11</span>)</a>
+<a class="sourceLine" id="cb181-6" data-line-number="6">ur=fredgraph<span class="op">$</span>UNRATE <span class="co"># Unemployment Rate Percent Change (Seasonally Adjusted)</span></a>
+<a class="sourceLine" id="cb181-7" data-line-number="7">CTPI=fredgraph<span class="op">$</span>PCECTPI_PC1 <span class="co"># Personal Consumption Expenditures Chain-type Price Index Percent Change from Year Ago (Seasonally Adjusted)</span></a>
+<a class="sourceLine" id="cb181-8" data-line-number="8"><span class="kw">summary</span>(<span class="kw">lm</span>(CTPI<span class="op">~</span>ur))<span class="op">$</span>coefficient</a>
+<a class="sourceLine" id="cb181-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb181-10" data-line-number="10"><span class="co"># lag of ur and CTPI</span></a>
+<a class="sourceLine" id="cb181-11" data-line-number="11">ur.lag=<span class="kw">c</span>(<span class="dv">0</span>,ur); ur.lag=ur.lag[<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(ur.lag)<span class="op">-</span><span class="dv">1</span>];</a>
+<a class="sourceLine" id="cb181-12" data-line-number="12">CTPI.lag=<span class="kw">c</span>(<span class="dv">0</span>,CTPI); CTPI.lag=CTPI.lag[<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(CTPI.lag)<span class="op">-</span><span class="dv">1</span>];</a>
+<a class="sourceLine" id="cb181-13" data-line-number="13"><span class="co"># Regression</span></a>
+<a class="sourceLine" id="cb181-14" data-line-number="14">d.ur=ur<span class="op">-</span>ur.lag; d.CTPI=CTPI<span class="op">-</span>CTPI.lag</a>
+<a class="sourceLine" id="cb181-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb181-16" data-line-number="16"><span class="kw">summary</span>(<span class="kw">lm</span>(d.ur<span class="op">~</span><span class="dv">0</span><span class="op">+</span>CTPI))<span class="op">$</span>coefficient</a>
+<a class="sourceLine" id="cb181-17" data-line-number="17"><span class="kw">summary</span>(<span class="kw">lm</span>(d.CTPI<span class="op">~</span><span class="dv">0</span><span class="op">+</span>ur))<span class="op">$</span>coefficient</a>
+<a class="sourceLine" id="cb181-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb181-19" data-line-number="19"><span class="co"># Plot</span></a>
+<a class="sourceLine" id="cb181-20" data-line-number="20">dat =<span class="st"> </span><span class="kw">data.frame</span>(ur, CTPI, <span class="dt">time=</span>fredgraph<span class="op">$</span>observation_date)</a>
+<a class="sourceLine" id="cb181-21" data-line-number="21"><span class="kw">ggplot</span>(<span class="dt">data=</span>dat, <span class="kw">aes</span>(<span class="dt">x=</span>ur, <span class="dt">y=</span>CTPI))<span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">colour=</span><span class="st">"steelblue"</span>)<span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">"lm"</span>, <span class="dt">colour=</span><span class="st">"royalblue"</span>) <span class="op">+</span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">"Unemployment Rate"</span>, <span class="dt">y =</span> <span class="st">"Consumption Price Index"</span>) <span class="op">+</span><span class="st">  </span><span class="kw">stat_poly_eq</span>(<span class="dt">formula =</span> y<span class="op">~</span>x, <span class="dt">data=</span>dat, <span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">paste</span>(..eq.label.., <span class="kw">stat</span>(p.value.label), <span class="dt">sep =</span> <span class="st">"~~~"</span>)), <span class="dt">parse =</span> <span class="ot">TRUE</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_path</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> <span class="kw">as.numeric</span>(time))) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb181-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb181-23" data-line-number="23"><span class="co"># Choose the embedding parameter (dm) between 10 and 20</span></a>
+<a class="sourceLine" id="cb181-24" data-line-number="24">dimens=<span class="kw">seq</span>(<span class="dv">10</span>,<span class="dv">20</span>)</a>
+<a class="sourceLine" id="cb181-25" data-line-number="25">estimate.res=<span class="kw">matrix</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">length</span>(dimens)<span class="op">*</span><span class="dv">10</span>), <span class="dt">ncol=</span><span class="dv">5</span>, <span class="dt">byrow=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb181-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb181-27" data-line-number="27"><span class="co"># Diagnoal averaging function</span></a>
+<a class="sourceLine" id="cb181-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb181-29" data-line-number="29">diag.ave =<span class="st"> </span><span class="cf">function</span>(mat) {</a>
+<a class="sourceLine" id="cb181-30" data-line-number="30">    nrow =<span class="st"> </span><span class="kw">nrow</span>(mat); ncol=<span class="kw">ncol</span>(mat)</a>
+<a class="sourceLine" id="cb181-31" data-line-number="31">    hold =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>,(nrow<span class="op">+</span>(ncol<span class="dv">-1</span>)))</a>
+<a class="sourceLine" id="cb181-32" data-line-number="32">        <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>(nrow<span class="op">+</span>(ncol<span class="dv">-1</span>))) {</a>
+<a class="sourceLine" id="cb181-33" data-line-number="33">          <span class="cf">if</span>(i<span class="op">==</span><span class="dv">1</span>) {d=mat[<span class="dv">1</span>,<span class="dv">1</span>]}</a>
+<a class="sourceLine" id="cb181-34" data-line-number="34">          <span class="cf">if</span>(i<span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>i<span class="op">&lt;=</span>ncol) {d&lt;-<span class="kw">diag</span>(mat[i<span class="op">:</span><span class="dv">1</span>,<span class="dv">1</span><span class="op">:</span>i])}</a>
+<a class="sourceLine" id="cb181-35" data-line-number="35">          <span class="cf">if</span>(i<span class="op">&gt;</span>ncol <span class="op">&amp;</span><span class="st"> </span>i<span class="op">&lt;=</span>nrow) {d&lt;-<span class="kw">diag</span>(mat[i<span class="op">:</span>(i<span class="op">-</span>(ncol<span class="dv">-1</span>)),<span class="dv">1</span><span class="op">:</span>ncol])}</a>
+<a class="sourceLine" id="cb181-36" data-line-number="36">          <span class="cf">if</span>(i<span class="op">&gt;</span>nrow <span class="op">&amp;</span><span class="st"> </span>i<span class="op">&lt;</span>(nrow<span class="op">+</span>(ncol<span class="dv">-1</span>))) {</a>
+<a class="sourceLine" id="cb181-37" data-line-number="37">              d&lt;-<span class="kw">diag</span>(mat[nrow<span class="op">:</span>(i<span class="op">-</span>(ncol<span class="dv">-1</span>)),(i<span class="op">-</span>(nrow<span class="dv">-1</span>))<span class="op">:</span>ncol])}</a>
+<a class="sourceLine" id="cb181-38" data-line-number="38">          <span class="cf">if</span>(i<span class="op">==</span>(nrow<span class="op">+</span>(ncol<span class="dv">-1</span>))) {d&lt;-mat[nrow,ncol]}</a>
+<a class="sourceLine" id="cb181-39" data-line-number="39">          d.ave=<span class="kw">mean</span>(d)  <span class="co">#average minor diagonals</span></a>
+<a class="sourceLine" id="cb181-40" data-line-number="40">          hold[i,]=d.ave</a>
+<a class="sourceLine" id="cb181-41" data-line-number="41">  } <span class="co">#end loop</span></a>
+<a class="sourceLine" id="cb181-42" data-line-number="42"><span class="kw">return</span>(hold)</a>
+<a class="sourceLine" id="cb181-43" data-line-number="43">}  <span class="co">#end function</span></a>
+<a class="sourceLine" id="cb181-44" data-line-number="44"></a>
+<a class="sourceLine" id="cb181-45" data-line-number="45"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(dimens)){</a>
+<a class="sourceLine" id="cb181-46" data-line-number="46">  <span class="co">## Embedding</span></a>
+<a class="sourceLine" id="cb181-47" data-line-number="47">  dm =<span class="st"> </span>dimens[i]; <span class="co"># embedding parameter</span></a>
+<a class="sourceLine" id="cb181-48" data-line-number="48">  x.embed =<span class="st"> </span><span class="kw">embed</span>(ur,dm)</a>
+<a class="sourceLine" id="cb181-49" data-line-number="49">  y.embed =<span class="st"> </span><span class="kw">embed</span>(CTPI,dm)</a>
+<a class="sourceLine" id="cb181-50" data-line-number="50">  <span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb181-51" data-line-number="51">  <span class="kw">scatterplot3d</span>(x.embed[,<span class="dv">1</span>],x.embed[,<span class="kw">as.integer</span>(dm<span class="op">/</span><span class="dv">2</span>)],x.embed[,dm], <span class="dt">type=</span><span class="st">"l"</span>, <span class="dt">color=</span><span class="st">"navyblue"</span>, <span class="dt">xlab=</span><span class="st">"x(t)"</span>, <span class="dt">ylab=</span><span class="kw">paste</span>(<span class="st">"x(t-"</span>,<span class="kw">as.integer</span>(dm<span class="op">/</span><span class="dv">2</span>),<span class="st">")"</span>), <span class="dt">zlab=</span><span class="kw">paste</span>(<span class="st">"x(t-"</span>, dm, <span class="st">")"</span>), <span class="dt">main=</span><span class="kw">paste</span>(<span class="st">"Embedding Parameter ="</span>, dm))</a>
+<a class="sourceLine" id="cb181-52" data-line-number="52">  <span class="kw">scatterplot3d</span>(y.embed[,<span class="dv">1</span>],y.embed[,<span class="kw">as.integer</span>(dm<span class="op">/</span><span class="dv">2</span>)],y.embed[,dm], <span class="dt">type=</span><span class="st">"l"</span>, <span class="dt">color=</span><span class="st">"navyblue"</span>, <span class="dt">xlab=</span><span class="st">"y(t)"</span>, <span class="dt">ylab=</span><span class="kw">paste</span>(<span class="st">"y(t-"</span>,<span class="kw">as.integer</span>(dm<span class="op">/</span><span class="dv">2</span>),<span class="st">")"</span>), <span class="dt">zlab=</span><span class="kw">paste</span>(<span class="st">"y(t-"</span>, dm, <span class="st">")"</span>))</a>
+<a class="sourceLine" id="cb181-53" data-line-number="53"></a>
+<a class="sourceLine" id="cb181-54" data-line-number="54"></a>
+<a class="sourceLine" id="cb181-55" data-line-number="55">  <span class="co"># SVD</span></a>
+<a class="sourceLine" id="cb181-56" data-line-number="56">  x.svd=<span class="kw">svd</span>(x.embed, <span class="dt">LINPACK =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb181-57" data-line-number="57">  y.svd=<span class="kw">svd</span>(y.embed, <span class="dt">LINPACK =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb181-58" data-line-number="58"></a>
+<a class="sourceLine" id="cb181-59" data-line-number="59">  <span class="co"># Plot the relative strengths of singular values</span></a>
+<a class="sourceLine" id="cb181-60" data-line-number="60">  x.bar =<span class="st"> </span>x.svd<span class="op">$</span>d<span class="op">/</span><span class="kw">sum</span>(x.svd<span class="op">$</span>d); Per.x =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x.bar)</a>
+<a class="sourceLine" id="cb181-61" data-line-number="61">  y.bar =<span class="st"> </span>y.svd<span class="op">$</span>d<span class="op">/</span><span class="kw">sum</span>(x.svd<span class="op">$</span>d); Per.y =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(y.bar)</a>
+<a class="sourceLine" id="cb181-62" data-line-number="62">  dat.bar =<span class="st"> </span><span class="kw">data.frame</span>(x.bar, y.bar, Per.x, Per.y)</a>
+<a class="sourceLine" id="cb181-63" data-line-number="63">  p.bar1=<span class="kw">ggplot</span>(dat.bar, <span class="kw">aes</span>(Per.x, x.bar)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()  <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="kw">paste</span>(<span class="st">"Unemployment Rate, Embedding Parameter = "</span>, dm), <span class="dt">y=</span> <span class="st">""</span> ) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb181-64" data-line-number="64">  p.bar2=<span class="kw">ggplot</span>(dat.bar, <span class="kw">aes</span>(Per.y, y.bar)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="kw">paste</span>(<span class="st">"CPI, Embedding Parameter = "</span>, dm), <span class="dt">y=</span> <span class="st">"Percentage of char. contributions"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb181-65" data-line-number="65">  <span class="kw">grid.arrange</span>(p.bar1, p.bar2, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">nrow =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb181-66" data-line-number="66"></a>
+<a class="sourceLine" id="cb181-67" data-line-number="67">  <span class="co">## Select cyclic eigenvectors</span></a>
+<a class="sourceLine" id="cb181-68" data-line-number="68">  ux=x.svd<span class="op">$</span>u[,<span class="dv">1</span><span class="op">:</span>dm]</a>
+<a class="sourceLine" id="cb181-69" data-line-number="69">  dx=<span class="kw">diag</span>(x.svd<span class="op">$</span>d[<span class="dv">1</span><span class="op">:</span>dm],dm)</a>
+<a class="sourceLine" id="cb181-70" data-line-number="70">  vx=x.svd<span class="op">$</span>v[<span class="dv">1</span><span class="op">:</span>dm,<span class="dv">1</span><span class="op">:</span>dm]</a>
+<a class="sourceLine" id="cb181-71" data-line-number="71"></a>
+<a class="sourceLine" id="cb181-72" data-line-number="72">  x23.recon=ux<span class="op">%*%</span><span class="kw">diag</span>(<span class="kw">c</span>(<span class="dv">0</span>,x.svd<span class="op">$</span>d[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>],<span class="kw">rep</span>(<span class="dv">0</span>,dm<span class="dv">-3</span>)))<span class="op">%*%</span>vx</a>
+<a class="sourceLine" id="cb181-73" data-line-number="73">  sx23.recon=<span class="kw">rowSums</span>(x23.recon);</a>
+<a class="sourceLine" id="cb181-74" data-line-number="74"><span class="co">#  x23.recon=ux%*%diag(c(0,x.svd$d[2:dm]))%*%vx</span></a>
+<a class="sourceLine" id="cb181-75" data-line-number="75"><span class="co">#  sx23.recon=diag.ave(x23.recon);</span></a>
+<a class="sourceLine" id="cb181-76" data-line-number="76"></a>
+<a class="sourceLine" id="cb181-77" data-line-number="77">  uy=y.svd<span class="op">$</span>u[,<span class="dv">1</span><span class="op">:</span>dm]</a>
+<a class="sourceLine" id="cb181-78" data-line-number="78">  dy=<span class="kw">diag</span>(y.svd<span class="op">$</span>d[<span class="dv">1</span><span class="op">:</span>dm],dm)</a>
+<a class="sourceLine" id="cb181-79" data-line-number="79">  vy=y.svd<span class="op">$</span>v[<span class="dv">1</span><span class="op">:</span>dm,<span class="dv">1</span><span class="op">:</span>dm]</a>
+<a class="sourceLine" id="cb181-80" data-line-number="80">  y23.recon=uy<span class="op">%*%</span><span class="kw">diag</span>(<span class="kw">c</span>(<span class="dv">0</span>,y.svd<span class="op">$</span>d[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>],<span class="kw">rep</span>(<span class="dv">0</span>,dm<span class="dv">-3</span>)))<span class="op">%*%</span>vy</a>
+<a class="sourceLine" id="cb181-81" data-line-number="81">  sy23.recon=<span class="kw">rowSums</span>(y23.recon); </a>
+<a class="sourceLine" id="cb181-82" data-line-number="82">  </a>
+<a class="sourceLine" id="cb181-83" data-line-number="83"><span class="co">#  y23.recon=uy%*%diag(c(0,y.svd$d[2:dm]))%*%vy</span></a>
+<a class="sourceLine" id="cb181-84" data-line-number="84"><span class="co">#  sy23.recon=diag.ave(y23.recon);</span></a>
+<a class="sourceLine" id="cb181-85" data-line-number="85"></a>
+<a class="sourceLine" id="cb181-86" data-line-number="86">  </a>
+<a class="sourceLine" id="cb181-87" data-line-number="87">  xre.lag=<span class="kw">c</span>(<span class="dv">0</span>,sx23.recon); xre.lag=xre.lag[<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(xre.lag)<span class="op">-</span><span class="dv">1</span>];</a>
+<a class="sourceLine" id="cb181-88" data-line-number="88">  yre.lag=<span class="kw">c</span>(<span class="dv">0</span>,sy23.recon); yre.lag=yre.lag[<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(yre.lag)<span class="op">-</span><span class="dv">1</span>];</a>
+<a class="sourceLine" id="cb181-89" data-line-number="89">  d.yre=sy23.recon<span class="op">-</span>yre.lag; d.xre=sx23.recon<span class="op">-</span>xre.lag</a>
+<a class="sourceLine" id="cb181-90" data-line-number="90">  <span class="kw">summary</span>(<span class="kw">lm</span>(d.xre<span class="op">~</span><span class="dv">0</span><span class="op">+</span>sy23.recon))<span class="op">$</span>coefficients</a>
+<a class="sourceLine" id="cb181-91" data-line-number="91">  <span class="kw">summary</span>(<span class="kw">lm</span>(d.yre<span class="op">~</span><span class="dv">0</span><span class="op">+</span>sx23.recon))<span class="op">$</span>coefficients</a>
+<a class="sourceLine" id="cb181-92" data-line-number="92"></a>
+<a class="sourceLine" id="cb181-93" data-line-number="93"><span class="co">## Store the estimate results</span></a>
+<a class="sourceLine" id="cb181-94" data-line-number="94"></a>
+<a class="sourceLine" id="cb181-95" data-line-number="95">  estimate.res[<span class="dv">2</span><span class="op">*</span>i<span class="dv">-1</span>,]=<span class="kw">c</span>(dimens[i],<span class="kw">as.numeric</span>(<span class="kw">summary</span>(<span class="kw">lm</span>(d.xre<span class="op">~</span><span class="dv">0</span><span class="op">+</span>sy23.recon))<span class="op">$</span>coefficients))</a>
+<a class="sourceLine" id="cb181-96" data-line-number="96">  estimate.res[<span class="dv">2</span><span class="op">*</span>i,]=<span class="kw">c</span>(dimens[i],<span class="kw">as.numeric</span>(<span class="kw">summary</span>(<span class="kw">lm</span>(d.yre<span class="op">~</span><span class="dv">0</span><span class="op">+</span>sx23.recon))<span class="op">$</span>coefficients))</a>
+<a class="sourceLine" id="cb181-97" data-line-number="97"></a>
+<a class="sourceLine" id="cb181-98" data-line-number="98">  </a>
+<a class="sourceLine" id="cb181-99" data-line-number="99"><span class="co">## Reconstructed Cycles and Plots</span></a>
+<a class="sourceLine" id="cb181-100" data-line-number="100"></a>
+<a class="sourceLine" id="cb181-101" data-line-number="101">  dat.eigen23=<span class="kw">data.frame</span>(sx23.recon, sy23.recon, <span class="dt">time=</span>fredgraph<span class="op">$</span>observation_date[(<span class="kw">length</span>(ur)<span class="op">-</span><span class="kw">length</span>(sx23.recon)<span class="op">+</span><span class="dv">1</span>)<span class="op">:</span><span class="kw">length</span>(ur)])</a>
+<a class="sourceLine" id="cb181-102" data-line-number="102">  x1.recon=ux<span class="op">%*%</span><span class="kw">diag</span>(<span class="kw">c</span>(x.svd<span class="op">$</span>d[<span class="dv">1</span>],<span class="kw">rep</span>(<span class="dv">0</span>,dm<span class="dv">-1</span>)))<span class="op">%*%</span>vx</a>
+<a class="sourceLine" id="cb181-103" data-line-number="103">  y1.recon=uy<span class="op">%*%</span><span class="kw">diag</span>(<span class="kw">c</span>(y.svd<span class="op">$</span>d[<span class="dv">1</span>],<span class="kw">rep</span>(<span class="dv">0</span>,dm<span class="dv">-1</span>)))<span class="op">%*%</span>vy</a>
+<a class="sourceLine" id="cb181-104" data-line-number="104">  sx1.recon=<span class="kw">rowSums</span>(x1.recon); sy1.recon=<span class="kw">rowSums</span>(y1.recon); </a>
+<a class="sourceLine" id="cb181-105" data-line-number="105"><span class="co">#  sx1.recon=diag.ave(x1.recon); sy1.recon=diag.ave(y1.recon); </span></a>
+<a class="sourceLine" id="cb181-106" data-line-number="106">  dat.eigen1=<span class="kw">data.frame</span>(sx1.recon, sy1.recon, <span class="dt">time=</span>fredgraph<span class="op">$</span>observation_date[(<span class="kw">length</span>(ur)<span class="op">-</span><span class="kw">length</span>(sx1.recon)<span class="op">+</span><span class="dv">1</span>)<span class="op">:</span><span class="kw">length</span>(ur)])</a>
+<a class="sourceLine" id="cb181-107" data-line-number="107"></a>
+<a class="sourceLine" id="cb181-108" data-line-number="108">  y.xmin =<span class="st"> </span><span class="kw">min</span>(sx1.recon,sx23.recon,ur);   y.xmax =<span class="st"> </span><span class="kw">max</span>(sx1.recon,sx23.recon,ur)</a>
+<a class="sourceLine" id="cb181-109" data-line-number="109">  y.ymin =<span class="st"> </span><span class="kw">min</span>(sy1.recon,sy23.recon,CTPI);   y.ymax =<span class="st"> </span><span class="kw">max</span>(sy1.recon,sy23.recon,CTPI)</a>
+<a class="sourceLine" id="cb181-110" data-line-number="110">    </a>
+<a class="sourceLine" id="cb181-111" data-line-number="111">  p1=<span class="kw">ggplot</span>(<span class="dt">data=</span>dat, <span class="kw">aes</span>(<span class="dt">x=</span>time, <span class="dt">y=</span>ur),<span class="dt">colour=</span>variable)<span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">colour=</span><span class="st">"steelblue"</span>)<span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>dat.eigen23, <span class="kw">aes</span>(<span class="dt">x=</span>time,<span class="dt">y=</span>sx23.recon), <span class="dt">linetype =</span> <span class="dv">4</span>, <span class="dt">colour=</span><span class="st">"royalblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>dat.eigen1, <span class="kw">aes</span>(<span class="dt">x=</span>time,<span class="dt">y=</span>sx1.recon), <span class="dt">linetype =</span> <span class="dv">3</span>, <span class="dt">colour=</span><span class="st">"red"</span>)<span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(y.xmin,y.xmax) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="kw">paste</span>(<span class="st">"Data series, the Reconstructed series of the eigentriplets </span><span class="ch">\n</span><span class="st"> Embedding Parameter = "</span>, dm), <span class="dt">y =</span> <span class="st">"Unemployment Rate"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb181-112" data-line-number="112"></a>
+<a class="sourceLine" id="cb181-113" data-line-number="113">  p2=<span class="kw">ggplot</span>(<span class="dt">data=</span>dat, <span class="kw">aes</span>(<span class="dt">x=</span>time,<span class="dt">y=</span>CTPI),<span class="dt">colour=</span>variable)<span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">colour=</span><span class="st">"steelblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>dat.eigen23, <span class="kw">aes</span>(<span class="dt">x=</span>time,<span class="dt">y=</span>sy23.recon), <span class="dt">linetype =</span> <span class="dv">4</span>, <span class="dt">colour=</span><span class="st">"royalblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>dat.eigen1, <span class="kw">aes</span>(<span class="dt">x=</span>time,<span class="dt">y=</span>sy1.recon), <span class="dt">linetype =</span> <span class="dv">3</span>, <span class="dt">colour=</span><span class="st">"red"</span>)<span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(y.ymin,y.ymax) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">"CPI"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb181-114" data-line-number="114"></a>
+<a class="sourceLine" id="cb181-115" data-line-number="115">  <span class="kw">grid.arrange</span>(p1, p2, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">nrow =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb181-116" data-line-number="116"></a>
+<a class="sourceLine" id="cb181-117" data-line-number="117">  <span class="co">## Phase plot</span></a>
+<a class="sourceLine" id="cb181-118" data-line-number="118"></a>
+<a class="sourceLine" id="cb181-119" data-line-number="119">  </a>
+<a class="sourceLine" id="cb181-120" data-line-number="120">  p3=<span class="kw">ggplot</span>(<span class="dt">data=</span>dat.eigen23, <span class="kw">aes</span>(<span class="dt">x=</span>sx23.recon,<span class="dt">y=</span>sy23.recon)) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="kw">paste</span>(<span class="st">"Phase Plot of Reconstructed Series based on the eigentriplets </span><span class="ch">\n</span><span class="st"> Embedding Parameter = "</span>, dm), <span class="dt">x =</span> <span class="st">"Unemployment Rate"</span> , <span class="dt">y =</span><span class="st">"CPI"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_path</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> <span class="kw">as.numeric</span>(time))) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb181-121" data-line-number="121">  <span class="kw">grid.arrange</span>(p3, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">nrow =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb181-122" data-line-number="122"></a>
+<a class="sourceLine" id="cb181-123" data-line-number="123">}</a>
+<a class="sourceLine" id="cb181-124" data-line-number="124"><span class="co">## Combine estimate results</span></a>
+<a class="sourceLine" id="cb181-125" data-line-number="125"></a>
+<a class="sourceLine" id="cb181-126" data-line-number="126">EstimateResults=<span class="kw">data.frame</span>(estimate.res)</a>
+<a class="sourceLine" id="cb181-127" data-line-number="127"><span class="kw">write.csv</span>(estimate.res,<span class="st">'EstimateResults.csv'</span>) </a>
+<a class="sourceLine" id="cb181-128" data-line-number="128"></a>
+<a class="sourceLine" id="cb181-129" data-line-number="129"></a>
+<a class="sourceLine" id="cb181-130" data-line-number="130">index=<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">"Y"</span>,<span class="st">"X"</span>),<span class="dv">11</span>)</a>
+<a class="sourceLine" id="cb181-131" data-line-number="131">EstimateResults=<span class="kw">data.frame</span>(index, EstimateResults)</a>
+<a class="sourceLine" id="cb181-132" data-line-number="132"><span class="kw">names</span>(EstimateResults)=<span class="kw">c</span>(<span class="st">""</span>,<span class="st">"Dimension"</span>, <span class="st">"Estimate"</span>, <span class="st">"Std. Error"</span>,<span class="st">"t-value"</span>,<span class="st">"Pr(&gt;|t|)"</span>)</a></code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1">EstimateResults</a></code></pre></div>
+<pre><code>##      Dimension    Estimate  Std. Error   t-value     Pr(&gt;|t|)
+## 1  Y        10 -0.01559150 0.003637870 -4.285887 2.537768e-05
+## 2  X        10  0.60739834 0.114225915  5.317518 2.213661e-07
+## 3  Y        11 -0.16597384 0.057008122 -2.911407 3.900653e-03
+## 4  X        11  0.02574711 0.011568597  2.225603 2.687293e-02
+## 5  Y        12 -0.03087472 0.006831992 -4.519139 9.336201e-06
+## 6  X        12  0.26562903 0.075874842  3.500884 5.432930e-04
+## 7  Y        13 -0.18863587 0.037672804 -5.007216 1.006678e-06
+## 8  X        13  0.06203389 0.011407745  5.437875 1.221244e-07
+## 9  Y        14  0.04153621 0.009208329  4.510722 9.715312e-06
+## 10 X        14 -0.21789431 0.053418419 -4.079011 5.987434e-05
+## 11 Y        15 -0.14860519 0.022172672 -6.702177 1.237395e-10
+## 12 X        15  0.15803797 0.023696341  6.669298 1.499316e-10
+## 13 Y        16 -0.13855174 0.019843469 -6.982234 2.367912e-11
+## 14 X        16  0.12543872 0.014849990  8.447057 2.052739e-15
+## 15 Y        17 -0.02766512 0.004540637 -6.092784 3.943563e-09
+## 16 X        17  0.29414552 0.079312485  3.708691 2.543133e-04
+## 17 Y        18 -0.04422313 0.007238680 -6.109280 3.619062e-09
+## 18 X        18  0.34219548 0.047289388  7.236200 5.143672e-12
+## 19 Y        19 -0.13463442 0.019583725 -6.874811 4.592385e-11
+## 20 X        19  0.03440891 0.012179380  2.825178 5.091915e-03
+## 21 Y        20  0.10752022 0.019679535  5.463555 1.095190e-07
+## 22 X        20 -0.11288033 0.015673030 -7.202202 6.438775e-12</code></pre>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:ReconSSA"></span>
+<img src="fig/Part5/ReconSSA.png" alt="Series (blue lines) and the reconstructed series (1st eigentriples - red lines, 2nd and 3rd eigentriples - blue dots)" width="100%"><!--
+<p class="caption marginnote">-->Figure 17.15: Series (blue lines) and the reconstructed series (1st eigentriples - red lines, 2nd and 3rd eigentriples - blue dots)<!--</p>-->
+<!--</div>--></span>
+</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">--><span id="fig:PhaseSSA"></span>
+<img src="fig/Part5/PhasePlotReconSSA.png" alt="Phase plot of the reconstructed series (2nd and 3rd eigentriples)" width="100%"><!--
+<p class="caption marginnote">-->Figure 17.16: Phase plot of the reconstructed series (2nd and 3rd eigentriples)<!--</p>-->
+<!--</div>--></span>
+</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" data-line-number="1"><span class="co">######## An alternative way </span></a>
+<a class="sourceLine" id="cb184-2" data-line-number="2"><span class="kw">library</span>(Rssa)</a>
+<a class="sourceLine" id="cb184-3" data-line-number="3">ssa.x=<span class="kw">ssa</span>(ur);  ssa.y=<span class="kw">ssa</span>(CTPI)</a>
+<a class="sourceLine" id="cb184-4" data-line-number="4"><span class="co"># reconstruct 2nd and 3rd eigentriplets</span></a>
+<a class="sourceLine" id="cb184-5" data-line-number="5">cp23.x=<span class="kw">reconstruct</span>(ssa.x,<span class="dt">groups=</span><span class="kw">list</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb184-6" data-line-number="6">cp23.y=<span class="kw">reconstruct</span>(ssa.y,<span class="dt">groups=</span><span class="kw">list</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>)) </a>
+<a class="sourceLine" id="cb184-7" data-line-number="7">cp23.x=cp23.x<span class="op">$</span>F1 <span class="co"># base</span></a>
+<a class="sourceLine" id="cb184-8" data-line-number="8">cp23.y=cp23.y<span class="op">$</span>F1 <span class="co"># base</span></a>
+<a class="sourceLine" id="cb184-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb184-10" data-line-number="10">lag.cp23x=<span class="kw">c</span>(<span class="dv">0</span>,cp23.x); lag.cp23x=lag.cp23x[<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(lag.cp23x)<span class="op">-</span><span class="dv">1</span>];</a>
+<a class="sourceLine" id="cb184-11" data-line-number="11">lag.cp23y=<span class="kw">c</span>(<span class="dv">0</span>,cp23.y); lag.cp23y=lag.cp23y[<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(lag.cp23y)<span class="op">-</span><span class="dv">1</span>];</a>
+<a class="sourceLine" id="cb184-12" data-line-number="12">dcp23.y =<span class="st"> </span>cp23.y <span class="op">-</span><span class="st"> </span>lag.cp23x</a>
+<a class="sourceLine" id="cb184-13" data-line-number="13">dcp23.x =<span class="st"> </span>cp23.x <span class="op">-</span><span class="st"> </span>lag.cp23y</a>
+<a class="sourceLine" id="cb184-14" data-line-number="14"><span class="kw">summary</span>(<span class="kw">lm</span>(dcp23.y<span class="op">~</span><span class="dv">0</span><span class="op">+</span>cp23.x))<span class="op">$</span>coefficients</a></code></pre></div>
+<pre><code>##         Estimate Std. Error t value    Pr(&gt;|t|)
+## cp23.x 0.3157429   0.080077 3.94299 0.000101913</code></pre>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" data-line-number="1"><span class="kw">summary</span>(<span class="kw">lm</span>(dcp23.x<span class="op">~</span><span class="dv">0</span><span class="op">+</span>cp23.y))<span class="op">$</span>coefficients</a></code></pre></div>
+<pre><code>##          Estimate Std. Error   t value     Pr(&gt;|t|)
+## cp23.y -0.6133861 0.02116907 -28.97559 5.654261e-86</code></pre>
+<div class="solution">
+<p class="solution-begin">
+SSA plot <span id="sol-start-126" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-126', 'sol-start-126')"></span>
+</p>
+<div id="sol-body-126" class="solution-body" style="display: none;">
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1"><span class="co"># Plot</span></a>
+<a class="sourceLine" id="cb188-2" data-line-number="2">cp1.x=<span class="kw">reconstruct</span>(ssa.x,<span class="dt">groups=</span><span class="kw">list</span>(<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb188-3" data-line-number="3">cp1.y=<span class="kw">reconstruct</span>(ssa.y,<span class="dt">groups=</span><span class="kw">list</span>(<span class="dv">1</span>)) </a>
+<a class="sourceLine" id="cb188-4" data-line-number="4">cp1.x=cp1.x<span class="op">$</span>F1 <span class="co"># base</span></a>
+<a class="sourceLine" id="cb188-5" data-line-number="5">cp1.y=cp1.y<span class="op">$</span>F1 <span class="co"># base</span></a>
+<a class="sourceLine" id="cb188-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb188-7" data-line-number="7">dat.plot=<span class="kw">data.frame</span>(cp1.x, cp1.y, cp23.x, cp23.y, <span class="dt">time=</span>fredgraph<span class="op">$</span>observation_date[(<span class="kw">length</span>(ur)<span class="op">-</span><span class="kw">length</span>(cp23.x)<span class="op">+</span><span class="dv">1</span>)<span class="op">:</span><span class="kw">length</span>(ur)])</a>
+<a class="sourceLine" id="cb188-8" data-line-number="8"> </a>
+<a class="sourceLine" id="cb188-9" data-line-number="9">y.xmin =<span class="st"> </span><span class="kw">min</span>(cp1.x,cp23.x,ur);   y.xmax =<span class="st"> </span><span class="kw">max</span>(cp1.x,cp23.x,ur)</a>
+<a class="sourceLine" id="cb188-10" data-line-number="10">y.ymin =<span class="st"> </span><span class="kw">min</span>(cp1.y,cp23.y,CTPI);   y.ymax =<span class="st"> </span><span class="kw">max</span>(cp1.y,cp23.y,CTPI)</a>
+<a class="sourceLine" id="cb188-11" data-line-number="11">  </a>
+<a class="sourceLine" id="cb188-12" data-line-number="12">p1=<span class="kw">ggplot</span>(<span class="dt">data=</span>dat, <span class="kw">aes</span>(<span class="dt">x=</span>time, <span class="dt">y=</span>ur),<span class="dt">colour=</span>variable)<span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">colour=</span><span class="st">"steelblue"</span>)<span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>dat.plot, <span class="kw">aes</span>(<span class="dt">x=</span>time,<span class="dt">y=</span>cp23.x), <span class="dt">linetype =</span> <span class="dv">4</span>, <span class="dt">colour=</span><span class="st">"royalblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>dat.plot, <span class="kw">aes</span>(<span class="dt">x=</span>time,<span class="dt">y=</span>cp1.x), <span class="dt">linetype =</span> <span class="dv">3</span>, <span class="dt">colour=</span><span class="st">"red"</span>)<span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="kw">paste</span>(<span class="st">"Data series, the Reconstructed series of the Eigentriplets </span><span class="ch">\n</span><span class="st"> Singular Spectrum Analysis"</span>), <span class="dt">y =</span> <span class="st">"Unemployment Rate"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb188-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb188-14" data-line-number="14">p2=<span class="kw">ggplot</span>(<span class="dt">data=</span>dat, <span class="kw">aes</span>(<span class="dt">x=</span>time,<span class="dt">y=</span>CTPI),<span class="dt">colour=</span>variable)<span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">colour=</span><span class="st">"steelblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>dat.plot, <span class="kw">aes</span>(<span class="dt">x=</span>time,<span class="dt">y=</span>cp23.y), <span class="dt">linetype =</span> <span class="dv">4</span>, <span class="dt">colour=</span><span class="st">"royalblue"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>dat.plot, <span class="kw">aes</span>(<span class="dt">x=</span>time,<span class="dt">y=</span>cp1.y), <span class="dt">linetype =</span> <span class="dv">3</span>, <span class="dt">colour=</span><span class="st">"red"</span>)<span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(y.ymin,y.ymax) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">"CPI"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb188-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb188-16" data-line-number="16"><span class="kw">grid.arrange</span>(p1, p2, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">nrow =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb188-17" data-line-number="17">  </a>
+<a class="sourceLine" id="cb188-18" data-line-number="18">p3=<span class="kw">ggplot</span>(<span class="dt">data=</span>dat.plot, <span class="kw">aes</span>(<span class="dt">x=</span>cp23.x,<span class="dt">y=</span>cp23.y)) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="kw">paste</span>(<span class="st">"Phase Plot of Reconstructed Series </span><span class="ch">\n</span><span class="st"> the 2nd and 3rd Eigentriplets (Singular Spectrum Analysis) "</span>), <span class="dt">x =</span> <span class="st">"Unemployment Rate"</span> , <span class="dt">y =</span><span class="st">"CPI"</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_path</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> <span class="kw">as.numeric</span>(time))) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb188-19" data-line-number="19">  <span class="kw">grid.arrange</span>(p3, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">nrow =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb188-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb188-21" data-line-number="21">  </a>
+<a class="sourceLine" id="cb188-22" data-line-number="22"><span class="co">### end of the alternative #####</span></a></code></pre></div>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div>
 </div></body></html>
 
 <p style="text-align: center;">
@@ -820,7 +1442,7 @@ implies
 <a href="bibliography.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-05-10
+2021-05-21
 </p>
 </div>
 </div>
