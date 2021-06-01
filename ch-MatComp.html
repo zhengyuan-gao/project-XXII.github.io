@@ -15,7 +15,7 @@
 
 <meta name="author" content="Zhengyuan Gao" />
 
-<meta name="date" content="2021-04-20" />
+<meta name="date" content="2021-06-01" />
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -167,6 +167,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a href="ch-randomization.html"><span class="toc-section-number">16</span> Randomization</a>
 <a href="part-v-complex-ensembles.html">PART V: Complex Ensembles</a>
 <a href="ch-complexAn.html"><span class="toc-section-number">17</span> Complex Analysis</a>
+<a href="ch-harmonicAn.html"><span class="toc-section-number">18</span> Harmonic Analysis</a>
 <a href="bibliography.html">Bibliography</a>
 </div>
 </li>
@@ -339,7 +340,7 @@ As we will see, <span class="math inline">\(\mathbf{A}^{-1}\)</span>, the <a hre
 \end{array}\right].\]</span>
 namely, <span class="math inline">\(\mathbf{A}^{-1}\mathbf{A}=\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}\)</span>.
 Thus, we expect to have a unique solution for the system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> when <span class="math inline">\(\mathbf{A}\)</span> is <strong>invertible</strong>.<label for="tufte-sn-193" class="margin-toggle sidenote-number">193</label><input type="checkbox" id="tufte-sn-193" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">193</span> For <span class="math inline">\(\mathbf{A}\in\mathbb{R}^{m\times n}\)</span>, when <span class="math inline">\(m&lt;n\)</span>, the number of unknown variables <span class="math inline">\((x_{i})_{i\leq n}\)</span> is more than the number of equations, the system <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> is an <a href="ch-MatComp.html#sub:GElimination">overdetermined linear system</a>. When <span class="math inline">\(n&gt;m\)</span>, the system is an <a href="ch-MatComp.html#sub:GElimination">underdetermined linear system</a>.</span> Therefore, the computational procedure of solving a linear system is equivalent to finding an <strong>inverse</strong>.</p>
-<p>The equivalence can be revealed by consideroing the <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a> in the matrix form. Recall that the idea of <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a> is to reduce the system of equations to an <a href="ch-MatComp.html#sub:GElimination">echelon form</a> by certain legitimate and reversible algebraic operations (elementary operations). In the <a href="ch-MatComp.html#sub:GElimination">echelon form</a>, we can easily see what the solutions to the system are, if there are any. In matrix computations, these elementary operations are summarized by the so-called <strong>elementary matrices</strong>. The <em>elementary matrice</em> provide elementary operations, such as row or column permutations that are transferred from the identity matrix <span class="math inline">\(\mathbf{I}\)</span> by some simple <strong>invertible operations</strong>. Thus, all <strong>elementary matrices</strong> are <strong>invertible matrices</strong> as the elementary operations are invertible. Recall the elemantary operations in the <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a>:</p>
+<p>The equivalence can be revealed by consideroing the <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a> in the matrix form. Recall that the idea of <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a> is to reduce the system of equations to an <a href="ch-MatComp.html#sub:GElimination">echelon form</a> by certain legitimate and reversible algebraic operations (elementary operations). In the <a href="ch-MatComp.html#sub:GElimination">echelon form</a>, we can easily see what the solutions to the system are, if there are any. In matrix computations, these elementary operations are summarized by the so-called <strong>elementary matrices</strong>. The <em>elementary matrice</em> provide elementary operations, such as row or column permutations that are transferred from the identity matrix <span class="math inline">\(\mathbf{I}\)</span> by some simple <strong>invertible operations</strong>. Thus, all <strong>elementary matrices</strong> are <strong>invertible matrices</strong> as the elementary operations are invertible. Recall the elementary operations in the <a href="ch-MatComp.html#sub:GElimination">Gaussian elimination</a>:</p>
 <ol style="list-style-type: decimal">
 <li><p>The order of two equations can be swapped: Permutations</p></li>
 <li><p>Multiplying an equation by a nonzero constant: Scaling</p></li>
@@ -885,7 +886,7 @@ has only one solution <span class="math inline">\(a_{1}=a_{2}=\cdots=a_{n}=0\)</
 <a href="ch-eigen.html"><button class="btn btn-default">Next</button></a>
 </p>
 <p class="build-date">Page built: 
-2021-04-20
+2021-06-01
 </p>
 </div>
 </div>
