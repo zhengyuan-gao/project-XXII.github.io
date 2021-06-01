@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="18 Harmonic Analysis | Project XXII" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Zhengyuan Gao" />
+
+<meta name="date" content="2021-06-01" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="18 Harmonic Analysis | Project XXII">
+
+<title>18 Harmonic Analysis | Project XXII</title>
+
+<link href="libs/tufte-css/tufte.css" rel="stylesheet" />
+<link href="libs/tufte-css/envisioned.css" rel="stylesheet" />
+<link href="libs/msmb-css/msmb.css" rel="stylesheet" />
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding/datatables.js"></script>
+<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul class="navbar">
+<li class="msmb"><p class="title">Project XXII<p><p class="author">Zhengyuan Gao</p>
+<li class="dropdown" style="float:right">
+<a href="javascript:void(0)" class="dropbtn">&#x25BA; Chapters</a>
+<div class="dropdown-content">
+<a href="index.html">Preface</a>
+<a href="part-i-inference-based-upon-logic-and-logical-computation.html">PART I: Inference Based upon Logic and Logical Computation</a>
+<a href="sub-logic.html"><span class="toc-section-number">1</span> Logic</a>
+<a href="sub-set-theory.html"><span class="toc-section-number">2</span> Set Theory</a>
+<a href="sub-axioms.html"><span class="toc-section-number">3</span> Axioms</a>
+<a href="sub-inferknow.html"><span class="toc-section-number">4</span> Inference and Knowledge</a>
+<a href="sub-incomplete.html"><span class="toc-section-number">5</span> Incompleteness</a>
+<a href="part-ii-infinitesimal-changes-and-their-consequences.html">PART II: Infinitesimal Changes and their Consequences</a>
+<a href="sub-continuity.html"><span class="toc-section-number">6</span> Continuity</a>
+<a href="sub-calculus.html"><span class="toc-section-number">7</span> Calculus</a>
+<a href="ch-DE.html"><span class="toc-section-number">8</span> Differential Equations</a>
+<a href="ch-CalUn.html"><span class="toc-section-number">9</span> Calculus under Uncertainty</a>
+<a href="part-iii-emergence-of-abstract-interactions.html">PART III: Emergence of Abstract Interactions</a>
+<a href="ch-vecMat.html"><span class="toc-section-number">10</span> Vector and Matrix</a>
+<a href="ch-MatComp.html"><span class="toc-section-number">11</span> Matrix Computation</a>
+<a href="ch-eigen.html"><span class="toc-section-number">12</span> Eigenvalues and Eigenvectors</a>
+<a href="ch-UnMulti.html"><span class="toc-section-number">13</span> Uncertainty in Multiple Dimensions</a>
+<a href="part-iv-three-masons-to-illuminate-the-dual-world.html">PART IV: Three Masons to Illuminate the Dual World</a>
+<a href="ch-representation.html"><span class="toc-section-number">14</span> Representation</a>
+<a href="ch-optApp.html"><span class="toc-section-number">15</span> Optimum Approximation</a>
+<a href="ch-randomization.html"><span class="toc-section-number">16</span> Randomization</a>
+<a href="part-v-complex-ensembles.html">PART V: Complex Ensembles</a>
+<a href="ch-complexAn.html"><span class="toc-section-number">17</span> Complex Analysis</a>
+<a id="active-page" href="ch-harmonicAn.html"><span class="toc-section-number">18</span> Harmonic Analysis</a>
+<a href="bibliography.html">Bibliography</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div id="ch:harmonicAn" class="section level1">
+<h1>
+<span class="header-section-number">18</span> Harmonic Analysis</h1>
+<p>In science, when one experimenting on the particles suspended in the fluid, one has the control to ensure that the trajectories of the particle movements are independent of human factors. In social experiments, the “particles” are, in some sense, ourselves. These “particles” have internal states such as emotion and intelligence. These extra features endow “experimentees” with (perhaps simple) interactional and distributional anti-control capabilities. They can store energy and information, sense their environment, and respond to it. They can change or update their internal states contingently depending on their interactions with each other. In this sense, a simultaneous relationship between the “experimenters” and the “experimentees” naturally can emerge in any social “experiment.”</p>
+<p>Let’s think of a social “experiment” as a simultaneous or a structural coupling model.
+Unlike the causal model that is a collection of premises from which one can deduce a set of propositions along with the order of the <a href="ch-CalUn.html#sub:conProb">causal chain</a>, a simultaneous model is a collection of synchronic <a href="sub-set-theory.html#sub:order">equivalence relations</a> from which one merely can deduce the <a href="ch-eigen.html#sub:det">invariants</a> under some appropriate transformations.<label for="tufte-sn-565" class="margin-toggle sidenote-number">565</label><input type="checkbox" id="tufte-sn-565" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">565</span> The transformation is often presented by group actions.</span> However, to maintain the <a href="ch-eigen.html#sub:det">invariance</a> under the transformations, the (seemingly disordered) simultaneous model should accompany some <em>ordering parameters</em> that are formed by the “experimentees” and are accepted by the “experimenters” or vice versa. The <strong>ordering parameters</strong> synchronize the microscopic and the macroscopic behaviors of the experiment. They generate the simple principles that the “particles” would like to follow, and they influence the direction in which the paths of the experiment evolve.</p>
+<p>The <strong>ordering parameters</strong> may depend only on a few principal components. One typical <strong>ordering parameter</strong> is the <a href="">time arrow</a>, i.e., the time parameter in a <a href="ch-randomization.html#sub:global">one-parameter semigroup</a>. The time attaches the dynamical law to all components in the system. Meanwhile, the interactions of the components follow some invariant operations. The <a href="ch-complexAn.html#sub:ImRelation">spectral representation</a> of the dynamics gives us another vision about the ordering: the order of <a href="ch-eigen.html#sub:det">eigenvalues</a> or <a href="ch-complexAn.html#sub:ImRelation">singular values</a>.<label for="tufte-sn-566" class="margin-toggle sidenote-number">566</label><input type="checkbox" id="tufte-sn-566" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">566</span> For example, when the <a href="ch-complexAn.html#sub:ImRelation">embedding data manifold</a> is a square matrix (circular data manifold), the first eigenvector of the manifold tends to describe the full trend of the series. So projecting the data onto the first eigenvector produces the summation. The following principal order bases, i.e., the 2nd or the 3rd, tend to capture the “low-frequency” components of the data, and the rest basis functions progressively fill in “high-frequency” details.</span></p>
+<p>Other important forms of <strong>ordering parameters</strong> are the <a href="ch-optApp.html#sub:appSys">non-negative linear functional</a>, such as the energy, the utility, and (probability) distribution functions.<label for="tufte-sn-567" class="margin-toggle sidenote-number">567</label><input type="checkbox" id="tufte-sn-567" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">567</span> For example, heat is a form of energy produced by the particles’ disordered motion (kinetic energy). Heat can convert to and from different forms of energy. The distribution function from the heat equation relates to the Gaussian probability function, which we will see in ch[?].</span> In practice, man-made indexes, such as wealth or income, tend to play the role of the one-dimensional “ordering” parameter. The simultaneity shaped by this parameter can give rise to specific capitalist social-economic dynamical patterns that bring in inequality and the growth of the society.</p>
+<p>All these ordering structures more or less relate to the profound properties of the <a href="ch-complexAn.html#sub:complexCal">complex exponential functions</a> and the <a href="ch-representation.html#sub:conjugacy">abstract Fourier basis</a>. The studies of symmetry (and <a href="ch-complexAn.html#sub:coupling">skew-symmetry</a>), invariants, and group transformations of these functions are in a field called harmonic analysis.<label for="tufte-sn-568" class="margin-toggle sidenote-number">568</label><input type="checkbox" id="tufte-sn-568" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">568</span> The strength of the harmonic analysis is that the <a href="ch-representation.html#sub:conjugacy">abstract Fourier basis</a> produces an ordered and meaningful summarization of the underlying model or data since the <a href="ch-representation.html#sub:conjugacy">Fourier transformation</a> extracts regularities from model or data by projecting them into <a href="ch-randomization.html#sub:SumDecomp">invariant subspaces</a> and orders the basis functions in terms of their smoothness.</span></p>
+<div class="solution">
+<p class="solution-begin">
+Eigen-decomposition of the circular data manifold <span id="sol-start-127" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-127', 'sol-start-127')"></span>
+</p>
+<div id="sol-body-127" class="solution-body" style="display: none;">
+<p>If the <a href="ch-complexAn.html#sub:ImRelation">embedding manifold</a> is a square matrix, the eigenvectors of this embedding manifold relate to <a href="ch-representation.html#sub:dualBasis">Fourier matrices</a>, and the eigenvalues of this manifold relate to the Fourier transform of the embedded time series.</p>
+<p>To see this, let’s consider the <a href="ch-MatComp.html#sub:matInv">elementary permutation matrix</a> of a data vector <span class="math inline">\(\mathbf{x}\)</span>:<label for="tufte-sn-569" class="margin-toggle sidenote-number">569</label><input type="checkbox" id="tufte-sn-569" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">569</span> Note that here <span class="math inline">\(\mathbf{L}\)</span> is not a lagged operator but a circular operator.</span><span class="math display">\[\mathbf{L}\mathbf{x}=\left[\begin{array}{cccc}
+0 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1\\
+1 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right]\left[\begin{array}{c}
+x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}
+\end{array}\right]=\left[\begin{array}{c}
+x_{2}\\
+x_{3}\\
+x_{4}\\
+x_{1}
+\end{array}\right].\]</span>
+Similarly, one can see that <span class="math inline">\(\mathbf{L}^{2}\mathbf{x}\)</span> gives <span class="math inline">\([x_{3},x_{4},x_{1},x_{2}]^{\top}\)</span>, <span class="math inline">\(\mathbf{L}^{3}\mathbf{x}\)</span> gives <span class="math inline">\([x_{4},x_{1},x_{2},x_{3}]^{\top}\)</span>, while <span class="math inline">\(\mathbf{L}^{4}\mathbf{x}\)</span> return to the original vector <span class="math inline">\(\mathbf{x}\)</span>, namely <span class="math inline">\(\mathbf{L}^{4}=\mathbf{I}\)</span>. We can construct the <em>circular data manifold</em> <span class="math inline">\(\mathbf{M}\)</span> of the vector <span class="math inline">\(\mathbf{x}\)</span>:
+<span class="math display">\[\mathbf{M}=x_{1}\mathbf{I}+x_{2}\mathbf{L}+x_{3}\mathbf{L}^{2}+x_{4}\mathbf{L}^{3}=\left[\begin{array}{cccc}
+x_{1} &amp; x_{2} &amp; x_{3} &amp; x_{4}\\
+x_{4} &amp; x_{1} &amp; x_{2} &amp; x_{3}\\
+x_{3} &amp; x_{4} &amp; x_{1} &amp; x_{2}\\
+x_{2} &amp; x_{3} &amp; x_{4} &amp; x_{1}
+\end{array}\right].\]</span>
+The eigenvalues of <span class="math inline">\(\mathbf{L}\)</span> are the roots of the polynomial equation <span class="math inline">\(\lambda^{4}=1\)</span>, because<span class="math display">\[\mathbf{L}\mathbf{x}=\lambda\mathbf{x}=\lambda\left[\begin{array}{c}
+x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}
+\end{array}\right]=\left[\begin{array}{c}
+x_{2}\\
+x_{3}\\
+x_{4}\\
+x_{1}
+\end{array}\right]\]</span>
+which leads to <span class="math inline">\(x_{1}=\lambda x_{4}=\lambda^{2}x_{3}=\lambda^{3}x_{2}=\lambda^{4}x_{1}\)</span>, namely <span class="math inline">\(\lambda^{4}=1\)</span>. The eigenvalues are <span class="math inline">\(1\)</span>, <span class="math inline">\(\mbox{i}\)</span>, <span class="math inline">\(\mbox{i}^{2}\)</span>, and <span class="math inline">\(\mbox{i}^{3}\)</span>, the four roots with equal spaces on the unit circle, namely <span class="math inline">\(\mbox{e}^{(2\pi\mbox{i}/4)k}\)</span> with <span class="math inline">\(k=0,1,2,3\)</span>. The corresponding eigenvectors are<span class="math display">\[\mathbf{v}_{1}=\left[\begin{array}{c}
+1\\
+1\\
+1\\
+1
+\end{array}\right],\,\mathbf{v}_{2}=\left[\begin{array}{c}
+1\\
+\mbox{i}\\
+\mbox{i}^{2}\\
+\mbox{i}^{3}
+\end{array}\right],\,\mathbf{v}_{3}=\left[\begin{array}{c}
+1\\
+\mbox{i}^{2}\\
+\mbox{i}^{4}\\
+\mbox{i}^{6}
+\end{array}\right],\,\mathbf{v}_{4}=\left[\begin{array}{c}
+1\\
+\mbox{i}^{3}\\
+\mbox{i}^{6}\\
+\mbox{i}^{9}
+\end{array}\right],\]</span>
+which is equivalent to <span class="math display">\[\mathbf{V}=\left[\begin{array}{cccc}
+1 &amp; 1 &amp; 1 &amp; 1\\
+1 &amp; \mbox{i} &amp; \mbox{i}^{2} &amp; \mbox{i}^{3}\\
+1 &amp; \mbox{i}^{2} &amp; \mbox{i}^{4} &amp; \mbox{i}^{6}\\
+1 &amp; \mbox{i}^{3} &amp; \mbox{i}^{6} &amp; \mbox{i}^{9}
+\end{array}\right]=\mathbf{F}_{4},\]</span>
+a <span class="math inline">\(4\times4\)</span> <a href="ch-representation.html#sub:dualBasis">Fourier matrix</a>.</p>
+<p>Let’s generalize this setting to any time series <span class="math inline">\(\mathbf{x}=[x_{1},\dots,x_{T-1}]^{\top}\)</span> and its data embedding manifold
+<span class="math display">\[\mathbf{M}=x_{1}\mathbf{I}+x_{2}\mathbf{L}+\cdots+x_{T-1}\mathbf{L}^{T-1}.\]</span>
+For the <span class="math inline">\(k\)</span>-th eigenvector <span class="math inline">\(\mathbf{v}_{k}\)</span>, the eigen-decomposition <span class="math inline">\(\mathbf{M}\mathbf{v}_{k}=\lambda_{k}\mathbf{v}_{k}\)</span>
+implies that<span class="math display">\[\left(x_{1}\mathbf{I}+x_{2}\mathbf{L}+\cdots+x_{T-1}\mathbf{L}^{T-1}\right)\mathbf{v}_{k}=\left(x_{1}+x_{2}\lambda_{k}+\cdots+x_{T-1}\lambda_{k}^{T-1}\right)\mathbf{v}_{k}.\]</span>
+We know for the elemantary permutation matrix <span class="math inline">\(\mathbf{L}\)</span>, the eigenvalue follows <span class="math inline">\(\lambda_{k}=\mbox{e}^{2\pi\mbox{i}(k-1)/T}\)</span>. So the vector of eigenvalues follows <span class="math display">\[\left[\begin{array}{c}
+\lambda_{1}\\
+\lambda_{2}\\
+\vdots\\
+\lambda_{T}
+\end{array}\right]=\left[\begin{array}{c}
+x_{1}+x_{2}+\cdots+x_{T}\\
+x_{1}+x_{2}\mbox{e}^{2\pi\mbox{i}/T}+\cdots+x_{T}\mbox{e}^{2\pi\mbox{i}(T-1)/T}\\
+\vdots\\
+x_{1}+x_{2}\mbox{e}^{2\pi\mbox{i}(T-1)/T}+\cdots+x_{T}\mbox{e}^{2\pi\mbox{i}(T-1)(T-1)}
+\end{array}\right]=\mathbf{F}_{T}\left[\begin{array}{c}
+x_{1}\\
+x_{2}\\
+\vdots\\
+x_{T}
+\end{array}\right].\]</span>
+In other words, the eigenvalues of manifold <span class="math inline">\(\mathbf{M}\)</span> are nothing else but the Fourier transform of the embedded time series <span class="math inline">\(\mathbf{x}\)</span>. The first eigenvalue relates to the sum of the series, namely the Fourier transformation of <span class="math inline">\(\mathbf{x}\)</span> under the frequency <span class="math inline">\(2\pi\mbox{i}\times0/T\)</span>; the second eigenvalue relates to the Fourier transformation of <span class="math inline">\(\mathbf{x}\)</span> under the frequency <span class="math inline">\(2\pi\mbox{i}/T\)</span>, and so on. We can see that the lower ranked eigenvalue corresponds to the higher frequency of the transformation.</p>
+<p class="solution-end">
+<span class="fa fa-square-o solution-icon"></span>
+</p>
+</div>
+</div>
+</div></body></html>
+
+<p style="text-align: center;">
+<a href="ch-complexAn.html"><button class="btn btn-default">Previous</button></a>
+<a href="bibliography.html"><button class="btn btn-default">Next</button></a>
+</p>
+<p class="build-date">Page built: 
+2021-06-01
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
